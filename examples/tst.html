@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Model Viewer AR - VR</title>
+    <meta name="description" content="Model Viewer (VR / AR) • A-Frame">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="info-message.js"></script>
+    <script src="https://unpkg.com/aframe-extras@3.3.0/dist/aframe-extras.min.js"></script>
+    <script src="hide-on-enter-ar.js"></script>
+    <script src="ar-shadows.js"></script>
+    <script src="ar-hit-test.js"></script>
+    <script src="model-viewer.js"></script>
+    <script src="background-gradient.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
+    <script src="/easyrtc/easyrtc.js"></script>
+    <script src="/dist/networked-aframe.js"></script>
+
+    <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
+    <script src="/js/spawn-in-circle.component.js"></script>
+  </head>
+  <body>
+  <a-scene
+    renderer="colorManagement: true;"
+    info-message="htmlSrc: #messageText"
+    >
+  
+    <a-assets>
+      <a-asset-item id="reticle"
+        src="https://cdn.aframe.io/examples/ar/models/reticle/reticle.gltf"
+        response-type="arraybuffer" crossorigin="anonymous"></a-asset-item> 
+  
+      <img id="shadow" src="https://cdn.glitch.com/20600112-c04b-492c-8190-8a5ccc06f37d%2Fshadow.png?v=1606338852399"></img>
+      <a-asset-item id="messageText" src="message.html"></a-asset-item>
+    
+      <a.asser-item id="surgicalpallets" src="/Models/gltf/SurgicalPallets.gltf"></a.asser-item>
+
+    </a-assets>
+    <a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2"
+          position="0 10 10">
+    </a-entity>
+    <a-light type="directional" position="0 0 0" rotation="-90 0 0" target="#directionaltarget">
+      <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
+    </a-light>
+    
+    <a-entity id="surgicalpallets01" gltf-model="#surgicalpallets"; scale="1 1 1" position="-1.46143 0.07007 -3.15773" material="color: brown" rotation="0 0 0"></a-entity>
+   
+  
+  </a-scene>
+  
+  </body>
+</html>
+

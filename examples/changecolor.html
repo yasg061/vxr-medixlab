@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dev Example — Networked-Aframe</title>
+        <meta name="description" content="Dev Example — Networked-Aframe">
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script
+            src="https://unpkg.com/aframe-layout-component@4.3.1/dist/aframe-layout-component.min.js"></script>
+        <script
+            src="//cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
+        <script
+            src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+        <script>
+            AFRAME.registerComponent('change-color-on-hover', {
+                schema: {
+                    color: {
+                        default: 'red'
+                    }
+                },
+
+                init: function () {
+                    var data = this.data;
+                    var el = this.el; // <a-box>
+                    var defaultColor = el
+                        .getAttribute('material')
+                        .color;
+
+                    el.addEventListener('mouseenter', function () {
+                        el.setAttribute('color', data.color);
+                    });
+
+                    el.addEventListener('mouseleave', function () {
+                        el.setAttribute('color', defaultColor);
+                    });
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <a-scene>
+            <a-ring color="teal" radius-inner="1" radius-outer="1.5"></a-ring>
+            <a-camera>
+                <a-cursor></a-cursor>
+            </a-camera>
+            <a-gui-button
+                width="2.5"
+                height="0.7"
+                base-depth="0.025"
+                depth="0.1"
+                gap="0.1"
+                onclick="buttonActionFunction"
+                key-code="32"
+                position="0 2 0"
+                value="Welcome to Vertex Studio"
+                font-size="0.25"
+                margin="0 0 0.05 0"
+                font-color="black"
+                active-color="red"
+                hover-color="yellow"
+                border-color="white"
+                focus-color="black"
+                background-color="orange"
+                bevel="true"></a-gui-button>
+            <a-entity id="cameraRig" position="0 1.6 0">
+                <a-camera
+                    look-controls="look-controls"
+                    wasd-controls="wasd-controls"
+                    position="0 0 0">
+                    <a-gui-cursor
+                        id="cursor"
+                        raycaster="objects: [gui-interactable]"
+                        fuse="true"
+                        fuse-timeout="2000"
+                        design="ring"></a-gui-cursor>
+                    <!-- /cursor -->
+                </a-camera>
+                <!-- /camera -->
+            </a-entity>
+            <a-entity layout="type: circle; radius: 5">
+                <a-box
+                    change-color-on-hover="color: blue"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: blue"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: blue"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: blue"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: blue"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: blue"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: blue"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: blue"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+            </a-entity>
+            <a-entity layout="type: circle; radius: 5" rotation="0 90 0">
+                <a-box
+                    change-color-on-hover="color: red"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: red"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: red"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: red"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: red"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: red"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: red"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+                <a-box
+                    change-color-on-hover="color: red"
+                    geometry="primitive: box"
+                    material="material"></a-box>
+            </a-entity>
+            <a-sky color="#6EBAA7"></a-sky>
+            <a-torus-knot
+                id="knot"
+                color="#BCC6CD"
+                arc="180"
+                p="2"
+                q="10"
+                radius="4"
+                radius-tubular="0.1"
+                position="-1.5 2 -17"
+                rotation="90 0 0"
+                animation="property: rotation; to: 90 360 0; dur: 10000; easing:linear; loop:true;"></a-torus-knot>
+            <a-entity position="2 1.5 -8" rotation="0 0 0">
+                <a-entity id="dropdownContainer" position="0 0 -4">
+                    <a-gui-flex-container
+                        flex-direction="row"
+                        justify-content="center"
+                        align-items="normal"
+                        component-padding="0.1"
+                        opacity="0"
+                        width="2.5"
+                        height="0.75"
+                        position="0 0.375 -3"
+                        rotation="0 0 0">
+                        <a-gui-icon-label-button
+                            id="mydropdown"
+                            width="2.5"
+                            height="0.75"
+                            onclick="openDropdown"
+                            value="Choose color"
+                            font-size="0.25"
+                            visible="true"
+                            animation__rotatein="property: rotation; to: 180 0 0; dur: 1000; startEvents:opendropdown"
+                            animation__visiblein="property: visible; to: false; delay: 500; startEvents:opendropdown"
+                            animation__rotateout="property: rotation; to: 0 0 0; dur: 1000; startEvents:closedropdown"
+                            animation__visibleout="property: visible; to: true; delay: 500; startEvents:closedropdown"></a-gui-icon-label-button>
+                    </a-gui-flex-container>
+
+                    <a-gui-flex-container
+                        id="myoptions"
+                        flex-direction="column"
+                        justify-content="center"
+                        align-items="normal"
+                        component-padding="0.1"
+                        opacity="0"
+                        width="2.5"
+                        height="0.75"
+                        position="0 0 -4.15"
+                        rotation="0 0 0"
+                        scale="1 0.001 0.001"
+                        visible="false"
+                        animation__positionin="property: position; to: 0 0.375 0.15; dur: 1000; startEvents:opendropdown"
+                        animation__scalein="property: scale; to: 1 1 1; dur: 1000; startEvents:opendropdown"
+                        animation__visiblein="property: visible; to: true; dur: 100; startEvents:opendropdown"
+                        animation__positionout="property: position; to: 0 0 -0.15; dur: 1000; startEvents:closedropdown"
+                        animation__scaleout="property: scale; to: 1 0.001 0.001; dur: 1000; startEvents:closedropdown"
+                        animation__visibleout="property: visible; to: false; dur: 100; delay: 500; startEvents:closedropdown">
+                        <a-gui-button
+                            width="2.5"
+                            height="0.75"
+                            onclick="red"
+                            font-size="0.3"
+                            value="Red"></a-gui-button>
+                        <a-gui-button
+                            width="2.5"
+                            height="0.75"
+                            onclick="blue"
+                            font-size="0.3"
+                            value="Blue"></a-gui-button>
+                        <a-gui-button
+                            width="2.5"
+                            height="0.75"
+                            onclick="green"
+                            font-size="0.3"
+                            value="Green"></a-gui-button>
+                        <a-gui-icon-button
+                            height="0.5"
+                            onclick="closeDropdown"></a-gui-icon-button>
+
+                    </a-gui-flex-container>
+
+                </a-entity>
+            </a-entity>
+            <a-entity
+                rotation="0 0 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+                <a-sphere position="5 0 0" color="#EF2D5E" change-color-on-hover="color: blue"></a-sphere>
+
+                <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
+                <a-entity
+                    geometry="primitive: box"
+                    material="color: #EF2D5E"
+                    position="0 0 -0.5"
+                    animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 500"
+                    ;=";"
+                    animation__mouseleave="property: components.material.material.color; type: color; to: red; startEvents: mouseleave; dur: 500"></a-entity>
+            </a-scene>
+
+            <script>
+                window.closeDropdown = function () {
+                    console.log("closedropdown");
+                    var mydropdown = document.getElementById("mydropdown");
+                    mydropdown.emit('closedropdown');
+                    var myoptions = document.getElementById("myoptions");
+                    myoptions.emit('closedropdown');
+
+                }
+                window.openDropdown = function () {
+                    console.log("opendropdown");
+                    var mydropdown = document.getElementById("mydropdown");
+                    mydropdown.emit('opendropdown');
+                    var myoptions = document.getElementById("myoptions");
+                    myoptions.emit('opendropdown');
+
+                }
+
+                window.red = function () {
+                    var knot = document.getElementById("knot");
+                    knot.setAttribute('material', 'color', '#DC2531');
+                }
+                window.green = function () {
+                    var knot = document.getElementById("knot");
+                    knot.setAttribute('material', 'color', '#69FFD2');
+                }
+                window.blue = function () {
+                    var knot = document.getElementById("knot");
+                    knot.setAttribute('material', 'color', '#1FA4E9');
+                }
+            </script>
+        </body>
+    </html>

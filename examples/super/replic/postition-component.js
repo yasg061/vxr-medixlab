@@ -1,0 +1,9 @@
+AFRAME.registerComponent('user-position',{
+    init:function(){
+      setTimeout(function(){   
+        console.log(Object.keys(NAF.entities.entities));
+        console.log(Object.keys(NAF.entities.entities)[0]);
+        console.log(Object.keys(NAF.entities.entities).length);
+      },5000);
+    }
+  });
