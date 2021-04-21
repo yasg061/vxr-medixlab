@@ -74,7 +74,7 @@
   <link rel="stylesheet" type="text/css" href="../assets/examples.css">
 
 <script>
-  function crapIsReady() {
+  function LoadAttributes() {
     let syncs = document.getElementsByClassName("syncup");
     for (let i=0; i<syncs.length; ++i) {
       syncs[i].setAttribute("networked", "template:#vxr-template;attachTemplateToLocal:true")
@@ -89,7 +89,7 @@
     room: dev;
     debug: true;
     adapter: wseasyrtc;
-    onConnect: crapIsReady;
+    onConnect: LoadAttributes;
   ">
 
     <a-assets>
@@ -101,9 +101,7 @@
           <a-box class="vxr-obj-c" rotator="speed:2" color="blue" width="0.35" height="0.35" depth="0.35"
             position="1 0 0"></a-box>
         </a-entity>
-
       </template>
-
     </a-assets>
 
 
@@ -148,8 +146,8 @@
   </a-scene>
 
   <!-- GitHub Corner. -->
-  <a href="https://github.com/wmurphyrd/aframe-super-hands-component" class="github-corner">
-    <svg width="80" height="80" viewBox="0 0 250 250"
+  <!-- <a href="https://github.com/wmurphyrd/aframe-super-hands-component" class="github-corner">
+    <svg width="Setear multiples archivos80" height="80" viewBox="0 0 250 250"
       style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;">
       <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
       <path
@@ -192,7 +190,7 @@
         animation: octocat-wave 560ms ease-in-out
       }
     }
-  </style>
+  </style> -->
 
   <script>
     NAF.schemas.add({
@@ -217,26 +215,23 @@
           component: 'position'
         },
         {
+          selector: '.vxr-obj-b',
+          component: 'material',
+          property: 'color'
+        },
+        {
           selector: '.vxr-obj-c',
           component: 'rotation'
         },
         {
           selector: '.vxr-obj-c',
           component: 'position'
-        },
-        {
-          selector: '.vxr-obj-b',
-          component: 'material',
-          property: 'color'
         }
-
       ]
     });
 
-
-
     function onConnect() {
-      console.log("funca", new Date());
+      console.log("date", new Date());
     }
   </script>
 
