@@ -29,7 +29,11 @@
     <!-- ownership transfer dependencies -->
        
     <script src=" ../../js/spawner.component.js"></script>
-    <script src="../../js/toggle-ownership.component.js"></script>
+    <script src="../../js/toggle-physics.component.js"></script>
+    <!-- <script src="/examples/js/rotator.component.js"></script> -->
+    <script src="../../js/rotator.component.js"></script>
+
+  
 
     <script>
       //color randomizer
@@ -64,54 +68,34 @@
         }
       })
     </script>
-
-    <style>
-      .controls {
-        position: absolute;
-        width: 100%;
-        display: flex;
-        flex: 1;
-        justify-content: center;
-        flex-direction: row;
-        top: 0;
-      }
-
-      .controls p {
-        font-family: monospace;
-        color: white;
-      }
-    </style>
     <link rel="stylesheet" type="text/css" href="../assets/examples.css">
   </head>
   <body>
     <a-scene physics environment="preset: tron; shadow: true" networked-scene="
     room: dev;
-    debug: false;
+    debug: true;
     adapter: wseasyrtc;
-  ">>
-      <a-assets>
     
+  " >
+  
+      <a-assets>
+        <template id="vxr-template">
+          <a-entity position="0 2 0">
+            <a-box class="vxr-obj-a"  width="0.35" height="0.35" depth="0.35" rotation="0 0 0" color="green" position="0 0 0" ></a-box>            
+            <a-sphere class="vxr-obj-b"  toggle-physics draggable grabbable color="#f00" dynamic-body radius="0.18" position="0.5 0 0" ></a-sphere>
+            <a-box  class="vxr-obj-c" color="blue"  width="0.35" height="0.35" depth="0.35" position="1 0 0" ></a-box>            
+          </a-entity>    
 
-        <template id="box-template">
-          <a-entity grabbable draggable droppable>
-            <a-box class="Nbox" width="0.35" toggle-ownership height="0.35" depth="0.35" rotation="0 0 0" color="green"></a-box>
-          </a-entity>
         </template>
 
-
       </a-assets>
+  
+
+  
 
 
 
-      <a-entity id="box" class="Nbox" networked="template:#box-template;attachTemplateToLocal:true;"
-       spawn-in-circle="radius:3" wasd-controls
-                 hoverable grabbable stretchable draggable droppable                 
-                 dynamic-body shadow position="0 2 -1" 
-       >
-      
-        <!-- /VIVE CONTROLLERS -->
-      </a-entity>
-
+<!-- player -->
       <a-entity camera look-controls wasd-controls position="0 1 1"
                 capture-mouse
                 raycaster cursor="rayOrigin:mouse"
@@ -119,10 +103,12 @@
                 super-hands="colliderEvent: raycaster-intersection;
                              colliderEventProperty: els;
                              colliderEndEvent:raycaster-intersection-cleared;
-                             colliderEndEventProperty: clearedEls;"
-                             spawner="template:#box-template"
-                             >
+                             colliderEndEventProperty: clearedEls;">
       </a-entity>
+
+
+<!-- magic cube -->
+
       <a-entity class="transformer" position = "0 1.6 -1"
                 color-randomizer droppable body="type: static; shape: box"
                 geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5"
@@ -130,25 +116,29 @@
                 event-set__dragoff="_event: dragover-end; material.color: purple"
                 material="color:purple" shadow>
 
-
         <a-entity text="value: Drag&drop to change color;
                         width: 0.5; wrapCount: 12; align: center"
                   position="0 0 0.25">
         </a-entity>
       </a-entity>
 
-      <!-- <a-entity class="cube" mixin="cube" position="0 0.265 -1" material="color: red"></a-entity>
-      <a-entity class="cube" mixin="cube" position="0 0.265 -0.5" material="color: red"></a-entity>
-      <a-entity class="cube" mixin="cube" position="-1 0.265 -1" material="color: blue"></a-entity>
-      <a-entity class="cube" mixin="cube" position="-1 0.265 -0.5" material="color: blue"></a-entity>
-      <a-entity class="cube" mixin="cube" position="1 0.265 -1" material="color: green"></a-entity>
-      <a-entity class="cube" mixin="cube" position="1 0.265 -0.5" material="color: green"></a-entity> -->
-      <!-- ground collider keeps objets from falling -->
+     
+     
+
+
+       <a-entity >
+        <a-box id="lock-target"
+                   position="0 1.0 0"
+                   scale="0.25 0.25 0.25"
+                   color="#777"
+                   static-body >
+            </a-box>
+
+      </a-entity>
+
       <a-box body="type: static; shape: box" width=100 height=0.001 depth=100 visible="false"></a-box>
     </a-scene>
-    <div class="controls">
-      <p>Press space to spawn a cube. Press enter to take ownership of all cubes, take a cube and overlap the floating cube to change cube color dragged </p>
-    </div>
+
     <!-- GitHub Corner. -->
     <a href="https://github.com/wmurphyrd/aframe-super-hands-component" class="github-corner">
       <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;">
@@ -156,85 +146,51 @@
       </svg>
     </a>
     <style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-    
-    <!-- <script>
-      // Define custom schema for syncing avatar color, set by random-color
-      
-      
-      NAF.schemas.add({
-        template: '#avatar-template',
-        components: [
-          'position',
-          'rotation',
-          {
-            selector: '.head',
-            component: 'material',
-            property: 'color'
-          }
-        ]
-      });
-
-      NAF.schemas.add({
-        template: '#cube-template',
-        components: [
-          "position",
-          {
-            selector: '.cube',
-            component: 'rotation'
-          },
-          {
-            selector: '.cube',
-            component: 'material',
-            property: 'color'
-          },
-          {
-            selector: '.cube',
-            component: 'toggle-ownership',
-            property: 'direction'
-          }
-        ]
-      });
-
-      // Called by Networked-Aframe when connected to server
-      function onConnect () {
-        console.log("onConnect", new Date());
-      }
-    </script> -->
-
+   
     <script>
-          NAF.schemas.add({
-        template: '#box-template',
-        property: 'color',
-        components: [
-          'position',
-          'rotation',
-          'scale',
-          {
-            selector: '.Nbox',
-            component: 'grabbable'
-          },
-          {
-            selector: '.Nbox',
-            component: 'rotation'
-          },
-          {
-            selector: '.Nbox',
-            component: 'material',
-            property: 'color'
-          },
-          {
-            selector: '.Nbox',
-            component: 'toggle-ownership',
-            property: 'direction'
-          }
-        ]
-      });
+    NAF.schemas.add({
+      template: '#vxr-template',
+      components: [
+        'position',
+        'rotation',
+        {
+          selector: '.vxr-obj-a',
+          component: 'rotation'
+        },
+        {
+          selector: '.vxr-obj-a',
+          component: 'position'
+        },
+        {
+          selector: '.vxr-obj-b',
+          component: 'rotation'
+        },
+        {
+          selector: '.vxr-obj-b',
+          component: 'position'
+        },
+        {
+          selector: '.vxr-obj-c',
+          component: 'rotation'
+        },
+        {
+          selector: '.vxr-obj-c',
+          component: 'position'
+        },
+        {
+          selector: '.vxr-obj-b',
+          component: 'material',
+          property: 'color'
+        }
+
+      ]
+    });
 
 
       function onConnect () {
         console.log("funca", new Date());
       }
     </script>
-  
+
   </body>
 </html>
