@@ -9,7 +9,7 @@
     <script src="/easyrtc/easyrtc.js"></script>
     <script src="/dist/networked-aframe.js"></script>
 ​
-    <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script> -->
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
   </head>
@@ -37,7 +37,7 @@
           <a-entity class="avatar" networked-audio-source>
             <a-entity class="avatar">
               <a-plane  color="#FFF" width="2" height="1.5" position="0 1.2 0"  material="side: front" networked-video-source></a-plane>
-              <a-plane  color="#FFF" width="2" height="1.5" position="0 1.2 0"  material="side: back" networked-video-source></a-plane>
+              <a-plane id="planefront" color="#FFF" width="2" height="1.5" position="0 1.2 0"  material="side: back" networked-video-source></a-plane>
            </a-entity>
             <a-sphere class="head"
               color="#ffffff"
