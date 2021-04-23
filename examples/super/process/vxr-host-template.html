@@ -65,9 +65,10 @@
       <a-asset-item id="alcoholbottle" src="assets/AlcoholBottle.gltf"></a-asset-item>
       <a-asset-item id="bed" src="assets/Bed.gltf"></a-asset-item>
       <a-asset-item id="tray" src="assets/Tray.gltf"></a-asset-item>
-      <a-asset-item id="nurseavatar" src="assets/NurseAvatar.gltf"></a-asset-item>
+      <a-asset-item id="StudentAvatar" src="assets/StudentNurseAvatar.gltf"></a-asset-item>
       <a-asset-item id="nursehead" src="assets/NurseHeadAvatar.gltf"></a-asset-item>
       <a-asset-item id="SpectatorAvatar" src="assets/SpectatorAvatar.gltf"></a-asset-item>
+      <a-asset-item id="TeacherAvatar" src="assets/TeacherAvatar.gltf"></a-asset-item>
       <!-- <a-asset-item id="suero" src="assets/Suero.gltf"></a-asset-item>
         <a-asset-item id="base" src="assets/Base.gltf"></a-asset-item> -->
       <a-asset-item id="right-hand" src="assets/rightHandHigh.glb"></a-asset-item>
@@ -102,8 +103,13 @@
       </template>
       ​
       <!-- Nurse Avatar -->
-      <template id="nurse-avatar-template">
-        <a-entity class="nursehead" gltf-model="#nurseavatar" position="0 2 0"></a-entity>
+      <template id="student-avatar-template">
+        <a-entity class="nursehead" gltf-model="#StudentAvatar" position="0 2 0"></a-entity>
+      </template>
+
+      <!-- Teacher Avatar -->
+      <template id="teacher-avatar-template">
+        <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar"></a-entity>
       </template>
 
       <!-- Spectator Avatar -->
@@ -177,7 +183,7 @@
       <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
         rotation="0 180 0" wasd-controls>
         <a-entity camera position="0 1 0.2" look-controls
-          networked="template:#nurse-avatar-template;attachTemplateToLocal:false;">
+          networked="template:#teacher-avatar-template;attachTemplateToLocal:false;">
         </a-entity>
 
         <!-- /VIVE CONTROLLERS -->
@@ -198,7 +204,14 @@
   <script>
     // Define custom schema for syncing avatar color, set by random-color
     NAF.schemas.add({
-      template: '#nurse-avatar-template',
+      template: '#student-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#teacher-avatar-template',
       components: [
         'position',
         'rotation'
