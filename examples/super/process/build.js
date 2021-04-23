@@ -75050,6 +75050,9 @@ module.exports.Component = registerComponent('tracked-controls-webxr', {
     this.el.emit('buttondown', this.selectEventDetails);
     this.el.emit('buttonchanged', this.selectEventDetails);
     this.el.emit('triggerdown');
+
+
+
   },
 
   emitButtonUpEvent: function (evt) {
@@ -86942,11 +86945,14 @@ AFRAME.registerComponent('grabbable', inherit(base, {
     };
   }(),
   remove: function () {
+
     this.el.removeEventListener(this.GRAB_EVENT, this.start);
     this.el.removeEventListener(this.UNGRAB_EVENT, this.end);
     this.physicsRemove();
   },
   start: function (evt) {
+    
+
     if (evt.defaultPrevented || !this.startButtonOk(evt)) {
       return;
     }
