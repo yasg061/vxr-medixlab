@@ -60,27 +60,27 @@
         }
       })
 
-    AFRAME.registerComponent('name-up', {
-      tick: function () {
-        var el = this.el;
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const name = urlParams.get('name')
-        el.setAttribute("text-geometry", {value: name});
-        el.setAttribute('material', {
-            color: 'blue',
-          });
-          el.setAttribute('rotation',
-            '0 180 0',
-          );
-          el.setAttribute('position', {
-            x: 0.5, y: 2, z: 0,
-          });
-          el.setAttribute('scale',
-            '0.32 0.32 0.32',
-          );
-      }
-    });
+      AFRAME.registerComponent('name-up', {
+        tick: function () {
+          var el = this.el;
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          const name = urlParams.get('name')
+          el.setAttribute("text-geometry", {value: name});
+          el.setAttribute('material', {
+              color: 'blue',
+            });
+            el.setAttribute('rotation',
+              '0 180 0',
+            );
+            el.setAttribute('position', {
+              x: 0.5, y: 2, z: 0,
+            });
+            el.setAttribute('scale',
+              '0.32 0.32 0.32',
+            );
+        }
+      });
     </script>
   </head>
   <body>
