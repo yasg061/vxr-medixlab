@@ -50,7 +50,7 @@ AFRAME.registerComponent('input-controls', {
       if (buttonName !== 'trigger') { return; }
       var value = evt.detail.state.value;
       let mask =document.getElementsByClassName("vxr-obj-maskn95");
-      mask[0].setAttribute("rotator","");
+      mask[0].removeAttribute("rotator");
       this.el.components['weapon'].setTriggerPressure(value);
       
     },
@@ -58,6 +58,8 @@ AFRAME.registerComponent('input-controls', {
     onButtonEvent: function (id, evtName) {
       var buttonName = this.mapping['button' + id];
       this.el.emit(buttonName + evtName);
+      let mask =document.getElementsByClassName("vxr-obj-maskn95");
+      mask[0].setAttribute("rotator","");
       console.log("on button event");
    
     },

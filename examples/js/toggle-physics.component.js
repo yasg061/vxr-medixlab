@@ -15,6 +15,11 @@ AFRAME.registerComponent('toggle-physics', {
     this.onKeyUp = this.onKeyUp.bind(this);
     document.addEventListener('keyup', this.onKeyUp);
 
+    // var el = this.el;
+    // el.addEventListener('triggerdown', function (evt) {
+    //   document.addEventListener('keyup', this.onKeyUp);
+    // });
+
     NAF.utils.getNetworkedEntity(this.el).then((el) => {
       if (NAF.utils.isMine(el)) {
         // that.updateColor();
