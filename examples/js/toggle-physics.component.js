@@ -11,6 +11,12 @@ AFRAME.registerComponent('toggle-physics', {
   },
 
   init() {
+    
+    
+    
+      // this.onButtonDown = function (evt) { self.onButtonEvent(evt.detail.id, 'down'); };
+      // this.onButtonUp = function (evt) { self.onButtonEvent(evt.detail.id, 'up'); };
+
     var that = this;
     this.onKeyUp = this.onKeyUp.bind(this);
     document.addEventListener('keyup', this.onKeyUp);
@@ -63,6 +69,10 @@ AFRAME.registerComponent('toggle-physics', {
   },
 
   onKeyUp(e) {
+
+    // let x = document.getElementsByClassName('vxr-obj-maskn95');
+    // x[0].setAttribute("rotator","2")
+    // console.log("danmwon")
     if (e.keyCode !== 13 /* enter */) {
       return;
     }
@@ -81,6 +91,15 @@ AFRAME.registerComponent('toggle-physics', {
   updateOpacity(opacity) {
     this.el.setAttribute('material', 'opacity', opacity);
   },
+
+
+
+
+
+
+
+
+
 
 
 });

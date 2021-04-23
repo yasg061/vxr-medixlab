@@ -49,18 +49,21 @@ AFRAME.registerComponent('input-controls', {
       var buttonName = this.mapping['button' + evt.detail.id];
       if (buttonName !== 'trigger') { return; }
       var value = evt.detail.state.value;
-      let mask =document.getElementsByClassName("vxr-obj-maskn95");
-      mask[0].removeAttribute("rotator");
-      this.el.components['weapon'].setTriggerPressure(value);
+
+
+      let vxr_objs =document.getElementsByClassName("vxr-interact");
+      for (let i = 0; i < vxr_objs.length; ++i) {
+        NAF.utils.takeOwnership(vxr_objs[i])
+      }
+      
+      
       
     },
   
     onButtonEvent: function (id, evtName) {
       var buttonName = this.mapping['button' + id];
       this.el.emit(buttonName + evtName);
-      let mask =document.getElementsByClassName("vxr-obj-maskn95");
-      mask[0].setAttribute("rotator","");
-      console.log("on button event");
+    
    
     },
   
