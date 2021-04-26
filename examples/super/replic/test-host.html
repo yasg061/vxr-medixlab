@@ -74,7 +74,7 @@
   <link rel="stylesheet" type="text/css" href="../assets/examples.css">
 
 <script>
-  function crapIsReady() {
+  function LoadAttributes() {
     let syncs = document.getElementsByClassName("syncup");
     for (let i=0; i<syncs.length; ++i) {
       syncs[i].setAttribute("networked", "template:#vxr-template;attachTemplateToLocal:true")
@@ -89,7 +89,7 @@
     room: dev;
     debug: true;
     adapter: wseasyrtc;
-    onConnect: crapIsReady;
+    onConnect: LoadAttributes;
   ">
 
     <a-assets>
