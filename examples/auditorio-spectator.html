@@ -59,7 +59,7 @@
 
           const name = urlParams.get('name')
           var entityEl = document.createElement('a-entity');
-          entityEl.classList.add('text');
+          entityEl.classList.add('name');
           entityEl.setAttribute("text", {value: name, wrapCount: 20, width: 3});
           entityEl.setAttribute('material', {
               color: 'blue',
@@ -190,35 +190,35 @@
             property: 'color'
           },
           {
-            selector: '.text',
+            selector: '.name',
             component: 'text',
             property: 'value'
           },
           {
-            selector: '.text',
+            selector: '.name',
             component: 'text',
             property: 'wrapCount'
           },
           {
-            selector: '.text',
+            selector: '.name',
             component: 'text',
             property: 'width'
           },
           {
-            selector: '.text',
+            selector: '.name',
             component: 'material',
             property: 'color'
           },
           {
-            selector: '.text',
+            selector: '.name',
             component: 'rotation',
           },
           {
-            selector: '.text',
+            selector: '.name',
             component: 'position',
           },
           {
-            selector: '.text',
+            selector: '.name',
             component: 'scale',
           },
         ]
