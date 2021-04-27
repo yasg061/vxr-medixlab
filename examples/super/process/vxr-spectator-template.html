@@ -65,9 +65,10 @@
       <a-asset-item id="alcoholbottle" src="assets/AlcoholBottle.gltf"></a-asset-item>
       <a-asset-item id="bed" src="assets/Bed.gltf"></a-asset-item>
       <a-asset-item id="tray" src="assets/Tray.gltf"></a-asset-item>
-      <a-asset-item id="nurseavatar" src="assets/NurseAvatar.gltf"></a-asset-item>
+      <a-asset-item id="StudentAvatar" src="assets/StudentNurseAvatar.gltf"></a-asset-item>
       <a-asset-item id="nursehead" src="assets/NurseHeadAvatar.gltf"></a-asset-item>
       <a-asset-item id="SpectatorAvatar" src="assets/SpectatorAvatar.gltf"></a-asset-item>
+      <a-asset-item id="TeacherAvatar" src="assets/TeacherAvatar.gltf"></a-asset-item>
       <!-- <a-asset-item id="suero" src="assets/Suero.gltf"></a-asset-item>
         <a-asset-item id="base" src="assets/Base.gltf"></a-asset-item> -->
       <a-asset-item id="right-hand" src="assets/rightHandHigh.glb"></a-asset-item>
@@ -102,8 +103,13 @@
       </template>
       ​
       <!-- Nurse Avatar -->
-      <template id="nurse-avatar-template">
-        <a-entity class="nurseavatar" gltf-model="#nurseavatar"></a-entity>
+      <template id="student-avatar-template">
+        <a-entity class="nursehead" gltf-model="#StudentAvatar" position="0 2 0"></a-entity>
+      </template>
+
+      <!-- Teacher Avatar -->
+      <template id="teacher-avatar-template">
+        <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar"></a-entity>
       </template>
 
       <!-- Spectator Avatar -->
@@ -140,9 +146,9 @@
       <!-- vxr-gltf -->
       <template id="vxr-obj-template">
         <a-entity>
-          <a-entity class="vxr-obj-maskn95 vxr-interact"  gltf-model="#maskn95" dynamic-body draggable grabbable toggle-physics position="-0.4 1 -0.2"></a-entity>
-          <a-entity class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" dynamic-body draggable grabbable toggle-physics position="-0.4 1 0"></a-entity>
-          <a-entity class="vxr-obj-tray vxr-interact" gltf-model="#tray" dynamic-body draggable grabbable toggle-physics position="0 1 -0.2"></a-entity>
+          <a-entity class="vxr-obj-maskn95 vxr-interact"  gltf-model="#maskn95" dynamic-body draggable grabbable toggle-physics position="-0.4 2 -0.2"></a-entity>
+          <a-entity class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" dynamic-body draggable grabbable toggle-physics position="-0.4 2 0"></a-entity>
+          <a-entity class="vxr-obj-tray vxr-interact" gltf-model="#tray" dynamic-body draggable grabbable toggle-physics position="0 2 -0.2"></a-entity>
         </a-entity>
       </template>
 
@@ -169,10 +175,10 @@
       <a-entity class="gltf" gltf-model="#Scene_WallRight01" position="0 0 0" static-body></a-entity>
       <a-entity class="gltf" gltf-model="#Scene_WallRight02" position="0 0 0" static-body></a-entity>
 
-      <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.5 1"
-        rotation="0 0 0" wasd-controls>
-        <a-entity camera position="0 2 0.2" look-controls
-          networked="template:#spectator-avatar-template;attachTemplateToLocal:false;">
+      <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="-1.5 0.8 -1"
+        rotation="0 180 0" wasd-controls>
+        <a-entity camera position="0 1 0.2" look-controls
+          networked="template:#student-avatar-template;attachTemplateToLocal:false;">
         </a-entity>
 
         <!-- /VIVE CONTROLLERS -->
@@ -193,7 +199,14 @@
   <script>
     // Define custom schema for syncing avatar color, set by random-color
     NAF.schemas.add({
-      template: '#nurse-avatar-template',
+      template: '#student-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#teacher-avatar-template',
       components: [
         'position',
         'rotation'
