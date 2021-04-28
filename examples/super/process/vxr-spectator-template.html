@@ -29,6 +29,7 @@
   <script src="../../js/spawner.component.js"></script>
   <script src="../../js/toggle-physics.component.js"></script>
   <script src="../../js/rotator.component.js"></script>
+  <script src="../../js/input.component.js"></script>
 
   <script>
     function spawentity() {
@@ -43,11 +44,15 @@
     }
   </script>
 
+<script  src="https://rawgit.com/fernandojsg/aframe-input-mapping-component/master/dist/aframe-input-mapping-component.min.js"></script>
+<script src="https://unpkg.com/aframe-log-component/dist/aframe-log-component.min.js"></script> 
+
+
   <link rel="stylesheet" type="text/css" href="../assets/examples.css">
 </head>
 
 <body>
-  <a-scene physics environment="preset: tron; shadow: true" networked-scene="
+  <a-scene physics environment="preset: default; shadow: true" networked-scene="
       room: handsvive;
       debug: true;
       adapter: wseasyrtc;
@@ -60,12 +65,30 @@
       <a-asset-item id="alcoholbottle" src="assets/AlcoholBottle.gltf"></a-asset-item>
       <a-asset-item id="bed" src="assets/Bed.gltf"></a-asset-item>
       <a-asset-item id="tray" src="assets/Tray.gltf"></a-asset-item>
-      <a-asset-item id="nurseavatar" src="assets/NurseAvatar.gltf"></a-asset-item>
+      <a-asset-item id="StudentAvatar" src="assets/StudentNurseAvatar.gltf"></a-asset-item>
       <a-asset-item id="nursehead" src="assets/NurseHeadAvatar.gltf"></a-asset-item>
+      <a-asset-item id="SpectatorAvatar" src="assets/SpectatorAvatar.gltf"></a-asset-item>
+      <a-asset-item id="TeacherAvatar" src="assets/TeacherAvatar.gltf"></a-asset-item>
       <!-- <a-asset-item id="suero" src="assets/Suero.gltf"></a-asset-item>
         <a-asset-item id="base" src="assets/Base.gltf"></a-asset-item> -->
       <a-asset-item id="right-hand" src="assets/rightHandHigh.glb"></a-asset-item>
       <a-asset-item id="left-hand" src="assets/leftHandHigh.glb"></a-asset-item>
+
+      <!-- Theater -->
+      <a-asset-item id="Scene_Floor01" src="assets/theater/Scene_Floor01.gltf"></a-asset-item>
+      <a-asset-item id="Scene_Floor02" src="assets/theater/Scene_Floor02.gltf"></a-asset-item>
+      <a-asset-item id="Scene_Roof" src="assets/theater/Scene_Roof.gltf"></a-asset-item>
+      <a-asset-item id="Scene_Row01" src="assets/theater/Scene_Row01.gltf"></a-asset-item>
+      <a-asset-item id="Scene_Row02" src="assets/theater/Scene_Row02.gltf"></a-asset-item>
+      <a-asset-item id="Scene_Row03" src="assets/theater/Scene_Row03.gltf"></a-asset-item>
+      <a-asset-item id="Scene_Row04" src="assets/theater/Scene_Row04.gltf"></a-asset-item>
+      <a-asset-item id="Scene_Row05" src="assets/theater/Scene_Row05.gltf"></a-asset-item>
+      <a-asset-item id="Scene_WallBack" src="assets/theater/Scene_WallBack.gltf"></a-asset-item>
+      <a-asset-item id="Scene_WallFront" src="assets/theater/Scene_WallFront.gltf"></a-asset-item>
+      <a-asset-item id="Scene_WallLeft01" src="assets/theater/Scene_WallLeft01.gltf"></a-asset-item>
+      <a-asset-item id="Scene_WallLeft02" src="assets/theater/Scene_WallLeft02.gltf"></a-asset-item>
+      <a-asset-item id="Scene_WallRight01" src="assets/theater/Scene_WallRight01.gltf"></a-asset-item>
+      <a-asset-item id="Scene_WallRight02" src="assets/theater/Scene_WallRight02.gltf"></a-asset-item>
 
       <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false"
         static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
@@ -79,9 +102,19 @@
         <a-entity></a-entity>
       </template>
       ​
-      <!-- Head -->
-      <template id="head-template">
-        <a-entity class="nursehead" gltf-model="#nurseavatar"></a-entity>
+      <!-- Nurse Avatar -->
+      <template id="student-avatar-template">
+        <a-entity class="nursehead" gltf-model="#StudentAvatar" position="0 2 0"></a-entity>
+      </template>
+
+      <!-- Teacher Avatar -->
+      <template id="teacher-avatar-template">
+        <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar"></a-entity>
+      </template>
+
+      <!-- Spectator Avatar -->
+      <template id="spectator-avatar-template">
+        <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar"></a-entity>
       </template>
 
       <!-- Right Hand -->
@@ -113,29 +146,44 @@
       <!-- vxr-gltf -->
       <template id="vxr-obj-template">
         <a-entity>
-          <a-entity class="vxr-obj-maskn95" gltf-model="#maskn95" dynamic-body draggable grabbable toggle-physics position="-0.4 1 -0.2"></a-entity>
-          <a-entity class="vxr-obj-alcoholbottle" gltf-model="#alcoholbottle" dynamic-body draggable grabbable toggle-physics position="-0.4 1 0"></a-entity>
-          <a-entity class="vxr-obj-tray" gltf-model="#tray" dynamic-body draggable grabbable toggle-physics position="0 0.2 -0.2"></a-entity>
+          <a-entity class="vxr-obj-maskn95 vxr-interact"  gltf-model="#maskn95" dynamic-body draggable grabbable toggle-physics position="-0.4 2 -0.2"></a-entity>
+          <a-entity class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" dynamic-body draggable grabbable toggle-physics position="-0.4 2 0"></a-entity>
+          <a-entity class="vxr-obj-tray vxr-interact" gltf-model="#tray" dynamic-body draggable grabbable toggle-physics position="0 2 -0.2"></a-entity>
         </a-entity>
       </template>
 
     </a-assets>
 
       <!-- Static Objects -->
-      <a-entity class="gltf" gltf-model="#table" position="0 0.1 0" rotation="0 0 0" static-body></a-entity>
-      <a-entity class="" gltf-model="#table"  position="1.5 0.1 0" rotation="0 0 0" static-body></a-entity>
-      <a-entity class="gltf" gltf-model="#bed" position="3 0 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#table" position="-1.5 0.5 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#table"  position="-0.13 0.5 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#bed" position="1.2 0.5 0" rotation="0 0 0" static-body></a-entity>
 
-      <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0 2"
-        rotation="0 90 0" wasd-controls>
-        <a-entity camera position="0 1.7 0.2" look-controls
-          networked="template:#head-template;attachTemplateToLocal:false;">
+      <!-- Theater Objects -->
+      <a-entity class="gltf" gltf-model="#Scene_Floor01" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#Scene_Floor02" position="0 0.1 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#Scene_Roof" position="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#Scene_Row01" position="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#Scene_Row02" position="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#Scene_Row03" position="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#Scene_Row04" position="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#Scene_Row05" position="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#Scene_WallBack" position="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#Scene_WallFront" position="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#Scene_WallLeft01" position="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#Scene_WallLeft02" position="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#Scene_WallRight01" position="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#Scene_WallRight02" position="0 0 0" static-body></a-entity>
+
+      <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="-1.5 0.8 -1"
+        rotation="0 180 0" wasd-controls>
+        <a-entity camera position="0 1 0.2" look-controls
+          networked="template:#student-avatar-template;attachTemplateToLocal:false;">
         </a-entity>
 
-        <a-entity gltf-model="#nurseavatar" position="0 0 0"></a-entity>
         <!-- /VIVE CONTROLLERS -->
-        <a-entity id="lhand" mixin="touch" tracked-controls="hand: left" networked="template:#left-hand-template"></a-entity>
-        <a-entity id="rhand" mixin="touch" tracked-controls="hand: right" networked="template:#right-hand-template"></a-entity>
+        <a-entity id="lhand" mixin="touch" input-controls=" hand: left" networked="template:#left-hand-template"></a-entity>
+        <a-entity id="rhand" mixin="touch" input-controls="hand: right" networked="template:#right-hand-template"></a-entity>
       </a-entity>
       
       <!-- <a-entity class="syncup" position="0 1 0"></a-entity>
@@ -151,17 +199,26 @@
   <script>
     // Define custom schema for syncing avatar color, set by random-color
     NAF.schemas.add({
-      template: '#head-template',
+      template: '#student-avatar-template',
       components: [
         'position',
-        'rotation',
-        {
-          selector: '.head',
-          component: 'material'
-        }
+        'rotation'
       ]
     });
-
+    NAF.schemas.add({
+      template: '#teacher-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#spectator-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
     NAF.schemas.add({
       template: '#player-template',
       components: [
@@ -260,6 +317,8 @@
       console.log("funca");
     }
   </script>
+
+
 
 </body>
 

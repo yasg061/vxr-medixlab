@@ -8,14 +8,88 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
     <script src="/easyrtc/easyrtc.js"></script>
     <script src="/dist/networked-aframe.js"></script>
-​
+
+​​    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script> 
     <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
+
+    <script>
+      AFRAME.registerComponent('assign-seat', {
+        schema: {
+          position: {
+            x: 0, 
+            y: 0, 
+            z: 0
+          }
+        },
+
+        init: function () {
+          var data = this.data;
+          var el = this.el;
+
+          // Sets spectator avatar position 
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          const spawn = urlParams.get('spawn')
+          const theaterSlots = [
+            {
+              identifier: '1',
+              position: { x: 0, y: 2.5, z: 4 }
+            },
+            {
+              identifier: '2',
+              position: { x: 4, y: 4, z: 4 }
+            },
+            {
+              identifier: '3',
+              position: { x: -4, y: 5, z: 5.5 }
+            },
+            {
+              identifier: '4',
+              position: { x: 0, y: 6.3, z: 8 }
+            },
+            {
+              identifier: '5',
+              position: { x: 3, y: 7, z: 9 }
+            },
+          ]
+          // TODO: Do research about JS find method(What happens when it doesn't get any match)
+          let slotFound = theaterSlots.find(x => x.identifier === spawn);
+          let slotPosition = slotFound.position
+          el.setAttribute('position', slotPosition)
+        }
+      })
+
+      AFRAME.registerComponent('name-up', {
+        tick: function () {
+          var el = this.el;
+          if (!NAF.utils.isMine(el)) {
+            return;
+          }
+
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          const name = urlParams.get('name')
+          el.setAttribute("text-geometry", {value: name});
+          el.setAttribute('material', {
+              color: 'yellow',
+            });
+            el.setAttribute('rotation',
+              '0 180 0',
+            );
+            el.setAttribute('position', {
+              x: 0.5, y: 2, z: 0,
+            });
+            el.setAttribute('scale',
+              '0.32 0.32 0.32',
+            );
+        }
+      });
+    </script>   
   </head>
   <body>
-    <a-scene device-orientation-permission-ui="enabled: false" networked-scene="
-      
+    <a-scene device-orientation-permission-ui="enabled: false" networked-scene="     
     room: dev;
     debug: true;
     adapter: easyrtc;
@@ -35,10 +109,9 @@
         <!-- Avatar -->
         <template id="avatar-template">
           <a-entity class="avatar" networked-audio-source>
-            <a-entity class="avatar">
-              <a-plane  color="#FFF" width="2" height="1.5" position="0 1.2 0"  material="side: front" networked-video-source></a-plane>
-              <a-plane  color="#FFF" width="2" height="1.5" position="0 1.2 0"  material="side: back" networked-video-source></a-plane>
-           </a-entity>
+            <a-plane color="#FFF" width="2" height="1.5" position="0 1.2 0"  material="side: front" networked-video-source></a-plane>
+            <a-plane color="#FFF" width="2" height="1.5" position="0 1.2 0"  material="side: back" networked-video-source></a-plane>
+            <a-entity class="name" text-geometry="value: some; wrapCount: 20; width: 3" position="0 2 0" name-up></a-entity>
             <a-sphere class="head"
               color="#ffffff"
               scale="0.45 0.5 0.4"
@@ -75,13 +148,14 @@
         <!-- /Templates -->
       </a-assets>
 ​
-      <a-entity id="3"
+      <a-entity id="player"
         networked="template:#avatar-template;attachTemplateToLocal:false;"
         camera
         position="-2.9119 2.18025 -2.79791"
-        spawn-in-circle="radius:3"
         wasd-controls look-controls
-        >
+        spawn-in-circle="radius:3"
+        assign-seat
+      >
         <a-sphere class="head" visible="false" random-color></a-sphere> 
       </a-entity>
 ​
