@@ -9,10 +9,17 @@
     <script src="/easyrtc/easyrtc.js"></script>
     <script src="/dist/networked-aframe.js"></script>
 
-​    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script> 
+​​    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script> 
     <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
+    <script src="./js/set-name.component.js"></script>
+
+    <!-- <script>
+         const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          const userName = urlParams.get('name')
+    </script> -->
 
     <script>
       AFRAME.registerComponent('assign-seat', {
@@ -61,39 +68,80 @@
         }
       })
 
-      AFRAME.registerComponent('name-up', {
-        tick: function () {
-          var el = this.el;
-          if (!NAF.utils.isMine(el)) {
-            return;
-          }
-          const queryString = window.location.search;
-          const urlParams = new URLSearchParams(queryString);
-          const name = urlParams.get('name')
-          el.setAttribute("text-geometry", {value: name});
-          el.setAttribute('material', {
-              color: 'yellow',
-            });
-            el.setAttribute('rotation',
-              '0 180 0',
-            );
-            el.setAttribute('position', {
-              x: 0.5, y: 2, z: 0,
-            });
-            el.setAttribute('scale',
-              '0.32 0.32 0.32',
-            );
-        }
-      });
+      // AFRAME.registerComponent('name-up', {
+      //   schema: {
+      //     name: { default: 'guest' }
+      // },
+
+      // init:function(){
+        
+      //   var el = this.el;         
+
+      //    const queryString = window.location.search;
+      //     const urlParams = new URLSearchParams(queryString);
+      //     const name = urlParams.get('name')
+
+      //     el.setAttribute("text-geometry", {value: name});
+      //     el.setAttribute('material', {
+      //         color: 'yellow',
+      //       });
+      //       el.setAttribute('rotation',
+      //         '0 180 0',
+      //       );
+      //       el.setAttribute('position', {
+      //         x: 0.5, y: 2, z: 0,
+      //       });
+      //       el.setAttribute('scale',
+      //         '0.32 0.32 0.32',
+      //       );
+        
+      // },
+
+      // update: function () {
+      //     var el = this.el;         
+
+      //     // const queryString = window.location.search;
+      //     // const urlParams = new URLSearchParams(queryString);
+      //     // const name = urlParams.get('name')
+          
+      //     el.setAttribute("text-geometry", {value: this.data.name});
+      //     el.setAttribute('material', {
+      //         color: 'yellow',
+      //       });
+      //       el.setAttribute('rotation',
+      //         '0 180 0',
+      //       );
+      //       el.setAttribute('position', {
+      //         x: 0.5, y: 2, z: 0,
+      //       });
+      //       el.setAttribute('scale',
+      //         '0.32 0.32 0.32',
+      //       );
+      //   }
+
+        
+      // });
+    </script>   
+
+    <script>
+      function spawentity() {
+        let syncs = document.getElementsByClassName("syncup");
+        let vxr_obj_template = document.getElementsByClassName("vxr-obj-template");
+        // for (let i = 0; i < vxr_obj_template.length; ++i) {
+          vxr_obj_template[0].setAttribute("networked", "template:#vxr-template;attachTemplateToLocal:true")
+        //}
+      
+      }
     </script>
   </head>
   <body>
-    <a-scene device-orientation-permission-ui="enabled: false" networked-scene="
+    <a-scene device-orientation-permission-ui="enabled: false" networked-scene="     
     room: dev;
     debug: true;
-    adapter: easyrtc;
+    adapter: wseasyrtc;
     audio: true;
     video: true;
+    onConnect: spawentity;
     ">
       <a-assets>
 ​
@@ -102,15 +150,14 @@
         <a.asser-item id="theater" src="/Models/gltf/Theater.gltf"></a.asser-item>
         <a.asser-item id="bed" src="/Models/gltf/Bed.gltf"></a.asser-item>​
         <a.asser-item id="pacient" src="/Models/gltf/Pacient.gltf"></a.asser-item>
-
         <!-- Templates -->
-​
+
         <!-- Avatar -->
         <template id="avatar-template">
           <a-entity class="avatar" networked-audio-source>
             <a-plane color="#FFF" width="2" height="1.5" position="0 1.2 0"  material="side: front" networked-video-source></a-plane>
             <a-plane color="#FFF" width="2" height="1.5" position="0 1.2 0"  material="side: back" networked-video-source></a-plane>
-            <a-entity class="name" text-geometry="value: some text; wrapCount: 20; width: 3" position="0 2 0" name-up></a-entity>
+            <a-entity class="name-up" ></a-entity>
             <a-sphere class="head"
               color="#ffffff"
               scale="0.45 0.5 0.4"
@@ -143,21 +190,22 @@
             </a-entity>
           </a-entity>
         </template>
-​
+
         <!-- /Templates -->
       </a-assets>
-​
+
       <a-entity id="player"
-        networked="template:#avatar-template;attachTemplateToLocal:false;"
-        camera
-        position="-2.9119 2.18025 -2.79791"
-        wasd-controls look-controls
-        spawn-in-circle="radius:3"
-        assign-seat
-      >
-        <a-sphere class="head" visible="false" random-color></a-sphere> 
-      </a-entity>
-​
+      networked="template:#avatar-template;attachTemplateToLocal:false;"
+      camera
+      position="-2.9119 2.18025 -2.79791"
+      wasd-controls look-controls
+      spawn-in-circle="radius:3"
+      assign-seat
+    >
+    <a-entity class="name-up" name-up></a-entity>
+      <a-sphere class="head" visible="false" random-color></a-sphere> 
+    </a-entity>
+
       <a-entity id="theater01" gltf-model="#theater"; scale="1 1 1" position="-0.31936 0.94527 -3.17058" rotation="0 -0.21 0"></a-entity>
       <a-entity id="bed01" gltf-model="#bed"; scale="1 1 1" position="-0.31936 1.03544 -3.17951" rotation="0 0 0"></a-entity>
       <a-entity id="pacient01" gltf-model="#pacient"; scale="1 1 1" position="-0.31936 1.04572 -3.20834" rotation="-0.03105 0 0.01776169164905552"></a-entity>
@@ -165,14 +213,14 @@
       <a-entity position="0 0 0"
         geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
         material="src: #grid; repeat: 10000 10000; transparent: true; metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"></a-entity>
-​
+
       <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible=""></a-entity>
       <a-entity light="color: #ffaaff; intensity: 1.5" position="5 5 5"></a-entity>
-​
+
       <a-sky src="#sky" rotation="0 -90 0"></a-sky>
       <a-entity id="particles" particle-system="preset: snow"></a-entity>
     </a-scene>
-​
+
     <!-- GitHub Corner. -->
     <a href="https://github.com/networked-aframe/networked-aframe" class="github-corner">
       <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;">
@@ -181,67 +229,39 @@
     </a>
     <style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
     </style>
-​
+
     <script>
       // Define custom schema for syncing avatar color, set by random-color
       NAF.schemas.add({
-        template: '#avatar-template',
-        components: [
-          'position',
-          'rotation',
-          {
-            selector: '.head',
-            component: 'material',
-            property: 'color'
-          },
-          {
-            selector: '.eye',
-            component: 'material',
-            property: 'color'
-          },
-          {
-            selector: '.name',
-            component: 'text-geometry',
-            property: 'value'
-          },
-          {
-            selector: '.name',
-            component: 'text-geometry',
-            property: 'wrapCount'
-          },
-          {
-            selector: '.name',
-            component: 'text-geometry',
-            property: 'width'
-          },
-          {
-            selector: '.name',
-            component: 'material',
-            property: 'color'
-          },
-          {
-            selector: '.name',
-            component: 'rotation',
-          },
-          {
-            selector: '.name',
-            component: 'position',
-          },
-          {
-            selector: '.name',
-            component: 'scale',
-          },
-        ]
-      });
-​
+    template: '#avatar-template',
+    components: [
+      'position',
+      'rotation',
+      {
+        selector: '.head',
+        component: 'material',
+        property: 'color'
+      },
+      {
+        selector: '.eye',
+        component: 'material',
+        property: 'color'
+      },
+      {
+        selector: '.name-up',
+        component: 'name-up'   
+      },
+     ]
+  });
+
       // Called by Networked-Aframe when connected to server
       function onConnect () {
         console.log("onConnect", new Date());
       }
-​
+
       // On mobile remove elements that are resource heavy
       var isMobile = AFRAME.utils.device.isMobile();
-​
+
       if (isMobile) {
         var particles = document.getElementById('particles');
         particles.parentNode.removeChild(particles);
