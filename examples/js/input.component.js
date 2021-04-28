@@ -32,6 +32,7 @@ AFRAME.registerComponent('input-controls', {
         let classes= e.detail.body.el.className.split(' ')
         
         if(classes.includes("vxr-interact")){
+          console.log("working")
           NAF.utils.takeOwnership(e.detail.body.el)
           }else{
           console.log("err")
