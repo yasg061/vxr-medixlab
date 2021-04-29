@@ -64,10 +64,6 @@
       AFRAME.registerComponent('name-up', {
         tick: function () {
           var el = this.el;
-          if (!NAF.utils.isMine(el)) {
-            return;
-          }
-
           const queryString = window.location.search;
           const urlParams = new URLSearchParams(queryString);
           const name = urlParams.get('name')
