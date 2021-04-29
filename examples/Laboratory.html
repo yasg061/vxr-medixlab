@@ -44,8 +44,7 @@
         <a.asser-item id="cottonswabs01" src="/Models/gltf/CottonSwabs01.gltf"></a.asser-item>
         <a.asser-item id="cottonswabs02" src="/Models/gltf/CottonSwabs02.gltf"></a.asser-item>
         <a.asser-item id="cottonswabs03" src="/Models/gltf/CottonSwabs03.gltf"></a.asser-item>
-        <a.asser-item id="door" src="/Models/gltf/Door.gltf"></a.asser-item>
-        <a.asser-item id="dryer" src="/Models/gltf/Dryer.gltf"></a.asser-item>
+         <a.asser-item id="dryer" src="/Models/gltf/Dryer.gltf"></a.asser-item>
         <a-asset-item id="floor" src="/Models/gltf/Floor.gltf"></a-asset-item>
         <a.asser-item id="forceps" src="/Models/gltf/Forceps.gltf"></a.asser-item>
         <a.asser-item id="gauze" src="/Models/gltf/Gauze.gltf"></a.asser-item>
@@ -53,8 +52,7 @@
         <a-asset-item id="medicaltape" src="/Models/gltf/MedicalTape.gltf"></a-asset-item>
         <a-asset-item id="mesa" src="/Models/gltf/Table01.gltf"></a-asset-item>
         <a-asset-item id="modularscreen" src="/Models/gltf/ModularScreen.gltf"></a-asset-item>
-        <a.asser-item id="pressure" src="/Models/gltf/Pressure.gltf"></a.asser-item>
-        <a-asset-item id="roof" src="/Models/gltf/Roof.gltf"></a-asset-item>
+        <a.asser-item id="patient" src="/Models/gltf/Patient.gltf"></a.asser-item>
         <a.asser-item id="salver" src="/Models/gltf/Salver.gltf"></a.asser-item>
         <a-asset-item id="silla" src="/Models/gltf/Silla.gltf"></a-asset-item>
         <a.asser-item id="dripbag" src="/Models/gltf/DripBag.gltf"></a.asser-item>
@@ -64,12 +62,17 @@
         <a.asser-item id="trashcan" src="/Models/gltf/TrashCan.gltf"></a.asser-item>
         <a.asser-item id="tweezers" src="/Models/gltf/Tweezers.gltf"></a.asser-item>
         <a.asser-item id="tweezers2" src="/Models/gltf/Tweezers2.gltf"></a.asser-item>
-        <a-asset-item id="wall" src="/Models/gltf/Wall.gltf"></a-asset-item>
-        <a-asset-item id="walldoor" src="/Models/gltf/WallDoor.gltf"></a-asset-item>
-        <a-asset-item id="wallfront" src="/Models/gltf/WallFront.gltf"></a-asset-item>
-        <a-asset-item id="wallwindow" src="/Models/gltf/WallWindow.gltf"></a-asset-item>
+        <a.asser-item id="wallback" src="/Models/gltf/Scene_WallBack.gltf"></a.asser-item>
+        <a-asset-item id="roof" src="/Models/gltf/Scene_Roof.gltf"></a-asset-item>
+        <a-asset-item id="floor01" src="/Models/gltf/Scene_Floor01.gltf"></a-asset-item>
+        <a.asser-item id="floor02" src="/Models/gltf/Scene_Floor02.gltf"></a.asser-item>
+        <a-asset-item id="wallfront" src="/Models/gltf/Scene_WallFront.gltf"></a-asset-item>
+        <a.asser-item id="wallleft" src="/Models/gltf/Scene_WallLeft.gltf"></a.asser-item>
+        <a-asset-item id="wallright" src="/Models/gltf/Scene_WallRight.gltf"></a-asset-item>
+        <a-asset-item id="lamps" src="/Models/gltf/Scene_Lamps.gltf"></a-asset-item>
+        <a.asser-item id="row" src="/Models/gltf/Scene_Row.gltf"></a.asser-item>
         <a.asser-item id="washer" src="/Models/gltf/Washer.gltf"></a.asser-item>
-        <a.asser-item id="window" src="/Models/gltf/Window.gltf"></a.asser-item>
+
         
         
     </a-assets>
@@ -80,64 +83,58 @@
         <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
       </a-light>
 
-      <a-entity id="alcoholbottle01" gltf-model="#alcoholbottle"; scale="1 1 1" position="-0.31936 0.96339 -3.17058" material="color: brown" rotation="0 120 0"></a-entity>
-      <a-entity id="alcoholgel01" gltf-model="#alcoholgel"; scale="1 1 1" position="-1.76108 0.91102 -2.10348" material="color: brown" rotation="0 1.2776958831417358 0"></a-entity>
-      <a-entity id="bandeja01" gltf-model="#bandeja"; scale="1 1 1" position="-0.28659 0.05136 -2.77469" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="bandeja002" gltf-model="#bandeja02"; scale="1 1 1" position="-1.54281 0.90953 -1.90829" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="bandeja003" gltf-model="#bandeja02"; scale="1 1 1" position="-0.66103 0.9726 -2.91432" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="base01" gltf-model="#base"; scale="1 1 1" position="0.57653 0.05089 -3.72454" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="cabinet001" gltf-model="#cabinet01"; scale="1 1 1" position="-0.47781 1.67577 5.38558" material="color: brown; metalness: 0" rotation="0 0 0"></a-entity>
-      <a-entity id="cabinet002" gltf-model="#cabinet02"; scale="1 1 1" position="-2.03603 1.68609 5.37983" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="cabinet003" gltf-model="#cabinet03"; scale="1 1 1" position="-8.87798 1.33331 -0.58518" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="cabinet004" gltf-model="#cabinet03"; scale="1 1 1" position="-8.8795 1.33379 0.49905" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="bed01" gltf-model="#bed"; scale="1 1 1" position="1.32768 0.1254 -2.57448" material="color: brown; depthWrite: false; depthTest: false; alphaTest: 0; flatShading: false; side: front; metalness: 1" rotation="0 -2.97 0"></a-entity>
-      <a-entity id="bed02" gltf-model="#bed"; scale="1 1 1" position="-3.65525 0.1254 -2.57448" material="color: brown; depthWrite: false; depthTest: false; alphaTest: 0; flatShading: false; side: front" rotation="0 -2.97 0"></a-entity>
-      <a-entity id="container01" gltf-model="#container"; scale="1 1 1" position="-1.73 0.1254 -2.84888" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="containerblack01" gltf-model="#containerblack"; scale="1 1 1" position="-1.17285 0.1254 -2.87616" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="cottonswabs001" gltf-model="#cottonswabs01"; scale="1 1 1" position="-0.58592 0.98386 -2.84114" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="cottonswabs002" gltf-model="#cottonswabs02"; scale="1 1 1" position="-0.55976 0.9828 -2.81582" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="cottonswabs003" gltf-model="#cottonswabs03"; scale="1 1 1" position="-0.60257 0.98918 -2.80317" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="door01" gltf-model="#door"; scale="1 1 1" position="1.42119 -0.0061 5.61094" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="dryer01" gltf-model="#dryer"; scale="1 1 1" position="2.9274 1.42006 0.81982" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="floor01" gltf-model="#floor"; scale="1 1 1" position="-0.013 0 3.248" material="color: #ffffff; emissive: #000000; emissiveIntensity: 1" rotation="0 0 0"></a-entity>
-      <a-entity id="floor02" gltf-model="#floor"; scale="1 1 1" position="-5.98617 0 -1.752" material="color: #ffffff; emissive: #000000; emissiveIntensity: 1" rotation="0 0 0"></a-entity>
-      <a-entity id="floor03" gltf-model="#floor"; scale="1 1 1" position="-5.986 0 3.248" material="color: #ffffff; emissive: #000000; emissiveIntensity: 1" rotation="0 0 0"></a-entity>
-      <a-entity id="floor04" gltf-model="#floor"; scale="1 1 1" position="-0.01291 0 -1.752" material="color: #ffffff; emissive: #000000; emissiveIntensity: 1" rotation="0 0 0"></a-entity>
-      <a-entity id="forceps01" gltf-model="#forceps"; scale="1 1 1" position="-0.72467 0.97629 -2.95278" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="gauze01" gltf-model="#gauze"; scale="1 1 1" position="-0.66584 0.97629 -2.9253" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="maskn9501" gltf-model="#maskn95"; scale="1 1 1" position="-1.52695 0.94578 -2.03005" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="medicaltape01" gltf-model="#medicaltape"; scale="1 1 1" position="-0.39566 0.97084 -3.01302" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="mesa01" gltf-model="#mesa"; scale="1 1 1" position="-0.50565 0.05425 5.01956" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="modularscreen01" gltf-model="#modularscreen"; scale="1 1 1" position="-2.55443 0.05425 -3.1504" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="modularscreen02" gltf-model="#modularscreen"; scale="1 1 1" position="-2.55443 0.05425 -2.21269" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="modularscreen03" gltf-model="#modularscreen"; scale="1 1 1" position="-2.55443 0.05425 -4.07504" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="pressure01" gltf-model="#pressure"; scale="1 1 1" position="-0.0777 0.96688 -2.93335" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="roof01" gltf-model="#roof"; scale="1 1 1" position="0.071 3.53958 -1.24954" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="roof02" gltf-model="#roof"; scale="1 1 1" position="0.07094 3.53958 4.89019" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="roof03" gltf-model="#roof"; scale="1 1 1" position="-6.07136 3.53958 -1.25" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="roof04" gltf-model="#roof"; scale="1 1 1" position="-6.071 3.53958 4.89" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="salver01" gltf-model="#salver"; scale="1 1 1" position="2.68548 0.9076 -1.3749" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="silla01" gltf-model="#silla"; scale="1 1 1" position="0.52717 0.07007 -1.01802" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="silla02" gltf-model="#silla"; scale="1 1 1" position="-0.77855 0.07224 -0.64437" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="dripbag01" gltf-model="#dripbag"; scale="1 1 1" position="-0.26212 0.97218 -2.77431" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="surgicalpallets01" gltf-model="#surgicalpallets"; scale="1 1 1" position="2.40729 0.05275 -3.73675" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="table002" gltf-model="#table02"; scale="1 1 1" position="-2.02767 0.05023 5.10127" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="table003" gltf-model="#table03"; scale="1 1 1" position="2.68763 0.07359 -1.40655" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="cabinet005" gltf-model="#table03"; scale="1 1 1" position="-1.5804 0.07752 -1.91786" material="color: brown" rotation="0 180 0"></a-entity>
-      <a-entity id="trashcan01" gltf-model="#trashcan"; scale="1 1 1" position="-0.72906 0.05431 -2.68302" material="color: brown" rotatation="0 0 45"></a-entity>
-      <a-entity id="tweezers01" gltf-model="#tweezers"; scale="1 1 1" position="-0.57539 0.97312 -3.07781" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="tweezers02" gltf-model="#tweezers2"; scale="1 1 1" position="-0.6261 0.97827 -3.08291" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="wallleft" gltf-model="#wall"; scale="1 1 1" position="-9.24196 0 2.72759" material="color: brown" rotation="0 180 0"></a-entity>
-      <a-entity id="wallleft02" gltf-model="#wall"; scale="1 1 1" position="3.296 0 -1.58956" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="wallright"  gltf-model="#wall"; scale="1 1 1" position="-9.26816 0 -1.57869" material="color: #a52a2a" rotation="0 180 0"></a-entity>
-      <a-entity id="wallright02"  gltf-model="#wall"; scale="1 1 1" position="3.296 0 2.728" material="color: #a52a2a" rotation="0 0 0"></a-entity>
-      <a-entity id="wallfront" gltf-model="#walldoor"; scale="1 1 1" position="0.73228 0 5.6" material="color: #a52a2a" rotation="0 0 0"></a-entity>
-      <a-entity id="wallfront02" gltf-model="#wallfront"; scale="1 1 1" position="-5.26453 0 5.6" material="color: #a52a2a" rotation="0 0 0"></a-entity>
-      <a-entity id="wallback"  gltf-model="#wallwindow"; scale="1 1 1" position="-5.99395 0 -4.53513" rotation="0 0 0"></a-entity>
-      <a-entity id="wallback02"  gltf-model="#wallwindow"; scale="1 1 1" position="-0.00198 0 -4.53513" rotation="0 0 0"></a-entity>
-      <a-entity id="washer01" gltf-model="#washer"; scale="1 1 1" position="2.59554 0.04112 0.77797" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="window01" gltf-model="#window"; scale="1 1 1" position="-5.98243 0.65699 -4.57455" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="window02" gltf-model="#window"; scale="1 1 1" position="-0.01636 0.65699 -4.57455" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity camera="" position="0.297 6.93827 13.7643" wasd-controls="" rotation="" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""></a-entity>
+
+      <a-entity id="alcoholbottle01" gltf-model="#alcoholbottle"; scale="1 1 1" position="-0.3679 1.21609 2.22668" material="color: brown" rotation="0 270 0"></a-entity>
+      <a-entity id="alcoholgel01" gltf-model="#alcoholgel"; scale="1 1 1" position="-0.34621 1.2237 2.04921" material="color: brown" rotation="0 1.2776958831417358 0"></a-entity>
+      <a-entity id="bandeja01" gltf-model="#bandeja"; scale="1 1 1" position="0.09071 0.31037 1.87632" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="bandeja002" gltf-model="#bandeja02"; scale="1 1 1" position="0.01345 1.22362 1.62926" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="bandeja003" gltf-model="#bandeja02"; scale="1 1 1" position="0.02168 1.22827 2.19329" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="base01" gltf-model="#base"; scale="1 1 1" position="0.57653 0.31019 0.34579" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="cabinet001" gltf-model="#cabinet01"; scale="1 1 1" position="0.52478 2.3174 -2.70119" material="color: brown; metalness: 0" rotation="0 180 0"></a-entity>
+      <a-entity id="cabinet002" gltf-model="#cabinet02"; scale="1 1 1" position="-1.9864 2.30711 -2.69863" material="color: brown" rotation="0 180 0"></a-entity>
+      <a-entity id="cabinet003" gltf-model="#cabinet03"; scale="1 1 1" position="-0.72767 1.901 -2.62361" material="color: brown" rotation="0 -90 0"></a-entity>
+      <a-entity id="cabinet004" gltf-model="#cabinet03"; scale="1 1 1" position="1.77176 1.90053 -2.63818" material="color: brown" rotation="0 -90 0"></a-entity>
+      <a-entity id="bed01" gltf-model="#bed"; scale="1 1 1" position="1.32768 0.36511 0.92061" material="color: brown; depthWrite: false; depthTest: false; alphaTest: 0; flatShading: false; side: front; metalness: 1" rotation="0 -2.97 0"></a-entity>
+      <a-entity id="bed02" gltf-model="#bed"; scale="1 1 1" position="-4.17639 0.35668 0.42878" material="color: brown; depthWrite: false; depthTest: false; alphaTest: 0; flatShading: false; side: front" rotation="0 -2.97 0"></a-entity>
+      <a-entity id="container01" gltf-model="#container"; scale="1 1 1" position="2.62617 0.32515 -1.31252" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="containerblack01" gltf-model="#containerblack"; scale="1 1 1" position="3.21794 0.32849 -1.32045" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="cottonswabs001" gltf-model="#cottonswabs01"; scale="1 1 1" position="0.09072 1.234 1.77529" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="cottonswabs002" gltf-model="#cottonswabs02"; scale="1 1 1" position="0.05149 1.234 1.75633" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="cottonswabs003" gltf-model="#cottonswabs03"; scale="1 1 1" position="0.03913 1.234 1.79907" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="dryer01" gltf-model="#dryer"; scale="1 1 1" position="3.38942 1.42006 -3.51686" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="floor01" gltf-model="#floor01"; scale="1 1 1" position="0 0 0" material="color: #ffffff; emissive: #000000; emissiveIntensity: 1" rotation="0 0 0"></a-entity>
+      <a-entity id="floor02" gltf-model="#floor02"; scale="1 1 1" position="-0 0 0" material="color: #ffffff; emissive: #000000; emissiveIntensity: 1" rotation="0 0 0"></a-entity>
+      <a-entity id="forceps01" gltf-model="#forceps"; scale="1 1 1" position="-0.03028 1.234 2.16761" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="gauze01" gltf-model="#gauze"; scale="1 1 1" position="-0.66538 0.97629 -1.93722" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="lamps01"  gltf-model="#lamps"; scale="1 1 1" position="0 0 0" material="color: #a52a2a" rotation="0 0 0"></a-entity>
+      <a-entity id="maskn9501" gltf-model="#maskn95"; scale="1 1 1" position="-0.31717 1.24735 1.80666" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="medicaltape01" gltf-model="#medicaltape"; scale="1 1 1" position="-0.05427 1.21735 1.76465" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="mesa01" gltf-model="#mesa"; scale="1 1 1" position="-2.0204 0.30643 -2.42091" material="color: brown" rotation="0 180 0"></a-entity>
+      <a-entity id="modularscreen01" gltf-model="#modularscreen"; scale="1 1 1" position="-2.55443 0.292 -0.23072" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="modularscreen02" gltf-model="#modularscreen"; scale="1 1 1" position="-2.55443 0.29247 0.694" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="modularscreen03" gltf-model="#modularscreen"; scale="1 1 1" position="-2.55443 0.292 -1.15652" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="patient01" gltf-model="#patient"; scale="1 1 1" position="1.30792 0.39862 0.87509" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="roof01" gltf-model="#roof"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="salver01" gltf-model="#salver"; scale="1 1 1" position="-1.98987 1.19089 0.27767" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="silla01" gltf-model="#silla"; scale="1 1 1" position="-4.70149 0.32774 2.43767" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="silla02" gltf-model="#silla"; scale="1 1 1" position="-3.63394 0.32127 2.10684" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="dripbag01" gltf-model="#dripbag"; scale="1 1 1" position="-0.33061 1.22916 1.62738" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="surgicalpallets01" gltf-model="#surgicalpallets"; scale="1 1 1" position="0.33431 0.30339 -0.94285" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="table002" gltf-model="#table02"; scale="1 1 1" position="0.59361 0.29696 -2.44006" material="color: brown" rotation="0 180 0"></a-entity>
+      <a-entity id="table003" gltf-model="#table03"; scale="1 1 1" position="-2.0092 0.33197 0.2209" material="color: brown" rotation="0 180 0"></a-entity>
+      <a-entity id="row01" gltf-model="#row"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="cabinet005" gltf-model="#table03"; scale="1 1 1" position="-2.02939 0.34443 -0.50913" material="color: brown" rotation="0 180 0"></a-entity>
+      <a-entity id="trashcan01" gltf-model="#trashcan"; scale="1 1 1" position="-4.69816 0.31286 3.14761" material="color: brown" rotatation="0 0 45"></a-entity>
+      <a-entity id="tweezers01" gltf-model="#tweezers"; scale="1 1 1" position="-0.57539 0.97312 -1.23709" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="tweezers02" gltf-model="#tweezers2"; scale="1 1 1" position="-0.6261 0.97827 -1.26145" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="wallleft01" gltf-model="#wallleft"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="wallright01"  gltf-model="#wallright"; scale="1 1 1" position="0 0 0" material="color: #a52a2a" rotation="0 0 0"></a-entity>
+      <a-entity id="wallfront02" gltf-model="#wallfront"; scale="1 1 1" position="0 0 0" material="color: #a52a2a" rotation="0 0 0"></a-entity>
+      <a-entity id="wallback"  gltf-model="#wallback"; scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
+      <a-entity id="wallback02"  gltf-model="#wallwindow"; scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
+      <a-entity id="washer01" gltf-model="#washer"; scale="1 1 1" position="-0.6967 0.30331 -2.39433" material="color: brown" rotation="0 90 0"></a-entity>
+     
       <a-entity background="color: #92f2ff"></a-entity>
 
       <a-entity light="intensity: 0.5; type: ambient; castShadow: true"></a-entity>
