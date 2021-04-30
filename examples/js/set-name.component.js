@@ -1,3 +1,15 @@
+document.addEventListener('DOMContentLoaded', () => {                           
+  const scene = document.querySelector('a-scene');
+  const sceneLoaded = () => {
+  document.getElementById("player").setAttribute("networked", "template:#avatar-template;attachTemplateToLocal:false;");
+  }
+  if (scene.hasLoaded) {                                                         
+    sceneLoaded();
+  } else {
+    scene.addEventListener('loaded', sceneLoaded);
+  }
+});
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const userName = urlParams.get('name')
