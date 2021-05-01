@@ -126,9 +126,8 @@
       <!-- Nurse Constraints -->
       <template id="constraint-avatar-template">
         <a-entity>
-          <a-entity class="NurseAvatarBody" id="nursebody" gltf-model="#NurseAvatarBody" dynamic-body ></a-entity>
-          <a-entity class="NurseHeadAvatar" id="nursehead"  gltf-model="#NurseHeadAvatar" static-body avatar-body="body:#nursebody"></a-entity>
-          
+          <a-entity class="NurseAvatarBody" id="nursebody" gltf-model="#NurseAvatarBody" dynamic-body="linearDamping: 0.9; angularDamping: 1" ></a-entity>
+          <a-entity class="NurseHeadAvatar" id="nursehead"  gltf-model="#NurseHeadAvatar" static-body avatar-body="body: #nursebody; id:#nurseb ody"></a-entity>
         </a-entity>
       </template>
 
