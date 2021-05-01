@@ -7,13 +7,21 @@ AFRAME.registerComponent('avatar-body', {
   init: function() {
     var data = this.data;
     var el = this.el;
-    this.body = document.getElementById(data.body)
+    this.body = document.getElementById(data.body);
     console.log("body", data.body);
-    console.log("id", data.id);
+    console.log("ROTATION HEAD" + this.el.object3D.rotation.y);
     el.setAttribute('constraint',
-                    'type: lock; maxForce: 0.9; target:' + data.id);
+                    'type: coneTwist; maxForce: 1; target:' + data.id + ';pivot: 0.0 -0.140 0.0; targetPivot: 0.0 -0.125 0.0; axis: 0.0 0.1 0.0; targetAxis: 0.0 0.1 0.0; wakeUpBodies: false');
   },
-  update: function () {
-    
-    }  
+  tick: function () {
+    var data = this.data;
+  if(data.body.object3D.rotation.y > 0.6 || data.body.object3D.rotation.y < -0.6)
+    {
+      data.body.setAttribute('dynamic-body', 'angularDamping:0.1');
+
+    }else
+    {
+      data.body.setAttribute('dynamic-body', 'angularDamping:1');
+    }
+  }   
 }); 
