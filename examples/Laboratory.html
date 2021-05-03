@@ -12,6 +12,7 @@
     <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
   </head>
   <body>
     <a-scene networked-scene="
@@ -62,20 +63,22 @@
         <a.asser-item id="trashcan" src="/Models/gltf/TrashCan.gltf"></a.asser-item>
         <a.asser-item id="tweezers" src="/Models/gltf/Tweezers.gltf"></a.asser-item>
         <a.asser-item id="tweezers2" src="/Models/gltf/Tweezers2.gltf"></a.asser-item>
-        <a.asser-item id="wallback" src="/Models/gltf/Scene_WallBack.gltf"></a.asser-item>
-        <a-asset-item id="roof" src="/Models/gltf/Scene_Roof.gltf"></a-asset-item>
-        <a-asset-item id="floor01" src="/Models/gltf/Scene_Floor01.gltf"></a-asset-item>
-        <a.asser-item id="floor02" src="/Models/gltf/Scene_Floor02.gltf"></a.asser-item>
-        <a-asset-item id="wallfront" src="/Models/gltf/Scene_WallFront.gltf"></a-asset-item>
-        <a.asser-item id="wallleft" src="/Models/gltf/Scene_WallLeft.gltf"></a.asser-item>
-        <a-asset-item id="wallright" src="/Models/gltf/Scene_WallRight.gltf"></a-asset-item>
-        <a-asset-item id="lamps" src="/Models/gltf/Scene_Lamps.gltf"></a-asset-item>
+        <a.asser-item id="scenebase" src="/Models/gltf/Scene_Base.gltf"></a.asser-item>
+        <a.asser-item id="scenebase02" src="/Models/gltf/Scene_Base02.gltf"></a.asser-item>
+        <a.asser-item id="scenemedixlablogo" src="/Models/gltf/Scene_Medixlablogo.gltf"></a.asser-item>
+        <a.asser-item id="sceneieproeslogo" src="/Models/gltf/Scene_Ieproesblogo.gltf"></a.asser-item>
+        <a.asser-item id="scenevertexlogo" src="/Models/gltf/Scene_VertexLogo.gltf"></a.asser-item>
+        <a.asser-item id="scenebase02" src="/Models/gltf/Scene_Base02.gltf"></a.asser-item>
+        <a.asser-item id="wallback" position="0 0 -12.41576" src="/Models/gltf/Scene_WallBack.gltf"></a.asser-item>
         <a.asser-item id="row" src="/Models/gltf/Scene_Row.gltf"></a.asser-item>
         <a.asser-item id="washer" src="/Models/gltf/Washer.gltf"></a.asser-item>
-
+        <video id="covid" autoplay loop="true" src="videos/Video_Proceso1_Capture2.mp4"> </video>
         
         
     </a-assets>
+
+    <a-entity environment="lightPosition: 1 5 -2; groundColor: #00275b; grid: dots; gridColor: #168dab; preset: starry; skyType: atmosphere; skyColor: #030022; shadow: true; playArea: 0.5; ground: flat; groundColor2: #009dff" visible=""><a-entity class="environment" position="0 50 0" light="type: hemisphere; color: #CEE4F0; intensity: 0.1; groundColor: #445" visible=""></a-entity><a-entity class="environment" position="1 5 -2" light="intensity: 0.1; shadowCameraLeft: -10; shadowCameraBottom: -10; shadowCameraRight: 10; shadowCameraTop: 10" visible=""></a-entity><a-entity rotation="-90 0 0" class="environmentGround environment" visible="" scale="1 1 3" shadow="cast: false; receive: false"></a-entity><a-entity class="environmentDressing environment" visible="false"></a-entity><a-sky radius="200" theta-length="110" class="environment" material="shader: skyshader; sunPosition: 0 0 0" visible="" geometry=""></a-sky><a-entity id="stars"></a-entity><a-entity class="environment" position="0 50 0" light="type: hemisphere; color: #817f90; intensity: 0.1; groundColor: #00275b" visible=""></a-entity><a-entity class="environment" position="1 5 -2" light="intensity: 0.1; castShadow: true; shadowCameraLeft: -10; shadowCameraBottom: -10; shadowCameraRight: 10; shadowCameraTop: 10" visible=""></a-entity><a-entity rotation="-90 0 0" class="environmentGround environment" visible="" scale="1 1 3" shadow="cast: false"></a-entity><a-entity class="environmentDressing environment" visible="false"></a-entity><a-sky radius="200" theta-length="110" class="environment" material="shader: skyshader; sunPosition: 0 0 0" visible="" geometry=""></a-sky><a-entity id="stars" visible=""></a-entity></a-entity>
+
       <a-entity light="type: point; castShadow:true; intensity: 0.75; distance: 50; decay: 2"
             position="0 10 10">
       </a-entity>
@@ -96,9 +99,8 @@
       <a-entity id="cabinet003" gltf-model="#cabinet03"; scale="1 1 1" position="-0.72767 1.901 -2.62361" material="color: brown" rotation="0 -90 0"></a-entity>
       <a-entity id="cabinet004" gltf-model="#cabinet03"; scale="1 1 1" position="1.77176 1.90053 -2.63818" material="color: brown" rotation="0 -90 0"></a-entity>
       <a-entity id="bed01" gltf-model="#bed"; scale="1 1 1" position="1.32768 0.36511 0.92061" material="color: brown; depthWrite: false; depthTest: false; alphaTest: 0; flatShading: false; side: front; metalness: 1" rotation="0 -2.97 0"></a-entity>
-      <a-entity id="bed02" gltf-model="#bed"; scale="1 1 1" position="-4.17639 0.35668 0.42878" material="color: brown; depthWrite: false; depthTest: false; alphaTest: 0; flatShading: false; side: front" rotation="0 -2.97 0"></a-entity>
       <a-entity id="container01" gltf-model="#container"; scale="1 1 1" position="2.62617 0.32515 -1.31252" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="containerblack01" gltf-model="#containerblack"; scale="1 1 1" position="3.21794 0.32849 -1.32045" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="containerblack01" gltf-model="#containerblack"; scale="1 1 1" position="3.26663 0.32849 -1.32639" material="color: brown" rotation="0 90 0"></a-entity>
       <a-entity id="cottonswabs001" gltf-model="#cottonswabs01"; scale="1 1 1" position="0.09072 1.234 1.77529" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="cottonswabs002" gltf-model="#cottonswabs02"; scale="1 1 1" position="0.05149 1.234 1.75633" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="cottonswabs003" gltf-model="#cottonswabs03"; scale="1 1 1" position="0.03913 1.234 1.79907" material="color: brown" rotation="0 0 0"></a-entity>
@@ -107,7 +109,6 @@
       <a-entity id="floor02" gltf-model="#floor02"; scale="1 1 1" position="-0 0 0" material="color: #ffffff; emissive: #000000; emissiveIntensity: 1" rotation="0 0 0"></a-entity>
       <a-entity id="forceps01" gltf-model="#forceps"; scale="1 1 1" position="-0.03028 1.234 2.16761" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="gauze01" gltf-model="#gauze"; scale="1 1 1" position="-0.66538 0.97629 -1.93722" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="lamps01"  gltf-model="#lamps"; scale="1 1 1" position="0 0 0" material="color: #a52a2a" rotation="0 0 0"></a-entity>
       <a-entity id="maskn9501" gltf-model="#maskn95"; scale="1 1 1" position="-0.31717 1.24735 1.80666" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="medicaltape01" gltf-model="#medicaltape"; scale="1 1 1" position="-0.05427 1.21735 1.76465" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="mesa01" gltf-model="#mesa"; scale="1 1 1" position="-2.0204 0.30643 -2.42091" material="color: brown" rotation="0 180 0"></a-entity>
@@ -117,28 +118,48 @@
       <a-entity id="patient01" gltf-model="#patient"; scale="1 1 1" position="1.30792 0.39862 0.87509" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="roof01" gltf-model="#roof"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="salver01" gltf-model="#salver"; scale="1 1 1" position="-1.98987 1.19089 0.27767" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="silla01" gltf-model="#silla"; scale="1 1 1" position="-4.70149 0.32774 2.43767" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="silla02" gltf-model="#silla"; scale="1 1 1" position="-3.63394 0.32127 2.10684" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="dripbag01" gltf-model="#dripbag"; scale="1 1 1" position="-0.33061 1.22916 1.62738" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="surgicalpallets01" gltf-model="#surgicalpallets"; scale="1 1 1" position="0.33431 0.30339 -0.94285" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="scenebase01" gltf-model="#scenebase"; scale="1 1 1" position="0 -0.02366 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="scenebase02" gltf-model="#scenebase02"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="scenemedixlablogo01" gltf-model="#scenemedixlablogo"; scale="2 2 2" position="0 10.54945 -14.36498" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="sceneieproeslogo01" gltf-model="#sceneieproeslogo"; scale="2 2 2" position="-10.34731 9.10193 -10.65465" material="color: brown" rotation="0 49.92582339431454 0"></a-entity>    
+      <a-entity id="scenevertexlogo01" gltf-model="#scenevertexlogo"; scale="1 1 1" position="9.48743 9.28072 -11.6355" material="color: brown" rotation="0 -52.57346136561407 0"></a-entity>
       <a-entity id="table002" gltf-model="#table02"; scale="1 1 1" position="0.59361 0.29696 -2.44006" material="color: brown" rotation="0 180 0"></a-entity>
       <a-entity id="table003" gltf-model="#table03"; scale="1 1 1" position="-2.0092 0.33197 0.2209" material="color: brown" rotation="0 180 0"></a-entity>
       <a-entity id="row01" gltf-model="#row"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="cabinet005" gltf-model="#table03"; scale="1 1 1" position="-2.02939 0.34443 -0.50913" material="color: brown" rotation="0 180 0"></a-entity>
-      <a-entity id="trashcan01" gltf-model="#trashcan"; scale="1 1 1" position="-4.69816 0.31286 3.14761" material="color: brown" rotatation="0 0 45"></a-entity>
+      <a-entity id="trashcan01" gltf-model="#trashcan"; scale="1 1 1" position="-2.13642 0.31286 2.04292" material="color: brown" rotatation="0 0 45"></a-entity>
       <a-entity id="tweezers01" gltf-model="#tweezers"; scale="1 1 1" position="-0.57539 0.97312 -1.23709" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="tweezers02" gltf-model="#tweezers2"; scale="1 1 1" position="-0.6261 0.97827 -1.26145" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="wallleft01" gltf-model="#wallleft"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="wallright01"  gltf-model="#wallright"; scale="1 1 1" position="0 0 0" material="color: #a52a2a" rotation="0 0 0"></a-entity>
-      <a-entity id="wallfront02" gltf-model="#wallfront"; scale="1 1 1" position="0 0 0" material="color: #a52a2a" rotation="0 0 0"></a-entity>
-      <a-entity id="wallback"  gltf-model="#wallback"; scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
-      <a-entity id="wallback02"  gltf-model="#wallwindow"; scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
+      <a-entity id="wallback"  gltf-model="#wallback"; scale="1 1 1" position="0 0 -12.416" rotation="0 0 0"></a-entity>
       <a-entity id="washer01" gltf-model="#washer"; scale="1 1 1" position="-0.6967 0.30331 -2.39433" material="color: brown" rotation="0 90 0"></a-entity>
-     
+      <a-video id="video01" src="#covid" width="16" height="9" position="14.2128 9.51756 -4.07113" material="" rotation="0 112.85377803353286 0" geometry="" scale="0.5 0.5 0.5"></a-video>
+      <a-video id="video02" src="#covid" width="16" height="9" position="-13.67795 9.51756 -3.85318" material="" rotation="0 64.39 0" geometry="" scale="0.5 0.5 0.5"></a-video>
+
       <a-entity background="color: #92f2ff"></a-entity>
 
-      <a-entity light="intensity: 0.5; type: ambient; castShadow: true"></a-entity>
-    
+      <a-entity light="intensity: 0.5; type: ambient; castShadow: true" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
+      <a-entity light="angle: 40; color: #0674ff; decay: 2.76; penumbra: 0.23; type: spot; castShadow: true; shadowBias: 0.72; shadowCameraNear: 0.56; shadowRadius: 1.15" id="spot1" 
+                position="-6.96565 13.02979 -2.80526" rotation="-73.12774930813723 118.60742021223659 62.43922163997172"></a-entity>
+      <a-entity light="type: spot; decay: 2.76; penumbra: 0.57; color: #6906ff; castShadow: true; shadowBias: 0.72; shadowRadius: 1.15; shadowCameraNear: 0.56; angle: 40" id="spot2" 
+                position="-5.6751 12.46304 8.89216" rotation="-84.51356661297694 -6.191381934183676 -173.78039109435923"></a-entity>
+      <a-entity light="color: #00c6ff; intensity: 0.84; penumbra: 0.52; type: spot" id="spot3"
+                position="4.39313 10.52133 7.07232" rotation="-73.57408343054415 179.9998479605043 0"></a-entity>
+      <a-entity light="penumbra: 1; type: spot" id="spot4"
+                position="-0.42573 8.27858 -4.19881" rotation="-54.63496351249478 0 179.9998479605043"></a-entity>
+      <a-entity light="color: #b33dff; penumbra: 0.51; type: spot; castShadow: true" id="spot5"
+                position="9.87633 11.44651 -2.7865" rotation="-80.69251107724949 -164.17188887001532 10.195783964353"></a-entity>
+      <a-entity light="color: #b33dff; penumbra: 0.51; type: spot; castShadow: true" id="spot6"
+                position="6.04245 9.1168 -7.44911" rotation="6.640007887771111 -48.475094257043295 -154.4688486094748"></a-entity>
+      <a-entity light="color: #b33dff; penumbra: 0.51; type: spot; castShadow: true; intensity: 1.24" id="spot7"
+                position="-10.70804 9.99225 -6.71406" rotation="-8.631036225850721 17.92269278948728 120.1635735838119"></a-entity>
+      
+                
+                
+      
+
+
+
     </a-scene>
     
     <script>
