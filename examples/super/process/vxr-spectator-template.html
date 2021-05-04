@@ -71,14 +71,16 @@
       <a-asset-item id="bed" src="assets/Bed.gltf"></a-asset-item>
       <a-asset-item id="tray" src="assets/Tray.gltf"></a-asset-item>
       <a-asset-item id="StudentAvatar" src="assets/StudentNurseAvatar.gltf"></a-asset-item>
-      <a-asset-item id="NurseHeadAvatar" src="assets/NurseHeadAvatar.gltf"></a-asset-item>
       <a-asset-item id="SpectatorAvatar" src="assets/SpectatorAvatar.gltf"></a-asset-item>
       <a-asset-item id="TeacherAvatar" src="assets/TeacherAvatar.gltf"></a-asset-item>
-      <a-asset-item id="NurseAvatarBody" src="assets/NurseAvatarBody.gltf"></a-asset-item>
-      <!-- <a-asset-item id="suero" src="assets/Suero.gltf"></a-asset-item>
-        <a-asset-item id="base" src="assets/Base.gltf"></a-asset-item> -->
       <a-asset-item id="right-hand" src="assets/rightHandHigh.glb"></a-asset-item>
       <a-asset-item id="left-hand" src="assets/leftHandHigh.glb"></a-asset-item>
+
+      <!-- Avatasr -->
+      <a-asset-item id="StudentAvatarHead" src="assets/avatars/StudentAvatarHead.gltf"></a-asset-item>
+      <a-asset-item id="StudentAvatarBody" src="assets/avatars/StudentAvatarBody.gltf"></a-asset-item>
+      <a-asset-item id="TeacherAvatarHead" src="assets/avatars/TeacherAvatarHead.gltf"></a-asset-item>
+      <a-asset-item id="TeacherAvatarBody" src="assets/avatars/TeacherAvatarBody.gltf"></a-asset-item>
 
       <!-- Theater -->
       <img id="shadow" src="https://cdn.glitch.com/20600112-c04b-492c-8190-8a5ccc06f37d%2Fshadow.png?v=1606338852399"></img>
@@ -119,11 +121,19 @@
         <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar"></a-entity>
       </template>
 
-      <!-- Nurse Constraints -->
-      <template id="constraint-avatar-template">
+      <!-- Teacher Avatar Constraints -->
+      <template id="constraint-teacher-avatar-template">
         <a-entity>
-          <a-entity class="NurseAvatarBody" id="nursebody" gltf-model="#NurseAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
-          <a-entity class="NurseHeadAvatar" id="nursehead"  gltf-model="#NurseHeadAvatar" static-body avatar-body="body:#nursebody; id:#nursebody"></a-entity>
+          <a-entity class="TeacherAvatarBody" id="teacherbody" gltf-model="#TeacherAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="TeacherAvatarHead" id="teacherhead"  gltf-model="#TeacherAvatarHead" static-body avatar-body="body:#teacherbody; id:#teacherbody"></a-entity>
+        </a-entity>
+      </template>
+
+      <!-- Student Avatar Constraints -->
+      <template id="constraint-student-avatar-template">
+        <a-entity>
+          <a-entity class="StudentAvatarBody" id="studentbody" gltf-model="#StudentAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="StudentAvatarHead" id="studenthead"  gltf-model="#StudentAvatarHead" static-body avatar-body="body:#studentbody; id:#studentbody"></a-entity>
         </a-entity>
       </template>
 
@@ -173,7 +183,7 @@
 
       <a-entity background="color: #92f2ff"></a-entity>
 
-      <a-entity light="intensity: 0.5; type: ambient; castShadow: true" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
+      <!-- <a-entity light="intensity: 0.5; type: ambient; castShadow: true" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
       <a-entity light="angle: 40; color: #0674ff; decay: 2.76; penumbra: 0.23; type: spot; castShadow: true; shadowBias: 0.72; shadowCameraNear: 0.56; shadowRadius: 1.15" id="spot1" 
                 position="-6.96565 13.02979 -2.80526" rotation="-73.12774930813723 118.60742021223659 62.43922163997172"></a-entity>
       <a-entity light="type: spot; decay: 2.76; penumbra: 0.57; color: #6906ff; castShadow: true; shadowBias: 0.72; shadowRadius: 1.15; shadowCameraNear: 0.56; angle: 40" id="spot2" 
@@ -187,14 +197,11 @@
       <a-entity light="color: #b33dff; penumbra: 0.51; type: spot; castShadow: true" id="spot6"
                 position="6.04245 9.1168 -7.44911" rotation="6.640007887771111 -48.475094257043295 -154.4688486094748"></a-entity>
       <a-entity light="color: #b33dff; penumbra: 0.51; type: spot; castShadow: true; intensity: 1.24" id="spot7"
-                position="-10.70804 9.99225 -6.71406" rotation="-8.631036225850721 17.92269278948728 120.1635735838119"></a-entity>
+                position="-10.70804 9.99225 -6.71406" rotation="-8.631036225850721 17.92269278948728 120.1635735838119"></a-entity> -->
       <!-- Static Objects -->
       <a-entity class="gltf" gltf-model="#table" position="-1.5 0.5 0" rotation="0 0 0" static-body></a-entity>
       <a-entity class="gltf" gltf-model="#table"  position="-0.13 0.5 0" rotation="0 0 0" static-body></a-entity>
       <a-entity class="gltf" gltf-model="#bed" position="1.2 0.5 0" rotation="0 0 0" static-body></a-entity>
-
-
-
 
       <!-- Theater Objects -->
       <a-entity id="patient01" gltf-model="#patient"; scale="1 1 1" position="1.30792 0.39862 0.87509" material="color: brown" rotation="0 0 0"></a-entity>
@@ -214,14 +221,13 @@
       <a-entity id="tweezers01" gltf-model="#tweezers"; scale="1 1 1" position="-0.57539 0.97312 -1.23709" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="tweezers02" gltf-model="#tweezers2"; scale="1 1 1" position="-0.6261 0.97827 -1.26145" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="wallback"  gltf-model="#wallback"; scale="1 1 1" position="0 0 -12.416" rotation="0 0 0"></a-entity>
-      
 
       <!-- <a-entity class="constraint-avatar-template" position="0 3 2"></a-entity> -->
 
       <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
         rotation="0 180 0" movement-controls>
         <a-entity camera position="0 3 0.2" look-controls zoom="100" fov="120"
-          networked="template:#constraint-avatar-template;attachTemplateToLocal:false;">
+          networked="template:#constraint-student-avatar-template;attachTemplateToLocal:false;">
         </a-entity>
 
         <!-- /VIVE CONTROLLERS -->
@@ -263,7 +269,14 @@
       ]
     });    
     NAF.schemas.add({
-      template: '#constraint-avatar-template',
+      template: '#constraint-teacher-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#constraint-student-avatar-template',
       components: [
         'position',
         'rotation'
