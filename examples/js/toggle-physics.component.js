@@ -19,7 +19,7 @@ AFRAME.registerComponent('toggle-physics', {
 
     var that = this;
     this.onKeyUp = this.onKeyUp.bind(this);
-    document.addEventListener('keyup', this.onKeyUp);
+    document.addEventListener('grab-start', this.onKeyUp);
 
     // var el = this.el;
     // el.addEventListener('triggerdown', function (evt) {
@@ -33,7 +33,7 @@ AFRAME.registerComponent('toggle-physics', {
 
       } else {
         that.updateOpacity(0.5);
-        that.el.removeAttribute('dynamic-body');           
+              
 
       }
 
@@ -42,13 +42,13 @@ AFRAME.registerComponent('toggle-physics', {
 
       el.addEventListener('ownership-gained', e => {
         that.updateOpacity(1);
-        that.el.setAttribute('dynamic-body', "");           
-
+        that.el.setAttribute('dynamic-body');           
       });
 
       el.addEventListener('ownership-lost', e => {
         that.updateOpacity(0.5);
-        that.el.removeAttribute('dynamic-body');           
+        that.el.removeAttribute('dynamic-body');   
+        
       });
 
       el.addEventListener('ownership-changed', e => {
@@ -73,9 +73,7 @@ AFRAME.registerComponent('toggle-physics', {
     // let x = document.getElementsByClassName('vxr-obj-maskn95');
     // x[0].setAttribute("rotator","2")
     // console.log("danmwon")
-    if (e.keyCode !== 13 /* enter */) {
-      return;
-    }
+    console.log("grab and raycast is working.")
 
     if(NAF.utils.takeOwnership(this.el)) {
       // this.el.setAttribute('toggle-ownership', { direction: this.data.direction * -1 });

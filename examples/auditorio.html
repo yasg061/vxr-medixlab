@@ -15,12 +15,6 @@
     <script src="/js/spawn-in-circle.component.js"></script>
     <script src="./js/set-name.component.js"></script>
 
-    <!-- <script>
-         const queryString = window.location.search;
-          const urlParams = new URLSearchParams(queryString);
-          const userName = urlParams.get('name')
-    </script> -->
-
     <script>
       AFRAME.registerComponent('assign-seat', {
         schema: {
@@ -42,85 +36,51 @@
           const theaterSlots = [
             {
               identifier: '1',
-              position: { x: 0, y: 2.5, z: 4 }
+              position: { x: -0.5, y: 2, z: 0 },
             },
             {
               identifier: '2',
-              position: { x: 4, y: 4, z: 4 }
+              position: { x: 3.5, y: 2, z: 0 }
             },
             {
               identifier: '3',
-              position: { x: -4, y: 5, z: 5.5 }
+              position: { x: 0, y: 2, z: 6 }
             },
             {
               identifier: '4',
-              position: { x: 0, y: 6.3, z: 8 }
+              position: { x: 4, y: 2, z: 5.5 }
             },
             {
               identifier: '5',
-              position: { x: 3, y: 7, z: 9 }
+              position: { x: -4, y: 2, z: 5.5 }
+            },
+            {
+              identifier: '6',
+              position: { x: -6, y: 2, z: 1.5 }
+            },
+            {
+              identifier: '7',
+              position: { x: 3, y: 3.8, z: 9.5 }
+            },
+            {
+              identifier: '8',
+              position: { x: 9, y: 3.8, z: 4.5 }
+            },
+            {
+              identifier: '9',
+              position: { x: -8, y: 3.8, z: 5 }
+            },
+            {
+              identifier: '10',
+              position: { x: -9.5, y: 3.8, z: -1 }
             },
           ]
-          // TODO: Do research about JS find method(What happens when it doesn't get any match)
+
           let slotFound = theaterSlots.find(x => x.identifier === spawn);
           let slotPosition = slotFound.position
           el.setAttribute('position', slotPosition)
         }
       })
-
-      // AFRAME.registerComponent('name-up', {
-      //   schema: {
-      //     name: { default: 'guest' }
-      // },
-
-      // init:function(){
-
-      //   var el = this.el;         
-
-      //    const queryString = window.location.search;
-      //     const urlParams = new URLSearchParams(queryString);
-      //     const name = urlParams.get('name')
-
-      //     el.setAttribute("text-geometry", {value: name});
-      //     el.setAttribute('material', {
-      //         color: 'yellow',
-      //       });
-      //       el.setAttribute('rotation',
-      //         '0 180 0',
-      //       );
-      //       el.setAttribute('position', {
-      //         x: 0.5, y: 2, z: 0,
-      //       });
-      //       el.setAttribute('scale',
-      //         '0.32 0.32 0.32',
-      //       );
-        
-      // },
-
-      // update: function () {
-      //     var el = this.el;         
-
-      //     // const queryString = window.location.search;
-      //     // const urlParams = new URLSearchParams(queryString);
-      //     // const name = urlParams.get('name')
-          
-      //     el.setAttribute("text-geometry", {value: this.data.name});
-      //     el.setAttribute('material', {
-      //         color: 'yellow',
-      //       });
-      //       el.setAttribute('rotation',
-      //         '0 180 0',
-      //       );
-      //       el.setAttribute('position', {
-      //         x: 0.5, y: 2, z: 0,
-      //       });
-      //       el.setAttribute('scale',
-      //         '0.32 0.32 0.32',
-      //       );
-      //   }
-
-        
-      // });
     </script>   
 
     <script>
@@ -144,15 +104,35 @@
     onConnect: spawentity;
     ">
       <a-assets>
-​
+        <a-asset-item id="SpectatorAvatarHead" src="/super/process/assets/SpectatorAvatarHead.gltf"></a-asset-item>
+        <a-asset-item id="SpectatorAvatarBody" src="/super/process/assets/SpectatorAvatarBody.gltf"></a-asset-item>
+
+​        <a-asset-item id="SpectatorAvatar" src="/super/process/assets/SpectatorAvatar.gltf"></a-asset-item>
+
         <img id="grid" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous">
         <img id="sky" src="https://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous" />
-        <a.asser-item id="theater" src="/Models/gltf/Theater.gltf"></a.asser-item>
-        <a.asser-item id="bed" src="/Models/gltf/Bed.gltf"></a.asser-item>​
-        <a.asser-item id="pacient" src="/Models/gltf/Pacient.gltf"></a.asser-item>
+        <a.asser-item id="row" src="/Models/gltf/Scene_Row.gltf"></a.asser-item>
+        <a-asset-item id="bed" src="/Models/gltf/Bed.gltf"></a-asset-item>
+        <a.asser-item id="scenebase" src="/Models/gltf/Scene_Base.gltf"></a.asser-item>
+        <a.asser-item id="scenebase02" src="/Models/gltf/Scene_Base02.gltf"></a.asser-item>​
+        <a.asser-item id="wallback" position="0 0 -12.41576" src="/Models/gltf/Scene_WallBack.gltf"></a.asser-item>
+        <a.asser-item id="patient" src="/Models/gltf/Patient.gltf"></a.asser-item>
+        <a.asser-item id="sceneieproeslogo" src="/Models/gltf/Scene_Ieproesblogo.gltf"></a.asser-item>
+        <a.asser-item id="scenemedixlablogo" src="/Models/gltf/Scene_Medixlablogo.gltf"></a.asser-item>
+        <a.asser-item id="scenevertexlogo" src="/Models/gltf/Scene_VertexLogo.gltf"></a.asser-item>
+
         <!-- Templates -->
 
         <!-- Avatar -->
+        <!-- Spectator Avatar Constraints -->
+        <template id="constraint-spectator-avatar-template">
+          <a-entity>
+            <a-entity class="name-up"></a-entity>
+            <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+            <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>
+          </a-entity>
+        </template>
+
         <template id="avatar-template">
           <a-entity class="avatar" networked-audio-source>
             <a-plane color="#FFF" width="2" height="1.5" position="0 1.2 0"  material="side: front" networked-video-source></a-plane>
@@ -191,24 +171,45 @@
           </a-entity>
         </template>
 
+        <!-- Spectator Avatar -->
+        <template id="spectator-avatar-template">
+          <a-entity>
+          </a-entity>
+        </template>
+
         <!-- /Templates -->
       </a-assets>
 
-      <a-entity id="player"
-      networked="template:#avatar-template;attachTemplateToLocal:false;"
-      camera
-      position="-2.9119 2.18025 -2.79791"
-      wasd-controls look-controls
-      spawn-in-circle="radius:3"
-      assign-seat
-    >
-    <a-entity class="name-up"    name-up></a-entity>
-      <a-sphere class="head" visible="false" random-color></a-sphere> 
-    </a-entity>
+      <a-entity id="spectator"
+        position="-2.9119 2.18025 -2.79791"
+        assign-seat
+      >
+        <a-entity id="constraint-spectator" camera position="0 3 0.2" look-controls zoom="100" fov="120">
+          <a-entity class="name-up" name-up></a-entity>
+        </a-entity>
+      </a-entity>
 
-      <a-entity id="theater01" gltf-model="#theater"; scale="1 1 1" position="-0.31936 0.94527 -3.17058" rotation="0 -0.21 0"></a-entity>
-      <a-entity id="bed01" gltf-model="#bed"; scale="1 1 1" position="-0.31936 1.03544 -3.17951" rotation="0 0 0"></a-entity>
-      <a-entity id="pacient01" gltf-model="#pacient"; scale="1 1 1" position="-0.31936 1.04572 -3.20834" rotation="-0.03105 0 0.01776169164905552"></a-entity>
+      <!-- <a-entity id="player"
+
+        camera
+        position="-2.9119 2.18025 -2.79791"
+        wasd-controls look-controls
+        spawn-in-circle="radius:3"
+        assign-seat
+      >
+        <a-entity class="name-up" name-up></a-entity>
+        <a-sphere class="head" visible="false" random-color></a-sphere> 
+      </a-entity> -->
+
+      <a-entity id="row01" gltf-model="#row"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="scenebase01" gltf-model="#scenebase"; scale="1 1 1" position="0 -0.02366 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="bed01" gltf-model="#bed"; scale="1 1 1" position="1.32768 0.36511 0.92061" material="color: brown; depthWrite: false; depthTest: false; alphaTest: 0; flatShading: false; side: front; metalness: 1" rotation="0 -2.97 0"></a-entity>
+      <a-entity id="scenebase02" gltf-model="#scenebase02"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="wallback"  gltf-model="#wallback"; scale="1 1 1" position="0 0 -12.416" rotation="0 0 0"></a-entity>
+      <a-entity id="patient01" gltf-model="#patient"; scale="1 1 1" position="1.30792 0.39862 0.87509" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="sceneieproeslogo01" gltf-model="#sceneieproeslogo"; scale="2 2 2" position="-10.34731 9.10193 -10.65465" material="color: brown" rotation="0 49.92582339431454 0"></a-entity>
+      <a-entity id="scenemedixlablogo01" gltf-model="#scenemedixlablogo"; scale="2 2 2" position="0 10.54945 -14.36498" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="scenevertexlogo01" gltf-model="#scenevertexlogo"; scale="1 1 1" position="9.48743 9.28072 -11.6355" material="color: brown" rotation="0 -52.57346136561407 0"></a-entity>
 
       <a-entity position="0 0 0"
         geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
@@ -231,28 +232,24 @@
     </style>
 
     <script>
-      // Define custom schema for syncing avatar color, set by random-color
       NAF.schemas.add({
-    template: '#avatar-template',
-    components: [
-      'position',
-      'rotation',
-      {
-        selector: '.head',
-        component: 'material',
-        property: 'color'
-      },
-      {
-        selector: '.eye',
-        component: 'material',
-        property: 'color'
-      },
-      {
-        selector: '.name-up',
-        component: 'name-up'     
-      },
-     ]
-  });
+        template: '#spectator-avatar-template',
+        components: [
+          'position',
+          'rotation',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#constraint-spectator-avatar-template',
+        components: [
+          'position',
+          'rotation',
+          {
+            selector: '.name-up',
+            component: 'name-up'     
+          },
+        ]
+      });
 
       // Called by Networked-Aframe when connected to server
       function onConnect () {
