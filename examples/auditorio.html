@@ -15,12 +15,6 @@
     <script src="/js/spawn-in-circle.component.js"></script>
     <script src="./js/set-name.component.js"></script>
 
-    <!-- <script>
-         const queryString = window.location.search;
-          const urlParams = new URLSearchParams(queryString);
-          const userName = urlParams.get('name')
-    </script> -->
-
     <script>
       AFRAME.registerComponent('assign-seat', {
         schema: {
@@ -61,66 +55,12 @@
               position: { x: 3, y: 7, z: 9 }
             },
           ]
-          // TODO: Do research about JS find method(What happens when it doesn't get any match)
+
           let slotFound = theaterSlots.find(x => x.identifier === spawn);
           let slotPosition = slotFound.position
           el.setAttribute('position', slotPosition)
         }
       })
-
-      // AFRAME.registerComponent('name-up', {
-      //   schema: {
-      //     name: { default: 'guest' }
-      // },
-
-      // init:function(){
-
-      //   var el = this.el;         
-
-      //    const queryString = window.location.search;
-      //     const urlParams = new URLSearchParams(queryString);
-      //     const name = urlParams.get('name')
-
-      //     el.setAttribute("text-geometry", {value: name});
-      //     el.setAttribute('material', {
-      //         color: 'yellow',
-      //       });
-      //       el.setAttribute('rotation',
-      //         '0 180 0',
-      //       );
-      //       el.setAttribute('position', {
-      //         x: 0.5, y: 2, z: 0,
-      //       });
-      //       el.setAttribute('scale',
-      //         '0.32 0.32 0.32',
-      //       );
-        
-      // },
-
-      // update: function () {
-      //     var el = this.el;         
-
-      //     // const queryString = window.location.search;
-      //     // const urlParams = new URLSearchParams(queryString);
-      //     // const name = urlParams.get('name')
-          
-      //     el.setAttribute("text-geometry", {value: this.data.name});
-      //     el.setAttribute('material', {
-      //         color: 'yellow',
-      //       });
-      //       el.setAttribute('rotation',
-      //         '0 180 0',
-      //       );
-      //       el.setAttribute('position', {
-      //         x: 0.5, y: 2, z: 0,
-      //       });
-      //       el.setAttribute('scale',
-      //         '0.32 0.32 0.32',
-      //       );
-      //   }
-
-        
-      // });
     </script>   
 
     <script>
@@ -138,14 +78,16 @@
     <a-scene device-orientation-permission-ui="enabled: false" networked-scene="     
     room: dev;
     debug: true;
-    adapter: easyrtc;
+    adapter: wseasyrtc;
     audio: true;
     video: true;
     onConnect: spawentity;
     ">
       <a-assets>
-​        <a-asset-item id="SpectatorAvatar" src="/super/process/assets/SpectatorAvatar.gltf"></a-asset-item>
+        <a-asset-item id="SpectatorAvatarHead" src="/super/process/assets/SpectatorAvatarHead.gltf"></a-asset-item>
+        <a-asset-item id="SpectatorAvatarBody" src="/super/process/assets/SpectatorAvatarBody.gltf"></a-asset-item>
 
+​        <a-asset-item id="SpectatorAvatar" src="/super/process/assets/SpectatorAvatar.gltf"></a-asset-item>
 
         <img id="grid" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous">
         <img id="sky" src="https://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous" />
@@ -155,6 +97,15 @@
         <!-- Templates -->
 
         <!-- Avatar -->
+        <!-- Spectator Avatar Constraints -->
+        <template id="constraint-spectator-avatar-template">
+          <a-entity>
+            <a-entity class="name-up"></a-entity>
+            <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+            <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>
+          </a-entity>
+        </template>
+
         <template id="avatar-template">
           <a-entity class="avatar" networked-audio-source>
             <a-plane color="#FFF" width="2" height="1.5" position="0 1.2 0"  material="side: front" networked-video-source></a-plane>
@@ -195,8 +146,7 @@
 
         <!-- Spectator Avatar -->
         <template id="spectator-avatar-template">
-          <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar">
-            <a-entity class="name-up"></a-entity>
+          <a-entity>
           </a-entity>
         </template>
 
@@ -204,12 +154,12 @@
       </a-assets>
 
       <a-entity id="spectator"
-        camera
         position="-2.9119 2.18025 -2.79791"
-        look-controls
         assign-seat
       >
-        <a-entity class="name-up" name-up></a-entity>
+        <a-entity id="constraint-spectator" camera position="0 3 0.2" look-controls zoom="100" fov="120">
+          <a-entity class="name-up" name-up></a-entity>
+        </a-entity>
       </a-entity>
 
       <!-- <a-entity id="player"
@@ -249,9 +199,15 @@
     </style>
 
     <script>
-      // Define custom schema for syncing avatar color, set by random-color
       NAF.schemas.add({
         template: '#spectator-avatar-template',
+        components: [
+          'position',
+          'rotation',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#constraint-spectator-avatar-template',
         components: [
           'position',
           'rotation',
