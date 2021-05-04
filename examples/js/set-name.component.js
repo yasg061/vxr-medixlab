@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {                           
   const scene = document.querySelector('a-scene');
   const sceneLoaded = () => {
-  document.getElementById("player").setAttribute("networked", "template:#avatar-template;attachTemplateToLocal:false;");
+  document.getElementById("spectator").setAttribute("networked", "template:#spectator-avatar-template;attachTemplateToLocal:false;");
   }
   if (scene.hasLoaded) {                                                         
     sceneLoaded();
@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const userName = urlParams.get('name')
+console.log('username', userName)
 
 AFRAME.registerComponent('name-up', {
     
@@ -38,6 +39,4 @@ AFRAME.registerComponent('name-up', {
             '0.32 0.32 0.32',
         );
     }
-
-
 });
