@@ -30,9 +30,6 @@
   <script src="../../js/rotator.component.js"></script>
   <script src="../../js/input.component.js"></script>
 
-
-
-
   <script>
     function spawentity() {
       let syncs = document.getElementsByClassName("syncup");
@@ -48,9 +45,7 @@
 
   <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
- 
-
-
+  <script src="../../js/persistent-component.js"></script>
 
   <!-- <script  src="https://rawgit.com/fernandojsg/aframe-input-mapping-component/master/dist/aframe-input-mapping-component.min.js"></script>
 <script src="https://unpkg.com/aframe-log-component/dist/aframe-log-component.min.js"></script>  -->
@@ -68,8 +63,8 @@
     ">
     <a-assets>
       <!-- <a-asset-item id="htc" src="../assets/vr_controller_vive.obj"></a-asset-item> -->
-      <a-asset-item id="maskn95" src="assets/MaskN95.gltf"></a-asset-item>
-      <a-asset-item id="table" src="assets/Bandeja.gltf"></a-asset-item>
+      <a-asset-item id="maskn95" src="../../Models/gltf/MaskN95.gltf"></a-asset-item>
+      <a-asset-item id="table" src="../../Models/gltf/Bandeja.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="assets/AlcoholBottle.gltf"></a-asset-item>
       <a-asset-item id="bed" src="assets/Bed.gltf"></a-asset-item>
       <a-asset-item id="tray" src="assets/Tray.gltf"></a-asset-item>
@@ -99,12 +94,37 @@
       <a-asset-item id="Scene_WallRight02" src="assets/theater/Scene_WallRight02.gltf"></a-asset-item>
 
       <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false"
-        static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
-                          colliderEventProperty: els;
-                          colliderEndEvent: collisions;
-                          colliderEndEventProperty: clearedEls;">
-      </a-mixin>
+      static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
+                        colliderEventProperty: els;
+                        colliderEndEvent: collisions;
+                        colliderEndEventProperty: clearedEls;">
+    </a-mixin>
 
+    <a-mixin id="controllers-right" vive-controls="hand: right"
+    oculus-touch-controls="hand: right"
+    windows-motion-controls="hand: right"
+    gearvr-controls daydream-controls
+    oculus-go-controls>
+  </a-mixin>
+  <a-mixin id="controllers-left" vive-controls="hand: left"
+        oculus-touch-controls="hand: left"
+        windows-motion-controls="hand: left"
+       >
+  </a-mixin>
+  <a-mixin id="point" raycaster="showLine: true; objects: .vxr-interact"
+              collision-filter="collisionForces: false"
+              static-body="shape: sphere; sphereRadius: 0.001"
+              super-hands="colliderEvent: raycaster-intersection;
+                            colliderEventProperty: els;
+                            colliderEndEvent:raycaster-intersection-cleared;
+                            colliderEndEventProperty: clearedEls;"></a-mixin>
+
+    <a-mixin id="cube" geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33"
+    hoverable grabbable stretchable draggable
+    event-set__hoveron="_event: hover-start; material.opacity: 0.7; transparent: true"
+    event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false"
+    dynamic-body shadow></a-mixin>
+    
       <!-- Player -->
       <template id="player-template">
         <a-entity></a-entity>
@@ -163,16 +183,14 @@
       <!-- vxr-gltf -->
       <template id="vxr-obj-template">
         <a-entity>
-          <a-entity class="vxr-obj-maskn95 vxr-interact child" gltf-model="#maskn95" dynamic-body draggable grabbable
-            toggle-physics position="-0.4 2 -0.2"></a-entity>
-          <a-entity class="vxr-obj-alcoholbottle vxr-interact parent" gltf-model="#alcoholbottle" dynamic-body draggable
-            grabbable toggle-physics position="-0.4 2 0"></a-entity>
-          <a-entity class="vxr-obj-tray vxr-interact" gltf-model="#tray" dynamic-body draggable grabbable toggle-physics
-            position="0 2 -0.2"></a-entity>
+          <a-entity class="vxr-obj-maskn95 vxr-interact child"  toggle-physics  dynamic-body gltf-model="#maskn95"  draggable grabbable
+             position="-0.4 2 -0.2" ></a-entity>
+          <a-entity class="vxr-obj-alcoholbottle vxr-interact parent"  toggle-physics  dynamic-body gltf-model="#alcoholbottle"  draggable
+            grabbable  position="-0.4 2 0"></a-entity>
+          <a-entity class="vxr-obj-tray vxr-interact"  toggle-physics  dynamic-body draggable grabbable gltf-model="#tray"  position="0 2 -0.2" 
+            ></a-entity>
         </a-entity>
       </template>
-
-
     </a-assets>
 
 
@@ -198,12 +216,7 @@
     <a-entity class="gltf" gltf-model="#Scene_WallRight01" position="0 0 0" static-body></a-entity>
     <a-entity class="gltf" gltf-model="#Scene_WallRight02" position="0 0 0" static-body></a-entity>
 
-
-
-
-
     <!-- Physics Objects -->
-
 
     <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
       rotation="0 180 0" wasd-controls>
@@ -212,10 +225,10 @@
       </a-entity>
 
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" input-controls=" hand: left" networked="template:#left-hand-template">
+      <a-entity id="lhand"  mixin="point controllers-right  " input-controls="hand: left" networked="template:#left-hand-template">
       </a-entity>
 
-      <a-entity id="rhand" mixin="touch" input-controls="hand: right" networked="template:#right-hand-template">
+      <a-entity id="rhand"  mixin="point controllers-right  " input-controls="hand: right" networked="template:#right-hand-template">
       </a-entity>
 
 
@@ -297,10 +310,6 @@
         },
         {
           selector: '.vxr-obj-maskn95',
-          component: 'dynamic-body'
-        },
-        {
-          selector: '.vxr-obj-maskn95',
           component: 'position'
         },
         {
@@ -311,10 +320,7 @@
           selector: '.vxr-obj-alcoholbottle',
           component: 'position'
         },
-        {
-          selector: '.vxr-obj-alcoholbottle',
-          component: 'dynamic-body'
-        },
+     
         {
           selector: '.vxr-obj-tray',
           component: 'rotation'
@@ -322,10 +328,6 @@
         {
           selector: '.vxr-obj-tray',
           component: 'position'
-        },
-        {
-          selector: '.vxr-obj-tray',
-          component: 'dynamic-body'
         },
         {
           selector: '.vxr-obj-b',
