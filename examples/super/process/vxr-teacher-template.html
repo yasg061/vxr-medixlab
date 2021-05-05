@@ -24,6 +24,9 @@
   <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 
+  <script src="../../js/set-name.component.js"></script>
+  <script src="../../js/set-name-teacher.component.js"></script>
+  <script src="../../js/set-name-student.component.js"></script>
   <!-- ownership transfer dependencies -->
 
   <script src="../../js/spawner.component.js"></script>
@@ -31,6 +34,54 @@
   <script src="../../js/rotator.component.js"></script>
   <script src="../../js/input.component.js"></script>
   <script src="../../js/avatar-body.component.js"></script>
+
+  <script>
+    AFRAME.registerComponent('assign-seat', {
+      schema: {
+        position: {
+          x: 0, 
+          y: 0, 
+          z: 0
+        }
+      },
+
+      init: function () {
+        var data = this.data;
+        var el = this.el;
+
+        // Sets spectator avatar position 
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const spawn = urlParams.get('spawn')
+        const theaterSlots = [
+          {
+            identifier: '1',
+            position: { x: 0, y: 2.5, z: 4 }
+          },
+          {
+            identifier: '2',
+            position: { x: 4, y: 4, z: 4 }
+          },
+          {
+            identifier: '3',
+            position: { x: -4, y: 5, z: 5.5 }
+          },
+          {
+            identifier: '4',
+            position: { x: 0, y: 6.3, z: 8 }
+          },
+          {
+            identifier: '5',
+            position: { x: 3, y: 7, z: 9 }
+          },
+        ]
+
+        let slotFound = theaterSlots.find(x => x.identifier === spawn);
+        let slotPosition = slotFound.position
+        el.setAttribute('position', slotPosition)
+      }
+    })
+  </script>
 
   <script>
     function spawentity() {
@@ -124,6 +175,7 @@
       <!-- Teacher Avatar Constraints -->
       <template id="constraint-teacher-avatar-template">
         <a-entity>
+          <a-entity class="name-up-teacher"></a-entity>
           <a-entity class="TeacherAvatarBody" id="teacherbody" gltf-model="#TeacherAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
           <a-entity class="TeacherAvatarHead" id="teacherhead"  gltf-model="#TeacherAvatarHead" static-body avatar-body="body:#teacherbody; id:#teacherbody"></a-entity>
         </a-entity>
@@ -132,10 +184,20 @@
       <!-- Student Avatar Constraints -->
       <template id="constraint-student-avatar-template">
         <a-entity>
+          <a-entity class="name-up-student"></a-entity>
           <a-entity class="StudentAvatarBody" id="studentbody" gltf-model="#StudentAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
           <a-entity class="StudentAvatarHead" id="studenthead"  gltf-model="#StudentAvatarHead" static-body avatar-body="body:#studentbody; id:#studentbody"></a-entity>
         </a-entity>
       </template>
+
+      <!-- Spectator Avatar Constraints -->
+      <template id="constraint-spectator-avatar-template">
+        <a-entity>
+          <a-entity class="name-up"></a-entity>
+          <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>
+        </a-entity>
+      </template> 
 
       <!-- Right Hand -->
       <template id="right-hand-template">
@@ -201,12 +263,11 @@
       <a-entity class="vxr-obj-template" position="0 1.5 -0.2"></a-entity>
       <!-- <a-entity class="constraint-avatar-template" position="0 3 2"></a-entity> -->
 
-      <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
+<a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
         rotation="0 180 0" movement-controls>
         <a-entity camera position="0 3 0.2" look-controls zoom="100" fov="120"
           networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
         </a-entity>
-
         <!-- /VIVE CONTROLLERS -->
         <a-entity id="lhand" mixin="touch" input-controls=" hand: left" networked="template:#left-hand-template"></a-entity>
         <a-entity id="rhand" mixin="touch" input-controls="hand: right" networked="template:#right-hand-template"></a-entity>
