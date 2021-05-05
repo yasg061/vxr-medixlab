@@ -170,16 +170,7 @@
       <template id="teacher-avatar-template">
         <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar"></a-entity>
       </template>
-
-      <!-- Spectator Avatar Constraints -->
-      <template id="constraint-spectator-avatar-template">
-        <a-entity>
-          <a-entity class="name-up"></a-entity>
-          <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
-          <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>
-        </a-entity>
-      </template>    
-
+      
       <!-- Spectator Avatar -->
       <template id="spectator-avatar-template">
         <a-entity></a-entity>
@@ -188,6 +179,7 @@
       <!-- Teacher Avatar Constraints -->
       <template id="constraint-teacher-avatar-template">
         <a-entity>
+          <a-entity class="name-up"></a-entity>
           <a-entity class="TeacherAvatarBody" id="teacherbody" gltf-model="#TeacherAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
           <a-entity class="TeacherAvatarHead" id="teacherhead"  gltf-model="#TeacherAvatarHead" static-body avatar-body="body:#teacherbody; id:#teacherbody"></a-entity>
         </a-entity>
@@ -196,8 +188,18 @@
       <!-- Student Avatar Constraints -->
       <template id="constraint-student-avatar-template">
         <a-entity>
+          <a-entity class="name-up"></a-entity>
           <a-entity class="StudentAvatarBody" id="studentbody" gltf-model="#StudentAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
           <a-entity class="StudentAvatarHead" id="studenthead"  gltf-model="#StudentAvatarHead" static-body avatar-body="body:#studentbody; id:#studentbody"></a-entity>
+        </a-entity>
+      </template>
+
+      <!-- Spectator Avatar Constraints -->
+      <template id="constraint-spectator-avatar-template">
+        <a-entity>
+          <a-entity class="name-up"></a-entity>
+          <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>
         </a-entity>
       </template>
 

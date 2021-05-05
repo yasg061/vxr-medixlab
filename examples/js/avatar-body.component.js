@@ -11,7 +11,7 @@ AFRAME.registerComponent('avatar-body', {
     console.log("body", data.body);
     console.log("ROTATION HEAD" + this.el.object3D.rotation.y);
     el.setAttribute('constraint',
-                    'type: coneTwist; maxForce: 1; target:' + data.id + ';pivot: 0.0 -0.140 0.0; targetPivot: 0.0 -0.125 0.0; axis: 0.0 0.1 0.0; targetAxis: 0.0 0.1 0.0; wakeUpBodies: false');
+                    'type: coneTwist; maxForce: 10; target:' + data.id + ';pivot: 0.0 -0.140 0.0; targetPivot: 0.0 -0.125 0.0; axis: 0.0 0.1 0.0; targetAxis: 0.0 0.1 0.0; wakeUpBodies: false');
   },
   tick: function () {
     var data = this.data;
