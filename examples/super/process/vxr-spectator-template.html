@@ -160,6 +160,7 @@
       <a-asset-item id="StudentAvatarBody" src="assets/avatars/StudentAvatarBody.gltf"></a-asset-item>
       <a-asset-item id="TeacherAvatarHead" src="assets/avatars/TeacherAvatarHead.gltf"></a-asset-item>
       <a-asset-item id="TeacherAvatarBody" src="assets/avatars/TeacherAvatarBody.gltf"></a-asset-item>
+      <a-asset-item id="SpectatorAvatar" src="assets/avatars/SpectatorAvatar.gltf"></a-asset-item>
 
       <!-- Theater -->
       <img id="shadow" src="https://cdn.glitch.com/20600112-c04b-492c-8190-8a5ccc06f37d%2Fshadow.png?v=1606338852399"></img>
@@ -223,9 +224,9 @@
       <template id="constraint-spectator-avatar-template">
         <a-entity>
           <a-entity class="name-up"></a-entity>
-          <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
-          <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>
-        </a-entity>
+          <a-entity class="SpectatorAvatar" id="spectator" gltf-model="#SpectatorAvatar"></a-entity>
+          <!-- <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>        </a-entity> -->
       </template>
 
       <!-- Right Hand -->
