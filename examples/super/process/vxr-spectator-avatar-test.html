@@ -180,8 +180,7 @@
 
       <!-- Spectator Avatar -->
       <template id="spectator-avatar-template">
-        <a-entity>
-        </a-entity>
+        <a-entity></a-entity>
       </template>
 
       <!-- Nurse Constraints -->
@@ -326,16 +325,16 @@
         ]
     });
     NAF.schemas.add({
-        template: '#constraint-spectator-avatar-template',
-        components: [
-          'position',
-          'rotation',
-          {
-            selector: '.name-up',
-            component: 'name-up'     
-          },
-        ]
-      });
+      template: '#constraint-spectator-avatar-template',
+      components: [
+        'position',
+        'rotation',
+        {
+          selector: '.name-up',
+          component: 'name-up'     
+        },
+      ]
+    });
     NAF.schemas.add({
       template: '#constraint-avatar-template',
       components: [
