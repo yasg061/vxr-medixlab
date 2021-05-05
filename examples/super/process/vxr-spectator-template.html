@@ -16,6 +16,8 @@
   <script
     src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
   <script src="/js/spawn-in-circle.component.js"></script>
+  ​​<script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script> 
+
 
   <!-- Super hands -->
   <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.js"></script>
@@ -24,6 +26,8 @@
   <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 
+  <script src="../../js/set-name.component.js"></script>
+
   <!-- ownership transfer dependencies -->
 
   <script src="../../js/spawner.component.js"></script>
@@ -31,6 +35,54 @@
   <script src="../../js/rotator.component.js"></script>
   <script src="../../js/input.component.js"></script>
   <script src="../../js/avatar-body.component.js"></script>
+
+  <script>
+    AFRAME.registerComponent('assign-seat', {
+      schema: {
+        position: {
+          x: 0, 
+          y: 0, 
+          z: 0
+        }
+      },
+
+      init: function () {
+        var data = this.data;
+        var el = this.el;
+
+        // Sets spectator avatar position 
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const spawn = urlParams.get('spawn')
+        const theaterSlots = [
+          {
+            identifier: '1',
+            position: { x: 0, y: 2.5, z: 4 }
+          },
+          {
+            identifier: '2',
+            position: { x: 4, y: 4, z: 4 }
+          },
+          {
+            identifier: '3',
+            position: { x: -4, y: 5, z: 5.5 }
+          },
+          {
+            identifier: '4',
+            position: { x: 0, y: 6.3, z: 8 }
+          },
+          {
+            identifier: '5',
+            position: { x: 3, y: 7, z: 9 }
+          },
+        ]
+
+        let slotFound = theaterSlots.find(x => x.identifier === spawn);
+        let slotPosition = slotFound.position
+        el.setAttribute('position', slotPosition)
+      }
+    })
+  </script>
 
   <script>
     function spawentity() {
@@ -64,6 +116,9 @@
       onConnect: spawentity;
     ">
     <a-assets>
+      <a-asset-item id="SpectatorAvatarHead" src="assets/SpectatorAvatarHead.gltf"></a-asset-item>
+      <a-asset-item id="SpectatorAvatarBody" src="assets/SpectatorAvatarBody.gltf"></a-asset-item>
+      
       <!-- <a-asset-item id="htc" src="../assets/vr_controller_vive.obj"></a-asset-item> -->
       <a-asset-item id="maskn95" src="assets/MaskN95.gltf"></a-asset-item>
       <a-asset-item id="table" src="assets/Bandeja.gltf"></a-asset-item>
@@ -114,9 +169,18 @@
         <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar"></a-entity>
       </template>
 
+      <!-- Spectator Avatar Constraints -->
+      <template id="constraint-spectator-avatar-template">
+        <a-entity>
+          <a-entity class="name-up"></a-entity>
+          <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>
+        </a-entity>
+      </template>    
+
       <!-- Spectator Avatar -->
       <template id="spectator-avatar-template">
-        <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar"></a-entity>
+        <a-entity></a-entity>
       </template>
 
       <!-- Nurse Constraints -->
@@ -218,15 +282,13 @@
 
       <!-- <a-entity class="constraint-avatar-template" position="0 3 2"></a-entity> -->
 
-      <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
-        rotation="0 180 0" movement-controls>
-        <a-entity camera position="0 3 0.2" look-controls zoom="100" fov="120"
-          networked="template:#constraint-avatar-template;attachTemplateToLocal:false;">
+      <a-entity id="spectator"
+        position="-2.9119 2.18025 -2.79791"
+        assign-seat
+      >
+        <a-entity id="constraint-spectator" camera position="0 3 0.2" look-controls zoom="100" fov="120">
+          <a-entity class="name-up" name-up></a-entity>
         </a-entity>
-
-        <!-- /VIVE CONTROLLERS -->
-        <a-entity id="lhand" mixin="touch" input-controls=" hand: left" networked="template:#left-hand-template"></a-entity>
-        <a-entity id="rhand" mixin="touch" input-controls="hand: right" networked="template:#right-hand-template"></a-entity>
       </a-entity>
       
       <!-- <a-entity class="syncup" position="0 1 0"></a-entity>
@@ -262,6 +324,17 @@
         'rotation'
       ]
     });    
+    NAF.schemas.add({
+      template: '#constraint-spectator-avatar-template',
+      components: [
+        'position',
+        'rotation',
+        {
+          selector: '.name-up',
+          component: 'name-up'     
+        },
+      ]
+    });
     NAF.schemas.add({
       template: '#constraint-avatar-template',
       components: [
