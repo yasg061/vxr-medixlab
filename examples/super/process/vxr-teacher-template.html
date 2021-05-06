@@ -191,13 +191,20 @@
       </template>
 
       <!-- Spectator Avatar Constraints -->
-      <template id="constraint-spectator-avatar-template">
+      <!-- <template id="constraint-spectator-avatar-template">
         <a-entity>
           <a-entity class="name-up"></a-entity>
           <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
           <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>
         </a-entity>
-      </template> 
+      </template>  -->
+      <template id="constraint-spectator-avatar-template">
+        <a-entity>
+          <a-entity class="name-up"></a-entity>
+          <a-entity class="SpectatorAvatar" id="spectator" gltf-model="#SpectatorAvatar"></a-entity>
+          <!-- <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>        </a-entity> -->
+      </template>
 
       <!-- Right Hand -->
       <template id="right-hand-template">
@@ -233,6 +240,18 @@
           <a-entity class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" dynamic-body draggable grabbable toggle-physics position="-0.4 2 0"></a-entity>
           <a-entity class="vxr-obj-tray vxr-interact" gltf-model="#tray" dynamic-body draggable grabbable toggle-physics position="0 2 -0.2"></a-entity>
         </a-entity>
+      </template>
+
+      <template id="audience">
+        <a-entity id="spectator"
+        position="-2.9119 2.18025 -2.79791"
+        assign-seat>
+
+        <a-entity id="constraint-spectator" camera position="0 3 0.2" look-controls zoom="100" fov="120">
+          <a-entity class="name-up" name-up></a-entity>
+        </a-entity>
+      </a-entity>
+
       </template>
 
     </a-assets>
@@ -299,7 +318,18 @@
         'position',
         'rotation'
       ]
-    });    
+    });  
+    NAF.schemas.add({
+      template: '#constraint-spectator-avatar-template',
+      components: [
+        'position',
+        'rotation',
+        {
+          selector: '.name-up',
+          component: 'name-up'     
+        },
+      ]
+    });  
     NAF.schemas.add({
       template: '#constraint-teacher-avatar-template',
       components: [

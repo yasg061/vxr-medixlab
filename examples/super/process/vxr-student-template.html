@@ -194,10 +194,10 @@
       <template id="constraint-spectator-avatar-template">
         <a-entity>
           <a-entity class="name-up"></a-entity>
-          <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
-          <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>
-        </a-entity>
-      </template> 
+          <a-entity class="SpectatorAvatar" id="spectator" gltf-model="#SpectatorAvatar"></a-entity>
+          <!-- <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>        </a-entity> -->
+      </template>
 
       <!-- Right Hand -->
       <template id="right-hand-template">
