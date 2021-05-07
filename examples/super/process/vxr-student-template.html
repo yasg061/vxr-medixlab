@@ -164,6 +164,8 @@
       <a-asset-item id="StudentAvatarBody" src="assets/avatars/StudentAvatarBody.gltf"></a-asset-item>
       <a-asset-item id="TeacherAvatarHead" src="assets/avatars/TeacherAvatarHead.gltf"></a-asset-item>
       <a-asset-item id="TeacherAvatarBody" src="assets/avatars/TeacherAvatarBody.gltf"></a-asset-item>
+      <a.asser-item id="student" src="assets/StudentNurseAvatar.gltf"></a.asser-item>
+      <a.asser-item id="teacher" src="assets/TeacherAvatar.gltf"></a.asser-item>
 
       <!-- Theater -->
       <img id="shadow" src="https://cdn.glitch.com/20600112-c04b-492c-8190-8a5ccc06f37d%2Fshadow.png?v=1606338852399"></img>
@@ -216,8 +218,9 @@
       <template id="constraint-teacher-avatar-template">
         <a-entity>
           <a-entity class="name-up-teacher"></a-entity>
-          <a-entity class="TeacherAvatarBody" id="teacherbody" gltf-model="#TeacherAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
-          <a-entity class="TeacherAvatarHead" id="teacherhead"  gltf-model="#TeacherAvatarHead" static-body avatar-body="body:#teacherbody; id:#teacherbody"></a-entity>
+          <a-entity class="TeacherAvatar" id="teacher" gltf-model="#teacher"></a-entity> 
+          <!-- <a-entity class="TeacherAvatarBody" id="teacherbody" gltf-model="#TeacherAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="TeacherAvatarHead" id="teacherhead"  gltf-model="#TeacherAvatarHead" static-body avatar-body="body:#teacherbody; id:#teacherbody"></a-entity> -->
         </a-entity>
       </template>
 
@@ -225,8 +228,9 @@
       <template id="constraint-student-avatar-template">
         <a-entity>
           <a-entity class="name-up-student"></a-entity>
-          <a-entity class="StudentAvatarBody" id="studentbody" gltf-model="#StudentAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
-          <a-entity class="StudentAvatarHead" id="studenthead"  gltf-model="#StudentAvatarHead" static-body avatar-body="body:#studentbody; id:#studentbody"></a-entity>
+          <a-entity class="StudentAvatar" id="student" gltf-model="#student"></a-entity> 
+          <!-- <a-entity class="StudentAvatarBody" id="studentbody" gltf-model="#StudentAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="StudentAvatarHead" id="studenthead"  gltf-model="#StudentAvatarHead" static-body avatar-body="body:#studentbody; id:#studentbody"></a-entity> -->
         </a-entity>
       </template>
 
@@ -336,7 +340,7 @@
                 position="-10.70804 9.99225 -6.71406" rotation="-8.631036225850721 17.92269278948728 120.1635735838119"></a-entity>
       
       <!-- <a-entity class="constraint-avatar-template" position="0 3 2"></a-entity> -->
-      <a-entity id="player"  class="name-up" name-up networked="template:#player-template;attachTemplateToLocal:true;" position="0 0.8 -2"
+<a-entity id="player"   networked="template:#player-template;attachTemplateToLocal:true;" position="0 0.8 -2"
       rotation="0 180 0" movement-controls>
       <a-entity camera position="0 3 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-student-avatar-template;attachTemplateToLocal:false;">
