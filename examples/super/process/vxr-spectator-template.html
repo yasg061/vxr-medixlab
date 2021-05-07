@@ -57,52 +57,52 @@
         const theaterSlots = [
           {
             identifier: '1',
-            position: { x: -0.5, y: 0, z: -2 },
+            position: { x: -1, y: -0.5, z: -2 },
           },
           {
             identifier: '2',
-            position: { x: 3, y: 0, z: 0 }
+            position: { x: 3, y: -0.5, z: 0 }
           },
           {
             identifier: '3',
-            position: { x: 1.1, y: 0, z: 6 }
+            position: { x: 2, y: -1, z: 5 }
           },
           {
             identifier: '4',
-            position: { x: 4.5, y: 0, z: 4 }
+            position: { x: -2, y: -1, z: 5 }
           },
           {
             identifier: '5',
-            position: { x: 6, y: 0, z: 1 }
+            position: { x: 6, y: -0.5, z: 1.5 }
           },
           {
             identifier: '6',
-            position: { x: 1.5, y: 2, z: 8 }
+            position: { x: 0, y: 0, z: 7 }
           },
           {
             identifier: '7',
-            position: { x: -3.6, y: 2, z: 7.5 }
+            position: { x: -3, y: 0.5, z: 8 }
           },
           {
             identifier: '8',
-            position: { x: -5, y: 0, z: 3 }
+            position: { x: -5, y: -1, z: 3 }
           },
           {
             identifier: '9',
-            position: { x: -6, y: 1.5, z: -3 }
+            position: { x: -7, y: -0.5, z: 1.5 }
           },
           {
             identifier: '10',
-            position: { x: -6, y: 2, z: -5.4}//
+            position: { x: -2, y: 1, z: 10}
           },
           {
             identifier: '11',
-            position: { x: -4.5, y: 4, z: 9 }
+            position: { x: 9, y: 1, z: 3.5 }
           },
           {
             identifier: '12',
-            position: { x: 4.5, y: 3.5, z: 7.5}
-          },
+            position: { x: 2, y: 1, z: 10}
+          }
         ]
 
         let slotFound = theaterSlots.find(x => x.identifier === spawn);
@@ -162,7 +162,7 @@
       <a-asset-item id="right-hand" src="assets/rightHandHigh.glb"></a-asset-item>
       <a-asset-item id="left-hand" src="assets/leftHandHigh.glb"></a-asset-item>
 
-      <!-- Avatasr -->
+      <!-- Avatars -->
       <a-asset-item id="StudentAvatarHead" src="assets/avatars/StudentAvatarHead.gltf"></a-asset-item>
       <a-asset-item id="StudentAvatarBody" src="assets/avatars/StudentAvatarBody.gltf"></a-asset-item>
       <a-asset-item id="TeacherAvatarHead" src="assets/avatars/TeacherAvatarHead.gltf"></a-asset-item>
@@ -283,9 +283,10 @@
       </a-light>
 
       <!-- Static Objects -->
-      <a-entity class="gltf" gltf-model="#table" position="-1.5 0.5 0" rotation="0 0 0" static-body></a-entity>
-      <a-entity class="gltf" gltf-model="#table"  position="-0.13 0.5 0" rotation="0 0 0" static-body></a-entity>
-      <a-entity class="gltf" gltf-model="#bed" position="1.2 0.5 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#table" position="-1.5 1 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#table"  position="-0.13 1 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#bed" position="1.2 1 0" rotation="0 0 0" static-body></a-entity>
+      
 
       <!-- Theater Objects -->
       <a-entity id="frontwall01" gltf-model="#frontwall"; scale="1 1 1" position="0 0 -1.12569" material="color: brown" rotation="0 0 0"></a-entity>
@@ -303,14 +304,14 @@
       <a-entity id="video02" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: cylinder; radius: 12; height: 9; open-ended: true; theta-start: 142.5; theta-length: 75;" position="-6.78489 9.53579 2.80905" rotation="0 113.18 0" scale="-0.63 0.63 0.63" ></a-entity>
       <a-entity id="video03" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: cylinder; radius: 12; height: 9; open-ended: true; theta-start: 142.5; theta-length: 75;" position="6.62327 10.14089 2.98023" rotation="0 -113.18 0" scale="-0.63 0.63 0.63" ></a-entity>
       <a-entity id="video04" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: cylinder; radius: 12; height: 9; open-ended: true; theta-start: 142.5; theta-length: 75;" position="0.19734 9.75257 7.47539" rotation="0 180 0" scale="-0.63 0.63 0.63" ></a-entity>
-      <a-entity id="walls01" gltf-model="#walls"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
-
+    
       <!-- Theater Lights -->
       <a-entity background="color: #92f2ff"></a-entity>
-      <a-entity light="intensity: 0.5; type: ambient; castShadow: true" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
-      <a-entity light="color: #00c6ff; intensity: 0.84; penumbra: 0.52; type: spot" id="spot3"
+
+      <a-entity light="intensity: 0.1; type: ambient; castShadow: true" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
+      <a-entity light="color: #00c6ff; intensity: 0.20; penumbra: 0.82; type: spot" id="spot3"
                 position="0.3934 10.52133 1.73383" rotation="-73.57408343054415 179.9998479605043 0"></a-entity>
-      <a-entity light="color: #ffffff; penumbra: 0.51; type: point; castShadow: true; intensity: 0.34" id="light01"
+      <a-entity light="color: #ffffff; penumbra: 0.81; type: point; castShadow: true; intensity: 0.34" id="light01"
                 position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
       
 
