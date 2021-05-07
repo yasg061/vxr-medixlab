@@ -15,32 +15,25 @@
     <script src="/js/set-name.component.js"></script>
 
     <script>
-      AFRAME.registerComponent('change-color1', {
-        init: function(){
-            let el = this.el;
-            let self = this;
-            self.trees = [];              
-            el.addEventListener("model-loaded", e =>{
-                let tree3D = el.getObject3D('mesh'); // get the THREEjs group
-                if (!tree3D){return;}    
-                console.log('tree3D', tree3D); // log the THREEjs group so you can look at all of its contents and parameters.
-                                          
-                tree3D.traverse(function(node){ // this is how you loop through (traverse) the models                                                 
-                    if (node.isMesh){   
-                      console.log(node);
-                        self.trees.push(node);
-                      if(node.name == "Trunk_A"){
-                        self.treeMat = node.material; // store a reference to the material you want to modify later
-                                         
-                      }
-                      node.material.map = null; // removes the texture so we can see color clearly                              
-                    }
-                });
+      AFRAME.registerComponent('modify-materials', {
+        init: function () {
+          // Wait for model to load.
+          this.el.addEventListener('model-loaded', () => {
+            const colors = ['red', 'blue', 'yellow', 'purple', 'green', 'black', 'cyan', 'white']
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            console.log('model-loaded')
+            // Grab the mesh / scene.
+            const obj = this.el.getObject3D('mesh');
+            // Go over the submeshes and modify materials we want.
+            obj.traverse(node => {
+              console.log(node);
+              if (node.name.indexOf('T_Shirt_male001') !== -1 ) {
+                node.material.color.set(color);
+              }
             });
-            let color3D = new THREE.Color(0xff0000);
-            self.treeMat.color = color3D;  
+          });
         }
-      })
+      });
     </script>
   </head>
   <body>
@@ -58,7 +51,7 @@
         <!-- Templates -->
           <!-- Spectator Avatar -->
         <template id="spectator-avatar-template">
-          <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" id="spectator3"></a-entity>
+          <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" id="spectator4"></a-entity>
         </template>
 
         <!-- Avatar -->
@@ -99,18 +92,18 @@
         <!-- /Templates -->
       </a-assets>
 
-      <a-entity id="spectator"
+      <!-- <a-entity id="spectator"
         position="-2.9119 2.18025 -2.79791"
         assign-seat
       >
-        <a-entity id="spectator2" class="SpectatorAvatar" gltf-model="#SpectatorAvatar"></a-entity>
-      </a-entity>
+        <a-entity id="spectator2" class="SpectatorAvatar" gltf-model="#SpectatorAvatar" modify-materials></a-entity>
+      </a-entity> -->
 
       <a-entity id="spectator"
         position="-2.9119 2.18025 -2.79791"
         assign-seat
       >
-        <a-entity id="spectator4" class="SpectatorAvatar" gltf-model="#SpectatorAvatar"></a-entity>
+        <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" modify-materials></a-entity>
       </a-entity>
 
       <!-- <a-entity id="player"
