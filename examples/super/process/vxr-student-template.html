@@ -141,7 +141,7 @@
 <body>
   <a-scene physics networked-scene="
       room: audio;
-      adapter: wseasyrtc;
+      adapter: easyrtc;
       audio: true;
       debug: true;
       onConnect: spawnentity;
@@ -408,6 +408,17 @@
         'rotation'
       ]
     });
+    NAF.schemas.add({
+      template: '#constraint-spectator-avatar-template',
+      components: [
+        'position',
+        'rotation',
+        {
+          selector: '.name-up',
+          component: 'name-up'     
+        },
+      ]
+    }); 
     NAF.schemas.add({
       template: '#vxr-obj-template',
       components: [
