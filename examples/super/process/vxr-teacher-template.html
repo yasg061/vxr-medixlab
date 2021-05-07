@@ -111,6 +111,8 @@
         el.setAttribute('position', slotPosition)
       }
     })
+
+    
   </script>
 
   <script>
@@ -139,10 +141,11 @@
 
 <body>
   <a-scene physics networked-scene="
-      room: handsvive;
+      room: audio;
+      adapter: easyrtc;
+      audio: true;
       debug: true;
-      adapter: wseasyrtc;
-      onConnect: spawentity;
+      onConnect: spawnentity;
     ">
     <a-assets>
       <!-- <a-asset-item id="htc" src="../assets/vr_controller_vive.obj"></a-asset-item> -->
@@ -197,17 +200,17 @@
       ​
       <!-- Nurse Avatar -->
       <template id="student-avatar-template">
-        <a-entity class="NurseHeadAvatar" gltf-model="#StudentAvatar" position="0 2 0"></a-entity>
+        <a-entity class="NurseHeadAvatar" gltf-model="#StudentAvatar" position="0 2 0" networked-audio-source></a-entity>
       </template>
 
       <!-- Teacher Avatar -->
       <template id="teacher-avatar-template">
-        <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar"></a-entity>
+        <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar" networked-audio-source></a-entity>
       </template>
 
       <!-- Spectator Avatar -->
       <template id="spectator-avatar-template">
-        <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar"></a-entity>
+        <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" networked-audio-source></a-entity>
       </template>
 
       <!-- Teacher Avatar Constraints -->
