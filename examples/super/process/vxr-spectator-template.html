@@ -115,7 +115,7 @@
   </script>
 
   <script>
-    function spawentity() {
+    function spawnentity() {
       let syncs = document.getElementsByClassName("syncup");
       let vxr_obj_template = document.getElementsByClassName("vxr-obj-template");
       let constraint_avatar_template = document.getElementsByClassName("constraint-avatar-template");
@@ -141,7 +141,7 @@
 <body>
   <a-scene physics networked-scene="
       room: audio;
-      adapter: easyrtc;
+      adapter: wseasyrtc;
       audio: true;
       debug: true;
       onConnect: spawnentity;
