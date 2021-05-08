@@ -31,7 +31,7 @@
   <script src="../../js/input.component.js"></script>
 
   <script>
-    function spawentity() {
+    function spawnentity() {
       let syncs = document.getElementsByClassName("syncup");
       let vxr_obj_template = document.getElementsByClassName("vxr-obj-template");
       for (let i = 0; i < syncs.length; ++i) {
@@ -59,7 +59,7 @@
       room: handsvive;
       debug: true;
       adapter: wseasyrtc;
-      onConnect: spawentity;
+      onConnect: spawnentity;
     ">
     <a-assets>
       <!-- <a-asset-item id="htc" src="../assets/vr_controller_vive.obj"></a-asset-item> -->

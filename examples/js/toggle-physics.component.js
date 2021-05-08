@@ -4,7 +4,7 @@
  * When you press enter take ownership of the entity,
  * spin it in the opposite direction and change its color.
  */
-AFRAME.registerComponent('toggle-physics', {
+ AFRAME.registerComponent('toggle-physics', {
   schema: {
     speed: { default: 0.01 },
     direction: { default: 1 }
@@ -42,7 +42,7 @@ AFRAME.registerComponent('toggle-physics', {
 
       el.addEventListener('ownership-gained', e => {
         that.updateOpacity(1);
-        that.el.setAttribute('dynamic-body');           
+        that.el.setAttribute('dynamic-body','');           
       });
 
       el.addEventListener('ownership-lost', e => {
@@ -58,6 +58,8 @@ AFRAME.registerComponent('toggle-physics', {
           //same as listening to 'ownership-gained'
         } else if (e.detail.oldOwner == NAF.clientId) {
           //same as listening to 'ownership-lost'
+          that.el.removeAttribute('dynamic-body');   
+
         } else {
           that.updateOpacity(0.8);
           timeout = setTimeout(() => {

@@ -27,8 +27,7 @@
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 
   <script src="../../js/set-name.component.js"></script>
-  <script src="../../js/set-name-teacher.component.js"></script>
-  <script src="../../js/set-name-student.component.js"></script>
+  
   <!-- ownership transfer dependencies -->
 
   <script src="../../js/spawner.component.js"></script>
@@ -58,52 +57,52 @@
         const theaterSlots = [
         {
             identifier: '1',
-            position: { x: -0.5, y: 0, z: -2 },
+            position: { x: -1, y: -0.5, z: -2 },
           },
           {
             identifier: '2',
-            position: { x: 3, y: 0, z: 0 }
+            position: { x: 3, y: -0.5, z: 0 }
           },
           {
             identifier: '3',
-            position: { x: 1.1, y: 0, z: 6 }
+            position: { x: 2, y: -1, z: 5 }
           },
           {
             identifier: '4',
-            position: { x: 4.5, y: 0, z: 4 }
+            position: { x: -2, y: -1, z: 5 }
           },
           {
             identifier: '5',
-            position: { x: 6, y: 0, z: 1 }
+            position: { x: 6, y: -0.5, z: 1.5 }
           },
           {
             identifier: '6',
-            position: { x: 1.5, y: 2, z: 8 }
+            position: { x: 0, y: 0, z: 7 }
           },
           {
             identifier: '7',
-            position: { x: -3.6, y: 2, z: 7.5 }
+            position: { x: -3, y: 0.5, z: 8 }
           },
           {
             identifier: '8',
-            position: { x: -5, y: 0, z: 3 }
+            position: { x: -5, y: -1, z: 3 }
           },
           {
             identifier: '9',
-            position: { x: -6, y: 1.5, z: -3 }
+            position: { x: -7, y: -0.5, z: 1.5 }
           },
           {
             identifier: '10',
-            position: { x: -6, y: 2, z: -5.4}//
+            position: { x: -2, y: 1, z: 10}
           },
           {
             identifier: '11',
-            position: { x: -4.5, y: 4, z: 9 }
+            position: { x: 9, y: 1, z: 3.5 }
           },
           {
             identifier: '12',
-            position: { x: 4.5, y: 3.5, z: 7.5}
-          },
+            position: { x: 2, y: 1, z: 10}
+          }
         ]
 
         let slotFound = theaterSlots.find(x => x.identifier === spawn);
@@ -116,7 +115,7 @@
   </script>
 
   <script>
-    function spawentity() {
+    function spawnentity() {
       let syncs = document.getElementsByClassName("syncup");
       let vxr_obj_template = document.getElementsByClassName("vxr-obj-template");
       let constraint_avatar_template = document.getElementsByClassName("constraint-avatar-template");
@@ -132,7 +131,7 @@
     }
   </script>
 
-<script  src="https://rawgit.com/fernandojsg/aframe-input-mapping-component/master/dist/aframe-input-mapping-component.min.js"></script>
+<!-- <script  src="https://rawgit.com/fernandojsg/aframe-input-mapping-component/master/dist/aframe-input-mapping-component.min.js"></script> -->
 <script src="https://unpkg.com/aframe-log-component/dist/aframe-log-component.min.js"></script> 
 
 
@@ -153,6 +152,7 @@
       <a-asset-item id="table" src="../../Models/gltf/Bandeja.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="assets/AlcoholBottle.gltf"></a-asset-item>
       <a-asset-item id="bed" src="../../Models/gltf/Bed.gltf"></a-asset-item>
+      <a.asser-item id="patient" src="../../Models/gltf/Patient.gltf"></a.asser-item>
       <a-asset-item id="tray" src="assets/Tray.gltf"></a-asset-item>
       <a-asset-item id="StudentAvatar" src="assets/StudentNurseAvatar.gltf"></a-asset-item>
       <a-asset-item id="SpectatorAvatar" src="assets/SpectatorAvatar.gltf"></a-asset-item>
@@ -160,24 +160,27 @@
       <a-asset-item id="right-hand" src="assets/rightHandHigh.glb"></a-asset-item>
       <a-asset-item id="left-hand" src="assets/leftHandHigh.glb"></a-asset-item>
 
-      <!-- Avatasr -->
+      <!-- Avatars -->
       <a-asset-item id="StudentAvatarHead" src="assets/avatars/StudentAvatarHead.gltf"></a-asset-item>
       <a-asset-item id="StudentAvatarBody" src="assets/avatars/StudentAvatarBody.gltf"></a-asset-item>
       <a-asset-item id="TeacherAvatarHead" src="assets/avatars/TeacherAvatarHead.gltf"></a-asset-item>
       <a-asset-item id="TeacherAvatarBody" src="assets/avatars/TeacherAvatarBody.gltf"></a-asset-item>
+      <a.asser-item id="student" src="assets/StudentNurseAvatar.gltf"></a.asser-item>
+      <a.asser-item id="teacher" src="assets/TeacherAvatar.gltf"></a.asser-item>
 
       <!-- Theater -->
       <img id="shadow" src="https://cdn.glitch.com/20600112-c04b-492c-8190-8a5ccc06f37d%2Fshadow.png?v=1606338852399"></img>
-      <a.asser-item id="scenebase" src="../../Models/gltf/Scene_Base.gltf"></a.asser-item>
-      <a.asser-item id="scenebase02" src="../../Models/gltf/Scene_Base02.gltf"></a.asser-item>
+      <a.asser-item id="scenebase" src="/Models/gltf/Scene_Base.gltf"></a.asser-item>
       <a.asser-item id="scenemedixlablogo" src="/Models/gltf/Scene_Medixlablogo.gltf"></a.asser-item>
       <a.asser-item id="sceneieproeslogo" src="/Models/gltf/Scene_Ieproesblogo.gltf"></a.asser-item>
       <a.asser-item id="scenevertexlogo" src="/Models/gltf/Scene_VertexLogo.gltf"></a.asser-item>
-      <a.asser-item id="scenebase02" src="../../Models/gltf/Scene_Base02.gltf"></a.asser-item>
-      <a.asser-item id="row" src="../../Models/gltf/Scene_Row.gltf"></a.asser-item>
-      <a.asser-item id="washer" src="../../Models/gltf/Washer.gltf"></a.asser-item>
-      <a.asser-item id="lamps" position="0 0 -12.41576" src="/Models/gltf/Scene_Lamps.gltf"></a.asser-item>
-      <a.asser-item id="walls" src="/Models/gltf/Scene_Walls.gltf"></a.asser-item>
+      <a.asser-item id="scenebase02" src="/Models/gltf/Base_Auditorium.gltf"></a.asser-item>
+      <a.asser-item id="stairsprincipal" src="/Models/gltf/Stairs_Auditorium.gltf"></a.asser-item>
+      <a.asser-item id="ministairs" src="/Models/gltf/Mini_Stairs_Auditorium.gltf"></a.asser-item>
+      <a.asser-item id="roofauditorium" src="/Models/gltf/Roof_Auditorium.gltf"></a.asser-item>
+      <a.asser-item id="columns" src="/Models/gltf/Columns_Auditorium.gltf"></a.asser-item>
+      <a.asser-item id="frontwall" src="/Models/gltf/FrontWall_Auditorium.gltf"></a.asser-item>
+      <a-video id="canalizacion" src="/videos/Test.mp4" autoplay loop="true"></a-video>
 
       <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false"
         static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
@@ -217,8 +220,9 @@
       <template id="constraint-teacher-avatar-template">
         <a-entity>
           <a-entity class="name-up-teacher"></a-entity>
-          <a-entity class="TeacherAvatarBody" id="teacherbody" gltf-model="#TeacherAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
-          <a-entity class="TeacherAvatarHead" id="teacherhead"  gltf-model="#TeacherAvatarHead" static-body avatar-body="body:#teacherbody; id:#teacherbody"></a-entity>
+          <a-entity class="TeacherAvatar" id="teacher" gltf-model="#teacher"></a-entity> 
+          <!-- <a-entity class="TeacherAvatarBody" id="teacherbody" gltf-model="#TeacherAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="TeacherAvatarHead" id="teacherhead"  gltf-model="#TeacherAvatarHead" static-body avatar-body="body:#teacherbody; id:#teacherbody"></a-entity> -->
         </a-entity>
       </template>
 
@@ -226,8 +230,9 @@
       <template id="constraint-student-avatar-template">
         <a-entity>
           <a-entity class="name-up-student"></a-entity>
-          <a-entity class="StudentAvatarBody" id="studentbody" gltf-model="#StudentAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
-          <a-entity class="StudentAvatarHead" id="studenthead"  gltf-model="#StudentAvatarHead" static-body avatar-body="body:#studentbody; id:#studentbody"></a-entity>
+          <a-entity class="StudentAvatar" id="student" gltf-model="#student"></a-entity> 
+          <!-- <a-entity class="StudentAvatarBody" id="studentbody" gltf-model="#StudentAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="StudentAvatarHead" id="studenthead"  gltf-model="#StudentAvatarHead" static-body avatar-body="body:#studentbody; id:#studentbody"></a-entity> -->
         </a-entity>
       </template>
 
@@ -300,51 +305,43 @@
       </a-light>
 
       <!-- Static Objects -->
-      <a-entity class="gltf" gltf-model="#table" position="-1.5 0.5 0" rotation="0 0 0" static-body></a-entity>
-      <a-entity class="gltf" gltf-model="#table"  position="-0.13 0.5 0" rotation="0 0 0" static-body></a-entity>
-      <a-entity class="gltf" gltf-model="#bed" position="1.2 0.5 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#table" position="-1.5 1 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#table"  position="-0.13 1 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#bed" position="1.2 1 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity id="patient01" gltf-model="../../Models/gltf/Patient.gltf" ;="" scale="" position="1.18674 1.03109 -0.06237" material="color: brown" rotation=""></a-entity>
+
 
       <!-- Theater Objects -->
-      <a-entity id="scenebase01" gltf-model="#scenebase"; scale="1 1 1" position="0 -0.02366 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="frontwall01" gltf-model="#frontwall"; scale="1 1 1" position="0 0 -1.12569" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="roofauditorium01" gltf-model="#roofauditorium"; scale="1 1 1" position="0 1.35517 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="scenebase01" gltf-model="#scenebase"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="scenebase02" gltf-model="#scenebase02"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="scenemedixlablogo01" gltf-model="#scenemedixlablogo"; scale="2 2 2" position="-8.63561 10.54945 8.70657" material="color: brown" rotation="0 131.5413694795198 0"></a-entity>
-      <a-entity id="sceneieproeslogo01" gltf-model="#sceneieproeslogo"; scale="3 3 3" position="-10.16122 12.11864 -9.71284" material="color: brown" rotation="0 49.92582339431454 0"></a-entity>    
-      <a-entity id="scenevertexlogo01" gltf-model="#scenevertexlogo"; scale="1 1 1" position="9.66793 12.7592 -8.22675" material="color: brown" rotation="0 -52.57346136561407 0"></a-entity>
-      <a-entity id="row01" gltf-model="#row"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="lamps01"  gltf-model="#lamps"; scale="1.5 1.5 1.5" position="0 14 0" rotation="0 0 0"></a-entity>
-      <a-entity id="lamps02"  gltf-model="#lamps"; scale="2 2 2" position="0 15 0" rotation="0 0 0"></a-entity>
-      <a-entity id="lamps03"  gltf-model="#lamps"; scale="1 1 1" position="0 13 0" rotation="0 0 0"></a-entity>
-      <a-entity id="walls01" gltf-model="#walls"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="scenemedixlablogo01" gltf-model="#scenemedixlablogo"; scale="2 2 2" position="0.04036 11.22773 -2.14313" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="sceneieproeslogo01" gltf-model="#sceneieproeslogo"; scale="3 3 3" position="-15.33328 9.07108 23.28462" material="color: brown" rotation="0 157.14226968155523 0"></a-entity>    
+      <a-entity id="scenevertexlogo01" gltf-model="#scenevertexlogo"; scale="1 1 1" position="15.35311 9.20078 23.42455" material="color: brown" rotation="0 -146.36321468175908 0"></a-entity>
+      <a-entity id="stairsprincipal01"  gltf-model="#stairsprincipal"; scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
+      <a-entity id="ministairs01"  gltf-model="#ministairs"; scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
+      <a-entity id="lamps03"  gltf-model="#lamps01"; scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
+      <a-entity id="columns01" gltf-model="#columns"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="video01" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: cylinder; radius: 12; height: 9; open-ended: true; theta-start: 142.5; theta-length: 75;" position="0 7.32941 4.69399" rotation="0 0 0" scale="-0.63 0.63 0.63" ></a-entity>
+      <a-entity id="video02" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: cylinder; radius: 12; height: 9; open-ended: true; theta-start: 142.5; theta-length: 75;" position="-6.78489 9.53579 2.80905" rotation="0 113.18 0" scale="-0.63 0.63 0.63" ></a-entity>
+      <a-entity id="video03" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: cylinder; radius: 12; height: 9; open-ended: true; theta-start: 142.5; theta-length: 75;" position="6.62327 10.14089 2.98023" rotation="0 -113.18 0" scale="-0.63 0.63 0.63" ></a-entity>
+      <a-entity id="video04" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: cylinder; radius: 12; height: 9; open-ended: true; theta-start: 142.5; theta-length: 75;" position="0.19734 9.75257 7.47539" rotation="0 180 0" scale="-0.63 0.63 0.63" ></a-entity>
+    
+     <!-- Theater Lights -->
+     <a-entity background="color: #92f2ff"></a-entity>
 
-      <!-- Theater Lights -->
-      <a-entity background="color: #92f2ff"></a-entity>
-
-      <a-entity light="intensity: 0.5; type: ambient; castShadow: true" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
-      <a-entity light="angle: 40; color: #0674ff; decay: 2.76; penumbra: 0.23; type: spot; castShadow: true; shadowBias: 0.72; shadowCameraNear: 0.56; shadowRadius: 1.15" id="spot1" 
-                position="-6.96565 13.02979 -2.80526" rotation="-73.12774930813723 118.60742021223659 62.43922163997172"></a-entity>
-      <a-entity light="type: spot; decay: 2.76; penumbra: 0.57; color: #6906ff; castShadow: true; shadowBias: 0.72; shadowRadius: 1.15; shadowCameraNear: 0.56; angle: 40" id="spot2" 
-                position="-5.6751 12.46304 8.89216" rotation="-84.51356661297694 -6.191381934183676 -173.78039109435923"></a-entity>
+     <a-entity light="intensity: 0.5; type: ambient; castShadow: true" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
       <a-entity light="color: #00c6ff; intensity: 0.84; penumbra: 0.52; type: spot" id="spot3"
-                position="4.39313 10.52133 7.07232" rotation="-73.57408343054415 179.9998479605043 0"></a-entity>
-      <a-entity light="penumbra: 1; type: spot" id="spot4"
-                position="-0.42573 8.27858 -4.19881" rotation="-54.63496351249478 0 179.9998479605043"></a-entity>
-      <a-entity light="color: #b33dff; penumbra: 0.51; type: spot; castShadow: true" id="spot5"
-                position="9.87633 11.44651 -2.7865" rotation="-80.69251107724949 -164.17188887001532 10.195783964353"></a-entity>
-      <a-entity light="color: #b33dff; penumbra: 0.51; type: spot; castShadow: true" id="spot6"
-                position="6.04245 9.1168 -7.44911" rotation="6.640007887771111 -48.475094257043295 -154.4688486094748"></a-entity>
-      <a-entity light="color: #b33dff; penumbra: 0.51; type: spot; castShadow: true; intensity: 1.24" id="spot7"
-                position="-10.70804 9.99225 -6.71406" rotation="-8.631036225850721 17.92269278948728 120.1635735838119"></a-entity>
-      <a-entity light="color: #b33dff; penumbra: 0.51; type: spot; castShadow: true; intensity: 1.24" id="light01"
-                position="-8.96322 9.99225 8.95537" rotation="-8.631036225850721 17.92269278948728 120.1635735838119"></a-entity>
-      <a-entity light="color: #b33dff; penumbra: 0.51; type: hemisphere; castShadow: true; intensity: 1.24; groundColor: #7ccedb" id="light02"
-                position="-10.70804 9.99225 -6.71406" rotation="-8.631036225850721 17.92269278948728 120.1635735838119"></a-entity>
-      
+                position="0.3934 10.52133 1.73383" rotation="-73.57408343054415 179.9998479605043 0"></a-entity>
+      <a-entity light="color: #ffffff; penumbra: 0.51; type: point; castShadow: true; intensity: 0.34" id="light01"
+                position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
       <!-- Physics Objects -->
       <a-entity class="vxr-obj-template" position="0 1.5 -0.2"></a-entity>
       <!-- <a-entity class="constraint-avatar-template" position="0 3 2"></a-entity> -->
 
-<a-entity id="player"  class="name-up" name-up networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
+<a-entity id="player"   networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
         rotation="0 180 0" movement-controls>
         <a-entity camera position="0 3 0.2" look-controls zoom="100" fov="120"
           networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
