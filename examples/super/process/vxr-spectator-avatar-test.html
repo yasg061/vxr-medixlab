@@ -57,23 +57,51 @@
         const theaterSlots = [
           {
             identifier: '1',
-            position: { x: 0, y: 2.5, z: 4 }
+            position: { x: -0.5, y: 0, z: -2 },
           },
           {
             identifier: '2',
-            position: { x: 4, y: 4, z: 4 }
+            position: { x: 3, y: 0, z: 0 }
           },
           {
             identifier: '3',
-            position: { x: -4, y: 5, z: 5.5 }
+            position: { x: 1.1, y: 0, z: 6 }
           },
           {
             identifier: '4',
-            position: { x: 0, y: 6.3, z: 8 }
+            position: { x: 4.5, y: 0, z: 4 }
           },
           {
             identifier: '5',
-            position: { x: 3, y: 7, z: 9 }
+            position: { x: 6, y: 0, z: 1 }
+          },
+          {
+            identifier: '6',
+            position: { x: 1.5, y: 2, z: 8 }
+          },
+          {
+            identifier: '7',
+            position: { x: -3.6, y: 2, z: 7.5 }
+          },
+          {
+            identifier: '8',
+            position: { x: -5, y: 0, z: 3 }
+          },
+          {
+            identifier: '9',
+            position: { x: -6, y: 1.5, z: -3 }
+          },
+          {
+            identifier: '10',
+            position: { x: -6, y: 2, z: -5.4}//
+          },
+          {
+            identifier: '11',
+            position: { x: -4.5, y: 4, z: 9 }
+          },
+          {
+            identifier: '12',
+            position: { x: 4.5, y: 3.5, z: 7.5}
           },
         ]
 
@@ -82,6 +110,29 @@
         el.setAttribute('position', slotPosition)
       }
     })
+
+
+  </script>
+  <script>
+    AFRAME.registerComponent('modify-materials', {
+      init: function () {
+        // Wait for model to load.
+        this.el.addEventListener('model-loaded', () => {
+          const colors = ['red', 'blue', 'yellow', 'purple', 'green', 'black', 'cyan', 'white']
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          console.log('model-loaded')
+          // Grab the mesh / scene.
+          const obj = this.el.getObject3D('mesh');
+          // Go over the submeshes and modify materials we want.
+          obj.traverse(node => {
+            console.log(node);
+            if (node.name.indexOf('T_Shirt_male001') !== -1 ) {
+              node.material.color.set(color);
+            }
+          });
+        });
+      }
+    });
   </script>
 
   <script>
@@ -110,42 +161,47 @@
 
 <body>
   <a-scene physics networked-scene="
-      room: handsvive;
+      room: audio;
+      adapter: easyrtc;
+      audio: true;
       debug: true;
-      adapter: wseasyrtc;
-      onConnect: spawentity;
+      onConnect: spawnentity;
     ">
     <a-assets>
       <a-asset-item id="SpectatorAvatarHead" src="assets/SpectatorAvatarHead.gltf"></a-asset-item>
       <a-asset-item id="SpectatorAvatarBody" src="assets/SpectatorAvatarBody.gltf"></a-asset-item>
       
       <!-- <a-asset-item id="htc" src="../assets/vr_controller_vive.obj"></a-asset-item> -->
-      <a-asset-item id="maskn95" src="assets/MaskN95.gltf"></a-asset-item>
-      <a-asset-item id="table" src="assets/Bandeja.gltf"></a-asset-item>
+      <a-asset-item id="maskn95" src="../../Models/gltf/MaskN95.gltf"></a-asset-item>
+      <a-asset-item id="table" src="../../Models/gltf/Bandeja.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="assets/AlcoholBottle.gltf"></a-asset-item>
-      <a-asset-item id="bed" src="assets/Bed.gltf"></a-asset-item>
+      <a-asset-item id="bed" src="../../Models/gltf/Bed.gltf"></a-asset-item>
       <a-asset-item id="tray" src="assets/Tray.gltf"></a-asset-item>
       <a-asset-item id="StudentAvatar" src="assets/StudentNurseAvatar.gltf"></a-asset-item>
-      <a-asset-item id="NurseHeadAvatar" src="assets/NurseHeadAvatar.gltf"></a-asset-item>
       <a-asset-item id="SpectatorAvatar" src="assets/SpectatorAvatar.gltf"></a-asset-item>
       <a-asset-item id="TeacherAvatar" src="assets/TeacherAvatar.gltf"></a-asset-item>
-      <a-asset-item id="NurseAvatarBody" src="assets/NurseAvatarBody.gltf"></a-asset-item>
-      <!-- <a-asset-item id="suero" src="assets/Suero.gltf"></a-asset-item>
-        <a-asset-item id="base" src="assets/Base.gltf"></a-asset-item> -->
       <a-asset-item id="right-hand" src="assets/rightHandHigh.glb"></a-asset-item>
       <a-asset-item id="left-hand" src="assets/leftHandHigh.glb"></a-asset-item>
+
+      <!-- Avatasr -->
+      <a-asset-item id="StudentAvatarHead" src="assets/avatars/StudentAvatarHead.gltf"></a-asset-item>
+      <a-asset-item id="StudentAvatarBody" src="assets/avatars/StudentAvatarBody.gltf"></a-asset-item>
+      <a-asset-item id="TeacherAvatarHead" src="assets/avatars/TeacherAvatarHead.gltf"></a-asset-item>
+      <a-asset-item id="TeacherAvatarBody" src="assets/avatars/TeacherAvatarBody.gltf"></a-asset-item>
+      <a-asset-item id="SpectatorAvatar" src="assets/avatars/SpectatorAvatar.gltf"></a-asset-item>
 
       <!-- Theater -->
       <img id="shadow" src="https://cdn.glitch.com/20600112-c04b-492c-8190-8a5ccc06f37d%2Fshadow.png?v=1606338852399"></img>
       <a.asser-item id="scenebase" src="../../Models/gltf/Scene_Base.gltf"></a.asser-item>
       <a.asser-item id="scenebase02" src="../../Models/gltf/Scene_Base02.gltf"></a.asser-item>
-      <a.asser-item id="scenemedixlablogo" src="../../Models/gltf/Scene_Medixlablogo.gltf"></a.asser-item>
-      <a.asser-item id="sceneieproeslogo" src="../../Models/gltf/Scene_Ieproesblogo.gltf"></a.asser-item>
-      <a.asser-item id="scenevertexlogo" src="../../Models/gltf/Scene_VertexLogo.gltf"></a.asser-item>
+      <a.asser-item id="scenemedixlablogo" src="/Models/gltf/Scene_Medixlablogo.gltf"></a.asser-item>
+      <a.asser-item id="sceneieproeslogo" src="/Models/gltf/Scene_Ieproesblogo.gltf"></a.asser-item>
+      <a.asser-item id="scenevertexlogo" src="/Models/gltf/Scene_VertexLogo.gltf"></a.asser-item>
       <a.asser-item id="scenebase02" src="../../Models/gltf/Scene_Base02.gltf"></a.asser-item>
-      <a.asser-item id="wallback" position="0 0 -12.41576" src="../../Models/gltf/Scene_WallBack.gltf"></a.asser-item>
       <a.asser-item id="row" src="../../Models/gltf/Scene_Row.gltf"></a.asser-item>
       <a.asser-item id="washer" src="../../Models/gltf/Washer.gltf"></a.asser-item>
+      <a.asser-item id="lamps" position="0 0 -12.41576" src="/Models/gltf/Scene_Lamps.gltf"></a.asser-item>
+      <a.asser-item id="walls" src="/Models/gltf/Scene_Walls.gltf"></a.asser-item>
 
       <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false"
         static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
@@ -156,39 +212,49 @@
 
       <!-- Player -->
       <template id="player-template">
-        <a-entity></a-entity>
+        <a-entity networked-audio-source></a-entity>
       </template>
       ​
       <!-- Nurse Avatar -->
       <template id="student-avatar-template">
-        <a-entity class="NurseHeadAvatar" gltf-model="#StudentAvatar" position="0 2 0"></a-entity>
+        <a-entity class="NurseHeadAvatar" gltf-model="#StudentAvatar" position="0 2 0" networked-audio-source></a-entity>
       </template>
 
       <!-- Teacher Avatar -->
       <template id="teacher-avatar-template">
-        <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar"></a-entity>
+        <a-entity class="TeacherAvatar" gltf-model="#TeacherAvatar" networked-audio-source></a-entity>
+      </template>
+      
+      <!-- Spectator Avatar -->
+      <template id="spectator-avatar-template">
+        <a-entity networked-audio-source></a-entity>
+      </template>
+
+      <!-- Teacher Avatar Constraints -->
+      <template id="constraint-teacher-avatar-template">
+        <a-entity>
+          <a-entity class="name-up"></a-entity>
+          <a-entity class="TeacherAvatarBody" id="teacherbody" gltf-model="#TeacherAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="TeacherAvatarHead" id="teacherhead"  gltf-model="#TeacherAvatarHead" static-body avatar-body="body:#teacherbody; id:#teacherbody"></a-entity>
+        </a-entity>
+      </template>
+
+      <!-- Student Avatar Constraints -->
+      <template id="constraint-student-avatar-template">
+        <a-entity>
+          <a-entity class="name-up"></a-entity>
+          <a-entity class="StudentAvatarBody" id="studentbody" gltf-model="#StudentAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="StudentAvatarHead" id="studenthead"  gltf-model="#StudentAvatarHead" static-body avatar-body="body:#studentbody; id:#studentbody"></a-entity>
+        </a-entity>
       </template>
 
       <!-- Spectator Avatar Constraints -->
       <template id="constraint-spectator-avatar-template">
         <a-entity>
           <a-entity class="name-up"></a-entity>
-          <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
-          <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>
-        </a-entity>
-      </template>
-
-      <!-- Spectator Avatar -->
-      <template id="spectator-avatar-template">
-        <a-entity></a-entity>
-      </template>
-
-      <!-- Nurse Constraints -->
-      <template id="constraint-avatar-template">
-        <a-entity>
-          <a-entity class="NurseAvatarBody" id="nursebody" gltf-model="#NurseAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
-          <a-entity class="NurseHeadAvatar" id="nursehead"  gltf-model="#NurseHeadAvatar" static-body avatar-body="body:#nursebody; id:#nursebody"></a-entity>
-        </a-entity>
+          <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar"></a-entity>
+          <!-- <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>        </a-entity> -->
       </template>
 
       <!-- Right Hand -->
@@ -198,6 +264,7 @@
           <a-entity gltf-model="#right-hand"></a-entity>
         </a-entity>
       </template>
+
       <!-- Left Hand -->
       <template id="left-hand-template">
         <a-entity>
@@ -235,6 +302,24 @@
         <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
       </a-light>
 
+      <!-- Static Objects -->
+      <a-entity class="gltf" gltf-model="#table" position="-1.5 0.5 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#table"  position="-0.13 0.5 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#bed" position="1.2 0.5 0" rotation="0 0 0" static-body></a-entity>
+
+      <!-- Theater Objects -->
+      <a-entity id="scenebase01" gltf-model="#scenebase"; scale="1 1 1" position="0 -0.02366 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="scenebase02" gltf-model="#scenebase02"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="scenemedixlablogo01" gltf-model="#scenemedixlablogo"; scale="2 2 2" position="-8.63561 10.54945 8.70657" material="color: brown" rotation="0 131.5413694795198 0"></a-entity>
+      <a-entity id="sceneieproeslogo01" gltf-model="#sceneieproeslogo"; scale="3 3 3" position="-10.16122 12.11864 -9.71284" material="color: brown" rotation="0 49.92582339431454 0"></a-entity>    
+      <a-entity id="scenevertexlogo01" gltf-model="#scenevertexlogo"; scale="1 1 1" position="9.66793 12.7592 -8.22675" material="color: brown" rotation="0 -52.57346136561407 0"></a-entity>
+      <a-entity id="row01" gltf-model="#row"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="lamps01"  gltf-model="#lamps"; scale="1.5 1.5 1.5" position="0 14 0" rotation="0 0 0"></a-entity>
+      <a-entity id="lamps02"  gltf-model="#lamps"; scale="2 2 2" position="0 15 0" rotation="0 0 0"></a-entity>
+      <a-entity id="lamps03"  gltf-model="#lamps"; scale="1 1 1" position="0 13 0" rotation="0 0 0"></a-entity>
+      <a-entity id="walls01" gltf-model="#walls"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+
+      <!-- Theater Lights -->
       <a-entity background="color: #92f2ff"></a-entity>
 
       <a-entity light="intensity: 0.5; type: ambient; castShadow: true" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
@@ -252,50 +337,21 @@
                 position="6.04245 9.1168 -7.44911" rotation="6.640007887771111 -48.475094257043295 -154.4688486094748"></a-entity>
       <a-entity light="color: #b33dff; penumbra: 0.51; type: spot; castShadow: true; intensity: 1.24" id="spot7"
                 position="-10.70804 9.99225 -6.71406" rotation="-8.631036225850721 17.92269278948728 120.1635735838119"></a-entity>
-      <!-- Static Objects -->
-      <a-entity class="gltf" gltf-model="#table" position="-1.5 0.5 0" rotation="0 0 0" static-body></a-entity>
-      <a-entity class="gltf" gltf-model="#table"  position="-0.13 0.5 0" rotation="0 0 0" static-body></a-entity>
-      <a-entity class="gltf" gltf-model="#bed" position="1.2 0.5 0" rotation="0 0 0" static-body></a-entity>
-
-
-
-
-      <!-- Theater Objects -->
-      <a-entity id="patient01" gltf-model="#patient"; scale="1 1 1" position="1.30792 0.39862 0.87509" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="roof01" gltf-model="#roof"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="salver01" gltf-model="#salver"; scale="1 1 1" position="-1.98987 1.19089 0.27767" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="dripbag01" gltf-model="#dripbag"; scale="1 1 1" position="-0.33061 1.22916 1.62738" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="scenebase01" gltf-model="#scenebase"; scale="1 1 1" position="0 -0.02366 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="scenebase02" gltf-model="#scenebase02"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="scenemedixlablogo01" gltf-model="#scenemedixlablogo"; scale="2 2 2" position="0 10.54945 -14.36498" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="sceneieproeslogo01" gltf-model="#sceneieproeslogo"; scale="2 2 2" position="-10.34731 9.10193 -10.65465" material="color: brown" rotation="0 49.92582339431454 0"></a-entity>    
-      <a-entity id="scenevertexlogo01" gltf-model="#scenevertexlogo"; scale="1 1 1" position="9.48743 9.28072 -11.6355" material="color: brown" rotation="0 -52.57346136561407 0"></a-entity>
-      <a-entity id="table002" gltf-model="#table02"; scale="1 1 1" position="0.59361 0.29696 -2.44006" material="color: brown" rotation="0 180 0"></a-entity>
-      <a-entity id="table003" gltf-model="#table03"; scale="1 1 1" position="-2.0092 0.33197 0.2209" material="color: brown" rotation="0 180 0"></a-entity>
-      <a-entity id="row01" gltf-model="#row"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="cabinet005" gltf-model="#table03"; scale="1 1 1" position="-2.02939 0.34443 -0.50913" material="color: brown" rotation="0 180 0"></a-entity>
-      <a-entity id="trashcan01" gltf-model="#trashcan"; scale="1 1 1" position="-2.13642 0.31286 2.04292" material="color: brown" rotatation="0 0 45"></a-entity>
-      <a-entity id="tweezers01" gltf-model="#tweezers"; scale="1 1 1" position="-0.57539 0.97312 -1.23709" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="tweezers02" gltf-model="#tweezers2"; scale="1 1 1" position="-0.6261 0.97827 -1.26145" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="wallback"  gltf-model="#wallback"; scale="1 1 1" position="0 0 -12.416" rotation="0 0 0"></a-entity>
+      <a-entity light="color: #b33dff; penumbra: 0.51; type: spot; castShadow: true; intensity: 1.24" id="light01"
+                position="-8.96322 9.99225 8.95537" rotation="-8.631036225850721 17.92269278948728 120.1635735838119"></a-entity>
+      <a-entity light="color: #b33dff; penumbra: 0.51; type: hemisphere; castShadow: true; intensity: 1.24; groundColor: #7ccedb" id="light02"
+                position="-10.70804 9.99225 -6.71406" rotation="-8.631036225850721 17.92269278948728 120.1635735838119"></a-entity>
       
-
-      <!-- <a-entity class="constraint-avatar-template" position="0 3 2"></a-entity> -->
 
       <a-entity id="spectator"
         position="-2.9119 2.18025 -2.79791"
-        assign-seat
-      >
+        assign-seat>
+
         <a-entity id="constraint-spectator" camera position="0 3 0.2" look-controls zoom="100" fov="120">
           <a-entity class="name-up" name-up></a-entity>
+          <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" modify-materials visible="false"></a-entity>
         </a-entity>
       </a-entity>
-      
-      <!-- <a-entity class="syncup" position="0 1 0"></a-entity>
-      <a-entity class="syncup" position="0 2 0"></a-entity>
-      <a-entity class="syncup" position="0 3 0"></a-entity> -->
-
-      
       
       <!-- ground collider keeps objets from falling -->
       <a-box static-body width="100" height="0.01" depth="100" visible="false"></a-box>
@@ -318,12 +374,12 @@
       ]
     });
     NAF.schemas.add({
-        template: '#spectator-avatar-template',
-        components: [
-          'position',
-          'rotation',
-        ]
-    });
+      template: '#spectator-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });    
     NAF.schemas.add({
       template: '#constraint-spectator-avatar-template',
       components: [
@@ -333,10 +389,28 @@
           selector: '.name-up',
           component: 'name-up'     
         },
+        {
+          selector: '.SpectatorAvatar',
+          component: 'modify-materials'     
+        },
       ]
     });
     NAF.schemas.add({
       template: '#constraint-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#constraint-teacher-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#constraint-student-avatar-template',
       components: [
         'position',
         'rotation'

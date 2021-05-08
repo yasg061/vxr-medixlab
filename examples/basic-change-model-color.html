@@ -102,6 +102,9 @@
       <a-entity id="spectator"
         position="-2.9119 2.18025 -2.79791"
         assign-seat
+        camera
+        wasd-controls
+        look-controls
       >
         <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" modify-materials></a-entity>
       </a-entity>
@@ -118,22 +121,7 @@
           random-color
         ></a-sphere>
       </a-entity> -->
-
-
-      <a-entity id="player"
-      networked="template:#avatar-template;attachTemplateToLocal:false;"
-      camera
-      position="0 1.6 0"
-      spawn-in-circle="radius:3"
-      wasd-controls look-controls
-      >
-      <a-sphere class="head"
-        visible="false"
-        random-color
-      ></a-sphere>
-    </a-entity>
-
-    
+  
       <a-entity position="0 0 0"
         geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
         material="src: #grid; repeat: 10000 10000; transparent: true; metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"></a-entity>
@@ -168,6 +156,17 @@
           }
         ]
       });
+      NAF.schemas.add({
+        template: '#spectator-avatar-template',
+        components: [
+          'position',
+          'rotation',
+        {
+          selector: '.SpectatorAvatar',
+          component: 'modify-materials'     
+        },
+        ],   
+      }); 
 
       // Called by Networked-Aframe when connected to server
       function onConnect () {
