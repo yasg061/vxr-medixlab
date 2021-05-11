@@ -55,53 +55,205 @@
         const urlParams = new URLSearchParams(queryString);
         const spawn = urlParams.get('spawn')
         const theaterSlots = [
-          {
+        {
             identifier: '1',
-            position: { x: -1, y: -0.5, z: -2 },
+            position: { x: -6, y: -1.5, z: 0.5 },
           },
           {
             identifier: '2',
-            position: { x: 3, y: -0.5, z: 0 }
+            position: { x: -5.5, y: -1.5, z: 2.1 }
           },
           {
             identifier: '3',
-            position: { x: 2, y: -1, z: 5 }
+            position: { x: -4.5, y: -1.5, z: 3.5 }
           },
           {
             identifier: '4',
-            position: { x: -2, y: -1, z: 5 }
+            position: { x: -1.7, y: -1.5, z: 5.5 }
           },
           {
             identifier: '5',
-            position: { x: 6, y: -0.5, z: 1.5 }
+            position: { x: 0, y: -1.5, z: 5.5 }
           },
           {
             identifier: '6',
-            position: { x: 0, y: 0, z: 7 }
+            position: { x: 1.7, y: -1, z: 5.5 }
           },
           {
             identifier: '7',
-            position: { x: -3, y: 0.5, z: 8 }
+            position: { x: 4.5, y: -1, z: 3.5 }
           },
           {
             identifier: '8',
-            position: { x: -5, y: -1, z: 3 }
+            position: { x: 5.5, y: -1, z: 2.1 }
           },
           {
             identifier: '9',
-            position: { x: -7, y: -0.5, z: 1.5 }
+            position: { x: 6, y: -1, z: 0.5 }
           },
           {
             identifier: '10',
-            position: { x: -2, y: 1, z: 10}
+            position: { x: -7, y: 0.5, z: 0.5}
           },
           {
             identifier: '11',
-            position: { x: 9, y: 1, z: 3.5 }
+            position: { x: -6.5, y: 0.5, z: 2.6 }
           },
           {
             identifier: '12',
-            position: { x: 2, y: 1, z: 10}
+            position: { x: -5.5, y: 0.5, z: 4.3}
+          },
+          {
+            identifier: '13',
+            position: { x: -2, y: 0.5, z: 6.9 }
+          },
+          {
+            identifier: '14',
+            position: { x: 0.1, y: 0.5, z: 7.1}
+          },
+          {
+            identifier: '15',
+            position: { x: 2.2, y: 0.5, z: 6.9 }
+          },
+          {
+            identifier: '16',
+            position: { x: 5.7, y: 0.5, z: 4.2}
+          },
+          {
+            identifier: '17',
+            position: { x: 6.6, y: 0.5, z: 2.4 }
+          },
+          {
+            identifier: '18',
+            position: { x: 7.1, y: 0.5, z: 0.6}
+          },
+          {
+            identifier: '19',
+            position: { x: -8.5, y: 1.9, z: 0.6 }
+          },
+          {
+            identifier: '20',
+            position: { x: -8.2, y: 1.9, z: 2.3}
+          },
+          {
+            identifier: '21',
+            position: { x: -7.5, y: 1.9, z: 4 }
+          },
+          {
+            identifier: '22',
+            position: { x: -6.5, y: 1.9, z: 5.4}
+          },
+          {
+            identifier: '23',
+            position: { x: -2.5, y: 1.9, z: 8 }
+          },
+          {
+            identifier: '24',
+            position: { x: -0.8, y: 1.9, z: 8.4}
+          },
+          {
+            identifier: '25',
+            position: { x: 1, y: 1.9, z: 8.4 }
+          },
+          {
+            identifier: '26',
+            position: { x: 2.7, y: 1.9, z: 8}
+          },
+          {
+            identifier: '27',
+            position: { x: 6.4, y: 1.9, z: 5.3 }
+          },
+          {
+            identifier: '28',
+            position: { x: 7.4, y: 1.9, z: 4}
+          },
+          {
+            identifier: '29',
+            position: { x: 8, y: 1.9, z: 2.3 }
+          },
+          {
+            identifier: '30',
+            position: { x: 8.5, y: 1.9, z: 0.7}
+          },
+          {
+            identifier: '31',
+            position: { x: -9.6, y: 2.8, z: 1.7 }/////ready/////
+          },
+          {
+            identifier: '32',
+            position: { x: -5.5, y: 3.5, z: 2.3}
+          },
+          {
+            identifier: '33',
+            position: { x: -6.5, y: -1.3, z: 2.6 }
+          },
+          {
+            identifier: '34',
+            position: { x: -5.5, y: -1.3, z: 4.3}
+          },
+          {
+            identifier: '35',
+            position: { x: -6.5, y: -1.3, z: 2.6 }
+          },
+          {
+            identifier: '36',
+            position: { x: -5.5, y: -1.3, z: 4.3}
+          },
+          {
+            identifier: '37',
+            position: { x: -6.5, y: -1.3, z: 2.6 }
+          },
+          {
+            identifier: '38',
+            position: { x: -5.5, y: -1.3, z: 4.3}
+          },
+          {
+            identifier: '39',
+            position: { x: -6.5, y: -1.3, z: 2.6 }
+          },
+          {
+            identifier: '40',
+            position: { x: -5.5, y: -1.3, z: 4.3}
+          },
+          {
+            identifier: '41',
+            position: { x: -6.5, y: -1.3, z: 2.6 }
+          },
+          {
+            identifier: '42',
+            position: { x: -5.5, y: -1.3, z: 4.3}
+          },
+          {
+            identifier: '43',
+            position: { x: -6.5, y: -1.3, z: 2.6 }
+          },
+          {
+            identifier: '44',
+            position: { x: -5.5, y: -1.3, z: 4.3}
+          },
+          {
+            identifier: '45',
+            position: { x: -6.5, y: -1.3, z: 2.6 }
+          },
+          {
+            identifier: '46',
+            position: { x: -5.5, y: -1.3, z: 4.3}
+          },
+          {
+            identifier: '47',
+            position: { x: -6.5, y: -1.3, z: 2.6 }
+          },
+          {
+            identifier: '48',
+            position: { x: -5.5, y: -1.3, z: 4.3}
+          },
+          {
+            identifier: '49',
+            position: { x: -6.5, y: -1.3, z: 2.6 }
+          },
+          {
+            identifier: '50',
+            position: { x: -5.5, y: -1.3, z: 4.3}
           }
         ]
 
@@ -154,7 +306,7 @@
       <a-asset-item id="patient" src="../../Models/gltf/Patient.gltf"></a-asset-item>
       <a-asset-item id="tray" src="assets/Tray.gltf"></a-asset-item>
       <a-asset-item id="StudentAvatar" src="assets/StudentNurseAvatar.gltf"></a-asset-item>
-      <a-asset-item id="SpectatorAvatar" src="assets/SpectatorAvatar.gltf"></a-asset-item>
+      <a-asset-item id="SpectatorAvatar" src="assets/avatars/SpectatorAvatar.gltf"></a-asset-item>
       <a-asset-item id="TeacherAvatar" src="assets/TeacherAvatar.gltf"></a-asset-item>
       <a-asset-item id="right-hand" src="assets/rightHandHigh.glb"></a-asset-item>
       <a-asset-item id="left-hand" src="assets/leftHandHigh.glb"></a-asset-item>
@@ -311,20 +463,17 @@
       <!-- Theater Objects -->
       <a-entity id="frontwall01" gltf-model="#frontwall"; scale="1 1 1" position="0 0 -1.12569" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="roofauditorium01" gltf-model="#roofauditorium"; scale="1 1 1" position="0 1.35517 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="scenebase01" gltf-model="#scenebase"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="scenebase01" gltf-model="#scenebase"; scale="1 1 1" position="0 -0.82 0" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="scenebase02" gltf-model="#scenebase02"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="scenemedixlablogo01" gltf-model="#scenemedixlablogo"; scale="2 2 2" position="0.04036 11.22773 -2.14313" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="sceneieproeslogo01" gltf-model="#sceneieproeslogo"; scale="3 3 3" position="-15.33328 9.07108 23.28462" material="color: brown" rotation="0 157.14226968155523 0"></a-entity>    
-      <a-entity id="scenevertexlogo01" gltf-model="#scenevertexlogo"; scale="1 1 1" position="15.35311 9.20078 23.42455" material="color: brown" rotation="0 -146.36321468175908 0"></a-entity>
+      <a-entity id="sceneieproeslogo01" gltf-model="#sceneieproeslogo"; scale="3 3 3" position="-7.3502 9.07108 11.32697" material="color: brown" rotation="0 151.70203541678805 0"></a-entity>    
+      <a-entity id="scenevertexlogo01" gltf-model="#scenevertexlogo"; scale="1 1 1" position="7.21432 9.20078 11.49686" material="color: brown" rotation="0 -146.36321468175908 0"></a-entity>
       <a-entity id="stairsprincipal01"  gltf-model="#stairsprincipal"; scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
       <a-entity id="ministairs01"  gltf-model="#ministairs"; scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
       <a-entity id="lamps03"  gltf-model="#lamps01"; scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
       <a-entity id="columns01" gltf-model="#columns"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="video01" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: cylinder; radius: 12; height: 9; open-ended: true; theta-start: 142.5; theta-length: 75;" position="0 7.32941 4.69399" rotation="0 0 0" scale="-0.63 0.63 0.63" ></a-entity>
-      <a-entity id="video02" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: cylinder; radius: 12; height: 9; open-ended: true; theta-start: 142.5; theta-length: 75;" position="-6.78489 9.53579 2.80905" rotation="0 113.18 0" scale="-0.63 0.63 0.63" ></a-entity>
-      <a-entity id="video03" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: cylinder; radius: 12; height: 9; open-ended: true; theta-start: 142.5; theta-length: 75;" position="6.62327 10.14089 2.98023" rotation="0 -113.18 0" scale="-0.63 0.63 0.63" ></a-entity>
-      <a-entity id="video04" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: cylinder; radius: 12; height: 9; open-ended: true; theta-start: 142.5; theta-length: 75;" position="0.19734 9.75257 7.47539" rotation="0 180 0" scale="-0.63 0.63 0.63" ></a-entity>
-    
+     
       <!-- Theater Lights -->
       <a-entity background="color: #92f2ff"></a-entity>
 
