@@ -349,22 +349,22 @@
 
       <!-- Player -->
       <template id="player-template">
-        <a-entity networked-audio-source></a-entity>
+        <a-entity networked-audio-source="positional:false"></a-entity>
       </template>
       ​
       <!-- Nurse Avatar -->
       <template id="student-avatar-template">
-        <a-entity class="NurseHeadAvatar" gltf-model="#StudentAvatar" position="0 2 0" networked-audio-source></a-entity>
+        <a-entity class="NurseHeadAvatar" gltf-model="#StudentAvatar" position="0 2 0" networked-audio-source="positional:false"></a-entity>
       </template>
 
       <!-- Teacher Avatar -->
       <template id="teacher-avatar-template">
-        <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar" networked-audio-source></a-entity>
+        <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar" networked-audio-source="positional:false"></a-entity>
       </template>
       
       <!-- Spectator Avatar -->
       <template id="spectator-avatar-template">
-        <a-entity networked-audio-source></a-entity>
+        <a-entity networked-audio-source="positional:false"></a-entity>
       </template>
 
       <!-- Teacher Avatar Constraints -->
@@ -475,7 +475,7 @@
         assign-seat
          >
 
-        <a-entity id="constraint-spectator" camera position="0 3.9 0.2" look-controls zoom="100" fov="120">
+        <a-entity id="constraint-spectator" camera="fov: 40" position="0 3.9 0.2" look-controls zoom="100" >
           <a-entity class="name-up" name-up></a-entity>
         </a-entity>
       </a-entity>
