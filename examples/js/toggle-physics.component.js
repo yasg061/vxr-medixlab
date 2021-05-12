@@ -19,7 +19,7 @@
 
     var that = this;
     this.onKeyUp = this.onKeyUp.bind(this);
-    document.addEventListener('grab-start', this.onKeyUp);
+    document.addEventListener('collisions', this.onKeyUp);
 
     // var el = this.el;
     // el.addEventListener('triggerdown', function (evt) {
@@ -71,13 +71,17 @@
   },
 
   onKeyUp(e) {
+ 
 
     // let x = document.getElementsByClassName('vxr-obj-maskn95');
     // x[0].setAttribute("rotator","2")
     // console.log("danmwon")
-    console.log("grab and raycast is working.")
+    // console.log("raycast intersect is working.")
+    console.log("collision is working.")
 
     if(NAF.utils.takeOwnership(this.el)) {
+      console.log("ownership taked")
+
       // this.el.setAttribute('toggle-ownership', { direction: this.data.direction * -1 });
       // this.updateColor();
     }
