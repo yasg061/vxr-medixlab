@@ -141,7 +141,7 @@
 <body>
   <a-scene physics networked-scene="
       room: audio;
-      adapter: wseasyrtc;
+      adapter: easyrtc;
       audio: true;
       debug: true;
       onConnect: spawnentity;
@@ -345,8 +345,8 @@
           networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
         </a-entity>
         <!-- /VIVE CONTROLLERS -->
-        <a-entity id="lhand" mixin="touch point" input-controls=" hand: left" networked="template:#left-hand-template"></a-entity>
-        <a-entity id="rhand" mixin="touch point" input-controls="hand: right" networked="template:#right-hand-template"></a-entity>
+        <a-entity id="lhand" mixin="touch " input-controls=" hand: left" networked="template:#left-hand-template"></a-entity>
+        <a-entity id="rhand" mixin="touch " input-controls="hand: right" networked="template:#right-hand-template"></a-entity>
 </a-entity>
       
       <!-- ground collider keeps objets from falling -->
