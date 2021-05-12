@@ -266,6 +266,32 @@
 
 
   </script>
+  <script>
+    const colors = ['red', 'blue', 'yellow', 'purple', 'green', 'black', 'cyan', 'brown'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+
+    AFRAME.registerComponent('modify-materials', {
+      schema: {
+        color: { default: color }
+      },
+
+      init: function () {
+        // Wait for model to load.
+        this.el.addEventListener('model-loaded', () => {
+          console.log('model-loaded')
+          // Grab the mesh / scene.
+          const obj = this.el.getObject3D('mesh');
+          // Go over the submeshes and modify materials we want.
+          obj.traverse(node => {
+            console.log('node:', node);
+            if (node.name.indexOf('Mesh.024_2') !== -1 ) {
+              node.material.color.set(this.data.color);
+            }
+          });
+        });
+      }
+    });
+  </script>
 
   <script>
     function spawnentity() {
@@ -349,22 +375,22 @@
 
       <!-- Player -->
       <template id="player-template">
-        <a-entity networked-audio-source></a-entity>
+        <a-entity networked-audio-source="positional:false"></a-entity>
       </template>
       ​
       <!-- Nurse Avatar -->
       <template id="student-avatar-template">
-        <a-entity class="NurseHeadAvatar" gltf-model="#StudentAvatar" position="0 2 0" networked-audio-source></a-entity>
+        <a-entity class="NurseHeadAvatar" gltf-model="#StudentAvatar" position="0 2 0" networked-audio-source="positional:false"></a-entity>
       </template>
 
       <!-- Teacher Avatar -->
       <template id="teacher-avatar-template">
-        <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar" networked-audio-source></a-entity>
+        <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar" networked-audio-source="positional:false"></a-entity>
       </template>
       
       <!-- Spectator Avatar -->
       <template id="spectator-avatar-template">
-        <a-entity networked-audio-source></a-entity>
+        <a-entity networked-audio-source="positional:false"></a-entity>
       </template>
 
       <!-- Teacher Avatar Constraints -->
@@ -393,7 +419,8 @@
           <a-entity class="name-up"></a-entity>
           <a-entity class="SpectatorAvatar" id="spectator" gltf-model="#SpectatorAvatar"></a-entity>
           <!-- <a-entity class="SpectatorAvatarBody" id="spectatorbody" gltf-model="#SpectatorAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
-          <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>        </a-entity> -->
+          <a-entity class="SpectatorAvatarHead" id="spectatorhead"  gltf-model="#SpectatorAvatarHead" static-body avatar-body="body:#spectatorbody; id:#spectatorbody"></a-entity>    -->
+        </a-entity> 
       </template>
 
       <!-- Right Hand -->
@@ -475,8 +502,9 @@
         assign-seat
          >
 
-        <a-entity id="constraint-spectator" camera position="0 4.4 0.2" look-controls zoom="100" fov="120">
+        <a-entity id="constraint-spectator" camera="fov:40" position="0 4.4 0.2" look-controls zoom="100" fov="120">
           <a-entity class="name-up" name-up></a-entity>
+          <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" modify-materials visible="false"></a-entity>
         </a-entity>
       </a-entity>
 
@@ -518,6 +546,10 @@
           selector: '.name-up',
           component: 'name-up'     
         },
+        {
+          selector: '.SpectatorAvatar',
+          component: 'modify-materials'
+        }
       ]
     });
     NAF.schemas.add({
