@@ -197,16 +197,15 @@
 
       <!-- Theater -->
       <img id="shadow" src="https://cdn.glitch.com/20600112-c04b-492c-8190-8a5ccc06f37d%2Fshadow.png?v=1606338852399"></img>
-      <a.asser-item id="scenebase" src="../../Models/gltf/Scene_Base.gltf"></a.asser-item>
-      <a.asser-item id="scenebase02" src="../../Models/gltf/Scene_Base02.gltf"></a.asser-item>
-      <a.asser-item id="scenemedixlablogo" src="/Models/gltf/Scene_Medixlablogo.gltf"></a.asser-item>
-      <a.asser-item id="sceneieproeslogo" src="/Models/gltf/Scene_Ieproesblogo.gltf"></a.asser-item>
-      <a.asser-item id="scenevertexlogo" src="/Models/gltf/Scene_VertexLogo.gltf"></a.asser-item>
-      <a.asser-item id="scenebase02" src="../../Models/gltf/Scene_Base02.gltf"></a.asser-item>
-      <a.asser-item id="row" src="../../Models/gltf/Scene_Row.gltf"></a.asser-item>
-      <a.asser-item id="washer" src="../../Models/gltf/Washer.gltf"></a.asser-item>
-      <a.asser-item id="lamps" position="0 0 -12.41576" src="/Models/gltf/Scene_Lamps.gltf"></a.asser-item>
-      <a.asser-item id="walls" src="/Models/gltf/Scene_Walls.gltf"></a.asser-item>
+      <a-asset-item id="scenebase" src="../../Models/gltf/Scene_Base.gltf"></a-asset-item>
+      <a-asset-item id="scenebase02" src="../../Models/gltf/Scene_Base02.gltf"></a-asset-item>
+      <a-asset-item id="scenemedixlablogo" src="../../Models/gltf/Scene_Medixlablogo.gltf"></a-asset-item>
+      <a-asset-item id="sceneieproeslogo" src="../../Models/gltf/Scene_Ieproesblogo.gltf"></a-asset-item>
+      <a-asset-item id="scenevertexlogo" src="../../Models/gltf/Scene_VertexLogo.gltf"></a-asset-item>
+      <a-asset-item id="scenebase02" src="../../Models/gltf/Scene_Base02.gltf"></a-asset-item>
+      <a-asset-item id="wallback" position="0 0 -12.41576" src="../../Models/gltf/Scene_WallBack.gltf"></a-asset-item>
+      <a-asset-item id="row" src="../../Models/gltf/Scene_Row.gltf"></a-asset-item>
+      <a-asset-item id="washer" src="../../Models/gltf/Washer.gltf"></a-asset-item>
 
       <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false"
         static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
@@ -342,10 +341,32 @@
                 position="6.04245 9.1168 -7.44911" rotation="6.640007887771111 -48.475094257043295 -154.4688486094748"></a-entity>
       <a-entity light="color: #b33dff; penumbra: 0.51; type: spot; castShadow: true; intensity: 1.24" id="spot7"
                 position="-10.70804 9.99225 -6.71406" rotation="-8.631036225850721 17.92269278948728 120.1635735838119"></a-entity>
-      <a-entity light="color: #b33dff; penumbra: 0.51; type: spot; castShadow: true; intensity: 1.24" id="light01"
-                position="-8.96322 9.99225 8.95537" rotation="-8.631036225850721 17.92269278948728 120.1635735838119"></a-entity>
-      <a-entity light="color: #b33dff; penumbra: 0.51; type: hemisphere; castShadow: true; intensity: 1.24; groundColor: #7ccedb" id="light02"
-                position="-10.70804 9.99225 -6.71406" rotation="-8.631036225850721 17.92269278948728 120.1635735838119"></a-entity>
+      <!-- Static Objects -->
+      <a-entity class="gltf" gltf-model="#table" position="-1.5 0.5 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#table"  position="-0.13 0.5 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#bed" position="1.2 0.5 0" rotation="0 0 0" static-body></a-entity>
+
+
+
+
+      <!-- Theater Objects -->
+      <a-entity id="patient01" gltf-model="#patient"; scale="1 1 1" position="1.30792 0.39862 0.87509" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="roof01" gltf-model="#roof"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="salver01" gltf-model="#salver"; scale="1 1 1" position="-1.98987 1.19089 0.27767" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="dripbag01" gltf-model="#dripbag"; scale="1 1 1" position="-0.33061 1.22916 1.62738" material="color: brown" rotation="0 90 0"></a-entity>
+      <a-entity id="scenebase01" gltf-model="#scenebase"; scale="1 1 1" position="0 -0.02366 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="scenebase02" gltf-model="#scenebase02"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="scenemedixlablogo01" gltf-model="#scenemedixlablogo"; scale="2 2 2" position="0 10.54945 -14.36498" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="sceneieproeslogo01" gltf-model="#sceneieproeslogo"; scale="2 2 2" position="-15.33328 9.07108 23.28462" material="color: brown" rotation="0 157.14226968155523 0"></a-entity>    
+      <a-entity id="scenevertexlogo01" gltf-model="#scenevertexlogo"; scale="1 1 1" position="15.35311 9.20078 23.42455" material="color: brown" rotation="0 -146.36321468175908 0"></a-entity>
+      <a-entity id="table002" gltf-model="#table02"; scale="1 1 1" position="0.59361 0.29696 -2.44006" material="color: brown" rotation="0 180 0"></a-entity>
+      <a-entity id="table003" gltf-model="#table03"; scale="1 1 1" position="-2.0092 0.33197 0.2209" material="color: brown" rotation="0 180 0"></a-entity>
+      <a-entity id="row01" gltf-model="#row"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="cabinet005" gltf-model="#table03"; scale="1 1 1" position="-2.02939 0.34443 -0.50913" material="color: brown" rotation="0 180 0"></a-entity>
+      <a-entity id="trashcan01" gltf-model="#trashcan"; scale="1 1 1" position="-2.13642 0.31286 2.04292" material="color: brown" rotatation="0 0 45"></a-entity>
+      <a-entity id="tweezers01" gltf-model="#tweezers"; scale="1 1 1" position="-0.57539 0.97312 -1.23709" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="tweezers02" gltf-model="#tweezers2"; scale="1 1 1" position="-0.6261 0.97827 -1.26145" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="wallback"  gltf-model="#wallback"; scale="1 1 1" position="0 0 -12.416" rotation="0 0 0"></a-entity>
       
 
       <a-entity id="spectator"

@@ -4,7 +4,7 @@
  * When you press enter take ownership of the entity,
  * spin it in the opposite direction and change its color.
  */
-AFRAME.registerComponent('toggle-physics', {
+ AFRAME.registerComponent('toggle-physics', {
   schema: {
     speed: { default: 0.01 },
     direction: { default: 1 }
@@ -19,7 +19,7 @@ AFRAME.registerComponent('toggle-physics', {
 
     var that = this;
     this.onKeyUp = this.onKeyUp.bind(this);
-    document.addEventListener('grab-start', this.onKeyUp);
+    document.addEventListener('collisions', this.onKeyUp);
 
     // var el = this.el;
     // el.addEventListener('triggerdown', function (evt) {
@@ -42,7 +42,7 @@ AFRAME.registerComponent('toggle-physics', {
 
       el.addEventListener('ownership-gained', e => {
         that.updateOpacity(1);
-        that.el.setAttribute('dynamic-body');           
+        that.el.setAttribute('dynamic-body','');           
       });
 
       el.addEventListener('ownership-lost', e => {
@@ -58,6 +58,8 @@ AFRAME.registerComponent('toggle-physics', {
           //same as listening to 'ownership-gained'
         } else if (e.detail.oldOwner == NAF.clientId) {
           //same as listening to 'ownership-lost'
+          that.el.removeAttribute('dynamic-body');   
+
         } else {
           that.updateOpacity(0.8);
           timeout = setTimeout(() => {
@@ -69,13 +71,17 @@ AFRAME.registerComponent('toggle-physics', {
   },
 
   onKeyUp(e) {
+ 
 
     // let x = document.getElementsByClassName('vxr-obj-maskn95');
     // x[0].setAttribute("rotator","2")
     // console.log("danmwon")
-    console.log("grab and raycast is working.")
+    // console.log("raycast intersect is working.")
+    console.log("collision is working.")
 
     if(NAF.utils.takeOwnership(this.el)) {
+      console.log("ownership taked")
+
       // this.el.setAttribute('toggle-ownership', { direction: this.data.direction * -1 });
       // this.updateColor();
     }
