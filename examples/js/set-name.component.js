@@ -35,10 +35,10 @@ AFRAME.registerComponent('name-up', {
             '0 180 0',
         );
         el.setAttribute('position', {
-            x: 0.4, y: 1, z: 0,
+            x: 0.3, y: 0.4, z: 0,
         });
         el.setAttribute('scale',
-            '0.32 0.32 0.32',
+            '0.25 0.25 0.25',
         );
     }
 });
