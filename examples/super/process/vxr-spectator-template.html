@@ -488,8 +488,7 @@
       <a-entity id="ministairs01"  gltf-model="#ministairs"; scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
       <a-entity id="lamps03"  gltf-model="#lamps01"; scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
       <a-entity id="columns01" gltf-model="#columns"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="video01" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: plane; " position="0 7.32941 -1.90179" rotation="0 0 0" scale="7 4.743 4" ></a-entity>
-      
+      <a-entity id="video01" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: plane; " position="0 7.32941 -1.90179" rotation="0 0 0" scale="8.250 5.479 4" ></a-entity>   
        
     
       <!-- Theater Lights -->
@@ -502,15 +501,13 @@
 
       <a-entity id="spectator"
         position="-2.9119 2.18025 -2.79791"
-        assign-seat
-         >
+        assign-seat>
 
-        <a-entity id="constraint-spectator" camera="fov:40" position="0 4.4 0.2" look-controls zoom="100" fov="120">
+        <a-entity id="constraint-spectator" camera="fov:70" position="0 4.4 0.2" look-controls zoom="100" fov="120">
           <a-entity class="name-up" name-up></a-entity>
           <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" modify-materials visible="false"></a-entity>
         </a-entity>
       </a-entity>
-
   
       
       <!-- ground collider keeps objets from falling -->
