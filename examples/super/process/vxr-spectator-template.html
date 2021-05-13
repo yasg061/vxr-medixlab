@@ -51,7 +51,7 @@
         var data = this.data;
         var el = this.el;
 
-        // Sets spectator avatar position 
+        // Sets spectator avatar positions 
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const spawn = urlParams.get('spawn')
@@ -214,47 +214,47 @@
           },
           {
             identifier: '40',
-            position: { x: -11, y: 1.3, z: 0.7}/////ready/////
+            position: { x: -11, y: 1.3, z: 0.7}
           },
           {
             identifier: '41',
-            position: { x: -6.5, y: -1.3, z: 2.6 }
+            position: { x: -10.7, y: 1.3, z: 2.6 }
           },
           {
             identifier: '42',
-            position: { x: -5.5, y: -1.3, z: 4.3}
+            position: { x: -10.4, y: 1.3, z: 4}
           },
           {
             identifier: '43',
-            position: { x: -6.5, y: -1.3, z: 2.6 }
+            position: { x: -9.3, y: 1.3, z: 5.8 }
           },
           {
             identifier: '44',
-            position: { x: -5.5, y: -1.3, z: 4.3}
+            position: { x: -8.1, y: 1.3, z: 7.2}
           },
           {
             identifier: '45',
-            position: { x: -6.5, y: -1.3, z: 2.6 }
+            position: { x: -3.6, y: 1.3, z: 10.5 }
           },
           {
             identifier: '46',
-            position: { x: -5.5, y: -1.3, z: 4.3}
+            position: { x: -1.9, y: 1.3, z: 10.9}
           },
           {
             identifier: '47',
-            position: { x: -6.5, y: -1.3, z: 2.6 }
+            position: { x: 0, y: 1.3, z: 11 }
           },
           {
             identifier: '48',
-            position: { x: -5.5, y: -1.3, z: 4.3}
+            position: { x: 1.9, y: 1.3, z: 10.9}
           },
           {
             identifier: '49',
-            position: { x: -6.5, y: -1.3, z: 2.6 }
+            position: { x: 3.8, y: 1.3, z: 10.5 }
           },
           {
             identifier: '50',
-            position: { x: -5.5, y: -1.3, z: 4.3}
+            position: { x: 8.5, y: 1.3, z: 7.3}
           }
         ]
 
@@ -365,6 +365,8 @@
       <a-asset-item id="columns" src="/Models/gltf/Columns_Auditorium.gltf"></a-asset-item>
       <a-asset-item id="frontwall" src="/Models/gltf/FrontWall_Auditorium.gltf"></a-asset-item>
       <a-video id="canalizacion" src="/videos/Test.mp4" autoplay loop="true"></a-video>
+      <!--<a-assets-item id="logo01" src="/examples/img/Vertex_Icon.jpg"></a-assets-item>-->
+      
 
       <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false"
         static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
@@ -486,8 +488,8 @@
       <a-entity id="ministairs01"  gltf-model="#ministairs"; scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
       <a-entity id="lamps03"  gltf-model="#lamps01"; scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
       <a-entity id="columns01" gltf-model="#columns"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="video01" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: cylinder; radius: 12; height: 9; open-ended: true; theta-start: 142.5; theta-length: 75;" position="0 7.32941 4.69399" rotation="0 0 0" scale="-0.63 0.63 0.63" ></a-entity>
-     
+      <a-entity id="video01" material="shader: flat; side: double; src: #canalizacion" geometry="primitive: plane; " position="0 7.32941 -1.90179" rotation="0 0 0" scale="8.250 5.479 4" ></a-entity>   
+       
     
       <!-- Theater Lights -->
       <a-entity background="color: #92f2ff"></a-entity>
@@ -499,14 +501,18 @@
 
       <a-entity id="spectator"
         position="-2.9119 2.18025 -2.79791"
-        assign-seat
-         >
+        assign-seat>
 
-        <a-entity id="constraint-spectator" camera="fov:40" position="0 4.4 0.2" look-controls zoom="100" fov="120">
+        <a-entity id="constraint-spectator" camera="fov:70" position="0 4.4 0.2" look-controls zoom="100" fov="120">
           <a-entity class="name-up" name-up></a-entity>
           <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" modify-materials visible="false"></a-entity>
         </a-entity>
       </a-entity>
+<<<<<<< HEAD
+=======
+  
+      
+>>>>>>> f42b995fcc4b8147f50d734043a96f438ac13de1
       <!-- ground collider keeps objets from falling -->
       <a-box static-body width="100" height="0.01" depth="100" visible="false"></a-box>
   </a-scene>
