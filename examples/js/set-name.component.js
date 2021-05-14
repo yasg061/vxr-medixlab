@@ -27,18 +27,15 @@ AFRAME.registerComponent('name-up', {
     update: function () {
         var el = this.el;
 
-        el.setAttribute("text-geometry", { value: this.data.name });
-        el.setAttribute('material', {
-            color: 'yellow',
-        });
+        el.setAttribute("text", { value: this.data.name, align: 'center', side: 'double', color: 'yellow' });
         el.setAttribute('rotation',
-            '0 180 0',
+          '0 180 0',
         );
         el.setAttribute('position', {
-            x: 0.4, y: 1, z: 0,
+          x: 0, y: 0.525, z: 0,
         });
         el.setAttribute('scale',
-            '0.32 0.32 0.32',
+          '6 6 6',
         );
     }
 });
