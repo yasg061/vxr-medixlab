@@ -32,10 +32,17 @@ AFRAME.registerComponent('name-up', {
           '0 180 0',
         );
         el.setAttribute('position', {
+<<<<<<< HEAD
           x: 0, y: 0.525, z: 0,
         });
         el.setAttribute('scale',
           '6 6 6',
+=======
+            x: 0.3, y: 0.4, z: 0,
+        });
+        el.setAttribute('scale',
+            '0.25 0.25 0.25',
+>>>>>>> master
         );
     }
 });
