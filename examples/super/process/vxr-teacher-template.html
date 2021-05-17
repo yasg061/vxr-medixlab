@@ -437,7 +437,7 @@
         position="-2.9119 2.18025 -2.79791"
         assign-seat>
 
-        <a-entity id="constraint-spectator" camera position="0 3 0.2" look-controls zoom="100" fov="120">
+        <a-entity id="constraint-spectator" camera  look-controls zoom="100" fov="120">
           <a-entity class="name-up" name-up></a-entity>
         </a-entity>
       </a-entity>
@@ -490,7 +490,7 @@
 
 <a-entity id="player"   networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
         rotation="0 180 0" movement-controls>
-        <a-entity camera position="0 3 0.2" look-controls zoom="100" fov="120"
+        <a-entity camera position="0 1.6 0.2" look-controls zoom="100" fov="120"
           networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
         </a-entity>
         <!-- /VIVE CONTROLLERS -->
