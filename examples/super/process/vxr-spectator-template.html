@@ -18,7 +18,7 @@
   <script src="/js/spawn-in-circle.component.js"></script>
   ​​<script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script> 
 
-
+  
   <!-- Super hands -->
   <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.js"></script>
   <script src="https://unpkg.com/aframe-event-set-component@^4.1.1/dist/aframe-event-set-component.min.js"></script>
@@ -508,6 +508,7 @@
           <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" modify-materials visible="false"></a-entity>
         </a-entity>
       </a-entity>
+  
       
       <!-- ground collider keeps objets from falling -->
       <a-box static-body width="100" height="0.01" depth="100" visible="false"></a-box>
@@ -523,11 +524,6 @@
     const micBtnEle = document.getElementById('mic-btn');
     // On mobile remove elements that are resource heavy
     const isMobile = AFRAME.utils.device.isMobile();
-
-    if (isMobile) {
-      const particles = document.getElementById('particles');
-      particles.parentNode.removeChild(particles);
-    }
   </script>
   
   <script>
@@ -568,13 +564,13 @@
         }
       ]
     });
-    NAF.schemas.add({
-      template: '#constraint-avatar-template',
-      components: [
-        'position',
-        'rotation'
-      ]
-    });
+//    NAF.schemas.add({
+//      template: '#constraint-avatar-template',
+//      components: [
+//        'position',
+//        'rotation'
+//      ]
+//    });
     NAF.schemas.add({
       template: '#constraint-teacher-avatar-template',
       components: [
