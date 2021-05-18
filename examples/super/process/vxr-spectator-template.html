@@ -259,6 +259,7 @@
         ]
 
         let slotFound = theaterSlots.find(x => x.identifier === spawn);
+        slotFound.position.y+=3
         let slotPosition = slotFound.position
         el.setAttribute('position', slotPosition)
       }
@@ -500,10 +501,9 @@
       
 
       <a-entity id="spectator"
-        position="-2.9119 2.18025 -2.79791"
         assign-seat>
 
-        <a-entity id="constraint-spectator" camera="fov:70" position="0 4.4 0.2" look-controls zoom="100" fov="120">
+        <a-entity id="constraint-spectator" camera="fov:70" position="0 1.6 0" look-controls zoom="100" fov="120">
           <a-entity class="name-up" name-up></a-entity>
           <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" modify-materials visible="false"></a-entity>
         </a-entity>
