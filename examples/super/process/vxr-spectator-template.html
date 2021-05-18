@@ -255,6 +255,7 @@
           <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" randomize-spec-color visible="false"></a-entity>
         </a-entity>
       </a-entity>
+  
       
       <!-- ground collider keeps objets from falling -->
       <a-box static-body width="100" height="0.01" depth="100" visible="false"></a-box>
@@ -270,11 +271,6 @@
     const micBtnEle = document.getElementById('mic-btn');
     // On mobile remove elements that are resource heavy
     const isMobile = AFRAME.utils.device.isMobile();
-
-    if (isMobile) {
-      const particles = document.getElementById('particles');
-      particles.parentNode.removeChild(particles);
-    }
   </script>
   
   <script>
@@ -315,13 +311,13 @@
         }
       ]
     });
-    NAF.schemas.add({
-      template: '#constraint-avatar-template',
-      components: [
-        'position',
-        'rotation'
-      ]
-    });
+//    NAF.schemas.add({
+//      template: '#constraint-avatar-template',
+//      components: [
+//        'position',
+//        'rotation'
+//      ]
+//    });
     NAF.schemas.add({
       template: '#constraint-teacher-avatar-template',
       components: [
