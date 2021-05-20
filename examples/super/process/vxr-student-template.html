@@ -310,6 +310,16 @@
       <a-asset-item id="TeacherAvatar" src="assets/TeacherAvatar.gltf"></a-asset-item>
       <a-asset-item id="right-hand" src="assets/rightHandHigh.glb"></a-asset-item>
       <a-asset-item id="left-hand" src="assets/leftHandHigh.glb"></a-asset-item>
+      <a-asset-item id="dripbag" src="../../Models/gltf/DripBag.gltf"></a-asset-item>
+      <a-asset-item id="rubber" src="../../Models/gltf/Rubber.gltf"></a-asset-item>
+      <a-asset-item id="medicaltape" src="../../Models/gltf/MedicalTape.gltf"></a-asset-item>
+      <a-asset-item id="gauze" src="../../Models/gltf/Gauze.gltf"></a-asset-item>
+      <a-asset-item id="allistweezers" src="../../Models/gltf/AllisTweezers.gltf"></a-asset-item>
+      <a-asset-item id="cottonswab" src="../../Models/gltf/CottonSwabs01.gltf"></a-asset-item>
+      <a-asset-item id="salinebottle" src="../../Models/gltf/SalineBottle.gltf"></a-asset-item>
+      <a-asset-item id="alcoholgel" src="../../Models/gltf/AlcoholGel.gltf"></a-asset-item>
+      <a-asset-item id="heparinseal" src="../../Models/gltf/HeparinSeal.gltf"></a-asset-item>
+      <a-asset-item id="intracath" src="../../Models/gltf/Intracath.gltf"></a-asset-item>
 
       <!-- Avatars -->
       <a-asset-item id="StudentAvatarHead" src="assets/avatars/StudentAvatarHead.gltf"></a-asset-item>
@@ -425,9 +435,21 @@
       <!-- vxr-gltf -->
       <template id="vxr-obj-template">
         <a-entity>
-          <a-entity class="vxr-obj-maskn95 vxr-interact"  gltf-model="#maskn95" draggable grabbable toggle-physics position="-0.4 2 -0.2"></a-entity>
-          <a-entity class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" draggable grabbable toggle-physics position="-0.4 2 0"></a-entity>
-          <a-entity class="vxr-obj-tray vxr-interact" gltf-model="#tray" draggable grabbable toggle-physics position="0 2 -0.2"></a-entity>
+          <a-entity class="vxr-obj-maskn95 vxr-interact"  gltf-model="#maskn95" dynamic-body draggable grabbable toggle-physics position="-0.6 2 -0.107"></a-entity>
+          <a-entity class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" dynamic-body draggable grabbable toggle-physics position="-0.4 2 0"></a-entity>
+          <a-entity class="vxr-obj-tray vxr-interact" gltf-model="#tray" dynamic-body draggable grabbable toggle-physics position="0.035 0.5 -0.2"></a-entity>
+          <a-entity class="vxr-obj-rubber vxr-interact" gltf-model="#rubber" dynamic-body draggable grabbable toggle-physics position="-0.34 0.45 -0.2"></a-entity>
+          <a-entity class="vxr-obj-dripbag vxr-interact" gltf-model="#dripbag" dynamic-body draggable grabbable toggle-physics position="-1.61 0.5 -0.30"></a-entity>
+          <a-entity class="vxr-obj-medicaltape vxr-interact" gltf-model="#medicaltape" dynamic-body draggable grabbable toggle-physics position="-1.19 0.5 -0.355"></a-entity>
+          <a-entity class="vxr-obj-gauze vxr-interact" gltf-model="#gauze" dynamic-body draggable grabbable toggle-physics position="-1.81 0.6 -0.28"></a-entity>
+          <a-entity class="vxr-obj-allistweezers vxr-interact" gltf-model="#allistweezers" dynamic-body draggable grabbable toggle-physics position="-1.3 0.5 -0.03"></a-entity>
+          <a-entity class="vxr-obj-cottonswab01 vxr-interact" gltf-model="#cottonswab" dynamic-body draggable grabbable toggle-physics position="-1.01 0.5 -0.251"></a-entity>
+          <a-entity class="vxr-obj-cottonswab02 vxr-interact" gltf-model="#cottonswab" dynamic-body draggable grabbable toggle-physics position="-1.08 0.7 -0.194"></a-entity>
+          <a-entity class="vxr-obj-cottonswab03 vxr-interact" gltf-model="#cottonswab" dynamic-body draggable grabbable toggle-physics position="-1.08 0.7 -0.285"></a-entity>
+          <a-entity class="vxr-obj-salinebottle vxr-interact" gltf-model="#salinebottle" dynamic-body draggable grabbable toggle-physics position="-1.43 0.7 -0.026"></a-entity>
+          <a-entity class="vxr-obj-alcoholgel vxr-interact" gltf-model="#alcoholgel" dynamic-body draggable grabbable toggle-physics position="-1.65 0.5 -0.026"></a-entity>
+          <a-entity class="vxr-obj-heparinseal vxr-interact" gltf-model="#heparinseal" dynamic-body draggable grabbable toggle-physics position="-1.57 0.50 -0.135"></a-entity>
+          <a-entity class="vxr-obj-intracath vxr-interact" gltf-model="#intracath" dynamic-body draggable grabbable toggle-physics position="-1.11 0.45 -0.107"></a-entity>
         </a-entity>
       </template>
 
@@ -453,10 +475,10 @@
       </a-light>
 
       <!-- Static Objects -->
-      <a-entity class="gltf" gltf-model="#table" position="-1.5 1 0" rotation="0 0 0" static-body></a-entity>
-      <a-entity class="gltf" gltf-model="#table"  position="-0.13 1 0" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#table" position="-1.5 1 -0.13" rotation="0 0 0" static-body></a-entity>
+      <a-entity class="gltf" gltf-model="#table"  position="-0.13 1 -0.13" rotation="0 0 0" static-body></a-entity>
       <a-entity class="gltf" gltf-model="#bed" position="1.2 1 0" rotation="0 0 0" static-body></a-entity>
-      <a-entity id="patient01" gltf-model="../../Models/gltf/Patient.gltf" ;="" scale="" position="1.18674 1.03109 -0.06237" material="color: brown" rotation=""></a-entity>
+      <a-entity id="patient01" gltf-model="../../Models/gltf/Patient.gltf" scale="" position="1.18674 1.03109 -0.06237" material="color: brown" rotation=""></a-entity>
 
 
       <!-- Theater Objects -->
