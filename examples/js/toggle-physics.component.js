@@ -1,3 +1,5 @@
+let varBool=false;
+
 /* global AFRAME, NAF, THREE */
 /**
  * Rotate the entity every frame if you are the owner.
@@ -77,8 +79,15 @@
     // x[0].setAttribute("rotator","2")
     // console.log("danmwon")
     // console.log("raycast intersect is working.")
-    console.log("collision is working.")
+        if(varBool==false){
 
+        }
+    console.log(e)
+varBool=true
+    this.el.removeEventListener("hit",function(){
+
+    })
+    
     if(NAF.utils.takeOwnership(this.el)) {
       console.log("ownership taked")
 
