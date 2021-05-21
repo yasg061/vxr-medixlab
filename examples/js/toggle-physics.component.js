@@ -21,7 +21,7 @@ let varBool=false;
 
     var that = this;
     this.onKeyUp = this.onKeyUp.bind(this);
-    document.addEventListener('hit', this.onKeyUp);
+    document.addEventListener('collisions', this.onKeyUp);
 
     // var el = this.el;
     // el.addEventListener('triggerdown', function (evt) {
