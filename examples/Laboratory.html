@@ -13,6 +13,9 @@
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+    <script src="/js/aframe-obj-opacity.js"></script>
+    <script src="/js/aframe-alphamap.js"></script>
+
   </head>
   <body>
     <a-scene networked-scene="
@@ -30,9 +33,11 @@
           response-type="arraybuffer" crossorigin="anonymous"></a-asset-item> 
     
         <img id="sky" src="/Models/Images/starsky.jpg">
+        <img id="alphaMap" src="/Models/Images/alphamap.jpg">
+        <img id="texture" src="/Models/Images/alphamap.jpg">
 
-        <a-asset-item id="alcoholbottle" src="/Models/gltf/TeacherAvatar.gltf"></a-asset-item>
-        <a-asset-item id="alcoholgel" src="/Models/gltf/StudentNurseAvatar.gltf"></a-asset-item>
+        <a-asset-item id="teacheravatar" src="/Models/gltf/TeacherAvatar.gltf"></a-asset-item>
+        <a-asset-item id="nurseavatar" src="/Models/gltf/StudentNurseAvatar.gltf"></a-asset-item>
         <a-asset-item id="bandeja" src="/Models/gltf/Bandeja.gltf"></a-asset-item>
         <a-asset-item id="bandeja02" src="/Models/gltf/Tray.gltf"></a-asset-item>
         <a-asset-item id="base" src="/Models/gltf/Base.gltf"></a-asset-item>
@@ -84,8 +89,8 @@
       <a-entity camera="fov: 60" position="1.70517 3.77742 7.90324" wasd-controls="" rotation="" look-controls="" aframe-injected="" fov="60" data-aframe-inspector-original-camera=""></a-entity>
      
       <a-entity id="roofauditorium01" gltf-model="#roofauditorium"; scale="1 1 1" position="0 1.35517 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="alcoholbottle01" gltf-model="#alcoholbottle"; scale="1 1 1" position="-0.3679 2.54021 1.1641" material="color: brown" rotation="0 178.3921283873672 0"></a-entity>
-      <a-entity id="alcoholgel01" gltf-model="#alcoholgel"; scale="1 1 1" position="0.40934 2.5107 1.1618" material="color: brown" rotation="0 177.43013224934256 0"></a-entity>
+      <a-entity id="teacheravatar01" gltf-model="#teacheravatar"; model-opacity="0.5" scale="1 1 1" position="-0.3679 2.54021 1.1641" material="color: brown" rotation="0 178.3921283873672 0"></a-entity>
+      <a-entity id="nurseavatar01" gltf-model="#nurseavatar"; material="src: #texture" alpha-map="src: #alphaMap"; scale="1 1 1" position="0.40934 2.5107 1.1618" material="color: brown" rotation="0 177.43013224934256 0"></a-entity>
       <a-entity id="bandeja01" gltf-model="#bandeja"; scale="1 1 1" position="0.09071 -0.58757 0.33463" material="color: brown" rotation="0 90 0"></a-entity>
       <a-entity id="bandeja002" gltf-model="#bandeja02"; scale="1 1 1" position="0.01345 -0.26792 0.12408" material="color: brown" rotation="0 90 0"></a-entity>
       <a-entity id="bandeja003" gltf-model="#bandeja02"; scale="1 1 1" position="0.02168 0.71011 0.6949" material="color: brown" rotation="0 90 0"></a-entity>
