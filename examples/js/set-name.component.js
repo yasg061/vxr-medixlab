@@ -27,7 +27,7 @@ AFRAME.registerComponent('name-up', {
     update: function () {
         var el = this.el;
 
-        el.setAttribute("text", { value: this.data.name, align: 'center', side: 'double', color: 'yellow' });
+        el.setAttribute("text", { value: this.data.name, align: 'center', side: 'double', color: 'yellow', font: 'https://cdn.aframe.io/fonts/Exo2SemiBold.fnt' });
         el.setAttribute('rotation',
           '0 180 0',
         );

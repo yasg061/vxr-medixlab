@@ -31,6 +31,7 @@ AFRAME.registerComponent('name-up-teacher', {
         el.setAttribute("text-geometry", { value: this.data.name });
         el.setAttribute('material', {
             color: 'yellow',
+            font: 'https://cdn.aframe.io/fonts/Exo2SemiBold.fnt'
         });
         el.setAttribute('rotation',
             '0 180 0',
