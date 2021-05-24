@@ -3,7 +3,7 @@ AFRAME.registerComponent('camrender',{
        // desired FPS
        fps: {
             type: 'number',
-            default: 90.0
+            default: 60.0
        },
        // Id of the canvas element used for rendering the camera
        cid: {
@@ -13,12 +13,12 @@ AFRAME.registerComponent('camrender',{
        // Height of the renderer element
        height: {
             type: 'number',
-            default: 300
+            default: 400
        },
        // Width of the renderer element
        width: {
             type: 'number',
-            default: 400
+            default: 900
        }
     },
     'update': function(oldData) {
