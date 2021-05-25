@@ -13,9 +13,12 @@
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+    <script src="/js/aframe-obj-opacity.js"></script>
+    <script src="/js/aframe-alphamap.js"></script>
+
   </head>
   <body>
-    <a-scene networked-scene="
+    <a-scene renderer="antialias: true;" networked-scene="
       room: dev;
       debug: true;
       adapter: wseasyrtc;
@@ -29,10 +32,12 @@
           src="https://cdn.aframe.io/examples/ar/models/reticle/reticle.gltf"
           response-type="arraybuffer" crossorigin="anonymous"></a-asset-item> 
     
-        <img id="sky" src="/Models/Images/starsky.jpg">
+        <img id="sky" src="/Models/Images/Sky_Clouds.jpg">
+        <img id="alphaMap" src="/Models/Images/alphamap.jpg">
+        <img id="texture" src="/Models/Images/alphamap.jpg">
 
-        <a-asset-item id="alcoholbottle" src="/Models/gltf/TeacherAvatar.gltf"></a-asset-item>
-        <a-asset-item id="alcoholgel" src="/Models/gltf/StudentNurseAvatar.gltf"></a-asset-item>
+        <a-asset-item id="teacheravatar" src="/Models/gltf/TeacherAvatar.gltf"></a-asset-item>
+        <a-asset-item id="nurseavatar" src="/Models/gltf/StudentNurseAvatar.gltf"></a-asset-item>
         <a-asset-item id="bandeja" src="/Models/gltf/Bandeja.gltf"></a-asset-item>
         <a-asset-item id="bandeja02" src="/Models/gltf/Tray.gltf"></a-asset-item>
         <a-asset-item id="base" src="/Models/gltf/Base.gltf"></a-asset-item>
@@ -59,7 +64,7 @@
         <a-asset-item id="trashcan" src="/Models/gltf/TrashCan.gltf"></a-asset-item>
         <a-asset-item id="tweezers" src="/Models/gltf/Tweezers.gltf"></a-asset-item>
         <a-asset-item id="tweezers2" src="/Models/gltf/Tweezers2.gltf"></a-asset-item>
-        <a-asset-item id="scenebase" src="/Models/gltf/Scene_Base.gltf"></a-asset-item>
+        <!-- <a-asset-item id="scenebase" src="/Models/gltf/Scene_Base.gltf"></a-asset-item> -->
         <a-asset-item id="walls" src="/Models/gltf/Scene_Walls.gltf"></a-asset-item>
         <a-asset-item id="scenemedixlablogo" src="/Models/gltf/Scene_Medixlablogo.gltf"></a-asset-item>
         <a-asset-item id="sceneieproeslogo" src="/Models/gltf/Scene_Ieproesblogo.gltf"></a-asset-item>
@@ -74,18 +79,15 @@
         
     </a-assets>
 
-    <a-entity id="generalenvironment" environment="lightPosition: 1 5 -2; ground: flat; groundColor: #0080ff; groundColor2: #0080ff; dressingColor: #0080ff; grid: crosses" visible="">
-      <a-entity class="environment" position="0 50 0" light="type: hemisphere; color: #CEE4F0; intensity: 0.1; groundColor: #0080ff" visible=""></a-entity><a-entity class="environment" position="1 5 -2" light="intensity: 0.1; shadowCameraLeft: -10; shadowCameraBottom: -10; shadowCameraRight: 10; shadowCameraTop: 10" visible=""></a-entity><a-entity rotation="-90 0 0" class="environmentGround environment" visible="" scale="1 1 3" shadow="cast: false; receive: false"></a-entity><a-entity class="environmentDressing environment" visible="false"></a-entity><a-sky radius="200" theta-length="110" class="environment" material="shader: skyshader; sunPosition: 0 0 0" visible="" geometry=""></a-sky><a-entity id="stars"></a-entity></a-entity>
+      <a-sky id="sky01" src="#sky" material="" geometry="radius: 29.21; thetaLength: 160.69; thetaStart: -0.15; segmentsHeight: 32" position="0 0 0"></a-sky>    
 
-      <!-- <a-sky id="sky01" src="#sky" material="" geometry="radius: 50" position="0 25 0"></a-sky>     -->
-
-      <a-entity geometry="primitive: plane; width: 1.14" position="0 -2 0" scale="100 100 100" rotation="-90 0 0" material="color: aqua" id="ground"></a-entity>
+      <a-entity geometry="primitive: circle; width: 1.14" position="0 -2 0" scale="100 100 100" rotation="-90 0 0" material="color: lightgrey" id="ground"></a-entity>
 
       <a-entity camera="fov: 60" position="1.70517 3.77742 7.90324" wasd-controls="" rotation="" look-controls="" aframe-injected="" fov="60" data-aframe-inspector-original-camera=""></a-entity>
      
-      <a-entity id="roofauditorium01" gltf-model="#roofauditorium"; scale="1 1 1" position="0 1.35517 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity id="alcoholbottle01" gltf-model="#alcoholbottle"; scale="1 1 1" position="-0.3679 2.54021 1.1641" material="color: brown" rotation="0 178.3921283873672 0"></a-entity>
-      <a-entity id="alcoholgel01" gltf-model="#alcoholgel"; scale="1 1 1" position="0.40934 2.5107 1.1618" material="color: brown" rotation="0 177.43013224934256 0"></a-entity>
+      <a-entity id="roofauditorium01" gltf-model="#roofauditorium"; scale="1 1 1" position="0 0.10831 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <a-entity id="teacheravatar01" gltf-model="#teacheravatar"; model-opacity="1" scale="1 1 1" position="-0.3679 2.54021 1.1641" material="color: brown" rotation="0 178.3921283873672 0"></a-entity>
+      <a-entity id="nurseavatar01" gltf-model="#nurseavatar"; material="src: #texture" alpha-map="src: #alphaMap"; scale="1 1 1" position="0.40934 2.5107 1.1618" material="color: brown" rotation="0 177.43013224934256 0"></a-entity>
       <a-entity id="bandeja01" gltf-model="#bandeja"; scale="1 1 1" position="0.09071 -0.58757 0.33463" material="color: brown" rotation="0 90 0"></a-entity>
       <a-entity id="bandeja002" gltf-model="#bandeja02"; scale="1 1 1" position="0.01345 -0.26792 0.12408" material="color: brown" rotation="0 90 0"></a-entity>
       <a-entity id="bandeja003" gltf-model="#bandeja02"; scale="1 1 1" position="0.02168 0.71011 0.6949" material="color: brown" rotation="0 90 0"></a-entity>
@@ -108,7 +110,7 @@
       <a-entity id="roof01" gltf-model="#roof"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="salver01" gltf-model="#salver"; scale="1 1 1" position="-1.98987 -0.32244 0.22229" material="color: brown" rotation="0 90 0"></a-entity>
       <a-entity id="dripbag01" gltf-model="#dripbag"; scale="1 1 1" position="-0.33061 0.39724 0.71467" material="color: brown" rotation="0 90 0"></a-entity>
-      <a-entity id="scenebase01" gltf-model="#scenebase"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
+      <!-- <a-entity id="scenebase01" gltf-model="#scenebase"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity> -->
       <a-entity id="scenebase02" gltf-model="#scenebase02"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="scenemedixlablogo01" gltf-model="#scenemedixlablogo"; scale="2 2 2" position="0.04036 11.22773 -2.14313" material="color: brown" rotation="0 0 0"></a-entity>
       <a-entity id="sceneieproeslogo01" gltf-model="#sceneieproeslogo"; scale="3 3 3" position="-7.3502 9.07108 11.32697" material="color: brown" rotation="0 151.70203541678805 0"></a-entity>    
@@ -128,8 +130,8 @@
       <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 50000" material="shader: flat; side: double; gltf-model: #scenevertexlogorot" gltf-model="#scenevertexlogorot" position="0 11 1" rotation="0 0 0" scale="-1 1 1" ></a-entity>
 
 
-      <a-entity light="intensity: 0.5; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
-      <a-entity light="color: #ffffff; penumbra: 0.51; type: point; intensity: 0.26" id="light01"
+      <a-entity id="lightambient" light="intensity: 0.7; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
+      <a-entity light="color: #ffffff; penumbra: 0.51; type: point; intensity: 0.5" id="light01"
                 position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
    
                 
