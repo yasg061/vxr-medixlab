@@ -13,12 +13,12 @@ AFRAME.registerComponent('camrender',{
        // Height of the renderer element
        height: {
             type: 'number',
-            default: 400
+            default: 2048
        },
        // Width of the renderer element
        width: {
             type: 'number',
-            default: 900
+            default: 2048
        }
     },
     'update': function(oldData) {
@@ -38,8 +38,8 @@ AFRAME.registerComponent('camrender',{
         if (oldData.width !== data.width || oldData.height !== data.height) {
             // Set size of canvas renderer
             this.renderer.setSize(data.width, data.height);
-            this.renderer.domElement.height = data.height;
-            this.renderer.domElement.width = data.width;
+            this.renderer.height = data.height;
+            this.renderer.width = data.width;
         };
         if (oldData.fps !== data.fps) {
             // Set how often to call tick
