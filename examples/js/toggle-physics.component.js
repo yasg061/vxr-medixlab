@@ -45,7 +45,9 @@ let varBool=false;
       });
 
       el.addEventListener('ownership-lost', e => {
-            
+            console.log("ownership-lost")
+            this.el.removeAttribute('dynamic-body');   
+            this.el.setAttribute('static-body',''); 
       });
 
       el.addEventListener('ownership-changed', e => {
