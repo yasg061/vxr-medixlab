@@ -11,7 +11,7 @@ let varBool=false;
     speed: { default: 0.01 },
     direction: { default: 1 }
   },
-
+  
   init() {
     
     
@@ -30,41 +30,33 @@ let varBool=false;
 
     NAF.utils.getNetworkedEntity(this.el).then((el) => {
       if (NAF.utils.isMine(el)) {
-        // that.updateColor();
-        // that.el.setAttribute('dynamic-body', "");           
-
+            that.el.setAttribute('dynamic-body','');        
       } else {
         that.updateOpacity(0.5);
-              
-
+        that.el.setAttribute('static-body','');        
       }
-
       // Opacity is not a networked attribute, but change it based on ownership events
       let timeout;
-
       el.addEventListener('ownership-gained', e => {
         that.updateOpacity(1);
-        console.log("ownership gained")
-        that.el.setAttribute('dynamic-body',''); 
-
+        // console.log("ownership gained")
+        // that.el.removeAttribute('static-body');   
+        // that.el.setAttribute('dynamic-body',''); 
       });
 
       el.addEventListener('ownership-lost', e => {
-        that.updateOpacity(0.5);
-        that.el.removeAttribute('dynamic-body');   
-        console.log("lost ownership")
-        
+            
       });
 
       el.addEventListener('ownership-changed', e => {
         clearTimeout(timeout);
         if (e.detail.newOwner == NAF.clientId) {
-          console.log("ownership-changed")
           //same as listening to 'ownership-gained'
         } else if (e.detail.oldOwner == NAF.clientId) {
+          console.log(e)
+          console.log("old owner: ",e.detail.oldOwner)
+          console.log("naf client ID: ",e.detail.oldOwner)
           //same as listening to 'ownership-lost'
-          that.el.removeAttribute('dynamic-body');   
-
         } else {
           that.updateOpacity(0.8);
           timeout = setTimeout(() => {
@@ -76,21 +68,20 @@ let varBool=false;
   },
 
   onKeyUp(e) {
- 
-
-    // let x = document.getElementsByClassName('vxr-obj-maskn95');
-    // x[0].setAttribute("rotator","2")
-    // console.log("danmwon")
-    // console.log("raycast intersect is working.")
-        
-   
           if(e.detail.els.indexOf(this.el)>=0){
-            console.log("Working")
-            console.log("object to change ownership: ", this.el)
-            NAF.utils.takeOwnership(this.el)
+
+            if(NAF.utils.takeOwnership(this.el)){   
+              console.log(NAF.utils.takeOwnership)   
+              console.log(NAF.utils.getNetworkedEntity(this.el))   
+              console.log("object to change ownership", this.el)
+              this.el.removeAttribute('static-body');   
+              this.el.setAttribute('dynamic-body',''); 
+              console.log("networked ? ", this.el.components)
+            }
           }else{
-            console.log("not working")
+            
           }
+          
   },
 
   // updateColor() {
@@ -101,15 +92,4 @@ let varBool=false;
   updateOpacity(opacity) {
     this.el.setAttribute('material', 'opacity', opacity);
   },
-
-
-
-
-
-
-
-
-
-
-
 });
