@@ -125,7 +125,7 @@
       <a-asset-item id="columns" src="/Models/gltf/Columns_Auditorium.gltf"></a-asset-item>
       <a-asset-item id="frontwall" src="/Models/gltf/FrontWall_Auditorium.gltf"></a-asset-item>
       <a-video id="canalizacion" src="/videos/Test.mp4" autoplay loop="true"></a-video>
-      <canvas id="cam2"></canvas>
+      <canvas width="512" height="512" id="cam2"></canvas>
       <!--<a-assets-item id="logo01" src="/examples/img/Vertex_Icon.jpg"></a-assets-item>-->
       
 
@@ -261,7 +261,7 @@
       <a-entity id="ministairs01"  gltf-model="#ministairs"; scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
       <a-entity id="lamps03"  gltf-model="#lamps01"; scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
       <a-entity id="columns01" gltf-model="#columns"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity camera="active: false" camrender="cid: cam2" position="0 3.2 0" rotation="-95 -180 180"></a-entity>   
+      <a-entity camera="zoom: 0.8; aspect: 1; active: false;" camrender="cid: cam2" position="0 4.0 0" rotation="-95 -180 180"></a-entity>   
       <a-plane rotation="0 0 0" scale="8.250 5.479 4" material="src:#cam2" position="0 7.32941 -1.90179" canvas-updater></a-plane>
     
       <!-- Theater Lights -->
