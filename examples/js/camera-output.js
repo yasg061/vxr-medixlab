@@ -9,16 +9,6 @@ AFRAME.registerComponent('camrender',{
        cid: {
             type: 'string',
             default: 'camRenderer'
-       },
-       // Height of the renderer element
-       height: {
-            type: 'number',
-            default: 512
-       },
-       // Width of the renderer element
-       width: {
-            type: 'number',
-            default: 512
        }
     },
     'update': function(oldData) {
@@ -35,19 +25,6 @@ AFRAME.registerComponent('camrender',{
             this.renderer.setPixelRatio( window.devicePixelRatio );
             this.renderer.domElement.crossorigin = "anonymous";
         };
-        var el = this.el;
-        var camera = el.getObject3D('camera');
-        if (data.width > data.height) {
-            this.renderer.setSize(data.width, data.height);
-            this.renderer.height = data.height;
-            this.renderer.width = data.width;
-            camera.aspect = data.width / data.height;
-        } else {
-            this.renderer.setSize(data.height, data.width);
-            this.renderer.height = data.width;
-            this.renderer.width = data.height;
-            camera.aspect = data.height / data.height;
-        }
         if (oldData.fps !== data.fps) {
             // Set how often to call tick
             this.tick = AFRAME.utils.throttleTick(this.tick, 1000 / data.fps , this);
