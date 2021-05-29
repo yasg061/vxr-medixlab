@@ -45,22 +45,11 @@
   <script>
     function spawnentity() {
       let syncs = document.getElementsByClassName("syncup");
-      let vxr_obj_template = document.getElementsByClassName("vxr-obj-template");
-      let vxr_obj_template2 = document.getElementsByClassName("vxr-obj-template-2");
-      let vxr_obj_template3 = document.getElementsByClassName("vxr-obj-template-3");
+ 
       let constraint_avatar_template = document.getElementsByClassName("constraint-avatar-template");
       for (let i = 0; i < syncs.length; ++i) {
         syncs[i].setAttribute("networked", "template:#vxr-template;attachTemplateToLocal:true")
-      }
-      for (let i = 0; i < vxr_obj_template.length; ++i) {
-        vxr_obj_template[i].setAttribute("networked", "template:#vxr-obj-template;attachTemplateToLocal:true")
-      }
-      for (let i = 0; i < vxr_obj_template2.length; ++i) {
-        vxr_obj_template2[i].setAttribute("networked", "template:#vxr-obj-template-2;attachTemplateToLocal:true")
-      }
-      for (let i = 0; i < vxr_obj_template3.length; ++i) {
-        vxr_obj_template3[i].setAttribute("networked", "template:#vxr-obj-template-3;attachTemplateToLocal:true")
-      }
+      }     
       for (let i = 0; i < constraint_avatar_template.length; ++i) {
         constraint_avatar_template[i].setAttribute("networked", "template:#constraint-avatar-template;attachTemplateToLocal:true")
       }
@@ -75,7 +64,7 @@
 </head>
 
 <body>
-  <a-scene stats physics networked-scene="
+  <a-scene stats physics="debug: false; gravity: -1; iterations: 50" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: true;
@@ -219,12 +208,7 @@
       </template>
       
       <!-- vxr-gltf -->
-      <template id="vxr-obj-template">
-        <a-entity>
-          <a-entity class="vxr-obj-maskn95 vxr-interact"  gltf-model="#maskn95"  draggable grabbable toggle-physics  position="-0.6 2 -0.107"></a-entity>
-          
-        </a-entity>
-      </template>
+
 
       <template id="vxr-obj-template-2">
         <a-entity>          
@@ -279,8 +263,8 @@
       <a-entity id="ministairs01"  gltf-model="#ministairs"; scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
       <a-entity id="lamps03"  gltf-model="#lamps01"; scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
       <a-entity id="columns01" gltf-model="#columns"; scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
-      <a-entity camera="active: false" camrender="cid: cam2" position="0 3.2 0" rotation="-95 -180 180"></a-entity>   
-      <a-plane rotation="0 0 0" scale="8.250 5.479 4" material="src:#cam2" position="0 7.32941 -1.90179" canvas-updater></a-plane>
+      <!-- <a-entity camera="active: false" camrender="cid: cam2" position="0 3.2 0" rotation="-95 -180 180"></a-entity>   
+      <a-plane rotation="0 0 0" scale="8.250 5.479 4" material="src:#cam2" position="0 7.32941 -1.90179" canvas-updater></a-plane> -->
      
     
      <!-- Theater Lights -->
@@ -291,9 +275,9 @@
                 position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
       <!-- Physics Objects -->
-      <a-entity class="vxr-obj-template" position="0 1.5 -0.2"></a-entity>
+      <!-- <a-entity class="vxr-obj-template" position="0 1.5 -0.2"></a-entity>
       <a-entity class="vxr-obj-template-2" position="0 1.5 -0.2"></a-entity>
-      <a-entity class="vxr-obj-template-3" position="0 1.5 -0.2"></a-entity>
+      <a-entity class="vxr-obj-template-3" position="0 1.5 -0.2"></a-entity> -->
 
       <!-- <a-entity class="constraint-avatar-template" position="0 3 2"></a-entity> -->
 
@@ -379,54 +363,7 @@
         'position',
         'rotation'
       ]
-    });
-    NAF.schemas.add({
-      template: '#vxr-obj-template',
-      components: [
-        'position',
-        'rotation',
-        {
-          selector: '.vxr-obj-maskn95',
-          component: 'rotation'
-        },
-        {
-          selector: '.vxr-obj-maskn95',
-          component: 'position'
-        }
-      ]
-    });
-
-    NAF.schemas.add({
-      template: '#vxr-obj-template-2',
-      components: [
-        'position',
-        'rotation',      
-        {
-          selector: '.vxr-obj-alcoholbottle',
-          component: 'rotation'
-        },
-        {
-          selector: '.vxr-obj-alcoholbottle',
-          component: 'position'
-        }
-      ]
-    });
-    
-    NAF.schemas.add({
-      template: '#vxr-obj-template-3',
-      components: [
-        'position',
-        'rotation',      
-        {
-          selector: '.vxr-obj-tray',
-          component: 'rotation'
-        },
-        {
-          selector: '.vxr-obj-tray',
-          component: 'position'
-        } 
-      ]
-    });
+    });  
     NAF.schemas.add({
       template: '#vxr-template',
       components: [
@@ -468,6 +405,10 @@
       console.log("funca");
     }
   </script>
+<script src="../../js/Feature-SpawnTemplate.js"></script>
+
+<script src="../../js/Feature-SpawnObjects.js"></script>
+<script src="../../js/Feature-Schemas.js"></script>
 
 
 
