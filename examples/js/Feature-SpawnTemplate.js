@@ -17,17 +17,17 @@
   },
 });
 
+
+// get a-assets section
 var a_assets = document.querySelector('a-assets');
 
-// create asset reference
+// create asset reference and set gltf atributes
 var maskn95= document.createElement('a-asset-item');
-
-maskn95.setAttribute("id","maskn95")
-maskn95.setAttribute("src","../../Models/gltf/MaskN95.gltf")
+maskn95.setAttribute("id","model-reference")
+maskn95.setAttribute("src","../../Models/gltf/Generic-model.gltf")
 a_assets.appendChild(maskn95);
 
 // set template
-
 var mask_template = document.createElement('template');
 var entityEl = document.createElement('a-entity');
 var entityEl2 = document.createElement('a-entity');
@@ -52,6 +52,14 @@ entityEl2.setAttribute('position', '-0.4 2 0')
 console.log("Elemento modificado?",entityEl2)
 root_mask.appendChild(entityEl2);
 console.log("executed")
+
+
+var sceneEl = document.querySelector('a-scene');
+var entityEl = document.createElement('a-entity');
+entityEl.setAttribute("id","mascarilla?")
+entityEl.setAttribute("networked", "template:#vxr-obj-template;attachTemplateToLocal:true")
+entityEl.setAttribute("position","0 1.5 -0.2")
+sceneEl.appendChild(entityEl);
 
 
 
