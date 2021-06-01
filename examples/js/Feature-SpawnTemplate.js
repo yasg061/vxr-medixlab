@@ -8,15 +8,12 @@
   },
   
   init() {     
-
-  this.el.setAttribute('class', 'vxr-obj-maskn95 vxr-interact')
-  this.el.removeAttribute("gltf-model");
-  this.el.setAttribute("gltf-model","#maskn95")
-  this.el.setAttribute('draggable', '')
-  this.el.setAttribute('graggable', '')
-  this.el.setAttribute('toggle-physics', '')
-  this.el.setAttribute('position', '-0.6 2 -0.107')
-  console.log("Elemento modificado?",this.el)
+    var sceneEl = document.querySelector('a-scene');
+    var entityEl = document.createElement('a-entity');
+    entityEl.setAttribute("id","mascarilla?")
+    entityEl.setAttribute("networked", "template:#vxr-obj-template;attachTemplateToLocal:true")
+    entityEl.setAttribute("position","0 1.5 -0.2")
+    sceneEl.appendChild(entityEl);
   },
 });
 
@@ -33,13 +30,31 @@ a_assets.appendChild(maskn95);
 
 var mask_template = document.createElement('template');
 var entityEl = document.createElement('a-entity');
+var entityEl2 = document.createElement('a-entity');
+
 
 mask_template.setAttribute("id","vxr-obj-template")
 a_assets.appendChild(mask_template);
+
 var templateAdded =document.getElementById("vxr-obj-template")
-entityEl.setAttribute("setemplatecomponents","")
+entityEl.setAttribute("id","Root-mask")
 templateAdded.appendChild(entityEl)
+
+
+var root_mask =document.getElementById("Root-mask")
+entityEl2.setAttribute("setemplatecomponents","")
+entityEl2.setAttribute('class', 'vxr-obj-maskn95 vxr-interact')
+entityEl2.setAttribute("gltf-model","#maskn95")
+entityEl2.setAttribute('draggable', '')
+entityEl2.setAttribute('graggable', '')
+entityEl2.setAttribute('toggle-physics', '')
+entityEl2.setAttribute('position', '-0.4 2 0')
+console.log("Elemento modificado?",entityEl2)
+root_mask.appendChild(entityEl2);
 console.log("executed")
+
+
+
 
 // var sceneEl = document.querySelector('a-scene');
 // var template = document.createElement('template');
@@ -86,3 +101,9 @@ console.log("executed")
 
 
 
+
+
+
+
+
+      
