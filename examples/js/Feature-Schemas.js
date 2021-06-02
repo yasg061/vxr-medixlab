@@ -1,7 +1,7 @@
 let result
 let obj
 
-fetch("../../js/tst.json").then(
+fetch("../../js/structureSchemas.json").then(
   function(u){ return u.json();}
 ).then(
   function(json){

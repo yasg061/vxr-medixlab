@@ -1,11 +1,7 @@
-[
+[   
   {
     "template":"#vxr-obj-template",
     "selector":".vxr-obj-maskn95"
-  },
-  {
-    "template":"#vxr-obj-template",
-    "selector":"vxr-obj-maskn95"
   },
   {
     "template":"#vxr-obj-template-2",
@@ -64,3 +60,4 @@
     "selector":".vxr-obj-intracath"
   } 
 ]
+
