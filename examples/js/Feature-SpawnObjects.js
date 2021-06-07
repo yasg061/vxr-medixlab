@@ -15,8 +15,6 @@ fetch("../../js/structureSchemas.json").then(
   }
 )
 
-
-
 function spawnEntities(structure) {
   console.log("structure obj ",structure)
   structure.forEach(item => {
@@ -25,12 +23,8 @@ function spawnEntities(structure) {
     entityEl.setAttribute("position","0 1.5 -0.2")
     sceneEl.appendChild(entityEl);
     console.log("entity: ", entityEl)
-
   });
 }
-
-
-
 
  AFRAME.registerComponent('SpawnObjects', {
   schema: {
