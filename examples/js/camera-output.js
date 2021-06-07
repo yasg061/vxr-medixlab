@@ -9,16 +9,6 @@ AFRAME.registerComponent('camrender',{
        cid: {
             type: 'string',
             default: 'camRenderer'
-       },
-       // Height of the renderer element
-       height: {
-            type: 'number',
-            default: 400
-       },
-       // Width of the renderer element
-       width: {
-            type: 'number',
-            default: 900
        }
     },
     'update': function(oldData) {
@@ -34,12 +24,6 @@ AFRAME.registerComponent('camrender',{
             // Set properties for renderer DOM element
             this.renderer.setPixelRatio( window.devicePixelRatio );
             this.renderer.domElement.crossorigin = "anonymous";
-        };
-        if (oldData.width !== data.width || oldData.height !== data.height) {
-            // Set size of canvas renderer
-            this.renderer.setSize(data.width, data.height);
-            this.renderer.domElement.height = data.height;
-            this.renderer.domElement.width = data.width;
         };
         if (oldData.fps !== data.fps) {
             // Set how often to call tick
