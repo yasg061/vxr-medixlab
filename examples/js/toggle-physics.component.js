@@ -15,7 +15,6 @@ AFRAME.registerComponent('toggle-physics', {
       if (NAF.utils.isMine(el)) {
         that.el.setAttribute('dynamic-body', '');
       } else {
-        that.updateOpacity(0.5);
         that.el.setAttribute('static-body', '');
       }
 
