@@ -38,8 +38,9 @@
   <script src="https://unpkg.com/aframe-log-component/dist/aframe-log-component.min.js"></script> 
   <script src="https://unpkg.com/aframe-event-set-component@^4.1.1/dist/aframe-event-set-component.min.js"></script>
   <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
-  <script src="../../js/set-name.component.js"></script>
   <script  src="https://rawgit.com/fernandojsg/aframe-input-mapping-component/master/dist/aframe-input-mapping-component.min.js"></script>  -->
+  <script src="../../js/set-name.component.js"></script>
+  <script src="../../js/randomize-spec-color.component.js"></script>
 
 
   <!-- Camera output -->
@@ -434,6 +435,10 @@
           selector: '.name-up',
           component: 'name-up'     
         },
+        {
+          selector: '.SpectatorAvatar',
+          component: 'randomize-spec-color'
+        }
       ]
     });     
   
