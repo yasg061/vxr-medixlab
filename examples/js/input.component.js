@@ -10,6 +10,7 @@ AFRAME.registerComponent('input-controls', {
     this.onButtonChanged = this.onButtonChanged.bind(this);
     this.onButtonDown = function (evt) { self.onButtonEvent(evt.detail.id, 'down'); };
     this.onButtonUp = function (evt) { self.onButtonEvent(evt.detail.id, 'up'); };
+  
 
     // this.el.addEventListener("loaded", e => {
     //   // set up the body
@@ -76,7 +77,7 @@ AFRAME.registerComponent('input-controls', {
   },
 
   onButtonChanged: function (evt) {
-    console.log("on button changed");
+    // console.log("on button changed");
 
     var buttonName = this.mapping['button' + evt.detail.id];
     if (buttonName !== 'trigger') { return; }

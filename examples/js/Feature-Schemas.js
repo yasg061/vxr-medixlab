@@ -1,12 +1,12 @@
 let result
-let obj
+let objSchemas
 
 fetch("../../js/structureSchemas.json").then(
   function(u){ return u.json();}
 ).then(
   function(json){
-    obj=json
-    console.log("json: ", obj)
+    objSchemas=json
+    console.log("json: ", objSchemas)
     result = JSON.parse(JSON.stringify(json));
 
     SetSchemas(result)
