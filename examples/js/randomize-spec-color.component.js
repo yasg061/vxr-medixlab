@@ -1,9 +1,9 @@
 const colors = ['red', 'blue', 'yellow', 'purple', 'green', 'black', 'cyan', 'brown'];
-const color = colors[Math.floor(Math.random() * colors.length)];
-
+//const color = colors[Math.floor(Math.random() * colors.length)];
+let ColorEnumerator=0;
 AFRAME.registerComponent('randomize-spec-color', {
   schema: {
-    color: { default: color }
+    color: { default: 'red' }
   },
 
   init: function () {
@@ -14,7 +14,9 @@ AFRAME.registerComponent('randomize-spec-color', {
       // Go over the submeshes and modify materials we want.
       obj.traverse(node => {
         if (node.name.indexOf('Mesh.024_2') !== -1 ) {
-          node.material.color.set(this.data.color);
+          ColorEnumerator+=1
+           let colour = colors[ColorEnumerator%8]
+          node.material.color.set(colour);
         }
       });
     });

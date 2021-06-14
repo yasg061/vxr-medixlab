@@ -27,7 +27,7 @@ AFRAME.registerComponent('name-up', {
     update: function () {
         var el = this.el;
 
-        el.setAttribute("text", { value: this.data.name, align: 'center', side: 'double', color: 'yellow', font: 'https://cdn.aframe.io/fonts/Exo2SemiBold.fnt' });
+        el.setAttribute("text", { value: this.data.name, align: 'center', side: 'double', color: 'yellow', font: 'https://cdn.aframe.io/fonts/Exo2SemiBold.fnt' ,fontsize: '10px'});
         el.setAttribute('rotation',
           '0 180 0',
         );
@@ -35,7 +35,7 @@ AFRAME.registerComponent('name-up', {
           x: 0, y: 0.525, z: 0,
         });
         el.setAttribute('scale',
-          '6 6 6',
+          '3 3 3 ',
         );
     }
 });
