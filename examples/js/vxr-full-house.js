@@ -1,4 +1,4 @@
-let sceneEl = document.querySelector('a-scene');
+let sceneRoot = document.querySelector('a-scene');
 let target={x:-0.14, y:1, z: -0.363}
 
 var qrot = new THREE.Quaternion();
@@ -207,227 +207,228 @@ var qrot = new THREE.Quaternion();
        }
      ]
      
-   const namesSpectatorsArray= [
-"Dr.Foreman"
-,
-"Lic.Verne"
-,
-"Dra.Cameron"
-,
-"Ing.Donovan"
-,
-"Dra.Meredith"
-,
-"Lic.Vinicio"
-,
-"Lic.Wendy"
-,
-"Dr.MasatoSan"
-,
-"Dr.Murphy"
-,
-"Lic.Linda"
-,
-"Lic.Xiomara"
-,
-"Lic.Iliana"
-,
-"Ing.Jimmie"
-,
-"Dra.Cuddy"
-,
-"Lic.Monique"
-,
-"Phd.Park"
-,
-"Dr.Wilson"
-,
-"Dr.Andrew"
-,
-"Dra.Yang"
-,
-"Phd.Hope"
-,
-"Dr.Strange"
-,
-"PhD.Lee"
-,
-"Est.Melendez"
-,
-"Dr.Mallard"
-,
-"Dra.Sciuto"
-,
-"Dr.Grissom"
-,
-"Dra.Willows"
-,
-"PhD.Langston"
-,
-"Lic.Stokes"
-,
-"Lic.Brown"
-,
-"Dra.Sidle"
-,
-"Dr.Hodges"
-,
-"Lic.Brass"
-,
-"Dr.Reid"
-,
-"Lic.Gibbs"
-,
-"Ing.MacGee"
-,
-"Lic.Bishop"
-,
-"Dr.Palmer"
-,
-"Lic.Torres"
-,
-"Est.Masters"
-,
-"Dra.Aoki"
-,
-"Dra.Reznick"
-,
-"Dr.Connors"
-,
-"Dra.Tanaka"
-,
-"Dr.McCoy"
-,
-"Dr.Wayne"
-,
-"Est.Allen"
-,
-"Lic.Kent"
-,
-"Dra.Prince"
-,
-"Lic.Jordan"
-,
-"Dr.Jones"
-,
-"PhD.Palmer"
-,
-"Dr.Smith"
-,
-"Lic.Blake"
-,
-"Lic.Raymond"
-,
-"Dra.Hoshi"
-,
-"Dr.Dyne"
-,
-"PhD.Hank"
-,
-"PhD.Banner"
-,
-"Dr.Stark"
-,
-"Lic.Rogers"
-,
-"Lic.Maximoff"
-,
-"Lic.Barton"
-,
-"Dra.Rambeau"
-,
-"Lic.Rhodes"
-,
-"Est.McKenzie"
-,
-"Dr.Reed"
-,
-"Est.Walkers"
-,
-"PhD.Vaughn"
-,
-"Lic.Hammond"
-,
-"Est.Baker"
-,
-"Dra.Haliday"
-,
-"Lic.Parker"
-,
-"Est.Santos"
-,
-"Dra.Maximoff"
-,
-"Lic.Powel"
-,
-"Est.Jones"
-,
-"Dra.Astrovik"
-,
-"Dra.Santiago"
-,
-"Lic.Lang"
-,
-"Dra.Leigh"
-,
-"PhD.Ackerman"
-,
-"Lic.Howlett"
-,
-"Dr.Reynolds"
-,
-"PhD.Cho"
-,
-"Lic.Buchanan"
-,
-"Dra.Drew"
-,
-"Dr.Carter"
-,
-"PhD.OGrady"
-,
-"Lic.Rider"
-,
-"Dr.Murdock"
-,
-"Est.Johnson"
-,
-"Dra.Ororo"
-,
-"PhD.Braddock"
-,
-"Lic.Summers"
-,
-"Dra.Devoux"
-,
-"Dra.Fesi"
-,
-"Lic.Milton"
-,
-"Dra.Shang"
-,
-"Est.Dare"
-,
-"Dra.Marie"
-,
-"Dr.Yoshida"
-,
-"Lic.Alvarez"
-,
-"PhD.Creed"
-,
-"Dra.Guerrero"
-,
-"Dra.Foster"
-,
-"Dra.Khan"
-,
-"Est.Morales"
-,
-"Est.Hollis"
-,
-"PhD.Maverick"
-]
+   const namesSpectatorsArray=[
+    "Dr. Foreman"
+    ,
+    "Lic. Verne"
+    ,
+    "Dra. Cameron"
+    ,
+    "Ing. Donovan"
+    ,
+    "Dra. Meredith"
+    ,
+    "Lic. Vinicio"
+    ,
+    "Lic. Wendy"
+    ,
+    "Dr. MasatoSan"
+    ,
+    "Dr. Murphy"
+    ,
+    "Lic. Linda"
+    ,
+    "Lic. Xiomara"
+    ,
+    "Lic. Iliana"
+    ,
+    "Ing. Jimmie"
+    ,
+    "Dra. Cuddy"
+    ,
+    "Lic. Monique"
+    ,
+    "Phd. Park"
+    ,
+    "Dr. Wilson"
+    ,
+    "Dr. Andrew"
+    ,
+    "Dra. Yang"
+    ,
+    "Phd. Hope"
+    ,
+    "Dr. Strange"
+    ,
+    "PhD. Lee"
+    ,
+    "Est. Melendez"
+    ,
+    "Dr. Mallard"
+    ,
+    "Dra. Sciuto"
+    ,
+    "Dr. Grissom"
+    ,
+    "Dra. Willows"
+    ,
+    "PhD. Langston"
+    ,
+    "Lic. Stokes"
+    ,
+    "Lic. Brown"
+    ,
+    "Dra. Sidle"
+    ,
+    "Dr. Hodges"
+    ,
+    "Lic. Brass"
+    ,
+    "Dr. Reid"
+    ,
+    "Lic. Gibbs"
+    ,
+    "Ing. MacGee"
+    ,
+    "Lic. Bishop"
+    ,
+    "Dr. Palmer"
+    ,
+    "Lic. Torres"
+    ,
+    "Est. Masters"
+    ,
+    "Dra. Aoki"
+    ,
+    "Dra. Reznick"
+    ,
+    "Dr. Connors"
+    ,
+    "Dra. Tanaka"
+    ,
+    "Dr. McCoy"
+    ,
+    "Dr. Wayne"
+    ,
+    "Est. Allen"
+    ,
+    "Lic. Kent"
+    ,
+    "Dra.Prince"
+    ,
+    "Lic. Jordan"
+    ,
+    "Dr. Jones"
+    ,
+    "PhD. Palmer"
+    ,
+    "Dr. Smith"
+    ,
+    "Lic. Blake"
+    ,
+    "Lic. Raymond"
+    ,
+    "Dra. Hoshi"
+    ,
+    "Dr. Dyne"
+    ,
+    "PhD. Hank"
+    ,
+    "PhD. Banner"
+    ,
+    "Dr. Stark"
+    ,
+    "Lic. Rogers"
+    ,
+    "Lic. Maximoff"
+    ,
+    "Lic. Barton"
+    ,
+    "Dra. Rambeau"
+    ,
+    "Lic. Rhodes"
+    ,
+    "Est. McKenzie"
+    ,
+    "Dr. Reed"
+    ,
+    "Est. Walkers"
+    ,
+    "PhD. Vaughn"
+    ,
+    "Lic. Hammond"
+    ,
+    "Est. Baker"
+    ,
+    "Dra. Haliday"
+    ,
+    "Lic. Parker"
+    ,
+    "Est. Santos"
+    ,
+    "Dra. Karkarov"
+    ,
+    "Lic. Powel"
+    ,
+    "Est. Jones"
+    ,
+    "Dra. Astrovik"
+    ,
+    "Dra. Santiago"
+    ,
+    "Lic. Lang"
+    ,
+    "Dra. Leigh"
+    ,
+    "PhD. Ackerman"
+    ,
+    "Lic. Howlett"
+    ,
+    "Dr. Reynolds"
+    ,
+    "PhD. Cho"
+    ,
+    "Lic. Buchanan"
+    ,
+    "Dra. Drew"
+    ,
+    "Dr. Carter"
+    ,
+    "PhD. OGrady"
+    ,
+    "Lic. Rider"
+    ,
+    "Dr. Murdock"
+    ,
+    "Est. Johnson"
+    ,
+    "Dra. Ororo"
+    ,
+    "PhD. Braddock"
+    ,
+    "Lic. Summers"
+    ,
+    "Dra. Devoux"
+    ,
+    "Dra. Fesi"
+    ,
+    "Lic. Milton"
+    ,
+    "Dra. Shang"
+    ,
+    "Est. Dare"
+    ,
+    "Dra. Marie"
+    ,
+    "Dr. Yoshida"
+    ,
+    "Lic. Alvarez"
+    ,
+    "PhD. Creed"
+    ,
+    "Dra. Guerrero"
+    ,
+    "Dra. Foster"
+    ,
+    "Dra. Khan"
+    ,
+    "Est. Morales"
+    ,
+    "Est. Hollis"
+    ,
+    "PhD. Maverick"
+    ]
+    
 
 
      let i=0
@@ -462,7 +463,7 @@ var qrot = new THREE.Quaternion();
        );
 
        entityEl.appendChild(nameSpectator)
-       sceneEl.appendChild(entityEl);
+       sceneRoot.appendChild(entityEl);
 
        i+=1;
 

@@ -1,8 +1,8 @@
 AFRAME.registerComponent('assign-seat', {
   schema: {
     position: {
-      x: 0, 
-      y: 0, 
+      x: 0,
+      y: 0,
       z: 0
     }
   },
@@ -19,12 +19,12 @@ AFRAME.registerComponent('assign-seat', {
       {
         identifier: '1',
         position: { x: -6, y: -2.3, z: 0.5 },
-        
+
       },
       {
         identifier: '2',
         position: { x: -5.5, y: -2.3, z: 2.1 }
-        
+
       },
       {
         identifier: '3',
@@ -56,7 +56,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '10',
-        position: { x: -7, y: -1.3, z: 0.5}
+        position: { x: -7, y: -1.3, z: 0.5 }
       },
       {
         identifier: '11',
@@ -64,7 +64,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '12',
-        position: { x: -5.5, y: -1.3, z: 4.3}
+        position: { x: -5.5, y: -1.3, z: 4.3 }
       },
       {
         identifier: '13',
@@ -72,7 +72,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '14',
-        position: { x: 0.1, y: -1.3, z: 7.1}
+        position: { x: 0.1, y: -1.3, z: 7.1 }
       },
       {
         identifier: '15',
@@ -80,7 +80,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '16',
-        position: { x: 5.7, y: -1.3, z: 4.2}
+        position: { x: 5.7, y: -1.3, z: 4.2 }
       },
       {
         identifier: '17',
@@ -88,7 +88,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '18',
-        position: { x: 7.1, y: -1.3, z: 0.6}
+        position: { x: 7.1, y: -1.3, z: 0.6 }
       },
       {
         identifier: '19',
@@ -96,7 +96,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '20',
-        position: { x: -8.2, y: -0.2, z: 2.3}
+        position: { x: -8.2, y: -0.2, z: 2.3 }
       },
       {
         identifier: '21',
@@ -104,7 +104,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '22',
-        position: { x: -6.5, y: -0.2, z: 5.4}
+        position: { x: -6.5, y: -0.2, z: 5.4 }
       },
       {
         identifier: '23',
@@ -112,7 +112,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '24',
-        position: { x: -0.8, y: -0.2, z: 8.4}
+        position: { x: -0.8, y: -0.2, z: 8.4 }
       },
       {
         identifier: '25',
@@ -120,7 +120,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '26',
-        position: { x: 2.7, y: -0.2, z: 8}
+        position: { x: 2.7, y: -0.2, z: 8 }
       },
       {
         identifier: '27',
@@ -128,7 +128,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '28',
-        position: { x: 7.4, y: -0.2, z: 4}
+        position: { x: 7.4, y: -0.2, z: 4 }
       },
       {
         identifier: '29',
@@ -136,7 +136,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '30',
-        position: { x: 8.5, y: -0.2, z: 0.7}
+        position: { x: 8.5, y: -0.2, z: 0.7 }
       },
       {
         identifier: '31',
@@ -144,7 +144,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '32',
-        position: { x: -8.9, y: 0.5, z: 3.6}
+        position: { x: -8.9, y: 0.5, z: 3.6 }
       },
       {
         identifier: '33',
@@ -152,7 +152,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '34',
-        position: { x: -2, y: 0.5, z: 9.2}
+        position: { x: -2, y: 0.5, z: 9.2 }
       },
       {
         identifier: '35',
@@ -160,7 +160,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '36',
-        position: { x: 2.4, y: 0.5, z: 9.4}
+        position: { x: 2.4, y: 0.5, z: 9.4 }
       },
       {
         identifier: '37',
@@ -168,7 +168,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '38',
-        position: { x: 8.9, y: 0.5, z: 3.7}
+        position: { x: 8.9, y: 0.5, z: 3.7 }
       },
       {
         identifier: '39',
@@ -176,7 +176,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '40',
-        position: { x: -11, y: 1.3, z: 0.7}
+        position: { x: -11, y: 1.3, z: 0.7 }
       },
       {
         identifier: '41',
@@ -184,7 +184,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '42',
-        position: { x: -10.4, y: 1.3, z: 4}
+        position: { x: -10.4, y: 1.3, z: 4 }
       },
       {
         identifier: '43',
@@ -192,7 +192,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '44',
-        position: { x: -8.1, y: 1.3, z: 7.2}
+        position: { x: -8.1, y: 1.3, z: 7.2 }
       },
       {
         identifier: '45',
@@ -200,7 +200,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '46',
-        position: { x: -1.9, y: 1.3, z: 10.9}
+        position: { x: -1.9, y: 1.3, z: 10.9 }
       },
       {
         identifier: '47',
@@ -208,7 +208,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '48',
-        position: { x: 1.9, y: 1.3, z: 10.9}
+        position: { x: 1.9, y: 1.3, z: 10.9 }
       },
       {
         identifier: '49',
@@ -216,12 +216,12 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '50',
-        position: { x: 8.5, y: 1.3, z: 7.3}
+        position: { x: 8.5, y: 1.3, z: 7.3 }
       }
     ]
 
     let slotFound = theaterSlots.find(x => x.identifier === spawn);
-    slotFound.position.y+=3
+    slotFound.position.y += 3
     let slotPosition = slotFound.position
     el.setAttribute('position', slotPosition)
   }

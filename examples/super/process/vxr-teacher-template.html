@@ -39,7 +39,7 @@
 
 
 
-  <script>
+  <!-- <script>
     AFRAME.registerComponent('attach-point', {
       init: function() {
         var el = this.el;
@@ -71,7 +71,7 @@
         });
       }
     })
-  </script>
+  </script> -->
   <script>
     function spawnentity() {    
 
@@ -386,7 +386,7 @@
     <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
       rotation="0 180 0" movement-controls>
       <a-entity camera position="0 1.6 0.2" look-controls zoom="100" fov="120"
-        networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
+        networked="template:#teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
       <a-entity id="lhand" mixin="touch " hand-attach input-controls="hand: left" networked="template:#left-hand-template">
@@ -482,6 +482,7 @@
   <!-- <script src="../../js/Feature-SpawnTemplate.js"></script> -->
 
   <script src="../../js/Feature-SpawnObjects.js"></script>
+  <script src="../../js/vxr-full-house.js"></script>
 
 
 
