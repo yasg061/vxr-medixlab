@@ -162,6 +162,8 @@
       <a-asset-item id="columns" src="/Models/gltf/Columns_Auditorium.gltf"></a-asset-item>
       <a-asset-item id="frontwall" src="/Models/gltf/FrontWall_Auditorium.gltf"></a-asset-item>
       <a-video id="canalizacion" src="/videos/Test.mp4" autoplay loop="true"></a-video>
+      <a-video id="logopng" src="/Models/Images/Ieproes_Logo.png"></a-video>
+
       <canvas id="cam2"></canvas>
 
       <a-asset-item id="base" src="/Models/gltf/Base.gltf"></a-asset-item>
@@ -376,7 +378,7 @@
       <a-entity class="environmentDressing environment" visible="false"></a-entity>
       <a-sky radius="200" theta-length="110" class="environment" material="shader: skyshader; sunPosition: 0 0 0" visible="" geometry=""></a-sky>
     </a-entity>
-    <a-light type="directional" position="0 0 0" rotation="-90 0 0" target="#directionaltarget">
+    <a-light id="directionallight" light="intensity: 0.2" type="directional" position="0 0 0" rotation="-90 0 0" intensity="0.400" target="#directionaltarget">
       <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
     </a-light>
 
@@ -405,9 +407,8 @@
     <!-- Theater Lights -->
     <a-entity background="color: #92f2ff"></a-entity>
 
-    <a-entity light="intensity: 0.1; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
-    <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.34" id="light01"
-      position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
+    <a-entity light="intensity: 0.7; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0" id="ambientlight"></a-entity>
+    <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01" position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
     <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
       rotation="0 180 0" movement-controls>
