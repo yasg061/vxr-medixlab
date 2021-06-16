@@ -357,9 +357,9 @@
     <!-- <a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2"
             position="0 10 10">
       </a-entity> -->
-    <a-light type="directional" position="0 0 0" rotation="-90 0 0" target="#directionaltarget">
-      <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
-    </a-light>
+      <a-light id="directionallight" light="intensity: 0.2" type="directional" position="0 0 0" rotation="-90 0 0" intensity="0.400" target="#directionaltarget">
+        <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
+      </a-light>
 
     <!-- Static Objects -->
     <a-entity class="gltf" gltf-model="#table" position="-1.5 1 -0.363" rotation="0 180 0" static-body></a-entity>
@@ -397,9 +397,8 @@
     <!-- Theater Lights -->
     <a-entity background="color: #92f2ff"></a-entity>
 
-    <a-entity light="intensity: 0.1; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
-    <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.34" id="light01"
-      position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
+    <a-entity light="intensity: 0.7; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0" id="ambientlight"></a-entity>
+    <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01" position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
     <a-entity id="player" camera position="0 2.6 0" wasd-controls look-controls>
       <a-sphere class="head" visible="false" random-color></a-sphere>
