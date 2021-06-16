@@ -13,7 +13,7 @@
   },
   {
     "template":"#vxr-obj-template-rubber",
-    "selector":"vxr-obj-rubber"
+    "selector":".vxr-obj-rubber"
   },
   {
     "template":"#vxr-obj-template-dripbag",

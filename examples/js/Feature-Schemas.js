@@ -6,16 +6,14 @@ fetch("../../js/structureSchemas.json").then(
 ).then(
   function(json){
     objSchemas=json
-    console.log("json: ", objSchemas)
-    result = JSON.parse(JSON.stringify(json));
+     result = JSON.parse(JSON.stringify(json));
 
     SetSchemas(result)
   }
 )
 
 function SetSchemas(structure) {
-  console.log("structure",structure)
-  structure.forEach(item => {
+   structure.forEach(item => {
 
     let schema1 = {
       template: item.template,
@@ -33,8 +31,7 @@ function SetSchemas(structure) {
       ]
     }
     NAF.schemas.add(schema1);
-    console.log("added template: ", item.template)
-
+ 
 
   });
 }
