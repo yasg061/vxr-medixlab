@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const scene = document.querySelector('a-scene');
   const sceneLoaded = () => {
     if ( userName && spawn ) {
+      if(document.getElementById("spectator") && document.getElementById("constraint-spectator")){
         document.getElementById("spectator").setAttribute("networked", "template:#spectator-avatar-template;attachTemplateToLocal:false;");
         document.getElementById("constraint-spectator").setAttribute("networked", "template:#constraint-spectator-avatar-template;attachTemplateToLocal:false;");
+      }
     }
   }
   if (scene.hasLoaded) {                                                         
