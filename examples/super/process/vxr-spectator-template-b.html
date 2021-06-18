@@ -73,7 +73,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -9.8 ; iterations: 100" networked-scene="
+  <a-scene   physics="debug: false; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: true;
@@ -227,12 +227,12 @@
             position="1 0 0"></a-box>
         </a-entity>
       </template>
-
+      
       <!-- vxr-gltf -->
       <template id="vxr-obj-template">
         <a-entity>
           <a-entity class="vxr-obj-maskn95 vxr-interact" gltf-model="#maskn95" draggable grabbable toggle-physics
-            position="-0.6 2 -0.107"></a-entity>
+          position="-0.53715 0.44217 -0.36489"></a-entity>
         </a-entity>
       </template>
 
@@ -240,7 +240,7 @@
       <template id="vxr-obj-template-2">
         <a-entity>
           <a-entity class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" draggable grabbable
-            toggle-physics position="-0.4 2 0"></a-entity>
+            toggle-physics position="-0.50221 0.40887 -0.06246"></a-entity>
         </a-entity>
       </template>
 
@@ -392,6 +392,10 @@
     <a-entity id="lamps03" gltf-model="#lamps01" ; scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
     <a-entity id="columns01" gltf-model="#columns" ; scale="1 1 1" position="0 0 0" material="color: brown"
       rotation="0 0 0"></a-entity>
+      <a-entity camera="zoom: 0.8; aspect: 1; active: false;" camrender="cid: cam2" position="-0.2 4.1 -0.7"
+      rotation="-95 -180 180"></a-entity>
+    <a-plane rotation="0 0 0" scale="5.62526 3.73586 2.7274" material="src:#cam2" position="0 5.00038 -2.53194" canvas-updater>
+    </a-plane>
 
     <a-entity id="base" gltf-model="/Models/gltf/Base.gltf" scale="" position="1.1014 1 -2.07876"
       material="color: brown" rotation=""></a-entity>
@@ -623,6 +627,8 @@
   </script>
   <!-- <script src="../../js/Feature-SpawnObjects.js"></script> -->
   <script src="../../js/Feature-Schemas.js"></script>
+  <script src="../../js/vxr-full-house.js"></script>
+
 </body>
 
 </html>

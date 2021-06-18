@@ -70,7 +70,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -9.8 ; iterations: 100" networked-scene="
+  <a-scene   physics="debug: true; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -220,15 +220,15 @@
       <template id="vxr-obj-template">
         <a-entity>
           <a-entity class="vxr-obj-maskn95 vxr-interact" gltf-model="#maskn95" draggable grabbable toggle-physics
-            position="-0.6 2 -0.107"></a-entity>
+          position="-0.53715 0.44217 -0.36489"></a-entity>
         </a-entity>
       </template>
 
-
+      
       <template id="vxr-obj-template-2">
         <a-entity>
           <a-entity class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" draggable grabbable
-            toggle-physics position="-0.4 2 0"></a-entity>
+            toggle-physics position="-0.50221 0.40887 -0.06246"></a-entity>
         </a-entity>
       </template>
 
@@ -406,14 +406,14 @@
 
     <!-- <a-entity class="constraint-avatar-template" position="0 3 2"></a-entity> -->
     <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:true;" position="0 0.8 -2"
-      rotation="0 180 0" movement-controls>
+      rotation="0 180 0" movement-controls="speed:0.02">
       <a-entity camera position="0 1.6 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-student-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch " input-controls=" hand: left" networked="template:#left-hand-template">
+      <a-entity id="lhand" mixin="touch " input-controls=" hand: left"  >
       </a-entity>
-      <a-entity id="rhand" mixin="touch " input-controls="hand: right" networked="template:#right-hand-template">
+      <a-entity id="rhand" mixin="touch " input-controls="hand: right" >
       </a-entity>
     </a-entity>
 

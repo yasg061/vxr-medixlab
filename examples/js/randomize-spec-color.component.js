@@ -1,4 +1,4 @@
-const colors = ['red', 'blue', 'yellow', 'purple', 'green', 'black', 'cyan', 'brown'];
+const colors = ['lightpink', 'aquamarine', 'beige', 'darkred', 'darkgreen', 'darkorange', 'darkcyan', 'brown'];
 //const color = colors[Math.floor(Math.random() * colors.length)];
 let ColorEnumerator=0;
 AFRAME.registerComponent('randomize-spec-color', {
