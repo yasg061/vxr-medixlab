@@ -422,9 +422,9 @@
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left"  >
+      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left" networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right"  >
+      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right" networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
     <a-sphere id="sphere1" static-body attach-point opacity="0" position="0.92244 1.8 -0.80507" color="black" radius="0.03"></a-sphere>
