@@ -74,6 +74,7 @@
       <a.asser-item id="tweezers" src="../../../Models/gltf/Tweezers.gltf"></a.asser-item>
       <a.asser-item id="tweezers2" src="../../../Models/gltf/Tweezers2.gltf"></a.asser-item>
 
+      <a.asser-item id="insAnim" src="Instruments_Animation.gltf"></a.asser-item>
       <a-asset-item id="teacher" src="../assets/TeacherAvatar.gltf"></a-asset-item>
       <a-asset-item id="right-hand" src="../assets/rightHandHigh.glb"></a-asset-item>
       <a-asset-item id="left-hand" src="../assets/leftHandHigh.glb"></a-asset-item>
@@ -133,7 +134,7 @@
 
       <template id="vxr-obj-template-1">
         <a-entity>          
-          <a-entity id="instruments" class="instrumentClass"   animation-mixer="timeScale:0"  gltf-model="Instruments_Animation.gltf" ;="" scale="" position="0.03489 -0.52 -2.1 "   material="color: brown" rotation="0 180.000 0"></a-entity>
+          <a-entity id="instruments" class="instrumentClass" animation-mixer="timeScale:0"  gltf-model="Instruments_Animation.gltf" ;="" scale="" position="0.03489 -0.52 -2.1 "   material="color: brown" rotation="0 135.99999999999999 0"></a-entity>
         </a-entity>
       </template>
 
@@ -169,7 +170,7 @@
 
       <template id="vxr-obj-template-7">
         <a-entity>          
-          <a-entity id="cottonswabs003"  dynamic-body="mass: 0.001;" draggable grabbable  gltf-model="#cottonswabs03" ;="" scale="" position="0.0764 -0.48136 -2.0712" material="color: brown" rotation=""></a-entity>          
+          <a-entity id="cottonswabs003"  dynamic-body draggable grabbable  gltf-model="#cottonswabs03" ;="" scale="" position="-0.91719 0.98918 -1.46786" material="color: brown" rotation=""></a-entity>
         </a-entity>
       </template>
 
@@ -314,22 +315,24 @@
       <a-entity id="containerblack01" gltf-model="../../../Models/gltf/TrashContainerBlack.gltf" ;="" scale="" position="-1.06353 0.12195 -2.82661" material="color: brown" rotation="0 90 0"></a-entity>
       <a-entity id="table001-2" gltf-model="../../../Models/gltf/Table.gltf" ;="" scale="" position="-1.06281 0.05136 -1.27439" material="color: brown" rotation="0 90 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0 0"
+
+
+      <!-- PLAYER -->
+
+
+
+    <a-entity id="player"  
       rotation="0 0.5 0" movement-controls="speed:0.5">
       <a-entity camera position="0 0 0" look-controls networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
-      </a-entity>
-      <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch"  input-controls="hand: left" networked="template:#left-hand-template"  static-body>
-      </a-entity>
-      <a-entity id="rhand" mixin="touch"  input-controls="hand: right" networked="template:#right-hand-template">
-      </a-entity>
+      </a-entity>      
     </a-entity>
 
 
     <a-entity background="color: #92f2ff"></a-entity>
 
     <a-entity light="intensity: 0.5; type: ambient;"></a-entity>
-     
+    <a-sphere id="sphere1" static-body="sphereRadius: NaN" attach-point="" opacity="0" position="0.02637 1.11415 -2.34013" animtrigger color="black" radius="0.03" ></a-sphere>
+    
 
 
   </a-scene>
@@ -392,30 +395,9 @@
   
     
   </script>
-  <script>
-     AFRAME.registerComponent('animtrigger', {
-  schema: {
-    speed: { default: 0.01 },
-    direction: { default: 1 }
-  },
-  
-  init() {
-    var el = this.el;
-      this.el.addEventListener('collide', function(e) {
-        console.log('object that collided: ', e.detail.body.el);
-        let animationObject = document.getElementById("instruments")
-        animationObject.setAttribute("animation-mixer","loop: false; repetitions: 0; timeScale: 0.5; clampWhenFinished: true")
-    
-      });
-
-  },
  
- });
 
-
-  </script>
-
-<script src="../../../js/Feature-SpawnObjects.js"></script>
+<!-- <script src="../../../js/Feature-SpawnObjects.js"></script> -->
 <script src="../../../js/Feature-Schemas.js"></script>
 
 

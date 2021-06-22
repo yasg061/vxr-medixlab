@@ -3,7 +3,7 @@ let ojectsResult
 let spawnedObj
 let sceneEl = document.querySelector('a-scene');
 
-fetch("../../js/structureSchemas.json").then(
+fetch("../../../js/structureEntities-Process3.json").then(
   function(u){ return u.json();}
 ).then(
   function(json){
