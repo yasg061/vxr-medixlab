@@ -1,19 +1,19 @@
 let result
 let objSchemas
 
-fetch("../../js/structureSchemas.json").then(
-  function(u){ return u.json();}
+fetch("../../../js/structureEntities.json").then(
+  function (u) { return u.json(); }
 ).then(
-  function(json){
-    objSchemas=json
-     result = JSON.parse(JSON.stringify(json));
+  function (json) {
+    objSchemas = json
+    result = JSON.parse(JSON.stringify(json));
 
     SetSchemas(result)
   }
 )
 
 function SetSchemas(structure) {
-   structure.forEach(item => {
+  structure.forEach(item => {
 
     let schema1 = {
       template: item.template,
@@ -31,7 +31,7 @@ function SetSchemas(structure) {
       ]
     }
     NAF.schemas.add(schema1);
- 
+
 
   });
 }

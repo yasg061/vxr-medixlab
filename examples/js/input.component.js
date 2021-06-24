@@ -1,3 +1,5 @@
+let anmBool = true
+
 AFRAME.registerComponent('input-controls', {
   // dependencies: ['tracked-controls'],
   schema: {
@@ -92,7 +94,15 @@ AFRAME.registerComponent('input-controls', {
 
   onButtonEvent: function (id, evtName) {
     var buttonName = this.mapping['button' + id];
+    console.log("button name: ",buttonName)
     this.el.emit(buttonName + evtName);
+
+    if(buttonName=="trackpad" && anmBool==true){
+      console.log("gigas activated")
+      let animationObject = document.getElementById("instruments")
+      animationObject.setAttribute("animation-mixer","loop: false; repetitions: 0; timeScale: 0.5; clampWhenFinished: true")
+      anmBool=false;
+     }
   },
 
   update: function () {
