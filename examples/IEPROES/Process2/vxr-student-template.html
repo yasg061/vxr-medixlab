@@ -4,7 +4,7 @@
   <title>Vertex Medixlab</title>
   <!-- Replace "../build.js" with the super-hands and
          A-Frame distributions to run : -->
-  <script src="../build.js"></script>
+  <script src="../../super/build.js"></script>
   <!-- <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> -->
   <!-- <script src="https://unpkg.com/super-hands/dist/super-hands.min.js"></script> -->
 
@@ -66,7 +66,7 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="../assets/examples.css">
+  <!-- <link rel="stylesheet" type="text/css" href="../../../super/process/assets/examples.css"> -->
 </head>
 
 <body>
@@ -78,18 +78,18 @@
       onConnect: spawnentity;
     ">
     <a-assets>
-      <!-- <a-asset-item id="htc" src="../assets/vr_controller_vive.obj"></a-asset-item> -->
+      <!-- <a-asset-item id="htc" src="../../../super/process/assets/vr_controller_vive.obj"></a-asset-item> -->
       <a-asset-item id="maskn95" src="../../Models/gltf/MaskN95.gltf"></a-asset-item>
       <a-asset-item id="table" src="../../Models/gltf/Table.gltf"></a-asset-item>
-      <a-asset-item id="alcoholbottle" src="assets/AlcoholBottle.gltf"></a-asset-item>
+      <a-asset-item id="alcoholbottle" src="../../super/process/assets/AlcoholBottle.gltf"></a-asset-item>
       <a-asset-item id="bed" src="../../Models/gltf/Bed.gltf"></a-asset-item>
       <a-asset-item id="patient" src="../../Models/gltf/Patient.gltf"></a-asset-item>
-      <a-asset-item id="tray" src="assets/Tray.gltf"></a-asset-item>
-      <a-asset-item id="StudentAvatar" src="assets/StudentNurseAvatar.gltf"></a-asset-item>
-      <a-asset-item id="SpectatorAvatar" src="assets/avatars/SpectatorAvatar.gltf"></a-asset-item>
-      <a-asset-item id="TeacherAvatar" src="assets/TeacherAvatar.gltf"></a-asset-item>
-      <a-asset-item id="right-hand" src="assets/rightHandHigh.glb"></a-asset-item>
-      <a-asset-item id="left-hand" src="assets/leftHandHigh.glb"></a-asset-item>
+      <a-asset-item id="tray" src="../../super/process/assets/Tray.gltf"></a-asset-item>
+      <a-asset-item id="StudentAvatar" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
+      <a-asset-item id="SpectatorAvatar" src="../../super/process/assets/avatars/SpectatorAvatar.gltf"></a-asset-item>
+      <a-asset-item id="TeacherAvatar" src="../../super/process/assets/TeacherAvatar.gltf"></a-asset-item>
+      <a-asset-item id="right-hand" src="../../super/process/assets/rightHandHigh.glb"></a-asset-item>
+      <a-asset-item id="left-hand" src="../../super/process/assets/leftHandHigh.glb"></a-asset-item>
       <a-asset-item id="dripbag" src="../../Models/gltf/DripBag.gltf"></a-asset-item>
       <a-asset-item id="rubber" src="../../Models/gltf/Rubber.gltf"></a-asset-item>
       <a-asset-item id="medicaltape" src="../../Models/gltf/MedicalTape.gltf"></a-asset-item>
@@ -102,27 +102,31 @@
       <a-asset-item id="intracath" src="../../Models/gltf/Intracath.gltf"></a-asset-item>
 
       <!-- Avatars -->
-      <a-asset-item id="StudentAvatarHead" src="assets/avatars/StudentAvatarHead.gltf"></a-asset-item>
-      <a-asset-item id="StudentAvatarBody" src="assets/avatars/StudentAvatarBody.gltf"></a-asset-item>
-      <a-asset-item id="TeacherAvatarHead" src="assets/avatars/TeacherAvatarHead.gltf"></a-asset-item>
-      <a-asset-item id="TeacherAvatarBody" src="assets/avatars/TeacherAvatarBody.gltf"></a-asset-item>
-      <a-asset-item id="student" src="assets/StudentNurseAvatar.gltf"></a-asset-item>
-      <a-asset-item id="teacher" src="assets/TeacherAvatar.gltf"></a-asset-item>
+      <a-asset-item id="StudentAvatarHead" src="../../super/process/assets/avatars/StudentAvatarHead.gltf">
+      </a-asset-item>
+      <a-asset-item id="StudentAvatarBody" src="../../super/process/assets/avatars/StudentAvatarBody.gltf">
+      </a-asset-item>
+      <a-asset-item id="TeacherAvatarHead" src="../../super/process/assets/avatars/TeacherAvatarHead.gltf">
+      </a-asset-item>
+      <a-asset-item id="TeacherAvatarBody" src="../../super/process/assets/avatars/TeacherAvatarBody.gltf">
+      </a-asset-item>
+      <a-asset-item id="student" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
+      <a-asset-item id="teacher" src="../../super/process/assets/TeacherAvatar.gltf"></a-asset-item>
 
       <!-- Theater -->
-      <a-asset-item id="scenebase" src="/Models/gltf/Scene_Base.gltf"></a-asset-item>
-      <a-asset-item id="scenemedixlablogo" src="/Models/gltf/Scene_Medixlablogo.gltf"></a-asset-item>
-      <a-asset-item id="sceneieproeslogo" src="/Models/gltf/Scene_Ieproesblogo.gltf"></a-asset-item>
-      <a-asset-item id="scenevertexlogo" src="/Models/gltf/Scene_VertexLogo.gltf"></a-asset-item>
-      <a-asset-item id="scenebase02" src="/Models/gltf/Base_Auditorium.gltf"></a-asset-item>
-      <a-asset-item id="stairsprincipal" src="/Models/gltf/Stairs_Auditorium.gltf"></a-asset-item>
-      <a-asset-item id="ministairs" src="/Models/gltf/Mini_Stairs_Auditorium.gltf"></a-asset-item>
-      <a-asset-item id="roofauditorium" src="/Models/gltf/Roof_Auditorium.gltf"></a-asset-item>
-      <a-asset-item id="columns" src="/Models/gltf/Columns_Auditorium.gltf"></a-asset-item>
-      <a-asset-item id="frontwall" src="/Models/gltf/FrontWall_Auditorium.gltf"></a-asset-item>
-      <a-video id="canalizacion" src="/videos/Test.mp4" autoplay loop="true"></a-video>
+      <a-asset-item id="scenebase" src="../../Models/gltf/Scene_Base.gltf"></a-asset-item>
+      <a-asset-item id="scenemedixlablogo" src="../../Models/gltf/Scene_Medixlablogo.gltf"></a-asset-item>
+      <a-asset-item id="sceneieproeslogo" src="../../Models/gltf/Scene_Ieproesblogo.gltf"></a-asset-item>
+      <a-asset-item id="scenevertexlogo" src="../../Models/gltf/Scene_VertexLogo.gltf"></a-asset-item>
+      <a-asset-item id="scenebase02" src="../../Models/gltf/Base_Auditorium.gltf"></a-asset-item>
+      <a-asset-item id="stairsprincipal" src="../../Models/gltf/Stairs_Auditorium.gltf"></a-asset-item>
+      <a-asset-item id="ministairs" src="../../Models/gltf/Mini_Stairs_Auditorium.gltf"></a-asset-item>
+      <a-asset-item id="roofauditorium" src="../../Models/gltf/Roof_Auditorium.gltf"></a-asset-item>
+      <a-asset-item id="columns" src="../../Models/gltf/Columns_Auditorium.gltf"></a-asset-item>
+      <a-asset-item id="frontwall" src="../../Models/gltf/FrontWall_Auditorium.gltf"></a-asset-item>
+      <!-- <a-video id="canalizacion" src="/videos/Test.mp4" autoplay loop="true"></a-video> -->
       <canvas width="512" height="512" id="cam2"></canvas>
-      <a-asset-item id="base" src="/Models/gltf/Base.gltf"></a-asset-item>
+      <a-asset-item id="base" src="../../Models/gltf/Base.gltf"></a-asset-item>
 
       <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false"
         static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
@@ -398,7 +402,7 @@
     <a-entity id="lamps03" gltf-model="#lamps01" ; scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
     <a-entity id="columns01" gltf-model="#columns" ; scale="1 1 1" position="0 0 0" material="color: brown"
       rotation="0 0 0"></a-entity>
-    <a-entity id="base" gltf-model="/Models/gltf/Base.gltf" scale="" position="1.1014 1 -2.07876"
+    <a-entity id="base" gltf-model="../../Models/gltf/Base.gltf" scale="" position="1.1014 1 -2.07876"
       material="color: brown" rotation=""></a-entity>
 
     <!-- <a-entity camera="zoom: 0.8; aspect: 1; active: false;" camrender="cid: cam2" position="0 4.0 0" rotation="-95 -180 180"></a-entity>   
