@@ -23,7 +23,8 @@
 
   <!-- Super hands -->
   <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.js"></script>
-  <script src="https://unpkg.com/aframe-event-set-component@^4.1.1/dist/aframe-event-set-component.min.js"></script>
+  <!-- <script src="https://unpkg.com/aframe-event-set-component@^4.1.1/dist/aframe-event-set-component.min.js"></script> -->
+  <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
   <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
   <script
     src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
@@ -41,9 +42,9 @@
   <script src="../../js/avatar-body.component.js"></script>
 
   <!-- GUI functionality -->
-	<script src="../../js/demo.js"></script>
+	<!-- <script src="../../js/demo.js"></script>
   <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
-  <script src="../../js/gui-env.js"></script>
+  <script src="../../js/gui-env.js"></script> -->
 
   <!-- Sets spectator position -->
   <script src="../../js/assign-seat.component.js"></script>
@@ -79,6 +80,42 @@
 
   <!-- <script  src="https://rawgit.com/fernandojsg/aframe-input-mapping-component/master/dist/aframe-input-mapping-component.min.js"></script> -->
   <script src="https://unpkg.com/aframe-log-component/dist/aframe-log-component.min.js"></script>
+
+  <script>
+    AFRAME.registerComponent('questions', {
+      update: function () {
+        var data = this.data;
+        var el = this.el;  // <a-panel>
+        var greenBtn = document.querySelector('[rightAnswer]');
+        var redBtn = document.querySelectorAll('[wrongAnswer]')
+  
+        greenBtn.addEventListener('click', function () {
+          var delayInMilliseconds = 1500; //1.5 seconds
+
+          greenBtn.setAttribute('color', 'green')
+
+          setTimeout(function() {
+            el.setAttribute('visible', "false");
+            greenBtn.setAttribute('color', '#072B73');
+            redBtn.forEach(redBtn => {
+              redBtn.setAttribute('color', '#072B73')
+            })
+          }, delayInMilliseconds);
+
+          setTimeout(function() {
+            el.setAttribute('visible', "true");
+
+          }, 2000);
+        });
+
+        redBtn.forEach(redBtn => {
+            redBtn.addEventListener('click', function () {
+            redBtn.setAttribute('color', 'red')
+          });
+        })
+      }
+    });
+  </script>
 
 
   <link rel="stylesheet" type="text/css" href="../assets/examples.css">
@@ -410,102 +447,19 @@
     <a-plane rotation="0 0 0" scale="8.250 5.479 4" material="src:#cam2" position="0 7.32941 -1.90179" canvas-updater>
     </a-plane>
     <a-entity id="base" gltf-model="/Models/gltf/Base.gltf" scale="" position="1.1014 1 -2.07876" material="color: brown" rotation=""></a-entity>
-    <a-entity position="-4.0 3.0 0">
 
-      <a-plane
-        position="0 2.5 0"
-        rotation="180 -120 180"
-        width="4" height="1"
-        material="color: #072B73; side: double; opacity: 0.7"
-        text="value: Select an option; align: center"></a-plane>
-
-      <a-gui-flex-container id="questions_panel"
-        width="4" height="4"
-        is-top-container="true" flex-direction="column" justify-content="center" align-items="center" opacity="0.7"
-        rotation="0 60 0"
-        visible="true"
-        animation__scaleIn="property: scale; to: 1 1 1; dur: 1000; startEvents:opendropdown"
-        animation__visibleIn="property: visible; to: true; dur: 100; startEvents:opendropdown"
-        animation__scaleOut="property: scale; to: 1 0.001 0.001; dur: 100000; startEvents:changePanel"
-        animation__visibleOut="property: visible; to: false; dur: 100000; delay: 500; startEvents:changePanel"
-      >
-        <a-gui-button   id="option1"
-          width="2.5" height="0.75" margin="0 0 0.1 0"
-          onclick="changePanel"
-          value="Option 1"
-          font-family="Arial"
-        >
-        </a-gui-button>
-        <a-gui-button   id="option2"
-            width="2.5" height="0.75" margin="0 0 0.1 0"
-            onclick="changePanel"
-            value="Option 2"
-            font-family="Arial"
-        >
-        </a-gui-button>
-        <a-gui-button   id="option3"
-          width="2.5" height="0.75" margin="0 0 0.1 0"
-          onclick="changePanel"
-          value="Option 3"
-          font-family="Arial"
-        >
-        </a-gui-button>
-        <a-gui-button   id="option4"
-          width="2.5" height="0.75" margin="0 0 0.1 0"
-          onclick="changePanel"
-          value="Option 4"
-          font-family="Arial"
-        >
-        </a-gui-button>
-      </a-gui-flex-container>
-      <a-gui-flex-container id="questions_panel2"
-        width="4" height="4"
-        is-top-container="true" flex-direction="column" justify-content="center" align-items="center" opacity="0.7"
-        rotation="0 60 0" visible="false"
-        animation__positionIn="property: position; to: 0 0 -0.15; dur: 1000; delay: 500 startEvents:changePanel"
-        animation__scaleIn="property: scale; to: 1 1 1; dur: 1000; delay: 500 startEvents:changePanel"
-        animation__visibleIn="property: visible; to: true; dur: 100; delay: 500 startEvents:changePanel"
-        animation__positionOut="property: position; to: 0 0 -0.15; dur: 100000; startEvents:changePanel2"
-        animation__scaleOut="property: scale; to: 1 0.001 0.001; dur: 100000; startEvents:changePanel2"
-        animation__visibleOut="property: visible; to: false; dur: 100000; delay: 500; startEvents:changePanel2"
-      >
-        <a-gui-button   id="option1"
-          width="2.5" height="0.75" margin="0 0 0.1 0"
-          onclick="changePanel"
-          value="Option 5"
-          font-family="Arial"
-        >
-        </a-gui-button>
-        <a-gui-button   id="option2"
-            width="2.5" height="0.75" margin="0 0 0.1 0"
-            onclick="changePanel"
-            value="Option 6"
-            font-family="Arial"
-        >
-        </a-gui-button>
-        <a-gui-button   id="option3"
-          width="2.5" height="0.75" margin="0 0 0.1 0"
-          onclick="changePanel"
-          value="Option 7"
-          font-family="Arial"
-        >
-        </a-gui-button>
-        <a-gui-button   id="option4"
-          width="2.5" height="0.75" margin="0 0 0.1 0"
-          onclick="changePanel"
-          value="Option 8"
-          font-family="Arial"
-        >
-        </a-gui-button>
-      </a-gui-flex-container>
+    <a-entity >
+      <a-plane material="color: #072B73; opacity: 0.7" position="-4.0 3 0" height="0.25" text="value: Question; align: center">
+      </a-plane>
+      <a-plane questions id="panel1" position="-4.0 2.375 0" material="color: black; opacity: 0.7">
+        <!-- <a-plane rightAnswer material="color: #072B73" height="0.15" width="0.75" position="0 0.3 0.01" text="value: Answer1; align: center"></a-plane>
+        <a-plane wrongAnswer material="color: #072B73" height="0.15" width="0.75" position="0 0.1 0.01" text="value: Answer2; align: center"></a-plane>
+        <a-plane  wrongAnswer material="color: #072B73" height="0.15" width="0.75" position="0 -0.1 0.01" text="value: Answer3; align: center"></a-plane>
+        <a-plane  wrongAnswer material="color: #072B73" height="0.15" width="0.75" position="0 -0.3 0.01" text="value: Answer4; align: center"></a-plane> -->
+      </a-plane>
     </a-entity>
-
     <!-- Theater Lights -->
     <a-entity background="color: #92f2ff"></a-entity>
-
-    <!-- <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
-		<a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [gui-interactable]"></a-entity>
-		<a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [gui-interactable]"></a-entity> -->
 
     <a-entity light="intensity: 0.1; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.34" id="light01"
@@ -515,6 +469,7 @@
     <a-entity id="spectator" assign-seat>
 
       <a-entity id="constraint-spectator" camera="fov:70" position="0 1.6 0" wasd-controls look-controls zoom="100" fov="120">
+        <a-cursor></a-cursor>
         <a-entity class="name-up" name-up></a-entity>
         <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" randomize-spec-color visible="false"></a-entity>
       </a-entity>
@@ -673,13 +628,31 @@
     }
   </script>
   <script>
-  	window.changePanel = function() {
-			console.log("changePanel");
-			var questionsPanel = document.getElementById("questions_panel");
-      questionsPanel.emit('changePanel');
-      var questionsPanel2 = document.getElementById("questions_panel2");
-      questionsPanel2.emit('changePanel');
-		}
+    let objectsResult
+    let questionsPanel = document.getElementById('panel1')
+
+    fetch("../../../js/panelQuestions.json").then(
+      function (u) { return u.json(); }
+    ).then(
+      function (json) {
+        objectsResult = JSON.parse(JSON.stringify(json));
+
+        addAnswers(objectsResult)
+      }
+    )
+    
+    function addAnswers(structure) {
+      structure.forEach(item => {
+        let rightAnswer = document.createElement('a-plane');
+        rightAnswer.setAttribute(item.component)
+        rightAnswer.setAttribute("material", item.material)
+        rightAnswer.setAttribute("height", item.height)
+        rightAnswer.setAttribute("width", item.width)
+        rightAnswer.setAttribute("position", item.position)
+        rightAnswer.setAttribute("text", item.text)
+        questionsPanel.appendChild(rightAnswer);
+      });
+    }
   </script>
   <script>
 

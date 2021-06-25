@@ -1,0 +1,34 @@
+[
+    {
+        "component": "rightAnswer",
+        "material": "color: #072B73",
+        "height": "0.15",
+        "width": "0.75",
+        "position": "0 0.3 0.01",
+        "text": "value: Answer1; align: center"
+    },
+    {
+        "component": "wrongAnswer",
+        "material": "color: #072B73",
+        "height": "0.15",
+        "width": "0.75",
+        "position": "0 0.1 0.01",
+        "text": "value: Answer2; align: center"
+    },
+    {
+        "component": "wrongAnswer",
+        "material": "color: #072B73",
+        "height": "0.15",
+        "width": "0.75",
+        "position": "0 -0.1 0.01",
+        "text": "value: Answer3; align: center"
+    },
+    {
+        "component": "wrongAnswer",
+        "material": "color: #072B73",
+        "height": "0.15",
+        "width": "0.75",
+        "position": "0 -0.3 0.01",
+        "text": "value: Answer4; align: center"
+    }
+]
