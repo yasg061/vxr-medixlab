@@ -3,7 +3,7 @@ let ojectsResult
 let spawnedObj
 let sceneEl = document.querySelector('a-scene');
 
-fetch("../../../js/structureEntities.json").then(
+fetch("../../../js/structureEntities-Process3.json").then(
   function (u) { return u.json(); }
 ).then(
   function (json) {
@@ -26,7 +26,7 @@ function spawnEntities(structure) {
   });
 }
 
-AFRAME.registerComponent('SpawnObjects', {
+AFRAME.registerComponent('spawnobjects', {
   schema: {
     speed: { default: 0.01 },
     direction: { default: 1 }
