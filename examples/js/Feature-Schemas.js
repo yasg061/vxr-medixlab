@@ -1,7 +1,7 @@
 let result
 let objSchemas
 
-fetch("../../../js/structureEntities-Process3.json").then(
+fetch("../../../js/structureEntities.json").then(
   function (u) { return u.json(); }
 ).then(
   function (json) {
