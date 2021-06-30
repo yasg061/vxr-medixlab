@@ -446,8 +446,7 @@ var qrot = new THREE.Quaternion();
        let rotationSpectator
 
        var angleDeg = Math.atan2(pos.x - target.x, pos.z - target.z) * 180 / Math.PI;
-       console.log("angle ? ",)
-        entityEl.setAttribute("rotation",`0, ${angleDeg},0`)
+         entityEl.setAttribute("rotation",`0, ${angleDeg},0`)
    
 
      let nameSpectator = document.createElement('a-entity');

@@ -25,6 +25,35 @@
   <script src="../../../js/input.component.js"></script>
   <script src="../../../js/hand-attach.js"></script>
   <script src="../../../js/attach-point.js"></script>
+  <script src="../../js/update_animation.js"></script>
+
+<script>
+    AFRAME.registerComponent('input', {
+      schema: {
+        triggerKeyCode: { default: 32 } // spacebar
+      },
+      init: function () {
+        var that = this;
+        let instrumentEntity = document.getElementById("instruments");
+        let instrumentEntity2 = document.getElementById("instruments2");
+        // instrumentEntity.setAttribute('animation-mixer', 'timeScale: 0');
+        document.body.onkeyup = function (e) {
+          if (e.keyCode == that.data.triggerKeyCode) {
+            console.log("input ------------");
+            // instrumentEntity.setAttribute('animation-mixer', 'loop: repeat; timeScale: 1');
+            instrumentEntity.setAttribute('visible', 'false');
+            instrumentEntity2.setAttribute('visible', 'true');
+            instrumentEntity2.setAttribute('animation-mixer', 'loop:repeat;clip:ArmatureAction');
+
+          }else{
+            console.log("kha ?")
+          }
+          
+        }
+      }
+    })
+  </script>
+
 
 </head>
 
@@ -36,7 +65,7 @@
     ">
     
     <a-assets>
-
+      
       <a.asser-item id="alcoholbottle" src="../../../Models/gltf/AlcoholBottle.gltf"></a.asser-item>
       <a.asser-item id="alcoholgel" src="../../../Models/gltf/AlcoholGel.gltf"></a.asser-item>
       <a-asset-item id="table01" src="../../../Models/gltf/Table.gltf"></a-asset-item>
@@ -106,7 +135,7 @@
 
       <!-- template section -->
       <template id="player-template">
-        <a-entity  ></a-entity>
+        <a-entity class="playerTemplate" input ></a-entity>
       </template>
 
       <template id="constraint-teacher-avatar-template">
@@ -131,7 +160,15 @@
 
       <template id="vxr-obj-template-1">
         <a-entity>          
-          <a-entity id="instruments" class="instrumentClass" animation-mixer="timeScale:0"  gltf-model="Instruments_Animation.gltf" ;="" scale="" position="0.03489 -0.52 -2.1 "   material="color: brown" rotation="0 135.99999999999999 0"></a-entity>
+          <a-entity>
+            <a-entity id="instruments" update-animation="ArmatureAction" class="instrumentClass"
+               gltf-model="Instruments_Animation.gltf" scale=""
+              position="0.03489 -0.485 -2.1 " material="color: brown" rotation="0 180.000 0" visible="false"></a-entity>
+              
+              <a-entity id="instruments2" update-animation="ArmatureAction" class="instrumentClass2"
+              gltf-model="Instruments_Animation.gltf" scale=""
+             position="0.03489 -0.485 -2.1 " material="color: brown" rotation="0 180.000 0" visible="true"></a-entity>
+          </a-entity>      
         </a-entity>
       </template>
 
@@ -199,18 +236,6 @@
     
     
     <a-sphere id="sphere1" static-body="sphereRadius: NaN" attach-point="" opacity="0" position="1.21981 1.23578 -1.97685" color="black" radius="0.03" ></a-sphere>
-    <!-- <a-box id="box2" foo opacity="0" static-body rotation="0 180 0" position="0.03489 1.5 -2.26097" color="red" depth="0.03" height="0.03" width="0.03"></a-box> -->
-    <!-- <a-entity id="instruments" gltf-model="Instruments_Animation.gltf" ;="" scale="" position="0.03489 0.98227 -2.26097" animation-mixer="loop: false; repetitions: 0; timeScale: 0.5; clampWhenFinished: true" material="color: brown" rotation="0 135.99999999999999 0"></a-entity> -->
-    <!-- <a-entity id="alcoholbottle01" gltf-model="#alcoholbottle" ;="" scale="" position="-1.24499 0.96339 -1.69628" material="color: brown"   rotation="0 270 0"></a-entity> -->
-    <!-- <a-entity id="alcoholgel01" gltf-model="#alcoholgel" ;="" scale="" position="-1.2944 0.91102 -1.56355" material="color: brown" rotation="0 90 0"></a-entity>     -->
-    <!-- <a-entity id="tray002" gltf-model="#tray" ;="" scale="" position="-1.14958 0.9646 -0.99129" material="color: brown" rotation="0 90 0"></a-entity> -->
-    <!-- <a-entity id="cottonswabs001" gltf-model="#cottonswabs01" ;="" scale="" position="-0.8488 0.98386 -1.39905" material="color: brown" rotation=""></a-entity> -->
-    <!-- <a-entity id="cottonswabs002" gltf-model="#cottonswabs02" ;="" scale="" position="-0.92109 0.9828 -1.36809" material="color: brown" rotation=""></a-entity> -->
-    <!-- <a-entity id="cottonswabs003" gltf-model="#cottonswabs03" ;="" scale="" position="-0.91719 0.98918 -1.46786" material="color: brown" rotation=""></a-entity> -->
-    <!-- <a-entity id="gauze01" gltf-model="#gauze" ;="" scale="" position="-1.06941 0.97629 -1.45662" material="color: brown" rotation=""></a-entity> -->
-    <!-- <a-entity id="maskn9501" gltf-model="#maskN95" ;="" scale="" position="-1.1798 1.10281 -1.41385" material="color: brown" rotation="0 90 0"></a-entity> -->
-    <!-- <a-entity id="medicaltape01" gltf-model="#medicaltape" ;="" scale="" position="-1.05808 0.97084 -1.61434" material="color: brown" rotation=""></a-entity> -->
-
 
     <a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2" position="0 10 10">
     </a-entity>
@@ -342,7 +367,11 @@
       components: [
         'position',
         'rotation',
-      ]
+        {
+          selector: '.playerTemplate',
+          component: 'input'
+        }
+      ],
     });
     NAF.schemas.add({
       template: '#constraint-teacher-avatar-template',
@@ -362,7 +391,11 @@
       template: '#left-hand-template',
       components: [
         'position',
-        'rotation'
+        'rotation',
+        {
+          selector:'.lHand',
+          component:'input'
+        }
       ]
     });
     NAF.schemas.add({
@@ -373,7 +406,15 @@
     {
       selector: '.instrumentClass',
       component: 'animation-mixer'
-    } 
+    },
+    {
+      selector: '.instrumentClass',
+      component: 'visible'
+    },
+    {
+      selector: '.instrumentClass2',
+      component: 'visible'
+    }
   ]
 });
 

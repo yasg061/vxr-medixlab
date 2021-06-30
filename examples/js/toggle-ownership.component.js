@@ -34,6 +34,7 @@ AFRAME.registerComponent('toggle-ownership', {
       });
 
       el.addEventListener('ownership-changed', e => {
+        console.log("ownership changed")
         clearTimeout(timeout);
         console.log(e.detail)
         if (e.detail.newOwner == NAF.clientId) {
