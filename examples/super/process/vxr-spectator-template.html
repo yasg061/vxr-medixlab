@@ -640,7 +640,18 @@
 
       firstAnswer.addEventListener('click', function () {
         if (firstAnswer.hasAttribute("rightAnswer")) {
-          firstAnswer.setAttribute('color', 'green');
+          setTimeout(() => {
+            firstAnswer.setAttribute('color', '#054056');
+          }, 125);
+          setTimeout(() => {
+            firstAnswer.setAttribute('color', '#04563A');
+          }, 250);
+          setTimeout(() => {
+            firstAnswer.setAttribute('color', '#04563A');
+          }, 375);
+          setTimeout(() => {
+            firstAnswer.setAttribute('color', '#04563A');
+          }, 500);
 
           answersArray.forEach(answer => {
             answer.addEventListener('click', function() {

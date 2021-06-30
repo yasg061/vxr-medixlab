@@ -4,6 +4,7 @@
         "answers": [
             {
                 "id": "firstAnswer",
+                "component": "rightAnswer",
                 "material": "color: #072B73",
                 "height": "0.15",
                 "width": "0.75",
@@ -12,7 +13,6 @@
             },
             {
                 "id": "secondAnswer",
-                "component": "rightAnswer",
                 "material": "color: #072B73",
                 "height": "0.15",
                 "width": "0.75",
