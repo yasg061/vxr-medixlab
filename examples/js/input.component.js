@@ -1,4 +1,7 @@
+
+
 let anmBool = true
+
 
 AFRAME.registerComponent('input-controls', {
   // dependencies: ['tracked-controls'],

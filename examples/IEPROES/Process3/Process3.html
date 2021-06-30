@@ -140,7 +140,7 @@
       <template id="vxr-obj-template-2">
         <a-entity>          
           
-          <a-entity id="alcoholbottle01"  dynamic-body draggable grabbable  gltf-model="#alcoholbottle" ;="" scale="" position="-1.26886 -0.54837 -1.34884" material="color: brown"  dynamic-body draggable grabbable  rotation="0 270 0"></a-entity>        </a-entity>
+          <a-entity id="alcoholbottle01"  dynamic-body draggable grabbable  gltf-model="#alcoholbottle" ;="" scale="" position="-1.26886 -0.54837 -1.34884" material="color: brown"  draggable grabbable  rotation="0 270 0"></a-entity>        </a-entity>
       </template>
 
       <template id="vxr-obj-template-3">
@@ -375,7 +375,11 @@
     {
       selector: '.instrumentClass',
       component: 'animation-mixer'
-    } 
+    },
+    {
+      selector: '.instrumentClass',
+      component: 'gltf-model'
+    }
   ]
 });
 
@@ -394,7 +398,7 @@
   
     
   </script>
-  <script>
+  <!-- <script>
      AFRAME.registerComponent('animtrigger', {
   schema: {
     speed: { default: 0.01 },
@@ -415,7 +419,7 @@
  });
 
 
-  </script>
+  </script> -->
 
 <script src="../../js/Feature-SpawnObjects.js"></script>
 <script src="../../js/Feature-Schemas.js"></script>
