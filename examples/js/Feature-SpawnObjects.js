@@ -3,27 +3,35 @@ let ojectsResult
 let spawnedObj
 let sceneEl = document.querySelector('a-scene');
 
-fetch("../../../js/structureEntities-Process3.json").then(
+fetch(url).then(
   function (u) { return u.json(); }
 ).then(
   function (json) {
     spawnedObj = json
-    console.log("json objs: ", spawnedObj)
-    ojectsResult = JSON.parse(JSON.stringify(json));
+     ojectsResult = JSON.parse(JSON.stringify(json));
 
     spawnEntities(ojectsResult)
   }
 )
 
 function spawnEntities(structure) {
-  console.log("structure obj ", structure)
+   let i =0
+
   structure.forEach(item => {
+    i++
     let entityEl = document.createElement('a-entity');
-    entityEl.setAttribute("networked", `template:${item.template};attachTemplateToLocal:true`)
     entityEl.setAttribute("position", "0 1.5 -0.2")
+    entityEl.setAttribute("id",`template${i}`)
+
+    if(item.selector=="#instruments"){
+      entityEl.setAttribute("networked", `template:${item.template};attachTemplateToLocal:true`)
+     }else{
+      entityEl.setAttribute("networked", `template:${item.template};attachTemplateToLocal:true`)
+
+    }
+
     sceneEl.appendChild(entityEl);
-    console.log("entity: ", entityEl)
-  });
+   });
 }
 
 AFRAME.registerComponent('spawnobjects', {
@@ -33,8 +41,7 @@ AFRAME.registerComponent('spawnobjects', {
   },
 
   init() {
-    console.log("json file", config)
-
+ 
   },
 
 });
