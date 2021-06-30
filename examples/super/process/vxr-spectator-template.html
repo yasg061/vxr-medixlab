@@ -48,8 +48,6 @@
   <!-- Camera output -->
   <script src="../../js/camera-output.js"></script>
 
-
-
   <script>
     function spawnentity() {
       let syncs = document.getElementsByClassName("syncup");
@@ -75,95 +73,8 @@
 
   <!-- <script  src="https://rawgit.com/fernandojsg/aframe-input-mapping-component/master/dist/aframe-input-mapping-component.min.js"></script> -->
   <script src="https://unpkg.com/aframe-log-component/dist/aframe-log-component.min.js"></script>
-  <!-- <script>
-    AFRAME.registerComponent('questions', {
-      init: function () {
-        var data = this.data;
-        var el = this.el;  // <a-panel>
-        let greenBtn;
-        let redBtn;
-        let objectsResult;
 
-        fetch("../../../js/panelQuestions.json").then(
-          function (u) { return u.json(); }
-        ).then(
-          function (json) {
-            objectsResult = JSON.parse(JSON.stringify(json));
-            console.log("question", objectsResult[0].question)
-            console.log("answer1", objectsResult[0].answers[0]) 
-            // addAnswers(objectsResult)
-            createQuestionsElements(objectsResult)
-            editQuestionElements()
-          }
-        )
-
-        function createQuestionsElements(objectsResult) {
-          console.log('Hello');
-          let x = 0;
-          let questionPlane = document.getElementById('questionPlane');
-          questionPlane.setAttribute("text", objectsResult[x].question);
-          objectsResult[x].answers.forEach(answer => {
-            let rightAnswer = document.createElement('a-plane');
-            rightAnswer.setAttribute(answer.component)
-            rightAnswer.setAttribute("material", answer.material)
-            rightAnswer.setAttribute("height", answer.height)
-            rightAnswer.setAttribute("width", answer.width)
-            rightAnswer.setAttribute("position", answer.position)
-            rightAnswer.setAttribute("text", answer.text)
-            el.appendChild(rightAnswer);
-          });
-          greenBtn = document.querySelector('[rightAnswer]');
-          redBtn = document.querySelectorAll('[wrongAnswer]');
-          x += 1;
-          console.log(x)
-        }
-        
-        function editQuestionElements(objectsResult) {
-          greenBtn.addEventListener('click', function () {
-            var delayInMilliseconds = 1500; //1.5 seconds
-
-            greenBtn.setAttribute('color', 'green')
-
-            setTimeout(function() {
-              el.setAttribute('visible', "false");
-              greenBtn.setAttribute('color', '#072B73');
-              redBtn.forEach(redBtn => {
-                redBtn.setAttribute('color', '#072B73')
-              })
-            }, delayInMilliseconds);
-
-            setTimeout(function() {
-              createQuestionsElements(objectsResult);
-              el.setAttribute('visible', "true");
-            }, 2000);
-          });
-
-          redBtn.forEach(redBtn => {
-            redBtn.addEventListener('click', function () {
-            redBtn.setAttribute('color', 'red')
-            });
-          })
-        }
-      
-        // function addAnswers(structure) {
-        //   structure.forEach(item => {
-        //     let rightAnswer = document.createElement('a-plane');
-        //     rightAnswer.setAttribute(item.component)
-        //     rightAnswer.setAttribute("material", item.material)
-        //     rightAnswer.setAttribute("height", item.height)
-        //     rightAnswer.setAttribute("width", item.width)
-        //     rightAnswer.setAttribute("position", item.position)
-        //     rightAnswer.setAttribute("text", item.text)
-        //     answersPanel.appendChild(rightAnswer);
-        //   });
-        // }
-
-      }
-    });
-  </script> -->
-
-
-  <link rel="stylesheet" type="text/css" href="../assets/examples.css">
+  <!-- <link rel="stylesheet" type="text/css" href="../assets/examples.css"> -->
 </head>
 
 <body>
@@ -677,12 +588,6 @@
   <script>
     let scene = document.querySelector('a-scene');
     // let panel1 = document.getElementById('panel1');
-    let greenBtn;
-    let redBtn;
-    let firstAnswer;
-    let secondAnswer;
-    let thirdAnswer;
-    let fourthAnswer;
     let objectsResult;
     let x = 0;
 
@@ -691,11 +596,212 @@
     ).then(
       function (json) {
         objectsResult = JSON.parse(JSON.stringify(json));
-        // console.log("question", objectsResult[1].question)
         console.log("answer1", objectsResult[1].answers[0]) 
-        // addAnswers(objectsResult)
         if (x < objectsResult.length) createQuestionsElements()
-        // editQuestionElements()
+      }
+    )
+
+    function createQuestionsElements() {
+      console.log('objectsResult:', objectsResult);
+      let panel1 = document.createElement('a-plane');
+      panel1.setAttribute('material', "color: black; opacity: 0.7");
+      panel1.setAttribute('position', "-4.0 2.375 0");
+      let questionPlane = document.createElement('a-plane');
+      questionPlane.setAttribute('material', "color: #072B73; opacity: 0.7");
+      questionPlane.setAttribute('position', "-4.0 3 0");
+      questionPlane.setAttribute('height', "0.25");
+      console.log('question:', objectsResult[x].question);
+      questionPlane.setAttribute('text', objectsResult[x].question);
+      scene.appendChild(questionPlane);
+      scene.appendChild(panel1);
+
+      objectsResult[x].answers.forEach(item => {
+        let answer = document.createElement('a-plane');
+        answer.setAttribute('id', item.id)
+        answer.setAttribute('material', item.material)
+        answer.setAttribute('height', item.height)
+        answer.setAttribute('width', item.width)
+        answer.setAttribute('position', item.position)
+        answer.setAttribute('text', item.text)
+        if (item.component) answer.setAttribute(item.component)
+        panel1.appendChild(answer);
+      });
+
+      let answersArray = [];
+      let firstAnswer = document.getElementById('firstAnswer');
+      let secondAnswer = document.getElementById('secondAnswer');
+      let thirdAnswer = document.getElementById('thirdAnswer');
+      let fourthAnswer = document.getElementById('fourthAnswer');
+
+      answersArray.push(firstAnswer, secondAnswer, thirdAnswer, fourthAnswer);
+
+      x += 1;
+      console.log('x:', x);
+
+      firstAnswer.addEventListener('click', function () {
+        if (firstAnswer.hasAttribute("rightAnswer")) {
+          firstAnswer.setAttribute('color', 'green');
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            if (x < objectsResult.length) createQuestionsElements()
+          }, 2000);
+        } else {
+          firstAnswer.setAttribute('color', 'red');
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          answersArray.forEach(answer => {
+            if (answer.hasAttribute("rightAnswer")) answer.setAttribute('color', 'green')
+          });
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            if (x < objectsResult.length) createQuestionsElements()
+          }, 2000);
+        }
+      });
+
+      secondAnswer.addEventListener('click', function () {
+        if (secondAnswer.hasAttribute("rightAnswer")) {
+          secondAnswer.setAttribute('color', 'green');
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            if (x < objectsResult.length) createQuestionsElements()
+          }, 2000);
+        } else {
+          secondAnswer.setAttribute('color', 'red');
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          answersArray.forEach(answer => {
+            if (answer.hasAttribute("rightAnswer")) answer.setAttribute('color', 'green')
+          });
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            if (x < objectsResult.length) createQuestionsElements()
+          }, 2000);
+        }
+      });
+
+      thirdAnswer.addEventListener('click', function () {
+        if (thirdAnswer.hasAttribute("rightAnswer")) {
+          thirdAnswer.setAttribute('color', 'green');
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            if (x < objectsResult.length) createQuestionsElements()
+          }, 2000);
+        } else {
+          thirdAnswer.setAttribute('color', 'red');
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          answersArray.forEach(answer => {
+            if (answer.hasAttribute("rightAnswer")) answer.setAttribute('color', 'green')
+          });
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            if (x < objectsResult.length) createQuestionsElements()
+          }, 2000);
+        }
+      });
+
+      fourthAnswer.addEventListener('click', function () {
+        if (fourthAnswer.hasAttribute("rightAnswer")) {
+          fourthAnswer.setAttribute('color', 'green');
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            if (x < objectsResult.length) createQuestionsElements()
+          }, 2000);
+        } else {
+          fourthAnswer.setAttribute('color', 'red');
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+          
+          answersArray.forEach(answer => {
+            if (answer.hasAttribute("rightAnswer")) answer.setAttribute('color', 'green')
+          });
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            if (x < objectsResult.length) createQuestionsElements()
+          }, 2000);
+        }
+      });
+    }
+  </script>
+  <!-- <script>
+    let scene = document.querySelector('a-scene');
+    // let panel1 = document.getElementById('panel1');
+    let greenBtn;
+    let redBtn;
+    let objectsResult;
+    let x = 0;
+
+    fetch("../../../js/panelQuestions.json").then(
+      function (u) { return u.json(); }
+    ).then(
+      function (json) {
+        objectsResult = JSON.parse(JSON.stringify(json));
+        console.log("answer1", objectsResult[1].answers[0]) 
+        if (x < objectsResult.length) createQuestionsElements()
       }
     )
 
@@ -726,10 +832,6 @@
       });
       let greenBtn = document.querySelector('.rightAnswer');
       redBtn = document.querySelectorAll('.wrongAnswer');
-      firstAnswer = document.getElementById('firstAnswer');
-      secondAnswer = document.getElementById('secondAnswer');
-      thirdAnswer = document.getElementById('thirdAnswer');
-      fourthAnswer = document.getElementById('fourthAnswer');
       x += 1;
       console.log('x:', x);
       greenBtn.addEventListener('click', function () {
@@ -738,45 +840,10 @@
         greenBtn.setAttribute('color', 'green')
 
         setTimeout(function() {
-          firstAnswer.removeAttribute('class');
-          secondAnswer.removeAttribute('class');
-          thirdAnswer.removeAttribute('class');
-          fourthAnswer.removeAttribute('class');
-
-          firstAnswer.remove();
-          secondAnswer.remove();
-          thirdAnswer.remove();
-          fourthAnswer.remove();
-
           questionPlane.removeAttribute('text');
           panel1.remove();
           questionPlane.remove();
-          // greenBtn.querySelector('.rightAnswer').remove();
-          // redBtn.forEach(redBtn => {
-          //   redBtn.remove();
-          // });
-          // questionPlane.remove();
-          // console.log('greenBtn:', greenBtn);
-          // console.log('questionPlane:', questionPlane);
-          // questionPlane.removeAttribute('text');
-          // greenBtn.removeAttribute('text');
-          // redBtn.forEach(redBtn => {
-          // redBtn.removeAttribute('text');
-          // });
           if (x < objectsResult.length) createQuestionsElements()
-          // questionPlane.removeAttribute('text');
-          // questionPlane.setAttribute("text", objectsResult[x].question);
-          // objectsResult[x].answers.forEach(item => {
-          //   let answer = document.createElement('a-plane');
-          //   answer.setAttribute(item.component);
-          //   answer.setAttribute("material", item.material)
-          //   answer.setAttribute("height", item.height)
-          //   answer.setAttribute("width", item.width)
-          //   answer.setAttribute("position", item.position)
-          //   answer.setAttribute("text", item.text)
-          //   panel1.appendChild(answer);
-          // });
-          // panel1.setAttribute('visible', "true");
         }, 2000);
       });
 
@@ -786,36 +853,7 @@
         });
       })
     }
-
-    // function editQuestionElements() {
-    //   greenBtn.addEventListener('click', function () {
-    //     var delayInMilliseconds = 1500; //1.5 seconds
-
-    //     greenBtn.setAttribute('color', 'green')
-
-    //     setTimeout(function() {
-    //       panel1.setAttribute('visible', "false");
-    //     }, delayInMilliseconds);
-
-    //     setTimeout(function() {
-    //       greenBtn.removeAttribute('text');
-    //       greenBtn.setAttribute('color', '#072B73');
-    //       redBtn.forEach(redBtn => {
-    //         redBtn.setAttribute('color', '#072B73')
-    //         redBtn.removeAttribute('text');
-    //       })
-    //       createQuestionsElements(objectsResult);
-    //       panel1.setAttribute('visible', "true");
-    //     }, 2000);
-    //   });
-
-    //   redBtn.forEach(redBtn => {
-    //     redBtn.addEventListener('click', function () {
-    //     redBtn.setAttribute('color', 'red')
-    //     });
-    //   })
-    // }
-  </script>  
+  </script>   -->
   <script>
 
     // Handle mic button click (Mute and Unmute)
