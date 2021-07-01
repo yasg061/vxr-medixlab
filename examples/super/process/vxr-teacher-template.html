@@ -150,7 +150,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -4; iterations: 75" networked-scene="
+  <a-scene physics="debug: true; gravity: -4; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -396,7 +396,7 @@ t
 
       <template id="vxr-obj-template-intracath">
         <a-entity>
-          <a-entity id="intracath" class="vxr-obj-intracath vxr-interact" gltf-model="#intracath" dynamic-body draggable grabbable
+          <a-entity id="vxr-intracath" class="vxr-obj-intracath vxr-interact" gltf-model="#intracath" dynamic-body draggable grabbable
             toggle-physics position="-1.11 0.45 -0.107"></a-entity>
         </a-entity>
       </template>
@@ -471,29 +471,26 @@ t
       <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right" networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
-    <a-sphere id="sphere1" static-body attach-point opacity="0" position="0.92244 1.8 -0.80507" color="black" radius="0.03"></a-sphere>
+    <a-sphere id="sphere1" static-body attach-point opacity="0" position="0.91461 1.8 -0.84497" color="black" radius="0.03"></a-sphere>
     <a-sphere id="sphere2" static-body attach-point opacity="0"  position="0.93508 1.85 -1" color="black" radius="0.03"></a-sphere>
     <a-box id="box2" foo opacity="0" static-body rotation="0 180 0" position="0.95816 2.65 -2.07664" color="red" depth="0.03" height="0.03" width="0.03"></a-box>
 
-    <a-entity id="catheter001" gltf-model="#catheter01" rotation="0 -90.00021045914971 22.933781665701463" position="0.91343 1.82835 -0.78077" scale="1 1 1" visible="false"></a-entity>
+    <a-entity id="catheter001" gltf-model="#catheter01" rotation="-37.44680261636521 0 0" position="0.91343 1.83446 -0.80194" scale="1 1 1" visible="false"></a-entity>
     <a-entity id="catheter002" gltf-model="#catheter02" 
-      rotation="0 -90.00021045914971 22.933781665701467" 
-      position="0.91343 1.85241 -0.72414" 
+      rotation="-42.38397993700752 0 0" 
+      position="0.91343 1.85175 -0.78297"
       scale="1 1 1" 
       visible="false" 
       draggable grabbable
       ondragstart="mass(event)" 
     ></a-entity>
+    
     <!-- <a-box id="box1" attach-point-axis opacity="1" static-body rotation="20 0 0" position="0.93508 1.85 -1.03" color="red" depth="0.03" height="0.03" width="0.03"></a-box> -->
     <!-- <a-sphere id="sphere1" static-body foo opacity="0" position="0.92 1.85 -0.35" color="black" radius="0.03"></a-sphere> -->
     <!-- ground collider keeps objets from falling -->
     <!-- <a-box constraint="target: #patient01;"  geometry="width: 1; depth: 1" dynamic-body scale="0.1 0.1 0.1" position="1.20136 4 -0.71331" /> -->
     <!-- <a-box id="boxTST" constraint="target: #patient01; type: lock; maxForce: 10" position="1.2 5 -0.7" scale="0.1 0.1 0.1" dynamic-body /> -->
-  <!-- HINGE -->
-<!-- LOCK -->
- 
 
- 
     <!-- <a-box static-body width="100" height="0.01" depth="100" visible="false"></a-box> -->
 
   </a-scene>
