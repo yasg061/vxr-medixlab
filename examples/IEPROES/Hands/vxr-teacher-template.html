@@ -76,6 +76,25 @@
       }
     })
   </script> -->
+  <!-- <script>
+    AFRAME.registerComponent('animation-control', {
+      schema: {default: ''},
+      update() {
+        let leftHand = document.getElementById('lhand');
+        let rightHand = document.getElementById('rhand');
+        console.log(rightHand.getAttribute("animation-mixer"));
+        console.log(leftHand.getAttribute("animation-mixer"));
+
+        this.el.addEventListener('grab-start', () => {
+          console.log('grab bottle');
+          leftHand.setAttribute("animation-mixer", "clip: Open_Armature; duration: 5; crossFadeDuration: .3; loop: once");
+          rightHand.setAttribute("animation-mixer", "clip: Open_Armature; duration: 5; crossFadeDuration: .3; loop: once");
+          console.log(rightHand.getAttribute("animation-mixer"));
+          console.log(leftHand.getAttribute("animation-mixer"));
+        })
+      }
+    })
+  </script> -->
   <script>
     AFRAME.registerComponent('attach-point-axis', {
       init: function () {
@@ -240,14 +259,14 @@
       <!-- Right Hand -->
       <template id="right-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#right-hand"></a-entity>
+          <a-entity id="righthand" scale="0.8 0.8 0.8" gltf-model="#right-hand" handstest=""></a-entity>
         </a-entity>
       </template>
 
       <!-- Left Hand -->
       <template id="left-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#left-hand"></a-entity>
+          <a-entity id="lefthand" scale="0.8 0.8 0.8" gltf-model="#left-hand" handstest=""></a-entity>
         </a-entity>
       </template>
 
@@ -273,8 +292,8 @@
       </template>
 
       <template id="vxr-obj-template-2">
-        <a-entity>
-          <a-entity class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" draggable grabbable
+        <a-entity >
+          <a-entity id="alcohol-bottle" class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" draggable grabbable
             toggle-physics position="-0.50221 0.40887 -0.06246"></a-entity>
         </a-entity>
       </template>
@@ -406,10 +425,6 @@
     <a-entity id="patient01" gltf-model="#patient" scale="" position="1.20136 0.99273 -0.71331" material="color: brown">
     </a-entity>
  
-
-
-
-
     <a-entity class="gltf" gltf-model="#table" position="-0.13 1 -0.363" rotation="0 180 0"></a-entity>
     <a-entity class="gltf" gltf-model="#bed" position="1.2 1 -0.67251" rotation="0 0 0"></a-entity>
     <a-box opacity="0" static-body rotation="" position="-0.10703 1.85724 -0.36937" color="red" depth="0.6" height="0.1"
@@ -483,7 +498,114 @@
     <!-- <a-box static-body width="100" height="0.01" depth="100" visible="false"></a-box> -->
 
   </a-scene>
+  <!-- <script>
+    document.addEventListener('DOMContentLoaded', () => {                           
+      const scene = document.querySelector('a-scene');
+      const sceneLoaded = () => {
+          if(document.getElementById('lhand') && document.getElementById('rhand') && document.getElementById("objecttograb")){
+            console.log('object to grab:', document.getElementById("objecttograb"));
+            console.log(document.getElementById('lhand').getAttribute("animation-mixer"));
+            console.log(document.getElementById('rhand').getAttribute("animation-mixer"));
 
+            document.getElementById("objecttograb").addEventListener('grab-start', () => {
+              console.log('grab bottle');
+              document.getElementById('lhand').setAttribute("animation-mixer", "clip: Open_Armature; duration: 5; crossFadeDuration: .3; loop: once");
+              document.getElementById('rhand').setAttribute("animation-mixer", "clip: Grip_Armature; duration: 5; crossFadeDuration: .3; loop: once");
+              console.log(document.getElementById('lhand').getAttribute("animation-mixer"));
+              console.log(document.getElementById('rhand').getAttribute("animation-mixer"));
+            })
+          }
+      }
+      if (scene.hasLoaded) {                                                         
+        sceneLoaded();
+      } else {
+        scene.addEventListener('loaded', sceneLoaded);
+      }
+    });
+  </script> -->
+  <!-- <script>
+    window.addEventListener('load', (event) => {
+      let leftHand = document.getElementById('lhand');
+      let rightHand = document.getElementById('rhand');
+      let objectToGrab = document.getElementById("objecttograb");
+    console.log('object to grab:', objectToGrab);
+    console.log(rightHand.getAttribute("animation-mixer"));
+    console.log(leftHand.getAttribute("animation-mixer"));
+
+    objectToGrab.addEventListener('grab-start', () => {
+      console.log('grab bottle');
+      leftHand.setAttribute("animation-mixer", "clip: Open_Armature; duration: 5; crossFadeDuration: .3; loop: once");
+      rightHand.setAttribute("animation-mixer", "clip: Grip_Armature; duration: 5; crossFadeDuration: .3; loop: once");
+      console.log(rightHand.getAttribute("animation-mixer"));
+      console.log(leftHand.getAttribute("animation-mixer"));
+    })
+    })
+
+  </script> -->
+  <script>
+    AFRAME.registerComponent('handstest', {
+      update: function () {
+        console.log('handtest');
+        var el = this.el;
+        var data = this.data;
+        console.log("data:", data);
+        this.el.addEventListener("model-loaded", function(e) {
+          var model = e.detail.model;
+          var anims = model.animations;
+          console.log(anims[0], anims[1], anims[2], anims[3], anims[4], anims[5], anims[6]);
+        });
+      }
+    });
+
+    document.querySelector("a-scene").addEventListener("loaded", function(e) {
+      console.log("loaded");
+      
+      // alcohol bottle grab animation
+      document.querySelector("#alcohol-bottle").addEventListener("grab-start", function(e) {
+        console.log('es lefthand en grab-start?:', e.detail.hand);
+        document.querySelector('#lefthand').setAttribute("animation-mixer","clip: Hold; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1");
+        console.log(document.querySelector('#lefthand').getAttribute("animation-mixer"));
+
+        // if (e.detail.hand = 'lefthand') {
+        //   console.log('es lefthand en grab-start?:', e.detail.hand);
+        //   document.querySelector('#lefthand').setAttribute("animation-mixer","clip: Hold; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1");
+        //   console.log(document.querySelector('#lefthand').getAttribute("animation-mixer"));
+        // } else if (e.detail.hand = 'lefthand') {
+        //   console.log('es righthand en grab-start?:', e.detail.hand);
+        //   document.querySelector('#righthand').setAttribute("animation-mixer","clip: Hold; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1");
+        //   console.log(document.querySelector('#righthand').getAttribute("animation-mixer"));
+        // }
+      });
+
+      document.querySelector("#alcohol-bottle").addEventListener("grab-start", function(e) {
+        console.log('es righthand en grab-start?:', e.detail.hand);
+        document.querySelector('#righthand').setAttribute("animation-mixer","clip: Hold; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1");
+        console.log(document.querySelector('#righthand').getAttribute("animation-mixer"));
+      });
+
+      // document.querySelector("#alcohol-bottle").addEventListener("grab-end", function(e) {
+      //   if (e.detail.hand = 'righthand') {
+      //     console.log('es righthand en grab-end?:', e.detail.hand);
+      //     document.querySelector('#righthand').setAttribute("animation-mixer","clip: idle");
+      //     console.log(document.querySelector('#righthand').getAttribute("animation-mixer"));
+      //   } else if (e.detail.hand = 'lefthand') {
+      //     console.log('es lefthand en grab-end?:', e.detail.hand);
+      //     document.querySelector('#lefthand').setAttribute("animation-mixer","clip: Hold; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1");
+      //     console.log(document.querySelector('#lefthand').getAttribute("animation-mixer"));
+      //   }
+      // });
+
+      // // Bandeja (Stray) grab animation
+      // document.querySelector("#Stray").addEventListener("grab-start", function(e) {
+      //   document.querySelector('#lefthand').setAttribute("animation-mixer","clip: Hold; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1");
+      //   console.log(document.querySelector('#lefthand').getAttribute("animation-mixer"));
+      // });
+      // document.querySelector("#Stray").addEventListener("grab-end", function(e) {
+      //   document.querySelector('#lefthand').setAttribute("animation-mixer","clip: idle");
+      //   console.log(document.querySelector('#lefthand').getAttribute("animation-mixer"));
+      // });
+    })
+  </script>
   <script>
     // Define custom schema for syncing avatar color, set by random-color
     NAF.schemas.add({
@@ -567,8 +689,6 @@
 
   <script src="../../js/Feature-SpawnObjects.js"></script>
   <script src="../../js/vxr-full-house.js"></script>
-
-
 
 </body>
 
