@@ -618,12 +618,28 @@
           if (e.detail.hand.id == 'lhand') {
             console.log('e.detail when lefthand:', e.detail);
             console.log('es lefthand en grab-start?:', e.detail.hand);
-            document.querySelector('#lefthand').setAttribute("animation-mixer","clip: Point + Thumb; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1");
+            document.querySelector('#lefthand').setAttribute("animation-mixer","clip: Hold; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1");
             console.log(document.querySelector('#lefthand').getAttribute("animation-mixer"));
           } else if (e.detail.hand.id == 'rhand') {
             console.log('e.detail when righthand:', e.detail);
             console.log('es righthand en grab-start?:', e.detail.hand);
-            document.querySelector('#righthand').setAttribute("animation-mixer","clip: Point + Thumb; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1");
+            document.querySelector('#righthand').setAttribute("animation-mixer","clip: Hold; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1");
+            console.log(document.querySelector('#righthand').getAttribute("animation-mixer"));
+          }
+        });
+
+        el.addEventListener("grab-end", function(e) {
+          console.log('e.detail:', e.detail);
+          console.log('e.detail.hand.id:', e.detail.hand.id);
+          if (e.detail.hand.id == 'lhand') {
+            console.log('e.detail when lefthand:', e.detail);
+            console.log('es lefthand en grab-end?:', e.detail.hand);
+            document.querySelector('#lefthand').setAttribute("animation-mixer","clip: idle");
+            console.log(document.querySelector('#lefthand').getAttribute("animation-mixer"));
+          } else if (e.detail.hand.id == 'rhand') {
+            console.log('e.detail when righthand:', e.detail);
+            console.log('es righthand en grab-end?:', e.detail.hand);
+            document.querySelector('#righthand').setAttribute("animation-mixer","clip: idle");
             console.log(document.querySelector('#righthand').getAttribute("animation-mixer"));
           }
         });
