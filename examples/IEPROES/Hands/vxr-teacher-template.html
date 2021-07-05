@@ -240,14 +240,14 @@
       <!-- Right Hand -->
       <template id="right-hand-template">
         <a-entity>
-          <a-entity id="righthand" scale="0.8 0.8 0.8" gltf-model="#right-hand"></a-entity>
+          <a-entity id="righthand" scale="0.8 0.8 0.8" gltf-model="#right-hand" hand-animation></a-entity>
         </a-entity>
       </template>
 
       <!-- Left Hand -->
       <template id="left-hand-template">
         <a-entity>
-          <a-entity id="lefthand" scale="0.8 0.8 0.8" gltf-model="#left-hand"></a-entity>
+          <a-entity id="lefthand" scale="0.8 0.8 0.8" gltf-model="#left-hand" hand-animation></a-entity>
         </a-entity>
       </template>
 
@@ -483,47 +483,43 @@
     AFRAME.registerComponent('animation-control', {
       schema: {type: 'string'},
 
-      update: function (oldData) {
+      update: function () {
         var el = this.el;
         var data = this.data;
-        console.log("data:", data);
 
         let leftHand = document.querySelector('#lefthand');
         let rightHand = document.querySelector('#righthand');
         
         el.addEventListener("grab-start", function(e) {
-          console.log('e.detail:', e.detail);
-          console.log('e.detail.hand.id:', e.detail.hand.id);
           if (e.detail.hand.id == 'lhand') {
-            console.log('e.detail when lefthand:', e.detail);
-            console.log('es lefthand en grab-start?:', e.detail.hand);
-            leftHand.setAttribute("animation-mixer",`clip: ${data}; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1`);
-            console.log(document.querySelector('#lefthand').getAttribute("animation-mixer"));
+            leftHand.setAttribute("hand-animation", `animation: ${data}`);
           } else if (e.detail.hand.id == 'rhand') {
-            console.log('e.detail when righthand:', e.detail);
-            console.log('es righthand en grab-start?:', e.detail.hand);
-            rightHand.setAttribute("animation-mixer",`clip: ${data}; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1`);
-            console.log(document.querySelector('#righthand').getAttribute("animation-mixer"));
+            rightHand.setAttribute("hand-animation", `animation: ${data}`);
           }
         });
 
         el.addEventListener("grab-end", function(e) {
-          console.log('e.detail:', e.detail);
-          console.log('e.detail.hand.id:', e.detail.hand.id);
           if (e.detail.hand.id == 'lhand') {
-            console.log('e.detail when lefthand:', e.detail);
-            console.log('es lefthand en grab-end?:', e.detail.hand);
-            leftHand.setAttribute("animation-mixer","clip: idle");
-            console.log(document.querySelector('#lefthand').getAttribute("animation-mixer"));
+            leftHand.setAttribute("hand-animation", "animation: idle");
           } else if (e.detail.hand.id == 'rhand') {
-            console.log('e.detail when righthand:', e.detail);
-            console.log('es righthand en grab-end?:', e.detail.hand);
-            rightHand.setAttribute("animation-mixer","clip: idle");
-            console.log(document.querySelector('#righthand').getAttribute("animation-mixer"));
+            rightHand.setAttribute("hand-animation", "animation: idle");
           }
         });
       }
     });
+  </script>
+  <script>
+    AFRAME.registerComponent('hand-animation', {
+      schema: {animation: { 
+            type: 'string',
+            default: 'idle' }
+      },
+      update: function (oldData) {
+        if (oldData.animation !== this.data.animation) {
+          this.el.setAttribute('animation-mixer', `clip:${this.data.animation}; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1`);
+        }
+      }
+    })
   </script>
   <script>
     // Define custom schema for syncing avatar color, set by random-color
@@ -588,14 +584,22 @@
       template: '#right-hand-template',
       components: [
         'position',
-        'rotation'
+        'rotation',
+        {
+          selector: '#righthand',
+          component: 'hand-animation'
+        },
       ]
     });
     NAF.schemas.add({
       template: '#left-hand-template',
       components: [
         'position',
-        'rotation'
+        'rotation',
+        {
+          selector: '#lefthand',
+          component: 'hand-animation'
+        },
       ]
     });
 

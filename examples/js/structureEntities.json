@@ -1,7 +1,7 @@
 [
   {
     "template": "#vxr-obj-template",
-    "selector": "vxr-obj-maskn95"
+    "selector": ".vxr-obj-maskn95"
   },
   {
     "template": "#vxr-obj-template-2",
@@ -13,7 +13,7 @@
   },
   {
     "template": "#vxr-obj-template-rubber",
-    "selector": "vxr-obj-rubber"
+    "selector": ".vxr-obj-rubber"
   },
   {
     "template": "#vxr-obj-template-dripbag",
