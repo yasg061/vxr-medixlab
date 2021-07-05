@@ -9,7 +9,7 @@
   <!-- <script src="https://unpkg.com/super-hands/dist/super-hands.min.js"></script> -->
   <!-- Networked aframe -->
   <script>
-    let url = "../../../js/structureEntities.json"
+    let url = "../../../js/structureEntitiesProcess8.json"
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
   <script src="/easyrtc/easyrtc.js"></script>
@@ -35,99 +35,82 @@
   <script src="../../js/avatar-body.component.js"></script>
   <script src="../../js/Feature-Schemas.js"></script>
   <script src="../../js/camera-output.js"></script>
-  <script src="../../js/hand-attach.js"></script>
-  <script src="../../js/attach-point.js"></script>
+  <!-- <script src="../../js/hand-attach.js"></script> -->
+  <script src="../../js/attach-intracath.js"></script>
+  <script src="../../js/attach-to-position.js"></script>
   <script src="../../js/set-name.component.js"></script>
-  <script src="../../js/randomize-spec-color.component.js"></script>
 
+  <script src="../../js/randomize-spec-color.component.js"></script>
+<!-- 
   <script>
     let boolstate = true
     AFRAME.registerComponent('model-opacity', {
       init() {
         var data = this.data;
-        this.el.addEventListener('model-loaded', e=> {
-        var mesh = this.el.getObject3D('mesh');
-         console.log("THIS IS THE mesh",mesh)
-         
-         mesh.traverse(function (node) {
-          console.log("material option",node.material)
-          if (node.isMesh && boolstate) {
-            mesh.material.color.setRGB(255 ,0 ,0)
-            console.log("mesh material ",mesh.material.color)
-            // node.material.color=new THREE.Color("rgb(255, 0, 0)");
+        this.el.addEventListener('model-loaded', e => {
+          var mesh = this.el.getObject3D('mesh');
+          console.log("mesh", mesh)
 
-            node.material.needsUpdate = true;
-            console.log("funca-----")
-            boolstate=false
-          
-        }});
+          mesh.traverse(function (node) {
+            console.log("material option", node.material)
+            if (node.isMesh && boolstate) {
+              // mesh.material.color.setRGB(255 ,0 ,0)
+              node.material.color = new THREE.Color("rgb(237, 38, 81)");
+              node.material.needsUpdate = true;
+              console.log("works -----")
+              boolstate = false
+
+            }
+          });
         });
       },
 
-      update: function () {
-        // let mesh = document.getElementById("Stray").object3D.el
-        // var mesh = this.el.getObject3D('mesh');
-        // console.log("mesh",mesh)
+    });
+  </script> -->
 
-        // item = mesh.getObject3D('mesh');
-        // console.log("i'm a mesh", mesh.getObject3D('mesh'))
+  <script>
+    let boolstate = true
+    AFRAME.registerComponent('color-trigger', {
+      init() {
+        var data = this.data;
+        console.log("init, color trigger")
 
-        // var data = this.data;
-        // if (!mesh) { return; }
-        // mesh.traverse(function (node) {
-        //   if (node.isMesh) {
-        //     node.material.opacity = data.opacity;
-        //     node.material.transparent = data.opacity < 1.0;
-        //     node.material.needsUpdate = true;
-        //   }
-        // });
+        this.el.addEventListener('collide', e => {
+          
+          console.log("collided", e.detail)
+          let classes = e.detail.target.el.className.split(' ')
+             let mesh_to_modify=document.getElementById("vxr-obj-cottonswab01")
+            var mesh = mesh_to_modify.getObject3D('mesh');
+            console.log("mesh", mesh)
+
+            mesh.traverse(function (node) {
+              console.log("material option", node.material)
+              if (node.isMesh && boolstate) {
+                // mesh.material.color.setRGB(255 ,0 ,0)
+                node.material.color = new THREE.Color("rgb(237, 38, 81)");
+                node.material.needsUpdate = true;
+                console.log("works -----")
+                boolstate = false
+
+              }
+            });
+          
+        });
       },
 
-      handleModel: function () {
-        let mesh = this.el.getObject3D('mesh')
-        if (!mesh) {
-          this.el.addEventListener('model-loaded', this.handleModel.bind(this))
-          return
-        }
-        // the model should be loaded by this point 
-      }
     });
   </script>
 
-
-  <!-- <script>
-    AFRAME.registerComponent('attach-point', {
-      init: function() {
-        var el = this.el;
-        this.el.addEventListener('collide', function(e) {
-          console.log('Syringe has collided with ', e.detail.body.el);
-          e.detail.body.el.setAttribute('constraint','target: #sphere1');
-        });
-      }
-    })
-  </script>
   <script>
-    let obj; 
-    AFRAME.registerComponent('hand-attach', {
-      init: function() {
-        var el = this.el;
-        this.el.addEventListener('collide', function(e) {
-          console.log('Hand has collided with ', e.detail.body.el);
-          obj = e.detail.body.el;
-        });
-        this.el.addEventListener('buttondown', function(e){
-          console.log('Grip Down');
-          obj.setAttribute('dynamic-body','mass:5');
-          obj.removeAttribute('constraint');
-        });
-        this.el.addEventListener('buttonup', function(e){
-          console.log('Grip Up');
-          // obj.removeAttribute('constraint');
-          obj=0;
-        });
-      }
-    })
-  </script> -->
+
+    function setMass() {
+      let intracathInteract = element = document.getElementById("vxr-intracath-second-part")
+      intracathInteract.setAttribute('dynamic-body', 'mass:0.1')
+    }
+
+  </script>
+
+
   <script>
     AFRAME.registerComponent('attach-point-axis', {
       init: function () {
@@ -179,8 +162,8 @@
       <a-asset-item id="maskn95" src="../../Models/gltf/MaskN95.gltf"></a-asset-item>
       <a-asset-item id="table" src="../../Models/gltf/Table.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle.gltf"></a-asset-item>
-      <a-asset-item id="bed" src="../../Models/gltf/Bed.gltf"></a-asset-item>
-      <a-asset-item id="patient" src="../../Models/gltf/Patient.gltf"></a-asset-item>
+      <a-asset-item id="bed" src="../../Models/gltf/Baby_Crib.gltf"></a-asset-item>
+      <a-asset-item id="patient" src="../../Models/gltf/Baby.gltf"></a-asset-item>
       <a-asset-item id="tray" src="../../super/process/assets/Tray.gltf"></a-asset-item>
       <a-asset-item id="StudentAvatar" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
       <a-asset-item id="SpectatorAvatar" src="../../super/process/assets/avatars/SpectatorAvatar.gltf"></a-asset-item>
@@ -197,8 +180,18 @@
       <a-asset-item id="alcoholgel" src="../../Models/gltf/AlcoholGel.gltf"></a-asset-item>
       <a-asset-item id="heparinseal" src="../../Models/gltf/HeparinSeal.gltf"></a-asset-item>
       <a-asset-item id="intracath" src="../../Models/gltf/Intracath.gltf"></a-asset-item>
-      <a-asset-item id="s_cube" src="CottonColor.gltf"></a-asset-item>
+      <a-asset-item id="intracath-piece-1" src="../../Models/gltf/Catheter01.gltf"></a-asset-item>
+      <a-asset-item id="intracath-piece-2" src="../../Models/gltf/Catheter02.gltf"></a-asset-item>
+      <a-asset-item id="MedicalClothe" src="../../Models/gltf/MedicalClothe.gltf"></a-asset-item>
+      <a-asset-item id="Bowl_Medic" src="../../Models/gltf/Bowl_Medic.gltf"></a-asset-item>
+      <a-asset-item id="Tape_Normal" src="../../Models/gltf/Tape_Normal.gltf"></a-asset-item>
+      <a-asset-item id="Tape_Bow" src="../../Models/gltf/Tape_Bow.gltf"></a-asset-item>
+      <a-asset-item id="Tape_Butterfly" src="../../Models/gltf/Tape_Butterfly.gltf"></a-asset-item>
+      <a-asset-item id="Syringe_1CC_Skin" src="../../Models/gltf/Syringe_1CC.gltf"></a-asset-item>
 
+
+
+      <a-asset-item id="s_cube" src="CottonColor.gltf"></a-asset-item>
 
       <!-- Avatars -->
       <a-asset-item id="StudentAvatarHead" src="../../super/process/assets/avatars/StudentAvatarHead.gltf">
@@ -228,7 +221,6 @@
 
       <canvas id="cam2"></canvas>
 
-      <a-asset-item id="base" src="/Models/gltf/Base.gltf"></a-asset-item>
 
       <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false"
         static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
@@ -334,8 +326,8 @@
 
       <template id="vxr-obj-template-3">
         <a-entity>
-          <a-entity id="Stray" class="vxr-obj-tray vxr-interact"  gltf-model="#tray" draggable grabbable
-            toggle-physics position="0.035 0.5 -0.2"></a-entity>
+          <a-entity id="Stray" class="vxr-obj-tray vxr-interact" gltf-model="#tray" draggable grabbable toggle-physics
+            position="0.035 0.5 -0.2"></a-entity>
         </a-entity>
       </template>
       <template id="vxr-obj-template-rubber">
@@ -375,22 +367,25 @@
 
       <template id="vxr-obj-template-cottonswab01">
         <a-entity>
-          <a-entity class="vxr-obj-cottonswab01 vxr-interact" gltf-model="#cottonswab" dynamic-body draggable grabbable
-            toggle-physics position="-1.01 0.5 -0.251"></a-entity>
+          <a-entity  class="vxr-obj-cottonswab01 vxr-interact" gltf-model="#s_cube" dynamic-body draggable
+            grabbable toggle-physics position="0.294 0.45 -0.291" rotation="180 0 0">
+
+
+          </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-cottonswab02">
         <a-entity>
           <a-entity class="vxr-obj-cottonswab02 vxr-interact" gltf-model="#cottonswab" dynamic-body draggable grabbable
-            toggle-physics position="-1.08 0.7 -0.194"></a-entity>
+            toggle-physics position="-1.01 0.7 -0.251" visible="false"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-cottonswab03">
         <a-entity>
           <a-entity class="vxr-obj-cottonswab03 vxr-interact" gltf-model="#cottonswab" dynamic-body draggable grabbable
-            toggle-physics position="-1.08 0.7 -0.285"></a-entity>
+            toggle-physics position="-1.01 0.7 -0.251" visible="false"></a-entity>
         </a-entity>
       </template>
 
@@ -411,7 +406,7 @@
       <template id="vxr-obj-template-heparinseal">
         <a-entity>
           <a-entity class="vxr-obj-heparinseal vxr-interact" gltf-model="#heparinseal" dynamic-body draggable grabbable
-            toggle-physics position="-1.57 0.50 -0.135"></a-entity>
+            toggle-physics position="-0.21928 0.4098 -0.135"></a-entity>
         </a-entity>
       </template>
 
@@ -422,6 +417,72 @@
         </a-entity>
       </template>
 
+      <template id="vxr-obj-template-intracath-piece-1">
+        <a-entity>
+          <a-entity id="firstPart" class="vxr-obj-intracath-piece-1 vxr-interact" gltf-model="#intracath-piece-1"
+            draggable="" grabbable="" position="0.76777 0.53849 -0.75537" rotation="-45 0 0" visible="false"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-intracath-piece-2">
+        <a-entity>
+          <a-entity id="vxr-intracath-second-part" ondragstart="setMass()"
+            class="vxr-obj-intracath-piece-2 vxr-interact" gltf-model="#intracath-piece-2" draggable grabbable
+            position="0.76849 0.55084 -0.74178" rotation="-45 0 0" visible="false"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-MedicalClothe">
+        <a-entity>
+          <a-entity class="vxr-obj-MedicalClothe vxr-interact" gltf-model="#MedicalClothe" toggle-physics=""
+            draggable="" grabbable position="0.00825 0.46209 -0.26974"
+            rotation="0.9638385276229728 -1.9129844754810412 -0.029232191109150304" velocity="" dynamic-body></a-entity>
+        </a-entity>
+      </template>
+
+
+      <template id="vxr-obj-template-Bowl-Medic">
+        <a-entity>
+
+          <a-entity class="vxr-obj-Bowl-Medic vxr-interact" gltf-model="#Bowl_Medic" draggable="" grabbable
+            position="0.2894 0.41225 -0.28536" rotation="5.335276073060275 -0.8806075134822605 -0.20928413873134302">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Tape-Normal">
+        <a-entity>
+          <a-entity class="vxr-obj-Tape-Normal vxr-interact" gltf-model="#Tape_Normal" toggle-physics="" draggable=""
+            grabbable="maxGrabbers: NaN" position="-0.32525 0.4061 -0.30831"
+            rotation="-2.519364784893209 -2.4797123495412854 0.0011149967626528847" dynamic-body></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Tape-Bow">
+        <a-entity>
+
+          <a-entity class="vxr-obj-Tape-Bow vxr-interact" gltf-model="#Tape_Bow" toggle-physics="" draggable=""
+            grabbable position="-0.16729 0.40723 -0.37731"
+            rotation="-0.00001396625848872134 -0.00776374769486596 -0.00002197834727980053" dynamic-body></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Tape-Butterfly">
+        <a-entity>
+          <a-entity class="vxr-obj-Tape-Butterfly vxr-interact" gltf-model="#Tape_Butterfly" toggle-physics=""
+            draggable="" grabbable="maxGrabbers: NaN" position="-0.33914 0.4052 -0.42053"
+            rotation="3.379325337782461 -0.843920236680026 -0.0037155551289126685" dynamic-body></a-entity>
+
+        </a-entity>
+      </template>
+
+      <!-- <template id="vxr-obj-template-intracath">
+        <a-entity>
+          <a-entity class="vxr-obj-intracath vxr-interact" gltf-model="#intracath-piece-2" dynamic-body draggable grabbable
+            toggle-physics position="-1.11 0.45 -0.107"></a-entity>
+        </a-entity>
+      </template> -->
+
       <template id="audience">
         <a-entity id="spectator" position="-2.9119 2.18025 -2.79791" assign-seat>
           <a-entity id="constraint-spectator" camera look-controls zoom="100" fov="120">
@@ -430,7 +491,34 @@
         </a-entity>
       </template>
 
+
     </a-assets>
+
+    <!-- Hidden Static Meshes  -->
+    <a-entity id="static-heparinseal" class="vxr-obj-heparinseal vxr-interact" gltf-model="#heparinseal"
+      position="0.76803 2.03313 -0.960" rotation="45 -8.88624861371593e-9 0.00014024380116174428" visible="false">
+    </a-entity>
+    <a-entity id="StaticMedicalClothe" class="vxr-obj-MedicalClothe vxr-interact"
+      gltf-model="../../Models/gltf/MedicalClothe.gltf" toggle-physics="" draggable="" grabbable
+      position="0.771 2.012 -0.971" rotation="0 90.000 -10.14" visible="false"></a-entity>
+
+    <a-entity id="Static-Tape-Bow" class="vxr-obj-Tape-Bow vxr-interact" gltf-model="../../Models/gltf/Tape_Bow.gltf"
+      toggle-physics="" draggable="" grabbable="" position="0.768 2.011 -0.989"
+      rotation="0.0017188733853924698 77.997 179.9998479605043" visible="false"></a-entity>
+    <a-entity id="Static-Tape-Butterfly" class="vxr-obj-Tape-Butterfly vxr-interact"
+      gltf-model="../../Models/gltf/Tape_Butterfly.gltf" toggle-physics="" draggable="" grabbable
+      position="0.767 2.011 -0.981" rotation="0.4428963756361263 77.997 -177.91714637520374" visible="false"></a-entity>
+    <a-entity id="Static-Tape-Normal" class="vxr-obj-Tape-Normal vxr-interact"
+      gltf-model="../../Models/gltf/Tape_Normal.gltf" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
+      position="0.768 2.011 -0.990" rotation="-0.00002110992401797946 77.997 180" visible=false></a-entity>
+    <a-entity id="Static-vxr-obj-rubber" class="vxr-obj-rubber vxr-interact" gltf-model="../../Models/gltf/Rubber.gltf"
+      draggable="" grabbable toggle-physics="" position="0.777 2.003 -1.029" scale="0.5 0.5 0.5" rotation="0 60.856 270"
+      visible="false"></a-entity>
+
+ 
+      <a-entity class="vxr-obj-Tape-Butterfly vxr-interact" gltf-model="../../Models/gltf/Syringe_1CC.gltf" dynamic-body draggable="" grabbable="" position="-0.15207 1.90947 -0.32083" rotation="3.379325337782461 2.843920236680026 -0.0037155551289126685"></a-entity>
+ 
+      
 
     <a-entity
       environment="lightPosition: 1 5 -2; groundColor: #00275b; grid: dots; gridColor: #168dab; preset: starry; skyType: atmosphere; skyColor: #030022; playArea: 0.5; ground: flat; groundColor2: #009dff"
@@ -456,20 +544,25 @@
 
     <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity>
-    <a-entity id="patient01" gltf-model="#patient" scale="" position="1.20136 0.99273 -0.71331" material="color: brown">
+    <a-entity id="patient01" gltf-model="#patient" scale="" position="0.8677 2.01784 -0.72967" material="color: brown"
+      rotation="0 90 0">
     </a-entity>
-    <a-entity id="Scube" model-opacity gltf-model="#s_cube"  scale="" position=" 0 1 0" material="color: black">
+
+
+    <!-- <a-entity id="Scube" gltf-model="#s_cube"  scale="" position=" 0 1 0" material="color: black"> -->
     </a-entity>
 
 
 
 
     <a-entity class="gltf" gltf-model="#table" position="-0.13 1 -0.363" rotation="0 180 0"></a-entity>
-    <a-entity class="gltf" gltf-model="#bed" position="1.2 1 -0.67251" rotation="0 0 0"></a-entity>
-    <a-box opacity="0" static-body rotation="" position="-0.10703 1.85724 -0.36937" color="red" depth="0.6" height="0.1"
-      width="1.1"></a-box>
-    <a-box opacity="0" static-body rotation="" position="-1.48 1.85724 -0.36937" color="red" depth="0.6" height="0.1"
-      width="1.1"></a-box>
+    <a-entity class="gltf" gltf-model="#bed" position="0.87277 1 -0.9535" rotation="0 90 0"></a-entity>
+    <a-box id="boxTable1" opacity="0" static-body rotation="" position="-0.10703 1.85724 -0.36937" color="red"
+      depth="0.6" height="0.1" width="1.1"></a-box>
+    <a-box id="tableBox2" class="boxTable2" opacity="0" static-body rotation="" position="-1.48 1.85724 -0.36937"
+      color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+    <a-box id="TorundaBowl" class="boxTable2" opacity="0" static-body position="0.30215 1.87809 -0.51316" depth="0.1"
+      height="0.1" width="0.1" material="" geometry="depth: 0.1; width: 0.1"></a-box>
 
 
 
@@ -494,8 +587,7 @@
     <a-entity id="lamps03" gltf-model="#lamps01" scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
     <a-entity id="columns01" gltf-model="#columns" scale="1 1 1" position="0 0 0" material="color: brown"
       rotation="0 0 0"></a-entity>
-    <a-entity id="base" gltf-model="/Models/gltf/Base.gltf" scale="" position="1.1014 1 -2.07876"
-      material="color: brown" rotation=""></a-entity>
+
 
     <!-- Theater Lights -->
     <a-entity background="color: #92f2ff"></a-entity>
@@ -506,7 +598,7 @@
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
     <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
-      rotation="0 180 0" movement-controls="speed:0.02">
+      rotation="0 180 0" movement-controls="speed:0.3">
       <a-entity camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
@@ -518,11 +610,21 @@
         networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
-    <a-sphere id="sphere1" static-body attach-point opacity="0" position="0.92244 1.8 -0.80507" color="black"
-      radius="0.03"></a-sphere>
-    <!-- <a-box id="box1" attach-point-axis opacity="1" static-body rotation="20 0 0" position="0.93508 1.85 -1.03" color="red" depth="0.03" height="0.03" width="0.03"></a-box> -->
-    <a-sphere id="sphere1" static-body attach-point opacity="0" position="0.93508 1.85 -1" color="black" radius="0.03">
+    <a-sphere id="sphere2" static-body attach-intracath opacity="0" position="0.771 1.99849 -0.99278"
+      geometry="radius: 0.05">
     </a-sphere>
+
+    <a-sphere id="heparinsealCollider" attach-point-v2="objClass:vxr-obj-heparinseal" static-body attach-intracath
+      opacity="0" position="0.771 2.02476 -0.95517" geometry="radius: 0.02">
+    </a-sphere>
+
+    <!-- <a-sphere id="TorundaColorTrigger" static-body opacity="0" position="0.28368 2.02476 -0.49238"
+      geometry="radius: 0.02" color-trigger  > -->
+    </a-sphere>
+
+    <!-- <a-box id="box1" attach-point-axis opacity="1" static-body rotation="20 0 0" position="0.93508 1.85 -1.03" color="red" depth="0.03" height="0.03" width="0.03"></a-box> -->
+    <!-- <a-sphere id="sphere1" static-body attach-point opacity="0" position="0.93508 1.85 -1" color="black" radius="0.03">
+    </a-sphere> -->
     <a-box id="box2" foo opacity="0" static-body rotation="0 180 0" position="0.95816 2.65 -2.07664" color="red"
       depth="0.03" height="0.03" width="0.03"></a-box>
     <!-- <a-sphere id="sphere1" static-body foo opacity="0" position="0.92 1.85 -0.35" color="black" radius="0.03"></a-sphere> -->
@@ -620,7 +722,7 @@
   <!-- <script src="../../js/Feature-SpawnTemplate.js"></script> -->
 
   <script src="../../js/Feature-SpawnObjects.js"></script>
-  <script src="../../js/vxr-full-house.js"></script>
+  <!-- <script src="../../js/vxr-full-house.js"></script> -->
 
 
 
