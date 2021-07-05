@@ -16,28 +16,8 @@
   <script src="//cdn.8thwall.com/web/aframe/aframe-extras-6.1.1.min.js"></script>
 
   <script src="/js/spawn-in-circle.component.js"></script>
-
-  <script>
-    let DevilTrigger = false;
-    AFRAME.registerComponent('animation-trigger', {
-      schema: {
-        triggerKeyCode: { default: 32 },
-        boolVar: { default: false } // spacebar
-      },
-      
-      init: function () {
-      },
-
-      update: function () {
-        var that = this;
-        console.log(this.data.boolVar)
-        if (this.data.boolVar) {
-          // let instruments = document.getElementById("instruments")
-          this.el.setAttribute("animation-mixer", "clampWhenFinished:true;")
-        }   
-      }
-    })
-  </script>
+  <script src="../../js/Animation-Trigger.js"></script>
+ 
 </head>
 
 <body>
