@@ -39,10 +39,10 @@
   <script src="../../js/attach-point.js"></script>
   <script src="../../js/set-name.component.js"></script>
   <script src="../../js/randomize-spec-color.component.js"></script>
+  <script src="../../js/animation-control.component.js"></script>
+  <script src="../../js/hand-animation.component.js"></script>
 
   
-
-
   <!-- <script>
     AFRAME.registerComponent('attach-point', {
       init: function() {
@@ -479,48 +479,6 @@
     <!-- <a-box static-body width="100" height="0.01" depth="100" visible="false"></a-box> -->
 
   </a-scene>
-  <script>
-    AFRAME.registerComponent('animation-control', {
-      schema: {type: 'string'},
-
-      update: function () {
-        var el = this.el;
-        var data = this.data;
-
-        let leftHand = document.querySelector('#lefthand');
-        let rightHand = document.querySelector('#righthand');
-        
-        el.addEventListener("grab-start", function(e) {
-          if (e.detail.hand.id == 'lhand') {
-            leftHand.setAttribute("hand-animation", `animation: ${data}`);
-          } else if (e.detail.hand.id == 'rhand') {
-            rightHand.setAttribute("hand-animation", `animation: ${data}`);
-          }
-        });
-
-        el.addEventListener("grab-end", function(e) {
-          if (e.detail.hand.id == 'lhand') {
-            leftHand.setAttribute("hand-animation", "animation: idle");
-          } else if (e.detail.hand.id == 'rhand') {
-            rightHand.setAttribute("hand-animation", "animation: idle");
-          }
-        });
-      }
-    });
-  </script>
-  <script>
-    AFRAME.registerComponent('hand-animation', {
-      schema: {animation: { 
-            type: 'string',
-            default: 'idle' }
-      },
-      update: function (oldData) {
-        if (oldData.animation !== this.data.animation) {
-          this.el.setAttribute('animation-mixer', `clip:${this.data.animation}; duration: 0.5; loop: once; clampWhenFinished: true; crossFadeDuration: .1`);
-        }
-      }
-    })
-  </script>
   <script>
     // Define custom schema for syncing avatar color, set by random-color
     NAF.schemas.add({
