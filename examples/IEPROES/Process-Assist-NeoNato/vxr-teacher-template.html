@@ -17,6 +17,8 @@
   <script
     src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
   <script src="/js/spawn-in-circle.component.js"></script>
+  <script src="//cdn.8thwall.com/web/aframe/aframe-extras-6.1.1.min.js"></script>
+
 
 
   <!-- Super hands -->
@@ -164,9 +166,10 @@
       <a-asset-item id="Clamp" src="Models/Clamp.gltf"></a-asset-item>
       <a-asset-item id="ClampKocher" src="Models/ClampKocher.gltf"></a-asset-item>
       <a-asset-item id="CurvedMayoScissor" src="Models/CurvedMayoScissor.gltf"></a-asset-item> 
-
       <a-asset-item id="RolledTowel" src="Models/RolledTowel.gltf"></a-asset-item>
 
+      <a-asset-item id="Baby_Vacuna" src="Models/Baby_Vacuna.gltf"></a-asset-item>
+      <a-asset-item id="Manta_Mesa" src="Models/Manta_Mesa.gltf"></a-asset-item>
 
       <a-asset-item id="s_cube" src="CottonColor.gltf"></a-asset-item>
 
@@ -494,6 +497,24 @@
         <a-entity>
           <a-entity class="vxr-obj-RolledTowel vxr-interact" gltf-model="#RolledTowel" draggable="" grabbable
           position="-0.0613 0.44033 -0.14032" dynamic-body>
+           </a-entity>
+          </a-entity>            
+        </a-entity>
+      </template>  
+
+      <template id="vxr-obj-template-Baby_Vacuna">
+        <a-entity>
+          <a-entity class="vxr-obj-Baby_Vacuna vxr-interact" gltf-model="#Baby_Vacuna" draggable="" grabbable
+          position="-0.0613 0.44033 -0.14032" animation-mixer>
+           </a-entity>
+          </a-entity>            
+        </a-entity>
+      </template>  
+
+      <template id="vxr-obj-template-Manta_Mesa">
+        <a-entity>
+          <a-entity class="vxr-obj-Manta_Mesa vxr-interact" gltf-model="#Manta_Mesa" draggable="" grabbable
+          position="-0.0613 0.44033 -0.14032" animation-mixer>
            </a-entity>
           </a-entity>            
         </a-entity>

@@ -1,4 +1,3 @@
-let DevilTrigger = false;
 AFRAME.registerComponent('animation-trigger', {
   schema: {
     triggerKeyCode: { default: 32 },

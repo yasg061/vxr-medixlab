@@ -92,6 +92,14 @@
   {
     "template": "#vxr-obj-template-RolledTowel",
     "selector": ".vxr-obj-RolledTowel"
+  },
+  {
+    "template": "#vxr-obj-template-Baby_Vacuna",
+    "selector": ".vxr-obj-Baby_Vacuna"
+  },
+  {
+    "template": "#vxr-obj-template-Manta_Mesa",
+    "selector": ".vxr-obj-Manta_Mesa"
   }
  
 ]
