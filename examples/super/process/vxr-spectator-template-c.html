@@ -590,6 +590,7 @@
     // let panel1 = document.getElementById('panel1');
     let objectsResult;
     let x = 0;
+    let score = 0;
 
     fetch("../../../js/panelQuestions.json").then(
       function (u) { return u.json(); }
@@ -635,8 +636,7 @@
 
       answersArray.push(firstAnswer, secondAnswer, thirdAnswer, fourthAnswer);
 
-      x += 1;
-      console.log('x:', x);
+      x ++;
 
       firstAnswer.addEventListener('click', function () {
         if (firstAnswer.hasAttribute("rightAnswer")) {
@@ -658,6 +658,9 @@
               answer.setAttribute('color', '#072B73');
             })
           });
+
+          score ++;
+          console.log('score:', score);
 
           setTimeout(function() {
             questionPlane.removeAttribute('text');
@@ -681,7 +684,16 @@
             questionPlane.removeAttribute('text');
             panel1.remove();
             questionPlane.remove();
-            if (x < objectsResult.length) createQuestionsElements()
+            if (x < objectsResult.length) {
+              createQuestionsElements()
+            } else {
+              let panel1 = document.createElement('a-plane');
+              panel1.setAttribute('material', "color: black; opacity: 0.7");
+              panel1.setAttribute('position', "-4.0 2.375 0");
+              panel1.setAttribute('height', "0.5");
+              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} preguntas de tres; align: center`);
+              console.log(panel1)
+            }
           }, 2000);
         }
       });
@@ -695,6 +707,9 @@
               answer.setAttribute('color', '#072B73');
             })
           });
+
+          score ++;
+          console.log('score:', score);
 
           setTimeout(function() {
             questionPlane.removeAttribute('text');
@@ -733,11 +748,24 @@
             })
           });
 
+          score ++;
+          console.log('score:', score);
+
           setTimeout(function() {
             questionPlane.removeAttribute('text');
             panel1.remove();
             questionPlane.remove();
-            if (x < objectsResult.length) createQuestionsElements()
+            if (x < objectsResult.length) {
+              console.log('x inside thirdanswer:', x)
+              createQuestionsElements()
+            } else {
+              let panel1 = document.createElement('a-plane');
+              panel1.setAttribute('material', "color: black; opacity: 0.7");
+              panel1.setAttribute('position', "-4.0 2.375 0");
+              panel1.setAttribute('height', "0.5");
+              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente preguntas de tres; align: center`);
+              scene.appendChild(panel1);
+            }
           }, 2000);
         } else {
           thirdAnswer.setAttribute('color', 'red');
@@ -769,6 +797,9 @@
               answer.setAttribute('color', '#072B73');
             })
           });
+
+          score ++;
+          console.log('score:', score);
 
           setTimeout(function() {
             questionPlane.removeAttribute('text');
