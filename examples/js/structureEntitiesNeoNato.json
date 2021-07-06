@@ -14,6 +14,14 @@
     "selector": ".vxr-obj-gauze"
   },
   {
+    "template": "#vxr-obj-template-gauze2",
+    "selector": ".vxr-obj-gauze2"
+  },
+  {
+    "template": "#vxr-obj-template-gauze3",
+    "selector": ".vxr-obj-gauze3"
+  },
+  {
     "template": "#vxr-obj-template-allistweezers",
     "selector": ".vxr-obj-allistweezers"
   },
@@ -30,12 +38,16 @@
     "selector": ".vxr-obj-cottonswab03"
   },
   {
-    "template": "#vxr-obj-template-salinebottle",
-    "selector": ".vxr-obj-salinebottle"
+    "template": "#vxr-obj-template-DestiledWater",
+    "selector": ".vxr-obj-DestiledWater"
   },
   {
     "template": "#vxr-obj-template-Bowl-Medic",
     "selector": ".vxr-obj-template-Bowl-Medic"
+  },
+  {
+    "template": "#vxr-obj-template-Bowl-Medic2",
+    "selector": ".vxr-obj-Bowl-Medic2"
   },
   {
     "template": "#vxr-obj-template-Bulb-Syringe",
@@ -47,15 +59,15 @@
   },
   {
     "template": "#vxr-obj-template-Hyssop1",
-    "selector": ".vxr-obj-Hyssop"
+    "selector": ".vxr-obj-Hyssop1"
   },
   {
     "template": "#vxr-obj-template-Hyssop2",
-    "selector": ".vxr-obj-Hyssop"
+    "selector": ".vxr-obj-Hyssop2"
   },
   {
     "template": "#vxr-obj-template-Hyssop3",
-    "selector": ".vxr-obj-Hyssop"
+    "selector": ".vxr-obj-Hyssop3"
   },
   {
     "template": "#vxr-obj-template-Infant-Scale",
@@ -100,6 +112,34 @@
   {
     "template": "#vxr-obj-template-Manta_Mesa",
     "selector": ".vxr-obj-Manta_Mesa"
+  },
+  {
+    "template": "#vxr-obj-template-ToiletPaper",
+    "selector": ".vxr-obj-ToiletPaper"
+  },
+  {
+    "template": "#vxr-obj-template-ToiletPaper2",
+    "selector": ".vxr-obj-ToiletPaper2"
+  },
+  {
+    "template": "#vxr-obj-template-ToiletPaper3",
+    "selector": ".vxr-obj-ToiletPaper3"
+  },
+  {
+    "template": "#vxr-obj-template-Vaseline",
+    "selector": ".vxr-obj-Vaseline"
+  },
+  {
+    "template": "#vxr-obj-template-VitaminAmpoule",
+    "selector": ".vxr-obj-VitaminAmpoule"
+  },
+  {
+    "template": "#vxr-obj-template-Cloranfenicol",
+    "selector": ".vxr-obj-Cloranfenicol"
+  },
+  {
+    "template": "#vxr-obj-template-IdentificationBrazalet",
+    "selector": ".vxr-obj-IdentificationBrazalet"
   }
  
 ]
