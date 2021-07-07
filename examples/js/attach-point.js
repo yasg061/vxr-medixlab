@@ -15,6 +15,8 @@ AFRAME.registerComponent('attach-point', {
       let staticTape03 = document.getElementById('tapestatic03');
       let sphere01 = document.getElementById('sphere1');
       let sphere02 = document.getElementById('sphere2');
+      let animDisposable = document.getElementById('disposableAnim');
+      let staticDisposable = document.getElementById('xvr-disposable');
       console.log('************************************************ ', cathter02);
       console.log('Syringe has collided with ', e.detail.body.el);
       let attachCatheter = document.getElementById('vxr-intracath');
@@ -42,6 +44,9 @@ AFRAME.registerComponent('attach-point', {
       }if(e.detail.body.el==dinamicTape03){
         dinamicTape03.remove();
         staticTape03.setAttribute('visible','true');
+        staticDisposable.remove();
+        animDisposable.setAttribute('visible','true');
+        animDisposable.setAttribute('animation-mixer','loop: once; clampWhenFinished: true; timeScale: 1');
       }     
     });
   },
