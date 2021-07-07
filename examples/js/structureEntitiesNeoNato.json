@@ -172,6 +172,18 @@
   {
     "template": "#vxr-obj-template-KidneyTray",
     "selector": ".vxr-obj-KidneyTray"
+  }, 
+  {
+    "template": "#vxr-obj-template-Plantares",
+    "selector": ".vxr-obj-Plantares"
+  }, 
+  {
+    "template": "#vxr-obj-template-BowlSmall1",
+    "selector": ".vxr-obj-BowlSmall1"
+  }, 
+  {
+    "template": "#vxr-obj-template-BowlSmall2",
+    "selector": ".vxr-obj-BowlSmall2"
   }
  
 ]

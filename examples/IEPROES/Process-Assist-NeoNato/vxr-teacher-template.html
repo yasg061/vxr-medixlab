@@ -175,19 +175,28 @@
       <a-asset-item id="Baby_Vacuna" src="Models/Baby_Vacuna.gltf"></a-asset-item>
       <a-asset-item id="Bebe_Bracelet" src="Models/Bebe_Bracelet.gltf"></a-asset-item>
       <a-asset-item id="Cordon_Tijera" src="Models/Cordon_Tijera.gltf"></a-asset-item>
-      
+      <a-asset-item id="ClampClosed" src="Models/ClampClosed.gltf"></a-asset-item>
+
+ 
       <a-asset-item id="Towel" src="Models/Towel.gltf"></a-asset-item>
       <a-asset-item id="KidneyTray" src="Models/KidneyTray.gltf"></a-asset-item>
       <a-asset-item id="Tray_Surgical" src="Models/Tray_Surgical.gltf"></a-asset-item>
 
 
-       
+      <a-asset-item id="TrashContainerBlack" src="Models/TrashContainerBlack.gltf"></a-asset-item>
+      <a-asset-item id="TrashContainer" src="Models/TrashContainer.gltf"></a-asset-item>
+
+      <a-asset-item id="Plantares" src="Models/Plantares.gltf"></a-asset-item>
+      
+      <a-asset-item id="BowlSmall" src="Models/BowlSmall.gltf"></a-asset-item>
 
 
 
 
 
-       <a-asset-item id="s_cube" src="CottonColor.gltf"></a-asset-item>
+
+
+      <a-asset-item id="s_cube" src="CottonColor.gltf"></a-asset-item>
 
       <!-- Avatars -->
       <a-asset-item id="StudentAvatarHead" src="../../super/process/assets/avatars/StudentAvatarHead.gltf">
@@ -301,7 +310,7 @@
         <a-entity>
           <a-entity class="vxr-obj-medicaltape vxr-interact" gltf-model="#medicaltape" dynamic-body draggable grabbable
             toggle-physics position="-0.55562 0.40723 0.02529"></a-entity>
-         </a-entity>
+        </a-entity>
       </template>
 
       <template id="vxr-obj-template-gauze">
@@ -331,7 +340,7 @@
         <a-entity>
           <a-entity class="vxr-obj-allistweezers vxr-interact" gltf-model="#allistweezers" dynamic-body draggable
             grabbable toggle-physics position="-0.21084 0.4115 -0.34968" rotation="0 180 0"></a-entity>
-            
+
         </a-entity>
       </template>
 
@@ -357,21 +366,21 @@
             draggable grabbable toggle-physics position="0.29939 0.45444 -0.30163" visible="true"></a-entity>
         </a-entity>
       </template>
-      
+
       <template id="vxr-obj-template-cottonswab04">
         <a-entity>
           <a-entity class="vxr-obj-cottonswab04 vxr-interact" gltf-model="#cottonswab" dynamic-body="shape:sphere"
             draggable grabbable toggle-physics position="0.29939 0.464444 -0.30163" visible="true"></a-entity>
         </a-entity>
       </template>
-      
+
       <template id="vxr-obj-template-cottonswab05">
         <a-entity>
           <a-entity class="vxr-obj-cottonswab05 vxr-interact" gltf-model="#cottonswab" dynamic-body="shape:sphere"
             draggable grabbable toggle-physics position="0.29939 0.47444 -0.30163" visible="true"></a-entity>
         </a-entity>
       </template>
-      
+
       <template id="vxr-obj-template-cottonswab06">
         <a-entity>
           <a-entity class="vxr-obj-cottonswab06 vxr-interact" gltf-model="#cottonswab" dynamic-body="shape:sphere"
@@ -408,10 +417,12 @@
       <template id="vxr-obj-template-Bowl-Medic2">
         <a-entity>
           <a-entity class="vxr-obj-Bowl-Medic2 vxr-interact" gltf-model="#Bowl_Medic"
-          position="-0.51029 0.41225 -0.30401"  static-body="shape:mesh" scale="1.2 1.2 1.2 "
+            position="-0.51029 0.41225 -0.30401" static-body="shape:mesh" scale="1.2 1.2 1.2 "
             rotation="5.335276073060275 -0.8806075134822605 -0.20928413873134302">
           </a-entity>
-          <a-entity class="vxr-obj-Bowl-Medic2 vxr-interact" gltf-model="../../Models/gltf/Bowl_Medic.gltf" position="-0.51029 0.41225 -0.30401" static-body="shape: mesh; sphereRadius: NaN" scale="1.2 1.2 1.2" rotation="5.335276073060275 -0.8806075134822605 -0.20928413873134302" velocity="">
+          <a-entity class="vxr-obj-Bowl-Medic2 vxr-interact" gltf-model="../../Models/gltf/Bowl_Medic.gltf"
+            position="-0.51029 0.41225 -0.30401" static-body="shape: mesh; sphereRadius: NaN" scale="1.2 1.2 1.2"
+            rotation="5.335276073060275 -0.8806075134822605 -0.20928413873134302" velocity="">
           </a-entity>
         </a-entity>
       </template>
@@ -419,7 +430,7 @@
       <template id="vxr-obj-template-Bulb-Syringe">
         <a-entity>
           <a-entity class="vxr-obj-Bulb-Syringe vxr-interact" gltf-model="#Bulb_Syringe" draggable="" grabbable
-          position="0.255 0.45842 -0.12933" dynamic-body>
+            position="0.255 0.45842 -0.12933" dynamic-body>
           </a-entity>
         </a-entity>
       </template>
@@ -427,7 +438,7 @@
       <template id="vxr-obj-template-Tray_Surgical">
         <a-entity>
           <a-entity class="vxr-obj-Tray_Surgical vxr-interact" gltf-model="#Tray_Surgical" draggable="" grabbable
-          position="0.255 0.45842 -0.12933" visible="false" >
+            position="0.255 0.45842 -0.12933" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -435,8 +446,7 @@
       <template id="vxr-obj-template-Hyssop">
         <a-entity>
           <a-entity class="vxr-obj-Hyssop vxr-interact" gltf-model="#Hyssop" draggable="" grabbable
-            position="0.07648 0.41225 -0.36897" rotation="4.335276073060275 180 -0.20928413873134302"
-            dynamic-body>
+            position="0.07648 0.41225 -0.36897" rotation="4.335276073060275 180 -0.20928413873134302" dynamic-body>
           </a-entity>
         </a-entity>
       </template>
@@ -444,8 +454,7 @@
       <template id="vxr-obj-template-Hyssop1">
         <a-entity>
           <a-entity class="vxr-obj-Hyssop1 vxr-interact" gltf-model="#Hyssop" draggable="" grabbable
-            position="0.07648 0.41225 -0.36897" rotation="4.335276073060275 180 -0.20928413873134302"
-            dynamic-body>
+            position="0.07648 0.41225 -0.36897" rotation="4.335276073060275 180 -0.20928413873134302" dynamic-body>
           </a-entity>
         </a-entity>
       </template>
@@ -453,8 +462,7 @@
       <template id="vxr-obj-template-Hyssop2">
         <a-entity>
           <a-entity class="vxr-obj-Hyssop2 vxr-interact" gltf-model="#Hyssop" draggable="" grabbable
-            position="0.07648 0.41225 -0.36897" rotation="4.335276073060275 180 -0.20928413873134302"
-            dynamic-body>
+            position="0.07648 0.41225 -0.36897" rotation="4.335276073060275 180 -0.20928413873134302" dynamic-body>
           </a-entity>
         </a-entity>
       </template>
@@ -462,8 +470,7 @@
       <template id="vxr-obj-template-Hyssop3">
         <a-entity>
           <a-entity class="vxr-obj-Hyssop3 vxr-interact" gltf-model="#Hyssop" draggable="" grabbable
-            position="0.07648 0.41225 -0.36897" rotation="4.335276073060275 180 -0.20928413873134302"
-            dynamic-body>
+            position="0.07648 0.41225 -0.36897" rotation="4.335276073060275 180 -0.20928413873134302" dynamic-body>
           </a-entity>
         </a-entity>
       </template>
@@ -479,7 +486,7 @@
       <template id="vxr-obj-template-Thermic-Crib">
         <a-entity>
           <a-entity class="vxr-obj-Thermic-Crib vxr-interact" gltf-model="#Thermic_Crib" draggable="" grabbable
-          position="0.83385 -0.63611 -0.78333" rotation="0 270 0">
+            position="0.83385 -0.63611 -0.78333" rotation="0 270 0">
           </a-entity>
         </a-entity>
       </template>
@@ -496,7 +503,7 @@
       <template id="vxr-obj-template-InkPad">
         <a-entity>
           <a-entity class="vxr-obj-InkPad vxr-interact" gltf-model="#InkPad" draggable="" grabbable
-            position="-1.11622 0.4413 -0.38288" rotation="4.335276073060275 -0.8806075134822605 -0.20928413873134302"
+            position="-1.363 0.4413 -0.422" rotation="4.335276073060275 -0.8806075134822605 -0.20928413873134302"
             scale="0.5 0.5 0.5" dynamic-body>
           </a-entity>
         </a-entity>
@@ -521,10 +528,9 @@
       <template id="vxr-obj-template-ClampKocher">
         <a-entity>
           <a-entity class="vxr-obj-ClampKocher vxr-interact" gltf-model="#ClampKocher" draggable="" grabbable
-          position="-0.0806 0.41104 -0.36396" rotation="0 180 0" dynamic-body>
+            position="-0.0806 0.41104 -0.36396" rotation="0 180 0" dynamic-body>
           </a-entity>
-          <a-entity class="vxr-obj-ClampKocher vxr-interact" gltf-model="Models/ClampKocher.gltf" draggable="" grabbable="maxGrabbers: NaN" position="-0.0806 0.41104 -0.36396" rotation="-0.000005513835161292532 179.99999999305265 0.000009840163925113903" dynamic-body="sphereRadius: NaN" velocity="">
-          </a-entity>
+     
         </a-entity>
       </template>
 
@@ -536,15 +542,15 @@
         </a-entity>
       </template>
 
- 
+
 
       <template id="vxr-obj-template-Baby_Vacuna">
-        <a-entity>          
+        <a-entity>
           <a-entity class="vxr-obj-Baby_Vacuna vxr-interact" gltf-model="#Bebe_Bracelet" draggable grabbable
-          position="0.86197 0.4118 -0.671" rotation="0 0 0"  dynamic-body  >
-          <a-entity  id="manta" class="vxr-obj-Bebe_Bracelet-Manta"  scale="0 0 0" gltf-model="#Manta_Mesa"></a-entity>
-                  
-          </a-entity>
+            position="0.86197 0.250 -0.671" rotation="0 0 0">
+
+            <a-entity id="manta" class="vxr-obj-Bebe_Bracelet-Manta" scale="0 0 0" gltf-model="#Manta_Mesa"></a-entity>
+            <a-entity id="e-ClampClosed" visible="false" class="vxr-obj-ClampClosed vxr-interact" gltf-model="#ClampClosed" position="0.007 0.059 -0.232" rotation="0 -37.275 0"></a-entity>
 
           </a-entity>
         </a-entity>
@@ -552,8 +558,8 @@
 
       <template id="vxr-obj-template-Cordon_Tijera">
         <a-entity>
-          <a-entity class="vxr-obj-Cordon_Tijera vxr-interact" gltf-model="#Cordon_Tijera" draggable="" grabbable
-          position="0.87133 0.30734 -0.89683" visible="true">
+          <a-entity id="e-Cordon_Tijera" class="vxr-obj-Cordon_Tijera vxr-interact" gltf-model="#Cordon_Tijera" draggable="" grabbable
+            position="0.87133 0.30734 -0.89683" visible="true">
           </a-entity>
         </a-entity>
       </template>
@@ -569,27 +575,26 @@
       <template id="vxr-obj-template-ToiletPaper">
         <a-entity>
           <a-entity class="vxr-obj-ToiletPaper vxr-interact" gltf-model="#ToiletPaper" draggable="" grabbable
-          position="-0.00424 0.41006 -0.11507" dynamic-body>
-          </a-entity>         
-          
+            position="-0.00424 0.41006 -0.11507" dynamic-body>
+          </a-entity>
+
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-ToiletPaper2">
         <a-entity>
           <a-entity class="vxr-obj-ToiletPaper2 vxr-interact" gltf-model="#ToiletPaper" draggable="" grabbable
-          position="-0.08789 0.41006 -0.11855" dynamic-body>
+            position="-0.08789 0.41006 -0.11855" dynamic-body>
           </a-entity>
-          
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-ToiletPaper3">
         <a-entity>
           <a-entity class="vxr-obj-ToiletPaper3 vxr-interact" gltf-model="#ToiletPaper" draggable="" grabbable
-          position="-0.173 0.41006 -0.120" dynamic-body>
+            position="-0.173 0.41006 -0.120" dynamic-body>
 
-            
+
           </a-entity>
 
 
@@ -622,54 +627,78 @@
         </a-entity>
       </template>
 
-   
+
 
       <template id="vxr-obj-template-Syringe_1CC_Skin">
         <a-entity>
           <a-entity class="vxr-obj-Syringe_1CC_Skin vxr-interact" gltf-model="#Syringe_1CC_Skin" draggable="" grabbable
-            position="0.14529 0.41081 -0.35698"
-            rotation="0.000011081847617899339 180 0.00009149713672594367" dynamic-body visible="true">
+            position="0.14529 0.41081 -0.35698" rotation="0.000011081847617899339 180 0.00009149713672594367"
+            dynamic-body visible="true">
           </a-entity>
-      
+
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-Towel1">
         <a-entity>
           <a-entity class="vxr-obj-Towel1 vxr-interact" gltf-model="#Towel" draggable="" grabbable
-          position="-0.01578 0.41176 0.02358" 
-            rotation="" dynamic-body="shape:box" visible="true">
+            position="-0.01578 0.41176 0.02358" rotation="" dynamic-body="shape:box" visible="true">
           </a-entity>
-          
-      
+
+
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-Towel2">
         <a-entity>
           <a-entity class="vxr-obj-Towel2 vxr-interact" gltf-model="#Towel" draggable="" grabbable
-          position="-0.16738 0.412 0.02614"  rotation="" dynamic-body="shape:box" visible="true">
-            
+            position="-0.16738 0.412 0.02614" rotation="" dynamic-body="shape:box" visible="true">
+
           </a-entity>
-      
+
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-Towel3">
         <a-entity>
           <a-entity class="vxr-obj-Towel3 vxr-interact" gltf-model="#Towel" draggable="" grabbable
-          position="-0.30972 0.412 0.01861"
-            rotation="" dynamic-body="shape:box" visible="true">
-          </a-entity>      
+            position="-0.30972 0.412 0.01861" rotation="" dynamic-body="shape:box" visible="true">
+          </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-KidneyTray">
         <a-entity>
           <a-entity class="vxr-obj-KidneyTray vxr-interact" gltf-model="#KidneyTray" draggable="" grabbable
-          position="-0.30972 0.5 0.01861"
-            rotation=""  visible="false">
-          </a-entity>      
+            position="-0.30972 0.5 0.01861" rotation="" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Plantares">
+        <a-entity>
+          <a-entity class="vxr-obj-Plantares vxr-interact" gltf-model="#Plantares" draggable="" grabbable
+          position="-1.14041 0.41412 -0.1295" rotation="0 180 0" dynamic-body visible="true">
+          </a-entity>
+          
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-BowlSmall1">
+        <a-entity>
+          <a-entity class="vxr-obj-BowlSmall1 vxr-interact" gltf-model="#BowlSmall" draggable="" grabbable
+          position="-1.14041 0.41412 -0.1295" rotation="0 180 0"  visible="false">
+          </a-entity>
+          
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-BowlSmall2">
+        <a-entity>
+          <a-entity class="vxr-obj-BowlSmall2 vxr-interact" gltf-model="#BowlSmall" draggable="" grabbable
+          position="-1.14041 0.41412 -0.1295" rotation="0 180 0"  visible="false">
+          </a-entity>
+          
         </a-entity>
       </template>
 
@@ -704,22 +733,32 @@
     <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity>
 
+    <a-entity id="e-TrashContainerBlack" class="TrashContainerBlack" gltf-model="#TrashContainerBlack" position="-0.01136 0.99273 -2.56546" rotation="0 90 0">
+    </a-entity>
+
+ 
+
+    <a-entity id="e-TrashContainer" class="TrashContainer" gltf-model="#TrashContainer" position="-0.56559 0.99273 -2.57342" rotation="0 90 0">
+    </a-entity>
+
+ 
+    
 
 
     <!-- <a-entity id="Scube" gltf-model="#s_cube"  scale="" position=" 0 1 0" material="color: black"> -->
-    </a-entity>
-
+  
 
 
 
     <a-entity class="gltf" gltf-model="#table" position="-0.13 1 -0.363" rotation="0 180 0"></a-entity>
-     <a-box id="boxTable1" opacity="0" static-body rotation="" position="-0.10703 1.85724 -0.36937" color="red"
+    <a-box id="boxTable1" opacity="0" static-body rotation="" position="-0.10703 1.85724 -0.36937" color="red"
       depth="0.6" height="0.1" width="1.1"></a-box>
     <a-box id="tableBox2" class="boxTable2" opacity="0" static-body rotation="" position="-1.48 1.85724 -0.36937"
       color="red" depth="0.6" height="0.1" width="1.1"></a-box>
-      <a-box id="tableBox3" class="boxTable3" opacity="0" static-body="sphereRadius: NaN" rotation="0 90 0"  position="0.87605 1.62772 -1.03454" 
-      color="red" depth="0.6" height="0.1" width="1.1" material="" geometry="width: 0.8" ></a-box>
-       
+    <a-box id="tableBox3" class="boxTable3" opacity="0" static-body="sphereRadius: NaN" rotation="0 90 0"
+      position="0.87605 1.669 -1.03454" color="red" depth="0.6" height="0.1" width="1.1" material=""
+      geometry="width: 0.8"></a-box>
+
     <!-- <a-box id="TorundaBowl" class="boxTable2" opacity="0" static-body position="0.30215 1.87809 -0.51316" depth="0.1"
       height="0.1" width="0.1" material="" geometry="depth: 0.1; width: 0.1"></a-box> -->
 
@@ -773,8 +812,11 @@
 
 
 
+    <a-sphere id="heparinsealCollider" attach-point-v2="objClass:vxr-obj-heparinseal" static-body attach-intracath
+      opacity="0"  position="0.85874 1.8186 -1.07677" geometry="radius: 0.05">
     </a-sphere>
 
+ 
 
     <a-box id="box2" foo opacity="0" static-body rotation="0 180 0" position="0.95816 2.65 -2.07664" color="red"
       depth="0.03" height="0.03" width="0.03"></a-box>

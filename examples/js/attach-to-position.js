@@ -43,6 +43,18 @@ AFRAME.registerComponent('attach-point-v2', {
         e.detail.body.el.remove();
       }
 
+      if (classes.includes("vxr-obj-Clamp")) {
+        let medicalClothe = document.getElementById("e-ClampClosed")
+        medicalClothe.setAttribute("visible", "true")
+        e.detail.body.el.remove();
+      }
+
+      if (classes.includes("vxr-obj-allistweezers")) {
+        let medicalClothe = document.getElementById("e-Cordon_Tijera")
+        medicalClothe.setAttribute("dynamic-body", "")
+        // e.detail.body.el.remove();
+      }
+
       console.log("the class is: ", data.objClass)
     });
   }
