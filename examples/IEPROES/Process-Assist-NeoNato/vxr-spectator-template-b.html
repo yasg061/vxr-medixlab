@@ -9,9 +9,6 @@
   <!-- <script src="https://unpkg.com/super-hands/dist/super-hands.min.js"></script> -->
 
   <!-- Networked aframe -->
-  <script>
-    let url = "../../../js/structureEntities.json"
-  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
   <script src="/easyrtc/easyrtc.js"></script>
   <script src="/dist/networked-aframe.js"></script>
@@ -218,7 +215,8 @@
       <!-- Left Hand -->
       <template id="left-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#left-hand" animation-mixer></a-entity>
+          <!-- <a-entity obj-model="obj: #htc"></a-entity> -->
+          <a-entity scale="0.8 0.8 0.8" gltf-model="#left-hand"></a-entity>
         </a-entity>
       </template>
 

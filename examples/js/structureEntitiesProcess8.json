@@ -7,10 +7,7 @@
     "template": "#vxr-obj-template-2",
     "selector": ".vxr-obj-alcoholbottle"
   },
-  {
-    "template": "#vxr-obj-template-3",
-    "selector": ".vxr-obj-tray"
-  },
+ 
   {
     "template": "#vxr-obj-template-rubber",
     "selector": ".vxr-obj-rubber"
@@ -58,5 +55,33 @@
   {
     "template": "#vxr-obj-template-intracath",
     "selector": ".vxr-obj-intracath"
+  },
+  {
+    "template": "#vxr-obj-template-intracath-piece-1",
+    "selector": ".vxr-obj-intracath-piece-1"
+  },
+  {
+    "template": "#vxr-obj-template-intracath-piece-2",
+    "selector": ".vxr-obj-intracath-piece-2"
+  },
+  {
+    "template": "#vxr-obj-template-MedicalClothe",
+    "selector": ".vxr-obj-MedicalClothe"
+  },
+  {
+    "template": "#vxr-obj-template-Bowl-Medic",
+    "selector": ".vxr-obj-template-Bowl-Medic"
+  },
+  {
+    "template": "#vxr-obj-template-Tape-Normal",
+    "selector": ".vxr-obj-Tape-Normal"
+  },
+  {
+    "template": "#vxr-obj-template-Tape-Bow",
+    "selector": ".vxr-obj-Tape-Bow"
+  },
+  {
+    "template": "#vxr-obj-template-Tape-Butterfly",
+    "selector": ".vxr-obj-Tape-Butterfly"
   }
 ]
