@@ -640,18 +640,21 @@
 
       firstAnswer.addEventListener('click', function () {
         if (firstAnswer.hasAttribute("rightAnswer")) {
-          setTimeout(() => {
-            firstAnswer.setAttribute('color', '#054056');
-          }, 125);
-          setTimeout(() => {
-            firstAnswer.setAttribute('color', '#04563A');
-          }, 250);
-          setTimeout(() => {
-            firstAnswer.setAttribute('color', '#04563A');
-          }, 375);
-          setTimeout(() => {
-            firstAnswer.setAttribute('color', '#04563A');
-          }, 500);
+          // setTimeout(() => {
+          //   firstAnswer.setAttribute('color', '#054056');
+          // }, 125);
+          // setTimeout(() => {
+          //   firstAnswer.setAttribute('color', '#04563A');
+          // }, 250);
+          // setTimeout(() => {
+          //   firstAnswer.setAttribute('color', '#04563A');
+          // }, 375);
+          // setTimeout(() => {
+          //   firstAnswer.setAttribute('color', '#04563A');
+          // }, 500);
+
+          answersArray = answersArray.filter(answer => answer != firstAnswer);
+          console.log('answersArray', answersArray);
 
           answersArray.forEach(answer => {
             answer.addEventListener('click', function() {
@@ -659,13 +662,12 @@
             })
           });
 
-          score ++;
-          console.log('score:', score);
-
           setTimeout(function() {
             questionPlane.removeAttribute('text');
             panel1.remove();
             questionPlane.remove();
+            score ++;
+            console.log('score:', score);
             if (x < objectsResult.length) {
               createQuestionsElements()
             } else {
@@ -676,9 +678,12 @@
               panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 3; align: center`);
               scene.appendChild(panel1);
             }
-          }, 2000);
+          }, 1000);
         } else {
           firstAnswer.setAttribute('color', 'red');
+
+          answersArray = answersArray.filter(answer => answer != firstAnswer);
+          console.log('answersArray', answersArray);
 
           answersArray.forEach(answer => {
             answer.addEventListener('click', function() {
@@ -703,7 +708,7 @@
               panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 3; align: center`);
               scene.appendChild(panel1);
             }
-          }, 2000);
+          }, 1000);
         }
       });
 
@@ -711,19 +716,21 @@
         if (secondAnswer.hasAttribute("rightAnswer")) {
           secondAnswer.setAttribute('color', 'green');
 
+          answersArray = answersArray.filter(answer => answer != secondAnswer);
+          console.log('answersArray', answersArray);
+
           answersArray.forEach(answer => {
             answer.addEventListener('click', function() {
               answer.setAttribute('color', '#072B73');
             })
           });
 
-          score ++;
-          console.log('score:', score);
-
           setTimeout(function() {
             questionPlane.removeAttribute('text');
             panel1.remove();
             questionPlane.remove();
+            score ++;
+            console.log('score:', score);
             if (x < objectsResult.length) {
               createQuestionsElements()
             } else {
@@ -734,11 +741,13 @@
               panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 3; align: center`);
               scene.appendChild(panel1);
             }
-          }, 2000);
+          }, 1000);
         } else {
           secondAnswer.setAttribute('color', 'red');
 
-          // answersArray.filter(answer => answer == secondAnswer)
+          answersArray = answersArray.filter(answer => answer != secondAnswer);
+          console.log('answersArray', answersArray);
+
           answersArray.forEach(answer => {
             answer.addEventListener('click', function() {
               answer.setAttribute('color', '#072B73');
@@ -762,7 +771,7 @@
               panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 3; align: center`);
               scene.appendChild(panel1);
             }
-          }, 2000);
+          }, 1000);
         }
       });
 
@@ -770,19 +779,21 @@
         if (thirdAnswer.hasAttribute("rightAnswer")) {
           thirdAnswer.setAttribute('color', 'green');
 
+          answersArray = answersArray.filter(answer => answer != thirdAnswer);
+          console.log('answersArray', answersArray);
+
           answersArray.forEach(answer => {
             answer.addEventListener('click', function() {
               answer.setAttribute('color', '#072B73');
             })
           });
 
-          score ++;
-          console.log('score:', score);
-
           setTimeout(function() {
             questionPlane.removeAttribute('text');
             panel1.remove();
             questionPlane.remove();
+            score ++;
+            console.log('score:', score);
             if (x < objectsResult.length) {
               console.log('x inside thirdanswer:', x)
               createQuestionsElements()
@@ -794,9 +805,12 @@
               panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 3; align: center`);
               scene.appendChild(panel1);
             }
-          }, 2000);
+          }, 1000);
         } else {
           thirdAnswer.setAttribute('color', 'red');
+
+          answersArray = answersArray.filter(answer => answer != thirdAnswer);
+          console.log('answersArray', answersArray);
 
           answersArray.forEach(answer => {
             answer.addEventListener('click', function() {
@@ -821,7 +835,7 @@
               panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 3; align: center`);
               scene.appendChild(panel1);
             }
-          }, 2000);
+          }, 1000);
         }
       });
 
@@ -829,19 +843,21 @@
         if (fourthAnswer.hasAttribute("rightAnswer")) {
           fourthAnswer.setAttribute('color', 'green');
 
+          answersArray = answersArray.filter(answer => answer != fourthAnswer);
+          console.log('answersArray', answersArray);
+
           answersArray.forEach(answer => {
             answer.addEventListener('click', function() {
               answer.setAttribute('color', '#072B73');
             })
           });
 
-          score ++;
-          console.log('score:', score);
-
           setTimeout(function() {
             questionPlane.removeAttribute('text');
             panel1.remove();
             questionPlane.remove();
+            score ++;
+            console.log('score:', score);
             if (x < objectsResult.length) {
               createQuestionsElements()
             } else {
@@ -852,9 +868,12 @@
               panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 3; align: center`);
               scene.appendChild(panel1);
             }
-          }, 2000);
+          }, 1000);
         } else {
           fourthAnswer.setAttribute('color', 'red');
+
+          answersArray = answersArray.filter(answer => answer != fourthAnswer);
+          console.log('answersArray', answersArray);
 
           answersArray.forEach(answer => {
             answer.addEventListener('click', function() {
@@ -879,7 +898,7 @@
               panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 3; align: center`);
               scene.appendChild(panel1);
             }
-          }, 2000);
+          }, 1000);
         }
       });
     }
@@ -932,7 +951,7 @@
       x += 1;
       console.log('x:', x);
       greenBtn.addEventListener('click', function () {
-        var delayInMilliseconds = 1500; //1.5 seconds
+        var delayInMilliseconds = 1000; //1 second
 
         greenBtn.setAttribute('color', 'green')
 
