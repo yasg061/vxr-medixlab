@@ -16,3 +16,4 @@ AFRAME.registerComponent('animation-trigger', {
     }   
   }
 })
+
