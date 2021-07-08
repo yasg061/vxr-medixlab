@@ -44,6 +44,7 @@ AFRAME.registerComponent('attach-point', {
       }if(e.detail.body.el==dinamicTape03){
         dinamicTape03.remove();
         staticTape03.setAttribute('visible','true');
+        staticDisposable.setAttribute('visible','false');
         staticDisposable.remove();
         animDisposable.setAttribute('visible','true');
         animDisposable.setAttribute('animation-mixer','loop: once; clampWhenFinished: true; timeScale: 1');
