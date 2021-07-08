@@ -798,6 +798,12 @@
    <a-entity id="lamps03" gltf-model="#lamps01" scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
    <a-entity id="columns01" gltf-model="#columns" scale="1 1 1" position="0 0 0" material="color: brown"
      rotation="0 0 0"></a-entity>
+     <a-entity id="base" gltf-model="../../Models/gltf/Base.gltf" scale="" position="1.1014 1 -2.07876"
+     material="color: brown" rotation=""></a-entity>
+     <a-entity camera="zoom: 0.8; aspect: 1; active: false;" camrender="cid: cam2" position="0 4.0 0"
+     rotation="-95 -180 180"></a-entity>
+   <a-plane rotation="0 0 0" scale="8.250 5.479 4" material="src:#cam2" position="0 7.32941 -1.90179" canvas-updater>
+   </a-plane>
 
     <!-- Theater Lights -->
     <a-entity background="color: #92f2ff"></a-entity>
@@ -866,7 +872,8 @@
       template: '#spectator-avatar-template',
       components: [
         'position',
-        'rotation'
+        'rotation',
+        'visible'
       ]
     });
     NAF.schemas.add({

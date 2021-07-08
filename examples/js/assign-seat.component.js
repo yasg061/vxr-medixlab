@@ -217,6 +217,11 @@ AFRAME.registerComponent('assign-seat', {
       {
         identifier: '50',
         position: { x: 8.5, y: 1.3, z: 7.3 }
+      },
+      {
+        identifier: '51',
+        position: { x: 1.0, y: 3.6, z: 3.50 },
+        visible:  true
       }
     ]
 
@@ -224,5 +229,10 @@ AFRAME.registerComponent('assign-seat', {
     slotFound.position.y += 3
     let slotPosition = slotFound.position
     el.setAttribute('position', slotPosition)
-  }
+    if(spawn=="51"){
+      document.getElementById("spectator").setAttribute('visible','false')
+      console.log("funca, make it visible")
+    }else{ console.log("no funca")
+     }
+   }
 })

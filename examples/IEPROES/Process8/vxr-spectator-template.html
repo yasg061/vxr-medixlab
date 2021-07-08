@@ -478,7 +478,8 @@
       template: '#spectator-avatar-template',
       components: [
         'position',
-        'rotation'
+        'rotation',
+        'visible'
       ]
     });
     NAF.schemas.add({
@@ -486,6 +487,7 @@
       components: [
         'position',
         'rotation',
+        'visible',
         {
           selector: '.name-up',
           component: 'name-up'
@@ -493,6 +495,10 @@
         {
           selector: '.SpectatorAvatar',
           component: 'randomize-spec-color'
+        },
+        {
+          selector: '.SpectatorAvatar',
+          component: 'visible'
         }
       ]
     });
