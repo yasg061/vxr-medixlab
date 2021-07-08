@@ -12,7 +12,7 @@
     "selector": ".vxr-obj-tray"
   },
   {
-    "template": "#vxr-obj-template-rubber",
+    "template": "#vxr-obj-template-4",
     "selector": ".vxr-obj-rubber"
   },
   {
