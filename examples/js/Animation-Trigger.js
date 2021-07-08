@@ -12,7 +12,7 @@ AFRAME.registerComponent('animation-trigger', {
     console.log(this.data.boolVar)
     if (this.data.boolVar) {
       // let instruments = document.getElementById("instruments")
-      this.el.setAttribute("animation-mixer", "clampWhenFinished:true;")
+      this.el.setAttribute("animation-mixer", "clampWhenFinished:true;timeScale:1")
     }   
   }
 })

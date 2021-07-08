@@ -47,7 +47,9 @@ AFRAME.registerComponent('attach-point', {
         staticDisposable.setAttribute('visible','false');
         staticDisposable.remove();
         animDisposable.setAttribute('visible','true');
-        animDisposable.setAttribute('animation-mixer','loop: once; clampWhenFinished: true; timeScale: 1');
+        // animDisposable.setAttribute('animation-mixer','loop: once; clampWhenFinished: true; timeScale: 1');
+        animDisposable.setAttribute('animation-trigger','boolVar:true');
+        
       }     
     });
   },
