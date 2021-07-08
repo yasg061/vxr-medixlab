@@ -19,6 +19,8 @@
   <script src="/dist/networked-aframe.js"></script>
   <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
   <script src="/js/spawn-in-circle.component.js"></script>
+  <script src="../../js/assign-seat.component.js"></script>
+
 
 
   <!-- Super hands -->
@@ -184,8 +186,8 @@
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -4; iterations: 75" networked-scene="
-      room: audio;
+  <a-scene physics="debug: false; gravity: -4; iterations: 75" networked-scene="
+      room: process2;
       adapter: easyrtc;
       audio: false;
       debug: true;
@@ -593,6 +595,10 @@ t
     <a-entity id="lamps03" gltf-model="#lamps01" scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
     <a-entity id="columns01" gltf-model="#columns" scale="1 1 1" position="0 0 0" material="color: brown" rotation="0 0 0"></a-entity>
     <a-entity id="base" gltf-model="/Models/gltf/Base.gltf" scale="" position="0.42223 1 -1.62523" material="color: brown" rotation=""></a-entity>
+    <a-entity camera="zoom: 0.8; aspect: 1; active: false;" camrender="cid: cam2" position="0 4.0 0"
+    rotation="-95 -180 180"></a-entity>
+  <a-plane rotation="0 0 0" scale="8.250 5.479 4" material="src:#cam2" position="0 7.32941 -1.90179" canvas-updater>
+  </a-plane>
 
     <!-- Theater Lights -->
     <a-entity background="color: #92f2ff"></a-entity>
@@ -600,15 +606,11 @@ t
     <a-entity light="intensity: 0.7; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0" id="ambientlight"></a-entity>
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01" position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
-      rotation="0 180 0" movement-controls="speed:0.3">
-      <a-entity camera position="0 1.6 0.2" look-controls input
-        networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
-      </a-entity>
-      <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left" networked="template:#left-hand-template">
-      </a-entity>
-      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right" networked="template:#right-hand-template">
+    <a-entity id="spectator" assign-seat>
+
+      <a-entity id="constraint-spectator" camera="fov:70" position="0 1.6 0" look-controls zoom="100" fov="120">
+        <a-entity class="name-up" name-up></a-entity>
+        <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" randomize-spec-color visible="false"></a-entity>
       </a-entity>
     </a-entity>
     
@@ -736,7 +738,7 @@ t
   <!-- <script src="../../js/Feature-SpawnTemplate.js"></script> -->
 
   <!-- <script src="../../js/Feature-SpawnObjects.js"></script> -->
-  <script src="../../js/vxr-full-house.js"></script>
+  <!-- <script src="../../js/vxr-full-house.js"></script> -->
 
 
 

@@ -184,10 +184,10 @@
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -4; iterations: 75" networked-scene="
-      room: audio;
+  <a-scene physics="debug: false; gravity: -4; iterations: 75" networked-scene="
+      room: process2;
       adapter: easyrtc;
-      audio: false;
+      audio: true;
       debug: true;
       onConnect: spawnentity;
     ">
@@ -736,7 +736,7 @@ t
   <!-- <script src="../../js/Feature-SpawnTemplate.js"></script> -->
 
   <script src="../../js/Feature-SpawnObjects.js"></script>
-  <script src="../../js/vxr-full-house.js"></script>
+  <!-- <script src="../../js/vxr-full-house.js"></script> -->
 
 
 
