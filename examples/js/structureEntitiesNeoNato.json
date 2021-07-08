@@ -184,6 +184,14 @@
   {
     "template": "#vxr-obj-template-BowlSmall2",
     "selector": ".vxr-obj-BowlSmall2"
+  }, 
+  {
+    "template": "#vxr-obj-template-Pañal_Prueba",
+    "selector": ".vxr-obj-Pañal_Prueba"
+  }, 
+  {
+    "template": "#vxr-obj-template-MantaPrueba",
+    "selector": ".vxr-obj-MantaPrueba"
   }
  
 ]

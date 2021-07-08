@@ -24,8 +24,7 @@
   <!-- Super hands -->
   <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.js"></script>
   <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
-  <script
-    src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+  <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 
   <!-- ownership transfer dependencies -->
@@ -189,6 +188,12 @@
       <a-asset-item id="Plantares" src="Models/Plantares.gltf"></a-asset-item>
       
       <a-asset-item id="BowlSmall" src="Models/BowlSmall.gltf"></a-asset-item>
+
+      <a-asset-item id="Pañal_Prueba" src="Models/Pañal_Prueba.gltf"></a-asset-item>
+
+      <a-asset-item id="MantaPrueba" src="Models/MantaPrueba.gltf"></a-asset-item>
+      
+
 
 
 
@@ -485,8 +490,8 @@
 
       <template id="vxr-obj-template-Thermic-Crib">
         <a-entity>
-          <a-entity class="vxr-obj-Thermic-Crib vxr-interact" gltf-model="#Thermic_Crib" draggable="" grabbable
-            position="0.83385 -0.63611 -0.78333" rotation="0 270 0">
+          <a-entity id="id-vxr-obj-Thermic-Crib" class=" vxr-obj-Thermic-Crib vxr-interact" gltf-model="#Thermic_Crib" draggable="" grabbable
+            position="0.83385 -0.63611 -0.78333" rotation="0 270 0" visible="true">
           </a-entity>
         </a-entity>
       </template>
@@ -548,10 +553,8 @@
         <a-entity>
           <a-entity class="vxr-obj-Baby_Vacuna vxr-interact" gltf-model="#Bebe_Bracelet" draggable grabbable
             position="0.86197 0.250 -0.671" rotation="0 0 0">
-
             <a-entity id="manta" class="vxr-obj-Bebe_Bracelet-Manta" scale="0 0 0" gltf-model="#Manta_Mesa"></a-entity>
             <a-entity id="e-ClampClosed" visible="false" class="vxr-obj-ClampClosed vxr-interact" gltf-model="#ClampClosed" position="0.007 0.059 -0.232" rotation="0 -37.275 0"></a-entity>
-
           </a-entity>
         </a-entity>
       </template>
@@ -697,18 +700,45 @@
         <a-entity>
           <a-entity class="vxr-obj-BowlSmall2 vxr-interact" gltf-model="#BowlSmall" draggable="" grabbable
           position="-1.14041 0.41412 -0.1295" rotation="0 180 0"  visible="false">
-          </a-entity>
-          
+          </a-entity>          
         </a-entity>
       </template>
 
+      <template id="vxr-obj-template-BowlSmall2">
+        <a-entity>
+          <a-entity class="vxr-obj-BowlSmall2 vxr-interact" gltf-model="#BowlSmall" draggable="" grabbable
+          position="-1.14041 0.41412 -0.1295" rotation="0 180 0"  visible="false">
+          </a-entity>          
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Pañal_Prueba">
+        <a-entity>
+          <a-entity class="vxr-obj-Pañal_Prueba vxr-interact" gltf-model="#Pañal_Prueba" animation-mixer="clip:Cerrado;clampWhenFinished: true;loop:once;startFrame:10000;timeScale:1" draggable="" grabbable
+          position="-1.14041 0.41412 -0.1295" rotation="0 180 0"  visible="true">
+      
+
+          </a-entity>          
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-MantaPrueba">
+        <a-entity>
+          <a-entity class="vxr-obj-MantaPrueba vxr-interact" gltf-model="#MantaPrueba" animation-mixer="clampWhenFinished: true;loop:once;startFrame:10000;timeScale:0.01" draggable="" grabbable
+          position="0.822 0.225 -0.905" rotation="0 0 0"  visible="true">
+      
+
+          </a-entity>          
+        </a-entity>
+      </template>
+
+      
 
     </a-assets>
 
     <!-- Hidden Static Meshes  -->
 
-
-    <a-entity
+       <a-entity
       environment="lightPosition: 1 5 -2; groundColor: #00275b; grid: dots; gridColor: #168dab; preset: starry; skyType: atmosphere; skyColor: #030022; playArea: 0.5; ground: flat; groundColor2: #009dff"
       visible="">
       <a-entity class="environment" position="0 50 0"></a-entity>
@@ -733,13 +763,15 @@
     <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity>
 
-    <a-entity id="e-TrashContainerBlack" class="TrashContainerBlack" gltf-model="#TrashContainerBlack" position="-0.01136 0.99273 -2.56546" rotation="0 90 0">
+    <a-entity id="e-TrashContainerBlack" class="TrashContainerBlack" gltf-model="#TrashContainerBlack"  position="0.57955 0.99273 -0.44601" rotation="0 90 0" scale="0.5 0.5 0.5">
     </a-entity>
+    
 
  
 
-    <a-entity id="e-TrashContainer" class="TrashContainer" gltf-model="#TrashContainer" position="-0.56559 0.99273 -2.57342" rotation="0 90 0">
+    <a-entity id="e-TrashContainer" class="TrashContainer" gltf-model="#TrashContainer" position="0.57417 0.99273 -0.16374" rotation="0 90 0" scale="0.5 0.5 0.5">
     </a-entity>
+    
 
  
     
@@ -895,6 +927,21 @@
         'rotation'
       ]
     });
+
+    NAF.schemas.add({
+      template: '#vxr-obj-template-Thermic-Crib',
+      components: [
+        'position',
+        'rotation',
+        {
+          selector: '.class-vxr-obj-Thermic-Crib',
+          component: 'visible'
+        },
+      ]
+    });
+
+
+    
 
     //Called by Networked-Aframe when connected to server
     function onConnect() {
