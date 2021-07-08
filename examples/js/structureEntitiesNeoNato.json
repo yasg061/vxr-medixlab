@@ -106,14 +106,6 @@
     "selector": ".vxr-obj-InkPad"
   },
   {
-    "template": "#vxr-obj-template-ClampKocher",
-    "selector": ".vxr-obj-ClampKocher"
-  },
-  {
-    "template": "#vxr-obj-template-CurvedMayoScissor",
-    "selector": ".vxr-obj-CurvedMayoScissor"
-  },
-  {
     "template": "#vxr-obj-template-Baby_Vacuna",
     "selector": ".vxr-obj-Baby_Vacuna"
   },

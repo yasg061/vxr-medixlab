@@ -344,8 +344,7 @@
       <template id="vxr-obj-template-allistweezers">
         <a-entity>
           <a-entity class="vxr-obj-allistweezers vxr-interact" gltf-model="#allistweezers" dynamic-body draggable
-            grabbable toggle-physics position="-0.21084 0.4115 -0.34968" rotation="0 180 0"></a-entity>
-
+            grabbable toggle-physics  position="-0.02851 0.41151 -0.34968"  rotation="0 180 0"></a-entity>
         </a-entity>
       </template>
 
@@ -509,7 +508,7 @@
         <a-entity>
           <a-entity class="vxr-obj-InkPad vxr-interact" gltf-model="#InkPad" draggable="" grabbable
             position="-1.363 0.4413 -0.422" rotation="4.335276073060275 -0.8806075134822605 -0.20928413873134302"
-            scale="0.5 0.5 0.5" dynamic-body>
+            scale="0.5 0.5 0.5"  >
           </a-entity>
         </a-entity>
       </template>
@@ -529,26 +528,7 @@
           </a-entity>
         </a-entity>
       </template>
-
-      <template id="vxr-obj-template-ClampKocher">
-        <a-entity>
-          <a-entity class="vxr-obj-ClampKocher vxr-interact" gltf-model="#ClampKocher" draggable="" grabbable
-            position="-0.0806 0.41104 -0.36396" rotation="0 180 0" dynamic-body>
-          </a-entity>
-     
-        </a-entity>
-      </template>
-
-      <template id="vxr-obj-template-CurvedMayoScissor">
-        <a-entity>
-          <a-entity class="vxr-obj-CurvedMayoScissor vxr-interact" gltf-model="#CurvedMayoScissor" draggable=""
-            grabbable position="-0.31943 0.41164 -0.36904" rotation="0 180 0" dynamic-body>
-          </a-entity>
-        </a-entity>
-      </template>
-
-
-
+      
       <template id="vxr-obj-template-Baby_Vacuna">
         <a-entity>
           <a-entity class="vxr-obj-Baby_Vacuna vxr-interact" gltf-model="#Bebe_Bracelet" draggable grabbable
@@ -715,7 +695,7 @@
       <template id="vxr-obj-template-Pañal_Prueba">
         <a-entity>
           <a-entity class="vxr-obj-Pañal_Prueba vxr-interact" gltf-model="#Pañal_Prueba" animation-mixer="clampWhenFinished: true;loop:once;startFrame:10000;timeScale:1" draggable="" grabbable
-          position="-1.14041 0.41412 -0.1295" rotation="0 180 0"  visible="true">
+          position="-1.14041 0.41412 -0.1295" rotation="0 180 0"  visible="false">
       
 
           </a-entity>          
@@ -725,7 +705,7 @@
       <template id="vxr-obj-template-MantaPrueba">
         <a-entity>
           <a-entity class="vxr-obj-MantaPrueba vxr-interact" gltf-model="#MantaPrueba" animation-mixer="clip:Abierto;clampWhenFinished: true;loop:once;startFrame:10000;timeScale:0.5" draggable="" grabbable
-          position="0.822 0.225 -0.905" rotation="0 0 0"  visible="true">
+          position="0.822 0.225 -0.905" rotation="0 0 0"  visible="false">
       
 
           </a-entity>          
@@ -840,18 +820,13 @@
         networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
-
-
-
-
+ 
     <a-sphere id="heparinsealCollider" attach-point-v2="objClass:vxr-obj-heparinseal" static-body attach-intracath
       opacity="0"  position="0.85874 1.8186 -1.07677" geometry="radius: 0.05">
     </a-sphere>
-
  
-
-    <a-box id="box2" foo opacity="0" static-body rotation="0 180 0" position="0.95816 2.65 -2.07664" color="red"
-      depth="0.03" height="0.03" width="0.03"></a-box>
+    <a-box id="tableBox2" class="boxTable2" opacity="0" static-body="sphereRadius: NaN" rotation="" position="-1.64575 1.97348 -0.31224" color="red"
+     depth="0.6" height="0.1" width="1.1" material="" geometry="depth: 0.4; width: 0.6" ></a-box>
 
   </a-scene>
 
