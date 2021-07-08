@@ -110,5 +110,9 @@
   {
     "template": "#vxr-obj-template-serumcontrolcard",
     "selector": ".vxr-obj-serumcontrolcard"
+  },
+  {
+    "template": "#vxr-obj-template-boxsharpobject",
+    "selector": ".vxr-obj-boxsharpobject"
   }
 ]

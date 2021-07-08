@@ -27,6 +27,10 @@ function SetSchemas(structure) {
         {
           selector: item.selector,
           component: 'position'
+        },
+        {
+          selector: item.selector,
+          component: 'visible'
         }
       ]
     }
