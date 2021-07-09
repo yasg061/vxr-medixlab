@@ -180,6 +180,19 @@
   {
     "template": "#vxr-obj-template-CleftGauze",
     "selector": ".vxr-obj-CleftGauze"
+  }, 
+  {
+    "template": "#vxr-obj-template-Medical_Laundry-v2",
+    "selector": ".vxr-obj-Medical_Laundry-v2"
+  }, 
+  {
+    "template": "#vxr-obj-template-CintaCabezaAnim",
+    "selector": ".vxr-obj-CintaCabezaAnim"
+  }, 
+  {
+    "template": "#vxr-obj-template-e-staticbaby",
+    "selector": ".vxr-obj-e-staticbaby"
   } 
- 
+  
+  
 ]
