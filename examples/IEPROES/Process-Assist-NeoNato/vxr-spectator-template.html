@@ -17,7 +17,6 @@
     <script
       src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
-    <script src="//cdn.8thwall.com/web/aframe/aframe-extras-6.1.1.min.js"></script>
     <script src="../../js/assign-seat.component.js"></script>
 
   
@@ -808,9 +807,8 @@
     <!-- Theater Lights -->
     <a-entity background="color: #92f2ff"></a-entity>
 
-    <a-entity light="intensity: 0.1; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
-    <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.34" id="light01"
-      position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
+    <a-entity light="intensity: 0.7; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0" id="ambientlight"></a-entity>
+    <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01" position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
 
     <a-entity id="spectator" assign-seat>
