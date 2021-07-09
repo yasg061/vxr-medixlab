@@ -184,6 +184,10 @@
   {
     "template": "#vxr-obj-template-MantaPrueba",
     "selector": ".vxr-obj-MantaPrueba"
+  }, 
+  {
+    "template": "#vxr-obj-template-CleftGauze_Close",
+    "selector": ".vxr-obj-CleftGauze_Close"
   }
  
 ]
