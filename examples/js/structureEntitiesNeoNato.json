@@ -74,14 +74,6 @@
     "selector": ".vxr-obj-Hyssop1"
   },
   {
-    "template": "#vxr-obj-template-Hyssop2",
-    "selector": ".vxr-obj-Hyssop2"
-  },
-  {
-    "template": "#vxr-obj-template-Hyssop3",
-    "selector": ".vxr-obj-Hyssop3"
-  },
-  {
     "template": "#vxr-obj-template-Infant-Scale",
     "selector": ".vxr-obj-Infant-Scale"
   },
@@ -186,8 +178,8 @@
     "selector": ".vxr-obj-MantaPrueba"
   }, 
   {
-    "template": "#vxr-obj-template-CleftGauze_Close",
-    "selector": ".vxr-obj-CleftGauze_Close"
-  }
+    "template": "#vxr-obj-template-CleftGauze",
+    "selector": ".vxr-obj-CleftGauze"
+  } 
  
 ]

@@ -54,6 +54,18 @@ AFRAME.registerComponent('attach-point-v2', {
         medicalClothe.setAttribute("dynamic-body", "")
         // e.detail.body.el.remove();
       }
+       
+      if (classes.includes("vxr-obj-CleftGauze")) {
+        let medicalClothe = document.getElementById("e-CleftGauze_Close")
+        medicalClothe.setAttribute("visible", "true")
+        e.detail.body.el.remove();
+        let baby = document.getElementById("baby")
+        baby.setAttribute("dynamic-body","mass:0")
+
+        
+      }
+
+      
 
       console.log("the class is: ", data.objClass)
     });

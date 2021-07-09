@@ -66,7 +66,6 @@
               node.material.needsUpdate = true;
               console.log("works -----")
               boolstate = false
-
             }
           });
 
@@ -79,8 +78,8 @@
   <script>
 
     function setMass() {
-      let intracathInteract = element = document.getElementById("vxr-intracath-second-part")
-      intracathInteract.setAttribute('dynamic-body', 'mass:0.1')
+      let baby = element = document.getElementById("baby")
+      baby.setAttribute('dynamic-body', 'mass:0.1')
     }
 
   </script>
@@ -128,7 +127,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: true;
@@ -186,13 +185,19 @@
       <a-asset-item id="TrashContainer" src="Models/TrashContainer.gltf"></a-asset-item>
 
       <a-asset-item id="Plantares" src="Models/Plantares.gltf"></a-asset-item>
-      
+      <a-asset-item id="PlantaresLeft" src="Models/PlantaresLeft.gltf"></a-asset-item>
+      <a-asset-item id="PlantaresRight" src="Models/PlantaresRight.gltf"></a-asset-item>
+
       <a-asset-item id="BowlSmall" src="Models/BowlSmall.gltf"></a-asset-item>
 
       <a-asset-item id="Pañal_Prueba" src="Models/Pañal_Prueba.gltf"></a-asset-item>
 
       <a-asset-item id="MantaPrueba" src="Models/Manta.gltf"></a-asset-item>
+      <a-asset-item id="CleftGauze" src="Models/CleftGauze.gltf"></a-asset-item>
       <a-asset-item id="CleftGauze_Close" src="Models/CleftGauze_Close.gltf"></a-asset-item>
+    
+      <a-asset-item id="Manta_Abierta" src="Models/Manta_Cerrada.gltf"></a-asset-item>
+
 
       
 
@@ -460,7 +465,7 @@
       <template id="vxr-obj-template-Hyssop1">
         <a-entity>
           <a-entity class="vxr-obj-Hyssop1 vxr-interact" gltf-model="#Hyssop" draggable="" grabbable
-            position="0.07648 0.41225 -0.36897" rotation="4.335276073060275 180 -0.20928413873134302" dynamic-body>
+            position="0.056 0.41225 -0.36897" rotation="4.335276073060275 180 -0.20928413873134302" dynamic-body>
           </a-entity>
         </a-entity>
       </template>
@@ -533,10 +538,15 @@
       
       <template id="vxr-obj-template-Baby_Vacuna">
         <a-entity>
-          <a-entity class="vxr-obj-Baby_Vacuna vxr-interact" gltf-model="#Bebe_Bracelet" draggable grabbable
-            position="0.86197 0.250 -0.671" rotation="0 0 0">
+          <a-entity id="baby" class="vxr-obj-Baby_Vacuna vxr-interact" gltf-model="#Bebe_Bracelet" draggable grabbable
+            position="0.86197 0.250 -0.671" rotation="0 0 0"  ondragstart="setMass()">
             <a-entity id="manta" class="vxr-obj-Bebe_Bracelet-Manta" scale="0 0 0" gltf-model="#Manta_Mesa"></a-entity>
             <a-entity id="e-ClampClosed" visible="false" class="vxr-obj-ClampClosed vxr-interact" gltf-model="#ClampClosed" position="0.007 0.059 -0.232" rotation="0 -37.275 0"></a-entity>
+            <a-entity id="e-CleftGauze_Close" class="vxr-obj-CleftGauze_Close  vxr-interact" gltf-model="#CleftGauze_Close" animation-mixer="clip:Abierto;clampWhenFinished: true;loop:once;startFrame:10000;timeScale:0.5" draggable="" grabbable
+            position="0.008 0.053 -0.227" rotation="0 0 0"  visible="false" ></a-entity>
+            <a-entity id="Manta_Abierta" class="vxr-obj-Manta_Abierta  vxr-interact" gltf-model="#Manta_Abierta"  draggable="" grabbable
+            position="0 -0.047 -0.283" rotation="0 0 0"  visible="true"  >
+            </a-entity>        
           </a-entity>
         </a-entity>
       </template>
@@ -662,7 +672,7 @@
 
       <template id="vxr-obj-template-Plantares">
         <a-entity>
-          <a-entity class="vxr-obj-Plantares vxr-interact" gltf-model="#Plantares" draggable="" grabbable
+          <a-entity id="plantar" class="vxr-obj-Plantares vxr-interact" gltf-model="#Plantares" draggable="" grabbable
           position="-1.14041 0.41412 -0.1295" rotation="0 180 0" dynamic-body visible="true">
           </a-entity>
           
@@ -714,15 +724,14 @@
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-CleftGauze_Close">
+      <template id="vxr-obj-template-CleftGauze">
         <a-entity>
-          <a-entity class="vxr-obj-CleftGauze_Close vxr-interact" gltf-model="#CleftGauze_Close" animation-mixer="clip:Abierto;clampWhenFinished: true;loop:once;startFrame:10000;timeScale:0.5" draggable="" grabbable
-          position="0.822 0.225 -0.905" rotation="0 0 0"  visible="false">
-      
-
+          <a-entity id="CleftGauze" class="vxr-obj-CleftGauze  vxr-interact" gltf-model="#CleftGauze" animation-mixer="clip:Abierto;clampWhenFinished: true;loop:once;startFrame:10000;timeScale:0.5" draggable="" grabbable
+          position="-0.241 0.437 -0.110" rotation="0 0 0"  visible="true" dynamic-body>
           </a-entity>          
         </a-entity>
       </template>
+ 
  
 
       
