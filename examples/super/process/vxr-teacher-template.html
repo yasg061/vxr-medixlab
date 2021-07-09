@@ -138,6 +138,36 @@
 </script>
 
 <script>
+  AFRAME.registerComponent('foo3', {
+    init: function() {
+      var el = this.el;
+      this.el.addEventListener('collide', function(e) {
+        let intracathcap03 = document.getElementById('intracathcap003');
+        if(intracathcap03 == e.detail.body.el){
+          intracathcap03.setAttribute('visible','false');
+          intracathcap03.remove();
+        }
+      });
+    }
+  })
+</script>
+<script>
+  AFRAME.registerComponent('foo4', {
+    init: function() {
+      var el = this.el;
+      this.el.addEventListener('collide', function(e) {
+        let bag = document.getElementById('vxr-bag');
+        let serumCard = document.getElementById('serumcontrolcard01');
+        if(bag == e.detail.body.el){
+          serumCard.setAttribute('constraint','target: #vxr-bag');
+          
+        }
+      });
+    }
+  })
+</script>
+
+<script>
   function randomizeColor (target) {
     target.setAttribute('color','#'+Math.random().toString(16).substr(-6));
     // color randomizer credit: http://stackoverflow.com/a/7638362
@@ -192,7 +222,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -4; iterations: 75" networked-scene="
+  <a-scene physics="debug: false; gravity: -4; iterations: 75" networked-scene="
       room: process2;
       adapter: easyrtc;
       audio: true;
@@ -268,6 +298,8 @@ t
       <a-asset-item id="intracathcap01" src="../../Models/gltf/Intracath_Cap_01.gltf"></a-asset-item>
       <a-asset-item id="intracathcap02" src="../../Models/gltf/Intracath_Cap_02.gltf"></a-asset-item>
       <a-asset-item id="intracathcap03" src="../../Models/gltf/Intracath_Cap_03.gltf"></a-asset-item>
+      <a-asset-item id="tapeadultdate" src="../../Models/gltf/Tape_Adult_Date.gltf"></a-asset-item>
+      <a-asset-item id="cottonpink" src="../../Models/gltf/Cotton_Pink.gltf"></a-asset-item>
 
       <canvas id="cam2"></canvas>
 
@@ -414,7 +446,7 @@ t
 
       <template id="vxr-obj-template-cottonswab01">
         <a-entity>
-          <a-entity class="vxr-obj-cottonswab01 vxr-interact" gltf-model="#cottonswab" draggable grabbable
+          <a-entity class="vxr-obj-cottonswab01 vxr-interact" gltf-model="#cottonpink" draggable grabbable
             toggle-physics position="0.07984 0.42445 -0.0597"></a-entity>
         </a-entity>
       </template>
@@ -542,7 +574,7 @@ t
 
       <template id="vxr-obj-template-serumcontrolcard">
         <a-entity>
-        <a-entity id="serumcontrolcard01" class="vxr-obj-serumcontrolcard" gltf-model="#serumcontrolcard" draggable grabbable toggle-physics position="-0.40045 0.4232 -0.38062" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
+        <a-entity id="serumcontrolcard01" class="vxr-obj-serumcontrolcard" foo4 gltf-model="#serumcontrolcard" draggable grabbable toggle-physics position="-0.40045 0.4232 -0.38062" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
         </a-entity>
       </template>
 
@@ -567,6 +599,18 @@ t
       <template id="vxr-obj-template-intracathcap03">
         <a-entity>
         <a-entity id="intracathcap003" class="vxr-obj-intracathcap03" gltf-model="#intracathcap03" position="0.897 0.273 -0.059" rotation="0 180 0" scale="1 1 1" visible="false" dynamic-body="mass: 0.0" draggable grabbable></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-tapeadult">
+        <a-entity>
+        <a-entity id="tapeadult" class="vxr-obj-tapeadult" gltf-model="#tapeadultdate" position="0.54179 0.398 -0.094" rotation="0 180 0" scale="1 1 1" visible="true" dynamic-body="mass: 0.0" draggable grabbable ondragstart="mass(event)"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-tapeadultstatic">
+        <a-entity>
+        <a-entity id="tapeadultstatic" class="vxr-obj-tapeadultstatic" gltf-model="#tapeadultdate" position="0.892 0.327 -0.568" rotation="0 0 0" scale="1 1 1" visible="false"></a-entity>
         </a-entity>
       </template>
 
@@ -605,7 +649,8 @@ t
     <a-box opacity="0" static-body rotation="" position="-0.10703 1.85724 -0.36937" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
     <a-box opacity="0" static-body rotation="0 90 0" position="1.19381 1.75704 -0.20298" color="red" depth="0.8" height="0.02 " width="1.1"></a-box>
     <a-box opacity="0" static-body rotation="0 90 0" position="0.17639 1.90605 -0.24462" color="red" depth="0.47" height="0.02" width="0.35"></a-box>
-    <a-box opacity="0" static-body rotation="0 0 0" position="0.53699 1.86541 -0.47932" color="red" depth="0.23" height="0.02" width="0.11"></a-box>
+    <a-box opacity="0" static-body rotation="0 0 0" position="0.53699 1.86541 -0.42932" color="red" depth="0.33" height="0.02" width="0.11"></a-box>
+    <a-box opacity="0" static-body rotation="0 0 0" position="0.290 1.273 -0.581" color="red" depth="0.33" height="0.02" width="0.31" foo3></a-box>
 
 
 
@@ -765,7 +810,7 @@ t
   <!-- <script src="../../js/Feature-SpawnTemplate.js"></script> -->
 
   <script src="../../js/Feature-SpawnObjects.js"></script>
-  <!-- <script src="../../js/vxr-full-house.js"></script> -->
+  <script src="../../js/vxr-full-house.js"></script>
 
 
 

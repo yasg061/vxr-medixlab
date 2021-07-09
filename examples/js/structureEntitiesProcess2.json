@@ -126,5 +126,13 @@
   {
     "template": "#vxr-obj-template-intracathcap03",
     "selector": ".vxr-obj-intracathcap03"
+  },
+  {
+    "template": "#vxr-obj-template-tapeadult",
+    "selector": ".vxr-obj-tapeadult"
+  },
+  {
+    "template": "#vxr-obj-template-tapeadultstatic",
+    "selector": ".vxr-obj-tapeadultstatic"
   }
 ]
