@@ -31,6 +31,10 @@ function SetSchemas(structure) {
         {
           selector: item.selector,
           component: 'visible'
+        },
+        {
+          selector: item.selector,
+          component: 'animation-trigger'
         }
       ]
     }
