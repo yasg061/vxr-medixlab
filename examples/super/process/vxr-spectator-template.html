@@ -120,13 +120,19 @@
   </script>
 
 <script>
-  AFRAME.registerComponent('attach-visible', {
+  AFRAME.registerComponent('foo2', {
     init: function() {
       var el = this.el;
       this.el.addEventListener('collide', function(e) {
         let cathter02 = document.getElementById('catheter002');
+        let intracathcap02 = document.getElementById('intracathcap002');
+        let intracathcap03 = document.getElementById('intracathcap003');
         if(cathter02 == e.detail.body.el){
-          e.detail.body.el.setAttribute('constraint','target: #vxr-bag');
+          intracathcap02.setAttribute('visible','false');
+          intracathcap02.remove();
+          intracathcap03.setAttribute('visible','true');
+          intracathcap03.setAttribute('dynamic-body','mass: 0.1');
+          cathter02.remove();
         }
       });
     }
@@ -261,6 +267,9 @@ t
       <a-asset-item id="controlcard" src="../../Models/gltf/ControlCard.gltf"></a-asset-item>
       <a-asset-item id="serumcontrolcard" src="../../Models/gltf/SerumControlCard.gltf"></a-asset-item>
       <a-asset-item id="boxsharpobject" src="../../Models/gltf/Box_SharpObject.gltf"></a-asset-item>
+      <a-asset-item id="intracathcap01" src="../../Models/gltf/Intracath_Cap_01.gltf"></a-asset-item>
+      <a-asset-item id="intracathcap02" src="../../Models/gltf/Intracath_Cap_02.gltf"></a-asset-item>
+      <a-asset-item id="intracathcap03" src="../../Models/gltf/Intracath_Cap_03.gltf"></a-asset-item>
 
       <canvas id="cam2"></canvas>
 
@@ -541,7 +550,25 @@ t
 
       <template id="vxr-obj-template-boxsharpobject">
         <a-entity>
-        <a-entity id="serumcontrolcard01" class="vxr-obj-boxsharpobject" gltf-model="#boxsharpobject" position="0.19397 -0.22773 -0.36821" rotation="0 0 0" scale="0.6 0.6 0.6" visible="true"></a-entity>
+        <a-entity id="serumcontrolcard01" class="vxr-obj-boxsharpobject" gltf-model="#boxsharpobject" position="0.309 -0.228 -0.424" rotation="0 180 0" scale="0.6 0.6 0.6" visible="true"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-intracathcap01">
+        <a-entity>
+        <a-entity id="intracathcap001" class="vxr-obj-intracathcap01" gltf-model="#intracathcap01" position="0 2 0" rotation="0 180 0" scale="0.6 0.6 0.6" visible="true"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-intracathcap02">
+        <a-entity>
+        <a-entity id="intracathcap002" class="vxr-obj-intracathcap02" gltf-model="#intracathcap02" position="0.897 0.273 -0.059" rotation="0 180 0" scale="1 1 1" visible="true" static-body foo2></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-intracathcap03">
+        <a-entity>
+        <a-entity id="intracathcap003" class="vxr-obj-intracathcap03" gltf-model="#intracathcap03" position="0.897 0.273 -0.059" rotation="0 180 0" scale="1 1 1" visible="false" dynamic-body="mass: 0.0" draggable grabbable></a-entity>
         </a-entity>
       </template>
 

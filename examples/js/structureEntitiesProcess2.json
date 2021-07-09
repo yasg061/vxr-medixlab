@@ -114,5 +114,17 @@
   {
     "template": "#vxr-obj-template-boxsharpobject",
     "selector": ".vxr-obj-boxsharpobject"
+  },
+  {
+    "template": "#vxr-obj-template-intracathcap01",
+    "selector": ".vxr-obj-intracathcap01"
+  },
+  {
+    "template": "#vxr-obj-template-intracathcap02",
+    "selector": ".vxr-obj-intracathcap02"
+  },
+  {
+    "template": "#vxr-obj-template-intracathcap03",
+    "selector": ".vxr-obj-intracathcap03"
   }
 ]
