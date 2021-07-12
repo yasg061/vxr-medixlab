@@ -77,6 +77,11 @@ AFRAME.registerComponent('attach-point-v2', {
 
       if(data.objClass=="balance" && classes.includes("vxr-obj-Baby_Vacuna")){
         console.log("working, harder, make it better")
+        console.log(this.el.getObject3D("mesh").getWorldPosition())
+
+        let colliderSphere= this.el.object3D;
+        e.detail.body.el.setAttribute("triggerlerp", colliderSphere.getWorldPosition)
+        console.log(this.el.getObject3D("mesh").getWorldPosition())
         showCloth=true;
         this.el.remove();
       }
