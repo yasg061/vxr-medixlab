@@ -450,7 +450,7 @@ var qrot = new THREE.Quaternion();
    
 
      let nameSpectator = document.createElement('a-entity');
-       nameSpectator.setAttribute("text", { value:         namesSpectatorsArray[i], align: 'center', side: 'double', color: 'yellow', font: 'https://cdn.aframe.io/fonts/Exo2SemiBold.fnt' ,fontsize: '10px'});
+      //  nameSpectator.setAttribute("text", { value:         namesSpectatorsArray[i], align: 'center', side: 'double', color: 'yellow', font: 'https://cdn.aframe.io/fonts/Exo2SemiBold.fnt' ,fontsize: '10px'});
        nameSpectator.setAttribute('rotation',
          '0 180 0',
        );
