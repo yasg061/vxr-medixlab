@@ -1,7 +1,6 @@
 AFRAME.registerComponent('triggerlerp', {
   schema: {
-    time: { default: 1 },
-    position:{default: {x:1,y:1,z:1}}
+    time: { default: 1 }
   },
 
   init() {
@@ -9,10 +8,8 @@ AFRAME.registerComponent('triggerlerp', {
     let alpha = 0
     let cubeMesh = this.el.object3D;
     console.log("cubeMesh: ", cubeMesh)
-    // let v1 = new THREE.Vector3(0, 2, -3)
-    let v1 = cubeMesh.getWorldPosition();
-    let v2 = position
-    // let v2 = new THREE.Vector3(0, 5, -3) // cubeMesh.getWorldPosition();
+    let v1 = new THREE.Vector3(0, 2, -3)
+    let v2 = new THREE.Vector3(0, 5, -3) // cubeMesh.getWorldPosition();
     //let v2=cubeMesh.getWorldPosition();
     var that = this;
     this.trigger = this.trigger.bind(this);
@@ -24,7 +21,8 @@ AFRAME.registerComponent('triggerlerp', {
       // make it loop every 100 milliseconds
       var interval = setInterval(function () {
         iterator += 0.001
-         if (Date.now() - started > 1000) {
+        // for 1.5 seconds
+        if (Date.now() - started > 1000) {
 
           // and then pause it
           clearInterval(interval);
