@@ -58,5 +58,61 @@
   {
     "template": "#vxr-obj-template-intracath",
     "selector": ".vxr-obj-intracath"
+  },
+  {
+    "template": "#vxr-obj-template-catheter01",
+    "selector": ".vxr-obj-catheter01"
+  },
+  {
+    "template": "#vxr-obj-template-catheter02",
+    "selector": ".vxr-obj-catheter02"
+  },
+  {
+    "template": "#vxr-obj-template-disposable",
+    "selector": ".vxr-obj-disposable"
+  },
+  {
+    "template": "#vxr-obj-template-disposableanim",
+    "selector": ".vxr-obj-disposableanim"
+  },
+  {
+    "template": "#vxr-obj-template-tape01",
+    "selector": ".vxr-obj-tape01"
+  },
+  {
+    "template": "#vxr-obj-template-tape02",
+    "selector": ".vxr-obj-tape02"
+  },
+  {
+    "template": "#vxr-obj-template-tape03",
+    "selector": ".vxr-obj-tape03"
+  },
+  {
+    "template": "#vxr-obj-template-medicalclothe",
+    "selector": ".vxr-obj-medicalclothe"
+  },
+  {
+    "template": "#vxr-obj-template-medicalclothestatic",
+    "selector": ".vxr-obj-medicalclothestatic"
+  },
+  {
+    "template": "#vxr-obj-template-tapestatic01",
+    "selector": ".vxr-obj-tapestatic01"
+  },
+  {
+    "template": "#vxr-obj-template-tapestatic02",
+    "selector": ".vxr-obj-tapestatic02"
+  },
+  {
+    "template": "#vxr-obj-template-tapestatic03",
+    "selector": ".vxr-obj-tapestatic03"
+  },
+  {
+    "template": "#vxr-obj-template-serumcontrolcard",
+    "selector": ".vxr-obj-serumcontrolcard"
+  },
+  {
+    "template": "#vxr-obj-template-boxsharpobject",
+    "selector": ".vxr-obj-boxsharpobject"
   }
 ]

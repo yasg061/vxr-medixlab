@@ -160,7 +160,7 @@
       <!-- Nurse Avatar -->
       <template id="student-avatar-template">
         <a-entity class="NurseHeadAvatar" gltf-model="#StudentAvatar" position="0 2 0"
-          networked-audio-source="positional:false"></a-entity>
+          ></a-entity>
       </template>
 
       <!-- Teacher Avatar -->
@@ -172,7 +172,7 @@
 
       <!-- Spectator Avatar -->
       <template id="spectator-avatar-template">
-        <a-entity networked-audio-source="positional:false"></a-entity>
+        <a-entity ></a-entity>
       </template>
 
       <!-- Teacher Avatar Constraints -->
@@ -478,7 +478,8 @@
       template: '#spectator-avatar-template',
       components: [
         'position',
-        'rotation'
+        'rotation',
+        'visible'
       ]
     });
     NAF.schemas.add({
@@ -486,6 +487,7 @@
       components: [
         'position',
         'rotation',
+        'visible',
         {
           selector: '.name-up',
           component: 'name-up'
@@ -493,6 +495,10 @@
         {
           selector: '.SpectatorAvatar',
           component: 'randomize-spec-color'
+        },
+        {
+          selector: '.SpectatorAvatar',
+          component: 'visible'
         }
       ]
     });

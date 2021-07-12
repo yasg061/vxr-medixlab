@@ -38,6 +38,18 @@
     "selector": ".vxr-obj-cottonswab03"
   },
   {
+    "template": "#vxr-obj-template-cottonswab04",
+    "selector": ".vxr-obj-cottonswab04"
+  },
+  {
+    "template": "#vxr-obj-template-cottonswab05",
+    "selector": ".vxr-obj-cottonswab05"
+  },
+  {
+    "template": "#vxr-obj-template-cottonswab06",
+    "selector": ".vxr-obj-cottonswab06"
+  },
+  {
     "template": "#vxr-obj-template-DestiledWater",
     "selector": ".vxr-obj-DestiledWater"
   },
@@ -60,14 +72,6 @@
   {
     "template": "#vxr-obj-template-Hyssop1",
     "selector": ".vxr-obj-Hyssop1"
-  },
-  {
-    "template": "#vxr-obj-template-Hyssop2",
-    "selector": ".vxr-obj-Hyssop2"
-  },
-  {
-    "template": "#vxr-obj-template-Hyssop3",
-    "selector": ".vxr-obj-Hyssop3"
   },
   {
     "template": "#vxr-obj-template-Infant-Scale",
@@ -94,20 +98,12 @@
     "selector": ".vxr-obj-InkPad"
   },
   {
-    "template": "#vxr-obj-template-ClampKocher",
-    "selector": ".vxr-obj-ClampKocher"
-  },
-  {
-    "template": "#vxr-obj-template-CurvedMayoScissor",
-    "selector": ".vxr-obj-CurvedMayoScissor"
-  },
-  {
-    "template": "#vxr-obj-template-RolledTowel",
-    "selector": ".vxr-obj-RolledTowel"
-  },
-  {
     "template": "#vxr-obj-template-Baby_Vacuna",
     "selector": ".vxr-obj-Baby_Vacuna"
+  },
+  {
+    "template": "#vxr-obj-template-Cordon_Tijera",
+    "selector": ".vxr-obj-Cordon_Tijera"
   },
   {
     "template": "#vxr-obj-template-Manta_Mesa",
@@ -136,10 +132,67 @@
   {
     "template": "#vxr-obj-template-Cloranfenicol",
     "selector": ".vxr-obj-Cloranfenicol"
-  },
+  }, 
   {
-    "template": "#vxr-obj-template-IdentificationBrazalet",
-    "selector": ".vxr-obj-IdentificationBrazalet"
-  }
- 
+    "template": "#vxr-obj-template-Syringe_1CC_Skin",
+    "selector": ".vxr-obj-Syringe_1CC_Skin"
+  }, 
+  {
+    "template": "#vxr-obj-template-Towel1",
+    "selector": ".vxr-obj-Towel1"
+  }, 
+  {
+    "template": "#vxr-obj-template-Towel2",
+    "selector": ".vxr-obj-Towel2"
+  }, 
+  {
+    "template": "#vxr-obj-template-Towel3",
+    "selector": ".vxr-obj-Towel3"
+  }, 
+  {
+    "template": "#vxr-obj-template-Tray_Surgical",
+    "selector": ".vxr-obj-Tray_Surgical"
+  }, 
+  {
+    "template": "#vxr-obj-template-KidneyTray",
+    "selector": ".vxr-obj-KidneyTray"
+  }, 
+  {
+    "template": "#vxr-obj-template-Plantares",
+    "selector": ".vxr-obj-Plantares"
+  }, 
+  {
+    "template": "#vxr-obj-template-BowlSmall1",
+    "selector": ".vxr-obj-BowlSmall1"
+  }, 
+  {
+    "template": "#vxr-obj-template-BowlSmall2",
+    "selector": ".vxr-obj-BowlSmall2"
+  }, 
+  {
+    "template": "#vxr-obj-template-Pañal_Prueba",
+    "selector": ".vxr-obj-Pañal_Prueba"
+  }, 
+  {
+    "template": "#vxr-obj-template-MantaPrueba",
+    "selector": ".vxr-obj-MantaPrueba"
+  }, 
+  {
+    "template": "#vxr-obj-template-CleftGauze",
+    "selector": ".vxr-obj-CleftGauze"
+  }, 
+  {
+    "template": "#vxr-obj-template-Medical_Laundry-v2",
+    "selector": ".vxr-obj-Medical_Laundry-v2"
+  }, 
+  {
+    "template": "#vxr-obj-template-CintaCabezaAnim",
+    "selector": ".vxr-obj-CintaCabezaAnim"
+  }, 
+  {
+    "template": "#vxr-obj-template-e-staticbaby",
+    "selector": ".vxr-obj-e-staticbaby"
+  } 
+  
+  
 ]

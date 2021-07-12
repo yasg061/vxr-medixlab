@@ -27,11 +27,20 @@ function SetSchemas(structure) {
         {
           selector: item.selector,
           component: 'position'
+        },
+        {
+          selector: item.selector,
+          component: 'visible'
+        },
+        {
+          selector: item.selector,
+          component: 'animation-trigger'
         }
       ]
     }
     NAF.schemas.add(schema1);
 
+    console.log("selector name:",item.selector)
 
   });
 }

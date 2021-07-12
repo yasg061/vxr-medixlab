@@ -58,5 +58,21 @@
   {
     "template": "#vxr-obj-template-intracath",
     "selector": ".vxr-obj-intracath"
+  },
+  {
+    "template": "#vxr-obj-template-catheter01",
+    "selector": ".vxr-obj-catheter01"
+  },
+  {
+    "template": "#vxr-obj-template-catheter02",
+    "selector": ".vxr-obj-catheter01"
+  },
+  {
+    "template": "#vxr-obj-template-disposable",
+    "selector": ".vxr-obj-disposable"
+  },
+  {
+    "template": "#vxr-obj-template-disposableanim",
+    "selector": ".vxr-obj-disposableanim"
   }
 ]
