@@ -125,12 +125,18 @@
         let cathter02 = document.getElementById('catheter002');
         let intracathcap02 = document.getElementById('intracathcap002');
         let intracathcap03 = document.getElementById('intracathcap003');
+        let animDisposable = document.getElementById('disposableAnim');
+        let staticDisposable = document.getElementById('xvr-disposable');
         if(cathter02 == e.detail.body.el){
           intracathcap02.setAttribute('visible','false');
           intracathcap02.remove();
           intracathcap03.setAttribute('visible','true');
           intracathcap03.setAttribute('dynamic-body','mass: 0.1');
           cathter02.remove();
+          staticDisposable.setAttribute('visible','false');
+          staticDisposable.remove();
+          animDisposable.setAttribute('visible','true');
+          animDisposable.setAttribute('animation-trigger','boolVar:true');
         }
       });
     }
@@ -143,16 +149,10 @@
       var el = this.el;
       this.el.addEventListener('collide', function(e) {
         let intracathcap03 = document.getElementById('intracathcap003');
-        let animDisposable = document.getElementById('disposableAnim');
-        let staticDisposable = document.getElementById('xvr-disposable');
         if(intracathcap03 == e.detail.body.el){
           //Activate animation with attach 
           intracathcap03.setAttribute('visible','false');
           intracathcap03.remove();
-          staticDisposable.setAttribute('visible','false');
-          staticDisposable.remove();
-          animDisposable.setAttribute('visible','true');
-          animDisposable.setAttribute('animation-trigger','boolVar:true');
         }
       });
     }
@@ -545,7 +545,7 @@ t
 
       <template id="vxr-obj-template-tape03">
         <a-entity>
-          <a-entity id="tape03" class="vxr-obj-tape02" gltf-model="#tapestatic003" position="0.54179 0.397 -0.184" rotation="0 0 0" scale="1 1 1" visible="true" dynamic-body="mass: 0" draggable grabbable ondragstart="mass(event)"></a-entity>
+          <a-entity id="tape03" class="vxr-obj-tape03" gltf-model="#tapestatic003" position="0.54179 0.397 -0.184" rotation="0 0 0" scale="1 1 1" visible="true" dynamic-body="mass: 0" draggable grabbable ondragstart="mass(event)"></a-entity>
         </a-entity>
       </template>
 

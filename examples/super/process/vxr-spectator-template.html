@@ -127,33 +127,34 @@
         let cathter02 = document.getElementById('catheter002');
         let intracathcap02 = document.getElementById('intracathcap002');
         let intracathcap03 = document.getElementById('intracathcap003');
+        let animDisposable = document.getElementById('disposableAnim');
+        let staticDisposable = document.getElementById('xvr-disposable');
         if(cathter02 == e.detail.body.el){
           intracathcap02.setAttribute('visible','false');
           intracathcap02.remove();
           intracathcap03.setAttribute('visible','true');
           intracathcap03.setAttribute('dynamic-body','mass: 0.1');
           cathter02.remove();
+          staticDisposable.setAttribute('visible','false');
+          staticDisposable.remove();
+          animDisposable.setAttribute('visible','true');
+          animDisposable.setAttribute('animation-trigger','boolVar:true');
         }
       });
     }
   })
 </script>
+
 <script>
   AFRAME.registerComponent('foo3', {
     init: function() {
       var el = this.el;
       this.el.addEventListener('collide', function(e) {
         let intracathcap03 = document.getElementById('intracathcap003');
-        let animDisposable = document.getElementById('disposableAnim');
-        let staticDisposable = document.getElementById('xvr-disposable');
         if(intracathcap03 == e.detail.body.el){
           //Activate animation with attach 
           intracathcap03.setAttribute('visible','false');
           intracathcap03.remove();
-          staticDisposable.setAttribute('visible','false');
-          staticDisposable.remove();
-          animDisposable.setAttribute('visible','true');
-          animDisposable.setAttribute('animation-trigger','boolVar:true');
         }
       });
     }
@@ -307,6 +308,7 @@ t
       <a-asset-item id="intracathcap01" src="../../Models/gltf/Intracath_Cap_01.gltf"></a-asset-item>
       <a-asset-item id="intracathcap02" src="../../Models/gltf/Intracath_Cap_02.gltf"></a-asset-item>
       <a-asset-item id="intracathcap03" src="../../Models/gltf/Intracath_Cap_03.gltf"></a-asset-item>
+      <a-asset-item id="tapeadultdate" src="../../Models/gltf/Tape_Adult_Date.gltf"></a-asset-item>
       <a-asset-item id="cottonpink" src="../../Models/gltf/Cotton_Pink.gltf"></a-asset-item>
 
       <canvas id="cam2"></canvas>
@@ -594,7 +596,7 @@ t
 
       <template id="vxr-obj-template-intracathcap01">
         <a-entity>
-        <a-entity id="intracathcap001" class="vxr-obj-intracathcap01" gltf-model="#intracathcap01" position="0 2 0" rotation="0 180 0" scale="0.6 0.6 0.6" visible="true"></a-entity>
+        <a-entity id="intracathcap001" class="vxr-obj-intracathcap01" gltf-model="#intracathcap01" position="0.364 0.423 -0.023" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
         </a-entity>
       </template>
 
@@ -610,9 +612,15 @@ t
         </a-entity>
       </template>
 
+      <template id="vxr-obj-template-tapeadult">
+        <a-entity>
+        <a-entity id="tapeadult" class="vxr-obj-tapeadult" gltf-model="#tapeadultdate" position="0.54179 0.398 -0.094" rotation="0 180 0" scale="1 1 1" visible="true" dynamic-body="mass: 0.0" draggable grabbable ondragstart="mass(event)"></a-entity>
+        </a-entity>
+      </template>
+
       <template id="vxr-obj-template-tapeadultstatic">
         <a-entity>
-        <a-entity id="tapeadultstatic" class="vxr-obj-tapeadultstatic" gltf-model="#tapeadultdate" position="0.54179 1.598 -0.094" rotation="0 0 0" scale="1 1 1" visible="true" static-body></a-entity>
+        <a-entity id="tapeadultstatic" class="vxr-obj-tapeadultstatic" gltf-model="#tapeadultdate" position="0.892 0.327 -0.568" rotation="0 0 0" scale="1 1 1" visible="false"></a-entity>
         </a-entity>
       </template>
 

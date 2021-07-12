@@ -38,12 +38,15 @@ AFRAME.registerComponent('attach-point', {
         medicalClote02.setAttribute('visible','true');
         medicalClote02.setAttribute('dynamic-body', 'mass: 0');
       }if(e.detail.body.el==dinamicTape01){
+        dinamicTape01.setAttribute('visible','false');
         dinamicTape01.remove();
         staticTape01.setAttribute('visible','true');
       }if(e.detail.body.el==dinamicTape02){
+        dinamicTape02.setAttribute('visible','false');
         dinamicTape02.remove();
         staticTape02.setAttribute('visible','true');
       }if(e.detail.body.el==dinamicTape03){
+        dinamicTape03.setAttribute('visible','false');
         dinamicTape03.remove();
         staticTape03.setAttribute('visible','true');
         // staticDisposable.setAttribute('visible','false');
