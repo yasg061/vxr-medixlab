@@ -144,9 +144,16 @@
       var el = this.el;
       this.el.addEventListener('collide', function(e) {
         let intracathcap03 = document.getElementById('intracathcap003');
+        let animDisposable = document.getElementById('disposableAnim');
+        let staticDisposable = document.getElementById('xvr-disposable');
         if(intracathcap03 == e.detail.body.el){
+          //Activate animation with attach 
           intracathcap03.setAttribute('visible','false');
           intracathcap03.remove();
+          staticDisposable.setAttribute('visible','false');
+          staticDisposable.remove();
+          animDisposable.setAttribute('visible','true');
+          animDisposable.setAttribute('animation-trigger','boolVar:true');
         }
       });
     }
