@@ -805,12 +805,11 @@
    <a-plane rotation="0 0 0" scale="8.250 5.479 4" material="src:#cam2" position="0 7.32941 -1.90179" canvas-updater>
    </a-plane>
 
-    <!-- Theater Lights -->
-    <a-entity background="color: #92f2ff"></a-entity>
+  <!-- Theater Lights -->
+  <a-entity background="color: #92f2ff"></a-entity>
 
-    <a-entity light="intensity: 0.1; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
-    <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.34" id="light01"
-      position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
+  <a-entity light="intensity: 0.7; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0" id="ambientlight"></a-entity>
+  <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01" position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
 
     <a-entity id="spectator" assign-seat>
