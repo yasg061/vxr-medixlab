@@ -114,25 +114,5 @@
   {
     "template": "#vxr-obj-template-boxsharpobject",
     "selector": ".vxr-obj-boxsharpobject"
-  },
-  {
-    "template": "#vxr-obj-template-intracathcap01",
-    "selector": ".vxr-obj-intracathcap01"
-  },
-  {
-    "template": "#vxr-obj-template-intracathcap02",
-    "selector": ".vxr-obj-intracathcap02"
-  },
-  {
-    "template": "#vxr-obj-template-intracathcap03",
-    "selector": ".vxr-obj-intracathcap03"
-  },
-  {
-    "template": "#vxr-obj-template-tapeadult",
-    "selector": ".vxr-obj-tapeadult"
-  },
-  {
-    "template": "#vxr-obj-template-tapeadultstatic",
-    "selector": ".vxr-obj-tapeadultstatic"
   }
 ]

@@ -1,4 +1,16 @@
+let result
+let objSchemas
 
+fetch(url).then(
+  function (u) { return u.json(); }
+).then(
+  function (json) {
+    objSchemas = json
+    result = JSON.parse(JSON.stringify(json));
+
+    SetSchemas(result)
+  }
+)
 
 function SetSchemas(structure) {
   structure.forEach(item => {
@@ -19,10 +31,6 @@ function SetSchemas(structure) {
         {
           selector: item.selector,
           component: 'visible'
-        },
-        {
-          selector: item.selector,
-          component: 'animation-trigger'
         }
       ]
     }
