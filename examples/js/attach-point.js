@@ -17,6 +17,8 @@ AFRAME.registerComponent('attach-point', {
       let sphere02 = document.getElementById('sphere2');
       let tapeAdult = document.getElementById('tapeadult');
       let tapeAdultStatic = document.getElementById('tapeadultstatic');
+      let disposableStatic02 = document.getElementById('disposablestatic002');
+      let animDisposable = document.getElementById('disposableAnim');
       // let animDisposable = document.getElementById('disposableAnim');
       // let staticDisposable = document.getElementById('xvr-disposable');
       console.log('************************************************ ', cathter02);
@@ -58,7 +60,10 @@ AFRAME.registerComponent('attach-point', {
       }if(e.detail.body.el==tapeAdult){
         tapeAdult.setAttribute('visible','false');
         tapeAdult.remove();
-        tapeAdultStatic.setAttribute('visible','true'); 
+        tapeAdultStatic.setAttribute('visible','true');
+        disposableStatic02.setAttribute('visible','true');
+        animDisposable.setAttribute('visible','false');
+        animDisposable.remove();
       }     
     });
   },
