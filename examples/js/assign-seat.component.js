@@ -220,7 +220,7 @@ AFRAME.registerComponent('assign-seat', {
       },
       {
         identifier: '51',
-        position: { x: 1.0, y: 3.6, z: 3.50 },
+        position: { x: 0, y: -1, z: 2.5 },
         visible:  true
       }
     ]

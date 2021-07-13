@@ -56,6 +56,7 @@ AFRAME.registerComponent('attach-point', {
         // animDisposable.setAttribute('animation-mixer','loop: once; clampWhenFinished: true; timeScale: 1');
         
       }if(e.detail.body.el==tapeAdult){
+        tapeAdult.setAttribute('visible','false');
         tapeAdult.remove();
         tapeAdultStatic.setAttribute('visible','true'); 
       }     
