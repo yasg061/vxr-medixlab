@@ -8,6 +8,7 @@ AFRAME.registerComponent('attach-point-v2', {
   init: function () {
     let data = this.data;
     var el = this.el;
+
     this.el.addEventListener('collide', function (e) {
       let classes = e.detail.body.el.className.split(' ')
       if (classes.includes(data.objClass)) {
@@ -68,8 +69,14 @@ AFRAME.registerComponent('attach-point-v2', {
       if (classes.includes("vxr-obj-CleftGauze")) {
         let medicalClothe = document.getElementById("e-CleftGauze_Close")
         medicalClothe.setAttribute("visible", "true")
-        let baby = document.getElementById("baby")
-        baby.setAttribute("dynamic-body","mass:0")  
+      
+        let blanket = document.getElementById("e-Manta_Abierta");
+        blanket.setAttribute("animation-mixer","loop:once;clampWhenFinished:true")
+
+          let baby = document.getElementById("baby")
+        baby.setAttribute("dynamic-body","mass:0")
+
+        // animation-mixer="loop:once;clampWhenFinished:true"  
         e.detail.body.el.remove();
       
       }
@@ -77,13 +84,9 @@ AFRAME.registerComponent('attach-point-v2', {
 
       if(data.objClass=="balance" && classes.includes("vxr-obj-Baby_Vacuna")){
         console.log("working, harder, make it better")
-        console.log(this.el.getObject3D("mesh").getWorldPosition())
-
-        let colliderSphere= this.el.object3D;
-        e.detail.body.el.setAttribute("triggerlerp", colliderSphere.getWorldPosition)
-        console.log(this.el.getObject3D("mesh").getWorldPosition())
-        showCloth=true;
-        this.el.remove();
+ 
+         e.detail.body.el.setAttribute("triggerlerp", el.getAttribute('position'))
+        showCloth=true;        
       }
       console.log("place: ", data.objClass, "clases", classes)
 

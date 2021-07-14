@@ -192,7 +192,12 @@
   {
     "template": "#vxr-obj-template-e-staticbaby",
     "selector": ".vxr-obj-e-staticbaby"
-  } 
+  }, 
+  {
+    "template": "#vxr-obj-template-Manta_Animation",
+    "selector": ".vxr-obj-Manta_Animation"
+  }
+  
   
   
 ]

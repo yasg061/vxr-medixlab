@@ -40,7 +40,6 @@ function SetSchemas(structure) {
     }
     NAF.schemas.add(schema1);
 
-    console.log("selector name:",item.selector)
-
+ 
   });
 }
