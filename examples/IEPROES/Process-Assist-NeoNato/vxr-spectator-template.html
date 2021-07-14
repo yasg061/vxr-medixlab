@@ -127,8 +127,7 @@
       adapter: easyrtc;
       audio: false;
       debug: true;
-      onConnect: spawnentity;
-    ">
+      onConnect: spawnentity">
     <a-assets>
       <!-- <a-asset-item id="htc" src="../../../super/process/assets/vr_controller_vive.obj"></a-asset-item> -->
       <a-asset-item id="table" src="../../Models/gltf/Table.gltf"></a-asset-item>
@@ -195,14 +194,12 @@
       <a-asset-item id="s_cube" src="CottonColor.gltf"></a-asset-item>
 
       <!-- Avatars -->
-      <a-asset-item id="StudentAvatarHead" src="../../super/process/assets/avatars/StudentAvatarHead.gltf">
-      </a-asset-item>
-      <a-asset-item id="StudentAvatarBody" src="../../super/process/assets/avatars/StudentAvatarBody.gltf">
-      </a-asset-item>
-      <a-asset-item id="TeacherAvatarHead" src="../../super/process/assets/avatars/TeacherAvatarHead.gltf">
-      </a-asset-item>
-      <a-asset-item id="TeacherAvatarBody" src="../../super/process/assets/avatars/TeacherAvatarBody.gltf">
-      </a-asset-item>
+
+      <a-asset-item id="SpectatorAvatar" src="../../super/process/assets/avatars/SpectatorAvatarBody.gltf"></a-asset-item>
+      <a-asset-item id="StudentAvatarHead" src="../../super/process/assets/avatars/StudentAvatarHead.gltf"></a-asset-item>
+      <a-asset-item id="StudentAvatarBody" src="../../super/process/assets/avatars/StudentAvatarBody.gltf"></a-asset-item>
+      <a-asset-item id="TeacherAvatarHead" src="../../super/process/assets/avatars/TeacherAvatarHead.gltf"></a-asset-item>
+      <a-asset-item id="TeacherAvatarBody" src="../../super/process/assets/avatars/TeacherAvatarBody.gltf"></a-asset-item>
       <a-asset-item id="student" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
       <a-asset-item id="teacher" src="../../super/process/assets/TeacherAvatar.gltf"></a-asset-item>
 
@@ -244,15 +241,14 @@
 
       <!-- Teacher Avatar -->
       <template id="teacher-avatar-template">
-        <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar" scale="0.8 0.8 0.8"
+        <a-entity class="TeacherAvatarBody" gltf-model="#TeacherAvatar" scale="0.8 0.8 0.8"
           networked-audio-source="positional:false">
         </a-entity>
       </template>
 
       <!-- Spectator Avatar -->
       <template id="spectator-avatar-template">
-        <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" >
-        </a-entity>
+        <a-entity networked-audio-source="positional:false"></a-entity>
       </template>
 
       <!-- Teacher Avatar Constraints -->
@@ -805,13 +801,11 @@
    <a-plane rotation="0 0 0" scale="8.250 5.479 4" material="src:#cam2" position="0 7.32941 -1.90179" canvas-updater>
    </a-plane>
 
-    <!-- Theater Lights -->
-    <a-entity background="color: #92f2ff"></a-entity>
+  <!-- Theater Lights -->
+  <a-entity background="color: #92f2ff"></a-entity>
 
-    <a-entity light="intensity: 0.1; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"></a-entity>
-    <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.34" id="light01"
-      position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
-
+  <a-entity light="intensity: 0.7; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0" id="ambientlight"></a-entity>
+  <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01" position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
     <a-entity id="spectator" assign-seat>
 
