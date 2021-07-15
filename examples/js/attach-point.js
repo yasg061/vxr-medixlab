@@ -51,11 +51,10 @@ AFRAME.registerComponent('attach-point', {
         dinamicTape03.setAttribute('visible','false');
         dinamicTape03.remove();
         staticTape03.setAttribute('visible','true');
-        // staticDisposable.setAttribute('visible','false');
-        // staticDisposable.remove();
-        // animDisposable.setAttribute('visible','true');
-        // animDisposable.setAttribute('animation-trigger','boolVar:true');
-        // animDisposable.setAttribute('animation-mixer','loop: once; clampWhenFinished: true; timeScale: 1');
+        staticDisposable.setAttribute('visible','false');
+        staticDisposable.remove();
+        animDisposable.setAttribute('visible','true');
+         animDisposable.setAttribute('animation-trigger','boolVar:true');
         
       }if(e.detail.body.el==tapeAdult){
         tapeAdult.setAttribute('visible','false');
