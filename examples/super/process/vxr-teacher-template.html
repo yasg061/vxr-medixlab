@@ -353,7 +353,9 @@ t
       <template id="constraint-teacher-avatar-template">
         <a-entity>
           <a-entity class="name-up-teacher"></a-entity>
-          <a-entity class="TeacherAvatar" id="teacher" gltf-model="#teacher"></a-entity>
+          <!-- <a-entity class="TeacherAvatar" id="teacher" gltf-model="#teacher"></a-entity> -->
+          <a-entity class="TeacherAvatarBody" id="teacherbody" gltf-model="#TeacherAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="TeacherAvatarHead" id="teacherhead"  gltf-model="#TeacherAvatarHead" static-body avatar-body="body:#teacherbody; id:#teacherbody"></a-entity>
         </a-entity>
       </template>
 
@@ -695,7 +697,7 @@ t
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left" networked="template:#left-hand-template">
+      <a-entity id="lhand" mixin="touch" input-controls="hand: left" networked="template:#left-hand-template">
       </a-entity>
       <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right" networked="template:#right-hand-template">
       </a-entity>
