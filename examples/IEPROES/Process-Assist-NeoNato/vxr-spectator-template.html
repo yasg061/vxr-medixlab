@@ -297,11 +297,15 @@
           <a-entity networked-audio-source="positional:false"></a-entity>
         </template>
   
+     
+  
         <!-- Teacher Avatar Constraints -->
         <template id="constraint-teacher-avatar-template">
           <a-entity>
             <a-entity class="name-up-teacher"></a-entity>
-            <a-entity class="TeacherAvatar" id="teacher" gltf-model="#teacher"></a-entity>
+            <!-- <a-entity class="TeacherAvatar" id="teacher" gltf-model="#teacher"></a-entity> -->
+            <a-entity class="TeacherAvatarBody" id="teacherbody" gltf-model="#TeacherAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+            <a-entity class="TeacherAvatarHead" id="teacherhead"  gltf-model="#TeacherAvatarHead" static-body avatar-body="body:#teacherbody; id:#teacherbody"></a-entity>
           </a-entity>
         </template>
   
@@ -572,16 +576,16 @@
               ondragstart="setMass()">
   
               <a-entity id="e-ClampClosed" visible="false" class="vxr-obj-ClampClosed vxr-interact"
-                gltf-model="#ClampClosed" position="0.008 0.053 0.017" rotation="0 90 0"></a-entity>
+                gltf-model="#ClampClosed" position="-0.020 0.082 0.079" rotation="0 90 0"></a-entity>
   
               <a-entity id="e-CleftGauze_Close" class="vxr-obj-CleftGauze_Close  vxr-interact"
-                gltf-model="#CleftGauze_Close" draggable="" grabbable position="-0.007 0.076 0.074" rotation="0 0 0"
+                gltf-model="#CleftGauze_Close" draggable="" grabbable position="-0.007 0.076 0.074" rotation="0 90 0"
                 visible="false"></a-entity>
   
-                <a-entity id="e-Manta_Cerrada" class="vxr-obj-CleftGauze_Close  vxr-interact"
-                gltf-model="#Manta_Cerrada" draggable="" grabbable position="-0.038 0.027 -0.017" rotation="0 0 0"
+                <a-entity id="e-Manta_Cerrada" class="vxr-obj-Manta_Cerrada  vxr-interact"
+                gltf-model="#Manta_Cerrada" draggable="" grabbable position="-0.03829 -0.003 -0.01601" rotation="0 0 0"
                 visible="false"></a-entity>
-  
+                
   
             </a-entity>
   
@@ -771,7 +775,7 @@
           <a-entity>
             <a-entity id="e-Baby_Pose_Side" grabbable="maxGrabbers: NaN" grabbable
               class="vxr-obj-e-Baby_Pose_Side  vxr-interact" gltf-model="#Baby_Pose_Side" draggable="" grabbable
-              position="0.862 0.248 -0.844" rotation="-15.213 0 0" visible="false">
+              position="0.862 0.248 -0.844" rotation="0 0 0" visible="false">
             </a-entity>
           </a-entity>
         </template>
@@ -1092,16 +1096,7 @@
           component: 'visible'
         },
       ]
-    });
-
-
-
-
-
-
-
-
-
+    }); 
     NAF.schemas.add({
       template: '#student-avatar-template',
       components: [

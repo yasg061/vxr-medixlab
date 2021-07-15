@@ -43,6 +43,7 @@
   <script src="../../js/attach-to-position.js"></script>
   <script src="../../js/set-name.component.js"></script>
   <script src="../../js/init-animation.js"></script>
+  <script src="../../js/set-position.js"></script>
 
 
   <script src="../../js/randomize-spec-color.component.js"></script>
@@ -310,11 +311,15 @@
         <a-entity networked-audio-source="positional:false"></a-entity>
       </template>
 
+   
+
       <!-- Teacher Avatar Constraints -->
       <template id="constraint-teacher-avatar-template">
         <a-entity>
           <a-entity class="name-up-teacher"></a-entity>
-          <a-entity class="TeacherAvatar" id="teacher" gltf-model="#teacher"></a-entity>
+          <!-- <a-entity class="TeacherAvatar" id="teacher" gltf-model="#teacher"></a-entity> -->
+          <a-entity class="TeacherAvatarBody" id="teacherbody" gltf-model="#TeacherAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
+          <a-entity class="TeacherAvatarHead" id="teacherhead"  gltf-model="#TeacherAvatarHead" static-body avatar-body="body:#teacherbody; id:#teacherbody"></a-entity>
         </a-entity>
       </template>
 
@@ -935,8 +940,8 @@
     <a-entity id="columns01" gltf-model="#columns" scale="1 1 1" position="0 0 0" material="color: brown"
       rotation="0 0 0"></a-entity>
 
-    <!-- <a-entity id="testing" networked="template:#xlr8;attachTemplateToLocal:true;" position="1 1 1" rotation="0 180 0">
-    </a-entity> -->
+    <a-entity id="testing" networked="template:#xlr8;attachTemplateToLocal:true;" position="1 1 1" rotation="0 180 0">
+    </a-entity>
 
 
     <!-- Theater Lights -->

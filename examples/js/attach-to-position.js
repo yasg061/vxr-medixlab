@@ -102,6 +102,8 @@ AFRAME.registerComponent('attach-point-v2', {
         let Baby_Pose_Side = document.getElementById("e-Baby_Pose_Side")
         let Manta_Cerrada = document.getElementById("e-Manta_Cerrada")
 
+
+        baby.setAttribute("visible","false")
         baby.remove();
         Manta_Cerrada.setAttribute("visible","false")
         Baby_Pose_Side.setAttribute("visible","true")
@@ -112,6 +114,7 @@ AFRAME.registerComponent('attach-point-v2', {
 
       if (classes.includes("vxr-obj-Thermometer") && thermometerValidator ) {
         
+        console.log("termometro entro, mostrar idle, ocultar side.")
         let Baby_Pose_Idle = document.getElementById("e-Baby_Pose_Idle")
         let Baby_Pose_Side = document.getElementById("e-Baby_Pose_Side")
 
@@ -126,14 +129,15 @@ AFRAME.registerComponent('attach-point-v2', {
       if (classes.includes("vxr-obj-Pañal_Prueba") ) {
         let Pañal_Cerrado = document.getElementById("e-Pañal_Cerrado")
         let Baby_Burrito = document.getElementById("e-Baby_Burrito")
-
+        let Manta_Abierta = document.getElementById("e-Manta_Abierta")
         Pañal_Cerrado.setAttribute("visible","true")
         e.detail.body.el.remove();
 
 
         setTimeout(function() {
           let Baby_Pose_Idle = document.getElementById("e-Baby_Pose_Idle")
-
+          Pañal_Cerrado.setAttribute("visible","false")
+          Manta_Abierta.setAttribute("visible","false")
           Baby_Pose_Idle.setAttribute("visible","false")
           Baby_Burrito.setAttribute("visible","true")
 
