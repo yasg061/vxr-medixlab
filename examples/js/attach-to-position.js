@@ -8,6 +8,20 @@ AFRAME.registerComponent('attach-point-v2', {
   init: function () {
     let data = this.data;
     var el = this.el;
+    let thermometerValidator=false;
+
+    // let pañal_Abierto = document.getElementById("Pañal")
+    // let Pañal_Cerrado = document.getElementById("e-Pañal_Cerrado")
+    // let Manta_Abierta = document.getElementById("e-Manta_Abierta")
+    // let Baby_Burrito = document.getElementById("e-Baby_Burrito")
+    // let Baby_Pose_Idle = document.getElementById("e-Baby_Pose_Idle")
+    // let baby = document.getElementById("baby")
+    // let Baby_Pose_Side = document.getElementById("e-Baby_Pose_Side")
+    // let Manta_Cerrada = document.getElementById("e-Manta_Cerrada")
+    
+
+
+
 
     this.el.addEventListener('collide', function (e) {
       let classes = e.detail.body.el.className.split(' ')
@@ -58,48 +72,79 @@ AFRAME.registerComponent('attach-point-v2', {
         // e.detail.body.el.remove();
       }
        
+  
+
+
+      //ending the first  part
       if (classes.includes("vxr-obj-CleftGauze")) {
-        let medicalClothe = document.getElementById("e-CleftGauze_Close")
-        medicalClothe.setAttribute("visible", "true")
-        e.detail.body.el.remove();
+        let Manta_Abierta = document.getElementById("e-Manta_Abierta")
+        let Manta_Cerrada = document.getElementById("e-Manta_Cerrada")
+
+        Manta_Abierta.setAttribute("visible","false")
+        Manta_Cerrada.setAttribute("visible","true")
+
         let baby = document.getElementById("baby")
-        baby.setAttribute("dynamic-body","mass:0")        
-      }
 
-      if (classes.includes("vxr-obj-CleftGauze")) {
-        let medicalClothe = document.getElementById("e-CleftGauze_Close")
-        medicalClothe.setAttribute("visible", "true")
-      
-        let blanket = document.getElementById("e-Manta_Abierta");
-        blanket.setAttribute("animation-mixer","loop:once;clampWhenFinished:true")
-
-          let baby = document.getElementById("baby")
         baby.setAttribute("dynamic-body","mass:0")
-
-        // animation-mixer="loop:once;clampWhenFinished:true"  
         e.detail.body.el.remove();
       
       }
 
-
+      //after simulate plantares return baby to crib.
       if(data.objClass=="balance" && classes.includes("vxr-obj-Baby_Vacuna")){
-        console.log("working, harder, make it better")
- 
-         e.detail.body.el.setAttribute("triggerlerp", el.getAttribute('position'))
         showCloth=true;        
       }
-      console.log("place: ", data.objClass, "clases", classes)
 
-      if (classes.includes("vxr-obj-Baby_Vacuna") && showCloth && data.objClass!="balance") {
-        let medicalClothe = document.getElementById("id-e-staticbaby")
-        medicalClothe.setAttribute("visible", "true")
+      if (classes.includes("vxr-obj-Baby_Vacuna") && showCloth && data.objClass!="balance" ) {
+        let Manta_Abierta = document.getElementById("e-Manta_Abierta")
+
+        let baby = document.getElementById("baby")
+        let Baby_Pose_Side = document.getElementById("e-Baby_Pose_Side")
+        let Manta_Cerrada = document.getElementById("e-Manta_Cerrada")
+
+        baby.remove();
+        Manta_Cerrada.setAttribute("visible","false")
+        Baby_Pose_Side.setAttribute("visible","true")
+        Manta_Abierta.setAttribute("visible","true")   
+        thermometerValidator=true     
+
+      }
+
+      if (classes.includes("vxr-obj-Thermometer") && thermometerValidator ) {
+        
+        let Baby_Pose_Idle = document.getElementById("e-Baby_Pose_Idle")
+        let Baby_Pose_Side = document.getElementById("e-Baby_Pose_Side")
+
+
+        Baby_Pose_Side.setAttribute("visible","false")
+        Baby_Pose_Idle.setAttribute("visible","true")
+        
+
+      }
+
+
+      if (classes.includes("vxr-obj-Pañal_Prueba") ) {
+        let Pañal_Cerrado = document.getElementById("e-Pañal_Cerrado")
+        let Baby_Burrito = document.getElementById("e-Baby_Burrito")
+
+        Pañal_Cerrado.setAttribute("visible","true")
         e.detail.body.el.remove();
-           
+
+
+        setTimeout(function() {
+          let Baby_Pose_Idle = document.getElementById("e-Baby_Pose_Idle")
+
+          Baby_Pose_Idle.setAttribute("visible","false")
+          Baby_Burrito.setAttribute("visible","true")
+
+         }, 1500);
+     
+        
+
       }
 
       
 
-      console.log("the class is: ", data.objClass)
-    });
+     });
   }
 })

@@ -174,10 +174,6 @@
     "selector": ".vxr-obj-Pañal_Prueba"
   }, 
   {
-    "template": "#vxr-obj-template-MantaPrueba",
-    "selector": ".vxr-obj-MantaPrueba"
-  }, 
-  {
     "template": "#vxr-obj-template-CleftGauze",
     "selector": ".vxr-obj-CleftGauze"
   }, 
@@ -188,16 +184,26 @@
   {
     "template": "#vxr-obj-template-CintaCabezaAnim",
     "selector": ".vxr-obj-CintaCabezaAnim"
+  },
+  {
+    "template": "#vxr-obj-template-e-Baby_Pose_Side",
+    "selector": ".vxr-obj-e-Baby_Pose_Side"
   }, 
   {
-    "template": "#vxr-obj-template-e-staticbaby",
-    "selector": ".vxr-obj-e-staticbaby"
+    "template": "#vxr-obj-template-e-Baby_Pose_Idle",
+    "selector": ".vxr-obj-e-Baby_Pose_Idle"
   }, 
   {
-    "template": "#vxr-obj-template-Manta_Animation",
-    "selector": ".vxr-obj-Manta_Animation"
+    "template": "#vxr-obj-template-Baby_Burrito",
+    "selector": ".vxr-obj-Baby_Burrito"
+  },
+  {
+    "template": "#vxr-obj-template-e-Manta_Abierta",
+    "selector": ".vxr-obj-e-Manta_Abierta"
+  },
+  {
+    "template": "#vxr-obj-template-Pañal_Cerrado",
+    "selector": ".vxr-obj-Pañal_Cerrado"
   }
   
-  
-  
-]
+ ]
