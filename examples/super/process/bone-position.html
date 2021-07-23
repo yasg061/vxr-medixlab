@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script>
+      AFRAME.registerComponent('bone-pos', {
+        init: function () {
+          // Wait for model to load.
+          this.el.addEventListener('model-loaded', () => {
+            // Grab the mesh / scene.
+            var worldPosition = new THREE.Vector3();
+            console.log(this.el.object3D.getWorldPosition(worldPosition))
+            const obj = this.el.getObject3D('mesh');
+            // Go over the submeshes and modify materials we want.
+            obj.traverse( function ( object ) {
+                if (object.name.indexOf('Up01') !== -1 ) {
+                    obj.updateMatrixWorld();
+                    var worldPosition3 = new THREE.Vector3();
+                    console.log('bone-global:', object.getWorldPosition(worldPosition3))
+                    console.log('bone-local:', object.position)
+                }
+            });
+          });
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="instrumentsanim" src="assets/Instruments_Anim.gltf"></a-asset-item>
+      </a-assets>
+      <a-entity position="0 0 0" gltf-model="#instrumentsanim" bone-pos></a-entity>
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>
