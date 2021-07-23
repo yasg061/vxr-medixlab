@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script>
+      var tex = new THREE.TextureLoader().load('assets/trees.jpg');
+      tex.flipY = false; // for glTF models.
+
+      AFRAME.registerComponent('modify-materials', {
+        init: function () {
+          // Wait for model to load.
+          this.el.addEventListener('model-loaded', () => {
+            // Grab the mesh / scene.
+            const obj = this.el.getObject3D('mesh');
+            console.log(obj)
+            // Go over the submeshes and modify materials we want.
+              obj.traverse( function ( object ) {
+                  if ( object.name.indexOf('Plane_2') !== -1) object.material.map = tex;
+              });
+          });
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="modeltest" src="assets/ModelTest.gltf"></a-asset-item>
+        <img id="trees" src="assets/trees.jpg">
+      </a-assets>
+      <a-entity position="1 0.5 -4" gltf-model="#modeltest" modify-materials></a-entity>
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>
