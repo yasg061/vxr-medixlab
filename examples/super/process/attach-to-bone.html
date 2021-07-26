@@ -3,7 +3,7 @@
   <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script>
-      AFRAME.registerComponent("foo", {
+      AFRAME.registerComponent("attach-to-bone", {
         init:function() {
           this.el.addEventListener('model-loaded', () => {
             let mesh = this.el.getObject3D("mesh")
@@ -31,7 +31,7 @@
         <a-cursor></a-cursor>
       </a-camera>
 
-      <a-entity position="0 0 -3" gltf-model="#instrumentsanim" foo></a-entity>
+      <a-entity position="0 0 -3" gltf-model="#instrumentsanim" attach-to-bone></a-entity>
       <a-box id="test-box" color="tomato" depth="0.1" height="0.4" width="0.3" ></a-box>
       <a-sky color="#ECECEC"></a-sky>
     </a-scene>
