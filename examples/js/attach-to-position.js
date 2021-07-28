@@ -25,7 +25,7 @@ AFRAME.registerComponent('attach-point-v2', {
 
     this.el.addEventListener('collide', function (e) {
       let classes = e.detail.body.el.className.split(' ')
-      if (classes.includes(data.objClass)) {
+      if (classes.includes("vxr-obj-heparinseal")) {
         let x = document.getElementById("static-heparinseal")
         x.setAttribute("visible", "true")
         e.detail.body.el.remove();
@@ -47,16 +47,34 @@ AFRAME.registerComponent('attach-point-v2', {
         let medicalClothe = document.getElementById("Static-Tape-Butterfly")
         medicalClothe.setAttribute("visible", "true")
         e.detail.body.el.remove();
-      }
-      if (classes.includes("vxr-obj-Tape-Normal")) {
+      } 
+      if (classes.includes("vxr-obj-Tape-Normal" )) {
         let medicalClothe = document.getElementById("Static-Tape-Normal")
         medicalClothe.setAttribute("visible", "true")
         e.detail.body.el.remove();
-      }
+      } 
+
+      if ( classes.includes("vxr-obj-Tape-Normal1")) {
+        let medicalClothe = document.getElementById("Static-Tape-Normal")
+        medicalClothe.setAttribute("visible", "true")
+        e.detail.body.el.remove();
+      } 
+       if ( classes.includes("vxr-obj-Tape-Normal3")) {
+        let medicalClothe = document.getElementById("Static-Tape-Normal")
+        medicalClothe.setAttribute("visible", "true")
+        e.detail.body.el.remove();
+      } 
+
+      if (classes.includes("vxr-obj-Tape-Normal2")) {
+        let medicalClothe = document.getElementById("Static-Tape-Normal")
+        medicalClothe.setAttribute("visible", "true")
+        e.detail.body.el.remove();
+      } 
 
       if (classes.includes("vxr-obj-rubber")) {
         let medicalClothe = document.getElementById("Static-vxr-obj-rubber")
         medicalClothe.setAttribute("visible", "true")
+        // setMassRubber() 
         e.detail.body.el.remove();
       }
 
@@ -146,6 +164,18 @@ AFRAME.registerComponent('attach-point-v2', {
         
 
       }
+
+      if (classes.includes("vxr-obj-Aposito_BabyPatient3-static")) {
+        let medicalClothe = document.getElementById("e-Aposito_BabyPatient3")
+        medicalClothe.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+        medicalClothe.setAttribute("visible","true");
+        e.detail.body.el.setAttribute("visible","false");
+        e.detail.body.el.remove();
+      }
+
+
+
+
 
       
 

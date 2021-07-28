@@ -15,17 +15,13 @@ maskTemplate.setAttribute('id','xlr8')
 
 rootEntity.setAttribute('id','Root-mask')
 bodyEntity.setAttribute('id', 'maskn9501')
-//bodyEntity.setAttribute('gltf-model','../../Models/gltf/maskn95.gltf')
 bodyEntity.setAttribute('draggable', '')
 bodyEntity.setAttribute('graggable', '')
-// bodyEntity.setAttribute('toggle-physics', '')
 bodyEntity.setAttribute('set-position', '');
 bodyEntity.setAttribute('rotation', '0 90 0')
-  rootEntity.append(bodyEntity); //innner
+rootEntity.append(bodyEntity); //innner
 maskTemplate.content.append(rootEntity) //medium
 aAssets.append(maskTemplate); //root
  
-// let template9 =document.getElementById('xlr8')
-// let clone = document.importNode(template9.content,true);
-// document.appendChild(clone);
+ 
  

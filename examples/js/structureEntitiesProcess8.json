@@ -1,22 +1,18 @@
 [
-  {
-    "template": "#vxr-obj-template",
-    "selector": ".vxr-obj-maskn95"
-  },
+
   {
     "template": "#vxr-obj-template-2",
     "selector": ".vxr-obj-alcoholbottle"
   },
- 
+  {
+    "template": "#vxr-obj-template-3",
+    "selector": ".vxr-obj-tray"
+  },
   {
     "template": "#vxr-obj-template-rubber",
     "selector": ".vxr-obj-rubber"
   },
-  {
-    "template": "#vxr-obj-template-dripbag",
-    "selector": ".vxr-obj-dripbag"
-  },
-  {
+    {
     "template": "#vxr-obj-template-medicaltape",
     "selector": ".vxr-obj-medicaltape"
   },
@@ -41,6 +37,10 @@
     "selector": ".vxr-obj-cottonswab03"
   },
   {
+    "template": "#vxr-obj-template-cottonswab04",
+    "selector": ".vxr-obj-cottonswab04"
+  },
+  {
     "template": "#vxr-obj-template-salinebottle",
     "selector": ".vxr-obj-salinebottle"
   },
@@ -49,10 +49,10 @@
     "selector": ".vxr-obj-alcoholgel"
   },
   {
-    "template": "#vxr-obj-template-heparinseal",
-    "selector": ".vxr-obj-heparinseal"
+    "template": "#vxr-obj-template-DestiledWater",
+    "selector": ".vxr-obj-DestiledWater"
   },
-  {
+   {
     "template": "#vxr-obj-template-intracath",
     "selector": ".vxr-obj-intracath"
   },
@@ -77,11 +77,51 @@
     "selector": ".vxr-obj-Tape-Normal"
   },
   {
+    "template": "#vxr-obj-template-Tape-Normal1",
+    "selector": ".vxr-obj-Tape-Normal1"
+  },
+  {
+    "template": "#vxr-obj-template-Tape-Normal2",
+    "selector": ".vxr-obj-Tape-Normal2"
+  },
+  {
+    "template": "#vxr-obj-template-Tape-Normal3",
+    "selector": ".vxr-obj-Tape-Normal3"
+  },
+  {
     "template": "#vxr-obj-template-Tape-Bow",
     "selector": ".vxr-obj-Tape-Bow"
   },
   {
     "template": "#vxr-obj-template-Tape-Butterfly",
     "selector": ".vxr-obj-Tape-Butterfly"
+  },
+  {
+    "template": "#vxr-obj-template-ControlCard_Neonatal",
+    "selector": ".vxr-obj-ControlCard_Neonatal"
+  },
+  {
+    "template": "#vxr-obj-template-SalineAmpoule",
+    "selector": ".vxr-obj-SalineAmpoule"
+  },
+  {
+    "template": "#vxr-obj-template-Syringe_1CC",
+    "selector": ".vxr-obj-Syringe_1CC"
+  },
+  {
+    "template": "#vxr-obj-template-Aposito_BabyPatient3",
+    "selector": ".vxr-obj-Aposito_BabyPatient3"
+  },
+  {
+    "template": "#vxr-obj-template-Aposito_BabyPatient3-static",
+    "selector": ".vxr-obj-Aposito_BabyPatient3-static"
+  },
+  {
+    "template": "#vxr-obj-template-heparinseal",
+    "selector": ".vxr-obj-heparinseal"
+  },
+  {
+    "template": "#vxr-obj-template-heparinseal-box",
+    "selector": ".vxr-obj-heparinseal-box"
   }
 ]
