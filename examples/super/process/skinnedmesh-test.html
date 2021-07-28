@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script>
+      AFRAME.registerComponent("foo", {
+        init:function() {
+          this.el.addEventListener('model-loaded', () => {
+            console.log("object:", this.el.object3D)
+            let mesh = this.el.getObject3D("mesh")
+
+            console.log('mesh:', mesh)
+
+            console.log('right-hand-pos-before:', mesh.children[0].children[0].children[0].children[0].position)
+
+            var scene = this.el.sceneEl.object3D;
+      helper = new THREE.SkeletonHelper( mesh );
+    helper.material.linewidth = 2;
+    // helper.visible = false;
+    scene.add( helper );
+
+            // let mesh2 = document.querySelector('#test-box').getObject3D('mesh');
+            // console.log('bone:', mesh.children[0].children[0].children[0].children[0].children[0])
+            // mesh.children[0].children[0].children[0].children[0].children[0].add(mesh2)
+
+            this.el.addEventListener('click', function () {
+                mesh.children[0].children[0].children[0].children[0].position.y += 3
+              console.log('right-hand-pos-after:', mesh.children[0].children[0].children[0].children[0].position);
+            });
+          })
+        },
+      })
+ 
+    </script>    
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="botSkinned" src="assets/Bot_Skinned.gltf" foo></a-asset-item>
+      </a-assets>
+
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+
+      <a-entity position="0 0 -3" gltf-model="#botSkinned" foo ></a-entity>
+      <!-- <a-box id="test-box" color="tomato" depth="0.1" height="0.4" width="0.3" ></a-box> -->
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>
