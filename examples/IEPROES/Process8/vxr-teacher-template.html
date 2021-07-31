@@ -18,6 +18,57 @@
     src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
   <script src="/js/spawn-in-circle.component.js"></script>
 
+  <script>
+    AFRAME.registerComponent('bone-component', {
+      schema: {
+        triggerKeyCode: { default: 32 } // spacebar
+      },
+      init: function () {
+
+
+        this.el.addEventListener('model-loaded', () => {
+          let sceneEl = document.querySelector('a-scene');
+
+          let mesh = this.el.getObject3D("mesh")
+          // mesh.children[0].children[0].children[0].children[0].rotation.z = 45
+          
+          let i =0;
+          let objToIterate= mesh.children[0].children[1].skeleton.bones
+
+          var delayInMilliseconds = 5000; //1 second
+setTimeout(function() {
+
+  objToIterate.forEach(bone=> {
+            let entityEl= document.createElement('a-box')
+            
+             entityEl.setAttribute("id", bone.name)
+             entityEl.setAttribute("dynamic-body", "mass:0.0")
+             
+             entityEl.setAttribute("geometry", "width:0.3; height:0.3;depth:0.3")
+             entityEl.setAttribute("position", bone.getWorldPosition())
+             entityEl.setAttribute("opacity", "1")
+             console.log("iterate over: ", bone.name)
+             console.log("bone: ",bone)
+             console.log("bone position: ",bone.getWorldPosition())
+             sceneEl.appendChild(entityEl);
+            i++;
+          })
+  
+ }, delayInMilliseconds);
+          
+      
+
+        })
+
+
+
+      },
+
+      update: function () {
+      }
+    })
+  </script>
+ 
 
   <!-- Super hands -->
   <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.js"></script>
@@ -172,7 +223,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -219,6 +270,8 @@
       <a-asset-item id="Aposito_BabyPatient3_Static" src="Aposito_BabyPatient3_Static.gltf"></a-asset-item>
       <a-asset-item id="heparinseal" src="../../Models/gltf/HeparinSeal.gltf"></a-asset-item>
       <a-asset-item id="HeparineSealBox" src="HeparineSealBox.gltf"></a-asset-item>
+      <a-asset-item id="testBone" src="CubeBone.gltf"></a-asset-item>
+
 
 
       
@@ -637,6 +690,8 @@
     </a-assets>
 
     <!-- Hidden Static Meshes  -->
+
+
     <a-entity id="static-heparinseal" class="vxr-obj-heparinseal vxr-interact" gltf-model="#heparinseal"
       position="0.76803 2.03313 -0.960" rotation="45 -8.88624861371593e-9 0.00014024380116174428" visible="false">
     </a-entity>
@@ -784,6 +839,9 @@
 
 
     <!-- <a-box static-body width="100" height="0.01" depth="100" visible="false"></a-box> -->
+
+    <a-entity position="0 2 5" bone-component id="boneToTest" gltf-model="#testBone">
+
 
   </a-scene>
 
