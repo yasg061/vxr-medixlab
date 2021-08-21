@@ -3,11 +3,10 @@ AFRAME.registerComponent('bone-component', {
     triggerKeyCode: { default: 32 } // spacebar
   },
   init: function () {
-
+    let meshId=this.el.id
+    let fatherMesh = this.el.getAttribute('position');
+    console.log("father mesh position: ", fatherMesh)
     this.el.addEventListener('model-loaded', () => {
-      let meshId=this.el.id
-      let fatherMesh = this.el.getAttribute('position');
-      console.log("father mesh position: ", fatherMesh)
       let sceneEl = document.getElementById("boneToTest");
       // let sceneEl = document.querySelector("a-scene");
       let mesh = this.el.getObject3D("mesh")
