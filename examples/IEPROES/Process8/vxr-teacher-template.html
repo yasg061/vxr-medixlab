@@ -14,9 +14,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
   <script src="/easyrtc/easyrtc.js"></script>
   <script src="/dist/networked-aframe.js"></script>
-  <script
-    src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
+  <!-- <script    src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script> -->
   <script src="/js/spawn-in-circle.component.js"></script>
+  <script src="aframe-particle-system-component.min.js"></script>
+
 
   
 
@@ -116,12 +117,15 @@
       console.log("bone id", boneName)
       // let bone  = document.getElementById(boneName)
       boneName.setAttribute('dynamic-body', 'mass:0.1')
+      boneName.setAttribute("boneposition","varBool:true")
+
     }
 
     function genericBoneEnd(boneName) {
       console.log("bone id", boneName)
       // let bone  = document.getElementById(boneName)
       boneName.setAttribute('dynamic-body', 'mass:0.0')
+      boneName.setAttribute("boneposition","varBool:false")
     }
 
     function setMassRubber() {
@@ -240,7 +244,7 @@
       <a-asset-item id="testBone" src="CubeBone.gltf"></a-asset-item>
 
       <!-- <a-asset-item id="Patient_IK" src="Patient_IK.gltf"></a-asset-item> -->
-      <a-asset-item id="Patient_IK" src="Patient_NOIK.gltf"></a-asset-item>
+      <a-asset-item id="Patient_IK" src="Patient_NOIK_NoHands.gltf"></a-asset-item>
 
 
 
@@ -834,7 +838,29 @@
     <!-- <a-box static-body width="100" height="0.01" depth="100" visible="false"></a-box> -->
 
     <!-- <a-entity position="0 2 5"  id="boneToTest" bone-component scale="1 1 1" gltf-model="#testBone"></a-entity> -->
-    <a-entity position="0 2 5"  id="boneToTest" bone-component scale="1 1 1" gltf-model="#Patient_IK"></a-entity>
+    <a-entity position="-1.344 1. -1.705" id="boneToTest" bone-component scale="1 1 1" gltf-model="#Patient_IK"></a-entity>
+
+    <a-entity position="0.288 2.5  -0.479" particle-system="
+    preset: default;
+    maxAge: 1;
+    positionSpread:0 0 0;
+    type: 1;
+    rotationAxis: x;
+    rotationAngle: 3.14;
+    rotationAngleSpread: 0;
+    accelerationValue: 0, 0 0;
+    accelerationSpread: 0 0 0;
+    velocityValue: 0 2 0;
+    velocitySpread: 0 0.8 0;
+    dragValue: 1;
+    dragSpread: 1;
+    color: #99e4ff,#00b2f2;
+    blending: 1; 
+    size: 0.05;
+    particleCount: 2;
+    opacity: 1,0.5;
+    texture: ./raindrop.png;
+    "></a-entity>
 
 
   </a-scene>
