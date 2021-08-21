@@ -113,6 +113,7 @@
       intracathInteract.setAttribute('dynamic-body', 'mass:0.1')
     }
 
+<<<<<<< HEAD
     function genericBone(boneName) {
       console.log("bone id", boneName)
       // let bone  = document.getElementById(boneName)
@@ -132,6 +133,12 @@
       let rubber = document.getElementById("Static-vxr-obj-rubber")
       rubber.setAttribute('dynamic-body', 'mass:0.1')
     }
+=======
+    // function setMassRubber() {
+    //   let rubber = document.getElementById("Static-vxr-obj-rubber")
+    //   rubber.setAttribute('dynamic-body', 'mass:0.1')
+    // }
+>>>>>>> 5c9be1e5af2147896c4e2057b00b1b783f3336fd
 
   </script>
 
@@ -517,24 +524,37 @@
 
       <template id="vxr-obj-template-intracath">
         <a-entity>
+<<<<<<< HEAD
           <a-entity id="e-intracath" rotation="0.000006411976202429251 -180 0.00008383539833977058"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-intracath vxr-interact"
             gltf-model="#intracath" dynamic-body draggable grabbable toggle-physics position="0.22124 0.41186 -0.0272">
           </a-entity>
+=======
+          <a-entity id="e-intracath" rotation="0.000006411976202429251 -180 0.00008383539833977058" 
+          grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+          class="vxr-obj-intracath vxr-interact" gltf-model="#intracath" dynamic-body 
+          draggable grabbable
+            toggle-physics position="0.22124 0.41186 -0.0272"></a-entity>
+>>>>>>> 5c9be1e5af2147896c4e2057b00b1b783f3336fd
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-intracath-piece-1">
         <a-entity>
+<<<<<<< HEAD
           <a-entity id="e-intracath-piece-1" id="firstPart" class="vxr-obj-intracath-piece-1 vxr-interact"
             gltf-model="#intracath-piece-1" draggable="" grabbable="" position="0.76777 0.53849 -0.75537"
             rotation="-45 0 0" visible="false"></a-entity>
+=======
+          <a-entity  id="firstPart" class="vxr-obj-intracath-piece-1 vxr-interact" gltf-model="#intracath-piece-1"
+            draggable="" grabbable="" position="0.76777 0.53849 -0.75537" rotation="-45 0 0" visible="false"></a-entity>
+>>>>>>> 5c9be1e5af2147896c4e2057b00b1b783f3336fd
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-intracath-piece-2">
         <a-entity>
-          <a-entity id="e-intracath-piece-2" id="vxr-intracath-second-part" ondragstart="setMass()"
+          <a-entity  id="vxr-intracath-second-part" ondragstart="setMass()"
             class="vxr-obj-intracath-piece-2 vxr-interact" gltf-model="#intracath-piece-2" draggable grabbable
             position="0.76849 0.55084 -0.74178" rotation="-45 0 0" visible="false"></a-entity>
         </a-entity>
@@ -668,10 +688,18 @@
 
       <template id="vxr-obj-template-Aposito_BabyPatient3">
         <a-entity>
+<<<<<<< HEAD
           <a-entity id="e-Aposito_BabyPatient3" static-body="sphereRadius: NaN"
             class="vxr-obj-Aposito_BabyPatient3 vxr-interact" gltf-model="#Aposito_BabyPatient3" draggable=""
             grabbable="maxGrabbers: NaN" position="0.762 0.519 -0.799" rotation="0 0 0" visible="false"></a-entity>
         </a-entity>
+=======
+          <a-entity id="e-Aposito_BabyPatient3"   
+           class="vxr-obj-Aposito_BabyPatient3 vxr-interact" gltf-model="#Aposito_BabyPatient3" 
+            draggable="" grabbable="maxGrabbers: NaN" position="0.762 0.519 -0.799"
+            rotation="0 0 0" visible="false" ></a-entity>
+         </a-entity>
+>>>>>>> 5c9be1e5af2147896c4e2057b00b1b783f3336fd
       </template>
 
       <template id="vxr-obj-template-Aposito_BabyPatient3-static">
@@ -693,7 +721,7 @@
     </a-entity>
     <a-entity id="StaticMedicalClothe" class="vxr-obj-MedicalClothe vxr-interact"
       gltf-model="../../Models/gltf/MedicalClothe.gltf" toggle-physics="" draggable="" grabbable
-      position="0.771 2.012 -0.971" rotation="0 90.000 -10.14" visible="false"></a-entity>
+      position="0.762 1.988 -1.002" rotation="12.42 67.43 -3.656" visible="false"></a-entity>
 
     <a-entity id="Static-Tape-Bow" class="vxr-obj-Tape-Bow vxr-interact" gltf-model="../../Models/gltf/Tape_Bow.gltf"
       toggle-physics="" draggable="" grabbable="" position="0.768 2.011 -0.989"
@@ -705,12 +733,17 @@
       gltf-model="../../Models/gltf/Tape_Normal.gltf" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
       position="0.768 2.011 -0.990" rotation="-0.00002110992401797946 77.997 180" visible=false></a-entity>
     <a-entity id="Static-vxr-obj-rubber" class="vxr-obj-rubber vxr-interact" gltf-model="../../Models/gltf/Rubber.gltf"
+<<<<<<< HEAD
       draggable="" grabbable position="0.777 1.976 -1.029" scale="0.5 0.5 0.5" rotation="0 60.856 270" visible="false"
       ondragstart="setMassRubber()"></a-entity>
 
 
     <!-- <a-entity class="vxr-obj-Tape-Butterfly vxr-interact" gltf-model="" dynamic-body draggable="" grabbable="" position="-0.15207 1.90947 -0.32083" rotation="3.379325337782461 2.843920236680026 -0.0037155551289126685"></a-entity> -->
 
+=======
+      draggable="" grabbable  position="0.777 1.976 -1.029" scale="0.5 0.5 0.5" rotation="0 60.856 270"
+      visible="false" ></a-entity>
+>>>>>>> 5c9be1e5af2147896c4e2057b00b1b783f3336fd
 
 
     <a-entity

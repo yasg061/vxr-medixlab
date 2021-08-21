@@ -25,7 +25,7 @@ AFRAME.registerComponent('attach-point-v2', {
 
     this.el.addEventListener('collide', function (e) {
       let classes = e.detail.body.el.className.split(' ')
-      if (classes.includes(data.objClass)) {
+      if (classes.includes("vxr-obj-heparinseal")) {
         let x = document.getElementById("static-heparinseal")
         x.setAttribute("visible", "true")
         e.detail.body.el.remove();
@@ -74,7 +74,7 @@ AFRAME.registerComponent('attach-point-v2', {
       if (classes.includes("vxr-obj-rubber")) {
         let medicalClothe = document.getElementById("Static-vxr-obj-rubber")
         medicalClothe.setAttribute("visible", "true")
-        setMassRubber() 
+        // setMassRubber() 
         e.detail.body.el.remove();
       }
 
