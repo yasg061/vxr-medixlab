@@ -19,10 +19,11 @@
   <script src="aframe-particle-system-component.min.js"></script>
 
 
-  
+
 
   <!-- Super hands -->
   <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.js"></script>
+  <!-- <script src="../../js/aframe-physics-system.js"></script> -->
   <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
   <script
     src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
@@ -40,7 +41,7 @@
   <script src="../../js/Feature-Bones.component.js"></script>
   <script src="../../js/Feature-BonesPosition.component.js"></script>
 
-   <!-- <script src="../../js/hand-attach.js"></script> -->
+  <!-- <script src="../../js/hand-attach.js"></script> -->
   <script src="../../js/attach-intracath.js"></script>
   <script src="../../js/attach-to-position.js"></script>
   <script src="../../js/set-name.component.js"></script>
@@ -117,7 +118,7 @@
       console.log("bone id", boneName)
       // let bone  = document.getElementById(boneName)
       boneName.setAttribute('dynamic-body', 'mass:0.1')
-      boneName.setAttribute("boneposition","varBool:true")
+      boneName.setAttribute("boneposition", "varBool:true")
 
     }
 
@@ -125,13 +126,15 @@
       console.log("bone id", boneName)
       // let bone  = document.getElementById(boneName)
       boneName.setAttribute('dynamic-body', 'mass:0.0')
-      boneName.setAttribute("boneposition","varBool:false")
+      boneName.setAttribute("boneposition", "varBool:false")
     }
 
     function setMassRubber() {
       let rubber = document.getElementById("Static-vxr-obj-rubber")
       rubber.setAttribute('dynamic-body', 'mass:0.1')
     }
+
+
 
   </script>
 
@@ -151,6 +154,64 @@
       // Manta_Abierta.setAttribute("visible", "true")
       // baby.setAttribute('dynamic-body', 'mass:100.1;')
     }
+
+    function SetObjectPosition(evt) {
+      console.log("object: ", evt.path[0].getAttribute("position"))
+      let position = new THREE.Vector3(evt.path[0].getAttribute("position").x)
+      let x = evt.path[0].getAttribute("position").x
+      let y = evt.path[0].getAttribute("position").y
+      let z = evt.path[0].getAttribute("position").z
+
+      evt.path[0].setAttribute("ground-collider", `x:${x}`)
+      evt.path[0].setAttribute("ground-collider", `y:${y}`)
+      evt.path[0].setAttribute("ground-collider", `z:${z}`)
+      console.log("card grabbed: ", position)
+    }
+
+  </script>
+
+
+  <script>
+
+    AFRAME.registerComponent('ground-collider', {
+      schema: {
+        vectorPosition: {type:'vec3'   },
+        x: {default: 0},
+        y: {default: 0},
+        z: {default: 0},
+      },
+
+      init: function () {
+        let el = this.el;
+        let data = this.data
+        this.el.addEventListener('collide', function (e) {
+          console.log('collision ', e.detail.body.el);
+
+          let classes = e.detail.body.el.className.split(' ')
+
+          if (classes.includes("vxr-ground")) {
+            console.log("entity: ", this.el)
+            el.removeAttribute("dynamic-body")
+            el.setAttribute("position", {x:data.x, y:data.y, z:data.z})
+             el.setAttribute("dynamic-body", "")
+ 
+          } else {
+            console.log('Error on: ', e.detail.body.el);
+
+          }
+
+        });
+      },
+
+      update: function () {
+        console.log("x position: ", this.data.x)
+        console.log("y position: ", this.data.y)
+        console.log("z position: ", this.data.z)
+        // this.el.removeAttribute("dynamic-body")
+        // this.el.setAttribute("position",this.data.vectorPosition)
+        // this.el.setAttribute("dynamic-body","")
+      }
+    })
 
   </script>
 
@@ -534,7 +595,7 @@
 
       <template id="vxr-obj-template-intracath-piece-2">
         <a-entity>
-          <a-entity  id="vxr-intracath-second-part" ondragstart="setMass()"
+          <a-entity id="vxr-intracath-second-part" ondragstart="setMass()"
             class="vxr-obj-intracath-piece-2 vxr-interact" gltf-model="#intracath-piece-2" draggable grabbable
             position="0.76849 0.55084 -0.74178" rotation="-45 0 0" visible="false"></a-entity>
         </a-entity>
@@ -630,9 +691,10 @@
 
       <template id="vxr-obj-template-ControlCard_Neonatal">
         <a-entity>
-          <a-entity id="e-ControlCard_Neonatal" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
-            class="vxr-obj-ControlCard_Neonatal vxr-interact" dynamic-body gltf-model="#ControlCard_Neonatal"
-            draggable="" grabbable position="0.00125 0.42582 -0.33082" visible="true">
+          <a-entity id="e-ControlCard_Neonatal" grabbable="maxGrabbers: NaN" ground-collider
+            dynamic-body="sphereRadius: NaN" class="vxr-obj-ControlCard_Neonatal vxr-interact" dynamic-body
+            gltf-model="#ControlCard_Neonatal" draggable="" grabbable position="0.00125 0.42582 -0.33082" visible="true"
+            ondragstart="SetObjectPosition(event)">
           </a-entity>
         </a-entity>
       </template>
@@ -737,7 +799,7 @@
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity> -->
-    <a-entity id="patient01"   gltf-model="#patient" scale="" position="0.889 1.957 -1.041" material="color: brown"
+    <a-entity id="patient01" gltf-model="#patient" scale="" position="0.889 1.957 -1.041" material="color: brown"
       rotation="0 0 0">
     </a-entity>
 
@@ -752,8 +814,8 @@
     <a-entity class="gltf" gltf-model="#bed" position="0.87277 0.948 -0.9535" rotation="0 90 0"></a-entity>
     <a-box id="boxTable1" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="-0.11878 1.855 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
-    <a-box id="tableBox2" static-body="sphereRadius: NaN" class="boxTable2" opacity="0" static-body rotation=""
-      position="-1.514 1.842 -0.370" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+    <a-box id="tableBox2" static-body="sphereRadius: NaN" class="boxTable2 vxr-ground" opacity="1" static-body rotation=""
+      position="-1.514 0 -0.370" color="red" depth="20" height="0.1" width="20"></a-box>
     <!-- <a-box id="TorundaBowl" class="boxTable2" opacity="0" static-body position="0.30215 1.87809 -0.51316" depth="0.1"
       height="0.1" width="0.1" material="" geometry="depth: 0.1; width: 0.1"></a-box> -->
 
@@ -838,7 +900,8 @@
     <!-- <a-box static-body width="100" height="0.01" depth="100" visible="false"></a-box> -->
 
     <!-- <a-entity position="0 2 5"  id="boneToTest" bone-component scale="1 1 1" gltf-model="#testBone"></a-entity> -->
-    <a-entity position="-1.344 1. -1.705" id="boneToTest" bone-component scale="1 1 1" gltf-model="#Patient_IK"></a-entity>
+    <a-entity position="-1.344 1. -1.705" id="boneToTest" skin-component scale="1 1 1" gltf-model="#Patient_IK">
+    </a-entity>
 
     <a-entity position="0.288 2.5  -0.479" particle-system="
     preset: default;

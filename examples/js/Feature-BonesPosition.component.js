@@ -1,68 +1,48 @@
-AFRAME.registerComponent('boneposition', {      
+AFRAME.registerComponent('boneposition', {
   schema: {
     bone: { default: null },
-    mesh_id:{ default: ""},
-    bone_id:{ default: ""},
-    vectorPosition:{ default: {x:0, y:0, z:0}},
-    varBool:{default: false}
+    mesh_id: { default: "" },
+    bone_id: { default: "" },
+    vectorPosition: { default: { x: 0, y: 0, z: 0 } },
+    varBool: { default: false }
 
-    
+
   },
 
   init: function () {
 
 
-    //  let boneReference=document.getElementById(this.data.mesh_id).getObject3D("mesh").children[0].children[1].skeleton.bones[this.data.bone_id];
-    let boneReference=document.getElementById(this.data.mesh_id).getObject3D("mesh").children[0].children[1].children[0].skeleton.bones[this.data.bone_id];
-     
-
-
-    this.data.bone=boneReference;       
-    // boneReference.position.set(x)//=   new THREE.Vector3( 0, 5, 0 );
-    let pos = this.el.getAttribute('position')
-    // console.log("bone reference: ",boneReference.position)
-    // console.log("entity position",this.el.getAttribute('position'))
-    // console.log("entity rotation",this.el.getAttribute('rotation'))
-    // console.log("mesh: ",boneReference)
-    // console.log("entity: ", this.el.getObject3D("mesh"))
-    let dir = new THREE.Vector3(); // create once an reuse it
-    this.data.vectorPosition=dir
-
-    
+    let boneReference = document.getElementById(this.data.mesh_id).getObject3D("mesh").children[0].children[1].children[0].skeleton.bones[this.data.bone_id];
+    this.data.bone = boneReference;
+    console.log("mesh: ", boneReference)
 
   },
 
-  tick: function(){
-    //let pos = this.el.getAttribute('position')
-    
- 
-var dir = new THREE.Vector3(); // create once an reuse it 
+  tick: function () {
 
+    // let worldQuaternion = new THREE.Quaternion();
+    // this.el.object3D.getWorldQuaternion(worldQuaternion);
+    // this.data.bone.rotation.setFromQuaternion(worldQuaternion)
 
-       let worldQuaternion = new THREE.Quaternion();
-    let entityQuat = this.el.object3D.getWorldQuaternion(worldQuaternion);
-    let pos = this.el.getObject3D("mesh").getWorldPosition()
-    // dir.subVectors(  pos, this.data.bone.getWorldPosition()  ).normalize() ;
-    dir= this.data.bone.worldToLocal(pos).normalize() ;
-    
+    let boneParentMtx = new THREE.Matrix4();
+    if (this.data.bone.parent) {
+      boneParentMtx = this.data.bone.parent.matrixWorld.clone();
+    }
 
-    
-    // if(dir.length()>1){
-    // if(this.data.varBool){
+    let worldToBoneParentMtx = new THREE.Matrix4()
+    worldToBoneParentMtx.getInverse(boneParentMtx);
 
-    //   this.data.bone.position.copy(dir);
-    //   console.log("bone: ", this.data.bone.position)
-    //   console.log("bone world position: ", this.data.bone.getWorldPosition())
-    //   console.log("entity position: ", pos)
-    // }
-    //   console.log(dir.length())
-    // else{
-    //   this.data.varBool=true   
+    let worldToBoneMtx = new THREE.Matrix4();
+    worldToBoneMtx.multiplyMatrices( worldToBoneParentMtx,this.el.object3D.matrixWorld);
 
-    //  }
-    
-    this.data.bone.rotation.setFromQuaternion(entityQuat)
-    
+    let position = new THREE.Vector3();
+    position.applyMatrix4(worldToBoneMtx);
 
+    let quaternion = new THREE.Quaternion().setFromRotationMatrix(worldToBoneMtx);
+
+    this.data.bone.position.copy(position);
+    this.data.bone.quaternion.setFromRotationMatrix(worldToBoneMtx) 
+
+  
   }
 })

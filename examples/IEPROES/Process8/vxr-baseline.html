@@ -1,0 +1,62 @@
+<html>
+
+<head>
+  <title>Vertex Medixlab</title>
+  <!-- Replace "../build.js" with the super-hands and
+         A-Frame distributions to run : -->
+
+  <!-- <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script> -->
+
+  
+  <script src="../../super/build.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="../../js/aframe-physics-system.js"></script>
+
+  
+
+
+  <!-- <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> -->
+  <!-- <script src="https://unpkg.com/super-hands/dist/super-hands.min.js"></script> -->
+  <!-- Networked aframe -->
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
+  <script src="/easyrtc/easyrtc.js"></script>
+  <script src="/dist/networked-aframe.js"></script> -->
+
+
+  <!-- Super hands -->
+  <!-- <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.js"></script>
+  <script src="../../js/aframe-physics-system.js"></script>
+  <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
+  <script
+    src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script> -->
+
+
+</head>
+
+<body>
+  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
+  room: audio;
+  adapter: easyrtc;
+  audio: false;
+  debug: true;
+">
+
+<a-assets></a-assets>
+<a-entity>
+
+
+<a-entity progressive-controls></a-entity>
+<!-- hover & drag-drop won't have any obvious effect without some additional event handlers or components. See the examples page for more -->
+<a-plane hoverable grabbable stretchable draggable droppable
+         color="blue" position="0 1.6 -1" rotation="0 0 0"
+         onclick="this.emit('clickCounter')"
+         bind__text="value: clickcount.count">
+</a-plane>
+
+</a-scene>
+
+</body>
+
+</html>
