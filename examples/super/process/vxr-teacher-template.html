@@ -611,7 +611,7 @@
       <template id="vxr-obj-template-4">
         <a-entity>
           <a-entity id="vxr-rubber" class="vxr-obj-rubber vxr-interact" gltf-model="#rubber" toggle-physics draggable
-            grabbable position="3.5 1.5 -0.62538" scale="0.8 0.8 0.8"></a-entity>
+            grabbable position="0.251 0.465 -0.255" scale="0.8 0.8 0.8"></a-entity>
         </a-entity>
       </template>
 
@@ -688,7 +688,7 @@
       <template id="vxr-obj-template-intracath">
         <a-entity>
           <a-entity id="vxr-intracath" class="vxr-obj-intracath vxr-interact" gltf-model="#intracath" draggable
-            grabbable toggle-physics position="3.29835 1.9 -0.62538"></a-entity>
+            grabbable toggle-physics position="0.365 0.440 -0.020" rotation="0 180 0"></a-entity>
         </a-entity>
       </template>
 
@@ -878,20 +878,20 @@
     <!-- Static Objects -->
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363"   rotation="0 180 0"></a-entity> -->
-    <a-entity id="patient01" gltf-model="#patient" rotation="-8.461 0.567 -3.692" scale="" position="1.677 1.959 -1.321" material="color: brown">
+    <a-entity id="patient01" gltf-model="#patient" rotation="-8.461 0.567 -3.692" scale="" position="1.148 1.982 0.110" material="color: brown">
     </a-entity>
 
     <a-entity class="gltf" gltf-model="#table" position="-0.13 1 -0.363" rotation="0 180 0"></a-entity>
     <!-- <a-entity class="gltf" gltf-model="#bed" position="1.2 1 -0.67251" rotation="0 0 0"></a-entity> -->
-    <a-box opacity="1" static-body rotation="" position="3.241 1.891 -0.71586" color="red" depth="0.6" height="0.1"
+    <a-box opacity="0" static-body rotation="" position="-0.113 1.854 -0.363" color="red" depth="0.6" height="0.1"
       width="1.1"></a-box>
-    <a-box opacity="1" static-body rotation="0 90 0" position="1.19381 1.75704 -0.20298" color="red" depth="0.8"
+    <a-box opacity="0" static-body rotation="0 90 0" position="1.19381 1.75704 -0.20298" color="red" depth="0.8"
       height="0.02 " width="1.1"></a-box>
-    <a-box opacity="1" static-body rotation="0 90 0" position="0.17639 1.90605 -0.24462" color="red" depth="0.47"
+    <a-box opacity="0" static-body rotation="0 90 0" position="0.17639 1.90605 -0.24462" color="red" depth="0.47"
       height="0.02" width="0.35"></a-box>
-    <a-box opacity="1" static-body rotation="0 0 0" position="0.53699 1.86541 -0.42932" color="red" depth="0.33"
+    <a-box opacity="0" static-body rotation="0 0 0" position="0.53699 1.86541 -0.42932" color="red" depth="0.33"
       height="0.02" width="0.11"></a-box>
-    <a-box opacity="1" static-body rotation="0 0 0" position="0.290 1.273 -0.581" color="red" depth="0.33" height="0.02"
+    <a-box opacity="0" static-body rotation="0 0 0" position="0.290 1.273 -0.581" color="red" depth="0.33" height="0.02"
       width="0.31" foo3></a-box>
 
 
@@ -957,9 +957,9 @@
       scale="0.49177 0.49177 0.49177" visible="true"></a-entity>
 
 
-    <a-entity id="cubebone02" gltf-model="#cubebone" position="0 2 0" scale="0.1 0.1 0.1"></a-entity>
-    <a-entity id="cubeik01" gltf-model="#cubeik" position="0 2 2" scale="1 1 1" bone></a-entity>
-    <a-entity id="hospitalroom01" gltf-model="#hospitalroom" position="0 1 0" scale="1 1 1" rotation="0 -90 0"></a-entity>
+    <!-- <a-entity id="cubebone02" gltf-model="#cubebone" position="0 2 0" scale="0.1 0.1 0.1"></a-entity>
+    <a-entity id="cubeik01" gltf-model="#cubeik" position="0 2 2" scale="1 1 1" bone></a-entity> -->
+    <a-entity id="hospitalroom01" gltf-model="#hospitalroom" position="0 1 0.7" scale="1 1 1" rotation="0 -90 0"></a-entity>
 
 
     <!-- <a-entity id="cubebone02" position="0 4 -0.3" static-body draggable grabbable
@@ -969,12 +969,12 @@
       </a-box>
     </a-entity> -->
 
-    <a-entity id="cubebone01" position="0 2.5 -0.3" dynamic-body draggable grabbable
+    <!-- <a-entity id="cubebone01" position="0 2.5 -0.3" dynamic-body draggable grabbable
       ondragstart="positionCubeBone01(event)" ondragend="positionCubeBone02(event)">
       <a-box color="tomato" depth="0.2" height="0.3" width="0.2" opacity="0.1">
         <a-entity id="cubebonek" gltf-model="#cubebone" position="0.5 -0.1 0" scale="0.1 0.1 0.1"></a-entity>
       </a-box>
-    </a-entity>
+    </a-entity> -->
 
 
 
