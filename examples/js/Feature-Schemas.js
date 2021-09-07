@@ -17,7 +17,7 @@ function SetSchemas(structure) {
 
     let schema1;
      schema1 = {
-      template: item.template,
+      template: `#${item.template}`,
       components: [
         'position',
         'rotation',

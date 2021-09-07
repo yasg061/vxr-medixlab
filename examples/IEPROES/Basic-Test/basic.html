@@ -4,10 +4,7 @@
   <meta charset="utf-8">
   <title>Dev Example — Networked-Aframe</title>
   <meta name="description" content="Dev Example — Networked-Aframe">
-  <script>
-    let url = "../../../js/structureEntitiesTst.json"
-  </script>
-
+ 
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
   <script src="/easyrtc/easyrtc.js"></script>
@@ -20,10 +17,13 @@
 
   <script src="/js/spawn-in-circle.component.js"></script>
   <script src="../../js/Animation-Trigger.js"></script>
-  <script src="../../js/Feature-Schemas.js"></script>
 
 
- 
+
+
+  <script> let url = "../../../js/structureBasicTest.json"
+  </script>
+
 </head>
 
 <body>
@@ -32,10 +32,10 @@
       debug: true;
       adapter: wseasyrtc;
     ">
-    <a-assets>
+    <a-assets timeout="3000">
 
       <img id="grid" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous">
- 
+
       <a.asser-item id="insAnim" src="Instruments_Animation.gltf"></a.asser-item>
 
 
@@ -44,7 +44,8 @@
       <template id="vxr-obj-template-1">
         <a-entity>
           <a-entity id="instruments" class="instrumentClass" gltf-model="Instruments_Animation.gltf" scale=""
-            position="0.03489 -0.485 -2.1 " animation-trigger material="color: brown" rotation="0 180.000 0" visible="true"></a-entity>
+            position="0.03489 -0.485 -2.1 " animation-trigger material="color: brown" rotation="0 180.000 0"
+            visible="true"></a-entity>
         </a-entity>
       </template>
 
@@ -88,7 +89,7 @@
 
 
     <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" camera position="0 1.6 0"
-      spawn-in-circle="radius:3" wasd-controls look-controls>
+      spawn-in-circle="radius:0" wasd-controls look-controls>
       <a-sphere class="head" visible="false" random-color></a-sphere>
     </a-entity>
 
@@ -140,10 +141,17 @@
     function onConnect() {
       console.log("onConnect", new Date());
     }
-
-
   </script>
-      <script src="../../js/Feature-SpawnObjects.js"></script>
+
+  <script src="../../js/Feature-SetAttributes.js"></script>
+  <!-- <script src="../../js/Feature-SpawnTemplate.js"></script> -->
+  <script src="../../js/Feature-SpawnObjects.js"></script> 
+
+   <!-- <script src="../../js/Feature-Schemas.js"></script> -->
+  
+
+
+
 
 </body>
 

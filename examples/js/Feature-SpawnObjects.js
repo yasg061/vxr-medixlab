@@ -1,16 +1,19 @@
 
 let ojectsResult
-let spawnedObj
-let sceneEl = document.querySelector('a-scene');
+ let sceneEl = document.querySelector('a-scene');
 
 fetch(url).then(
   function (u) { return u.json(); }
 ).then(
   function (json) {
-    spawnedObj = json
-     ojectsResult = JSON.parse(JSON.stringify(json));
+      ojectsResult = JSON.parse(JSON.stringify(json));
+      var delayInMilliseconds = 3000; //1 second
 
+      setTimeout(function() {
+        //your code to be executed after 1 second
+     
     spawnEntities(ojectsResult)
+  }, delayInMilliseconds);
   }
 )
 
@@ -20,13 +23,14 @@ function spawnEntities(structure) {
   structure.forEach(item => {
     i++
     let entityEl = document.createElement('a-entity');
-    entityEl.setAttribute("position", "0 1.5 -0.2")
     entityEl.setAttribute("id",`template${i}`)
+    entityEl.setAttribute("position", "0 1.5 -0.2")
+
 
     if(item.selector=="#instruments"){
-      entityEl.setAttribute("networked", `template:${item.template};attachTemplateToLocal:true`)
+      entityEl.setAttribute("networked", `template:#${item.template};attachTemplateToLocal:true`)
      }else{
-      entityEl.setAttribute("networked", `template:${item.template};attachTemplateToLocal:true`)
+      entityEl.setAttribute("networked", `template:#${item.template};attachTemplateToLocal:true`)
 
     }
 

@@ -50,27 +50,8 @@ AFRAME.registerComponent('skin-component', {
           let rotation = new THREE.Euler().setFromQuaternion(quaternion);
           let rotationDeg = { x: THREE.Math.radToDeg(rotation.x), y:THREE.Math.radToDeg(rotation.y), z:THREE.Math.radToDeg(rotation.z) }
 
-          // let position = bone.getWorldPosition();
-          // position.applyMatrix4(characterToLocalMtx);
-
-          // let quaternion = bone.getWorldQuaternion();
-          // quaternion.applyMatrix3(characterToLocalMtx);
-          // let rotation = new THREE.Euler().setFromQuaternion(quaterion);
-          // console.log("rotation", rotation);
-
-          /*var scratchMat = new THREE.Matrix4();
-          return function(source, destination)
-          {
-              destination.matrix.copy(source.matrixWorld);
-              destination.applyMatrix(scratchMat.getInverse(destination.parent.matrixWorld));     
-          }*/
-
-
           let entityEl = document.createElement('a-box')
           el.append(entityEl);
-
-          // let rot = { x: THREE.Math.radToDeg(bone.rotation.x), y:THREE.Math.radToDeg(bone.rotation.y), z:THREE.Math.radToDeg(bone.rotation.z) }
-          
 
           entityEl.setAttribute("id", bone.name)
           entityEl.setAttribute("dynamic-body", "mass:0.0")

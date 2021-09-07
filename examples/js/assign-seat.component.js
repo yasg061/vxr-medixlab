@@ -1,3 +1,5 @@
+let arglo
+
 AFRAME.registerComponent('assign-seat', {
   schema: {
     position: {
@@ -15,10 +17,14 @@ AFRAME.registerComponent('assign-seat', {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const spawn = urlParams.get('spawn')
-    const theaterSlots = [
+    const roomId = urlParams.get('id')
+    console.log("room id: ", roomId)
+
+    let theaterSlots = [
       {
         identifier: '1',
         position: { x: -6, y: -2.3, z: 0.5 },
+        used: false
 
       },
       {
@@ -224,6 +230,10 @@ AFRAME.registerComponent('assign-seat', {
         visible:  true
       }
     ]
+
+    console.log("used ? ",theaterSlots)
+    theaterSlots[0].used = true
+    console.log("used ? ",theaterSlots)
 
     let slotFound = theaterSlots.find(x => x.identifier === spawn);
     slotFound.position.y += 3
