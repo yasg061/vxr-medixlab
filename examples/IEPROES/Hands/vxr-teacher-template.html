@@ -76,6 +76,29 @@
       }
     })
   </script> -->
+
+  <script>
+    AFRAME.registerComponent('collide-table', {
+      init: function () {
+        var el = this.el;
+        this.el.addEventListener('collide', function (e) {
+          let cotton01 = document.getElementById("cotton01");
+          let cotton02 = document.getElementById("cotton02");
+          let cotton03 = document.getElementById("cotton03");
+          console.log("obj cotton01", cotton01)
+          console.log("obj cotton02", cotton02)
+          console.log("obj cotton03", cotton03)
+          cotton01.setAttribute("position", "-2.5 1.88 -0.363");
+          cotton01.removeAttribute("dynamic-body");
+          cotton02.setAttribute("position", "-1.5 1.88 -0.363");
+          cotton02.removeAttribute("dynamic-body");
+          cotton03.setAttribute("position", "-1.5 1.88 -0.363");
+          cotton03.removeAttribute("dynamic-body");
+        });
+      }
+    })
+  </script>
+
   <script>
     AFRAME.registerComponent('attach-point-axis', {
       init: function () {
@@ -127,7 +150,7 @@
       <a-asset-item id="maskn95" src="../../Models/gltf/MaskN95.gltf"></a-asset-item>
       <a-asset-item id="table" src="../../Models/gltf/Table.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle.gltf"></a-asset-item>
-      <a-asset-item id="bed" position="1.75217 0.92 1.00408" src="../../Models/gltf/Bed.gltf"></a-asset-item>
+      <a-asset-item id="bed" src="../../Models/gltf/Bed.gltf"></a-asset-item>
       <a-asset-item id="patient" src="../../Models/gltf/Patient.gltf"></a-asset-item>
       <a-asset-item id="tray" src="../../super/process/assets/Tray.gltf"></a-asset-item>
       <a-asset-item id="StudentAvatar" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
@@ -322,21 +345,21 @@
 
       <template id="vxr-obj-template-cottonswab01">
         <a-entity>
-          <a-entity class="vxr-obj-cottonswab01 vxr-interact" gltf-model="#cottonswab" dynamic-body draggable grabbable
+          <a-entity id="cotton01" collide-table class="vxr-obj-cottonswab01 vxr-interact" gltf-model="#cottonswab" draggable grabbable
             toggle-physics position="-1.01 0.5 -0.251" animation-control="Fist"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-cottonswab02">
         <a-entity>
-          <a-entity class="vxr-obj-cottonswab02 vxr-interact" gltf-model="#cottonswab" dynamic-body draggable grabbable
+          <a-entity id="cotton02" collide-table class="vxr-obj-cottonswab02 vxr-interact" gltf-model="#cottonswab" draggable grabbable
             toggle-physics position="-1.08 0.7 -0.194" animation-control="Fist"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-cottonswab03">
         <a-entity>
-          <a-entity class="vxr-obj-cottonswab03 vxr-interact" gltf-model="#cottonswab" dynamic-body draggable grabbable
+          <a-entity id="cotton03" collide-table class="vxr-obj-cottonswab03 vxr-interact" gltf-model="#cottonswab" draggable grabbable
             toggle-physics position="-1.08 0.7 -0.285" animation-control="Fist"></a-entity>
         </a-entity>
       </template>
@@ -403,7 +426,7 @@
 
     <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity>
-    <a-entity id="patient01" gltf-model="#patient" scale="" position="0.94746 1.84975 -0.27272" material="color: brown">
+    <a-entity id="patient01" gltf-model="#patient" scale="" position="1.20136 0.99273 -0.71331" material="color: brown">
     </a-entity>
  
     <a-entity class="gltf" gltf-model="#table" position="-0.13 1 -0.363" rotation="0 180 0"></a-entity>
@@ -474,6 +497,7 @@
     <!-- HINGE -->
     <!-- LOCK -->
 
+    <a-box visible="false" id="box-collide" width="1.0" height="0.35" rotation="0 0 0" color="green" position="-1.48 1.5 -0.36"></a-box>
 
 
     <!-- <a-box static-body width="100" height="0.01" depth="100" visible="false"></a-box> -->
