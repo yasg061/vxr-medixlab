@@ -12,7 +12,10 @@ AFRAME.registerComponent('boneposition', {
   init: function () {
 
 
-    let boneReference = document.getElementById(this.data.mesh_id).getObject3D("mesh").children[0].children[1].children[0].skeleton.bones[this.data.bone_id];
+    //let boneReference = document.getElementById(this.data.mesh_id).getObject3D("mesh").children[0].children[1].children[0].skeleton.bones[this.data.bone_id];
+    let boneReference = document.getElementById(this.data.mesh_id).getObject3D("mesh").children[0].children[1].skeleton.bones[this.data.bone_id];//catheter
+
+    
     this.data.bone = boneReference;
     console.log("mesh: ", boneReference)
 

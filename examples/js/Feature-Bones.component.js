@@ -14,7 +14,8 @@ AFRAME.registerComponent('skin-component', {
 
       let i = 0;
       console.log("mesh",mesh)
-       let objToIterate = mesh.children[0].children[1].children[0].skeleton.bones
+      //  let objToIterate = mesh.children[0].children[1].children[0].skeleton.bones
+       let objToIterate = mesh.children[0].children[1].skeleton.bones // catheter
 
 
       //-------------------------------------------------//
@@ -25,16 +26,13 @@ AFRAME.registerComponent('skin-component', {
       let skinned = mesh.children[0]
  
 
-      var delayInMilliseconds = 5000; //1 second
+      var delayInMilliseconds = 5000; //5 second
       setTimeout(function () {       
 
         objToIterate.forEach(bone => {
           console.log("bone: ", bone)
 
 
-      //-------------------------------------------------//
-      //----------------- Bone Axis helper ---------------//
-      //-------------------------------------------------//
 
  
           let characterToLocalMtx = new THREE.Matrix4();
@@ -49,20 +47,23 @@ AFRAME.registerComponent('skin-component', {
           let quaternion = new THREE.Quaternion().setFromRotationMatrix(boneToCharacterMtx);
           let rotation = new THREE.Euler().setFromQuaternion(quaternion);
           let rotationDeg = { x: THREE.Math.radToDeg(rotation.x), y:THREE.Math.radToDeg(rotation.y), z:THREE.Math.radToDeg(rotation.z) }
-
+          let ParentBone = bone.name;
           let entityEl = document.createElement('a-box')
           el.append(entityEl);
 
           entityEl.setAttribute("id", bone.name)
           entityEl.setAttribute("dynamic-body", "mass:0.0")
-          entityEl.setAttribute("geometry", "width:0.1 ; height:0.1;depth:0.1")
+          entityEl.setAttribute("geometry", "width:0.01 ; height:0.02;depth:0.01")
           entityEl.setAttribute("position", position)
           entityEl.setAttribute("rotation", rotationDeg)
-          entityEl.setAttribute("opacity", "0")
+          entityEl.setAttribute("opacity", "0.5")
           entityEl.setAttribute("grabbable", "")
           entityEl.setAttribute("draggable", "")
           entityEl.setAttribute("ondragstart", `genericBone(${bone.name})`);
           entityEl.setAttribute("ondragend", `genericBoneEnd(${bone.name})`);
+          entityEl.setAttribute("constraint", `"type: hinge; target:#hinge-target; axis: 0 1 0; targetAxis: 0 1 0; pivot: -0.125 0 0; 
+          targetPivot: 0.125 0 0.125;"`)
+
 
           // entityEl.object3D.position = position;
           // entityEl.object3D.quaternion = quaternion;
