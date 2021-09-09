@@ -437,16 +437,16 @@
       <template id="vxr-obj-template-intracath-piece-1">
         <a-entity>
           <a-entity id="e-intracath-piece-1" id="firstPart" class="vxr-obj-intracath-piece-1 vxr-interact"
-            gltf-model="#intracath-piece-1" draggable="" grabbable="" position="0.76777 0.53849 -0.75537"
+            gltf-model="#intracath-piece-1" draggable="" grabbable="; maxGrabbers: NaN" position="0.76381 0.53849 -0.75531"
             rotation="-45 0 0" visible="false"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-intracath-piece-2">
         <a-entity>
-          <a-entity id="vxr-intracath-second-part" ondragstart="setMass()"
+          <a-entity id="vxr-intracath-second-part" grabbable="maxGrabbers: NaN" ondragstart="setMass()"
             class="vxr-obj-intracath-piece-2 vxr-interact" gltf-model="#intracath-piece-2" draggable grabbable
-            position="0.76849 0.55084 -0.74178" rotation="-45 0 0" visible="false"></a-entity>
+            position="0.76397 0.55084 -0.74266" rotation="-45 0 0" visible="false"></a-entity>
         </a-entity>
       </template>
 

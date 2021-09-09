@@ -626,16 +626,16 @@
       <template id="vxr-obj-template-intracath-piece-1">
         <a-entity>
           <a-entity id="e-intracath-piece-1" id="firstPart" class="vxr-obj-intracath-piece-1 vxr-interact"
-            gltf-model="#intracath-piece-1" draggable="" grabbable="" position="0.76777 0.53849 -0.75537"
+            gltf-model="#intracath-piece-1" draggable="" grabbable="; maxGrabbers: NaN" position="0.76381 0.53849 -0.75531"
             rotation="-45 0 0" visible="false"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-intracath-piece-2">
         <a-entity>
-          <a-entity id="vxr-intracath-second-part" ondragstart="setMass()"
+          <a-entity id="vxr-intracath-second-part" grabbable="maxGrabbers: NaN" ondragstart="setMass()"
             class="vxr-obj-intracath-piece-2 vxr-interact" gltf-model="#intracath-piece-2" draggable grabbable
-            position="0.76849 0.55084 -0.74178" rotation="-45 0 0" visible="false"></a-entity>
+            position="0.76397 0.55084 -0.74266" rotation="-45 0 0" visible="false"></a-entity>
         </a-entity>
       </template>
 
@@ -789,22 +789,22 @@
 
 
     <a-entity id="static-heparinseal" class="vxr-obj-heparinseal vxr-interact" gltf-model="#heparinseal"
-      position="0.76803 2.03313 -0.960" rotation="45 -8.88624861371593e-9 0.00014024380116174428" visible="false">
+      position="0.76409 2.03313 -0.95815" rotation="45 -8.88624861371593e-9 0.00014024380116174428" visible="false">
     </a-entity>
-    <a-entity id="StaticMedicalClothe" class="vxr-obj-MedicalClothe vxr-interact"
+    <a-entity id="StaticMedicalClothe" grabbable="maxGrabbers: NaN" class="vxr-obj-MedicalClothe vxr-interact"
       gltf-model="../../Models/gltf/MedicalClothe.gltf" toggle-physics="" draggable="" grabbable
       position="0.762 1.988 -1.002" rotation="12.42 67.43 -3.656" visible="false"></a-entity>
 
     <a-entity id="Static-Tape-Bow" class="vxr-obj-Tape-Bow vxr-interact" gltf-model="../../Models/gltf/Tape_Bow.gltf"
-      toggle-physics="" draggable="" grabbable="" position="0.768 2.011 -0.989"
+      toggle-physics="" draggable="" grabbable="; maxGrabbers: NaN" position="0.76446 2.0053 -0.99248"
       rotation="0.0017188733853924698 77.997 179.9998479605043" visible="false"></a-entity>
-    <a-entity id="Static-Tape-Butterfly" class="vxr-obj-Tape-Butterfly vxr-interact"
+    <a-entity id="Static-Tape-Butterfly" grabbable="maxGrabbers: NaN" class="vxr-obj-Tape-Butterfly vxr-interact"
       gltf-model="../../Models/gltf/Tape_Butterfly.gltf" toggle-physics="" draggable="" grabbable
-      position="0.767 2.011 -0.981" rotation="0.4428963756361263 77.997 -177.91714637520374" visible="false"></a-entity>
+      position="0.7632 2.00579 -0.9882" rotation="0.4428963756361263 77.997 -177.91714637520374" visible="false"></a-entity>
     <a-entity id="Static-Tape-Normal" class="vxr-obj-Tape-Normal vxr-interact"
       gltf-model="../../Models/gltf/Tape_Normal.gltf" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
-      position="0.768 2.011 -0.990" rotation="-0.00002110992401797946 77.997 180" visible=false></a-entity>
-    <a-entity id="Static-vxr-obj-rubber" class="vxr-obj-rubber vxr-interact" gltf-model="../../Models/gltf/Rubber.gltf"
+      position="0.765 2.004 -0.994" rotation="-0.00002110992401797946 77.997 180" visible=false></a-entity>
+    <a-entity id="Static-vxr-obj-rubber" grabbable="maxGrabbers: NaN" class="vxr-obj-rubber vxr-interact" gltf-model="../../Models/gltf/Rubber.gltf"
       draggable="" grabbable position="0.777 1.976 -1.029" scale="0.5 0.5 0.5" rotation="0 60.856 270" visible="false"
       ondragstart="setMassRubber()"></a-entity>
 
@@ -908,7 +908,7 @@
         networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
-    <a-sphere id="sphere2" static-body attach-intracath opacity="0" position="0.771 1.99849 -0.27845" attach-point-v2
+    <a-sphere id="sphere2" static-body="sphereRadius: NaN" static-body attach-intracath opacity="0" position="0.771 1.99849 -0.27845" attach-point-v2
       geometry="radius: 0.05">
     </a-sphere>
 
