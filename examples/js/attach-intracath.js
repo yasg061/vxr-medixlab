@@ -8,15 +8,17 @@ AFRAME.registerComponent('attach-intracath', {
     if(classes.includes("vxr-obj-intracath")){
     console.log('funca ', e.detail.body.el);
     
-        e.detail.body.el.remove();
         console.log('Syringe has collided with ', e.detail.body.el);
-        let intracathInit =document.getElementById("firstPart")
+        let intracathInit =document.getElementById("e-intracath-piece-1")
         let intracathEnd=document.getElementById("vxr-intracath-second-part")
 
         intracathEnd.setAttribute('visible','true')
-        intracathInit.setAttribute('visible','true')
         intracathEnd.setAttribute('dynamic-body','mass:0.0')
+
+        intracathInit.setAttribute('visible','true')
         e.detail.body.el.setAttribute("visible","false")
+        e.detail.body.el.remove();
+
         
 
       }else{
