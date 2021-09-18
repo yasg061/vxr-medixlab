@@ -84,7 +84,7 @@
             console.log("entity: ", this.el)
             el.removeAttribute("dynamic-body")
             el.setAttribute("position", { x: data.x, y: data.y, z: data.z })
-            el.setAttribute("dynamic-body", "")
+            el.setAttribute("toggle-physics", "")
 
           } else {
             console.log('Error on: ', e.detail.body.el);
@@ -469,7 +469,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -4; iterations: 75" networked-scene="
+  <a-scene physics="debug: false; gravity: -4; iterations: 75" networked-scene="
       room: process2;
       adapter: easyrtc;
       audio: true;
@@ -523,7 +523,6 @@
       <a-video id="logopng" src="/Models/Images/Ieproes_Logo.png"></a-video>
 
       <!-- Catheter -->
-      t
       <a-asset-item id="catheter01" src="../../Models/gltf/Catheter01.gltf"></a-asset-item>
       <a-asset-item id="catheter02" src="../../Models/gltf/Catheter02.gltf"></a-asset-item>
       <a-asset-item id="disposable" src="../../Models/gltf/Disposable.gltf"></a-asset-item>
@@ -553,7 +552,7 @@
       <a-asset-item id="hospitalroom" src="../../Models/gltf/HospitalRoom.gltf"></a-asset-item>
       <a-asset-item id="hospitalbed" src="../../Models/gltf/BedHospital.gltf"></a-asset-item>
       <img id="sky-01" src="../../Models/Images/sky-01.jpg">
-
+      
       <canvas id="cam2"></canvas>
 
       <a-asset-item id="base" src="/Models/gltf/Base.gltf"></a-asset-item>
@@ -564,7 +563,7 @@
                               colliderEndEventProperty: clearedEls;">
       </a-mixin>
       <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false"
-        static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
+        static-body="shape: sphere; sphereRadius: 0.022" super-hands="colliderEvent: collisions;
                           colliderEventProperty: els;
                           colliderEndEvent: collisions;
                           colliderEndEventProperty: clearedEls;">
@@ -687,15 +686,14 @@
           <a-entity id="vxr-rubber" class="vxr-obj-rubber vxr-interact" gltf-model="#rubber" toggle-physics draggable
             ground-collider grabbable position="0.251 0.465 -0.255" scale="0.8 0.8 0.8"
             ondragstart="this.setAttribute('set-object-position','')"></a-entity>
-
-
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-dripbag">
         <a-entity>
           <a-entity id="vxr-bag" class="vxr-obj-dripbag vxr-interact" foo gltf-model="#dripbag" draggable grabbable
-            toggle-physics position="-0.48483 0.66406 -0.19693" rotation="0 0 0"></a-entity>
+            toggle-physics position="-0.48483 0.66406 -0.19693" rotation="0 0 0"
+            ondragstart="this.setAttribute('set-object-position','')"></a-entity>
         </a-entity>
       </template>
 
@@ -764,8 +762,8 @@
 
       <template id="vxr-obj-template-intracath">
         <a-entity>
-          <a-entity id="vxr-intracath" class="vxr-obj-intracath vxr-interact" gltf-model="#intracath" draggable
-            grabbable toggle-physics position="0.365 0.440 -0.020" rotation="0 180 0"></a-entity>
+          <a-entity id="vxr-intracath" class="vxr-obj-intracath vxr-interact" gltf-model="#intracath" position="0.365 0.411 -0.020" rotation="0 180 0"
+          draggable grabbable toggle-physics></a-entity>
         </a-entity>
       </template>
 
@@ -931,17 +929,22 @@
       </template>
 
     </a-assets>
+    <!-- <a-entity background="color: #92f2ff"></a-entity> -->
 
     <a-sky rotation="0 180 0" position="0 -70 0" src="#sky-01"></a-sky>
     <a-light id="directionallight" light="intensity: 1" type="directional" position="0 0 0" rotation="-90 0 0"
-      intensity="0.400" target="#directionaltarget">
-      <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
+    intensity="0.400" target="#directionaltarget">
+    <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
     </a-light>
+    <a-entity light="intensity: 0.5; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"
+    id="ambientlight"></a-entity>
+    <a-entity light="color: #FFFFFF; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
+    position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
     <!-- Static Objects -->
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363"   rotation="0 180 0"></a-entity> -->
-    <a-entity id="patient01" gltf-model="#patient" rotation="-8.461 0.567 -3.692" scale="" position="1.148 1.982 0.110"
+    <a-entity id="patient01" gltf-model="#patient" rotation="-8.461 0.567 -3.692" scale="" position="1.141 1.982 0.110"
       material="color: brown">
     </a-entity>
 
@@ -985,14 +988,8 @@
       material="color: brown" rotation=""></a-entity>
 
     <!-- Theater Lights -->
-    <a-entity background="color: #92f2ff"></a-entity>
 
-    <a-entity light="intensity: 0.7; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"
-      id="ambientlight"></a-entity>
-    <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
-      position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
-
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.9 -2"
+    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.75 -1.4"
       rotation="0 180 0" movement-controls="speed:0.3">
       <a-entity camera position="0 1.6 0.2" look-controls input
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
@@ -1005,19 +1002,19 @@
       </a-entity>
     </a-entity>
 
-    <a-sphere id="sphere1" static-body attach-point opacity="1" position="0.89964 1.79244 -0.77085" color="black"
+    <a-sphere id="sphere1" static-body attach-point opacity="0" position="0.89964 1.79244 -0.77085" color="black"
       radius="0.03"></a-sphere>
-    <a-sphere id="sphere2" static-body attach-point opacity="1" position="0.92743 1.79311 -0.8472" color="black"
+    <a-sphere id="sphere2" static-body attach-point opacity="0" position="0.92743 1.79311 -0.8472" color="black"
       radius="0.06"></a-sphere>
     <a-box id="box1" attach-point-axis opacity="1" static-body
-      rotation="8.133135901882035 -21.810784387245047 -3.2406492892599363" position="0.92821 1.80731 -0.99448"
+      rotation="8.133135901882035 -21.810784387245047 -3.2406492892599363" position="0.939 1.785 -0.994"
       color="red" depth="0.03" height="0.03" width="0.03"></a-box>
-    <a-box id="box2" attach-point-axis opacity="1" static-body rotation="0 0 0" position="0.35703 2.60882 -1.52762"
+    <a-box id="box2" attach-point-axis opacity="0" static-body rotation="0 0 0" position="0.35703 2.60882 -1.52762"
       color="red" depth="0.03" height="0.03" width="0.03"></a-box>
 
-    <a-entity id="xvr-trashcontainer" gltf-model="#trashcontainerblack" position="0.60795 0.98577 -0.0845"
+    <a-entity id="xvr-trashcontainer" gltf-model="#trashcontainerblack" position="0.60795 1.050 -0.0845"
       scale="0.49177 0.49177 0.49177" visible="true"></a-entity>
-    <a-entity id="xvr-trashcontainer" gltf-model="#trashcontainer" position="0.60795 0.98577 -0.4343"
+    <a-entity id="xvr-trashcontainer" gltf-model="#trashcontainer" position="0.60795 1.050 -0.4343"
       scale="0.49177 0.49177 0.49177" visible="true"></a-entity>
 
 
