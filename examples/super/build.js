@@ -86962,6 +86962,7 @@ AFRAME.registerComponent('grabbable', inherit(base, {
       // initiate physics if available, otherwise manual
       if (!this.physicsStart(evt) && !this.grabber) {
         this.grabber = evt.detail.hand;
+        console.log("grabber: ",evt.detail.hand)
         this.resetGrabber();
       }
       // notify super-hands that the gesture was accepted

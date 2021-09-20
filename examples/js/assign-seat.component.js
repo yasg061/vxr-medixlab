@@ -10,8 +10,8 @@ AFRAME.registerComponent('assign-seat', {
   },
 
   init: function () {
-    var data = this.data;
-    var el = this.el;
+    let data = this.data;
+    let el = this.el;
 
     // Sets spectator avatar positions 
     const queryString = window.location.search;
@@ -239,6 +239,12 @@ AFRAME.registerComponent('assign-seat', {
     slotFound.position.y += 3
     let slotPosition = slotFound.position
     el.setAttribute('position', slotPosition)
+
+    let patient = document.getElementById("Patient").getObject3d("mesh")
    
-   }
+    
+    
+   },
+
+ 
 })

@@ -332,8 +332,8 @@
 
       <template id="vxr-obj-template-medicaltape">
         <a-entity>
-          <a-entity id="e-medicaltape" class="vxr-obj-medicaltape vxr-interact" gltf-model="#medicaltape" 
-            draggable grabbable toggle-physics position="0.01525 0.40499 0.01037"></a-entity>
+          <a-entity id="e-medicaltape" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-medicaltape vxr-interact" gltf-model="#medicaltape" 
+            draggable grabbable toggle-physics position="-0.03659 0.41003 0.01048"></a-entity>
         </a-entity>
       </template>
 
@@ -341,15 +341,15 @@
         <a-entity>
           <a-entity id="e-gauze" grabbable="maxGrabbers: NaN" ="sphereRadius: NaN"
             class="vxr-obj-gauze vxr-interact" gltf-model="#gauze"  draggable grabbable toggle-physics
-            position="0.11913 0.40811 0.01995"></a-entity>
+            position="-0.02265 0.40811 -0.11293"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-allistweezers">
         <a-entity>
-          <a-entity id="e-allistweezers" grabbable="maxGrabbers: NaN" ="sphereRadius: NaN"
+          <a-entity id="e-allistweezers" dynamic-body="sphereRadius: NaN" grabbable="maxGrabbers: NaN" ="sphereRadius: NaN"
             class="vxr-obj-allistweezers vxr-interact" gltf-model="#allistweezers"  draggable grabbable
-            toggle-physics position="-0.08831 0.40972 -0.00739"></a-entity>
+            toggle-physics position="-0.12746 0.40972 -0.00736"></a-entity>
         </a-entity>
       </template>
 
@@ -401,9 +401,9 @@
 
       <template id="vxr-obj-template-alcoholgel">
         <a-entity>
-          <a-entity id="e-alcoholgel" rotation="-0.000007482898378635189 5.0502035565766735e-11 0.000015681807417680195"
+          <a-entity id="e-alcoholgel" dynamic-body="sphereRadius: NaN" rotation="-0.000007477635997961198 3.8917617689839617e-10 0.000015630321302724323"
             grabbable="maxGrabbers: NaN" ="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
-            gltf-model="#alcoholgel"  draggable grabbable toggle-physics position="-0.2483 0.4042 0.05012">
+            gltf-model="#alcoholgel"  draggable grabbable toggle-physics position="-0.24829999999872904 0.4042071089206425 0.05012000000017633">
           </a-entity>
         </a-entity>
       </template>
@@ -470,9 +470,9 @@
 
       <template id="vxr-obj-template-Tape-Normal">
         <a-entity>
-          <a-entity id="e-Tape-Normal" ="sphereRadius: NaN" class="vxr-obj-Tape-Normal vxr-interact"
+          <a-entity id="e-Tape-Normal" dynamic-body="sphereRadius: NaN" ="sphereRadius: NaN" class="vxr-obj-Tape-Normal vxr-interact"
             gltf-model="#Tape_Normal" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
-            position="-0.00028 0.40608 -0.19352" rotation="0 0 0" ></a-entity>
+            position="-0.12812 0.40609 -0.19352" rotation="-0.00003465309403413762 5.889117070915113e-9 0.00022275971082987936" ></a-entity>
         </a-entity>
       </template>
 
@@ -480,7 +480,7 @@
         <a-entity>
           <a-entity id="e-Tape-Normal1" ="sphereRadius: NaN" class="vxr-obj-Tape-Normal1 vxr-interact"
             gltf-model="#Tape_Normal" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
-            position="0.05213 0.40608 -0.19265" rotation="0 0 0" ></a-entity>
+            position="-0.09797 0.40609 -0.19265" rotation="0 0 0" ></a-entity>
         </a-entity>
       </template>
 
@@ -488,15 +488,15 @@
         <a-entity>
           <a-entity id="e-Tape-Normal2" ="sphereRadius: NaN" class="vxr-obj-Tape-Normal2 vxr-interact"
             gltf-model="#Tape_Normal" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
-            position="0.10583 0.40573 -0.19371" rotation="0 0 0" ></a-entity>
+            position="-0.04789 0.40609 -0.19371" rotation="0 0 0" ></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-Tape-Normal3">
         <a-entity>
-          <a-entity id="e-Tape-Normal3" ="sphereRadius: NaN" class="vxr-obj-Tape-Normal3 vxr-interact"
+          <a-entity id="e-Tape-Normal3" dynamic-body="sphereRadius: NaN" ="sphereRadius: NaN" class="vxr-obj-Tape-Normal3 vxr-interact"
             gltf-model="#Tape_Normal" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
-            position="0.15839 0.40439 -0.19378" rotation="0 0 0" ></a-entity>
+            position="-0.01278 0.40609 -0.19378" rotation="0 0 0" ></a-entity>
         </a-entity>
       </template>
 
@@ -630,8 +630,8 @@
     <a-box opacity="0" static-body rotation="" position="-1.48 1.85724 -0.36937" color="red" depth="0.6" height="0.1"
       width="1.1"></a-box>
 
-    <!-- <a-entity id="patient01" gltf-model="../../Models/gltf/Patient.gltf" scale="" position="0.94746 1.84975 -0.27272"
-      material="color: brown" rotation="" velocity=""></a-entity> -->
+    <!-- <a-entity id="patient01" gltf-model="../../Models/gltf/Patient.gltf" scale="" position="-1.45845 0.86579 -1.92747"
+      material="color: brown" rotation="0 0 0" velocity=""></a-entity> -->
 
     <!-- Theater Objects -->
     <a-entity id="frontwall01" gltf-model="#frontwall" ; scale="1 1 1" position="0 0 -1.12569" material="color: brown"

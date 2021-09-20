@@ -110,7 +110,7 @@
           });
         });
       },
- 
+
     });
   </script>
 
@@ -300,9 +300,9 @@
       <a-asset-item id="maskn95" src="../../Models/gltf/MaskN95.gltf"></a-asset-item>
       <a-asset-item id="table" src="../../Models/gltf/Table.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle.gltf"></a-asset-item>
-      <a-asset-item id="bed" src="BedHospital.gltf"></a-asset-item>
+      <a-asset-item id="bed" position="1.75217 0.92 1.00408" src="../../Models/gltf/Baby_Crib.gltf"></a-asset-item>
       <!-- <a-asset-item id="patient" src="../../Models/gltf/Baby.gltf"></a-asset-item> -->
-      <!-- <a-asset-item id="patient" src="Baby_Jeringa.gltf"></a-asset-item> -->
+      <a-asset-item id="patient" src="Baby_Jeringa.gltf"></a-asset-item>
 
       <a-asset-item id="tray" src="../../super/process/assets/Tray.gltf"></a-asset-item>
       <a-asset-item id="StudentAvatar" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
@@ -338,9 +338,9 @@
       <a-asset-item id="testBone" src="CubeBone.gltf"></a-asset-item>
 
       <!-- <a-asset-item id="Patient_IK" src="Patient_IK.gltf"></a-asset-item> -->
-      <a-asset-item id="Patient_IK" src="Patient_NOIK_NoHands.gltf"></a-asset-item>
+      <a-asset-item id="Patient_IK" src="UrinaryCatheter.gltf"></a-asset-item>
 
-      <a-asset-item id="gene" src="HospitalRoomNeonatal3.gltf"></a-asset-item>
+      <a-asset-item id="gene" src="00-HospitalRoomNeonatal3.gltf"></a-asset-item>
       <!-- <a-asset-item id="genes" src="Crypto_Bodies.gltf"></a-asset-item> -->
 
 
@@ -521,8 +521,8 @@
 
       <template id="vxr-obj-template-medicaltape">
         <a-entity>
-          <a-entity id="e-medicaltape" class="vxr-obj-medicaltape vxr-interact" gltf-model="#medicaltape" dynamic-body
-            draggable grabbable toggle-physics position="0.01525 0.40499 0.01037"></a-entity>
+          <a-entity id="e-medicaltape" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-medicaltape vxr-interact" gltf-model="#medicaltape" dynamic-body
+            draggable grabbable toggle-physics position="-0.03659 0.41003 0.01048"></a-entity>
         </a-entity>
       </template>
 
@@ -530,7 +530,7 @@
         <a-entity>
           <a-entity id="e-gauze" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-gauze vxr-interact" gltf-model="#gauze" dynamic-body draggable grabbable toggle-physics
-            position="0.11913 0.40811 0.01995"></a-entity>
+            position="-0.02265 0.40811 -0.11293"></a-entity>
         </a-entity>
       </template>
 
@@ -538,7 +538,7 @@
         <a-entity>
           <a-entity id="e-allistweezers" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-allistweezers vxr-interact" gltf-model="#allistweezers" dynamic-body draggable grabbable
-            toggle-physics position="-0.08831 0.40972 -0.00739"></a-entity>
+            toggle-physics position="-0.12746 0.40972 -0.00736"></a-entity>
         </a-entity>
       </template>
 
@@ -590,9 +590,9 @@
 
       <template id="vxr-obj-template-alcoholgel">
         <a-entity>
-          <a-entity id="e-alcoholgel" rotation="-0.000007482898378635189 5.0502035565766735e-11 0.000015681807417680195"
+          <a-entity id="e-alcoholgel" rotation="-0.000007477635997961198 3.8917617689839617e-10 0.000015630321302724323"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
-            gltf-model="#alcoholgel" dynamic-body draggable grabbable toggle-physics position="-0.2483 0.4042 0.05012">
+            gltf-model="#alcoholgel" dynamic-body draggable grabbable toggle-physics position="-0.24829999999872904 0.4042071089206425 0.05012000000017633">
           </a-entity>
         </a-entity>
       </template>
@@ -661,7 +661,7 @@
         <a-entity>
           <a-entity id="e-Tape-Normal" dynamic-body="sphereRadius: NaN" class="vxr-obj-Tape-Normal vxr-interact"
             gltf-model="#Tape_Normal" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
-            position="-0.00028 0.40608 -0.19352" rotation="0 0 0" dynamic-body></a-entity>
+            position="-0.12812 0.40609 -0.19352" rotation="-0.00003465309403413762 5.889117070915113e-9 0.00022275971082987936" dynamic-body></a-entity>
         </a-entity>
       </template>
 
@@ -669,7 +669,7 @@
         <a-entity>
           <a-entity id="e-Tape-Normal1" dynamic-body="sphereRadius: NaN" class="vxr-obj-Tape-Normal1 vxr-interact"
             gltf-model="#Tape_Normal" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
-            position="0.05213 0.40608 -0.19265" rotation="0 0 0" dynamic-body></a-entity>
+            position="-0.09797 0.40609 -0.19265" rotation="0 0 0" dynamic-body></a-entity>
         </a-entity>
       </template>
 
@@ -677,7 +677,7 @@
         <a-entity>
           <a-entity id="e-Tape-Normal2" dynamic-body="sphereRadius: NaN" class="vxr-obj-Tape-Normal2 vxr-interact"
             gltf-model="#Tape_Normal" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
-            position="0.10583 0.40573 -0.19371" rotation="0 0 0" dynamic-body></a-entity>
+            position="-0.04789 0.40609 -0.19371" rotation="0 0 0" dynamic-body></a-entity>
         </a-entity>
       </template>
 
@@ -685,7 +685,7 @@
         <a-entity>
           <a-entity id="e-Tape-Normal3" dynamic-body="sphereRadius: NaN" class="vxr-obj-Tape-Normal3 vxr-interact"
             gltf-model="#Tape_Normal" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
-            position="0.15839 0.40439 -0.19378" rotation="0 0 0" dynamic-body></a-entity>
+            position="-0.01278 0.40609 -0.19378" rotation="0 0 0" dynamic-body></a-entity>
         </a-entity>
       </template>
 
@@ -793,7 +793,7 @@
     </a-entity>
     <a-entity id="StaticMedicalClothe" grabbable="maxGrabbers: NaN" class="vxr-obj-MedicalClothe vxr-interact"
       gltf-model="../../Models/gltf/MedicalClothe.gltf" toggle-physics="" draggable="" grabbable
-      position="0.762 1.988 -1.002" rotation="12.42 67.43 -3.656" visible="false"></a-entity>
+      position="0.79885 1.8628 -0.22633" rotation="13.995640061660618 74.86896804753981 -5.7994788023141925" visible="false"></a-entity>
 
     <a-entity id="Static-Tape-Bow" class="vxr-obj-Tape-Bow vxr-interact" gltf-model="../../Models/gltf/Tape_Bow.gltf"
       toggle-physics="" draggable="" grabbable="; maxGrabbers: NaN" position="0.76446 2.0053 -0.99248"
@@ -805,7 +805,7 @@
       gltf-model="../../Models/gltf/Tape_Normal.gltf" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
       position="0.765 2.004 -0.994" rotation="-0.00002110992401797946 77.997 180" visible=false></a-entity>
     <a-entity id="Static-vxr-obj-rubber" grabbable="maxGrabbers: NaN" class="vxr-obj-rubber vxr-interact" gltf-model="../../Models/gltf/Rubber.gltf"
-      draggable="" grabbable position="0.777 1.976 -1.029" scale="0.5 0.5 0.5" rotation="0 60.856 270" visible="false"
+      draggable="" grabbable position="0.85034 1.86346 -0.27339" scale="0.5 0.5 0.5" rotation="0 41.441464364017314 -90.00021045914971" visible="false"
       ondragstart="setMassRubber()"></a-entity>
 
 
@@ -837,28 +837,27 @@
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity> -->
-    <a-entity id="patient01" gltf-model="#patient" scale="" position="0.889 1.84975 -0.27272" material="color: brown"
+    <a-entity id="patient01" gltf-model="#patient" scale="" position="-1.45845 0.86579 -1.92747" material="color: brown"
       rotation="0 0 0">
     </a-entity>
 
     <a-entity id="gene" gltf-model="#gene" scale="" position="2.827 0.920 -0.631" material="color: brown"
       rotation="0 90 0" shadow="receive: false">
     </a-entity>
-
-    <!-- <a-entity id="bed" gltf-model="#bed" scale="" position="1.635 0.920 1.224" material="color: brown"
-    rotation="0 90 0" shadow="receive: false">
-  </a-entity> -->
     <!-- <a-entity id="Scube" gltf-model="#s_cube"  scale="" position=" 0 1 0" material="color: black"> -->
- 
-    <!-- <a-entity id="genes01" gltf-model="#gene" scale="" position="2.827 0.920 -0.631" material="color: brown"
+    </a-entity>
+
+    <!-- <a-entity id="genes01" gltf-model="#genes" scale="" position="-2.01361 0.858 0.60808" material="color: brown"
       rotation="0 0 0" shadow="receive: false"> -->
- 
+    </a-entity>
 
 
-    
-     <a-box id="boxTable1" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
+
+    <a-entity class="gltf" gltf-model="#table" position="-0.13 1 -0.363" rotation="0 180 0"></a-entity>
+    <a-entity class="gltf" gltf-model="#bed" position="0.87277 0.948 -0.9535" rotation="0 90 0"></a-entity>
+    <a-box id="boxTable1" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="-0.11878 1.80687 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
-    <a-box id="ground" static-body="sphereRadius: NaN" class="boxTable2 vxr-ground" opacity="1" static-body
+    <a-box id="tableBox2" static-body="sphereRadius: NaN" class="boxTable2 vxr-ground" opacity="1" static-body
       rotation="" position="-1.514 0 -0.370" color="red" depth="20" height="0.1" width="20"></a-box>
     <!-- <a-box id="TorundaBowl" class="boxTable2" opacity="0" static-body position="0.30215 1.87809 -0.51316" depth="0.1"
       height="0.1" width="0.1" material="" geometry="depth: 0.1; width: 0.1"></a-box> -->
@@ -866,7 +865,26 @@
 
 
     <!-- Theater Objects -->
-
+    <!-- <a-entity id="frontwall01" gltf-model="#frontwall" scale="1 1 1" position="0 0 -1.12569" material="color: brown"
+      rotation="0 0 0"></a-entity>
+    <a-entity id="roofauditorium01" gltf-model="#roofauditorium" scale="1 1 1" position="0 1.35517 0"
+      material="color: brown" rotation="0 0 0"></a-entity>
+    <a-entity id="scenebase01" gltf-model="#scenebase" scale="1 1 1" position="0 -0.82 0" material="color: brown"
+      rotation="0 0 0"></a-entity>
+    <a-entity id="scenebase02" gltf-model="#scenebase02" scale="1 1 1" position="0 0 0" material="color: brown"
+      rotation="0 0 0"></a-entity>
+    <a-entity id="scenemedixlablogo01" gltf-model="#scenemedixlablogo" scale="2 2 2"
+      position="0.04036 11.22773 -2.14313" material="color: brown" rotation="0 0 0"></a-entity>
+    <a-entity id="sceneieproeslogo01" gltf-model="#sceneieproeslogo" scale="3 3 3" position="-7.3502 9.07108 11.32697"
+      material="color: brown" rotation="0 151.70203541678805 0"></a-entity>
+    <a-entity id="scenevertexlogo01" gltf-model="#scenevertexlogo" scale="1 1 1" position="7.21432 9.20078 11.49686"
+      material="color: brown" rotation="0 -146.36321468175908 0"></a-entity>
+    <a-entity id="stairsprincipal01" gltf-model="#stairsprincipal" scale="1 1 1" position="0 0 0" rotation="0 0 0">
+    </a-entity>
+    <a-entity id="ministairs01" gltf-model="#ministairs" scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
+    <a-entity id="lamps03" gltf-model="#lamps01" scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
+    <a-entity id="columns01" gltf-model="#columns" scale="1 1 1" position="0 0 0" material="color: brown"
+      rotation="0 0 0"></a-entity> -->
 
 
     <!-- Theater Lights -->
@@ -890,7 +908,20 @@
         networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
- 
+    <a-sphere id="sphere2" static-body="sphereRadius: NaN" static-body attach-intracath opacity="0" position="0.86455 1.99849 -0.27845" attach-point-v2
+      geometry="radius: 0.05">
+    </a-sphere>
+
+    <a-box id="dragBox" dynamic-body="sphereRadius: NaN" dynamic-body geometry="width:0.03;height:0.03;depth:0.03" position="0.01882 1.93109 -0.31722"
+      opacity="0" ondragstart="setMassHeparinseal()">
+
+    </a-box>
+
+
+    <a-sphere id="heparinsealCollider" static-body="sphereRadius: NaN" attach-point-v2="objClass:vxr-obj-heparinseal"
+      static-body attach-intracath opacity="0" position="0.83591 1.86273 -0.25136" geometry="radius: 0.02">
+    </a-sphere>
+
     <!-- <a-sphere id="TorundaColorTrigger" static-body opacity="0" position="0.28368 2.02476 -0.49238"
       geometry="radius: 0.02" color-trigger  > -->
     </a-sphere>
@@ -898,7 +929,7 @@
     <!-- <a-box id="box1" attach-point-axis opacity="1" static-body rotation="20 0 0" position="0.93508 1.85 -1.03" color="red" depth="0.03" height="0.03" width="0.03"></a-box> -->
     <!-- <a-sphere id="sphere1" static-body attach-point opacity="0" position="0.93508 1.85 -1" color="black" radius="0.03">
     </a-sphere> -->
-    <a-box id="box2" foo opacity="0" static-body rotation="0 180 0" position="0.95816 2.65 -2.07664" color="red"
+    <a-box id="box2" static-body="sphereRadius: NaN" foo opacity="0" static-body rotation="0 180 0" position="0.95816 2.65 -2.07664" color="red"
       depth="0.03" height="0.03" width="0.03"></a-box>
     <!-- <a-sphere id="sphere1" static-body foo opacity="0" position="0.92 1.85 -0.35" color="black" radius="0.03"></a-sphere> -->
     <!-- ground collider keeps objets from falling -->
@@ -915,7 +946,7 @@
     <a-entity position="-1.344 1. -1.705" id="boneToTest" skin-component scale="1 1 1" gltf-model="#Patient_IK">
     </a-entity>
 
-    <!-- <a-entity position="0.288 2.5  -0.479" particle-system="
+    <a-entity position="0.288 2.5  -0.479" particle-system="
     preset: default;
     maxAge: 1;
     positionSpread:0 0 0;
@@ -935,7 +966,7 @@
     particleCount: 2;
     opacity: 1,0.5;
     texture: ./raindrop.png;
-    "></a-entity> -->
+    "></a-entity>
 
 
   </a-scene>
@@ -1040,9 +1071,9 @@
       console.log("funca");
     }
   </script>
-  <!-- <script src="../../js/Feature-SetAttributes.js"></script>
+  <script src="../../js/Feature-SetAttributes.js"></script>
   <script src="../../js/Feature-SpawnTemplate.js"></script>
-  <script src="../../js/Feature-SpawnObjects.js"></script> -->
+  <script src="../../js/Feature-SpawnObjects.js"></script>
 
   <!-- <script src="../../js/vxr-full-house.js"></script> -->
 

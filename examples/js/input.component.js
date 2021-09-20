@@ -15,41 +15,7 @@ AFRAME.registerComponent('input-controls', {
     this.onButtonChanged = this.onButtonChanged.bind(this);
     this.onButtonDown = function (evt) { self.onButtonEvent(evt.detail.id, 'down'); };
     this.onButtonUp = function (evt) { self.onButtonEvent(evt.detail.id, 'up'); };
-  
-
-    // this.el.addEventListener("loaded", e => {
-    //   // set up the body
-    //   this.el.setAttribute("body", {
-    //     "type": "static",
-    //     "shape": "none"
-    //   })
-    //    // set up the shape
-    //    this.el.setAttribute("shape__cylinder", {
-    //     'shape': 'cylinder',
-    //     "height": 1.5,
-    //     "radiusTop": 0.1,
-    //     "radiusBottom": 0.2
-    //   })   
-    //   // static-body collision handling
-    //   this.el.setAttribute("physics-collider", "")
-    //   // listen for collisions
-    //   this.el.addEventListener('collide', e => {
-    //     // change the sphere color when collided
-    //     let classes= e.detail.body.el.className.split(' ')
-        
-    //     if(classes.includes("vxr-interact")){
-    //       console.log("working")
-    //       NAF.utils.takeOwnership(e.detail.body.el)
-    //       console.log("earned ownership ")
-    //       }else{
-    //       console.log("err")
-    //     }        
-    //   });
-
-    // })
-
-
-  },
+ },
 
   play: function () {
     var el = this.el;
@@ -98,7 +64,10 @@ AFRAME.registerComponent('input-controls', {
   onButtonEvent: function (id, evtName) {
     var buttonName = this.mapping['button' + id];
     console.log("button name: ",buttonName)
+    console.log("evtName name: ", evtName)
+
     this.el.emit(buttonName + evtName);
+
 
 
   },
