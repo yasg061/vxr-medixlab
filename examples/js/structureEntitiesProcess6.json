@@ -49,10 +49,6 @@
     "selector": ".vxr-obj-Lubricant"
   },
   {
-    "template": "vxr-obj-template-SterileField_Extended",
-    "selector": ".vxr-obj-SterileField_Extended"
-  },
-  {
     "template": "vxr-obj-template-SterileField_Folded",
     "selector": ".vxr-obj-SterileField_Folded"
   },
