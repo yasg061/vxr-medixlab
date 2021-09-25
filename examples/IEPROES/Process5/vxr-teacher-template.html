@@ -9,7 +9,7 @@
   <!-- <script src="https://unpkg.com/super-hands/dist/super-hands.min.js"></script> -->
   <!-- Networked aframe -->
   <script>
-    let url = "../../../js/structureEntitiesProcess6.json"
+    let url = "../../../js/structureEntitiesProcess5.json"
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
   <script src="/easyrtc/easyrtc.js"></script>
@@ -255,7 +255,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -272,7 +272,9 @@
       <!-- <a-asset-item id="patient" src="../../Models/gltf/Baby.gltf"></a-asset-item> -->
       <!-- <a-asset-item id="patient" src="Baby_Jeringa.gltf"></a-asset-item> -->
       <!-- <a-asset-item id="patient" src="Patient_VesicalMale.gltf"></a-asset-item> -->
-      <a-asset-item id="patient" src="Naked_P_Bryan.gltf"></a-asset-item>
+      <!-- <a-asset-item id="patient" src="Naked_P_Bryan.gltf"></a-asset-item> -->
+      <a-asset-item id="patient" src="Assets/Patient_Bed.gltf"></a-asset-item>
+      
       <!-- <a-asset-item id="patient" src="Female_Paciente.gltf"></a-asset-item> -->
 
 
@@ -310,6 +312,17 @@
       <a-asset-item id="HeparineSealBox" src="HeparineSealBox.gltf"></a-asset-item>
       <a-asset-item id="testBone" src="CubeBone.gltf"></a-asset-item>
       <a-asset-item id="tstSyringe" src="Syringe.gltf"></a-asset-item>
+      <a-asset-item id="Bag_Catheter_Joint" src="Assets/Bag_Catheter_Joint.gltf"></a-asset-item>
+
+
+      
+      <!--Animated objects-->
+      <a-asset-item id="UrinaryBag_Anim01" src="Assets/UrinaryBag_Anim01.gltf"></a-asset-item>
+      <a-asset-item id="UrinalCatheter_Foley_Anim01" src="Assets/UrinalCatheter_Foley_Anim01.gltf"></a-asset-item>
+      
+
+
+      
 
 
 
@@ -324,7 +337,7 @@
 
 
 
-      <a-asset-item id="genes" src="00-HospitalRoomNeonatal3.gltf"></a-asset-item>
+      <a-asset-item id="genes" src="Assets/HospitalRoomLight.gltf"></a-asset-item>
       <!-- <a-asset-item id="genes" src="HospitalRoom_AO.gltf"></a-asset-item> -->
 
       <a-asset-item id="s_cube" src="CottonColor.gltf"></a-asset-item>
@@ -371,6 +384,7 @@
       <a-video id="logopng" src="/Models/Images/Ieproes_Logo.png"></a-video>
 
       <canvas id="cam2"></canvas>
+
 
 
       <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false"
@@ -842,23 +856,44 @@
 
       <template id="vxr-obj-template-UrinaryBag">
         <a-entity>
-          <a-entity id="e-UrinaryBag" rotation="0 0 0" grabbable dynamic-body  class="vxr-obj-alcoholgel vxr-interact"
-            gltf-model="#UrinaryBag" dynamic-body draggable grabbable toggle-physics  position="-0.39189 0.40037 -0.28947">
+          <a-entity id="e-UrinaryBag" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0.1609922613947206 -0.7709224981170363 7.30325024146253" grabbable dynamic-body  class="vxr-obj-alcoholgel vxr-interact"
+            gltf-model="#UrinaryBag" dynamic-body draggable grabbable toggle-physics  position="-0.40219 0.83313 -0.29837">
+          </a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-UrinaryBag_Anim01">
+        <a-entity>
+          <a-entity id="e-UrinaryBag_Anim01" animation-mixer="loop:once;repetitions: NaN;clampWhenFinished:true"  grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 -90 0" grabbable dynamic-body  class="vxr-obj-alcoholgel vxr-interact"
+            gltf-model="#UrinaryBag_Anim01" dynamic-body draggable grabbable toggle-physics  position="1.01092 -0.13671 -1.57674">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-UrinaryCatheter">
         <a-entity>
-          <a-entity id="e-UrinaryCatheter" rotation="179.9998479605043 0 180" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
-            gltf-model="#UrinaryCatheter" dynamic-body draggable grabbable toggle-physics  position="-0.28866 0.40037 -0.44259">
+          <a-entity id="e-UrinaryCatheter" rotation="-0.0017077576912562131 90 0.0015339743981271142" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
+            gltf-model="#UrinaryCatheter" dynamic-body draggable grabbable toggle-physics  position="-0.08608 0.43108 -0.38581">
           </a-entity>
         </a-entity>
       </template>
     </a-assets>
 
+    <template id="vxr-obj-template-UrinalCatheter_Foley_Anim01">
+      <a-entity>
+        <a-entity id="e-UrinalCatheter_Foley_Anim01" animation-mixer="loop:once;repetitions: NaN;clampWhenFinished:true" rotation="0 -90 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
+          gltf-model="#UrinalCatheter_Foley_Anim01" dynamic-body draggable grabbable toggle-physics  position="1.4312 0.28857 -1.19862">
+        </a-entity>
+      </a-entity>
+    </template>
+  </a-assets>
+
     <!-- Hidden Static Meshes  -->
 
+
+    <!-- <a-entity id="e-Bag_Catheter_Joint" class="vxr-obj-heparinseal vxr-interact" gltf-model="#Bag_Catheter_Joint"
+      position="1.0063 1.37139 -1.75017" rotation="0 -90 0.00014024380116174428" visible="true">
+    </a-entity> -->
 
     <a-entity id="static-heparinseal" class="vxr-obj-heparinseal vxr-interact" gltf-model="#heparinseal"
       position="0.76409 2.03313 -0.95815" rotation="45 -8.88624861371593e-9 0.00014024380116174428" visible="false">
@@ -907,8 +942,8 @@
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity> -->
-    <a-entity id="patient01" gltf-model="#patient" scale="" position="-1.45845 0.86579 -1.92747" material="color: brown"
-      rotation="0 0 0">
+    <a-entity id="patient01" gltf-model="#patient" scale="" position="1.52792 0.866 -1.58151" material="color: brown"
+      rotation="0 -90 0">
     </a-entity>
 
 
@@ -1041,7 +1076,7 @@
     texture: ./raindrop.png;
     "></a-entity> -->
 
-    <a-entity id="genes01" gltf-model="#genes" scale="" position="-2.01361 0.858 0.60808" material="color: brown"
+    <a-entity id="genes01" gltf-model="#genes" scale="" position="0.32777 0.858 -0.97575" material="color: brown"
       rotation="0 -90.000 0" shadow="receive: false"></a-entity>
 
 
