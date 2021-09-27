@@ -61,6 +61,10 @@
     "selector": ".vxr-obj-UrinaryBag"
   },
   {
+    "template": "vxr-obj-template-UrinaryBag_emisive",
+    "selector": ".vxr-obj-UrinaryBag_emisive"
+  },
+  {
     "template": "vxr-obj-template-UrinaryBag_Anim01",
     "selector": ".vxr-obj-UrinaryBag_Anim01"
   },
