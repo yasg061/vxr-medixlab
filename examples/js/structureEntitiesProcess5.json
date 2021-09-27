@@ -73,7 +73,20 @@
     "selector": ".vxr-obj-UrinaryCatheter"
   },
   {
+    "template": "vxr-obj-template-UrinaryCatheter_emisive",
+    "selector": ".vxr-obj-UrinalCatheter_Foley_Anim01"
+  },
+  {
     "template": "vxr-obj-template-UrinalCatheter_Foley_Anim01",
     "selector": ".vxr-obj-UrinalCatheter_Foley_Anim01"
+  },
+  {
+    "template": "vxr-obj-template-tstSyringe",
+    "selector": ".vxr-obj-tstSyringe"
+  },
+  {
+    "template": "vxr-obj-template-Adhesive_Catheter",
+    "selector": ".vxr-obj-Adhesive_Catheter"
   }
 ]
+

@@ -63,5 +63,9 @@
   {
     "template": "vxr-obj-template-UrinaryCatheter",
     "selector": ".vxr-obj-UrinaryCatheter"
+  },
+  {
+    "template": "vxr-obj-template-tstSyringe",
+    "selector": ".vxr-obj-tstSyringe"
   }
 ]

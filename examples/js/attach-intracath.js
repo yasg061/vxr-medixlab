@@ -1,4 +1,7 @@
 AFRAME.registerComponent('attach-intracath', {
+    schema: {
+  child: {type: 'int', default: 0}
+  },
     init: function() {
       var el = this.el;
       this.el.addEventListener('collide', function(e) {
