@@ -50,4 +50,4 @@ AFRAME.registerComponent('triggerlerp', {
   update: function () {
   }
 
-});
+});1.200  -1.806
