@@ -45,12 +45,24 @@
     "selector": ".vxr-obj-Basin"
   },
   {
+    "template": "vxr-obj-template-Basin-static",
+    "selector": ".vxr-obj-Basin"
+  },
+  {
     "template": "vxr-obj-template-Lubricant",
     "selector": ".vxr-obj-Lubricant"
   },
   {
     "template": "vxr-obj-template-SterileField_Folded",
     "selector": ".vxr-obj-SterileField_Folded"
+  },
+  {
+    "template": "vxr-obj-template-SterileField_Folded_Emissive",
+    "selector": ".vxr-obj-SterileField_Folded_Emissive"
+  },
+  {
+    "template": "vxr-obj-template-SterileField_Folded_Static",
+    "selector": ".vxr-obj-SterileField_Folded_Static"
   },
   {
     "template": "vxr-obj-template-UmbilicalTape",
@@ -87,6 +99,10 @@
   {
     "template": "vxr-obj-template-Adhesive_Catheter",
     "selector": ".vxr-obj-Adhesive_Catheter"
+  },
+  {
+    "template": "vxr-obj-template-dripbag",
+    "selector": ".vxr-obj-dripbag"
   }
 ]
 
