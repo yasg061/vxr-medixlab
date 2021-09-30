@@ -89,67 +89,65 @@
         let iterator_entity = this.data.obj_entity
 
         this.el.addEventListener('collide', function (e) {
+
+
           console.log("collided: ", e.detail.body.el.id)
 
           let e_UrinaryBag = document.getElementById('e-UrinaryBag');
           let e_UrinalCatheter_Foley_Static3 = document.getElementById('e-UrinaryCatheter');
- 
+          
+          //trigger animation
           if (id_Data == e.detail.body.el.id && iterator_entity==1) {
-            let obj = document.getElementById("e-UrinaryBag_Anim01")
-            let emisive = document.getElementById("e-UrinaryBag_emisive")
+            let obj = document.getElementById(e.detail.body.el.id+"_static")
+            let emisive = document.getElementById(e.detail.body.el.id+"_emisive")
             obj.setAttribute("visible", "true")
             obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
-
             emisive.setAttribute("visible", "false")
             e.detail.body.el.setAttribute('visible', 'false');
             emisive.remove()
            }
 
-          if (id_Data == e.detail.body.el.id && iterator_entity==2 ) {
-            let obj = document.getElementById("e-UrinalCatheter_Foley_Anim01")
-            let emisive = document.getElementById("e-UrinaryCatheter_emisive")
-
-
-
-            emisive.setAttribute("visible", "false")
-            emisive.remove()
-            e.detail.body.el.setAttribute('visible', 'false');
-            
-            obj.setAttribute("visible", "true")
-            obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
-
-          }
+          // if (id_Data == e.detail.body.el.id && iterator_entity==2 ) {
+          //   let obj = document.getElementById("e-UrinalCatheter_Foley_Anim01")
+          //   let emisive = document.getElementById("e-UrinaryCatheter_emisive")
+          //   emisive.setAttribute("visible", "false")
+          //   e.detail.body.el.setAttribute('visible', 'false');            
+          //   obj.setAttribute("visible", "true")
+          //   obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+          //   emisive.remove()
+          // }
 
           if (id_Data == e.detail.body.el.id && iterator_entity==3 ) {
             let obj = document.getElementById("e-Basin-static")
-            
-            // let emisive = document.getElementById("e-Basin-static")
-            // emisive.setAttribute("visible", "false")
-            // emisive.remove()
             e.detail.body.el.setAttribute('visible', 'false');
-            
             obj.setAttribute("visible", "true")
-            // obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+          }
+
+          if (id_Data == e.detail.body.el.id && iterator_entity==4) {
+            let obj = document.getElementById("e-SterileField_Folded_Static")
+            let emisive = document.getElementById("e-SterileField_Folded_emisive")
+            emisive.setAttribute("visible", "false")
+            e.detail.body.el.setAttribute('visible', 'false');
+            obj.setAttribute("visible", "true")
+            emisive.remove()
 
           }
 
           if (id_Data == e.detail.body.el.id && iterator_entity==4) {
             let obj = document.getElementById("e-SterileField_Folded_Static")
             let emisive = document.getElementById("e-SterileField_Folded_emisive")
-
             emisive.setAttribute("visible", "false")
             e.detail.body.el.setAttribute('visible', 'false');
             obj.setAttribute("visible", "true")
             emisive.remove()
-
           }
-
-          
 
         });
       }
     })
   </script>
+
+
 
   <script>
     let boolstate = true
@@ -174,10 +172,8 @@
               node.material.needsUpdate = true;
               console.log("works -----")
               boolstate = false
-
             }
           });
-
         });
       },
 
@@ -905,7 +901,7 @@
       </template>
 
 
-      <template id="vxr-obj-template-Basin">
+      <template id="vxr-obj-template_Basin">
         <a-entity>
           <a-entity id="e-Basin" scale="0.5 0.5 0.5" rotation="0.0000033168688906224027 -90 0"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
@@ -914,23 +910,23 @@
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-Basin-static">
+      <template id="vxr-obj-template-Basin_static">
         <a-entity>
-          <a-entity id="e-Basin-static" scale="0.5 0.5 0.5" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-Basin_static" scale="0.5 0.5 0.5" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
             class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Basin" draggable grabbable visible="false"
             position="1.5275 0.07821 -1.29075">
           </a-entity>
         </a-entity>
       </template>
 
-      <!-- <template id="vxr-obj-template-Basin-Emissive">
+      <template id="vxr-obj-template-Basin_emisive">
         <a-entity>
-          <a-entity id="e-Basin-Emissive" scale="0.5 0.5 0.5" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-Basin_emisive" scale="0.5 0.5 0.5" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
             class="vxr-obj-alcoholgel vxr-interact" gltf-model="#EmissiveBasin" draggable grabbable
             position="1.5275 0.07821 -1.29075">
           </a-entity>
         </a-entity>
-      </template> -->
+      </template>
 
       <template id="vxr-obj-template-Lubricant">
         <a-entity>
@@ -961,7 +957,7 @@
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-SterileField_Folded_Emissive">
+      <template id="vxr-obj-template-SterileField_Folded_emisive">
         <a-entity>
           <a-entity id="e-SterileField_Folded_emisive"  visible="false"
             rotation="0 -90 0" grabbable="maxGrabbers: NaN"
@@ -971,9 +967,9 @@
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-SterileField_Folded_Static">
+      <template id="vxr-obj-template-SterileField_Folded_static">
         <a-entity>
-          <a-entity id="e-SterileField_Folded_Static"
+          <a-entity id="e-SterileField_Folded_static"
             rotation="0 -90 0" grabbable="maxGrabbers: NaN"  visible="false"
              class="vxr-obj-SterileField_Folded_Static vxr-interact" gltf-model="#SterileField_Folded_Pose"
              draggable grabbable position="1.51787 0.20555 -1.43024">
@@ -1009,11 +1005,11 @@
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-UrinaryBag_Anim01">
+      <template id="vxr-obj-template-UrinaryBag_static">
         <a-entity>
-          <a-entity id="e-UrinaryBag_Anim01" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+          <a-entity id="e-UrinaryBag_static" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             rotation="0 -90 0" grabbable dynamic-body class="vxr-obj-alcoholgel vxr-interact"
-            gltf-model="#UrinaryBag_Anim01" dynamic-body draggable grabbable toggle-physics
+            gltf-model="#UrinaryBag_static" dynamic-body draggable grabbable toggle-physics
             position="1.01092 -0.13671 -1.57674" visible="false">
           </a-entity>
         </a-entity>
@@ -1033,18 +1029,18 @@
     <template id="vxr-obj-template-UrinaryCatheter_emisive">
       <a-entity>
         <a-entity id="e-UrinaryCatheter_emisive" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
-          class="vxr-obj-UrinalCatheter_Foley_Static3 vxr-interact" gltf-model="#UrinalCatheter_Foley_Static3"
+          class="vxr-obj-UrinaryCatheter_emisive vxr-interact" gltf-model="#UrinalCatheter_Foley_Static3"
           position="1.41361 0.37292 -1.27062" visible="false">
         </a-entity>
       </a-entity>
     </template>
     </a-assets>
 
-    <template id="vxr-obj-template-UrinalCatheter_Foley_Anim01">
+    <template id="vxr-obj-template-UrinalCatheter_static">
       <a-entity>
-        <a-entity id="e-UrinalCatheter_Foley_Anim01" visible="false" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
+        <a-entity id="e-UrinalCatheter_Foley_static" visible="false" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
           dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
-          gltf-model="#UrinalCatheter_Foley_Anim01" dynamic-body draggable grabbable toggle-physics
+          gltf-model="#UrinalCatheter_Foley_static" dynamic-body draggable grabbable toggle-physics
           position="1.4312 0.28857 -1.19862">
         </a-entity>
       </a-entity>

@@ -1,5 +1,4 @@
 [
-
   {
     "template": "vxr-obj-template-allistweezers",
     "selector": ".vxr-obj-allistweezers"
@@ -23,7 +22,7 @@
   {
     "template": "vxr-obj-template-Tape-Normal",
     "selector": ".vxr-obj-Tape-Normal"
-  },  
+  },
   {
     "template": "vxr-obj-template-Tape-Normal1",
     "selector": ".vxr-obj-Tape-Normal1"
@@ -41,11 +40,11 @@
     "selector": ".vxr-obj-alcoholgel"
   },
   {
-    "template": "vxr-obj-template-Basin",
+    "template": "vxr-obj-template_Basin",
     "selector": ".vxr-obj-Basin"
   },
   {
-    "template": "vxr-obj-template-Basin-static",
+    "template": "vxr-obj-template-Basin_static",
     "selector": ".vxr-obj-Basin"
   },
   {
@@ -86,11 +85,11 @@
   },
   {
     "template": "vxr-obj-template-UrinaryCatheter_emisive",
-    "selector": ".vxr-obj-UrinalCatheter_Foley_Anim01"
+    "selector": ".vxr-obj-UrinaryCatheter_emisive"
   },
   {
-    "template": "vxr-obj-template-UrinalCatheter_Foley_Anim01",
-    "selector": ".vxr-obj-UrinalCatheter_Foley_Anim01"
+    "template": "vxr-obj-template-UrinalCatheter_static",
+    "selector": ".vxr-obj-UrinalCatheter_static"
   },
   {
     "template": "vxr-obj-template-tstSyringe",
@@ -105,4 +104,3 @@
     "selector": ".vxr-obj-dripbag"
   }
 ]
-
