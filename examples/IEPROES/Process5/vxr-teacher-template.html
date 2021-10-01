@@ -99,12 +99,14 @@
           //trigger animation
           if (id_Data == e.detail.body.el.id && iterator_entity==1) {
             let obj = document.getElementById(e.detail.body.el.id+"_static")
-            let emisive = document.getElementById(e.detail.body.el.id+"_emisive")
-            obj.setAttribute("visible", "true")
+             let emisive = document.getElementById(e.detail.body.el.id+"_emisive")
+             obj.setAttribute("visible", "true")
             obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
             emisive.setAttribute("visible", "false")
             e.detail.body.el.setAttribute('visible', 'false');
             emisive.remove()
+           }else{
+              console.log("obj: ",  e.detail.body.el)
            }
 
           if (id_Data == e.detail.body.el.id && iterator_entity==2) {
@@ -114,8 +116,9 @@
             e.detail.body.el.setAttribute('visible', 'false');
             obj.setAttribute("visible", "true")
             emisive.remove()
-
-          }
+          }else{
+              console.log("obj: ",  e.detail.body.el)
+           }
  
 
         });
@@ -446,6 +449,8 @@
       <!-- <a-asset-item id="UrinaryBag" src="Assets/UrinaryBag.gltf"></a-asset-item> -->
       <a-asset-item id="UrinaryBag" src="Assets/UrineBag_Static.gltf"></a-asset-item>
       <a-asset-item id="UrinaryBag-emissive" src="Assets/UrinaryBag_Static_Emmisive.gltf"></a-asset-item>
+      <a-asset-item id="UrineBag_Static" src="Assets/UrinaryBag_Anim01.gltf"></a-asset-item>
+      
       <!-- <a-asset-item id="UrinaryCatheter" src="UrinalCatheter_Foley.gltf"></a-asset-item> -->
       <a-asset-item id="UrinaryCatheter" src="UrinalCatheter_Foley_Static2.gltf"></a-asset-item>
       <a-asset-item id="Adhesive_Catheter" src="Assets/Adhesive_Catheter.gltf"></a-asset-item>
@@ -898,7 +903,7 @@
       <template id="vxr-obj-template-Basin_emisive">
         <a-entity>
           <a-entity id="e-Basin_emisive" scale="0.5 0.5 0.5" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
-            class="vxr-obj-alcoholgel vxr-interact" gltf-model="#EmissiveBasin" draggable grabbable
+            class="vxr-obj-alcoholgel vxr-interact" visible="false" gltf-model="#EmissiveBasin" draggable grabbable
             position="1.5275 0.07821 -1.29075">
           </a-entity>
         </a-entity>
@@ -983,9 +988,9 @@
 
       <template id="vxr-obj-template-UrinaryBag_static">
         <a-entity>
-          <a-entity id="e-UrinaryBag_static" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
-            rotation="0 -90 0" grabbable dynamic-body class="vxr-obj-alcoholgel vxr-interact"
-            gltf-model="#UrinaryBag_static" dynamic-body draggable grabbable toggle-physics
+          <a-entity id="e-UrinaryBag_static" grabbable="maxGrabbers: NaN"  
+            rotation="0 -90 0" grabbable  class="vxr-obj-alcoholgel vxr-interact"
+            gltf-model="#UrineBag_Static"   draggable grabbable  
             position="1.01092 -0.13671 -1.57674" visible="false">
           </a-entity>
         </a-entity>
@@ -1012,11 +1017,11 @@
     </template>
     </a-assets>
 
-    <template id="vxr-obj-template-UrinalCatheter_static">
+    <template id="vxr-obj-template-UrinaryCatheter_static">
       <a-entity>
         <a-entity id="e-UrinalCatheter_Foley_static" visible="false" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
-          dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
-          gltf-model="#UrinalCatheter_Foley_static" dynamic-body draggable grabbable toggle-physics
+           class="vxr-obj-alcoholgel vxr-interact"
+          gltf-model="#UrinalCatheter_Foley_static"  draggable grabbable 
           position="1.4312 0.28857 -1.19862">
         </a-entity>
       </a-entity>

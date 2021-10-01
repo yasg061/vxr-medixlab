@@ -92,7 +92,7 @@
     "selector": ".vxr-obj-UrinaryCatheter_emisive"
   },
   {
-    "template": "vxr-obj-template-UrinalCatheter_static",
+    "template": "vxr-obj-template-UrinaryCatheter_static",
     "selector": ".vxr-obj-UrinalCatheter_static"
   },
   {
