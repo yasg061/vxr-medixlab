@@ -107,40 +107,16 @@
             emisive.remove()
            }
 
-          // if (id_Data == e.detail.body.el.id && iterator_entity==2 ) {
-          //   let obj = document.getElementById("e-UrinalCatheter_Foley_Anim01")
-          //   let emisive = document.getElementById("e-UrinaryCatheter_emisive")
-          //   emisive.setAttribute("visible", "false")
-          //   e.detail.body.el.setAttribute('visible', 'false');            
-          //   obj.setAttribute("visible", "true")
-          //   obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
-          //   emisive.remove()
-          // }
-
-          if (id_Data == e.detail.body.el.id && iterator_entity==3 ) {
-            let obj = document.getElementById("e-Basin-static")
-            e.detail.body.el.setAttribute('visible', 'false');
-            obj.setAttribute("visible", "true")
-          }
-
-          if (id_Data == e.detail.body.el.id && iterator_entity==4) {
-            let obj = document.getElementById("e-SterileField_Folded_Static")
-            let emisive = document.getElementById("e-SterileField_Folded_emisive")
+          if (id_Data == e.detail.body.el.id && iterator_entity==2) {
+            let obj = document.getElementById(e.detail.body.el.id+"_static")
+            let emisive = document.getElementById(e.detail.body.el.id+"_emisive")
             emisive.setAttribute("visible", "false")
             e.detail.body.el.setAttribute('visible', 'false');
             obj.setAttribute("visible", "true")
             emisive.remove()
 
           }
-
-          if (id_Data == e.detail.body.el.id && iterator_entity==4) {
-            let obj = document.getElementById("e-SterileField_Folded_Static")
-            let emisive = document.getElementById("e-SterileField_Folded_emisive")
-            emisive.setAttribute("visible", "false")
-            e.detail.body.el.setAttribute('visible', 'false');
-            obj.setAttribute("visible", "true")
-            emisive.remove()
-          }
+ 
 
         });
       }
@@ -901,7 +877,7 @@
       </template>
 
 
-      <template id="vxr-obj-template_Basin">
+      <template id="vxr-obj-template-Basin">
         <a-entity>
           <a-entity id="e-Basin" scale="0.5 0.5 0.5" rotation="0.0000033168688906224027 -90 0"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
@@ -1157,16 +1133,20 @@
       rotation="0 -90.000 0" shadow="receive: false"></a-entity>
 
 
-    <a-sphere id="sphere1" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body trigger-animation="entity_id:e-UrinaryBag;obj_entity:1" opacity="0"
+    <a-sphere id="sphere1" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
+     static-body trigger-animation="entity_id:e-UrinaryBag;obj_entity:1" opacity="0"
       position="1.00598 1.27307 -1.79402" attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
-    <a-sphere id="sphere2" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body trigger-animation="entity_id:e-UrinaryCatheter;obj_entity:2" opacity="0"
+    <a-sphere id="sphere2" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
+     static-body trigger-animation="entity_id:e-UrinaryCatheter;obj_entity:1" opacity="0"
       position="1.51763 1.69274 -1.63567" attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
-      <a-sphere id="sphere3" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body trigger-animation="entity_id:e-Basin;obj_entity:3" opacity="0"
+      <a-sphere id="sphere3" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" 
+      static-body trigger-animation="entity_id:e-Basin;obj_entity:2" opacity="0"
       position="1.524 1.600 -1.475" attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
-      <a-sphere id="sphere4" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body trigger-animation="entity_id:e-SterileField_Folded;obj_entity:4" opacity="0"
+      <a-sphere id="sphere4" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
+       static-body trigger-animation="entity_id:e-SterileField_Folded;obj_entity:2" opacity="0"
       position="1.524 1.600 -1.475" attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
 

@@ -40,7 +40,11 @@
     "selector": ".vxr-obj-alcoholgel"
   },
   {
-    "template": "vxr-obj-template_Basin",
+    "template": "vxr-obj-template-Basin",
+    "selector": ".vxr-obj-Basin"
+  },
+  {
+    "template": "vxr-obj-template-Basin_emisive",
     "selector": ".vxr-obj-Basin"
   },
   {
@@ -56,11 +60,11 @@
     "selector": ".vxr-obj-SterileField_Folded"
   },
   {
-    "template": "vxr-obj-template-SterileField_Folded_Emissive",
+    "template": "vxr-obj-template-SterileField_Folded_emisive",
     "selector": ".vxr-obj-SterileField_Folded_Emissive"
   },
   {
-    "template": "vxr-obj-template-SterileField_Folded_Static",
+    "template": "vxr-obj-template-SterileField_Folded_static",
     "selector": ".vxr-obj-SterileField_Folded_Static"
   },
   {
@@ -76,8 +80,8 @@
     "selector": ".vxr-obj-UrinaryBag_emisive"
   },
   {
-    "template": "vxr-obj-template-UrinaryBag_Anim01",
-    "selector": ".vxr-obj-UrinaryBag_Anim01"
+    "template": "vxr-obj-template-UrinaryBag_static",
+    "selector": ".vxr-obj-UrinaryBag_static"
   },
   {
     "template": "vxr-obj-template-UrinaryCatheter",
