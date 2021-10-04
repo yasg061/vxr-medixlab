@@ -22,8 +22,9 @@ function spawnEntities(structure) {
 
   structure.forEach(item => {
     i++
+    let idTemplate =item.template 
     let entityEl = document.createElement('a-entity');
-    entityEl.setAttribute("id",`template${i}`)
+    entityEl.setAttribute("id",`${idTemplate.replace("vxr-obj-template-",'')}`)
     entityEl.setAttribute("position", "0 1.5 -0.2")
 
 
