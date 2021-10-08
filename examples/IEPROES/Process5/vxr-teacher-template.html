@@ -116,7 +116,13 @@
     })
   </script>
 
-
+  <script>
+    function toggleGauze() {
+      let gauze = document.getElementById('e-Gauze_Pene_static')
+      gauze.setAttribute('visible', "false")
+      console.log('Toggle gauze is true')
+    }
+  </script>
 
   <script>
     let boolstate = true
@@ -413,6 +419,9 @@
       <a-asset-item id="heparinseal" src="../../Models/gltf/HeparinSeal.gltf"></a-asset-item>
       <a-asset-item id="HeparineSealBox" src="HeparineSealBox.gltf"></a-asset-item>
       <a-asset-item id="testBone" src="CubeBone.gltf"></a-asset-item>
+      <a-asset-item id="trashcan" src="/Models/gltf/TrashCan.gltf"></a-asset-item>
+      <a-asset-item id="container" src="/Models/gltf/TrashContainer.gltf"></a-asset-item>
+      <a-asset-item id="containerblack" src="/Models/gltf/TrashContainerBlack.gltf"></a-asset-item>
       <!-- <a-asset-item id="tstSyringe" src="Syringe.gltf"></a-asset-item> -->
       <a-asset-item id="tstSyringe" src="Assets/Syringe_NoNeedle.gltf"></a-asset-item>
 
@@ -889,10 +898,10 @@
 
       <template id="vxr-obj-template-gauze">
         <a-entity>
-          <a-entity id="e-gauze" visible="false"
+          <a-entity id="e-gauze" visible="true"
             rotation="2.7734857448993197e-8 2.449646044746048e-7 0.000011397112583283267" grabbable="maxGrabbers: NaN"
             dynamic-body="sphereRadius: NaN" class="vxr-obj-gauze vxr-interact" gltf-model="#gauze" dynamic-body
-            draggable grabbable toggle-physics position="0.54289 0.14314 -1.76986">
+            draggable grabbable toggle-physics position="0.54289 0.14314 -1.76986" ondragstart="genericSetMass(this)">
           </a-entity>
         </a-entity>
       </template>
@@ -1198,7 +1207,7 @@
       <a-entity>
         <a-entity id="e-Clothed_Instruments_Vesical_Static" grabbable="maxGrabbers: NaN" visible="false"
           rotation="0 0 0" grabbable class="vxr-obj-Clothed_Instruments_Vesical_Static vxr-interact"
-          gltf-model="#Clothed_Instruments_Vesical_Static" draggable grabbable position="0.46989 0.13233 -1.80634">
+          gltf-model="#Clothed_Instruments_Vesical_Static" draggable grabbable position="0.353 0.433 -1.658">
         </a-entity>
       </a-entity>
     </template>
@@ -1207,7 +1216,7 @@
       <a-entity>
         <a-entity id="e-Clothed_Instruments_Vesical" animation-finished grabbable="maxGrabbers: NaN" visible="true"
           rotation="0 0 0" grabbable class="vxr-obj-Clothed_Instruments_Vesical vxr-interact"
-          gltf-model="#Clothed_Instruments_Vesical" draggable grabbable position="0.46989 0.13252 -1.80634">
+          gltf-model="#Clothed_Instruments_Vesical" draggable grabbable position="0.353 0.433 -1.658">
         </a-entity>
       </a-entity>
     </template>
@@ -1249,7 +1258,9 @@
     <!-- <a-entity id="Scube" gltf-model="#s_cube"  scale="" position=" 0 1 0" material="color: black"> -->
     </a-entity>
 
-
+    <a-entity position="0.397 0.918 0.555" id="trashcan01" rotation="0 0 0" gltf-model="#trashcan"></a-entity>
+    <a-entity id="containerblack01" gltf-model="#containerblack" rotation="0 -90 0" position="-0.77814 0.948 0.561"></a-entity>
+    <a-entity id="container01" position="-0.098 0.94756 0.56085" gltf-model="/Models/gltf/TrashContainer.gltf" rotation="0 -90 0"></a-entity>
 
 
     <a-entity class="gltf" gltf-model="#table" position="-0.13 1 -0.363" rotation="0 -90 0"></a-entity>
@@ -1262,7 +1273,7 @@
 
     <a-box id="id-Animation-Trigger" scale="0.4 0.4 0.4" static-body="sphereRadius: NaN"
       ondragstart="medicalClothe(this)" opacity="0.5" dynamic-body="mass:0.0; sphereRadius: NaN" rotation=""
-      position="0.48491 1.88951 -2.03345" color="red" depth="0.1" height="0.1" width="0.1"></a-box>
+      position="0.355 2.096 -1.881" color="red" depth="0.1" height="0.1" width="0.1"></a-box>
 
 
 
