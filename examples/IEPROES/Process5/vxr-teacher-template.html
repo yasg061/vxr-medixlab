@@ -49,33 +49,7 @@
 
   <script src="../../js/randomize-spec-color.component.js"></script>
 
-  <!-- <script>
-    let boolstate = true
-    AFRAME.registerComponent('model-opacity', {
-      init() {
-        var data = this.data;
-        this.el.addEventListener('model-loaded', e => {
-          var mesh = this.el.getObject3D('mesh');
-          console.log("mesh", mesh)
-
-          mesh.traverse(function (node) {
-            console.log("material option", node.material)
-            if (node.isMesh && boolstate) {
-              // mesh.material.color.setRGB(255 ,0 ,0)
-              node.material.color = new THREE.Color("rgb(237, 38, 81)");
-              node.material.needsUpdate = true;
-              console.log("works -----")
-              boolstate = false
-
-            }
-          });
-        });
-      },
-
-    });
-  </script> -->
-
-  <script>
+   <script>
     AFRAME.registerComponent('trigger-animation', {
       schema: {
         entity_id: { type: 'string', default: '0' },
@@ -164,9 +138,7 @@
 
     function genericSetMass(element) {
       document.getElementById(element.id).setAttribute('dynamic-body', 'mass:0.1')
-      // let intracathInteract = element = document.getElementById("vxr-intracath-second-part")
-      // intracathInteract.setAttribute('dynamic-body', 'mass:0.1')
-    }
+     }
 
     function genericBone(boneName) {
       console.log("bone id", boneName)
@@ -192,6 +164,15 @@
       let emissiveObject = document.getElementById((element.id + "_emisive"))
       console.log("emisive id: ", (element.id + "_emisive"))
       emissiveObject.setAttribute("visible", "true")
+      
+      let arrowTargetPosition = new THREE.Vector3() 
+      arrowTargetPosition.copy( emissiveObject.getObject3D("mesh").getWorldPosition())
+      arrowTargetPosition.y=arrowTargetPosition.y+0.3
+      document.getElementById("arrow01").setAttribute("position", arrowTargetPosition)
+      document.getElementById("arrow01").setAttribute("visible", "true")
+
+
+
       if (element.id == "e-SterileField_Folded") {
         element.setAttribute("dynamic-body", "mass:0.1")
       }
@@ -204,6 +185,8 @@
     function emissiveObjectOff(element) {
 
       let emissiveObject = document.getElementById((element.id + "_emisive"))
+      document.getElementById("arrow01").setAttribute("visible", "false")
+      
 
       if (document.getElementById((element.id + "_emisive"))) {
         emissiveObject.setAttribute("visible", "false")
@@ -214,6 +197,8 @@
         arrow01.setAttribute('visible', 'false')
       }
     }
+
+
 
     function medicalClothe(element) {
       element.setAttribute("visible", "false")
@@ -240,7 +225,7 @@
 
     }
 
- 
+
 
   </script>
 
@@ -343,6 +328,16 @@
         });
       }
     })
+
+    AFRAME.registerComponent('blend-shape', {
+      init: function () {
+
+        this.el.addEventListener('model-loaded', e => {
+          document.getElementById("patient01").getObject3D("mesh").children[0].children[3].morphTargetInfluences[0]=0.8
+        })
+     
+      }
+    })
   </script>
   <script>
     function spawnentity() {
@@ -360,14 +355,14 @@
   <!-- <link rel="stylesheet" type="text/css" href="../../super/process/assets/examples.css"> -->
 </head>
 
-<body>
-  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
+<body>  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
       debug: true;
       onConnect: spawnentity;
     ">
+
     <a-assets>
       <!-- <a-asset-item id="htc" src="../../../super/process/assets/vr_controller_vive.obj"></a-asset-item> -->
       <a-asset-item id="maskn95" src="../../Models/gltf/MaskN95.gltf"></a-asset-item>
@@ -500,8 +495,8 @@
 
       <!-- <a-asset-item id="UrinaryCatheter" src="UrinalCatheter_Foley.gltf"></a-asset-item> -->
       <a-asset-item id="UrinaryCatheter" src="UrinalCatheter_Foley_Static2.gltf"></a-asset-item>
-      <a-asset-item id="Adhesive_Catheter" src="Assets/Adhesive_Catheter.gltf"></a-asset-item>CordonUmbilical_Adhesive_Emissive
-      <a-asset-item id="Adhesive_Catheter_emisive" src="Assets/CordonUmbilical_Adhesive_Emissive.gltf"></a-asset-item>
+      <a-asset-item id="Adhesive_Catheter" src="Assets/Adhesive_Catheter.gltf"></a-asset-item>
+       <a-asset-item id="Adhesive_Catheter_emisive" src="Assets/CordonUmbilical_Adhesive_Emissive.gltf"></a-asset-item>
       <a-asset-item id="Clamp_Allis" src="Assets/Clamp_Allis_Mod.gltf"></a-asset-item>
       <a-asset-item id="Biombo_Anim" src="Assets/Biombo_Anim.gltf"></a-asset-item>
       <a-asset-item id="CordonUmbilical_Static" src="Assets/CordonUmbilical_Static.gltf"></a-asset-item>
@@ -1024,7 +1019,7 @@
 
       <template id="vxr-obj-template-UrinaryBag_emisive">
         <a-entity>
-          <a-entity id="e-UrinaryBag_emisive" grabbable="maxGrabbers: NaN" rotation="90 -90 0" grabbable
+          <a-entity id="e-UrinaryBag_emisive" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
             class="vxr-obj-alcoholgel vxr-interact" gltf-model="#UrinaryBag-emissive" draggable grabbable
             visible="false" position="0.73947 -0.135 -1.00168">
           </a-entity>
@@ -1035,7 +1030,7 @@
         <a-entity>
           <a-entity id="e-UrinaryBag_static" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
             class="vxr-obj-alcoholgel vxr-interact" gltf-model="#UrineBag_Static" draggable grabbable
-            position="0.72691 -0.12799 -0.96321" visible="true">
+            position="0.72691 -0.12799 -0.96321" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1063,7 +1058,7 @@
 
     <template id="vxr-obj-template-UrinaryCatheter_static">
       <a-entity>
-        <a-entity id="e-UrinaryCatheter_static"  visible="true" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
+        <a-entity id="e-UrinaryCatheter_static" visible="false" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#UrinalCatheter_Foley_Anim01" draggable grabbable
           position="1.12622 0.28775 -0.57552">
         </a-entity>
@@ -1095,8 +1090,8 @@
     <template id="vxr-obj-template-Adhesive_Catheter_emisive">
       <a-entity>
         <a-entity id="e-Adhesive_Catheter_emisive" visible="false" grabbable="maxGrabbers: NaN" visible="true"
-          rotation="50.462 -20.176 -90" grabbable class="vxr-obj-Adhesive_Catheter_emisive vxr-interact" gltf-model="#Adhesive_Catheter_emisive"
-          draggable grabbable position="1.125 0.324 -0.661">
+          rotation="50.462 -20.176 -90" grabbable class="vxr-obj-Adhesive_Catheter_emisive vxr-interact"
+          gltf-model="#Adhesive_Catheter_emisive" draggable grabbable position="1.125 0.324 -0.661">
         </a-entity>
       </a-entity>
     </template>
@@ -1104,8 +1099,8 @@
     <template id="vxr-obj-template-Adhesive_Catheter_static">
       <a-entity>
         <a-entity id="e-Adhesive_Catheter_static" visible="false" grabbable="maxGrabbers: NaN" visible="true"
-          rotation="50.46151 -20.17567 -90" grabbable class="vxr-obj-Adhesive_Catheter_static vxr-interact" gltf-model="#Adhesive_Catheter"
-          draggable grabbable position="1.1252 0.32448 -0.66074">
+          rotation="50.46151 -20.17567 -90" grabbable class="vxr-obj-Adhesive_Catheter_static vxr-interact"
+          gltf-model="#Adhesive_Catheter" draggable grabbable position="1.1252 0.32448 -0.66074">
         </a-entity>
       </a-entity>
     </template>
@@ -1250,7 +1245,7 @@
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity> -->
-    <a-entity id="patient01" gltf-model="#patient" scale="" position="1.24533 0.866 -0.97171" material="color: brown"
+    <a-entity id="patient01" blend-shape gltf-model="#patient" scale="" position="1.24533 0.866 -0.97171" material="color: brown"
       rotation="0 -90 0">
     </a-entity>
 
@@ -1288,7 +1283,7 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 1.8 -2"
+    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
       rotation="0 180 0" movement-controls="speed:0.3">
       <a-entity camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
@@ -1330,16 +1325,15 @@
       trigger-animation="entity_id:e-SterileField_Folded;obj_entity:2" opacity="0" position="1.26065 1.6 -0.9019"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
-      <a-sphere id="sphere5" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+    <a-sphere id="sphere5" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-Gauze_Pene;obj_entity:2" opacity="0" position="1.23523 1.69207 -1.0053"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
-      <a-sphere id="sphere6" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+    <a-sphere id="sphere6" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-Adhesive_Catheter;obj_entity:2" opacity="0" position="1.13839 1.81627 -0.863"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
-    <a-entity id="arrow01" gltf-model="#arrow" visible="false" position="1.219 2.000 -0.835" rotation="0 0 0"
-      animation="property: position; from: 1.219 2 -0.835; to: 1.219 1.88 -0.835; dir: alternate; dur: 1000; easing: linear; loop: NaN">
+    <a-entity id="arrow01" gltf-model="#arrow" visible="false" position="1.219 2.000 -0.835" rotation="0 0 0" animation-mixer>
     </a-entity>
 
 

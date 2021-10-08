@@ -1,5 +1,4 @@
 [
-
   {
     "template": "vxr-obj-template-allistweezers",
     "selector": ".vxr-obj-allistweezers"
@@ -13,35 +12,31 @@
     "selector": ".vxr-obj-template-Bowl-Medic"
   },
   {
+    "template": "vxr-obj-template-Bowl-Medic-2",
+    "selector": ".vxr-obj-template-Bowl-Medic-2"
+  },
+  {
     "template": "vxr-obj-template-gauze",
     "selector": ".vxr-obj-gauze"
   },
   {
     "template": "vxr-obj-template-medicaltape",
     "selector": ".vxr-obj-medicaltape"
-  },
-  {
-    "template": "vxr-obj-template-Tape-Normal",
-    "selector": ".vxr-obj-Tape-Normal"
-  },  
-  {
-    "template": "vxr-obj-template-Tape-Normal1",
-    "selector": ".vxr-obj-Tape-Normal1"
-  },
-  {
-    "template": "vxr-obj-template-Tape-Normal2",
-    "selector": ".vxr-obj-Tape-Normal2"
-  },
-  {
-    "template": "vxr-obj-template-Tape-Normal3",
-    "selector": ".vxr-obj-Tape-Normal3"
-  },
+  }, 
   {
     "template": "vxr-obj-template-alcoholgel",
     "selector": ".vxr-obj-alcoholgel"
   },
   {
     "template": "vxr-obj-template-Basin",
+    "selector": ".vxr-obj-Basin"
+  },
+  {
+    "template": "vxr-obj-template-Basin_emisive",
+    "selector": ".vxr-obj-Basin"
+  },
+  {
+    "template": "vxr-obj-template-Basin_static",
     "selector": ".vxr-obj-Basin"
   },
   {
@@ -53,6 +48,14 @@
     "selector": ".vxr-obj-SterileField_Folded"
   },
   {
+    "template": "vxr-obj-template-SterileField_Folded_emisive",
+    "selector": ".vxr-obj-SterileField_Folded_Emissive"
+  },
+  {
+    "template": "vxr-obj-template-SterileField_Folded_static",
+    "selector": ".vxr-obj-SterileField_Folded_Static"
+  },
+  {
     "template": "vxr-obj-template-UmbilicalTape",
     "selector": ".vxr-obj-UmbilicalTape"
   },
@@ -61,11 +64,51 @@
     "selector": ".vxr-obj-UrinaryBag"
   },
   {
+    "template": "vxr-obj-template-UrinaryBag_emisive",
+    "selector": ".vxr-obj-UrinaryBag_emisive"
+  },
+  {
+    "template": "vxr-obj-template-UrinaryBag_static",
+    "selector": ".vxr-obj-UrinaryBag_static"
+  },
+  {
     "template": "vxr-obj-template-UrinaryCatheter",
     "selector": ".vxr-obj-UrinaryCatheter"
   },
   {
+    "template": "vxr-obj-template-UrinaryCatheter_emisive",
+    "selector": ".vxr-obj-UrinaryCatheter_emisive"
+  },
+  {
+    "template": "vxr-obj-template-UrinaryCatheter_static",
+    "selector": ".vxr-obj-UrinalCatheter_static"
+  },
+  {
     "template": "vxr-obj-template-tstSyringe",
     "selector": ".vxr-obj-tstSyringe"
+  },
+  {
+    "template": "vxr-obj-template-Adhesive_Catheter",
+    "selector": ".vxr-obj-Adhesive_Catheter"
+  },
+  {
+    "template": "vxr-obj-template-dripbag",
+    "selector": ".vxr-obj-dripbag"
+  },
+  {
+    "template": "vxr-obj-template-Clamp_Allis",
+    "selector": ".vxr-obj-Clamp_Allis "
+  },
+  {
+    "template": "vxr-obj-template-Gauze_Pene",
+    "selector": ".vxr-obj-Gauze_Pene "
+  },
+  {
+    "template": "vxr-obj-template-Gauze_Pene_emisive",
+    "selector": ".vxr-obj-Gauze_Pene_emisive "
+  },
+  {
+    "template": "vxr-obj-template-Gauze_Pene_static",
+    "selector": ".vxr-obj-Gauze_Pene_static "
   }
 ]
