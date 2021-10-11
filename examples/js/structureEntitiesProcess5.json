@@ -132,6 +132,10 @@
     "selector": ".vxr-obj-Table_004"
   },
   {
+    "template": "vxr-obj-template-Table_005",
+    "selector": ".vxr-obj-Table_005"
+  },
+  {
     "template": "vxr-obj-template-Gloves_Steril",
     "selector": ".vxr-obj-Gloves_Steril"
   },
@@ -150,6 +154,14 @@
   {
     "template": "vxr-obj-template-card_yellow",
     "selector": ".vxr-obj-card_yellow"
+  },
+  {
+    "template": "vxr-obj-template-witness_tape",
+    "selector": ".vxr-obj-witness_tape"
+  },
+  {
+    "template": "vxr-obj-template-adhesive",
+    "selector": ".vxr-obj-adhesive"
   }
   
 ]
