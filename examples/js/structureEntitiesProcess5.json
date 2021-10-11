@@ -146,6 +146,10 @@
   {
     "template": "vxr-obj-template-Clothed_Instruments_Vesical",
     "selector": ".vxr-obj-Clothed_Instruments_Vesical"
+  },
+  {
+    "template": "vxr-obj-template-card_yellow",
+    "selector": ".vxr-obj-card_yellow"
   }
   
 ]
