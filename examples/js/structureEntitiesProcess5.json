@@ -144,13 +144,6 @@
     "selector": ".vxr-obj-CordonUmbilical_Static"
   },
   {
-<<<<<<< HEAD
-=======
-    "template": "vxr-obj-template-Table_005",
-    "selector": ".vxr-obj-Table_005"
-  },
-  {
->>>>>>> 04bba012c1f1f21761fea98289aafe188d0fb91f
     "template": "vxr-obj-template-Table_005",
     "selector": ".vxr-obj-Table_005"
   },
