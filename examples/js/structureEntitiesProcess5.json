@@ -148,6 +148,10 @@
     "selector": ".vxr-obj-Table_005"
   },
   {
+    "template": "vxr-obj-template-Table_005",
+    "selector": ".vxr-obj-Table_005"
+  },
+  {
     "template": "vxr-obj-template-Gloves_Steril",
     "selector": ".vxr-obj-Gloves_Steril"
   },
@@ -170,6 +174,14 @@
   {
     "template": "vxr-obj-template-Medixlab_Assistant",
     "selector": ".vxr-obj-Medixlab_Assistant"
+  },
+  {
+    "template": "vxr-obj-template-witness_tape",
+    "selector": ".vxr-obj-witness_tape"
+  },
+  {
+    "template": "vxr-obj-template-adhesive",
+    "selector": ".vxr-obj-adhesive"
   }
   
 ]
