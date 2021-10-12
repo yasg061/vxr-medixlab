@@ -36,8 +36,24 @@
     "selector": ".vxr-obj-Basin"
   },
   {
-    "template": "vxr-obj-template-Lubricant",
-    "selector": ".vxr-obj-Lubricant"
+    "template": "vxr-obj-template-Bottle_Lubricant",
+    "selector": ".vxr-obj-Bottle_Lubricant"
+  },
+  {
+    "template": "vxr-obj-template-Bottle_Lubricant_emisive",
+    "selector": ".vxr-obj-Bottle_Lubricant_emisive"
+  },
+  {
+    "template": "vxr-obj-template-Bottle_Lubricant_static",
+    "selector": ".vxr-obj-Bottle_Lubricant_static"
+  },
+  {
+    "template": "vxr-obj-template-SalineBag_emisive",
+    "selector": ".vxr-obj-SalineBag_emisive"
+  },
+  {
+    "template": "vxr-obj-template-SalineBag_static",
+    "selector": ".vxr-obj-SalineBag_static"
   },
   {
     "template": "vxr-obj-template-SterileField_Folded",
@@ -96,8 +112,8 @@
     "selector": ".vxr-obj-Adhesive_Catheter_static"
   },
   {
-    "template": "vxr-obj-template-dripbag",
-    "selector": ".vxr-obj-dripbag"
+    "template": "vxr-obj-template-SalineBag",
+    "selector": ".vxr-obj-SalineBag"
   },
   {
     "template": "vxr-obj-template-Clamp_Allis",
@@ -128,6 +144,13 @@
     "selector": ".vxr-obj-CordonUmbilical_Static"
   },
   {
+<<<<<<< HEAD
+=======
+    "template": "vxr-obj-template-Table_005",
+    "selector": ".vxr-obj-Table_005"
+  },
+  {
+>>>>>>> 04bba012c1f1f21761fea98289aafe188d0fb91f
     "template": "vxr-obj-template-Table_005",
     "selector": ".vxr-obj-Table_005"
   },
@@ -150,6 +173,10 @@
   {
     "template": "vxr-obj-template-card_yellow",
     "selector": ".vxr-obj-card_yellow"
+  },
+  {
+    "template": "vxr-obj-template-Medixlab_Assistant",
+    "selector": ".vxr-obj-Medixlab_Assistant"
   },
   {
     "template": "vxr-obj-template-witness_tape",
