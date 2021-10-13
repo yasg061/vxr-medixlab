@@ -11,6 +11,9 @@
   <script>
     let url = "../../../js/structureEntitiesProcess5.json"
   </script>
+  <script>
+    let url2 = "../../../js/card.json"
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
   <script src="/easyrtc/easyrtc.js"></script>
   <script src="/dist/networked-aframe.js"></script>
@@ -19,7 +22,7 @@
   <script src="aframe-particle-system-component.min.js"></script>
 
 
-
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
 
   <!-- Super hands -->
   <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.js"></script>
@@ -960,7 +963,7 @@
           <a-entity id="e-alcoholgel" rotation="-0.000007477635997961198 3.8917617689839617e-10 0.000015630321302724323"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
             gltf-model="#alcoholgel" dynamic-body draggable grabbable toggle-physics
-            position="-0.21333 0.28691 0.05132">
+            position="-0.21333 0.28691 0.05132" ondragstart="setOpacityAlcohol()">
           </a-entity>
         </a-entity>
       </template>
@@ -1390,7 +1393,7 @@
 
     <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
       rotation="0 180 0" movement-controls="speed:0.3">
-      <a-entity camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
+      <a-entity id="camera" camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
@@ -1462,6 +1465,7 @@
 
 
   </a-scene>
+  <script src="../../js/card.js"></script>
 
   <script>
     // Define custom schema for syncing avatar color, set by random-color
