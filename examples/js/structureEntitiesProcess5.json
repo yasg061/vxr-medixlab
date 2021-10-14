@@ -168,8 +168,8 @@
     "selector": ".vxr-obj-card_yellow"
   },
   {
-    "template": "vxr-obj-template-Medixlab_Assistant",
-    "selector": ".vxr-obj-Medixlab_Assistant"
+    "template": "vxr-obj-template-Assistant_Nurse",
+    "selector": ".vxr-obj-Assistant_Nurse"
   },
   {
     "template": "vxr-obj-template-witness_tape",
