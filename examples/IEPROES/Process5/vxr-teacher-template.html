@@ -446,7 +446,7 @@
       <a-asset-item id="Table_005" src="Assets/Table_005.gltf"></a-asset-item>
       <!-- <a-asset-item id="tstSyringe" src="Syringe.gltf"></a-asset-item> -->
       <a-asset-item id="tstSyringe" src="Assets/Syringe_NoNeedle.gltf"></a-asset-item>
-      <a-asset-item id="Medixlab_Assistant" src="Assets/Medixlab_Assistant.gltf"></a-asset-item>
+      <a-asset-item id="Assistant_Nurse" src="Assets/Assistant_Nurse.gltf"></a-asset-item>
       <a-asset-item id="Gloves_Steril" src="Assets/Gloves_Steril.gltf"></a-asset-item>
       <a-asset-item id="Gloves_Steril_Open" src="Assets/Gloves_Steril_Open.gltf"></a-asset-item>
 
@@ -687,9 +687,9 @@
 
       <template id="vxr-obj-template-SalineBag">
         <a-entity>
-          <a-entity id="e-SalineBag" rotation="-0.00018072220878947952 -0.3172079775137382 0.09571679223752508"
+          <a-entity id="e-SalineBag" rotation="-0.00004162642672333919 -0.3445223928238153 -0.00878100061397683"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-SalineBag vxr-interact"
-            gltf-model="#dripbag" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" dynamic-body draggable grabbable toggle-physics position="-0.5570853058221695 0.5443191827288878 0.032736019115096576">
+            gltf-model="#dripbag" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" dynamic-body draggable grabbable toggle-physics position="-0.5564494797657293 0.5443488295790644 0.03276061310423653">
           </a-entity>
         </a-entity>
       </template>
@@ -699,7 +699,7 @@
           <a-entity id="e-SalineBag_emisive" rotation="0 179.9998479605043 42.98272083291923"
             grabbable="maxGrabbers: NaN" dynamic-body="mass: 0.0; sphereRadius: NaN" class="vxr-obj-SalineBag_emisive vxr-interact"
             gltf-model="#SalineBag_Emissive" dynamic-body draggable grabbable toggle-physics visible="false"
-            position="-1.23144 0.60871 -0.7235"></a-entity>
+            position="-0.5195 0.65592 -0.7235"></a-entity>
         </a-entity>
       </template>
 
@@ -708,7 +708,7 @@
           <a-entity id="e-SalineBag_static" rotation="0 179.9998479605043 -48.334146639441116"
             grabbable="maxGrabbers: NaN" dynamic-body="mass: 0.0; sphereRadius: NaN" class="vxr-obj-SalineBag_static vxr-interact"
             gltf-model="#dripbag" dynamic-body draggable grabbable toggle-physics visible="false"
-            position="-1.21647 0.58981 -0.7235"></a-entity>
+            position="-0.47479 0.62415 -0.7235"></a-entity>
         </a-entity>
       </template>
 
@@ -801,10 +801,10 @@
       </template>
 
 
-      <template id="vxr-obj-template-Medixlab_Assistant">
+      <template id="vxr-obj-template-Assistant_Nurse">
         <a-entity>
-          <a-entity id="e-Medixlab_Assistant" grabbable="maxGrabbers: NaN" class="vxr-obj-Medixlab_Assistant vxr-interact" gltf-model="#Medixlab_Assistant"
-            dynamic-body="mass:0.0; sphereRadius: NaN" toggle-physics draggable grabbable position="-1.51364 0.69156 -0.96818"
+          <a-entity id="e-Assistant_Nurse" grabbable="maxGrabbers: NaN" class="vxr-obj-Assistant_Nurse vxr-interact" gltf-model="#Assistant_Nurse"
+            dynamic-body="mass:0.0; sphereRadius: NaN" toggle-physics draggable grabbable position="-0.88853 -0.613 -0.968"
             rotation="0 90 0" velocity="" dynamic-body></a-entity>
         </a-entity>
       </template>
@@ -1010,18 +1010,18 @@
 
       <template id="vxr-obj-template-Bottle_Lubricant_emisive">
         <a-entity>
-          <a-entity id="e-Bottle_Lubricant_emisive" visible="false" rotation="0 -93.815 -179.9998479605043"
+          <a-entity id="e-Bottle_Lubricant_emisive" visible="false" rotation="-1.28561395825669e-10 -177.76417 0.000018758107875275884"
             grabbable="maxGrabbers: NaN" class="vxr-obj-Bottle_Lubricant_emisive vxr-interact"
-            gltf-model="#Bottle_Lubricant_Emissive" draggable grabbable position="-1.20488 0.695 -1.26675">
+            gltf-model="#Bottle_Lubricant_Emissive" draggable grabbable position="-0.46954 0.50346 -1.28294">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-Bottle_Lubricant_static">
         <a-entity>
-          <a-entity id="e-Bottle_Lubricant_static" visible="false" rotation="0 -93.815 -179.9998479605043"
+          <a-entity id="e-Bottle_Lubricant_static" visible="false" rotation="-1.28561395825669e-10 -177.76417 0.000018758107875275884"
             grabbable="maxGrabbers: NaN" dynamic-body="mass:0.0; sphereRadius: NaN" class="vxr-obj-Bottle_Lubricant_static vxr-interact"
-            gltf-model="#Bottle_Lubricant" position="-1.20488 0.695 -1.26675" ondragstart="genericSetMass(this)" draggable grabbable>
+            gltf-model="#Bottle_Lubricant" position="-0.46954 0.50346 -1.28294" ondragstart="genericSetMass(this)" draggable grabbable>
           </a-entity>
         </a-entity>
       </template>
@@ -1360,11 +1360,11 @@
     <!-- <a-entity id="Scube" gltf-model="#s_cube"  scale="" position=" 0 1 0" material="color: black"> -->
     </a-entity>
 
-    <a-entity position="-1.51705 0.918 -2.1208" id="trashcan01" rotation="0 0 0" gltf-model="#trashcan"></a-entity>
-    <a-entity id="containerblack01" gltf-model="#containerblack" rotation="0 90 0" position="-0.42374 0.948 -2.10265">
+    <a-entity position="0.60055 0.918 -0.45542" id="trashcan01" scale="0.875 0.875 0.875" rotation="0 0 0" gltf-model="#trashcan"></a-entity>
+    <a-entity id="containerblack01" scale="0.6 0.6 0.6" gltf-model="#containerblack" rotation="0 0 0" position="0.57046 0.948 -1.22359">
     </a-entity>
-    <a-entity id="container01" position="-1.04092 0.94756 -2.09923" gltf-model="/Models/gltf/TrashContainer.gltf"
-      rotation="0 90 0"></a-entity>
+    <a-entity id="container01" scale="0.6 0.6 0.6" position="0.58853 0.94756 -0.86299" gltf-model="/Models/gltf/TrashContainer.gltf"
+      rotation="0 0 0"></a-entity>
 
 
     <a-entity class="gltf" gltf-model="#table" position="-0.13 0.89 -0.363" rotation="0 -90 0"></a-entity>
@@ -1445,11 +1445,11 @@
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
     <a-sphere id="sphere7" scale="0.05 0.05 0.05" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-SalineBag;obj_entity:2" opacity="0" position="-1.2235 2.08135 -0.9101"
+      trigger-animation="entity_id:e-SalineBag;obj_entity:2" opacity="0" position="-0.48267 2.14072 -0.88815"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
     <a-sphere id="sphere8" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-Bottle_Lubricant;obj_entity:2" opacity="0" position="-1.21035 2.10817 -1.47525"
+      trigger-animation="entity_id:e-Bottle_Lubricant;obj_entity:2" opacity="0" position="-0.48602 2.13275 -1.46258"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
     <a-entity id="arrow01" gltf-model="#arrow" visible="false" position="1.219 2.000 -0.835" rotation="0 0 0" animation-mixer>
