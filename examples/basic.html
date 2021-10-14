@@ -76,18 +76,32 @@
       <!-- /Templates -->
     </a-assets>
 
-    <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" camera="fov:35" position="0 2.8 1.5" rotation="0 0 0">
+    <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" camera="fov:35" scroll
+      position="0 2.8 3" rotation="0 0 0">
+
+      <a-entity light="type: point;  distance: 10;  color: #f22; intensity:1; decay: 0.05" position="0 0 0"></a-entity>
       <a-sphere class="head" visible="false" random-color></a-sphere>
       <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
     </a-entity>
+    <!-- lights -->
+    <!-- <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible=""></a-entity> -->
 
-    <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible=""></a-entity>
-    <a-entity light="color: #ffaaff; intensity: 1.5" position="5 5 5"></a-entity>
+    <a-entity id="ambientLight" light="type: ambient; color: #CCC"></a-entity>
+    <a-entity id="keyLight" light="type: directional; color: #fef; intensity: 1" position="0.55717 2.48596 1.39464">
+    </a-entity>
+    <a-entity id="fillLight" light="type: directional; color: #efe; intensity:1" position="-1.46187 -0.55901 0.23332">
+    </a-entity>
+
+
+
+    <!-- <a-entity light="color: #ffaaff; intensity: 1.5" position="5 5 5"></a-entity> -->
     <a-sky src="#sky" rotation="0 -90 0"></a-sky>
 
-    <a-entity class="clickable" id="gallery" gltf-model="#gallery" scale="1 1 1" position="0 1.5 0" gltf-hover onmouseover="hoverElement(event)"></a-entity>
+    <a-entity class="clickable" id="gallery" gltf-model="#gallery" scale="1 1 1" position="0 1.5 0" gltf-hover
+      onmouseover="hoverElement(event)"></a-entity>
     <a-entity class="clickable" id="e-Egg" gltf-model="#Egg" scale="1 1 1" position="-0.351 1.938 0"></a-entity>
-    <a-entity class="clickable" id="e-BadChicken" gltf-model="#BadChicken" scale="1 1 1" position="0 1.938 0"></a-entity>
+    <a-entity class="clickable" id="e-BadChicken" gltf-model="#BadChicken" scale="1 1 1" position="0 1.938 0">
+    </a-entity>
 
     </a-entity>
   </a-scene>
@@ -103,25 +117,76 @@
       console.log("onConnect", new Date());
     }
 
-    function leftTransition(event) {
-      
-      var offset = event.deltaY;
-      console.log("offset", offset)
-      let camera = document.getElementById("player")
-      const cameraVector = new THREE.Vector3(0, 0, 0);
-      cameraVector.copy(camera.getAttribute("position"))
-      cameraVector.y = cameraVector.y + (offset * 0.001)
-      if(cameraVector.y<0.2 ){
-        cameraVector.y=0.2
-      }else if ( cameraVector.y>= 2.8 ){
-        cameraVector.y=2.8
-      }
-      
-      document.getElementById("player").setAttribute("position", cameraVector)
+
+
+
+
+
+    // function leftTransition(event) {
+
+    //   var offset = event.deltaY;
+    //   console.log("offset", offset)
+    //   let camera = document.getElementById("player")
+    //   const cameraVector = new THREE.Vector3(0, 0, 0);
+    //   cameraVector.copy(camera.getAttribute("position"))
+    //   cameraVector.y = cameraVector.y + (offset * 0.001)
+    //   if(cameraVector.y<0.2 ){
+    //     cameraVector.y=0.2
+    //   }else if ( cameraVector.y>= 2.8 ){
+    //     cameraVector.y=2.8
+    //   }
+
+    //   document.getElementById("player").setAttribute("position", cameraVector)
+    // }
+
+    function lerp(x, y, t) {
+
+      return (1 - t) * x + t * y;
+
     }
 
-    window.addEventListener("wheel", leftTransition);
+
+
+    AFRAME.registerComponent('scroll', {
+      schema: { default: 1.0 },
+      init: function () {
+        let self = this
+        self.scrollY = document.getElementById("player").getAttribute("position").y
+        console.log("y position: ", scrollY)
+
+
+
+        window.addEventListener("wheel", function () {
+
+
+          let offset = event.deltaY;
+          console.log("offset", offset)
+          self.scrollY += offset * 0.001
+
+
+        });
+
+
+      },
+      update: function () {
+
+      },
+
+      tick: function (time, dt) {
+        // console.log("dt: ", dt)
+        // console.log("time: ", time)
+        let curScroll = this.el.getAttribute("position")
+        curScroll.y = lerp(curScroll.y, this.scrollY, (1 - Math.exp( - 0.005 * dt )) )
+        this.el.setAttribute("position", curScroll)
+        
     
+
+      }
+    });
+
+
+
+
   </script>
 </body>
 

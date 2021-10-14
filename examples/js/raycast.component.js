@@ -70,7 +70,7 @@ AFRAME.registerComponent('gltf-hover', {
     el.addEventListener('click', function () {
       console.log('click over: ', self.mouseOverObject);
 
-      if (self.mouseOverObject.name == 'Box001') {
+      if (self.mouseOverObject.name == 'Box000') {
         document.getElementById('e-Egg').setAttribute('animation-mixer', 'clip:Idle')
         console.log('............');
         // let url = "https:";
