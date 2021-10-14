@@ -49,18 +49,18 @@ AFRAME.registerComponent('gltf-hover', {
           intersection.object.name != self.mouseOverObject);
         // intersection.object.material.emissive = new THREE.Color(0xFF0000);
         // intersection.object.material.emissiveIntensity = 0.5;
-        if (intersection.object.name == 'Box001_1') {
+        if (intersection.object.name == 'Box000') {
           document.getElementById("e-Egg").setAttribute('animation-mixer', 'clip:Idle')
-        } else if (intersection.object.name == 'Box007') {
+        } else if (intersection.object.name == 'Box001') {
           document.getElementById("e-BadChicken").setAttribute('animation-mixer', 'clip:Idle')
         }
 
         if (self.mouseOverObject) {
           self.mouseOverObject.material.emissive = new THREE.Color(0x000000);
           self.mouseOverObject.material.emissiveIntensity = 0.0;
-          if (self.mouseOverObject.name == 'Box001_1') {
+          if (self.mouseOverObject.name == 'Box000') {
             document.getElementById('e-Egg').removeAttribute('animation-mixer')
-          } else if (self.mouseOverObject.name == 'Box007') {
+          } else if (self.mouseOverObject.name == 'Box001') {
             document.getElementById('e-BadChicken').removeAttribute('animation-mixer')
           }
         }
