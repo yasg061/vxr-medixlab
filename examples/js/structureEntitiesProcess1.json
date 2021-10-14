@@ -3,6 +3,54 @@
   {
     "template": "vxr-obj-template-Table_005",
     "selector": ".vxr-obj-Table_005"
+  },
+  {
+    "template": "vxr-obj-template-boot_l",
+    "selector": ".vxr-obj-boot_l"
+  },
+  {
+    "template": "vxr-obj-template-boot_r",
+    "selector": ".vxr-obj-boot_r"
+  },
+  {
+    "template": "vxr-obj-template-escafandra",
+    "selector": ".vxr-obj-escafandra"
+  },
+  {
+    "template": "vxr-obj-template-gabachon",
+    "selector": ".vxr-obj-gabachon"
+  },
+  {
+    "template": "vxr-obj-template-glovelong_l",
+    "selector": ".vxr-obj-glovelong_r"
+  },
+  {
+    "template": "vxr-obj-template-glovelong_r",
+    "selector": ".vxr-obj-glovelong_r"
+  },
+  {
+    "template": "vxr-obj-template-gloveshort_l",
+    "selector": ".vxr-obj-gloveshort_r"
+  },
+  {
+    "template": "vxr-obj-template-gloveshort_r",
+    "selector": ".vxr-obj-gloveshort_r"
+  },
+  {
+    "template": "vxr-obj-template-googles",
+    "selector": ".vxr-obj-googles"
+  },
+  {
+    "template": "vxr-obj-template-hat",
+    "selector": ".vxr-obj-hat"
+  },
+  {
+    "template": "vxr-obj-template-mask",
+    "selector": ".vxr-obj-mask"
+  },
+  {
+    "template": "vxr-obj-template-mask95",
+    "selector": ".vxr-obj-mask95"
   }
   
 ]
