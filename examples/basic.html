@@ -2,16 +2,18 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Dev Example — Networked-Aframe</title>
-  <meta name="description" content="Dev Example — Networked-Aframe">
+  <title>Web-XR-Gallery</title>
+  <meta name="description" content="Web-XR-Gallery">
 
-  <script src="super/build.js"></script>
+  <!-- <script src="super/build.js"></script> -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
   <script src="/easyrtc/easyrtc.js"></script>
   <script src="/dist/networked-aframe.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.js"></script>
-  <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="/js/spawn-in-circle.component.js"></script>
+  <!-- RayCast -->
+  <script src="js/raycast.component.js"></script>
 
   <script>
     // see issue https://github.com/networked-aframe/networked-aframe/issues/267
@@ -36,114 +38,10 @@
     }
   </script>
 
-  <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
-  <script
-    src="https://cdn.jsdelivr.net/gh/oneWaveAdrian/aframe-particle-system-component@aframe-1.2.0-upgrade/dist/aframe-particle-system-component.min.js"></script>
-  <script src="/js/spawn-in-circle.component.js"></script>
-
-  <!-- Events -->
-  <script>
-    function hoverElement(evt) {
-      let = console.log("cubeeeee")
-    }
-
-  </script>
-
-  <!-- RayCast -->
-
-  <script>
-    AFRAME.registerComponent("treeman", {
-      init: function () {
-        let el = this.el;
-        let self = this;
-        this.mouseOverObject = null
-        self.trees = [];
-        el.addEventListener("model-loaded", e => {
-          let tree3D = el.getObject3D("mesh");
-          if (!tree3D) {
-            return;
-          }
-          //console.log('tree3D', tree3D);
-          tree3D.traverse(function (node) {
-            if (node.isMesh) {
-              console.log(node);
-              self.trees.push(node);
-            }
-          });
-        });
-
-        el.addEventListener("raycaster-intersected", e => {
-
-          self.raycaster = e.detail.el;
-          let intersection = self.raycaster.components.raycaster.getIntersection(
-            el
-          );
-          console.log('Hover: ', intersection.object.name, self.mouseOverObject,
-            intersection.object.name != self.mouseOverObject);
-          self.mouseOver = true
-        });
-
-        el.addEventListener("raycaster-intersected-cleared", e => {
-
-          self.trees.forEach(function (tree) {
-            tree.material.emissive = new THREE.Color(0x000000);
-            tree.material.emissiveIntensity = 0.0;
-          });
-          self.mouseOverObject = null
-          self.mouseOver = false
-        });
-        document.addEventListener("mousemove", e => {
-          if (!self.mouseOver) return;
-
-          let intersection = self.raycaster.components.raycaster.getIntersection(
-            el
-          );
-          if (!self.mouseOverObject || self.mouseOverObject.name != intersection.object.name) {
-            console.log('Hover: ', intersection.object.name, self.mouseOverObject,
-              intersection.object.name != self.mouseOverObject);
-
-
-            // intersection.object.material.emissive = new THREE.Color(0xFF0000);
-            // intersection.object.material.emissiveIntensity = 0.5;
-            if (intersection.object.name == 'Box001') {
-              document.getElementById("e-Egg").setAttribute("animation-mixer", "clip:Idle")
-            } else if (intersection.object.name == 'Box007') {
-              document.getElementById("e-BadChicken").setAttribute("animation-mixer", "clip:Idle")
-            }
-
-            if (self.mouseOverObject) {
-              self.mouseOverObject.material.emissive = new THREE.Color(0x000000);
-              self.mouseOverObject.material.emissiveIntensity = 0.0;
-              if (self.mouseOverObject.name == 'Box001') {
-                document.getElementById("e-Egg").removeAttribute("animation-mixer")
-              } else if (self.mouseOverObject.name == 'Box007') {
-                document.getElementById("e-BadChicken").removeAttribute("animation-mixer")
-              }
-            }
-            self.mouseOverObject = intersection.object;
-          }
-        });
-        el.addEventListener("click", function () {
-          console.log('click over: ', self.mouseOverObject);
-
-          if (self.mouseOverObject.name == 'Box001') {
-            document.getElementById("e-Egg").setAttribute("animation-mixer", "clip:Idle")
-
-
-            // let url = "https://supermedium.com/supercraft/";
-            // let win = window.open(url, "_blank");
-            // win.focus();
-          }
-        });
-      },
-      highlight: function () { },
-      deselect: function () { }
-    });
-  </script>
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
+  <a-scene networked-scene="
       room: dev;
       debug: true;
       adapter: easyrtc;
@@ -157,24 +55,6 @@
       <a-asset-item id="gallery" src="WebGallety.gltf"></a-asset-item>
       <a-asset-item id="Egg" src="Egg.gltf"></a-asset-item>
       <a-asset-item id="BadChicken" src="BadChicken.gltf"></a-asset-item>
-
-
-
-      <a-mixin id="point" raycaster="objects: .cube" cursor="rayOrigin:mouse"
-        static-body="shape: sphere; sphereRadius: 0.001" super-hands="colliderEvent: raycaster-intersection;
-                    colliderEventProperty: els;
-                    colliderEndEvent:raycaster-intersection-cleared;
-                    colliderEndEventProperty: clearedEls;">
-      </a-mixin>
-
-      <a-mixin id="cube" geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5" hoverable grabbable stretchable
-        draggable droppable shadow
-        event-set__dragdrop="_event: drag-drop; geometry.primitive: sphere; geometry.radius: 0.25"
-        event-set__hoveron="_event: hover-start; material.opacity: 0.7; transparent: true"
-        event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false"
-        event-set__dragon="_event: dragover-start; material.wireframe: true"
-        event-set__dragoff="_event: dragover-end; material.wireframe: false">
-      </a-mixin>
 
       <!-- Templates -->
 
@@ -196,59 +76,28 @@
       <!-- /Templates -->
     </a-assets>
 
-    <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" camera="fov:35"
-      position="0 2.8 1.5" rotation="0 0 0"  >
+    <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" camera="fov:35" position="0 2.8 1.5" rotation="0 0 0">
       <a-sphere class="head" visible="false" random-color></a-sphere>
-      <a-entity id="cursor01" mixin="point"></a-entity>
+      <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
     </a-entity>
-
-    <!-- ground
-
-    <a-entity position="0 0 0" geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
-      material="src: #grid; repeat: 10000 10000; transparent: true; metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;">
-    </a-entity> -->
 
     <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible=""></a-entity>
     <a-entity light="color: #ffaaff; intensity: 1.5" position="5 5 5"></a-entity>
-
     <a-sky src="#sky" rotation="0 -90 0"></a-sky>
-    <a-entity id="particles" particle-system="preset: snow"></a-entity>
-    <a-entity class="clickable" mixin="cube" id="buy_button" gltf-model="#gallery" scale="1 1 1" position="0 1.5 0"
-      treeman draggable droppable onmouseover="hoverElement(event)"></a-entity>
-    <a-entity class="clickable" id="e-Egg" gltf-model="#Egg" scale="1 1 1" position="-0.351 1.938 0"></a-entity>
-    <a-entity class="clickable" id="e-BadChicken" gltf-model="#BadChicken" scale="1 1 1" position="0 1.938 0">
-    </a-entity>
 
-    <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
-    <a-entity class="cube" mixin="cube" position="0 1 -1.25" material="color: red" onmouseover="hoverElement(event)">
+    <a-entity class="clickable" id="gallery" gltf-model="#gallery" scale="1 1 1" position="0 1.5 0" gltf-hover onmouseover="hoverElement(event)"></a-entity>
+    <a-entity class="clickable" id="e-Egg" gltf-model="#Egg" scale="1 1 1" position="-0.351 1.938 0"></a-entity>
+    <a-entity class="clickable" id="e-BadChicken" gltf-model="#BadChicken" scale="1 1 1" position="0 1.938 0"></a-entity>
+
     </a-entity>
   </a-scene>
 
   <script>
     // On mobile remove elements that are resource heavy
     var isMobile = AFRAME.utils.device.isMobile();
-
-    if (isMobile) {
-      var particles = document.getElementById('particles');
-      particles.parentNode.removeChild(particles);
-    }
   </script>
 
   <script>
-    // Define custom schema for syncing avatar color, set by random-color
-    // NAF.schemas.add({
-    //   template: '#avatar-template',
-    //   components: [
-    //     'position',
-    //     'rotation',
-    //     {
-    //       selector: '.head',
-    //       component: 'material',
-    //       property: 'color'
-    //     }
-    //   ]
-    // });
-
     // Called by Networked-Aframe when connected to server
     function onConnect() {
       console.log("onConnect", new Date());
