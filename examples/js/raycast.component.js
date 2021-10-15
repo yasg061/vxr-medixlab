@@ -106,8 +106,8 @@ AFRAME.registerComponent('gltf-hover', {
     el.addEventListener('click', function () {
       console.log('click over: ', self.mouseOverObject);
 
-      if (self.mouseOverObject.name == 'Box000') {
-        document.getElementById('e-Egg').setAttribute('animation-mixer', 'clip:Idle')
+      if (self.mouseOverObject.name == 'Box001') {
+        document.getElementById('player').setAttribute('animation', 'property: position; to: 0 2.05 1; dur: alternate; dur: 2000;')
         console.log('............');
         // let url = "https:";
         // let win = window.open(url, "_blank");
