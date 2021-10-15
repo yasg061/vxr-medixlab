@@ -1,5 +1,30 @@
+let player
+let mesh
+let meshTargetPosition
+let meshTargetRotation
+let animationIterator = 0
+
+let meshPos = new THREE.Vector3()
+let meshRot = new THREE.Vector3()
+
+let animationState = false
+let targetPos = new THREE.Vector3()
+
+function lerpVectors(v1, v2, alpha) {
+
+  this.x = v1.x + (v2.x - v1.x) * alpha;
+  this.y = v1.y + (v2.y - v1.y) * alpha;
+  this.z = v1.z + (v2.z - v1.z) * alpha;
+
+  return this;
+}
+
+
+
 AFRAME.registerComponent('gltf-hover', {
   init: function () {
+
+    player = document.getElementById("player")
     let el = this.el;
     let self = this;
     this.mouseOverObject = null
@@ -71,6 +96,8 @@ AFRAME.registerComponent('gltf-hover', {
           document.getElementById('e-RockGuitar').setAttribute('animation-mixer', 'clip:Idle')
         } else if (intersection.object.name == 'Box010') {
           document.getElementById('e-Vampire').setAttribute('animation-mixer', 'clip:Idle')
+        } else if (intersection.object.name == 'Box011') {
+          document.getElementById('e-TheThing').setAttribute('animation-mixer', 'clip:Idle')
         }
 
         if (self.mouseOverObject) {
@@ -98,6 +125,8 @@ AFRAME.registerComponent('gltf-hover', {
             document.getElementById('e-RockGuitar').removeAttribute('animation-mixer')
           } else if (self.mouseOverObject.name == 'Box010') {
             document.getElementById('e-Vampire').removeAttribute('animation-mixer')
+          } else if (self.mouseOverObject.name == 'Box011') {
+            document.getElementById('e-TheThing').removeAttribute('animation-mixer')
           }
         }
         self.mouseOverObject = intersection.object;
@@ -106,15 +135,93 @@ AFRAME.registerComponent('gltf-hover', {
     el.addEventListener('click', function () {
       console.log('click over: ', self.mouseOverObject);
 
-      if (self.mouseOverObject.name == 'Box001') {
-        document.getElementById('player').setAttribute('animation', 'property: position; to: 0 2.05 1; dur: alternate; dur: 2000;')
-        console.log('............');
+      if (self.mouseOverObject.name == 'Box001' && !animationState) {
+
+
+        animationIterator
+        mesh = document.getElementById("e-BadChicken")
+        
+        
+        console.log("mesh: ", mesh)
+         meshTargetPosition = mesh.getAttribute("position")
+        targetPos.copy(meshTargetPosition)
+
+        console.log("working: ")
+        meshPos = (mesh.getAttribute("position")).valueOf()
+        meshPos.z += 1
+
+        mesh.getAttribute("rotation")
+        console.log("🚀 ~ file: raycast.component.js ~ line 146 ~  rotation", mesh.getAttribute("rotation"))
+
+
+        animationState = true
+        // document.getElementById('player').setAttribute('animation', 'property: position; to: 0 2.05 1; dur: alternate; dur: 2000;')
+        // console.log('............');
         // let url = "https:";
         // let win = window.open(url, "_blank");
         // win.focus();
       }
     });
   },
-  highlight: function () {},
-  deselect: function () { }
+
+
+  tick: function (time, dt) {
+    // console.log("dt: ", dt)
+    // console.log("time: ", time)
+    let curPosition = player.getAttribute("position")
+    let curRotation = player.getAttribute("rotation")
+
+    let curMeshPosition = document.getElementById("e-BadChicken").getAttribute("position")
+
+    if (animationState) {
+
+      //Camera dolly
+
+      targetPos.copy(meshTargetPosition)
+      //  targetPos.z+=0.0
+      // targetPos.y -= 2
+      targetPos.z+=0.9
+      targetPos.y += 0.1
+      curPosition.x = lerp(curPosition.x, targetPos.x, (1 - Math.exp(- 0.005 * dt)))
+      curPosition.y = lerp(curPosition.y, targetPos.y, (1 - Math.exp(- 0.01 * dt)))
+      curPosition.z = lerp(curPosition.z, targetPos.z, (1 - Math.exp(- 0.005 * dt)))
+
+      meshRot.copy(mesh.getAttribute("rotation"))
+      // meshRot.x += 90
+      curRotation.x = lerp(curRotation.x, 90, (1 - Math.exp(- 0.005 * dt)))
+
+      player.setAttribute("position", curPosition)
+      // player.setAttribute("rotation", curRotation)
+
+
+      //  pollito animation
+
+      curMeshPosition.z = lerp(curMeshPosition.z, meshPos.z, (1 - Math.exp(- 0.1 * dt)))
+      let meshRotation =document.getElementById("e-BadChicken").getAttribute("rotation")
+      // mesh.getAttribute("rotation")
+      // meshRotation.y=   (Math.floor(time*0.05))
+
+      meshRotation.y = lerp(meshRotation.y, (Math.floor(time * 0.01)), (1 - Math.exp(- 0.001 * dt)))
+      // meshRotation.x = lerp(meshRotation.x, 90, (1 - Math.exp(- 0.001 * dt)))
+
+
+      mesh.setAttribute("position", curMeshPosition)
+      mesh.setAttribute("rotation", meshRotation)
+      console.log("meshrotation: ", meshRotation)
+ 
+    }
+
+
+
+  },
+
+
+
+
 });
+
+function lerp(x, y, t) {
+
+  return (1 - t) * x + t * y;
+
+}
