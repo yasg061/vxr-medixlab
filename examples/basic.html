@@ -162,6 +162,7 @@
           let offset = event.deltaY;
           console.log("offset", offset)
           self.scrollY += offset * 0.001
+          console.log("self.scrollY", self.scrollY)
 
 
         });
@@ -178,7 +179,16 @@
         let curScroll = this.el.getAttribute("position")
         curScroll.y = lerp(curScroll.y, this.scrollY, (1 - Math.exp( - 0.005 * dt )) )
         this.el.setAttribute("position", curScroll)
+        if(curScroll.y>2.8){
+          this.scrollY = lerp(curScroll.y, 2.8, (1 - Math.exp( - 0.02 * dt )) )
+          this.el.setAttribute("position", curScroll)
+        }
         
+        
+        if(curScroll.y<0.7){
+          this.scrollY = lerp(curScroll.y, 0.7, (1 - Math.exp( - 0.02 * dt )) )
+          this.el.setAttribute("position", curScroll)
+        }
     
 
       }
