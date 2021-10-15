@@ -1,0 +1,1085 @@
+<html>
+
+<head>
+  <title>Vertex Medixlab</title>
+  <!-- Replace "../build.js" with the super-hands and
+         A-Frame distributions to run : -->
+  <script src="../../super/build.js"></script>
+  <!-- <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> -->
+  <!-- <script src="https://unpkg.com/super-hands/dist/super-hands.min.js"></script> -->
+  <!-- Networked aframe -->
+  <script>
+    let url = "../../../js/structureEntitiesProcess1.json"
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
+  <script src="/easyrtc/easyrtc.js"></script>
+  <script src="/dist/networked-aframe.js"></script>
+  <!-- <script    src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script> -->
+  <script src="/js/spawn-in-circle.component.js"></script>
+  <script src="aframe-particle-system-component.min.js"></script>
+
+
+
+
+  <!-- Super hands -->
+  <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.js"></script>
+  <!-- <script src="../../js/aframe-physics-system.js"></script> -->
+  <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
+  <script
+    src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+  <!-- ownership transfer dependencies -->
+
+  <script src="../../js/spawner.component.js"></script>
+  <script src="../../js/toggle-physics.component.js"></script>
+  <script src="../../js/rotator.component.js"></script>
+  <script src="../../js/input.component.js"></script>
+  <script src="../../js/avatar-body.component.js"></script>
+  <script src="../../js/Feature-Schemas.js"></script>
+  <script src="../../js/camera-output.js"></script>
+  <script src="../../js/Feature-Bones.component.js"></script>
+  <script src="../../js/Feature-BonesPosition.component.js"></script>
+  <script src="../../js/Feature-EmisiveObject.js"></script>
+
+  <!-- <script src="../../js/hand-attach.js"></script> -->
+  <script src="../../js/attach-intracath.js"></script>
+  <script src="../../js/attach-to-position.js"></script>
+  <script src="../../js/set-name.component.js"></script>
+
+  <script src="../../js/randomize-spec-color.component.js"></script>
+
+  <script>
+    AFRAME.registerComponent('trigger-animation', {
+      schema: {
+        entity_id: { type: 'string', default: '0' },
+        obj_entity: { type: 'int', default: 0 },
+      },
+
+      init: function () {
+        var el = this.el;
+        console.log("data: ", this.data.entity_id)
+        let id_Data = this.data.entity_id
+        let iterator_entity = this.data.obj_entity
+
+        this.el.addEventListener('collide', function (e) {
+
+          //trigger animation
+          if (id_Data == e.detail.body.el.id && iterator_entity == 1) {
+            let obj = document.getElementById(e.detail.body.el.id + "_static")
+            let emisive = document.getElementById(e.detail.body.el.id + "_emisive")
+            obj.setAttribute("visible", "true")
+            obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+            emisive.setAttribute("visible", "false")
+            e.detail.body.el.setAttribute('visible', 'false');
+            emisive.remove()
+          }
+          //trigger Opacity
+          if (id_Data == e.detail.body.el.id && iterator_entity == 2) {
+            let obj = document.getElementById(e.detail.body.el.id + "_static")
+            let emisive = document.getElementById(e.detail.body.el.id + "_emisive")
+            emisive.setAttribute("visible", "false")
+            e.detail.body.el.setAttribute('visible', 'false');
+            obj.setAttribute("visible", "true")
+            emisive.remove()
+          }
+
+          if (id_Data == e.detail.body.el.id && iterator_entity == 3) {
+
+            let obj = document.getElementById(id_Data + "_collider")
+            obj.setAttribute("visible", "false")
+            let medicalKit = document.getElementById("e-Clothed_Instruments_Vesical")
+            medicalKit.setAttribute("animation-mixer", "loop:once;repetitions: NaN;clampWhenFinished:true")
+
+            delayInMilliseconds = 9000
+
+            setTimeout(function () {
+              medicalKit.setAttribute("visible", "false")
+              document.getElementById("e-SterileField_Folded").setAttribute("visible", "true")
+              document.getElementById("e-Bowl-Medic").setAttribute("visible", "true")
+              document.getElementById("e-Bowl-Medic-2").setAttribute("visible", "true")
+              document.getElementById("e-gauze").setAttribute("visible", "true")
+              document.getElementById("e-Gauze_Pene").setAttribute("visible", "true")
+              // document.getElementById("e-Stray").setAttribute("visible","true")
+              document.getElementById("e-Clothed_Instruments_Vesical_Static").setAttribute("visible", "true")
+
+
+            }, delayInMilliseconds);
+
+          }
+
+        });
+      }
+    })
+
+
+    function medicalClothe(element) {
+      element.setAttribute("visible", "false")
+      let obj = document.getElementById("e-Clothed_Instruments_Vesical")
+      obj.setAttribute("animation-mixer", "loop:once;repetitions: NaN;clampWhenFinished:true")
+
+      var delayInMilliseconds = 9000; //1 second
+
+      setTimeout(function () {
+        obj.setAttribute("visible", "false")
+        document.getElementById("e-SterileField_Folded").setAttribute("visible", "true")
+        document.getElementById("e-Bowl-Medic").setAttribute("visible", "true")
+        document.getElementById("e-Bowl-Medic-2").setAttribute("visible", "true")
+        document.getElementById("e-gauze").setAttribute("visible", "true")
+        document.getElementById("e-Gauze_Pene").setAttribute("visible", "true")
+        // document.getElementById("e-Stray").setAttribute("visible","true")
+        document.getElementById("e-Clothed_Instruments_Vesical_Static").setAttribute("visible", "true")
+
+
+      }, delayInMilliseconds);
+    }
+
+  </script>
+
+  <script>
+    let boolstate = true
+    AFRAME.registerComponent('color-trigger', {
+      init() {
+        var data = this.data;
+        console.log("init, color trigger")
+
+        this.el.addEventListener('collide', e => {
+
+          console.log("collided", e.detail)
+          let classes = e.detail.target.el.className.split(' ')
+          let mesh_to_modify = document.getElementById("vxr-obj-cottonswab01")
+          var mesh = mesh_to_modify.getObject3D('mesh');
+          console.log("mesh", mesh)
+
+          mesh.traverse(function (node) {
+            console.log("material option", node.material)
+            if (node.isMesh && boolstate) {
+              // mesh.material.color.setRGB(255 ,0 ,0)
+              node.material.color = new THREE.Color("rgb(237, 38, 81)");
+              node.material.needsUpdate = true;
+              console.log("works -----")
+              boolstate = false
+            }
+          });
+        });
+      },
+
+    });
+  </script>
+
+  <script>
+
+    function setMass() {
+      let intracathInteract = element = document.getElementById("vxr-intracath-second-part")
+      intracathInteract.setAttribute('dynamic-body', 'mass:0.1')
+    }
+
+    function genericSetMass(element) {
+      document.getElementById(element.id).setAttribute('dynamic-body', 'mass:0.1')
+    }
+
+    function genericBone(boneName) {
+      console.log("bone id", boneName)
+      // let bone  = document.getElementById(boneName)
+      boneName.setAttribute('dynamic-body', 'mass:0.1')
+      boneName.setAttribute("boneposition", "varBool:true")
+
+    }
+
+    function genericBoneEnd(boneName) {
+      console.log("bone id", boneName)
+      // let bone  = document.getElementById(boneName)
+      boneName.setAttribute('dynamic-body', 'mass:0.0')
+      boneName.setAttribute("boneposition", "varBool:false")
+    }
+
+    function setMassRubber() {
+      let rubber = document.getElementById("Static-vxr-obj-rubber")
+      rubber.setAttribute('dynamic-body', 'mass:0.1')
+    }
+
+    function emissiveObjectOn(element) {
+      let emissiveObject = document.getElementById((element.id + "_emisive"))
+      console.log("emisive id: ", (element.id + "_emisive"))
+      emissiveObject.setAttribute("visible", "true")
+
+      let arrowTargetPosition = new THREE.Vector3()
+      arrowTargetPosition.copy(emissiveObject.getObject3D("mesh").getWorldPosition())
+      arrowTargetPosition.y = arrowTargetPosition.y + 0.3
+      document.getElementById("arrow01").setAttribute("position", arrowTargetPosition)
+      document.getElementById("arrow01").setAttribute("visible", "true")
+
+
+      if (element.id == "e-SterileField_Folded") {
+        element.setAttribute("dynamic-body", "mass:0.1")
+      }
+      if (element.id == "e-Basin") {
+        let arrow01 = document.getElementById('arrow01')
+        arrow01.setAttribute('visible', 'true')
+      }
+    }
+
+    function emissiveObjectOff(element) {
+
+      let emissiveObject = document.getElementById((element.id + "_emisive"))
+      document.getElementById("arrow01").setAttribute("visible", "false")
+
+
+      if (document.getElementById((element.id + "_emisive"))) {
+        emissiveObject.setAttribute("visible", "false")
+      }
+
+      if (element.id == "e-Basin") {
+        let arrow01 = document.getElementById('arrow01')
+        arrow01.setAttribute('visible', 'false')
+      }
+    }
+
+
+  </script>
+
+
+  <script>
+
+    function setMassHeparinseal() {
+      let boxheparin = document.getElementById("e-heparinseal-box")
+      boxheparin.removeAttribute("dynamic-body")
+      boxheparin.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+      let parina = document.getElementById("e-heparinseal")
+      parina.setAttribute("dynamic-body", "")
+      this.el.remove()
+
+      // let baby = element = document.getElementById("baby")
+      // Manta_Abierta.setAttribute("visible", "true")
+      // baby.setAttribute('dynamic-body', 'mass:100.1;')
+    }
+
+    function SetObjectPosition(evt) {
+      console.log("object: ", evt.path[0].getAttribute("position"))
+      let position = new THREE.Vector3(evt.path[0].getAttribute("position").x)
+      let x = evt.path[0].getAttribute("position").x
+      let y = evt.path[0].getAttribute("position").y
+      let z = evt.path[0].getAttribute("position").z
+
+      evt.path[0].setAttribute("ground-collider", `x:${x}`)
+      evt.path[0].setAttribute("ground-collider", `y:${y}`)
+      evt.path[0].setAttribute("ground-collider", `z:${z}`)
+      console.log("card grabbed: ", position)
+    }
+
+  </script>
+
+
+  <script>
+
+    AFRAME.registerComponent('ground-collider', {
+      schema: {
+        vectorPosition: { type: 'vec3' },
+        x: { default: 0 },
+        y: { default: 0 },
+        z: { default: 0 },
+      },
+
+      init: function () {
+        let el = this.el;
+        let data = this.data
+        this.el.addEventListener('collide', function (e) {
+          console.log('collision ', e.detail.body.el);
+
+          let classes = e.detail.body.el.className.split(' ')
+
+          if (classes.includes("vxr-ground")) {
+            console.log("entity: ", this.el)
+            el.removeAttribute("dynamic-body")
+            el.setAttribute("position", { x: data.x, y: data.y, z: data.z })
+            el.setAttribute("dynamic-body", "")
+
+          } else {
+            console.log('Error on: ', e.detail.body.el);
+
+          }
+
+        });
+      },
+
+      update: function () {
+        console.log("x position: ", this.data.x)
+        console.log("y position: ", this.data.y)
+        console.log("z position: ", this.data.z)
+        // this.el.removeAttribute("dynamic-body")
+        // this.el.setAttribute("position",this.data.vectorPosition)
+        // this.el.setAttribute("dynamic-body","")
+      }
+    })
+
+  </script>
+
+
+  <script>
+    AFRAME.registerComponent('attach-point-axis', {
+      init: function () {
+        var el = this.el;
+        this.el.addEventListener('collide', function (e) {
+          console.log('Cube has collided with ', e.detail.body.el);
+          e.detail.body.el.setAttribute('constraint', 'type: coneTwist; target: #box1; pivot: 0 0 0; targetPivot: 0 0.0 0.09; axis: 0.0 0.0 -1.0; targetAxis: 1.0 0.0 0.0');
+        });
+      }
+    })
+  </script>
+  <script>
+    AFRAME.registerComponent('foo', {
+      init: function () {
+        var el = this.el;
+        this.el.addEventListener('collide', function (e) {
+          console.log('Cube has collided with ', e.detail.body.el);
+          e.detail.body.el.setAttribute('constraint', 'type: coneTwist; target: #box2; pivot: 0 0 0; targetPivot: 0 -0.05 0; axis: 0.0 -1 0; targetAxis: 1.0 0.0 0.0');
+        });
+      }
+    })
+
+    AFRAME.registerComponent('blend-shape', {
+      init: function () {
+
+        this.el.addEventListener('model-loaded', e => {
+          document.getElementById("patient01").getObject3D("mesh").children[0].children[3].morphTargetInfluences[0] = 0.8
+        })
+
+      }
+    })
+  </script>
+  <script>
+    function spawnentity() {
+
+      let syncs = document.getElementsByClassName("syncup");
+      let constraint_avatar_template = document.getElementsByClassName("constraint-avatar-template");
+      for (let i = 0; i < syncs.length; ++i) {
+        syncs[i].setAttribute("networked", "template:#vxr-template;attachTemplateToLocal:true")
+      }
+      for (let i = 0; i < constraint_avatar_template.length; ++i) {
+        constraint_avatar_template[i].setAttribute("networked", "template:#constraint-avatar-template;attachTemplateToLocal:true")
+      }
+    }
+  </script>
+  <!-- <link rel="stylesheet" type="text/css" href="../../super/process/assets/examples.css"> -->
+</head>
+
+<body>
+  <a-scene physics="debug: true  ; gravity: -5; iterations: 75" networked-scene="
+      room: audio;
+      adapter: easyrtc;
+      audio: false;
+      debug: true;
+      onConnect: spawnentity;
+    ">
+
+    <a-assets>
+
+      <img id="sky-01" src="../../Models/Images/sky-01.jpg">
+
+      <a-asset-item id="StudentAvatar" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
+      <a-asset-item id="SpectatorAvatar" src="../../super/process/assets/avatars/SpectatorAvatar.gltf"></a-asset-item>
+      <a-asset-item id="TeacherAvatar" src="../../super/process/assets/TeacherAvatar.gltf"></a-asset-item>
+      <a-asset-item id="right-hand" src="../../super/process/assets/rightHandHigh.glb"></a-asset-item>
+      <a-asset-item id="left-hand" src="../../super/process/assets/leftHandHigh.glb"></a-asset-item>
+      <a-asset-item id="trashcan" src="/Models/gltf/TrashCan.gltf"></a-asset-item>
+      <a-asset-item id="container" src="/Models/gltf/TrashContainer.gltf"></a-asset-item>
+      <a-asset-item id="containerblack" src="/Models/gltf/TrashContainerBlack.gltf"></a-asset-item>
+      <a-asset-item id="Table_005" src="Assets/Table_005.gltf"></a-asset-item>
+      <a-asset-item id="genes" src="Assets/HospitalRoomLight.gltf"></a-asset-item>
+      <a-asset-item id="Table_001" src="Assets/Table.gltf"></a-asset-item>
+      <a-asset-item id="alcohol_bottle" src="Assets/AlcoholGel.gltf"></a-asset-item>
+
+
+      <!--Assets level 1-->
+      <a-asset-item id="boot_l" src="Assets/level1/Covid_Boot_L.gltf"></a-asset-item>
+      <a-asset-item id="boot_r" src="Assets/level1/Covid_Boot_R.gltf"></a-asset-item>
+      <a-asset-item id="escafandra" src="Assets/level1/Escafandra_Low.gltf"></a-asset-item>
+      <a-asset-item id="gabachon" src="Assets/level1/Gabachon.gltf"></a-asset-item>
+      <a-asset-item id="glovelong_l" src="Assets/level1/Glove_L_Long.gltf"></a-asset-item>
+      <a-asset-item id="glovelong_r" src="Assets/level1/Glove_R_Long.gltf"></a-asset-item>
+      <a-asset-item id="gloveshort_l" src="Assets/level1/Glove_L_Short.gltf"></a-asset-item>
+      <a-asset-item id="gloveshort_r" src="Assets/level1/Glove_R_Short.gltf"></a-asset-item>
+      <a-asset-item id="googles" src="Assets/level1/Googles_Covid.gltf"></a-asset-item>
+      <a-asset-item id="hat" src="Assets/level1/Hat.gltf"></a-asset-item>
+      <a-asset-item id="mask" src="Assets/level1/Mask_Covid.gltf"></a-asset-item>
+      <a-asset-item id="mask95" src="Assets/level1/MaskN95.gltf"></a-asset-item>
+      <a-asset-item id="mannequen" src="Assets/Mannequin_Covid_Test.gltf"></a-asset-item>
+
+
+      <!--Emissive assets level 1-->
+      <a-asset-item id="boot_l_emisive" src="Assets/level1/emisive/Covid_Boot_L_emisive.gltf"></a-asset-item>
+      <a-asset-item id="boot_r_emisive" src="Assets/level1/emisive/Covid_Boot_R_emisive.gltf"></a-asset-item>
+      <a-asset-item id="escafandra_emisive" src="Assets/level1/emisive/Escafandra_Low_emisive.gltf"></a-asset-item>
+      <a-asset-item id="gabachon_emisive" src="Assets/level1/emisive/Gabachon_emisive.gltf"></a-asset-item>
+      <a-asset-item id="glovelong_l_emisive" src="Assets/level1/emisive/Glove_L_Long_emisive.gltf"></a-asset-item>
+      <a-asset-item id="glovelong_r_emisive" src="Assets/level1/emisive/Glove_R_Long_emisive.gltf"></a-asset-item>
+      <a-asset-item id="gloveshort_l_emisive" src="Assets/level1/emisive/Glove_L_Short_emisive.gltf"></a-asset-item>
+      <a-asset-item id="gloveshort_r_emisive" src="Assets/level1/emisive/Glove_R_Short_emisive.gltf"></a-asset-item>
+      <a-asset-item id="googles_emisive" src="Assets/level1/emisive/Googles_Covid_emisive.gltf"></a-asset-item>
+      <a-asset-item id="hat_emisive" src="Assets/level1/emisive/Hat_emisive.gltf"></a-asset-item>
+      <a-asset-item id="mask_emisive" src="Assets/level1/emisive/Mask_Covid_emisive.gltf"></a-asset-item>
+      <a-asset-item id="mask95_emisive" src="Assets/level1/emisive/MaskN95_emisive.gltf"></a-asset-item>
+
+      <!--Static assets-->
+      <a-asset-item id="boot_l_static" src="Assets/level1/statics/Covid_Boot_L_static.gltf"></a-asset-item>
+      <a-asset-item id="boot_r_static" src="Assets/level1/statics/Covid_Boot_R_static.gltf"></a-asset-item>
+      <a-asset-item id="escafandra_static" src="Assets/level1/statics/Escafandra_Low_static.gltf"></a-asset-item>
+      <a-asset-item id="gabachon_static" src="Assets/level1/statics/Gabachon_static.gltf"></a-asset-item>
+      <a-asset-item id="glovelong_l_static" src="Assets/level1/statics/Glove_L_Long_static.gltf"></a-asset-item>
+      <a-asset-item id="glovelong_r_static" src="Assets/level1/statics/Glove_R_Long_static.gltf"></a-asset-item>
+      <a-asset-item id="gloveshort_l_static" src="Assets/level1/statics/Glove_L_Short_static.gltf"></a-asset-item>
+      <a-asset-item id="gloveshort_r_static" src="Assets/level1/statics/Glove_R_Short_static.gltf"></a-asset-item>
+      <a-asset-item id="googles_static" src="Assets/level1/statics/Googles_Covid_static.gltf"></a-asset-item>
+      <a-asset-item id="hat_static" src="Assets/level1/statics/Hat_static.gltf"></a-asset-item>
+      <a-asset-item id="mask_static" src="Assets/level1/statics/Mask_Covid_static.gltf"></a-asset-item>
+      <a-asset-item id="mask95_static" src="Assets/level1/statics/MaskN95_static.gltf"></a-asset-item>
+      
+
+
+      <!-- Avatars -->
+      <a-asset-item id="StudentAvatarHead" src="../../super/process/assets/avatars/StudentAvatarHead.gltf">
+      </a-asset-item>
+      <a-asset-item id="StudentAvatarBody" src="../../super/process/assets/avatars/StudentAvatarBody.gltf">
+      </a-asset-item>
+      <a-asset-item id="TeacherAvatarHead" src="../../super/process/assets/avatars/TeacherAvatarHead.gltf">
+      </a-asset-item>
+      <a-asset-item id="TeacherAvatarBody" src="../../super/process/assets/avatars/TeacherAvatarBody.gltf">
+      </a-asset-item>
+      <a-asset-item id="student" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
+      <a-asset-item id="teacher" src="../../super/process/assets/TeacherAvatar.gltf"></a-asset-item>
+
+
+      <canvas id="cam2"></canvas>
+
+
+      <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false"
+        static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
+                          colliderEventProperty: els;
+                          colliderEndEvent: collisions;
+                          colliderEndEventProperty: clearedEls;">
+      </a-mixin>
+      <a-mixin id="point" raycaster="showLine: true; objects: .vxr-interact" collision-filter="collisionForces: false"
+        static-body="shape: sphere; sphereRadius: 0.001" super-hands="colliderEvent: raycaster-intersection;
+                    colliderEventProperty: els;
+                    colliderEndEvent:raycaster-intersection-cleared;
+                    colliderEndEventProperty: clearedEls;"></a-mixin>
+
+      <!-- Player -->
+      <template id="player-template">
+        <a-entity networked-audio-source="positional:false"></a-entity>
+      </template>
+      ​
+      <!-- Nurse Avatar -->
+      <template id="student-avatar-template">
+        <a-entity class="NurseHeadAvatar" gltf-model="#StudentAvatar" position="0 2 0"
+          networked-audio-source="positional:false"></a-entity>
+
+      </template>
+
+      <!-- Teacher Avatar -->
+      <template id="teacher-avatar-template">
+        <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar" scale="0.8 0.8 0.8"
+          networked-audio-source="positional:false">
+        </a-entity>
+      </template>
+
+      <!-- Spectator Avatar -->
+      <template id="spectator-avatar-template">
+        <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" networked-audio-source="positional:false">
+        </a-entity>
+      </template>
+
+      <!-- Teacher Avatar Constraints -->
+      <template id="constraint-teacher-avatar-template">
+        <a-entity>
+          <a-entity class="name-up-teacher"></a-entity>
+          <a-entity class="TeacherAvatar" id="teacher" gltf-model="#teacher"></a-entity>
+        </a-entity>
+      </template>
+
+      <!-- Student Avatar Constraints -->
+      <template id="constraint-student-avatar-template">
+        <a-entity>
+          <a-entity class="name-up-student"></a-entity>
+          <a-entity class="StudentAvatar" id="student" gltf-model="#student"></a-entity>
+        </a-entity>
+      </template>
+
+      <!-- Spectator Avatar Constraints -->
+      <template id="constraint-spectator-avatar-template">
+        <a-entity>
+          <a-entity class="name-up"></a-entity>
+          <a-entity class="SpectatorAvatar" id="spectator" gltf-model="#SpectatorAvatar"></a-entity>
+      </template>
+
+      <!-- Right Hand -->
+      <template id="right-hand-template">
+        <a-entity>
+          <a-entity scale="0.8 0.8 0.8" gltf-model="#right-hand"></a-entity>
+        </a-entity>
+      </template>
+
+      <!-- Left Hand -->
+      <template id="left-hand-template">
+        <a-entity>
+          <a-entity scale="0.8 0.8 0.8" gltf-model="#left-hand"></a-entity>
+        </a-entity>
+      </template>
+
+      <!-- vxr-template -->
+      <template id="vxr-template">
+        <a-entity>
+          <a-box class="vxr-obj-a" rotator="speed:-2" width="0.35" height="0.35" depth="0.35" rotation="0 0 0"
+            color="green" position="0 0 0"></a-box>
+          <a-sphere class="vxr-obj-b" toggle-physics color="#f00" dynamic-body draggable grabbable radius="0.18"
+            position="0.5 0 0"></a-sphere>
+          <a-box class="vxr-obj-c" rotator="speed:2" color="blue" width="0.35" height="0.35" depth="0.35"
+            position="1 0 0"></a-box>
+        </a-entity>
+      </template>
+
+      <!-- vxr-gltf -->
+
+      <template id="audience">
+        <a-entity id="spectator" position="-2.9119 2.18025 -2.79791" assign-seat>
+          <a-entity id="constraint-spectator" camera look-controls zoom="100" fov="120">
+            <a-entity class="name-up" name-up></a-entity>
+          </a-entity>
+        </a-entity>
+      </template>
+
+
+      <template id="vxr-obj-template-boot_l">
+        <a-entity>
+          <a-entity id="e-boot_l"  ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+            rotation="0 180 0" grabbable dynamic-body
+            class="vxr-obj-boot_l vxr-interact" gltf-model="#boot_l" dynamic-body draggable grabbable
+            toggle-physics position="1.02478 0.28764 -0.00858">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_l_emisive">
+        <a-entity>
+          <a-entity id="e-boot_l_emisive" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
+            class="vxr-obj-boot_l_emisive vxr-interact" visible="false" gltf-model="#boot_l_emisive" draggable grabbable
+            position="-0.00938 -0.60385 -0.06292">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_l_static">
+        <a-entity>
+          <a-entity id="e-boot_l_static" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
+            class="vxr-obj-boot_l_static vxr-interact" gltf-model="#boot_l_static" draggable grabbable
+            position="-0.00938 -0.60385 -0.06292" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_r">
+        <a-entity>
+          <a-entity id="e-boot_r"  ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+            rotation="0 180 0" grabbable dynamic-body
+            class="vxr-obj-boot_r vxr-interact" gltf-model="#boot_r" dynamic-body draggable grabbable
+            toggle-physics position="1.19631 0.28764 -0.00703">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_r_emisive">
+        <a-entity>
+          <a-entity id="e-boot_r_emisive" grabbable="maxGrabbers: NaN" rotation="0 -95.06 0" grabbable
+            class="vxr-obj-boot_r_emisive vxr-interact" visible="false" gltf-model="#boot_r_emisive" draggable grabbable
+            position="0.21061 -0.60624 -0.05895">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_r_static">
+        <a-entity>
+          <a-entity id="e-boot_r_static" grabbable="maxGrabbers: NaN" rotation="0 -95.06 0" grabbable
+            class="vxr-obj-boot_r_static vxr-interact" gltf-model="#boot_r_static" draggable grabbable
+            position="0.21061 -0.60624 -0.05895" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <!-- <template id="vxr-obj-template-escafandra">
+        <a-entity>
+          <a-entity id="e-escafandra" grabbable="maxGrabbers: NaN" visible="true" rotation="0 180 0"
+           grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-escafandra vxr-interact" gltf-model="#escafandra" 
+           dynamic-body draggable grabbable toggle-physics position="-1.52443 0.33409 -0.13882">
+          </a-entity>
+        </a-entity>
+      </template> -->
+
+      <template id="vxr-obj-template-gabachon">
+        <a-entity>
+          <a-entity id="e-gabachon" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"  
+            rotation="0 180 0" grabbable dynamic-body
+            class="vxr-obj-gabachon vxr-interact" gltf-model="#gabachon" dynamic-body draggable grabbable
+            toggle-physics position="-0.7469 -0.0374 0.05027">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gabachon_emisive">
+        <a-entity>
+          <a-entity id="e-gabachon_emisive" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+            class="vxr-obj-gabachon_emisive vxr-interact" visible="false" gltf-model="#gabachon_emisive" draggable grabbable
+            position="0.21061 -0.60624 -0.05895">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gabachon_static">
+        <a-entity>
+          <a-entity id="e-gabachon_static" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+            class="vxr-obj-gabachon_static vxr-interact" gltf-model="#gabachon_static" draggable grabbable
+            position="0.21061 -0.60624 -0.05895" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_l">
+        <a-entity>
+          <a-entity id="e-glovelong_l" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+            rotation="0 180 0" grabbable dynamic-body
+            class="vxr-obj-glovelong_l vxr-interact" gltf-model="#glovelong_l"dynamic-body draggable grabbable
+            toggle-physics position="1.40871 0.34999 -0.02677">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_l_emisive">
+        <a-entity>
+          <a-entity id="e-glovelong_l_emisive" grabbable="maxGrabbers: NaN" rotation="-27.27508287940771 64.40618575065585 54.96326832910474" grabbable
+            class="vxr-obj-glovelong_l_emisive vxr-interact" visible="false" gltf-model="#glovelong_l_emisive" draggable grabbable
+            position="-0.21023 0.8249 -0.30844">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_l_static">
+        <a-entity>
+          <a-entity id="e-glovelong_l_static" grabbable="maxGrabbers: NaN" rotation="-27.27508287940771 64.40618575065585 54.96326832910474" grabbable
+            class="vxr-obj-glovelong_l_static vxr-interact" gltf-model="#glovelong_l_static" draggable grabbable
+            position="-0.21023 0.8249 -0.30844" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_r">
+        <a-entity>
+          <a-entity id="e-glovelong_r" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+            rotation="0 180 0" grabbable dynamic-body  
+            class="vxr-obj-glovelong_r vxr-interact" gltf-model="#glovelong_r"dynamic-body draggable grabbable
+            toggle-physics position="1.56711 0.34923 -0.03566">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_r_emisive">
+        <a-entity>
+          <a-entity id="e-glovelong_r_emisive" grabbable="maxGrabbers: NaN" rotation="30.861798676926664 107.90227676801229 48.80168020026787" grabbable
+            class="vxr-obj-glovelong_r_emisive vxr-interact" visible="false" gltf-model="#glovelong_r_emisive" draggable grabbable
+            position="0.41113 0.8018 -0.31913">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_r_static">
+        <a-entity>
+          <a-entity id="e-glovelong_r_static" grabbable="maxGrabbers: NaN" rotation="30.861798676926664 107.90227676801229 48.80168020026787" grabbable
+            class="vxr-obj-glovelong_r_static vxr-interact" gltf-model="#glovelong_r_static" draggable grabbable
+            position="0.41113 0.8018 -0.31913" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_l">
+        <a-entity>
+          <a-entity id="e-gloveshort_l" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+            rotation="0 180 0" grabbable dynamic-body
+            class="vxr-obj-gloveshort_l vxr-interact" gltf-model="#gloveshort_l"dynamic-body draggable grabbable
+            toggle-physics position="1.04504 0.32769 -0.32624">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_l_emisive">
+        <a-entity>
+          <a-entity id="e-gloveshort_l_emisive" grabbable="maxGrabbers: NaN" rotation="-32.33086246364209 41.50277084809631 55.348295967432655" grabbable
+            class="vxr-obj-gloveshort_l_emisive vxr-interact" visible="false" gltf-model="#gloveshort_l_emisive" draggable grabbable
+            position="-0.21286 0.85206 -0.34603">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_l_static">
+        <a-entity>
+          <a-entity id="e-gloveshort_l_static" grabbable="maxGrabbers: NaN" rotation="-28.677683561887964 47.318865426469294 52.256615704906736" grabbable
+            class="vxr-obj-gloveshort_l_static vxr-interact" gltf-model="#gloveshort_l_static" draggable grabbable
+            position="-0.21423 0.86082 -0.34603" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_r">
+        <a-entity>
+          <a-entity id="e-gloveshort_r" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+            rotation="0 180 0" grabbable dynamic-body  
+            class="vxr-obj-gloveshort_r vxr-interact" gltf-model="#gloveshort_r"dynamic-body draggable grabbable
+            toggle-physics position="1.22035 0.33146 -0.31659">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_r_emisive">
+        <a-entity>
+          <a-entity id="e-gloveshort_r_emisive" grabbable="maxGrabbers: NaN" rotation="37.13167582904326 138.00777115536627 50.616237537447184" grabbable
+            class="vxr-obj-gloveshort_r_emisive vxr-interact" visible="false" gltf-model="#gloveshort_r_emisive" draggable grabbable
+            position="0.42358 0.84263 -0.36546">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_r_static">
+        <a-entity>
+          <a-entity id="e-gloveshort_r_static" grabbable="maxGrabbers: NaN" rotation="37.51498459398578 135.5308746070157 45.1588145388261" grabbable
+            class="vxr-obj-gloveshort_r_static vxr-interact" gltf-model="#gloveshort_r_static" draggable grabbable
+            position="0.42295 0.84519 -0.36546" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-googles">
+        <a-entity>
+          <a-entity id="e-googles" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+            rotation="0 180 0" grabbable dynamic-body
+            class="vxr-obj-googles vxr-interact" gltf-model="#googles" dynamic-body draggable grabbable
+            toggle-physics position="1.64832 0.32972 -0.32518">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-googles_emisive">
+        <a-entity>
+          <a-entity id="e-googles_emisive" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+            class="vxr-obj-googles_emisive vxr-interact" visible="false" gltf-model="#googles_emisive" draggable grabbable
+            position="0.10852 1.11657 -0.08292">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-googles_static">
+        <a-entity>
+          <a-entity id="e-googles_static" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+            class="vxr-obj-googles_static vxr-interact" gltf-model="#googles_static" draggable grabbable
+            position="0.10852 1.11657 -0.08292" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-hat">
+        <a-entity>
+          <a-entity id="e-hat" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+            rotation="0 180 0" grabbable dynamic-body
+            class="vxr-obj-hat vxr-interact" gltf-model="#hat" dynamic-body draggable grabbable
+            toggle-physics position="1.76647 0.41081 -0.02389">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-hat_emisive">
+        <a-entity>
+          <a-entity id="e-hat_emisive" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
+            class="vxr-obj-hat_emisive vxr-interact" visible="false" gltf-model="#hat_emisive" draggable grabbable
+            position="0.11186 1.15943 0.00306">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-hat_static">
+        <a-entity>
+          <a-entity id="e-hat_static" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
+            class="vxr-obj-hat_static vxr-interact" gltf-model="#hat_static" draggable grabbable
+            position="0.11186 1.15943 0.00306" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-mask">
+        <a-entity>
+          <a-entity id="e-mask" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+            rotation="0 -90 0" grabbable dynamic-body
+            class="vxr-obj-mask vxr-interact" gltf-model="#mask" dynamic-body draggable grabbable
+            toggle-physics position="1.41052 0.35536 -0.34164">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-mask_emisive">
+        <a-entity>
+          <a-entity id="e-mask_emisive" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
+            class="vxr-obj-mask_emisive vxr-interact" visible="false" gltf-model="#mask_emisive" draggable grabbable
+            position="0.10586 1.04372 -0.11213">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-mask_static">
+        <a-entity>
+          <a-entity id="e-mask_static" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
+            class="vxr-obj-mask_static vxr-interact" gltf-model="#mask_static" draggable grabbable
+            position="0.10586 1.04372 -0.11213" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <!-- <template id="vxr-obj-template-mask95">
+        <a-entity>
+          <a-entity id="e-mask95" grabbable="maxGrabbers: NaN" visible="true" rotation="0 0 0" grabbable="maxGrabbers: NaN"
+            dynamic-body="sphereRadius: NaN" class="vxr-obj-mask95 vxr-interact" gltf-model="#mask95" 
+            dynamic-body draggable grabbable toggle-physics position="1.83523 0.32312 -0.33673">
+          </a-entity>
+        </a-entity>
+      </template> -->
+
+      <template id="vxr-obj-template-alcohol_bottle">
+        <a-entity>
+          <a-entity id="e-alcohol_bottle" grabbable="maxGrabbers: NaN" visible="true" rotation="0 0 0" grabbable="maxGrabbers: NaN"
+            dynamic-body="sphereRadius: NaN" class="vxr-obj-mask95 vxr-interact" gltf-model="#alcohol_bottle" 
+            dynamic-body draggable grabbable toggle-physics position="1.83523 0.32312 -0.33673">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-mannequen">
+        <a-entity>
+          <a-entity id="e-mannequen" grabbable="maxGrabbers: NaN" visible="true" rotation="0 180 0" grabbable
+            class="vxr-obj-mannequen vxr-interact" gltf-model="#mannequen" position="0.10871 -0.59 -0.08038">
+          </a-entity>
+        </a-entity>
+      </template>
+
+
+    </a-assets>
+
+
+    <a-sky rotation="0 180 0" position="0 -70 0" src="#sky-01"></a-sky>
+    <a-light id="directionallight" light="intensity: 0.2" type="directional" position="0 0 0" rotation="-90 0 0"
+      intensity="0.200" target="#directionaltarget">
+      <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
+    </a-light>
+    <a-entity light="intensity: 0.3; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"
+      id="ambientlight"></a-entity>
+    <a-entity light="color: #FFFFFF; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
+      position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
+
+
+    <!-- Static Objects -->
+
+    </a-entity>
+    
+    <a-entity id="genes01" gltf-model="#genes" scale="" position="0.14005 0.858 0.39589" material="color: brown"
+      rotation="0 -90.000 0" shadow="receive: false"></a-entity>
+
+    <a-entity id="container01" position="-1.469 0.91541 -1.21678" gltf-model="/Models/gltf/TrashContainer.gltf"
+      rotation="0 180 0"></a-entity>
+
+    <a-entity id="container02" position="-1.46881 0.91244 -1.81925" gltf-model="/Models/gltf/TrashContainer.gltf"
+      rotation="0 180 0"></a-entity>
+
+    <a-entity class="gltf" gltf-model="#Table_001" position="1.390 0.886 -0.329" rotation="0 -90 0"></a-entity>
+
+    <a-box id="boxTable1" scale="1.2 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation="0 0 0"
+      position="1.41761 1.7375 -0.32771" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+
+    <a-box id="boxFloor" scale="4.14767 1 7.15846" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
+      position="0.36093 0.85696 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+
+    <a-box id="boxGabachon" scale="0.68714 4.81671 0.63943" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
+      position="-0.73753 1.21816 -0.16737" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+
+    <!--Lights -->
+    <a-entity background="color: #92f2ff"></a-entity>
+
+    <a-entity light="intensity: 0.7; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"
+      id="ambientlight"></a-entity>
+    <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
+      position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
+
+    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
+      rotation="0 180 0" movement-controls="speed:0.3">
+    <a-entity camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
+        networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
+    </a-entity>
+
+    <!-- /VIVE CONTROLLERS -->
+    <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left"
+        networked="template:#left-hand-template">
+    </a-entity>
+    <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right"
+        networked="template:#right-hand-template">
+    </a-entity>
+
+
+    </a-entity>
+
+    <!------------------------------------------------------------------------------------------------------------------->
+    <!-----------------------------------------------Triggers------------------------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------------->
+
+    <a-sphere id="sphere1" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-boot_l;obj_entity:2" opacity="0" position="-0.03182 0.9924 -0.34522"
+      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere2" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-boot_r;obj_entity:2" opacity="0" position="0.21473 0.9924 -0.34522"
+      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <!--<a-sphere id="sphere3" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-escafandra;obj_entity:2" opacity="0" position="0.20466 2.37139 -0.32092"
+      attach-point-v2 geometry="radius: 0.02"> </a-sphere> -->
+
+    <a-sphere id="sphere4" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-gabachon;obj_entity:2" opacity="0" position="0.0276 2.37139 -0.32092"
+      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere5" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-glovelong_l;obj_entity:2" opacity="0" position="-0.17319 2.29 -0.506"
+      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere6" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-glovelong_r;obj_entity:2" opacity="0" position="0.37639 2.29 -0.506"
+      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere7" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-gloveshort_l;obj_entity:2" opacity="0" position="-0.20751 2.33507 -0.56155"
+      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere8" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-gloveshort_r;obj_entity:2" opacity="0" position="0.40832 2.33507 -0.56155"
+      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere9" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-googles;obj_entity:2" opacity="0" position="0.09943 2.60896 -0.35961"
+      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere10" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-hat;obj_entity:2" opacity="0" position="0.09943 2.75286 -0.24794"
+      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere11" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-mask;obj_entity:2" opacity="0" position="0.09943 2.52223 -0.38149"
+      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    
+
+    <!--<a-sphere id="sphere20" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-Basin;obj_entity:2" opacity="0" position="1.26494 1.6 -0.89968" attach-point-v2
+      geometry="radius: 0.05"> </a-sphere> -->
+
+
+  </a-scene>
+
+  <script>
+    // Define custom schema for syncing avatar color, set by random-color
+    NAF.schemas.add({
+      template: '#student-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#teacher-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#spectator-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#constraint-spectator-avatar-template',
+      components: [
+        'position',
+        'rotation',
+        {
+          selector: '.name-up',
+          component: 'name-up'
+        },
+        {
+          selector: '.SpectatorAvatar',
+          component: 'randomize-spec-color'
+        }
+      ]
+    });
+    NAF.schemas.add({
+      template: '#constraint-teacher-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#constraint-student-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#player-template',
+      components: [
+        'position',
+        'rotation',
+      ]
+    });
+    NAF.schemas.add({
+      template: '#right-hand-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#left-hand-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+
+    //Called by Networked-Aframe when connected to server
+    function onConnect() {
+      console.log("funca");
+    }
+  </script>
+  <!-- <script src="../../js/Feature-SpawnTemplate.js"></script> -->
+
+  <script src="../../js/Feature-SpawnObjects.js"></script>
+  <!-- <script src="../../js/vxr-full-house.js"></script> -->
+
+
+
+</body>
+
+</html>

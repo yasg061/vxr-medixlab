@@ -1,0 +1,132 @@
+[
+
+  {
+    "template": "vxr-obj-template-boot_l",
+    "selector": ".vxr-obj-boot_l"
+  },
+  {
+    "template": "vxr-obj-template-boot_l_emisive",
+    "selector": ".vxr-obj-boot_l_emisive"
+  },
+  {
+    "template": "vxr-obj-template-boot_l_static",
+    "selector": ".vxr-obj-boot_l_static"
+  },
+  {
+    "template": "vxr-obj-template-boot_r",
+    "selector": ".vxr-obj-boot_r"
+  },
+  {
+    "template": "vxr-obj-template-boot_r_emisive",
+    "selector": ".vxr-obj-boot_r_emisive"
+  },
+  {
+    "template": "vxr-obj-template-boot_r_static",
+    "selector": ".vxr-obj-boot_r_static"
+  },
+  {
+    "template": "vxr-obj-template-gabachon",
+    "selector": ".vxr-obj-gabachon"
+  },
+  {
+    "template": "vxr-obj-template-gabachon_emisive",
+    "selector": ".vxr-obj-gabachon_emisive"
+  },
+  {
+    "template": "vxr-obj-template-gabachon_static",
+    "selector": ".vxr-obj-gabachon_static"
+  },
+  {
+    "template": "vxr-obj-template-glovelong_l",
+    "selector": ".vxr-obj-glovelong_r"
+  },
+  {
+    "template": "vxr-obj-template-glovelong_l_emisive",
+    "selector": ".vxr-obj-glovelong_l_emisive"
+  },
+  {
+    "template": "vxr-obj-template-glovelong_l_static",
+    "selector": ".vxr-obj-glovelong_l_static"
+  },
+  {
+    "template": "vxr-obj-template-glovelong_r",
+    "selector": ".vxr-obj-glovelong_r"
+  },
+  {
+    "template": "vxr-obj-template-glovelong_r_emisive",
+    "selector": ".vxr-obj-glovelong_r_emisive"
+  },
+  {
+    "template": "vxr-obj-template-glovelong_r_static",
+    "selector": ".vxr-obj-glovelong_r_static"
+  },
+  {
+    "template": "vxr-obj-template-gloveshort_l",
+    "selector": ".vxr-obj-gloveshort_r"
+  },
+  {
+    "template": "vxr-obj-template-gloveshort_l_emisive",
+    "selector": ".vxr-obj-gloveshort_l_emisive"
+  },
+  {
+    "template": "vxr-obj-template-gloveshort_l_static",
+    "selector": ".vxr-obj-gloveshort_l_static"
+  },
+  {
+    "template": "vxr-obj-template-gloveshort_r",
+    "selector": ".vxr-obj-gloveshort_r"
+  },
+  {
+    "template": "vxr-obj-template-gloveshort_r_emisive",
+    "selector": ".vxr-obj-gloveshort_r_emisive"
+  },
+  {
+    "template": "vxr-obj-template-gloveshort_r_static",
+    "selector": ".vxr-obj-gloveshort_r_static"
+  },
+  {
+    "template": "vxr-obj-template-googles",
+    "selector": ".vxr-obj-googles"
+  },
+  {
+    "template": "vxr-obj-template-googles_emisive",
+    "selector": ".vxr-obj-googles_emisive"
+  },
+  {
+    "template": "vxr-obj-template-googles_static",
+    "selector": ".vxr-obj-googles_static"
+  },
+  {
+    "template": "vxr-obj-template-hat",
+    "selector": ".vxr-obj-hat"
+  },
+  {
+    "template": "vxr-obj-template-hat_emisive",
+    "selector": ".vxr-obj-hat_emisive"
+  },
+  {
+    "template": "vxr-obj-template-hat_static",
+    "selector": ".vxr-obj-hat_static"
+  },
+  {
+    "template": "vxr-obj-template-mask",
+    "selector": ".vxr-obj-mask"
+  },
+  {
+    "template": "vxr-obj-template-mask_emisive",
+    "selector": ".vxr-obj-mask_emisive"
+  },
+  {
+    "template": "vxr-obj-template-mask_static",
+    "selector": ".vxr-obj-mask_static"
+  },
+  {
+    "template": "vxr-obj-template-alcohol_bottle",
+    "selector": ".vxr-obj-alcohol_bottle"
+  },
+  {
+    "template": "vxr-obj-template-mannequen",
+    "selector": ".vxr-obj-mannequen"
+  }
+  
+]
