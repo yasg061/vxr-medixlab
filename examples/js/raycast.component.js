@@ -8,6 +8,9 @@ let meshPos = new THREE.Vector3()
 let meshRot = new THREE.Vector3()
 
 let animationState = false
+let lockState = false
+
+
 let targetPos = new THREE.Vector3()
 
 function lerpVectors(v1, v2, alpha) {
@@ -29,6 +32,18 @@ AFRAME.registerComponent('gltf-hover', {
     let self = this;
     this.mouseOverObject = null
     self.trees = [];
+    document.body.onkeyup = function (e) {
+
+      if (e.key == "Enter") {
+        lockState = true;
+        console.log("funca: ", e.key)
+
+      }
+    }
+
+
+
+
     el.addEventListener('model-loaded', e => {
       let tree3D = el.getObject3D('mesh');
       if (!tree3D) {
@@ -69,7 +84,7 @@ AFRAME.registerComponent('gltf-hover', {
       let intersection = self.raycaster.components.raycaster.getIntersection(
         el
       );
-      if (!self.mouseOverObject || self.mouseOverObject.name != intersection.object.name) {
+      if (!self.mouseOverObject || self.mouseOverObject.name != intersection.object.name && !lockState  && !animationState) {
         console.log('Hover: ', intersection.object.name, self.mouseOverObject,
           intersection.object.name != self.mouseOverObject);
         // intersection.object.material.emissive = new THREE.Color(0xFF0000);
@@ -100,7 +115,7 @@ AFRAME.registerComponent('gltf-hover', {
           document.getElementById('e-TheThing').setAttribute('animation-mixer', 'clip:Idle')
         }
 
-        if (self.mouseOverObject) {
+        if (self.mouseOverObject && !lockState) {
           self.mouseOverObject.material.emissive = new THREE.Color(0x000000);
           self.mouseOverObject.material.emissiveIntensity = 0.0;
           if (self.mouseOverObject.name == 'Box000') {
@@ -140,10 +155,10 @@ AFRAME.registerComponent('gltf-hover', {
 
         animationIterator
         mesh = document.getElementById("e-BadChicken")
-        
-        
+        mesh.setAttribute("animation-mixer", "clip:Attack")
+
         console.log("mesh: ", mesh)
-         meshTargetPosition = mesh.getAttribute("position")
+        meshTargetPosition = mesh.getAttribute("position")
         targetPos.copy(meshTargetPosition)
 
         console.log("working: ")
@@ -152,7 +167,7 @@ AFRAME.registerComponent('gltf-hover', {
 
         mesh.getAttribute("rotation")
         console.log("🚀 ~ file: raycast.component.js ~ line 146 ~  rotation", mesh.getAttribute("rotation"))
-
+        lockState=true
 
         animationState = true
         // document.getElementById('player').setAttribute('animation', 'property: position; to: 0 2.05 1; dur: alternate; dur: 2000;')
@@ -180,10 +195,10 @@ AFRAME.registerComponent('gltf-hover', {
       targetPos.copy(meshTargetPosition)
       //  targetPos.z+=0.0
       // targetPos.y -= 2
-      targetPos.z+=0.9
+      targetPos.z += 2
       targetPos.y += 0.1
       curPosition.x = lerp(curPosition.x, targetPos.x, (1 - Math.exp(- 0.005 * dt)))
-      curPosition.y = lerp(curPosition.y, targetPos.y, (1 - Math.exp(- 0.01 * dt)))
+      curPosition.y = lerp(curPosition.y, targetPos.y, (1 - Math.exp(- 0.001 * dt)))
       curPosition.z = lerp(curPosition.z, targetPos.z, (1 - Math.exp(- 0.005 * dt)))
 
       meshRot.copy(mesh.getAttribute("rotation"))
@@ -196,19 +211,19 @@ AFRAME.registerComponent('gltf-hover', {
 
       //  pollito animation
 
-      curMeshPosition.z = lerp(curMeshPosition.z, meshPos.z, (1 - Math.exp(- 0.1 * dt)))
-      let meshRotation =document.getElementById("e-BadChicken").getAttribute("rotation")
+      curMeshPosition.z = lerp(curMeshPosition.z, meshPos.z, (1 - Math.exp(- 0.0005 * dt)))
+      let meshRotation = document.getElementById("e-BadChicken").getAttribute("rotation")
       // mesh.getAttribute("rotation")
       // meshRotation.y=   (Math.floor(time*0.05))
 
-      meshRotation.y = lerp(meshRotation.y, (Math.floor(time * 0.01)), (1 - Math.exp(- 0.001 * dt)))
+      // meshRotation.y = lerp(meshRotation.y, (Math.floor(time * 0.01)), (1 - Math.exp(- 0.001 * dt)))
       // meshRotation.x = lerp(meshRotation.x, 90, (1 - Math.exp(- 0.001 * dt)))
 
 
       mesh.setAttribute("position", curMeshPosition)
       mesh.setAttribute("rotation", meshRotation)
       console.log("meshrotation: ", meshRotation)
- 
+
     }
 
 
