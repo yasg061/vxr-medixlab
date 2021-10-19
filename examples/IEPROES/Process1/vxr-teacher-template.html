@@ -414,7 +414,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: true ; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: false ; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -453,6 +453,8 @@
       <a-asset-item id="mask" src="Assets/level1/Mask_Covid.gltf"></a-asset-item>
       <a-asset-item id="mask95" src="Assets/level1/MaskN95.gltf"></a-asset-item>
       <a-asset-item id="face_shield" src="Assets/level1/Face_shield.gltf"></a-asset-item>
+      <a-asset-item id="shoe_cover_l" src="Assets/level1/ShoeCover_L.gltf"></a-asset-item>
+      <a-asset-item id="shoe_cover_r" src="Assets/level1/ShoeCover_R.gltf"></a-asset-item>
 
 
       <!--Emissive assets-->
@@ -469,6 +471,8 @@
       <a-asset-item id="mask_emisive" src="Assets/level1/emisive/Mask_Covid_emisive.gltf"></a-asset-item>
       <a-asset-item id="mask95_emisive" src="Assets/level1/emisive/MaskN95_emisive.gltf"></a-asset-item>
       <a-asset-item id="face_shield_emisive" src="Assets/level1/emisive/Face_shield_emisive.gltf"></a-asset-item>
+      <a-asset-item id="shoe_cover_l_emisive" src="Assets/level1/emisive/ShoeCover_L_emisive.gltf"></a-asset-item>
+      <a-asset-item id="shoe_cover_r_emisive" src="Assets/level1/emisive/ShoeCover_R_emisive.gltf"></a-asset-item>
 
       <!--Static assets-->
       <a-asset-item id="boot_l_static" src="Assets/level1/statics/Covid_Boot_L_static.gltf"></a-asset-item>
@@ -484,6 +488,8 @@
       <a-asset-item id="mask_static" src="Assets/level1/statics/Mask_Covid_static.gltf"></a-asset-item>
       <a-asset-item id="mask95_static" src="Assets/level1/statics/MaskN95_static.gltf"></a-asset-item>
       <a-asset-item id="face_shield_static" src="Assets/level1/statics/Face_shield_static.gltf"></a-asset-item>
+      <a-asset-item id="shoe_cover_l_static" src="Assets/level1/statics/ShoeCover_L_static.gltf"></a-asset-item>
+      <a-asset-item id="shoe_cover_r_static" src="Assets/level1/statics/ShoeCover_R_static.gltf"></a-asset-item>
 
 
 
@@ -1154,10 +1160,10 @@
 
       <template id="vxr-obj-template-mask95_01">
         <a-entity>
-          <a-entity id="e-mask95_01" grabbable="maxGrabbers: NaN" visible="true"
-            rotation="0.0000035170937339154535 89.99999995275414 0.0000037490151490716795" grabbable="maxGrabbers: NaN"
-            dynamic-body="sphereRadius: NaN" class="vxr-obj-mask95_01 vxr-interact" gltf-model="#mask95" dynamic-body
-            draggable grabbable toggle-physics position="1.6987000023250014 0.32312489942111733 2.5005599957637186">
+          <a-entity id="e-mask95_01" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" 
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 90 0" grabbable dynamic-body
+            class="vxr-obj-mask95_01 vxr-interact" gltf-model="#mask95" dynamic-body draggable grabbable toggle-physics
+            position="1.6987000023250014 0.32312489942111733 2.5005599957637186">
           </a-entity>
         </a-entity>
       </template>
@@ -1195,7 +1201,7 @@
         <a-entity>
           <a-entity id="e-face_shield_02_emisive" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-face_shield_02_emisive vxr-interact" visible="false" gltf-model="#face_shield_emisive"
-            draggable grabbable position="0.10852 0.99 2.617">
+            draggable grabbable position="0.10852 0.99 2.576">
           </a-entity>
         </a-entity>
       </template>
@@ -1204,7 +1210,65 @@
         <a-entity>
           <a-entity id="e-face_shield_02_static" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-face_shield_02_static vxr-interact" gltf-model="#face_shield_static" draggable grabbable
-            position="0.10852 0.99 2.617" visible="false">
+            position="0.10852 0.99 2.576" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_l_01"> 
+        <a-entity>
+          <a-entity id="e-shoe_cover_l_01"  ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+            rotation="8.955077383551395e-7 -179.9999999948148 0.000005425391711634003" grabbable dynamic-body
+            class="vxr-obj-shoe_cover_l_01 vxr-interact" gltf-model="#shoe_cover_l" dynamic-body draggable grabbable
+            toggle-physics position="1.488 -0.568 2.134">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_l_01_emisive">
+        <a-entity>
+          <a-entity id="e-shoe_cover_l_01_emisive" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+            class="vxr-obj-shoe_cover_l_01_emisive vxr-interact" visible="false" gltf-model="#shoe_cover_l_emisive" draggable grabbable
+            position="-0.00938 -0.605 2.68">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_l_01_static">
+        <a-entity>
+          <a-entity id="e-shoe_cover_l_01_static" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+            class="vxr-obj-shoe_cover_l_01_static vxr-interact" gltf-model="#shoe_cover_l_static" draggable grabbable
+            position="-0.00938 -0.605 2.68" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_r_01">
+        <a-entity>
+          <a-entity id="e-shoe_cover_r_01"  ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+            rotation="0 180 0" grabbable dynamic-body
+            class="vxr-obj-shoe_cover_r_01 vxr-interact" gltf-model="#shoe_cover_r" dynamic-body draggable grabbable
+            toggle-physics position="1.74599 -0.56804 2.13443">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_r_01_emisive">
+        <a-entity>
+          <a-entity id="e-shoe_cover_r_01_emisive" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+            class="vxr-obj-shoe_cover_r_01_emisive vxr-interact" visible="false" gltf-model="#shoe_cover_r_emisive" draggable grabbable
+            position="0.209 -0.605 2.68">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_r_01_static">
+        <a-entity>
+          <a-entity id="e-shoe_cover_r_01_static" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+            class="vxr-obj-boot_r_01_static vxr-interact" gltf-model="#shoe_cover_r_static" draggable grabbable
+            position="0.209 -0.605 2.68" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1233,14 +1297,32 @@
       <!----------------------------------------LEVEL3------------------------------------------>
       <!----------------------------------------LEVEL3------------------------------------------>
 
-      <!--<template id="vxr-obj-template-escafandra">
+      <template id="vxr-obj-template-escafandra">
         <a-entity>
-          <a-entity id="e-escafandra" grabbable="maxGrabbers: NaN" visible="true" rotation="0 180 0"
+          <a-entity id="e-escafandra" grabbable="maxGrabbers: NaN" visible="true" rotation="8.974606319442386e-7 -179.9999999814224 0.0000013588145443456844"
            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-escafandra vxr-interact" gltf-model="#escafandra" 
-           dynamic-body draggable grabbable toggle-physics position="-1.52443 0.33409 -0.13882">
+           dynamic-body draggable grabbable toggle-physics position="2.52721 0.2946 5.47262">
           </a-entity>
         </a-entity>
-      </template> -->
+      </template>
+      
+      <template id="vxr-obj-template-escafandra_emisive">
+        <a-entity>
+          <a-entity id="e-escafandra_emisive" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
+            class="vxr-obj-escafandra_emisive vxr-interact" visible="false" gltf-model="#escafandra_emisive" draggable
+            grabbable position="0.115 0.764 5.509">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-escafandra_static">
+        <a-entity>
+          <a-entity id="e-escafandra_static" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
+            class="vxr-obj-escafandra_static vxr-interact" gltf-model="#escafandra_static" draggable grabbable
+            position="0.115 0.764 5.509" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
 
       <template id="vxr-obj-template-boot_l_02">
         <a-entity>
@@ -1480,10 +1562,10 @@
 
       <template id="vxr-obj-template-mask95_02">
         <a-entity>
-          <a-entity id="e-mask95_02" grabbable="maxGrabbers: NaN" visible="true"
-            rotation="0.000007866895802880034 90 0.0000354830873537748" grabbable="maxGrabbers: NaN"
-            dynamic-body="sphereRadius: NaN" class="vxr-obj-mask95_02 vxr-interact" gltf-model="#mask95" dynamic-body
-            draggable grabbable toggle-physics position="1.70958 0.32312 5.21736">
+          <a-entity id="e-mask95_02" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" 
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 90 0" grabbable dynamic-body
+            class="vxr-obj-mask95_02 vxr-interact" gltf-model="#mask95" dynamic-body draggable grabbable toggle-physics
+            position="1.70958 0.32312 5.21736">
           </a-entity>
         </a-entity>
       </template>
@@ -1520,7 +1602,7 @@
         <a-entity>
           <a-entity id="e-face_shield_03_emisive" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-face_shield_03_emisive vxr-interact" visible="false" gltf-model="#face_shield_emisive"
-            draggable grabbable position="0.10852 0.99 5.424">
+            draggable grabbable position="0.10852 0.99 5.39">
           </a-entity>
         </a-entity>
       </template>
@@ -1529,7 +1611,65 @@
         <a-entity>
           <a-entity id="e-face_shield_03_static" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-face_shield_03_static vxr-interact" gltf-model="#face_shield_static" draggable grabbable
-            position="0.10852 0.99 5.424" visible="false">
+            position="0.10852 0.99 5.39" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_l_02"> 
+        <a-entity>
+          <a-entity id="e-shoe_cover_l_02"  ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+            rotation="8.461231456660725e-7 -179.9999944206748 0.00000579684152076302" grabbable dynamic-body
+            class="vxr-obj-shoe_cover_l_02 vxr-interact" gltf-model="#shoe_cover_l" dynamic-body draggable grabbable
+            toggle-physics position="1.48751 -0.568 4.83053">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_l_02_emisive">
+        <a-entity>
+          <a-entity id="e-shoe_cover_l_02_emisive" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+            class="vxr-obj-shoe_cover_l_02_emisive vxr-interact" visible="false" gltf-model="#shoe_cover_l_emisive" draggable grabbable
+            position="-0.00938 -0.605 5.481">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_l_02_static">
+        <a-entity>
+          <a-entity id="e-shoe_cover_l_02_static" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+            class="vxr-obj-shoe_cover_l_02_static vxr-interact" gltf-model="#shoe_cover_l_static" draggable grabbable
+            position="-0.00938 -0.605 5.481" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_r_02">
+        <a-entity>
+          <a-entity id="e-shoe_cover_r_02"  ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
+            rotation="0 180 0" grabbable dynamic-body
+            class="vxr-obj-shoe_cover_r_02 vxr-interact" gltf-model="#shoe_cover_r" dynamic-body draggable grabbable
+            toggle-physics position="1.745990022356089 -0.568 4.831">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_r_02_emisive">
+        <a-entity>
+          <a-entity id="e-shoe_cover_r_02_emisive" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+            class="vxr-obj-shoe_cover_r_02_emisive vxr-interact" visible="false" gltf-model="#shoe_cover_r_emisive" draggable grabbable
+            position="0.209 -0.605 5.479">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_r_02_static">
+        <a-entity>
+          <a-entity id="e-shoe_cover_r_02_static" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+            class="vxr-obj-boot_r_02_static vxr-interact" gltf-model="#shoe_cover_r_static" draggable grabbable
+            position="0.209 -0.605 5.479" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1590,6 +1730,8 @@
     </a-entity>
     <a-entity id="table003" class="gltf" gltf-model="#Table_001" position="1.39 0.886 5.17076" rotation="0 -90 0">
     </a-entity>
+    <a-entity id="table004" scale="1.22547 0.9048 1" class="gltf" gltf-model="#Table_005" position="2.53192 0.90059 5.17076" rotation="0 180 0">
+    </a-entity>
 
 
     <a-box id="boxTable1" scale="1.2 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation="0 0 0"
@@ -1598,6 +1740,8 @@
       position="1.41761 1.7375 2.47389" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
     <a-box id="boxTable3" scale="1.2 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation="0 0 0"
       position="1.41761 1.7375 5.16361" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+    <a-box id="boxTable4" scale="0.69187 1 0.85416" static-body="sphereRadius: NaN" opacity="0" static-body rotation="0 0 0"
+      position="2.54029 1.77285 5.21165" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
 
 
@@ -1640,110 +1784,159 @@
     <!------------------------------------------------------------------------------------------------------------------->
 
 
-    <!-- <a-sphere id="sphere4" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-gabachon;mode:toggle" opacity="0" position="0.0276 2.37139 -0.32092"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    <a-sphere id="sphere1" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-gabachon_01;mode:sequence;iteratorSequence:1;" opacity="0"
+      position="0.0276 2.37139 -0.32092" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
-    <a-sphere id="sphere5" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-glovelong_l;mode:toggle" opacity="0" position="-0.17319 2.29 -0.506"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
-
-    <a-sphere id="sphere6" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-glovelong_r;mode:toggle" opacity="0" position="0.37639 2.29 -0.506"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
-
-    <a-sphere id="sphere7" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-gloveshort_l;mode:toggle" opacity="0" position="-0.20751 2.33507 -0.56155"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
-
-    <a-sphere id="sphere8" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-gloveshort_r;mode:toggle" opacity="0" position="0.40832 2.33507 -0.56155"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
-
-    <a-sphere id="sphere9" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-googles;mode:toggle" opacity="0" position="0.09943 2.60896 -0.35961"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
-
-    <a-sphere id="sphere10" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-hat;mode:toggle" opacity="0" position="0.09943 2.75286 -0.24794"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
-
-    <a-sphere id="sphere11" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-mask;mode:toggle" opacity="0" position="0.09943 2.52223 -0.38149"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
-
-    <a-sphere id="sphere12" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-face_shield;mode:toggle" opacity="0" position="0.09943 2.64327 -0.35961"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
- -->
-
-
-
-    <a-sphere id="sphere7" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-gloveshort_l_01; mode:sequenceManyObjPerIterator;iteratorSequence:1;actorsWithSameIterator:2" opacity="0"
-      position="-0.20751 2.33507 -0.56155" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
-
-    <a-sphere id="sphere8" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-gloveshort_r_01; mode:sequenceManyObjPerIterator;iteratorSequence:1;actorsWithSameIterator:2" opacity="0"
-      position="0.40832 2.33507 -0.56155" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
-
-    <a-sphere id="sphere11" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+    <a-sphere id="sphere2" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-mask;mode:sequence;iteratorSequence:2" opacity="0"
       position="0.09943 2.52223 -0.38149" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
-    <a-sphere id="sphere9" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+    <a-sphere id="sphere3" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-googles_01;mode:sequence;iteratorSequence:3" opacity="0"
       position="0.09943 2.60896 -0.35961" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
-    <a-sphere id="sphere10" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+    <a-sphere id="sphere4" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-hat_01;mode:sequence;iteratorSequence:4" opacity="0"
       position="0.09943 2.75286 -0.24794" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere5" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-glovelong_l_01; mode:sequenceManyObjPerIterator;iteratorSequence:5;actorsWithSameIterator:2" opacity="0"
-      position="-0.17319 2.29 -0.506" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      trigger-animation="entity_id:e-gloveshort_l_01; mode:sequenceManyObjPerIterator;iteratorSequence:5;actorsWithSameIterator:2" opacity="0"
+      position="-0.20751 2.33507 -0.56155" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere6" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-glovelong_r_01; mode:sequenceManyObjPerIterator;iteratorSequence:5;actorsWithSameIterator:2" opacity="0"
+      trigger-animation="entity_id:e-gloveshort_r_01; mode:sequenceManyObjPerIterator;iteratorSequence:5;actorsWithSameIterator:2" opacity="0"
+      position="0.40832 2.33507 -0.56155" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere7" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-glovelong_l_01; mode:sequenceManyObjPerIterator;iteratorSequence:6;actorsWithSameIterator:2" opacity="0"
+      position="-0.17319 2.29 -0.506" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere8" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-glovelong_r_01; mode:sequenceManyObjPerIterator;iteratorSequence:6;actorsWithSameIterator:2" opacity="0"
       position="0.37639 2.29 -0.506" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
-    <a-sphere id="sphere4" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-gabachon_01;mode:sequence;iteratorSequence:6;" opacity="0"
-      position="0.0276 2.37139 -0.32092" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
-
-
-
-    <a-sphere id="sphere12" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+    <a-sphere id="sphere9" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-face_shield_01;mode:sequence;iteratorSequence:7" opacity="0"
       position="0.09943 2.64327 -0.35961" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
 
     <!------------------------------------------------------------------------------------------------------------------->
     <!-----------------------------------------------Triggers LEVEL 2---------------------------------------------------->
     <!------------------------------------------------------------------------------------------------------------------->
 
-    <!--<a-sphere id="sphere1" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-boot_l;mode:toggle" opacity="0" position="-0.03182 0.9924 -0.34522"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    <a-sphere id="sphere10" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-boot_l_01;mode:sequenceManyObjPerIterator;iteratorSequence:8;actorsWithSameIterator:2;" opacity="0"
+      position="-0.02769 0.96197 2.40286" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
-    <a-sphere id="sphere2" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-boot_r;mode:toggle" opacity="0" position="0.21473 0.9924 -0.34522"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere> -->
+    <a-sphere id="sphere11" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-boot_r_01;mode:sequenceManyObjPerIterator;iteratorSequence:8;actorsWithSameIterator:2;" opacity="0"
+      position="0.23571 0.94842 2.38137" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
+    <a-sphere id="sphere12" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-shoe_cover_l_01;mode:sequenceManyObjPerIterator;iteratorSequence:9;actorsWithSameIterator:2;" opacity="0"
+      position="-0.03722 1.00349 2.42298" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere13" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-shoe_cover_r_01;mode:sequenceManyObjPerIterator;iteratorSequence:9;actorsWithSameIterator:2;" opacity="0"
+      position="0.21207 1.01002 2.38961" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere14" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-gabachon_02;mode:sequence;iteratorSequence:10;" opacity="0"
+      position="0.0276 2.37139 2.40804" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere15" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-mask95_01;mode:sequence;iteratorSequence:11;" opacity="0"
+      position="0.11339 2.52218 2.36591" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere16" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-googles_02;mode:sequence;iteratorSequence:12;" opacity="0"
+      position="0.10545 2.607 2.38854" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere17" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-hat_02;mode:sequence;iteratorSequence:13;" opacity="0"
+      position="0.10755 2.75899 2.49346" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere18" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-gloveshort_l_02;mode:sequenceManyObjPerIterator;iteratorSequence:14;actorsWithSameIterator:2;" opacity="0"
+      position="-0.18691 2.37139 2.1781" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere19" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-gloveshort_r_02;mode:sequenceManyObjPerIterator;iteratorSequence:14;actorsWithSameIterator:2;" opacity="0"
+      position="0.37875 2.36103 2.15192" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere20" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-glovelong_l_02;mode:sequenceManyObjPerIterator;iteratorSequence:15;actorsWithSameIterator:2;" opacity="0"
+      position="-0.18389 2.29877 2.20771" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere21" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-glovelong_r_02;mode:sequenceManyObjPerIterator;iteratorSequence:15;actorsWithSameIterator:2;" opacity="0"
+      position="0.38719 2.28705 2.227" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere22" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-face_shield_02;mode:sequence;iteratorSequence:16" opacity="0"
+      position="0.09943 2.64327 2.36551" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
 
     <!------------------------------------------------------------------------------------------------------------------->
     <!-----------------------------------------------Triggers LEVEL 3---------------------------------------------------->
     <!------------------------------------------------------------------------------------------------------------------->
 
-    <!-- <a-sphere id="sphere3" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-escafandra;mode:toggle" opacity="0" position="0.20466 2.37139 -0.32092"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere> -->
+    <a-sphere id="sphere23" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-boot_l_02;mode:sequenceManyObjPerIterator;iteratorSequence:17;actorsWithSameIterator:2;" opacity="0"
+      position="-0.02769 0.96197 5.2007" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
+    <a-sphere id="sphere24" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-boot_r_02;mode:sequenceManyObjPerIterator;iteratorSequence:17;actorsWithSameIterator:2;" opacity="0"
+      position="0.23571 0.94842 5.20618" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
+    <a-sphere id="sphere25" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-shoe_cover_l_02;mode:sequenceManyObjPerIterator;iteratorSequence:18;actorsWithSameIterator:2;" opacity="0"
+      position="-0.03722 1.00349 5.22814" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
-    <!--<a-sphere id="sphere20" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-Basin;mode:toggle" opacity="0" position="1.26494 1.6 -0.89968" attach-point-v2
-      geometry="radius: 0.05"> </a-sphere> -->
+    <a-sphere id="sphere26" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-shoe_cover_r_02;mode:sequenceManyObjPerIterator;iteratorSequence18;actorsWithSameIterator:2;" opacity="0"
+      position="0.21207 1.01002 5.23403" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <!--<a-sphere id="sphere27" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-;mode:sequence;iteratorSequence:3;" opacity="0"
+      position="0.0276 2.37139 2.40804" attach-point-v2 geometry="radius: 0.02"> </a-sphere> ///////traje de buzo ---------------> 
+
+    <a-sphere id="sphere28" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-mask95_02;mode:sequence;iteratorSequence:19;" opacity="0"
+      position="0.11339 2.52218 5.17612" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere29" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-googles_03;mode:sequence;iteratorSequence:20;" opacity="0"
+      position="0.10545 2.607 5.18474" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere30" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-hat_03;mode:sequence;iteratorSequence:21;" opacity="0"
+      position="0.10755 2.75899 5.30026" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere31" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-gloveshort_l_03;mode:sequenceManyObjPerIterator;iteratorSequence:22;actorsWithSameIterator:2;" opacity="0"
+      position="-0.18691 2.37139 4.96169" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere32" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-gloveshort_r_03;mode:sequenceManyObjPerIterator;iteratorSequence:22;actorsWithSameIterator:2;" opacity="0"
+      position="0.37875 2.36103 4.96896" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere33" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-glovelong_l_03;mode:sequenceManyObjPerIterator;iteratorSequence:23;actorsWithSameIterator:2;" opacity="0"
+      position="-0.18389 2.29877 5.06165" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere34" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-glovelong_r_03;mode:sequenceManyObjPerIterator;iteratorSequence:23;actorsWithSameIterator:2;" opacity="0"
+      position="0.38719 2.28705 5.03351" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere35" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-escafandra;mode:sequence;iteratorSequence:24" opacity="0"
+      position="0.09943 2.42632 5.25493" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere36" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-face_shield_03;mode:sequence;iteratorSequence:25" opacity="0"
+      position="0.09943 2.64327 5.16168" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
 
   </a-scene>
