@@ -254,6 +254,30 @@
     "selector": ".vxr-obj-face_shield_02_static"
   },
   {
+    "template": "vxr-obj-template-shoe_cover_l_01",
+    "selector": ".vxr-obj-shoe_cover_l_01"
+  },
+  {
+    "template": "vxr-obj-template-shoe_cover_l_01_emisive",
+    "selector": ".vxr-obj-shoe_cover_l_01_emisive"
+  },
+  {
+    "template": "vxr-obj-template-shoe_cover_l_01_static",
+    "selector": ".vxr-obj-shoe_cover_l_01_static"
+  },
+  {
+    "template": "vxr-obj-template-shoe_cover_r_01",
+    "selector": ".vxr-obj-shoe_cover_r_01"
+  },
+  {
+    "template": "vxr-obj-template-shoe_cover_r_01_emisive",
+    "selector": ".vxr-obj-shoe_cover_r_01_emisive"
+  },
+  {
+    "template": "vxr-obj-template-shoe_cover_r_01_static",
+    "selector": ".vxr-obj-shoe_cover_r_01_static"
+  },
+  {
     "template": "vxr-obj-template-alcohol_bottle_02",
     "selector": ".vxr-obj-alcohol_bottle_02"
   },
@@ -269,6 +293,18 @@
 
 
 
+  {
+    "template": "vxr-obj-template-escafandra",
+    "selector": ".vxr-obj-escafandra"
+  },
+  {
+    "template": "vxr-obj-template-escafandra_emisive",
+    "selector": ".vxr-obj-escafandra_emisive"
+  },
+  {
+    "template": "vxr-obj-template-escafandra_static",
+    "selector": ".vxr-obj-escafandra_static"
+  },
   {
     "template": "vxr-obj-template-boot_l_02",
     "selector": ".vxr-obj-boot_l_02"
@@ -388,6 +424,30 @@
   {
     "template": "vxr-obj-template-face_shield_03_static",
     "selector": ".vxr-obj-face_shield_03_static"
+  },
+  {
+    "template": "vxr-obj-template-shoe_cover_l_02",
+    "selector": ".vxr-obj-shoe_cover_l_02"
+  },
+  {
+    "template": "vxr-obj-template-shoe_cover_l_02_emisive",
+    "selector": ".vxr-obj-shoe_cover_l_02_emisive"
+  },
+  {
+    "template": "vxr-obj-template-shoe_cover_l_02_static",
+    "selector": ".vxr-obj-shoe_cover_l_02_static"
+  },
+  {
+    "template": "vxr-obj-template-shoe_cover_r_02",
+    "selector": ".vxr-obj-shoe_cover_r_02"
+  },
+  {
+    "template": "vxr-obj-template-shoe_cover_r_02_emisive",
+    "selector": ".vxr-obj-shoe_cover_r_02_emisive"
+  },
+  {
+    "template": "vxr-obj-template-shoe_cover_r_02_static",
+    "selector": ".vxr-obj-shoe_cover_r_02_static"
   },
   {
     "template": "vxr-obj-template-alcohol_bottle_03",
