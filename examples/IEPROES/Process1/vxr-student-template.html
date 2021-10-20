@@ -87,16 +87,15 @@
       <a-asset-item id="TeacherAvatar" src="../../super/process/assets/TeacherAvatar.gltf"></a-asset-item>
       <a-asset-item id="right-hand" src="../../super/process/assets/rightHandHigh.glb"></a-asset-item>
       <a-asset-item id="left-hand" src="../../super/process/assets/leftHandHigh.glb"></a-asset-item>
-      <a-asset-item id="trashcan" src="/Models/gltf/TrashCan.gltf"></a-asset-item>
-      <a-asset-item id="container" src="/Models/gltf/TrashContainer.gltf"></a-asset-item>
-      <a-asset-item id="containerblack" src="/Models/gltf/TrashContainerBlack.gltf"></a-asset-item>
+      <a-asset-item id="container" src="Assets/TrashContainer.gltf"></a-asset-item>
       <a-asset-item id="Table_005" src="Assets/Table_005.gltf"></a-asset-item>
       <a-asset-item id="genes" src="Assets/HospitalRoomLight.gltf"></a-asset-item>
       <a-asset-item id="Table_001" src="Assets/Table.gltf"></a-asset-item>
       <a-asset-item id="alcohol_bottle" src="Assets/AlcoholGel.gltf"></a-asset-item>
+      <a-asset-item id="mannequen" src="Assets/Mannequin_Covid_Test.gltf"></a-asset-item>
 
 
-      <!--Assets level 1-->
+      <!--Assets-->
       <a-asset-item id="boot_l" src="Assets/level1/Covid_Boot_L.gltf"></a-asset-item>
       <a-asset-item id="boot_r" src="Assets/level1/Covid_Boot_R.gltf"></a-asset-item>
       <a-asset-item id="escafandra" src="Assets/level1/Escafandra_Low.gltf"></a-asset-item>
@@ -109,10 +108,12 @@
       <a-asset-item id="hat" src="Assets/level1/Hat.gltf"></a-asset-item>
       <a-asset-item id="mask" src="Assets/level1/Mask_Covid.gltf"></a-asset-item>
       <a-asset-item id="mask95" src="Assets/level1/MaskN95.gltf"></a-asset-item>
-      <a-asset-item id="mannequen" src="Assets/Mannequin_Covid_Test.gltf"></a-asset-item>
+      <a-asset-item id="face_shield" src="Assets/level1/Face_shield.gltf"></a-asset-item>
+      <a-asset-item id="shoe_cover_l" src="Assets/level1/ShoeCover_L.gltf"></a-asset-item>
+      <a-asset-item id="shoe_cover_r" src="Assets/level1/ShoeCover_R.gltf"></a-asset-item>
 
 
-      <!--Emissive assets level 1-->
+      <!--Emissive assets-->
       <a-asset-item id="boot_l_emisive" src="Assets/level1/emisive/Covid_Boot_L_emisive.gltf"></a-asset-item>
       <a-asset-item id="boot_r_emisive" src="Assets/level1/emisive/Covid_Boot_R_emisive.gltf"></a-asset-item>
       <a-asset-item id="escafandra_emisive" src="Assets/level1/emisive/Escafandra_Low_emisive.gltf"></a-asset-item>
@@ -125,6 +126,9 @@
       <a-asset-item id="hat_emisive" src="Assets/level1/emisive/Hat_emisive.gltf"></a-asset-item>
       <a-asset-item id="mask_emisive" src="Assets/level1/emisive/Mask_Covid_emisive.gltf"></a-asset-item>
       <a-asset-item id="mask95_emisive" src="Assets/level1/emisive/MaskN95_emisive.gltf"></a-asset-item>
+      <a-asset-item id="face_shield_emisive" src="Assets/level1/emisive/Face_shield_emisive.gltf"></a-asset-item>
+      <a-asset-item id="shoe_cover_l_emisive" src="Assets/level1/emisive/ShoeCover_L_emisive.gltf"></a-asset-item>
+      <a-asset-item id="shoe_cover_r_emisive" src="Assets/level1/emisive/ShoeCover_R_emisive.gltf"></a-asset-item>
 
       <!--Static assets-->
       <a-asset-item id="boot_l_static" src="Assets/level1/statics/Covid_Boot_L_static.gltf"></a-asset-item>
@@ -139,6 +143,9 @@
       <a-asset-item id="hat_static" src="Assets/level1/statics/Hat_static.gltf"></a-asset-item>
       <a-asset-item id="mask_static" src="Assets/level1/statics/Mask_Covid_static.gltf"></a-asset-item>
       <a-asset-item id="mask95_static" src="Assets/level1/statics/MaskN95_static.gltf"></a-asset-item>
+      <a-asset-item id="face_shield_static" src="Assets/level1/statics/Face_shield_static.gltf"></a-asset-item>
+      <a-asset-item id="shoe_cover_l_static" src="Assets/level1/statics/ShoeCover_L_static.gltf"></a-asset-item>
+      <a-asset-item id="shoe_cover_r_static" src="Assets/level1/statics/ShoeCover_R_static.gltf"></a-asset-item>
 
       <!-- Avatars -->
       <a-asset-item id="StudentAvatarHead" src="../../super/process/assets/avatars/StudentAvatarHead.gltf">
@@ -251,218 +258,194 @@
         </a-entity>
       </template>
 
+      <!----------------------------------------LEVEL1------------------------------------------>
+      <!----------------------------------------LEVEL1------------------------------------------>
+      <!----------------------------------------LEVEL1------------------------------------------>
 
-      <!-- <template id="vxr-obj-template-boot_l">
+      <template id="vxr-obj-template-gabachon_01">
         <a-entity>
-          <a-entity
-            class="vxr-obj-boot_l vxr-interact" gltf-model="#boot_l"draggable grabbable
-            toggle-physics position="1.02478 0.28764 -0.00858" rotation="0 180 0">
-          </a-entity>
-        </a-entity>
-      </template>
-
-      <template id="vxr-obj-template-boot_r">
-        <a-entity>
-          <a-entity
-            class="vxr-obj-boot_r vxr-interact" gltf-model="#boot_r" draggable grabbable
-            toggle-physics position="1.19631 0.28764 -0.00703" rotation="0 180 0">
-          </a-entity>
-        </a-entity>
-      </template>
-
-      <template id="vxr-obj-template-escafandra">
-        <a-entity>
-          <a-entity id="e-escafandra" grabbable="maxGrabbers: NaN" visible="true" rotation="0 180 0"
-           grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-escafandra vxr-interact" gltf-model="#escafandra" 
-           dynamic-body draggable grabbable toggle-physics position="-1.52443 0.33409 -0.13882">
-          </a-entity>
-        </a-entity>
-      </template> -->
-
-      <template id="vxr-obj-template-gabachon">
-        <a-entity>
-          <a-entity
-            class="vxr-obj-gabachon vxr-interact" gltf-model="#gabachon"draggable grabbable
+          <a-entity 
+            class="vxr-obj-gabachon_01 vxr-interact" gltf-model="#gabachon" draggable grabbable
             toggle-physics position="-0.7469 -0.0374 0.05027" rotation="0 180 0">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-gabachon_emisive">
+      <template id="vxr-obj-template-gabachon_01_emisive">
         <a-entity>
           <a-entity rotation="0 180 0" grabbable
-            class="vxr-obj-gabachon_emisive vxr-interact" visible="false" gltf-model="#gabachon_emisive" draggable grabbable
-            position="0.107 -0.113 -0.079">
+            class="vxr-obj-gabachon_01_emisive vxr-interact" visible="false" gltf-model="#gabachon_emisive" draggable
+            grabbable position="0.107 -0.113 -0.079">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-gabachon_static">
+      <template id="vxr-obj-template-gabachon_01_static">
         <a-entity>
           <a-entity rotation="0 180 0" grabbable
-            class="vxr-obj-gabachon_static vxr-interact" gltf-model="#gabachon_static" draggable grabbable
+            class="vxr-obj-gabachon_01_static vxr-interact" gltf-model="#gabachon_static" draggable grabbable
             position="0.107 -0.113 -0.079" visible="false">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-glovelong_l">
+      <template id="vxr-obj-template-glovelong_l_01">
         <a-entity>
-          <a-entity
-            class="vxr-obj-glovelong_l vxr-interact" gltf-model="#glovelong_l" draggable grabbable
-            toggle-physics position="1.04135 0.353 -0.02841" rotation="0 180 0">
+          <a-entity rotation="0 180 0"
+            class="vxr-obj-glovelong_l_01 vxr-interact" gltf-model="#glovelong_l" draggable grabbable
+            toggle-physics position="1.04135 0.353 -0.02841">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-glovelong_l_emisive">
+      <template id="vxr-obj-template-glovelong_l_01_emisive">
         <a-entity>
-          <a-entity rotation="-48.802253158062996 -173.42000064122192 -35.122885799314595" grabbable
-            class="vxr-obj-glovelong_l_emisive vxr-interact" visible="false" gltf-model="#glovelong_l_emisive" draggable grabbable
-            position="-0.21448 0.8195 -0.30728">
+          <a-entity rotation="-48.802253158062996 -173.42000064122192 -35.122885799314595"
+            class="vxr-obj-glovelong_l_01_emisive vxr-interact" visible="false" gltf-model="#glovelong_l_emisive"
+            draggable grabbable position="-0.21448 0.8195 -0.30728">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-glovelong_l_static">
+      <template id="vxr-obj-template-glovelong_l_01_static">
         <a-entity>
-          <a-entity rotation="-48.802253158062996 -173.42000064122192 -35.122885799314595" grabbable
-            class="vxr-obj-glovelong_l_static vxr-interact" gltf-model="#glovelong_l_static" draggable grabbable
+          <a-entity rotation="-48.802253158062996 -173.42000064122192 -35.122885799314595"
+            class="vxr-obj-glovelong_l_01_static vxr-interact" gltf-model="#glovelong_l_static" draggable grabbable
             position="-0.21450 0.8200 -0.30731" visible="false">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-glovelong_r">
+      <template id="vxr-obj-template-glovelong_r_01">
         <a-entity>
-          <a-entity
-            class="vxr-obj-glovelong_r vxr-interact" gltf-model="#glovelong_r" draggable grabbable
-            toggle-physics position="1.21563 0.35318 -0.02292" rotation="0 180 0">
+          <a-entity rotation="0 180 0"
+            class="vxr-obj-glovelong_r_01 vxr-interact" gltf-model="#glovelong_r" draggable grabbable
+            toggle-physics position="1.21563 0.35318 -0.02292">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-glovelong_r_emisive">
+      <template id="vxr-obj-template-glovelong_r_01_emisive">
         <a-entity>
           <a-entity rotation="-42.471069521867406 -177.3252809728336 41.6735122710453" grabbable
-            class="vxr-obj-glovelong_r_emisive vxr-interact" visible="false" gltf-model="#glovelong_r_emisive" draggable grabbable
-            position="0.41952 0.81837 -0.33247">
+            class="vxr-obj-glovelong_r_01_emisive vxr-interact" visible="false" gltf-model="#glovelong_r_emisive"
+            draggable grabbable position="0.41952 0.81837 -0.33247">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-glovelong_r_static">
+      <template id="vxr-obj-template-glovelong_r_01_static">
         <a-entity>
           <a-entity rotation="-42.471069521867406 -177.3252809728336 41.6735122710453" grabbable
-            class="vxr-obj-glovelong_r_static vxr-interact" gltf-model="#glovelong_r_static" draggable grabbable
+            class="vxr-obj-glovelong_r_01_static vxr-interact" gltf-model="#glovelong_r_static" draggable grabbable
             position="0.41957 0.81839 -0.33248" visible="false">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-gloveshort_l">
+      <template id="vxr-obj-template-gloveshort_l_01">
         <a-entity>
-          <a-entity
-            class="vxr-obj-gloveshort_l vxr-interact" gltf-model="#gloveshort_l" draggable grabbable
-            toggle-physics position="1.04504 0.32769 -0.32624" rotation="0 180 0">
+          <a-entity rotation="0 180 0"
+            class="vxr-obj-gloveshort_l_01 vxr-interact" gltf-model="#gloveshort_l" draggable grabbable
+            toggle-physics position="1.04504 0.32769 -0.32624">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-gloveshort_l_emisive">
+      <template id="vxr-obj-template-gloveshort_l_01_emisive">
         <a-entity>
           <a-entity rotation="-25.30582693754307 52.283544721277885 49.979681427056846" grabbable
-            class="vxr-obj-gloveshort_l_emisive vxr-interact" visible="false" gltf-model="#gloveshort_l_emisive" draggable grabbable
-            position="-0.21603 0.86076 -0.34356">
+            class="vxr-obj-gloveshort_l_01_emisive vxr-interact" visible="false" gltf-model="#gloveshort_l_emisive"
+            draggable grabbable position="-0.21603 0.86076 -0.34356">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-gloveshort_l_static">
+      <template id="vxr-obj-template-gloveshort_l_01_static">
         <a-entity>
           <a-entity rotation="-25.30582693754307 52.283544721277885 49.979681427056846" grabbable
-            class="vxr-obj-gloveshort_l_static vxr-interact" gltf-model="#gloveshort_l_static" draggable grabbable
+            class="vxr-obj-gloveshort_l_01_static vxr-interact" gltf-model="#gloveshort_l_static" draggable grabbable
             position="-0.21603 0.86076 -0.34356" visible="false">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-gloveshort_r">
+      <template id="vxr-obj-template-gloveshort_r_01">
         <a-entity>
-          <a-entity 
-            class="vxr-obj-gloveshort_r vxr-interact" gltf-model="#gloveshort_r" draggable grabbable
-            toggle-physics position="1.22035 0.33146 -0.32477" rotation="0 180 0">
+          <a-entity rotation="0 180 0"
+            class="vxr-obj-gloveshort_r_01 vxr-interact" gltf-model="#gloveshort_r" draggable grabbable
+            toggle-physics position="1.22035 0.33146 -0.32477">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-gloveshort_r_emisive">
+      <template id="vxr-obj-template-gloveshort_r_01_emisive">
         <a-entity>
           <a-entity rotation="39.00753965030158 138.7239683992798 47.79957701658406" grabbable
-            class="vxr-obj-gloveshort_r_emisive vxr-interact" visible="false" gltf-model="#gloveshort_r_emisive" draggable grabbable
-            position="0.42358 0.84263 -0.36546">
+            class="vxr-obj-gloveshort_r_01_emisive vxr-interact" visible="false" gltf-model="#gloveshort_r_emisive"
+            draggable grabbable position="0.42358 0.84263 -0.36546">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-gloveshort_r_static">
+      <template id="vxr-obj-template-gloveshort_r_01_static">
         <a-entity>
           <a-entity rotation="39.00753965030158 138.7239683992798 47.79957701658406" grabbable
-            class="vxr-obj-gloveshort_r_static vxr-interact" gltf-model="#gloveshort_r_static" draggable grabbable
+            class="vxr-obj-gloveshort_r_01_static vxr-interact" gltf-model="#gloveshort_r_static" draggable grabbable
             position="0.42366 0.84269 -0.36550" visible="false">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-googles">
+      <template id="vxr-obj-template-googles_01">
         <a-entity>
-          <a-entity
-            class="vxr-obj-googles vxr-interact" gltf-model="#googles" draggable grabbable
-            toggle-physics position="1.64832 0.32972 -0.32518" rotation="0 180 0">
+          <a-entity rotation="0 180 0"
+            class="vxr-obj-googles_01 vxr-interact" gltf-model="#googles" draggable grabbable
+            toggle-physics position="1.64832 0.32972 -0.32518">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-googles_emisive">
+      <template id="vxr-obj-template-googles_01_emisive">
         <a-entity>
           <a-entity rotation="0 -180 0" grabbable
-            class="vxr-obj-googles_emisive vxr-interact" visible="false" gltf-model="#googles_emisive" draggable grabbable
-            position="0.10852 1.11657 -0.08292">
+            class="vxr-obj-googles_01_emisive vxr-interact" visible="false" gltf-model="#googles_emisive" draggable
+            grabbable position="0.10852 1.11657 -0.08292">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-googles_static">
+      <template id="vxr-obj-template-googles_01_static">
         <a-entity>
           <a-entity rotation="0 -180 0" grabbable
-            class="vxr-obj-googles_static vxr-interact" gltf-model="#googles_static" draggable grabbable
+            class="vxr-obj-googles_static_01 vxr-interact" gltf-model="#googles_static" draggable grabbable
             position="0.10852 1.11657 -0.08292" visible="false">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-hat">
+      <template id="vxr-obj-template-hat_01">
         <a-entity>
-          <a-entity
-            class="vxr-obj-hat vxr-interact" gltf-model="#hat" draggable grabbable
-            toggle-physics position="1.54948 0.41081 -0.02389" rotation="0 180 0">
+          <a-entity rotation="0 180 0"
+            class="vxr-obj-hat_01 vxr-interact" gltf-model="#hat" draggable grabbable 
+            toggle-physics position="1.4886 0.41081 -0.02389">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-hat_emisive">
+      <template id="vxr-obj-template-hat_01_emisive">
         <a-entity>
           <a-entity rotation="0 -90 -10.12" grabbable
-            class="vxr-obj-hat_emisive vxr-interact" visible="false" gltf-model="#hat_emisive" draggable grabbable
+            class="vxr-obj-hat_01_emisive vxr-interact" visible="false" gltf-model="#hat_emisive" draggable grabbable
             position="0.11186 1.15943 0.00306">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-hat_static">
+      <template id="vxr-obj-template-hat_01_static">
         <a-entity>
           <a-entity rotation="0 -90 -10.12" grabbable
-            class="vxr-obj-hat_static vxr-interact" gltf-model="#hat_static" draggable grabbable
+            class="vxr-obj-hat_01_static vxr-interact" gltf-model="#hat_static" draggable grabbable
             position="0.11186 1.15943 0.00306" visible="false">
           </a-entity>
         </a-entity>
@@ -470,9 +453,9 @@
 
       <template id="vxr-obj-template-mask">
         <a-entity>
-          <a-entity
-            class="vxr-obj-mask vxr-interact" gltf-model="#mask" draggable grabbable
-            toggle-physics position="1.41052 0.35536 -0.34164" rotation="0 -90 0">
+          <a-entity rotation="0 -90 0"
+            class="vxr-obj-mask vxr-interact" gltf-model="#mask" draggable grabbable toggle-physics
+            position="1.41052 0.35536 -0.34164">
           </a-entity>
         </a-entity>
       </template>
@@ -495,19 +478,793 @@
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-alcohol_bottle">
+      <template id="vxr-obj-template-face_shield_01">
         <a-entity>
-          <a-entity
-            class="vxr-obj-mask95 vxr-interact" gltf-model="#alcohol_bottle" draggable grabbable 
-            toggle-physics position="1.83523 0.32312 -0.33673" rotation="0 90 0">
+          <a-entity rotation="0 -180 0" 
+            class="vxr-obj-face_shield_01 vxr-interact" gltf-model="#face_shield" draggable grabbable
+            toggle-physics position="1.77106 0.43533 0.04499">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-mannequen">
+      <template id="vxr-obj-template-face_shield_01_emisive">
         <a-entity>
-          <a-entity id="e-mannequen" grabbable="maxGrabbers: NaN" visible="true" rotation="0 180 0" grabbable
-            class="vxr-obj-mannequen vxr-interact" gltf-model="#mannequen" position="0.10871 -0.59 -0.08038">
+          <a-entity rotation="0 -180 0" grabbable
+            class="vxr-obj-face_shield_01_emisive vxr-interact" visible="false" gltf-model="#face_shield_emisive"
+            draggable grabbable position="0.10852 0.99 -0.139">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-face_shield_01_static">
+        <a-entity>
+          <a-entity id="e-face_shield_01_static" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+            class="vxr-obj-face_shield_01_static vxr-interact" gltf-model="#face_shield_static" draggable grabbable
+            position="0.10852 0.99 -0.139" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-alcohol_bottle_01">
+        <a-entity>
+          <a-entity rotation="0 90 0" class="vxr-obj-alcohol_bottle_01 vxr-interact"
+            gltf-model="#alcohol_bottle" draggable grabbable toggle-physics
+            position="1.83523 0.28664 -0.16935">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-mannequen_01">
+        <a-entity>
+          <a-entity rotation="0 180 0" grabbable
+            class="vxr-obj-mannequen_01 vxr-interact" gltf-model="#mannequen" position="0.10871 -0.59 -0.08038">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <!----------------------------------------LEVEL2------------------------------------------>
+      <!----------------------------------------LEVEL2------------------------------------------>
+      <!----------------------------------------LEVEL2------------------------------------------>
+
+
+      <template id="vxr-obj-template-gabachon_02">
+        <a-entity>
+          <a-entity rotation="0 180 0"
+            class="vxr-obj-gabachon_02 vxr-interact" gltf-model="#gabachon" draggable grabbable
+            toggle-physics position="-0.7469 0.00377 2.8364">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gabachon_02_emisive">
+        <a-entity>
+          <a-entity rotation="0 180 0" grabbable
+            class="vxr-obj-gabachon_02_emisive vxr-interact" visible="false" gltf-model="#gabachon_emisive" draggable
+            grabbable position="0.107 -0.113 2.66131">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gabachon_02_static">
+        <a-entity>
+          <a-entity rotation="0 180 0" grabbable
+            class="vxr-obj-gabachon_02_static vxr-interact" gltf-model="#gabachon_static" draggable grabbable
+            position="0.107 -0.113 2.66295" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_l_01">
+        <a-entity>
+          <a-entity rotation="0 180 0" 
+            class="vxr-obj-boot_l_01 vxr-interact" gltf-model="#boot_l"  draggable grabbable toggle-physics
+            position="1.0247800000363487 -0.5971915352276226 2.134">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_l_01_emisive">
+        <a-entity>
+          <a-entity rotation="0 -90 0" grabbable
+            class="vxr-obj-boot_l_01_emisive vxr-interact" visible="false" gltf-model="#boot_l_emisive" draggable
+            grabbable position="-0.00938 -0.605 2.68">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_l_01_static">
+        <a-entity>
+          <a-entity rotation="0 -90 0" grabbable
+            class="vxr-obj-boot_l_01_static vxr-interact" gltf-model="#boot_l_static" draggable grabbable
+            position="-0.00938 -0.605 2.68" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_r_01">
+        <a-entity>
+          <a-entity rotation="0 180 0"
+            class="vxr-obj-boot_r_01 vxr-interact" gltf-model="#boot_r" draggable grabbable toggle-physics
+            position="1.19631 -0.597 2.13443">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_r_01_emisive">
+        <a-entity>
+          <a-entity rotation="0 -95.06 0" grabbable
+            class="vxr-obj-boot_r_01_emisive vxr-interact" visible="false" gltf-model="#boot_r_emisive" draggable
+            grabbable position="0.21061 -0.605 2.68">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_r_01_static">
+        <a-entity>
+          <a-entity rotation="0 -95.06 0" grabbable
+            class="vxr-obj-boot_r_01_static vxr-interact" gltf-model="#boot_r_static" draggable grabbable
+            position="0.21061 -0.605 2.68" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_l_02">
+        <a-entity>
+          <a-entity rotation="0 180 0" 
+            class="vxr-obj-glovelong_l_02 vxr-interact" gltf-model="#glovelong_l" draggable grabbable
+            toggle-physics position="1.04135 0.353 2.7845">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_l_02_emisive">
+        <a-entity>
+          <a-entity rotation="-48.802253158062996 -173.42000064122192 -35.122885799314595" grabbable
+            class="vxr-obj-glovelong_l_02_emisive vxr-interact" visible="false" gltf-model="#glovelong_l_emisive"
+            draggable grabbable position="-0.21448 0.8195 2.434">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_l_02_static">
+        <a-entity>
+          <a-entity rotation="-48.802253158062996 -173.42000064122192 -35.122885799314595" grabbable
+            class="vxr-obj-glovelong_l_02_static vxr-interact" gltf-model="#glovelong_l_static" draggable grabbable
+            position="-0.2145 0.82 2.434" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_r_02">
+        <a-entity>
+          <a-entity rotation="-8.089369883162743e-7 179.99999998987067 -0.000006718368158363934"
+            class="vxr-obj-glovelong_r_02 vxr-interact" gltf-model="#glovelong_r" draggable grabbable
+            toggle-physics position="1.21563 0.35318 2.78946">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_r_02_emisive">
+        <a-entity>
+          <a-entity rotation="-42.471069521867406 -177.3252809728336 41.6735122710453" grabbable
+            class="vxr-obj-glovelong_r_02_emisive vxr-interact" visible="false" gltf-model="#glovelong_r_emisive"
+            draggable grabbable position="0.41952 0.81837 2.411">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_r_02_static">
+        <a-entity>
+          <a-entity rotation="-42.471069521867406 -177.3252809728336 41.6735122710453" grabbable
+            class="vxr-obj-glovelong_r_02_static vxr-interact" gltf-model="#glovelong_r_static" draggable grabbable
+            position="0.41957 0.81839 2.411" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_l_02">
+        <a-entity>
+          <a-entity rotation="0 180 0" 
+            class="vxr-obj-gloveshort_l_02 vxr-interact" gltf-model="#gloveshort_l"draggable grabbable
+            toggle-physics position="1.05964 0.32769 2.48565">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_l_02_emisive">
+        <a-entity>
+          <a-entity rotation="-27.823403489347907 51.72090016645941 51.79538467982642" grabbable
+            class="vxr-obj-gloveshort_l_02_emisive vxr-interact" visible="false" gltf-model="#gloveshort_l_emisive"
+            draggable grabbable position="-0.20954 0.86076 2.4">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_l_02_static">
+        <a-entity>
+          <a-entity  rotation="-25.30582693754307 52.283544721277885 49.979681427056846" grabbable
+            class="vxr-obj-gloveshort_l_02_static vxr-interact" gltf-model="#gloveshort_l_static" draggable grabbable
+            position="-0.2164 0.85764 2.4" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_r_02">
+        <a-entity>
+          <a-entity rotation="0.000004524484529286847 -179.99999988169387 0.000014274049323238989"
+            class="vxr-obj-gloveshort_r_02 vxr-interact" gltf-model="#gloveshort_r" draggable grabbable
+            toggle-physics position="1.21011 0.33146 2.4897">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_r_02_emisive">
+        <a-entity>
+          <a-entity rotation="39.00753965030158 138.7239683992798 47.79957701658406" grabbable
+            class="vxr-obj-gloveshort_r_02_emisive vxr-interact" visible="false" gltf-model="#gloveshort_r_emisive"
+            draggable grabbable position="0.423 0.842 2.376">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_r_02_static">
+        <a-entity>
+          <a-entity rotation="39.00753965030158 138.7239683992798 47.79957701658406" grabbable
+            class="vxr-obj-gloveshort_r_02_static vxr-interact" gltf-model="#gloveshort_r_static" draggable grabbable
+            position="0.423 0.84474 2.37849" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-googles_02">
+        <a-entity>
+          <a-entity rotation="-4.2996608558213125e-7 179.99999998985095 0.000003851000465041359"
+            class="vxr-obj-googles_02 vxr-interact" gltf-model="#googles" draggable grabbable
+            toggle-physics position="1.4540600028997295 0.3297243548132749 2.4571900003936435">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-googles_02_emisive">
+        <a-entity>
+          <a-entity rotation="0 -180 0" grabbable
+            class="vxr-obj-googles_02_emisive vxr-interact" visible="false" gltf-model="#googles_emisive" draggable
+            grabbable position="0.109 1.117 2.65209">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-googles_02_static">
+        <a-entity>
+          <a-entity rotation="0 -180 0" grabbable
+            class="vxr-obj-googles_02_static vxr-interact" gltf-model="#googles_static" draggable grabbable
+            position="0.109 1.117 2.652" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-hat_02">
+        <a-entity>
+          <a-entity rotation="0.0000013486518216167644 -179.99999999947482 0.000007284033071372722"
+            class="vxr-obj-hat_02 vxr-interact" gltf-model="#hat" draggable grabbable toggle-physics
+            position="1.5142100158439369 0.4108109283683705 2.7960299971090845">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-hat_02_emisive">
+        <a-entity>
+          <a-entity rotation="0 -90 -10.12" grabbable
+            class="vxr-obj-hat_02_emisivevxr-interact" visible="false" gltf-model="#hat_emisive" draggable grabbable
+            position="0.11186 1.15943 2.748">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-hat_02_static">
+        <a-entity>
+          <a-entity rotation="0 -90 -10.12" grabbable
+            class="vxr-obj-hat_02_static vxr-interact" gltf-model="#hat_static" draggable grabbable
+            position="0.11186 1.15943 2.748" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-mask95_01">
+        <a-entity>
+          <a-entity rotation="0 90 0"
+            class="vxr-obj-mask95_01 vxr-interact" gltf-model="#mask95" draggable grabbable toggle-physics
+            position="1.6987000023250014 0.32312489942111733 2.5005599957637186">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-mask95_01_emisive">
+        <a-entity>
+          <a-entity rotation="180 -90 90" grabbable
+            class="vxr-obj-mask95_01_emisive vxr-interact" visible="false" gltf-model="#mask95_emisive" draggable
+            grabbable position="0.10586 1.044 2.582">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-mask95_01_static">
+        <a-entity>
+          <a-entity rotation="180 -90 90" grabbable
+            class="vxr-obj-mask95_01_static vxr-interact" gltf-model="#mask95_static" draggable grabbable
+            position="0.10586 1.044 2.582" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-face_shield_02">
+        <a-entity>
+          <a-entity rotation="0.0000018644434237290471 179.2928038113369 0.000005039809396685358" 
+            class="vxr-obj-face_shield_02 vxr-interact" gltf-model="#face_shield" draggable grabbable
+            toggle-physics position="1.7442600000002322 0.2877184181487624 2.8496100000003075">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-face_shield_02_emisive">
+        <a-entity>
+          <a-entity rotation="0 -180 0" grabbable
+            class="vxr-obj-face_shield_02_emisive vxr-interact" visible="false" gltf-model="#face_shield_emisive"
+            draggable grabbable position="0.10852 0.99 2.576">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-face_shield_02_static">
+        <a-entity>
+          <a-entity rotation="0 -180 0" grabbable
+            class="vxr-obj-face_shield_02_static vxr-interact" gltf-model="#face_shield_static" draggable grabbable
+            position="0.10852 0.99 2.576" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_l_01"> 
+        <a-entity>
+          <a-entity rotation="8.955077383551395e-7 -179.9999999948148 0.000005425391711634003"
+            class="vxr-obj-shoe_cover_l_01 vxr-interact" gltf-model="#shoe_cover_l" draggable grabbable
+            toggle-physics position="1.488 -0.568 2.134">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_l_01_emisive">
+        <a-entity>
+          <a-entity rotation="0 180 0" grabbable
+            class="vxr-obj-shoe_cover_l_01_emisive vxr-interact" visible="false" gltf-model="#shoe_cover_l_emisive" draggable grabbable
+            position="-0.00938 -0.605 2.68">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_l_01_static">
+        <a-entity>
+          <a-entity rotation="0 180 0" grabbable
+            class="vxr-obj-shoe_cover_l_01_static vxr-interact" gltf-model="#shoe_cover_l_static" draggable grabbable
+            position="-0.00938 -0.605 2.68" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_r_01">
+        <a-entity>
+          <a-entity rotation="0 180 0" 
+            class="vxr-obj-shoe_cover_r_01 vxr-interact" gltf-model="#shoe_cover_r" draggable grabbable
+            toggle-physics position="1.74599 -0.56804 2.13443">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_r_01_emisive">
+        <a-entity>
+          <a-entity rotation="0 180 0" grabbable
+            class="vxr-obj-shoe_cover_r_01_emisive vxr-interact" visible="false" gltf-model="#shoe_cover_r_emisive" draggable grabbable
+            position="0.209 -0.605 2.68">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_r_01_static">
+        <a-entity>
+          <a-entity rotation="0 180 0" grabbable
+            class="vxr-obj-boot_r_01_static vxr-interact" gltf-model="#shoe_cover_r_static" draggable grabbable
+            position="0.209 -0.605 2.68" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-alcohol_bottle_02">
+        <a-entity>
+          <a-entity rotation="0 90.00000000043453 0" 
+            class="vxr-obj-alcohol_bottle_02 vxr-interact" gltf-model="#alcohol_bottle"  draggable grabbable
+            toggle-physics position="1.83523 0.28671 2.65219">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-mannequen_02">
+        <a-entity>
+          <a-entity rotation="0 180 0" grabbable
+            class="vxr-obj-mannequen_02 vxr-interact" gltf-model="#mannequen" position="0.10871 -0.59 2.662">
+          </a-entity>
+        </a-entity>
+      </template>
+
+
+
+      <!----------------------------------------LEVEL3------------------------------------------>
+      <!----------------------------------------LEVEL3------------------------------------------>
+      <!----------------------------------------LEVEL3------------------------------------------>
+
+      <template id="vxr-obj-template-escafandra">
+        <a-entity>
+          <a-entity rotation="0 -180 0"
+            class="vxr-obj-escafandra vxr-interact" gltf-model="#escafandra" draggable grabbable
+            toggle-physics position="2.52721 0.2946 5.47262">
+          </a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-escafandra_emisive">
+        <a-entity>
+          <a-entity rotation="0 -90 0" grabbable
+            class="vxr-obj-escafandra_emisive vxr-interact" visible="false" gltf-model="#escafandra_emisive" draggable
+            grabbable position="0.115 0.764 5.509">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-escafandra_static">
+        <a-entity>
+          <a-entity rotation="0 -90 0" grabbable
+            class="vxr-obj-escafandra_static vxr-interact" gltf-model="#escafandra_static" draggable grabbable
+            position="0.115 0.764 5.509" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_l_02">
+        <a-entity>
+          <a-entity rotation="0 180 0"
+            class="vxr-obj-boot_l_02 vxr-interact" gltf-model="#boot_l" draggable grabbable toggle-physics
+            position="1.0247800000194427 -0.5971915307412918 4.802999999993099">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_l_02_emisive">
+        <a-entity>
+          <a-entity rotation="0 -90 0" grabbable
+            class="vxr-obj-boot_l_02_emisive vxr-interact" visible="false" gltf-model="#boot_l_emisive" draggable
+            grabbable position="-0.00938 -0.605 5.488">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_l_02_static">
+        <a-entity>
+          <a-entity rotation="0 -90 0" grabbable
+            class="vxr-obj-boot_l_02_static vxr-interact" gltf-model="#boot_l_static" draggable grabbable
+            position="-0.00938 -0.605 5.488" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_r_02">
+        <a-entity>
+          <a-entity rotation="0 180 0"
+            class="vxr-obj-boot_r_02 vxr-interact" gltf-model="#boot_r" draggable grabbable toggle-physics
+            position="1.19631 -0.597 4.80317">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_r_02_emisive">
+        <a-entity>
+          <a-entity rotation="0 -95.06 0" grabbable
+            class="vxr-obj-boot_r_02_emisive vxr-interact" visible="false" gltf-model="#boot_r_emisive" draggable
+            grabbable position="0.21061 -0.605 5.488">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-boot_r_02_static">
+        <a-entity>
+          <a-entity rotation="0 -95.06 0" grabbable
+            class="vxr-obj-boot_r_02_static vxr-interact" gltf-model="#boot_r_static" draggable grabbable
+            position="0.21061 -0.605 5.488" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_l_03">
+        <a-entity>
+          <a-entity rotation="0 180 0" 
+            class="vxr-obj-glovelong_l_03 vxr-interact" gltf-model="#glovelong_l" draggable grabbable
+            toggle-physics position="1.04135 0.353 5.47095">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_l_03_emisive">
+        <a-entity>
+          <a-entity rotation="-48.46936467909199 -172.76912058595332 -38.7365306132047" grabbable
+            class="vxr-obj-glovelong_l_03_emisive vxr-interact" visible="false" gltf-model="#glovelong_l_emisive"
+            draggable grabbable position="-0.21448 0.81881 5.25061">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_l_03_static">
+        <a-entity>
+          <a-entity rotation="-48.46936467909199 -172.76912058595332 -38.7365306132047" grabbable
+            class="vxr-obj-glovelong_l_03_static vxr-interact" gltf-model="#glovelong_l_static" draggable grabbable
+            position="-0.21448 0.81881 5.25061" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_r_03">
+        <a-entity>
+          <a-entity rotation="0.0000014387715146011133 -179.99999825919787 0.000011311232196589234"
+            class="vxr-obj-glovelong_r_03 vxr-interact" gltf-model="#glovelong_r" draggable grabbable
+            toggle-physics position="1.2156300141232064 0.35317892548968466 5.473059998860264">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_r_03_emisive">
+        <a-entity>
+          <a-entity rotation="-42.471069521867406 -177.3252809728336 41.6735122710453" grabbable
+            class="vxr-obj-glovelong_r_03_emisive vxr-interact" visible="false" gltf-model="#glovelong_r_emisive"
+            draggable grabbable position="0.41952 0.817 5.224">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovelong_r_03_static">
+        <a-entity>
+          <a-entity rotation="-42.471069521867406 -177.3252809728336 41.6735122710453" grabbable
+            class="vxr-obj-glovelong_r_03_static vxr-interact" gltf-model="#glovelong_r_static" draggable grabbable
+            position="0.41957 0.817 5.224" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_l_03">
+        <a-entity>
+          <a-entity rotation="0 180 0"
+            class="vxr-obj-gloveshort_l_03 vxr-interact" gltf-model="#gloveshort_l" draggable grabbable
+            toggle-physics position="1.08066 0.32769 5.17116">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_l_03_emisive">
+        <a-entity>
+          <a-entity rotation="-27.823403489347907 51.72090016645941 51.79538467982642" grabbable
+            class="vxr-obj-gloveshort_l_03_emisive vxr-interact" visible="false" gltf-model="#gloveshort_l_emisive"
+            draggable grabbable position="-0.20954 0.86076 5.213">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_l_03_static">
+        <a-entity>
+          <a-entity rotation="-25.30582693754307 52.283544721277885 49.979681427056846" grabbable
+            class="vxr-obj-gloveshort_l_03_static vxr-interact" gltf-model="#gloveshort_l_static" draggable grabbable
+            position="-0.21716 0.85764 5.213" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_r_03">
+        <a-entity>
+          <a-entity rotation="0.000004524451898524756 -179.9999999824903 0.000014273751174683521" 
+            class="vxr-obj-gloveshort_r_03 vxr-interact" gltf-model="#gloveshort_r" draggable grabbable
+            toggle-physics position="1.218170011082635 0.3314636223627645 5.173669996522592">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_r_03_emisive">
+        <a-entity>
+          <a-entity rotation="39.00753965030158 138.7239683992798 47.79957701658406" grabbable
+            class="vxr-obj-gloveshort_r_03_emisive vxr-interact" visible="false" gltf-model="#gloveshort_r_emisive"
+            draggable grabbable position="0.423 0.842 5.187">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gloveshort_r_03_static">
+        <a-entity>
+          <a-entity rotation="39.00753965030158 138.7239683992798 47.79957701658406" grabbable
+            class="vxr-obj-gloveshort_r_03_static vxr-interact" gltf-model="#gloveshort_r_static" draggable grabbable
+            position="0.423 0.84488 5.19117" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-googles_03">
+        <a-entity>
+          <a-entity rotation="-4.2996709925273466e-7 179.99999999935747 0.000003850982223507047" 
+            class="vxr-obj-googles_03 vxr-interact" gltf-model="#googles" draggable grabbable
+            toggle-physics position="1.48707000284197 0.3297243598221027 5.152460000321744">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-googles_03_emisive">
+        <a-entity>
+          <a-entity rotation="0 -180 0" grabbable
+            class="vxr-obj-googles_03_emisive vxr-interact" visible="false" gltf-model="#googles_emisive" draggable
+            grabbable position="0.109 1.117 5.461">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-googles_03_static">
+        <a-entity>
+          <a-entity rotation="0 -180 0" grabbable
+            class="vxr-obj-googles_03_static vxr-interact" gltf-model="#googles_static" draggable grabbable
+            position="0.109 1.117 5.461" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-hat_03">
+        <a-entity>
+          <a-entity rotation="0 180 0"
+            class="vxr-obj-hat_03 vxr-interact" gltf-model="#hat" draggable grabbable toggle-physics
+            position="1.53837 0.41081 5.50247">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-hat_03_emisive">
+        <a-entity>
+          <a-entity rotation="0 -90 -10.12" grabbable
+            class="vxr-obj-hat_03_emisive vxr-interact" visible="false" gltf-model="#hat_emisive" draggable grabbable
+            position="0.11186 1.15943 5.560">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-hat_03_static">
+        <a-entity>
+          <a-entity rotation="0 -90 -10.12" grabbable
+            class="vxr-obj-hat_03_static vxr-interact" gltf-model="#hat_static" draggable grabbable
+            position="0.11186 1.15943 5.560" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-mask95_02">
+        <a-entity>
+          <a-entity rotation="0 90 0" 
+            class="vxr-obj-mask95_02 vxr-interact" gltf-model="#mask95" draggable grabbable toggle-physics
+            position="1.70958 0.32312 5.21736">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-mask95_02_emisive">
+        <a-entity>
+          <a-entity rotation="180 -90 90" grabbable
+            class="vxr-obj-mask95_02_emisive vxr-interact" visible="false" gltf-model="#mask95_emisive" draggable
+            grabbable position="0.10586 1.044 5.392">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-mask95_02_static">
+        <a-entity>
+          <a-entity rotation="180 -90 90" grabbable
+            class="vxr-obj-mask95_02_static vxr-interact" gltf-model="#mask95_static" draggable grabbable
+            position="0.10586 1.044 5.392" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-face_shield_03">
+        <a-entity>
+          <a-entity rotation="0 -180 0" 
+            class="vxr-obj-face_shield_03 vxr-interact" gltf-model="#face_shield" draggable grabbable
+            toggle-physics position="1.78284 0.28772 5.5471">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-face_shield_03_emisive">
+        <a-entity>
+          <a-entity rotation="0 -180 0" grabbable
+            class="vxr-obj-face_shield_03_emisive vxr-interact" visible="false" gltf-model="#face_shield_emisive"
+            draggable grabbable position="0.10852 0.99 5.39">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-face_shield_03_static">
+        <a-entity>
+          <a-entity rotation="0 -180 0" grabbable
+            class="vxr-obj-face_shield_03_static vxr-interact" gltf-model="#face_shield_static" draggable grabbable
+            position="0.10852 0.99 5.39" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_l_02"> 
+        <a-entity>
+          <a-entity rotation="8.461231456660725e-7 -179.9999944206748 0.00000579684152076302"
+            class="vxr-obj-shoe_cover_l_02 vxr-interact" gltf-model="#shoe_cover_l" draggable grabbable
+            toggle-physics position="1.48751 -0.568 4.83053">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_l_02_emisive">
+        <a-entity>
+          <a-entity rotation="0 180 0" grabbable
+            class="vxr-obj-shoe_cover_l_02_emisive vxr-interact" visible="false" gltf-model="#shoe_cover_l_emisive" draggable grabbable
+            position="-0.00938 -0.605 5.481">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_l_02_static">
+        <a-entity>
+          <a-entity rotation="0 180 0" grabbable
+            class="vxr-obj-shoe_cover_l_02_static vxr-interact" gltf-model="#shoe_cover_l_static" draggable grabbable
+            position="-0.00938 -0.605 5.481" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_r_02">
+        <a-entity>
+          <a-entity rotation="0 180 0"
+            class="vxr-obj-shoe_cover_r_02 vxr-interact" gltf-model="#shoe_cover_r" draggable grabbable
+            toggle-physics position="1.745990022356089 -0.568 4.831">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_r_02_emisive">
+        <a-entity>
+          <a-entity rotation="0 180 0" grabbable
+            class="vxr-obj-shoe_cover_r_02_emisive vxr-interact" visible="false" gltf-model="#shoe_cover_r_emisive" draggable grabbable
+            position="0.209 -0.605 5.479">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-shoe_cover_r_02_static">
+        <a-entity>
+          <a-entity rotation="0 180 0" grabbable
+            class="vxr-obj-boot_r_02_static vxr-interact" gltf-model="#shoe_cover_r_static" draggable grabbable
+            position="0.209 -0.605 5.479" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-alcohol_bottle_03">
+        <a-entity>
+          <a-entity rotation="0 90 0"
+            class="vxr-obj-alcohol_bottle_03 vxr-interact" gltf-model="#alcohol_bottle"
+            draggable grabbable toggle-physics position="1.83523 0.28671 5.37238">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-mannequen_03">
+        <a-entity>
+          <a-entity rotation="0 180 0" grabbable
+            class="vxr-obj-mannequen_03 vxr-interact" gltf-model="#mannequen" position="0.10871 -0.59 5.474">
           </a-entity>
         </a-entity>
       </template>
@@ -529,27 +1286,49 @@
 
     <!-- Static Objects -->
 
-    </a-entity>
-    
-    <a-entity id="genes01" gltf-model="#genes" scale="" position="0.14005 0.858 0.39589" material="color: brown"
-      rotation="0 -90.000 0" shadow="receive: false"></a-entity>
+  </a-entity>
 
-    <a-entity id="container01" scale="1.125 1.125 1.125" position="-1.469 0.91541 -1.21678" gltf-model="/Models/gltf/TrashContainer.gltf"
-      rotation="0 180 0"></a-entity>
+  <a-entity id="genes01" gltf-model="#genes" scale="1.55475 1 1" position="0.14005 0.858 1.50591"
+    material="color: brown" rotation="0 -90 0" shadow="receive: false"></a-entity>
 
-    <a-entity id="container02" scale="1.125 1.125 1.125" position="-1.46881 0.91244 -1.8575" gltf-model="/Models/gltf/TrashContainer.gltf"
-      rotation="0 180 0"></a-entity>
 
-    <a-entity class="gltf" gltf-model="#Table_001" position="1.390 0.886 -0.329" rotation="0 -90 0"></a-entity>
 
-    <a-box id="boxTable1" scale="1.2 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation="0 0 0"
-      position="1.41761 1.7375 -0.32771" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+  <a-entity id="container01" scale="1.125 1.125 1.125" position="-1.39547 0.91541 -1.78823" gltf-model="#container"
+    rotation="0 180 0"></a-entity>
+  <a-entity id="container02" scale="1.125 1.125 1.125" position="-1.46881 0.91244 1.23766" gltf-model="#container"
+    rotation="0 180 0"></a-entity>
+  <a-entity id="container03" scale="1.125 1.125 1.125" position="-1.46881 0.91244 4.34783" gltf-model="#container"
+    rotation="0 180 0"></a-entity>
 
-    <a-box id="boxFloor" scale="4.14767 1 7.15846" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
-      position="0.98125 0.85267 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
-    <a-box id="boxGabachon" scale="0.68714 4.81671 0.63943" static-body="sphereRadius: NaN" opacity="0" static-body rotation="0 0 0"
-      position="-0.73753 1.21816 -0.16737" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+  <a-entity id="table001" class="gltf" gltf-model="#Table_001" position="1.390 0.886 -0.329" rotation="0 -90 0">
+  </a-entity>
+  <a-entity id="table002" class="gltf" gltf-model="#Table_001" position="1.39 0.886 2.47389" rotation="0 -90 0">
+  </a-entity>
+  <a-entity id="table003" class="gltf" gltf-model="#Table_001" position="1.39 0.886 5.17076" rotation="0 -90 0">
+  </a-entity>
+  <a-entity id="table004" scale="1.22547 0.9048 1" class="gltf" gltf-model="#Table_005" position="2.53192 0.90059 5.17076" rotation="0 180 0">
+  </a-entity>
+
+
+  <a-box id="boxTable1" scale="1.2 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation="0 0 0"
+    position="1.41761 1.7375 -0.32771" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+  <a-box id="boxTable2" scale="1.2 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation="0 0 0"
+    position="1.41761 1.7375 2.47389" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+  <a-box id="boxTable3" scale="1.2 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation="0 0 0"
+    position="1.41761 1.7375 5.16361" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+  <a-box id="boxTable4" scale="0.69187 1 0.85416" static-body="sphereRadius: NaN" opacity="0" static-body rotation="0 0 0"
+    position="2.54029 1.77285 5.21165" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+
+
+
+  <a-box id="boxFloor" scale="5.54388 1 20.12994" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
+    position="1.27318 0.85267 1.70871" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+
+  <a-box id="boxGabachon_01" scale="0.68714 4.81671 0.63943" static-body="sphereRadius: NaN" opacity="0" static-body
+    rotation="0 0 0" position="-0.73753 1.21816 -0.16737" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+  <a-box id="boxGabachon_02" scale="0.68714 4.81671 0.63943" static-body="sphereRadius: NaN" opacity="0" static-body
+    rotation="0 0 0" position="-0.73753 1.21816 2.62688" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
     <!--Lights -->
     <a-entity background="color: #92f2ff"></a-entity>
