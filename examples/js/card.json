@@ -10,21 +10,11 @@
         "rotation": "0 180 0"
     },
     {
-        "position": "0 2.5 0",
-        "element": "a-text",
-        "width": "2.3",
-        "height": "2.3",
-        "value": "This is a bottle\n of alcohol gel",
-        "opacity": "0.0",
-        "id": "textAlcohol",
-        "rotation": "0 180 0"
-    },
-    {
         "position": "0.5 2.5 -0.01",
         "element": "a-plane",
         "width": "0.6",
         "height": "0.5",
-        "material": "src: ../../dist/images/alcoholgel.jpg",
+        "material": "src: ../../dist/images/Bottle.jpg",
         "opacity": "0.0",
         "id": "imageAlcohol",
         "rotation": "0 180 0"
