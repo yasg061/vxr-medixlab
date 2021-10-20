@@ -514,8 +514,8 @@
       <!-- <a-asset-item id="SterileField_Folded" src="Assets/Campo_Hendido.gltf"></a-asset-item> -->
       <a-asset-item id="SterileField_Folded" src="../Process5/Assets/Campo_Hendido_Half.gltf"></a-asset-item>
 
-      <a-asset-item id="SterileField_Folded_Emissive" src="../Process5/Assets/Campo_Hendido_Emissive.gltf"></a-asset-item>
-      <a-asset-item id="SterileField_Folded_Pose" src="../Process5/Assets/Campo_Hendido_Pose.gltf"></a-asset-item>
+      <a-asset-item id="SterileField_Folded_Emissive" src="Assets/Campo_Hendido_Mujer_Emissive.gltf"></a-asset-item>
+      <a-asset-item id="SterileField_Folded_Pose" src="Assets/Campo_Hendido_Mujer_Static.gltf"></a-asset-item>
       <a-asset-item id="UmbilicalTape" src="Assets/Bottle_CordonUmbilical.gltf"></a-asset-item>
       <!-- <a-asset-item id="UrinaryBag" src="Assets/UrinaryBag.gltf"></a-asset-item> -->
       <a-asset-item id="UrinaryBag" src="Assets/UrineBag_Static.gltf"></a-asset-item>
@@ -1034,16 +1034,16 @@
         <a-entity>
           <a-entity id="e-SterileField_Folded_emisive" visible="false" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
             class="vxr-obj-alcoholgel vxr-interact" gltf-model="#SterileField_Folded_Emissive" draggable grabbable
-            position="1.237 0.206 -0.807">
+            position="1.2983 0.36488 -0.82107">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-SterileField_Folded_static">
         <a-entity>
-          <a-entity id="e-SterileField_Folded_static" scale="0.5 0.5 0.5" dynamic-body="mass:0.0" rotation="0 -90 0"
+          <a-entity id="e-SterileField_Folded_static" scale="0.5 0.5 0.5" dynamic-body="mass:0.0; sphereRadius: NaN" rotation="0 -90 0"
             grabbable="maxGrabbers: NaN" visible="false" class="vxr-obj-SterileField_Folded_Static vxr-interact"
-            gltf-model="#SterileField_Folded_Pose" draggable grabbable position="1.237 0.206 -0.807"
+            gltf-model="#SterileField_Folded_Pose" draggable grabbable position="1.31743 0.34379 -0.86187"
             ondragstart="genericSetMass(this)">
           </a-entity>
         </a-entity>
