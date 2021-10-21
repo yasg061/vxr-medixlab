@@ -1,0 +1,1086 @@
+<html>
+
+<head>
+  <title>Vertex Medixlab</title>
+  <!-- Replace "../build.js" with the super-hands and
+         A-Frame distributions to run : -->
+  <script src="../../super/build.js"></script>
+  <!-- <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> -->
+  <!-- <script src="https://unpkg.com/super-hands/dist/super-hands.min.js"></script> -->
+  <!-- Networked aframe -->
+  <script>
+    let url = "../../../js/structureEntitiesProcess8.json"
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
+  <script src="/easyrtc/easyrtc.js"></script>
+  <script src="/dist/networked-aframe.js"></script>
+  <!-- <script    src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script> -->
+  <script src="/js/spawn-in-circle.component.js"></script>
+  <script src="aframe-particle-system-component.min.js"></script>
+
+
+
+
+  <script>
+    let sceneId = (Math.floor(Math.random() * 1000) + 1).toString();
+
+    const adapter = "easyrtc"
+    const audio = "false"
+    const debug = true
+    const onConnectVar = "spawnentity"
+
+    function myFunction() {
+      console.log("url: ", sceneId)
+      let url = `http://localhost:8080/IEPROES/Process8/vxr-spectator-template.html?spawn=51&name=guest&id=${sceneId}`
+      navigator.clipboard.writeText(url);
+
+    }
+
+
+    AFRAME.registerComponent('scene-parameters', {
+      init: function () {
+        let el = this.el;
+
+        let networkedComp = {
+          room: sceneId,
+          adapter: adapter,
+          audio: audio,
+          debug: debug,
+          onConnect: onConnectVar
+        };
+
+        console.info('Init networked-aframe with settings:', networkedComp);
+        el.setAttribute('networked-scene', networkedComp);
+
+
+      },
+    })
+  </script>
+
+
+
+
+
+  <!-- Super hands -->
+  <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.js"></script>
+  <!-- <script src="../../js/aframe-physics-system.js"></script> -->
+  <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
+  <script
+    src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+  <!-- ownership transfer dependencies -->
+
+  <script src="../../js/spawner.component.js"></script>
+  <script src="../../js/toggle-physics.component.js"></script>
+  <script src="../../js/rotator.component.js"></script>
+  <script src="../../js/input.component.js"></script>
+  <script src="../../js/avatar-body.component.js"></script>
+  <script src="../../js/Feature-Schemas.js"></script>
+  <script src="../../js/camera-output.js"></script>
+  <script src="../../js/Feature-Bones.component.js"></script>
+  <script src="../../js/Feature-BonesPosition.component.js"></script>
+
+  <!-- <script src="../../js/hand-attach.js"></script> -->
+  <script src="../../js/attach-intracath.js"></script>
+  <script src="../../js/attach-to-position.js"></script>
+  <script src="../../js/set-name.component.js"></script>
+
+  <script src="../../js/randomize-spec-color.component.js"></script>
+
+  <script>
+    let boolstate = true
+    AFRAME.registerComponent('model-opacity', {
+      init() {
+        var data = this.data;
+        this.el.addEventListener('model-loaded', e => {
+          var mesh = this.el.getObject3D('mesh');
+          console.log("mesh", mesh)
+
+          mesh.traverse(function (node) {
+            console.log("material option", node.material)
+            if (node.isMesh && boolstate) {
+              // mesh.material.color.setRGB(255 ,0 ,0)
+              node.material.color = new THREE.Color("rgb(237, 38, 81)");
+              node.material.needsUpdate = true;
+              console.log("works -----")
+              boolstate = false
+
+            }
+          });
+        });
+      },
+
+    });
+  </script>
+
+  <script>
+    let boolstate = true
+    AFRAME.registerComponent('color-trigger', {
+      init() {
+        var data = this.data;
+        console.log("init, color trigger")
+
+        this.el.addEventListener('collide', e => {
+
+          console.log("collided", e.detail)
+          let classes = e.detail.target.el.className.split(' ')
+          let mesh_to_modify = document.getElementById("vxr-obj-cottonswab01")
+          var mesh = mesh_to_modify.getObject3D('mesh');
+          console.log("mesh", mesh)
+
+          mesh.traverse(function (node) {
+            console.log("material option", node.material)
+            if (node.isMesh && boolstate) {
+              // mesh.material.color.setRGB(255 ,0 ,0)
+              node.material.color = new THREE.Color("rgb(237, 38, 81)");
+              node.material.needsUpdate = true;
+              console.log("works -----")
+              boolstate = false
+
+            }
+          });
+
+        });
+      },
+
+    });
+  </script>
+
+  <script>
+
+    function setMass() {
+      let intracathInteract = element = document.getElementById("vxr-intracath-second-part")
+      intracathInteract.setAttribute('dynamic-body', 'mass:0.1')
+    }
+
+    function genericBone(boneName) {
+      console.log("bone id", boneName)
+      // let bone  = document.getElementById(boneName)
+      boneName.setAttribute('dynamic-body', 'mass:0.1')
+      boneName.setAttribute("boneposition", "varBool:true")
+
+    }
+
+    function genericBoneEnd(boneName) {
+      console.log("bone id", boneName)
+      // let bone  = document.getElementById(boneName)
+      boneName.setAttribute('dynamic-body', 'mass:0.0')
+      boneName.setAttribute("boneposition", "varBool:false")
+    }
+
+    function setMassRubber() {
+      let rubber = document.getElementById("Static-vxr-obj-rubber")
+      rubber.setAttribute('dynamic-body', 'mass:0.1')
+    }
+
+
+
+  </script>
+
+
+
+  <script>
+
+    function setMassHeparinseal() {
+      let boxheparin = document.getElementById("e-heparinseal-box")
+      boxheparin.removeAttribute("dynamic-body")
+      boxheparin.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+      let parina = document.getElementById("e-heparinseal")
+      parina.setAttribute("dynamic-body", "")
+      this.el.remove()
+
+
+    }
+
+    function SetObjectPosition(evt) {
+      console.log("obj: ", evt)
+
+      console.log("object: ", evt.path[0].getAttribute("position"))
+      let position = new THREE.Vector3(evt.path[0].getAttribute("position").x)
+      let x = evt.path[0].getAttribute("position").x
+      let y = evt.path[0].getAttribute("position").y
+      let z = evt.path[0].getAttribute("position").z
+
+      evt.path[0].setAttribute("ground-collider", `x:${x}`)
+      evt.path[0].setAttribute("ground-collider", `y:${y}`)
+      evt.path[0].setAttribute("ground-collider", `z:${z}`)
+      console.log("card grabbed: ", position)
+    }
+
+  </script>
+
+
+  <script>
+
+    AFRAME.registerComponent('ground-collider', {
+      schema: {
+        vectorPosition: { type: 'vec3' },
+        x: { default: 0 },
+        y: { default: 0 },
+        z: { default: 0 },
+      },
+
+      init: function () {
+        let el = this.el;
+        let data = this.data
+        this.el.addEventListener('collide', function (e) {
+          console.log('collision ', e.detail.body.el);
+
+          let classes = e.detail.body.el.className.split(' ')
+
+          if (classes.includes("vxr-ground")) {
+            console.log("entity: ", this.el)
+            el.removeAttribute("dynamic-body")
+            el.setAttribute("position", { x: data.x, y: data.y, z: data.z })
+            el.setAttribute("dynamic-body", "")
+
+          } else {
+            console.log('Error on: ', e.detail.body.el);
+          }
+
+        });
+      },
+
+      update: function () {
+        console.log("x position: ", this.data.x)
+        console.log("y position: ", this.data.y)
+        console.log("z position: ", this.data.z)
+        // this.el.removeAttribute("dynamic-body")
+        // this.el.setAttribute("position",this.data.vectorPosition)
+        // this.el.setAttribute("dynamic-body","")
+      }
+    })
+
+  </script>
+
+
+  <script>
+    AFRAME.registerComponent('attach-point-axis', {
+      init: function () {
+        var el = this.el;
+        this.el.addEventListener('collide', function (e) {
+          console.log('Cube has collided with ', e.detail.body.el);
+          e.detail.body.el.setAttribute('constraint', 'type: coneTwist; target: #box1; pivot: 0 0 0; targetPivot: 0 0.0 0.09; axis: 0.0 0.0 -1.0; targetAxis: 1.0 0.0 0.0');
+        });
+      }
+    })
+  </script>
+  <script>
+    AFRAME.registerComponent('foo', {
+      init: function () {
+        var el = this.el;
+        this.el.addEventListener('collide', function (e) {
+          console.log('Cube has collided with ', e.detail.body.el);
+          e.detail.body.el.setAttribute('constraint', 'type: coneTwist; target: #box2; pivot: 0 0 0; targetPivot: 0 -0.05 0; axis: 0.0 -1 0; targetAxis: 1.0 0.0 0.0');
+        });
+      }
+    })
+  </script>
+  <script>
+    function spawnentity() {
+
+      let syncs = document.getElementsByClassName("syncup");
+      let constraint_avatar_template = document.getElementsByClassName("constraint-avatar-template");
+      for (let i = 0; i < syncs.length; ++i) {
+        syncs[i].setAttribute("networked", "template:#vxr-template;attachTemplateToLocal:true")
+      }
+      for (let i = 0; i < constraint_avatar_template.length; ++i) {
+        constraint_avatar_template[i].setAttribute("networked", "template:#constraint-avatar-template;attachTemplateToLocal:true")
+      }
+    }
+  </script>
+  <!-- <link rel="stylesheet" type="text/css" href="../../super/process/assets/examples.css"> -->
+</head>
+
+<body>
+  <a-scene physics="debug: true; gravity: -5; iterations: 75" scene-parameters>
+    <a-assets>
+      <!-- <a-asset-item id="htc" src="../../../super/process/assets/vr_controller_vive.obj"></a-asset-item> -->
+      <a-asset-item id="maskn95" src="../../Models/gltf/MaskN95.gltf"></a-asset-item>
+      <a-asset-item id="table" src="../../Models/gltf/Table.gltf"></a-asset-item>
+      <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle.gltf"></a-asset-item>
+      <a-asset-item id="bed" position="1.75217 0.92 1.00408" src="../../Models/gltf/Baby_Crib.gltf"></a-asset-item>
+      <!-- <a-asset-item id="patient" src="../../Models/gltf/Baby.gltf"></a-asset-item> -->
+      <a-asset-item id="patient" src="Baby_Jeringa.gltf"></a-asset-item>
+
+      <a-asset-item id="tray" src="../../super/process/assets/Tray.gltf"></a-asset-item>
+      <a-asset-item id="StudentAvatar" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
+      <a-asset-item id="SpectatorAvatar" src="../../super/process/assets/avatars/SpectatorAvatar.gltf"></a-asset-item>
+      <a-asset-item id="TeacherAvatar" src="../../super/process/assets/TeacherAvatar.gltf"></a-asset-item>
+      <a-asset-item id="right-hand" src="../../super/process/assets/rightHandHigh.glb"></a-asset-item>
+      <a-asset-item id="left-hand" src="../../super/process/assets/leftHandHigh.glb"></a-asset-item>
+      <a-asset-item id="dripbag" src="../../Models/gltf/DripBag.gltf"></a-asset-item>
+      <a-asset-item id="rubber" src="../../Models/gltf/Rubber.gltf"></a-asset-item>
+      <a-asset-item id="medicaltape" src="../../Models/gltf/MedicalTape.gltf"></a-asset-item>
+      <a-asset-item id="gauze" src="../../Models/gltf/Gauze.gltf"></a-asset-item>
+      <a-asset-item id="allistweezers" src="../../Models/gltf/Scissor_Buttoned.gltf"></a-asset-item>
+      <a-asset-item id="cottonswab" src="../../Models/gltf/CottonSwabs01.gltf"></a-asset-item>
+      <a-asset-item id="salinebottle" src="../../Models/gltf/ClorhexidinaBottle.gltf"></a-asset-item>
+      <a-asset-item id="alcoholgel" src="../../Models/gltf/AlcoholGel.gltf"></a-asset-item>
+      <a-asset-item id="intracath" src="../../Models/gltf/Intracath.gltf"></a-asset-item>
+      <a-asset-item id="intracath-piece-1" src="../../Models/gltf/Catheter01.gltf"></a-asset-item>
+      <a-asset-item id="intracath-piece-2" src="../../Models/gltf/Catheter02.gltf"></a-asset-item>
+      <a-asset-item id="MedicalClothe" src="../../Models/gltf/MedicalClothe.gltf"></a-asset-item>
+      <a-asset-item id="Bowl_Medic" src="../../Models/gltf/Bowl_Medic.gltf"></a-asset-item>
+      <a-asset-item id="Tape_Normal" src="../../Models/gltf/Tape_Normal.gltf"></a-asset-item>
+      <a-asset-item id="Tape_Bow" src="../../Models/gltf/Tape_Bow.gltf"></a-asset-item>
+      <a-asset-item id="Tape_Butterfly" src="../../Models/gltf/Tape_Butterfly.gltf"></a-asset-item>
+      <a-asset-item id="Syringe_1CC_Skin" src="../../Models/gltf/Syringe_1CC.gltf"></a-asset-item>
+      <a-asset-item id="ControlCard_Neonatal" src="../../Models/gltf/ControlCard_Neonatal.gltf"></a-asset-item>
+      <a-asset-item id="SalineAmpoule" src="SalineAmpoule.gltf"></a-asset-item>
+      <a-asset-item id="Syringe_plug" src="Syringe_plug.gltf"></a-asset-item>
+      <a-asset-item id="Syringe_1CC" src="../../Models/gltf/Syringe_1CC.gltf"></a-asset-item>
+      <a-asset-item id="Aposito_BabyPatient3" src="Aposito_BabyPatient3.gltf"></a-asset-item>
+      <a-asset-item id="Aposito_BabyPatient3_Static" src="Aposito_BabyPatient3_Static.gltf"></a-asset-item>
+      <a-asset-item id="heparinseal" src="../../Models/gltf/HeparinSeal.gltf"></a-asset-item>
+      <a-asset-item id="HeparineSealBox" src="HeparineSealBox.gltf"></a-asset-item>
+      <a-asset-item id="testBone" src="CubeBone.gltf"></a-asset-item>
+
+      <!-- <a-asset-item id="Patient_IK" src="Patient_IK.gltf"></a-asset-item> -->
+      <a-asset-item id="Patient_IK" src="UrinaryCatheter.gltf"></a-asset-item>
+
+      <a-asset-item id="gene" src="00-HospitalRoomNeonatal3.gltf"></a-asset-item>
+      <!-- <a-asset-item id="genes" src="Crypto_Bodies.gltf"></a-asset-item> -->
+
+
+
+
+
+
+
+      <a-asset-item id="s_cube" src="CottonColor.gltf"></a-asset-item>
+
+      <!-- Avatars -->
+      <a-asset-item id="StudentAvatarHead" src="../../super/process/assets/avatars/StudentAvatarHead.gltf">
+      </a-asset-item>
+      <a-asset-item id="StudentAvatarBody" src="../../super/process/assets/avatars/StudentAvatarBody.gltf">
+      </a-asset-item>
+      <a-asset-item id="TeacherAvatarHead" src="../../super/process/assets/avatars/TeacherAvatarHead.gltf">
+      </a-asset-item>
+      <a-asset-item id="TeacherAvatarBody" src="../../super/process/assets/avatars/TeacherAvatarBody.gltf">
+      </a-asset-item>
+      <a-asset-item id="student" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
+      <a-asset-item id="teacher" src="../../super/process/assets/TeacherAvatar.gltf"></a-asset-item>
+
+      <a-asset-item id="DestiledWater" src="../Process-Assist-NeoNato/Models/DestiledWater.gltf"></a-asset-item>
+
+
+      <!-- Theater -->
+      <a-asset-item id="scenebase" src="/Models/gltf/Scene_Base.gltf"></a-asset-item>
+      <a-asset-item id="scenemedixlablogo" src="/Models/gltf/Scene_Medixlablogo.gltf"></a-asset-item>
+      <a-asset-item id="sceneieproeslogo" src="/Models/gltf/Scene_Ieproesblogo.gltf"></a-asset-item>
+      <a-asset-item id="scenevertexlogo" src="/Models/gltf/Scene_VertexLogo.gltf"></a-asset-item>
+      <a-asset-item id="scenebase02" src="/Models/gltf/Base_Auditorium.gltf"></a-asset-item>
+      <a-asset-item id="stairsprincipal" src="/Models/gltf/Stairs_Auditorium.gltf"></a-asset-item>
+      <a-asset-item id="ministairs" src="/Models/gltf/Mini_Stairs_Auditorium.gltf"></a-asset-item>
+      <a-asset-item id="roofauditorium" src="/Models/gltf/Roof_Auditorium.gltf"></a-asset-item>
+      <a-asset-item id="columns" src="/Models/gltf/Columns_Auditorium.gltf"></a-asset-item>
+      <a-asset-item id="frontwall" src="/Models/gltf/FrontWall_Auditorium.gltf"></a-asset-item>
+      <a-video id="canalizacion" src="/videos/Test.mp4" autoplay loop="true"></a-video>
+      <a-video id="logopng" src="/Models/Images/Ieproes_Logo.png"></a-video>
+
+      <canvas id="cam2"></canvas>
+
+
+      <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false"
+        static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
+                          colliderEventProperty: els;
+                          colliderEndEvent: collisions;
+                          colliderEndEventProperty: clearedEls;">
+      </a-mixin>
+      <a-mixin id="point" raycaster="showLine: true; objects: .vxr-interact" collision-filter="collisionForces: false"
+        static-body="shape: sphere; sphereRadius: 0.001" super-hands="colliderEvent: raycaster-intersection;
+                    colliderEventProperty: els;
+                    colliderEndEvent:raycaster-intersection-cleared;
+                    colliderEndEventProperty: clearedEls;"></a-mixin>
+
+      <!-- Player -->
+      <template id="player-template">
+        <a-entity networked-audio-source="positional:false"></a-entity>
+      </template>
+      ​
+      <!-- Nurse Avatar -->
+      <template id="student-avatar-template">
+        <a-entity class="NurseHeadAvatar" gltf-model="#StudentAvatar" position="0 2 0"
+          networked-audio-source="positional:false"></a-entity>
+
+      </template>
+
+      <!-- Teacher Avatar -->
+      <template id="teacher-avatar-template">
+        <a-entity class="SpectatorAvatar" gltf-model="#TeacherAvatar" scale="0.8 0.8 0.8"
+          networked-audio-source="positional:false">
+        </a-entity>
+      </template>
+
+      <!-- Spectator Avatar -->
+      <template id="spectator-avatar-template">
+        <a-entity class="SpectatorAvatar" gltf-model="#SpectatorAvatar" networked-audio-source="positional:false">
+        </a-entity>
+      </template>
+
+      <!-- Teacher Avatar Constraints -->
+      <template id="constraint-teacher-avatar-template">
+        <a-entity>
+          <a-entity class="name-up-teacher"></a-entity>
+          <a-entity class="TeacherAvatar" id="teacher" gltf-model="#teacher"></a-entity>
+        </a-entity>
+      </template>
+
+      <!-- Student Avatar Constraints -->
+      <template id="constraint-student-avatar-template">
+        <a-entity>
+          <a-entity class="name-up-student"></a-entity>
+          <a-entity class="StudentAvatar" id="student" gltf-model="#student"></a-entity>
+        </a-entity>
+      </template>
+
+      <!-- Spectator Avatar Constraints -->
+      <template id="constraint-spectator-avatar-template">
+        <a-entity>
+          <a-entity class="name-up"></a-entity>
+          <a-entity class="SpectatorAvatar" id="spectator" gltf-model="#SpectatorAvatar"></a-entity>
+      </template>
+
+      <!-- Right Hand -->
+      <template id="right-hand-template">
+        <a-entity>
+          <a-entity scale="0.8 0.8 0.8" gltf-model="#right-hand"></a-entity>
+        </a-entity>
+      </template>
+
+      <!-- Left Hand -->
+      <template id="left-hand-template">
+        <a-entity>
+          <a-entity scale="0.8 0.8 0.8" gltf-model="#left-hand"></a-entity>
+        </a-entity>
+      </template>
+
+      <!-- vxr-template -->
+      <template id="vxr-template">
+        <a-entity>
+          <a-box class="vxr-obj-a" rotator="speed:-2" width="0.35" height="0.35" depth="0.35" rotation="0 0 0"
+            color="green" position="0 0 0"></a-box>
+          <a-sphere class="vxr-obj-b" toggle-physics color="#f00" dynamic-body draggable grabbable radius="0.18"
+            position="0.5 0 0"></a-sphere>
+          <a-box class="vxr-obj-c" rotator="speed:2" color="blue" width="0.35" height="0.35" depth="0.35"
+            position="1 0 0"></a-box>
+        </a-entity>
+      </template>
+
+      <!-- vxr-gltf -->
+
+      <template id="vxr-obj-template">
+        <a-entity>
+          <a-entity id="e-maskn95" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-maskn95 vxr-interact" gltf-model="#maskn95" draggable grabbable toggle-physics
+            position="-0.53715 0.43992 -0.36489"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-2">
+        <a-entity>
+          <a-entity id="e-alcoholbottle" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" draggable grabbable toggle-physics
+            position="-0.46644 0.40663 0.04155"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-DestiledWater">
+        <a-entity>
+          <a-entity id="e-DestiledWater" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-DestiledWater vxr-interact" gltf-model="#DestiledWater" draggable grabbable toggle-physics
+            position="-0.57745 0.40478 0.0458" rotation="0 -73.78092119458637 0"></a-entity>
+        </a-entity>
+      </template>
+
+
+
+      <template id="vxr-obj-template-3">
+        <a-entity>
+          <a-entity id="e-Stray" grabbable="maxGrabbers: NaN" class="vxr-obj-tray vxr-interact" gltf-model="#tray"
+            draggable grabbable position="0.05613 0.35705 -0.07071"></a-entity>
+        </a-entity>
+      </template>
+      <template id="vxr-obj-template-rubber">
+        <a-entity>
+          <a-entity id="e-rubber" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-rubber vxr-interact" gltf-model="#rubber" dynamic-body draggable grabbable toggle-physics
+            position="-0.26873 0.43361 -0.08611" scale="0.8 0.8 0.8"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-dripbag">
+        <a-entity>
+          <a-entity id="e-dripbag" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-dripbag vxr-interact" gltf-model="#dripbag" dynamic-body draggable grabbable toggle-physics
+            position="-1.61 0.5 -0.30"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-medicaltape">
+        <a-entity>
+          <a-entity id="e-medicaltape" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-medicaltape vxr-interact" gltf-model="#medicaltape" dynamic-body
+            draggable grabbable toggle-physics position="-0.03659 0.41003 0.01048"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-gauze">
+        <a-entity>
+          <a-entity id="e-gauze" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-gauze vxr-interact" gltf-model="#gauze" dynamic-body draggable grabbable toggle-physics
+            position="-0.02265 0.40811 -0.11293"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-allistweezers">
+        <a-entity>
+          <a-entity id="e-allistweezers" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-allistweezers vxr-interact" gltf-model="#allistweezers" dynamic-body draggable grabbable
+            toggle-physics position="-0.12746 0.40972 -0.00736"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-cottonswab01">
+        <a-entity>
+          <a-entity id="e-cottonswab01" grabbable="maxGrabbers: NaN" dynamic-body="shape: box"
+            class="vxr-obj-cottonswab01 vxr-interact" gltf-model="#s_cube" dynamic-body draggable grabbable
+            toggle-physics position="0.29648 0.46185 -0.28026" rotation="180 0 0">
+
+
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-cottonswab02">
+        <a-entity>
+          <a-entity id="e-cottonswab02" grabbable="maxGrabbers: NaN" dynamic-body="shape: box"
+            class="vxr-obj-cottonswab02 vxr-interact" gltf-model="#cottonswab" dynamic-body draggable grabbable
+            toggle-physics position="0.30812 0.41611 -0.26221" visible="true"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-cottonswab03">
+        <a-entity>
+          <a-entity id="e-cottonswab03" rotation="-0.000001471664816786311 1.7016355847281638e-7 0.00002242123881483989"
+            grabbable="maxGrabbers: NaN" dynamic-body="shape: box" class="vxr-obj-cottonswab03 vxr-interact"
+            gltf-model="#cottonswab" dynamic-body draggable grabbable toggle-physics position="0.27888 0.58405 -0.28006"
+            visible="true"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-cottonswab04">
+        <a-entity>
+          <a-entity id="e-cottonswab04" rotation="-0.000001471664816786311 1.7016355847281638e-7 0.00002242123881483989"
+            grabbable="maxGrabbers: NaN" dynamic-body="shape: box" class="vxr-obj-cottonswab04 vxr-interact"
+            gltf-model="#cottonswab" dynamic-body draggable grabbable toggle-physics position="0.27888 0.58405 -0.28006"
+            visible="true"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-salinebottle">
+        <a-entity>
+          <a-entity id="e-salinebottle" rotation="8.414333427626106e-7 8.857917797911296e-11 0.000022061128539749063"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-salinebottle vxr-interact"
+            gltf-model="#salinebottle" dynamic-body draggable grabbable toggle-physics
+            position="-0.36782 0.40336 0.04422"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-alcoholgel">
+        <a-entity>
+          <a-entity id="e-alcoholgel" rotation="-0.000007477635997961198 3.8917617689839617e-10 0.000015630321302724323"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
+            gltf-model="#alcoholgel" dynamic-body draggable grabbable toggle-physics position="-0.24829999999872904 0.4042071089206425 0.05012000000017633">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-heparinseal">
+        <a-entity>
+          <a-entity id="e-heparinseal" grabbable="maxGrabbers: NaN" class="vxr-obj-heparinseal vxr-interact"
+            gltf-model="#heparinseal" draggable grabbable rotation="0 0 -90" position="0.016 0.424 -0.108"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-heparinseal-box">
+        <a-entity>
+          <a-entity id="e-heparinseal-box" dynamic-body="sphereRadius: NaN" rotation="9.646729492324354e-10 -9.44282748249421e-9 0.00014024550516111676"
+            grabbable="maxGrabbers: NaN" class="vxr-obj-heparinsealbox vxr-interact" gltf-model="#HeparineSealBox"
+            dynamic-body draggable grabbable position="0.01649 0.426 -0.10753">
+
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-intracath">
+        <a-entity>
+          <a-entity id="e-intracath" rotation="0.000006411976202429251 -180 0.00008383539833977058"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-intracath vxr-interact"
+            gltf-model="#intracath" dynamic-body draggable grabbable toggle-physics position="0.22124 0.41186 -0.0272">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-intracath-piece-1">
+        <a-entity>
+          <a-entity id="e-intracath-piece-1" id="firstPart" class="vxr-obj-intracath-piece-1 vxr-interact"
+            gltf-model="#intracath-piece-1" draggable="" grabbable="; maxGrabbers: NaN" position="0.76381 0.53849 -0.75531"
+            rotation="-45 0 0" visible="false"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-intracath-piece-2">
+        <a-entity>
+          <a-entity id="vxr-intracath-second-part" grabbable="maxGrabbers: NaN" ondragstart="setMass()"
+            class="vxr-obj-intracath-piece-2 vxr-interact" gltf-model="#intracath-piece-2" draggable grabbable
+            position="0.76397 0.55084 -0.74266" rotation="-45 0 0" visible="false"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-MedicalClothe">
+        <a-entity>
+          <a-entity id="e-MedicalClothe" class="vxr-obj-MedicalClothe vxr-interact" gltf-model="#MedicalClothe"
+            toggle-physics="" draggable="" grabbable position="-0.4152 0.42812 -0.09595"
+            rotation="0.9638385276229728 -1.9129844754810412 -0.029232191109150304" velocity="" dynamic-body></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Bowl-Medic">
+        <a-entity>
+          <a-entity id="e-Bowl-Medic" grabbable="maxGrabbers: NaN" class="vxr-obj-Bowl-Medic vxr-interact"
+            gltf-model="#Bowl_Medic" draggable="" grabbable position="0.2894 0.36151 -0.28536"
+            static-body="shape:mesh; sphereRadius: NaN" scale="1.3 1.1 1.3"
+            rotation="5.335276073060275 -0.8806075134822605 -0.20928413873134302">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Tape-Normal">
+        <a-entity>
+          <a-entity id="e-Tape-Normal" dynamic-body="sphereRadius: NaN" class="vxr-obj-Tape-Normal vxr-interact"
+            gltf-model="#Tape_Normal" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
+            position="-0.12812 0.40609 -0.19352" rotation="-0.00003465309403413762 5.889117070915113e-9 0.00022275971082987936" dynamic-body></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Tape-Normal1">
+        <a-entity>
+          <a-entity id="e-Tape-Normal1" dynamic-body="sphereRadius: NaN" class="vxr-obj-Tape-Normal1 vxr-interact"
+            gltf-model="#Tape_Normal" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
+            position="-0.09797 0.40609 -0.19265" rotation="0 0 0" dynamic-body></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Tape-Normal2">
+        <a-entity>
+          <a-entity id="e-Tape-Normal2" dynamic-body="sphereRadius: NaN" class="vxr-obj-Tape-Normal2 vxr-interact"
+            gltf-model="#Tape_Normal" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
+            position="-0.04789 0.40609 -0.19371" rotation="0 0 0" dynamic-body></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Tape-Normal3">
+        <a-entity>
+          <a-entity id="e-Tape-Normal3" dynamic-body="sphereRadius: NaN" class="vxr-obj-Tape-Normal3 vxr-interact"
+            gltf-model="#Tape_Normal" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
+            position="-0.01278 0.40609 -0.19378" rotation="0 0 0" dynamic-body></a-entity>
+        </a-entity>
+      </template>
+
+
+
+      <template id="vxr-obj-template-Tape-Bow">
+        <a-entity>
+
+          <a-entity id="e-Tape-Bow" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-Tape-Bow vxr-interact" gltf-model="#Tape_Bow" toggle-physics="" draggable="" grabbable
+            position="-0.09952 0.40604 -0.19048"
+            rotation="-0.00001396625848872134 -0.00776374769486596 -0.00002197834727980053" dynamic-body></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Tape-Butterfly">
+        <a-entity>
+          <a-entity id="e-Tape-Butterfly" dynamic-body="sphereRadius: NaN" class="vxr-obj-Tape-Butterfly vxr-interact"
+            gltf-model="#Tape_Butterfly" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
+            position="-0.045 0.40706 -0.18982" rotation="3.379325337782461 -0.843920236680026 -0.0037155551289126685"
+            dynamic-body></a-entity>
+
+        </a-entity>
+      </template>
+
+
+      <!-- <template id="vxr-obj-template-intracath">
+        <a-entity>
+          <a-entity class="vxr-obj-intracath vxr-interact" gltf-model="#intracath-piece-2" dynamic-body draggable grabbable
+            toggle-physics position="-1.11 0.45 -0.107"></a-entity>
+        </a-entity>
+      </template> -->
+
+      <template id="audience">
+        <a-entity id="spectator" position="-2.9119 2.18025 -2.79791" assign-seat>
+          <a-entity id="constraint-spectator" camera look-controls zoom="100" fov="120">
+            <a-entity class="name-up" name-up></a-entity>
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-ControlCard_Neonatal">
+        <a-entity>
+          <a-entity id="e-ControlCard_Neonatal" grabbable="maxGrabbers: NaN" ground-collider
+            dynamic-body="sphereRadius: NaN" class="vxr-obj-ControlCard_Neonatal vxr-interact" dynamic-body
+            gltf-model="#ControlCard_Neonatal" draggable="" grabbable position="0.00125 0.42582 -0.33082" visible="true"
+            ondragstart="SetObjectPosition(event)">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-SalineAmpoule">
+        <a-entity>
+          <a-entity id="e-SalineAmpoule" rotation="0.000040600517103049796 0.0020211245632466473 0.00007804917992091238"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-SalineAmpoule vxr-interact"
+            dynamic-body gltf-model="#SalineAmpoule" draggable="" grabbable position="-0.15094 0.40495 -0.31905"
+            visible="true">
+          </a-entity>
+        </a-entity>
+      </template>
+
+
+      <template id="vxr-obj-template-Syringe_1CC">
+        <a-entity>
+          <a-entity id="e-Tape-Syringe_1CC" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-Tape-Syringe_1CC vxr-interact" gltf-model="#Syringe_1CC" draggable=""
+            grabbable="maxGrabbers: NaN" position="0.17794 0.41081 -0.01357"
+            rotation="0.000012370459158777697 -180 0.00007702397321174505"></a-entity>
+
+          <!-- <a-entity id="e-Tape-Syringe_plug" collision-filter="collisionForces: false" dynamic-body="sphereRadius: NaN" class="vxr-obj-Tape-Syringe_plug vxr-interact" gltf-model="#Syringe_plug" 
+            draggable="" grabbable position="-0.13011 0.5023 -0.10645"
+            rotation="3.379325337782461 -0.843920236680026 -0.0037155551289126685" 
+            constraint="type: lock;
+            target: #e-Tape-Syringe_1CC;
+            maxForce:100"
+            ></a-entity> -->
+
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Aposito_BabyPatient3">
+        <a-entity>
+          <a-entity id="e-Aposito_BabyPatient3" static-body="sphereRadius: NaN"
+            class="vxr-obj-Aposito_BabyPatient3 vxr-interact" gltf-model="#Aposito_BabyPatient3" draggable=""
+            grabbable="maxGrabbers: NaN" position="0.762 0.519 0.00263" rotation="0 0 0" visible="false"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Aposito_BabyPatient3-static">
+        <a-entity>
+          <a-entity id="e-Aposito_BabyPatient3-static" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-Aposito_BabyPatient3-static vxr-interact" gltf-model="#Aposito_BabyPatient3_Static"
+            draggable="" grabbable="maxGrabbers: NaN" position="0.10352 0.4204 -0.08268" rotation="0 0 0"></a-entity>
+        </a-entity>
+      </template>
+
+
+    </a-assets>
+
+    <!-- Hidden Static Meshes  -->
+
+
+    <a-entity id="static-heparinseal" class="vxr-obj-heparinseal vxr-interact" gltf-model="#heparinseal"
+      position="0.76409 2.03313 -0.95815" rotation="45 -8.88624861371593e-9 0.00014024380116174428" visible="false">
+    </a-entity>
+    <a-entity id="StaticMedicalClothe" grabbable="maxGrabbers: NaN" class="vxr-obj-MedicalClothe vxr-interact"
+      gltf-model="../../Models/gltf/MedicalClothe.gltf" toggle-physics="" draggable="" grabbable
+      position="0.79885 1.8628 -0.22633" rotation="13.995640061660618 74.86896804753981 -5.7994788023141925" visible="false"></a-entity>
+
+    <a-entity id="Static-Tape-Bow" class="vxr-obj-Tape-Bow vxr-interact" gltf-model="../../Models/gltf/Tape_Bow.gltf"
+      toggle-physics="" draggable="" grabbable="; maxGrabbers: NaN" position="0.76446 2.0053 -0.99248"
+      rotation="0.0017188733853924698 77.997 179.9998479605043" visible="false"></a-entity>
+    <a-entity id="Static-Tape-Butterfly" grabbable="maxGrabbers: NaN" class="vxr-obj-Tape-Butterfly vxr-interact"
+      gltf-model="../../Models/gltf/Tape_Butterfly.gltf" toggle-physics="" draggable="" grabbable
+      position="0.7632 2.00579 -0.9882" rotation="0.4428963756361263 77.997 -177.91714637520374" visible="false"></a-entity>
+    <a-entity id="Static-Tape-Normal" class="vxr-obj-Tape-Normal vxr-interact"
+      gltf-model="../../Models/gltf/Tape_Normal.gltf" toggle-physics="" draggable="" grabbable="maxGrabbers: NaN"
+      position="0.765 2.004 -0.994" rotation="-0.00002110992401797946 77.997 180" visible=false></a-entity>
+    <a-entity id="Static-vxr-obj-rubber" grabbable="maxGrabbers: NaN" class="vxr-obj-rubber vxr-interact" gltf-model="../../Models/gltf/Rubber.gltf"
+      draggable="" grabbable position="0.85034 1.86346 -0.27339" scale="0.5 0.5 0.5" rotation="0 41.441464364017314 -90.00021045914971" visible="false"
+      ondragstart="setMassRubber()"></a-entity>
+
+
+    <!-- <a-entity class="vxr-obj-Tape-Butterfly vxr-interact" gltf-model="" dynamic-body draggable="" grabbable="" position="-0.15207 1.90947 -0.32083" rotation="3.379325337782461 2.843920236680026 -0.0037155551289126685"></a-entity> -->
+
+
+
+    <a-entity
+      environment="lightPosition: 1 5 -2; groundColor: #00275b; grid: dots; gridColor: #168dab; preset: starry; skyType: atmosphere; skyColor: #030022; playArea: 0.5; ground: flat; groundColor2: #009dff"
+      visible="">
+      <a-entity class="environment" position="0 50 0"></a-entity>
+      <a-entity class="environment" position="1 5 -2" light="intensity: 0.1" visible=""></a-entity>
+      <a-entity class="environmentDressing environment" visible="false"></a-entity>
+      <a-sky radius="200" theta-length="110" class="environment" material="shader: skyshader; sunPosition: 0 0 0"
+        visible="" geometry=""></a-sky>
+      <a-entity class="environment" position="0 50 0"></a-entity>
+      <a-entity class="environment" position="1 5 -2" light="intensity: 0.1" visible=""></a-entity>
+      <a-entity rotation="-90 0 0" class="environmentGround environment" visible="" scale="1 1 3"></a-entity>
+      <a-entity class="environmentDressing environment" visible="false"></a-entity>
+      <a-sky radius="200" theta-length="110" class="environment" material="shader: skyshader; sunPosition: 0 0 0"
+        visible="" geometry=""></a-sky>
+    </a-entity>
+    <a-light id="directionallight" light="intensity: 0.2" type="directional" position="0 0 0" rotation="-90 0 0"
+      intensity="0.400" target="#directionaltarget">
+      <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
+    </a-light>
+
+    <!-- Static Objects -->
+
+    <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
+    </a-entity> -->
+    <a-entity id="patient01" gltf-model="#patient" scale="" position="-1.45845 0.86579 -1.92747" material="color: brown"
+      rotation="0 0 0">
+    </a-entity>
+
+    <a-entity id="gene" gltf-model="#gene" scale="" position="2.827 0.920 -0.631" material="color: brown"
+      rotation="0 90 0" shadow="receive: false">
+    </a-entity>
+    <!-- <a-entity id="Scube" gltf-model="#s_cube"  scale="" position=" 0 1 0" material="color: black"> -->
+    </a-entity>
+
+    <!-- <a-entity id="genes01" gltf-model="#genes" scale="" position="-2.01361 0.858 0.60808" material="color: brown"
+      rotation="0 0 0" shadow="receive: false"> -->
+    </a-entity>
+
+
+
+    <a-entity class="gltf" gltf-model="#table" position="-0.13 1 -0.363" rotation="0 180 0"></a-entity>
+    <a-entity class="gltf" gltf-model="#bed" position="0.87277 0.948 -0.9535" rotation="0 90 0"></a-entity>
+    <a-box id="boxTable1" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
+      position="-0.11878 1.80687 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+    <a-box id="tableBox2" static-body="sphereRadius: NaN" class="boxTable2 vxr-ground" opacity="1" static-body
+      rotation="" position="-1.514 0 -0.370" color="red" depth="20" height="0.1" width="20"></a-box>
+    <!-- <a-box id="TorundaBowl" class="boxTable2" opacity="0" static-body position="0.30215 1.87809 -0.51316" depth="0.1"
+      height="0.1" width="0.1" material="" geometry="depth: 0.1; width: 0.1"></a-box> -->
+
+
+
+    <!-- Theater Objects -->
+    <!-- <a-entity id="frontwall01" gltf-model="#frontwall" scale="1 1 1" position="0 0 -1.12569" material="color: brown"
+      rotation="0 0 0"></a-entity>
+    <a-entity id="roofauditorium01" gltf-model="#roofauditorium" scale="1 1 1" position="0 1.35517 0"
+      material="color: brown" rotation="0 0 0"></a-entity>
+    <a-entity id="scenebase01" gltf-model="#scenebase" scale="1 1 1" position="0 -0.82 0" material="color: brown"
+      rotation="0 0 0"></a-entity>
+    <a-entity id="scenebase02" gltf-model="#scenebase02" scale="1 1 1" position="0 0 0" material="color: brown"
+      rotation="0 0 0"></a-entity>
+    <a-entity id="scenemedixlablogo01" gltf-model="#scenemedixlablogo" scale="2 2 2"
+      position="0.04036 11.22773 -2.14313" material="color: brown" rotation="0 0 0"></a-entity>
+    <a-entity id="sceneieproeslogo01" gltf-model="#sceneieproeslogo" scale="3 3 3" position="-7.3502 9.07108 11.32697"
+      material="color: brown" rotation="0 151.70203541678805 0"></a-entity>
+    <a-entity id="scenevertexlogo01" gltf-model="#scenevertexlogo" scale="1 1 1" position="7.21432 9.20078 11.49686"
+      material="color: brown" rotation="0 -146.36321468175908 0"></a-entity>
+    <a-entity id="stairsprincipal01" gltf-model="#stairsprincipal" scale="1 1 1" position="0 0 0" rotation="0 0 0">
+    </a-entity>
+    <a-entity id="ministairs01" gltf-model="#ministairs" scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
+    <a-entity id="lamps03" gltf-model="#lamps01" scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
+    <a-entity id="columns01" gltf-model="#columns" scale="1 1 1" position="0 0 0" material="color: brown"
+      rotation="0 0 0"></a-entity> -->
+
+
+    <!-- Theater Lights -->
+    <a-entity background="color: #92f2ff"></a-entity>
+
+    <a-entity light="intensity: 0.7; type: ambient" position="-2.02939 0.34443 -0.50913" rotation="0 180 0"
+      id="ambientlight"></a-entity>
+    <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
+      position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
+
+    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
+      rotation="0 180 0" movement-controls="speed:0.3">
+      <a-entity camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
+        networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
+      </a-entity>
+      <!-- /VIVE CONTROLLERS -->
+      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left"
+        networked="template:#left-hand-template">
+      </a-entity>
+      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right"
+        networked="template:#right-hand-template">
+      </a-entity>
+    </a-entity>
+    <a-sphere id="sphere2" static-body="sphereRadius: NaN" static-body attach-intracath opacity="0" position="0.86455 1.99849 -0.27845" attach-point-v2
+      geometry="radius: 0.05">
+    </a-sphere>
+
+    <a-box id="dragBox" dynamic-body="sphereRadius: NaN" dynamic-body geometry="width:0.03;height:0.03;depth:0.03" position="0.01882 1.93109 -0.31722"
+      opacity="0" ondragstart="setMassHeparinseal()">
+
+    </a-box>
+
+
+    <a-sphere id="heparinsealCollider" static-body="sphereRadius: NaN" attach-point-v2="objClass:vxr-obj-heparinseal"
+      static-body attach-intracath opacity="0" position="0.83591 1.86273 -0.25136" geometry="radius: 0.02">
+    </a-sphere>
+
+    <!-- <a-sphere id="TorundaColorTrigger" static-body opacity="0" position="0.28368 2.02476 -0.49238"
+      geometry="radius: 0.02" color-trigger  > -->
+    </a-sphere>
+
+    <!-- <a-box id="box1" attach-point-axis opacity="1" static-body rotation="20 0 0" position="0.93508 1.85 -1.03" color="red" depth="0.03" height="0.03" width="0.03"></a-box> -->
+    <!-- <a-sphere id="sphere1" static-body attach-point opacity="0" position="0.93508 1.85 -1" color="black" radius="0.03">
+    </a-sphere> -->
+    <a-box id="box2" static-body="sphereRadius: NaN" foo opacity="0" static-body rotation="0 180 0" position="0.95816 2.65 -2.07664" color="red"
+      depth="0.03" height="0.03" width="0.03"></a-box>
+    <!-- <a-sphere id="sphere1" static-body foo opacity="0" position="0.92 1.85 -0.35" color="black" radius="0.03"></a-sphere> -->
+    <!-- ground collider keeps objets from falling -->
+    <!-- <a-box constraint="target: #patient01;"  geometry="width: 1; depth: 1" dynamic-body scale="0.1 0.1 0.1" position="1.20136 4 -0.71331" /> -->
+    <!-- <a-box id="boxTST" constraint="target: #patient01; type: lock; maxForce: 10" position="1.2 5 -0.7" scale="0.1 0.1 0.1" dynamic-body /> -->
+    <!-- HINGE -->
+    <!-- LOCK -->
+
+
+
+    <!-- <a-box static-body width="100" height="0.01" depth="100" visible="false"></a-box> -->
+
+    <!-- <a-entity position="0 2 5"  id="boneToTest" bone-component scale="1 1 1" gltf-model="#testBone"></a-entity> -->
+    <a-entity position="-1.344 1. -1.705" id="boneToTest" skin-component scale="1 1 1" gltf-model="#Patient_IK">
+    </a-entity>
+
+    <a-entity position="0.288 2.5  -0.479" particle-system="
+    preset: default;
+    maxAge: 1;
+    positionSpread:0 0 0;
+    type: 1;
+    rotationAxis: x;
+    rotationAngle: 3.14;
+    rotationAngleSpread: 0;
+    accelerationValue: 0, 0 0;
+    accelerationSpread: 0 0 0;
+    velocityValue: 0 2 0;
+    velocitySpread: 0 0.8 0;
+    dragValue: 1;
+    dragSpread: 1;
+    color: #99e4ff,#00b2f2;
+    blending: 1; 
+    size: 0.05;
+    particleCount: 2;
+    opacity: 1,0.5;
+    texture: ./raindrop.png;
+    "></a-entity>
+
+
+  </a-scene>
+
+  <style>
+    .mic-btn {
+      position: absolute;
+      cursor: pointer;
+      bottom: 0.5%;
+      left: 0.5%;
+      background: #fff;
+      height: 40px;
+      width: 100px;
+      border-radius: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.5);
+    }
+  </style>
+
+  <button id="mic-btn" onclick="myFunction()" type="button" class="mic-btn">spectator link</button>
+
+
+
+  <script>
+    // Define custom schema for syncing avatar color, set by random-color
+    NAF.schemas.add({
+      template: '#student-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#teacher-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#spectator-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#constraint-spectator-avatar-template',
+      components: [
+        'position',
+        'rotation',
+        {
+          selector: '.name-up',
+          component: 'name-up'
+        },
+        {
+          selector: '.SpectatorAvatar',
+          component: 'randomize-spec-color'
+        }
+      ]
+    });
+    NAF.schemas.add({
+      template: '#constraint-teacher-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#constraint-student-avatar-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#player-template',
+      components: [
+        'position',
+        'rotation',
+      ]
+    });
+    NAF.schemas.add({
+      template: '#right-hand-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+    NAF.schemas.add({
+      template: '#left-hand-template',
+      components: [
+        'position',
+        'rotation'
+      ]
+    });
+
+    //Called by Networked-Aframe when connected to server
+    function onConnect() {
+      console.log("funca");
+    }
+  </script>
+  <script src="../../js/Feature-SetAttributes.js"></script>
+  <script src="../../js/Feature-SpawnTemplate.js"></script>
+  <script src="../../js/Feature-SpawnObjects.js"></script>
+
+  <!-- <script src="../../js/vxr-full-house.js"></script> -->
+
+
+
+
+
+</body>
+
+</html>
