@@ -450,6 +450,18 @@
     "selector": ".vxr-obj-shoe_cover_r_02_static"
   },
   {
+    "template": "vxr-obj-template-hazmat_suit",
+    "selector": ".vxr-obj-hazmat_suit"
+  },
+  {
+    "template": "vxr-obj-template-hazmat_suit_emisive",
+    "selector": ".vxr-obj-hazmat_suit_emisive"
+  },
+  {
+    "template": "vxr-obj-template-hazmat_suit_static",
+    "selector": ".vxr-obj-hazmat_suit_static"
+  },
+  {
     "template": "vxr-obj-template-alcohol_bottle_03",
     "selector": ".vxr-obj-alcohol_bottle_03"
   },

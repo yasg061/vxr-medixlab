@@ -14,6 +14,9 @@
   <script>
     let url2 = "../../../js/card.json"
   </script>
+  <script>
+    let url3 = "../../../js/assets.json"
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
   <script src="/easyrtc/easyrtc.js"></script>
   <script src="/dist/networked-aframe.js"></script>
@@ -963,7 +966,7 @@
           <a-entity id="e-alcoholgel" rotation="-0.000007477635997961198 3.8917617689839617e-10 0.000015630321302724323"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
             gltf-model="#alcoholgel" dynamic-body draggable grabbable toggle-physics
-            position="-0.21333 0.28691 0.05132" ondragstart="setOpacityAlcohol()">
+            position="-0.21333 0.28691 0.05132" ondragstart="setOpacityCard(this)">
           </a-entity>
         </a-entity>
       </template>
@@ -1002,7 +1005,7 @@
         <a-entity>
           <a-entity id="e-Bottle_Lubricant" rotation="-2.0268154900618367e-10 -177.7641700007407 0.000024572468783071285"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-Bottle_Lubricant vxr-interact"
-            gltf-model="#Bottle_Lubricant" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" dynamic-body draggable grabbable toggle-physics
+            gltf-model="#Bottle_Lubricant" ondragstart="emissiveObjectOn(this), setOpacityCard(this)" ondragend="emissiveObjectOff(this)" dynamic-body draggable grabbable toggle-physics
             position="-0.576290000000707 0.28749919427030535 -0.12235999999954095">
           </a-entity>
         </a-entity>
@@ -1445,11 +1448,11 @@
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
     <a-sphere id="sphere7" scale="0.05 0.05 0.05" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-SalineBag;obj_entity:2" opacity="0" position="-0.34821 2.14072 -0.84276"
+      trigger-animation="entity_id:e-SalineBag;obj_entity:2" opacity="0" position="-0.34821 2.14072 -1.42792"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
     <a-sphere id="sphere8" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-Bottle_Lubricant;obj_entity:2" opacity="0" position="-0.34464 2.14864 -1.40395"
+      trigger-animation="entity_id:e-Bottle_Lubricant;obj_entity:2" opacity="0" position="-0.34464 2.14864 -0.81339"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
     <a-entity id="arrow01" gltf-model="#arrow" visible="false" position="1.219 2.000 -0.835" rotation="0 0 0" animation-mixer>
@@ -1468,7 +1471,7 @@
 
 
   </a-scene>
-  <script src="../../js/card.js"></script>
+  <!-- <script src="../../js/description.js"></script> -->
 
   <script>
     // Define custom schema for syncing avatar color, set by random-color
