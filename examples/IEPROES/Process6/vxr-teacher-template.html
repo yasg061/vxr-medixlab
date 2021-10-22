@@ -69,6 +69,7 @@
 
           //trigger animation
           if (id_Data == e.detail.body.el.id && iterator_entity == 1) {
+            let self = document.getElementById(e.detail.body.el.id)
             let obj = document.getElementById(e.detail.body.el.id + "_static")
             let emisive = document.getElementById(e.detail.body.el.id + "_emisive")
             obj.setAttribute("visible", "true")
@@ -76,15 +77,32 @@
             emisive.setAttribute("visible", "false")
             e.detail.body.el.setAttribute('visible', 'false');
             emisive.remove()
+            
+            self.remove()
+            if(document.getElementById(e.detail.body.el.id + "OnHand")){
+              console.log("From hand validation")
+              let handObj = document.getElementById(e.detail.body.el.id + "OnHand")
+              handObj.remove()
+            }else{console.log("bad validation")}
           }
           //trigger Opacity
           if (id_Data == e.detail.body.el.id && iterator_entity == 2) {
+            let self = document.getElementById(e.detail.body.el.id)
             let obj = document.getElementById(e.detail.body.el.id + "_static")
             let emisive = document.getElementById(e.detail.body.el.id + "_emisive")
             emisive.setAttribute("visible", "false")
             e.detail.body.el.setAttribute('visible', 'false');
             obj.setAttribute("visible", "true")
             emisive.remove()
+            self.remove()
+            if(document.getElementById(e.detail.body.el.id + "OnHand")){
+              console.log("From hand validation")
+              let handObj = document.getElementById(e.detail.body.el.id + "OnHand")
+              handObj.remove()
+            }else{console.log("bad validation")}
+            
+            
+
           }
 
           if (id_Data == e.detail.body.el.id && iterator_entity == 3) {
@@ -244,6 +262,11 @@
         let arrow01 = document.getElementById('arrow01')
         arrow01.setAttribute('visible', 'true')
       }
+      if(element.id ==("e-UrinaryCatheter")){
+        console.log("folley grabbed, let's go!!!")
+        document.getElementById("e-UrinaryCatheterOnHand").setAttribute("visible","true")
+        element.setAttribute("visible","false")
+      }
     }
 
     function emissiveObjectOff(element) {
@@ -256,9 +279,14 @@
         emissiveObject.setAttribute("visible", "false")
       }
 
-      if (element.id == "e-Basin") {
+      if (element.id == "e-Basin" && element) {
         let arrow01 = document.getElementById('arrow01')
         arrow01.setAttribute('visible', 'false')
+      }      
+      if(element.id ==("e-UrinaryCatheter" && element)){
+        console.log("folley grabbed, let's go!!!")
+        document.getElementById("e-UrinaryCatheterOnHand").setAttribute("visible","false")
+        element.setAttribute("visible","true")
       }
     }
 
@@ -549,6 +577,7 @@
 
       <!-- <a-asset-item id="UrinaryCatheter" src="UrinalCatheter_Foley.gltf"></a-asset-item> -->
       <a-asset-item id="UrinaryCatheter" src="UrinalCatheter_Foley_Static2.gltf"></a-asset-item>
+      <a-asset-item id="UrinaryCatheterOnHand" src="Assets/HandCatheter_Static.gltf"></a-asset-item>
       <a-asset-item id="Adhesive_Catheter" src="Assets/Adhesive_Catheter.gltf"></a-asset-item>
       <a-asset-item id="Adhesive_Catheter_emisive" src="../Process5/Assets/CordonUmbilical_Adhesive_Emissive.gltf">
       </a-asset-item>
@@ -652,14 +681,18 @@
       <!-- Right Hand -->
       <template id="right-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#right-hand"></a-entity>
+          <a-entity scale="0.8 0.8 0.8" gltf-model="#right-hand">
+            <a-entity id="e-UrinaryCatheterOnHand" scale="1 1 1" gltf-model="#UrinaryCatheterOnHand" visible="false"></a-entity>
+          </a-entity>
         </a-entity>
       </template>
 
       <!-- Left Hand -->
       <template id="left-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#left-hand"></a-entity>
+          <a-entity scale="0.8 0.8 0.8" gltf-model="#left-hand">
+            
+          </a-entity>
         </a-entity>
       </template>
 
@@ -1130,6 +1163,8 @@
         </a-entity>
       </template>
     </a-assets>
+    
+    
 
     <template id="vxr-obj-template-UrinaryCatheter_emisive">
       <a-entity>

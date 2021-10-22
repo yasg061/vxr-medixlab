@@ -51,15 +51,16 @@
 
   <script>
 
-    let sequence = 1
+    let sequence = [[1]]
     let sequencePerGroup = 0
     let objGroup = []
     AFRAME.registerComponent('trigger-animation', {
       schema: {
         entity_id: { type: 'string', default: '0' },
         mode: { type: 'string', default: 0 },
-        iteratorSequence: { type: 'int', default: 0 },
+        iteratorSequence: { type: 'int', default: 0 },// the n° of the sequence from obj.
         actorsWithSameIterator: { type: 'int', default: 0 },
+        nSequence:{ type: 'int', default: 0 },
 
       },
 
