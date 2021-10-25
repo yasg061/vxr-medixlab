@@ -24,96 +24,8 @@
     "selector": ".vxr-obj-alcoholgel"
   },
   {
-    "template": "vxr-obj-template-Basin",
-    "selector": ".vxr-obj-Basin"
-  },
-  {
-    "template": "vxr-obj-template-Basin_emisive",
-    "selector": ".vxr-obj-Basin"
-  },
-  {
-    "template": "vxr-obj-template-Basin_static",
-    "selector": ".vxr-obj-Basin"
-  },
-  {
-    "template": "vxr-obj-template-Bottle_Lubricant",
-    "selector": ".vxr-obj-Bottle_Lubricant"
-  },
-  {
-    "template": "vxr-obj-template-Bottle_Lubricant_emisive",
-    "selector": ".vxr-obj-Bottle_Lubricant_emisive"
-  },
-  {
-    "template": "vxr-obj-template-Bottle_Lubricant_static",
-    "selector": ".vxr-obj-Bottle_Lubricant_static"
-  },
-  {
-    "template": "vxr-obj-template-SalineBag_emisive",
-    "selector": ".vxr-obj-SalineBag_emisive"
-  },
-  {
-    "template": "vxr-obj-template-SalineBag_static",
-    "selector": ".vxr-obj-SalineBag_static"
-  },
-  {
-    "template": "vxr-obj-template-SterileField_Folded",
-    "selector": ".vxr-obj-SterileField_Folded"
-  },
-  {
-    "template": "vxr-obj-template-SterileField_Folded_emisive",
-    "selector": ".vxr-obj-SterileField_Folded_Emissive"
-  },
-  {
-    "template": "vxr-obj-template-SterileField_Folded_static",
-    "selector": ".vxr-obj-SterileField_Folded_Static"
-  },
-  {
-    "template": "vxr-obj-template-UmbilicalTape",
-    "selector": ".vxr-obj-UmbilicalTape"
-  },
-  {
-    "template": "vxr-obj-template-UrinaryBag",
-    "selector": ".vxr-obj-UrinaryBag"
-  },
-  {
-    "template": "vxr-obj-template-UrinaryBag_emisive",
-    "selector": ".vxr-obj-UrinaryBag_emisive"
-  },
-  {
-    "template": "vxr-obj-template-UrinaryBag_static",
-    "selector": ".vxr-obj-UrinaryBag_static"
-  },
-  {
-    "template": "vxr-obj-template-UrinaryCatheter",
-    "selector": ".vxr-obj-UrinaryCatheter"
-  },
-  {
-    "template": "vxr-obj-template-UrinaryCatheter_emisive",
-    "selector": ".vxr-obj-UrinaryCatheter_emisive"
-  },
-  {
-    "template": "vxr-obj-template-UrinaryCatheter_static",
-    "selector": ".vxr-obj-UrinalCatheter_static"
-  },
-  {
     "template": "vxr-obj-template-tstSyringe",
     "selector": ".vxr-obj-tstSyringe"
-  },
-  {
-    "template": "vxr-obj-template-Adhesive_Catheter",
-    "selector": ".vxr-obj-Adhesive_Catheter"
-  },
-  {
-    "template": "vxr-obj-template-Adhesive_Catheter_emisive",
-    "selector": ".vxr-obj-Adhesive_Catheter_emisive"
-  },
-  {
-    "template": "vxr-obj-template-Adhesive_Catheter_static",
-    "selector": ".vxr-obj-Adhesive_Catheter_static"
-  },
-  {
-    "template": "vxr-obj-template-SalineBag",
-    "selector": ".vxr-obj-SalineBag"
   },
   {
     "template": "vxr-obj-template-Clamp_Allis",
@@ -122,15 +34,7 @@
   {
     "template": "vxr-obj-template-Gauze_Pene",
     "selector": ".vxr-obj-Gauze_Pene"
-  },
-  {
-    "template": "vxr-obj-template-Gauze_Pene_emisive",
-    "selector": ".vxr-obj-Gauze_Pene_emisive"
-  },
-  {
-    "template": "vxr-obj-template-Gauze_Pene_static",
-    "selector": ".vxr-obj-Gauze_Pene_static"
-  },
+  }, 
   {
     "template": "vxr-obj-template-ClampHolder",
     "selector": ".vxr-obj-ClampHolder"
@@ -138,10 +42,6 @@
   {
     "template": "vxr-obj-template-Biombo_Anim",
     "selector": ".vxr-obj-Biombo_Anim"
-  },
-  {
-    "template": "vxr-obj-template-CordonUmbilical_Static",
-    "selector": ".vxr-obj-CordonUmbilical_Static"
   },
   {
     "template": "vxr-obj-template-Table_005",
@@ -178,6 +78,18 @@
   {
     "template": "vxr-obj-template-adhesive",
     "selector": ".vxr-obj-adhesive"
+  },
+  {
+    "template": "vxr-obj-template-CottonSwabs01",
+    "selector": ".e-CottonSwabs01"
+  },
+  {
+    "template": "vxr-obj-template-CottonPink",
+    "selector": ".e-CottonPink"
+  },
+  {
+    "template": "vxr-obj-template-Gauze01",
+    "selector": ".e-Gauze01"
   }
   
 ]
