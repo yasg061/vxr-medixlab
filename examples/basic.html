@@ -138,6 +138,25 @@
   </a-scene>
 
   <script>
+  
+  const curve = new THREE.CubicBezierCurve3(
+	new THREE.Vector3( -10, 0, 0 ),
+	new THREE.Vector3( -5, 15, 0 ),
+	new THREE.Vector3( 20, 15, 0 ),
+	new THREE.Vector3( 10, 0, 0 )
+);
+
+const points = curve.getPoints( 50 );
+const geometry = new THREE.BufferGeometry().setFromPoints( points );
+
+const material = new THREE.LineBasicMaterial( { color : 0xff0000 } );
+
+// Create the final object to add to the scene
+const curveObject = new THREE.Line( geometry, material );
+document.querySelector("a-scene").object3D.add(curveObject)
+
+
+
     // On mobile remove elements that are resource heavy
     var isMobile = AFRAME.utils.device.isMobile();
   </script>

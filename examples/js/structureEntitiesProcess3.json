@@ -90,6 +90,14 @@
   {
     "template": "vxr-obj-template-Gauze01",
     "selector": ".e-Gauze01"
+  },
+  {
+    "template": "vxr-obj-template-Gauze01_emisive",
+    "selector": ".e-Gauze01_emisive"
+  },
+  {
+    "template": "vxr-obj-template-Gauze01_static",
+    "selector": ".e-Gauze01_static"
   }
   
 ]
