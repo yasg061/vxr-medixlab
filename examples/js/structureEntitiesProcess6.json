@@ -120,18 +120,6 @@
     "selector": ".vxr-obj-Clamp_Allis"
   },
   {
-    "template": "vxr-obj-template-Gauze_Pene",
-    "selector": ".vxr-obj-Gauze_Pene"
-  },
-  {
-    "template": "vxr-obj-template-Gauze_Pene_emisive",
-    "selector": ".vxr-obj-Gauze_Pene_emisive"
-  },
-  {
-    "template": "vxr-obj-template-Gauze_Pene_static",
-    "selector": ".vxr-obj-Gauze_Pene_static"
-  },
-  {
     "template": "vxr-obj-template-ClampHolder",
     "selector": ".vxr-obj-ClampHolder"
   },
