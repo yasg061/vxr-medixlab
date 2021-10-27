@@ -925,9 +925,31 @@
       <a-entity>
         <a-entity id="e-Gauze01"
           grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
-          rotation="0.0000012707293381490825 180 0.000002570910678349563" grabbable dynamic-body
+          rotation="0 0 0" grabbable dynamic-body  ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" 
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze" dynamic-body draggable grabbable
-          toggle-physics position="-0.20224 0.33107 -0.25369">
+          toggle-physics position="-0.07629 0.33754 -0.1807">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+    <template id="vxr-obj-template-Gauze01_emisive">
+      <a-entity>
+        <a-entity id="e-Gauze01_emisive"  visible="false"
+          grabbable="maxGrabbers: NaN"  
+          rotation="3.4448202278071807 -179.91534389163616 -3.0592096498861374"  
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze"  
+          position="1.383 0.463 -1.534">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+    <template id="vxr-obj-template-Gauze01_static">
+      <a-entity>
+        <a-entity id="e-Gauze01_static" visible="false"
+          grabbable="maxGrabbers: NaN"  
+          rotation="0.0000012707293381490825 180 0.000002570910678349563"  
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze" 
+          position="1.383 0.463 -1.534">
         </a-entity>
       </a-entity>
     </template>
@@ -1021,7 +1043,7 @@
     <!------------------------------------------------------------------------------------------------------------------->
 
     <a-sphere id="sphere1" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-UrinaryBag;obj_entity:1" opacity="0" position="0.76405 1.27307 -1.17969"
+      trigger-animation="entity_id:e-Gauze01;obj_entity:1" opacity="0" position="1.38076 1.96867 -1.76548"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
     <a-sphere id="sphere2" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
