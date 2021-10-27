@@ -148,16 +148,28 @@
       "selector": ".vxr-obj-Clothed_Instruments_Vesical"
     },
     {
-      "template": "vxr-obj-template-card_yellow",
-      "selector": ".vxr-obj-card_yellow"
-    },
-    {
       "template": "vxr-obj-template-Assistant_Nurse",
       "selector": ".vxr-obj-Assistant_Nurse"
     },
     {
       "template": "vxr-obj-template-witness_tape",
       "selector": ".vxr-obj-witness_tape"
+    },
+    {
+      "template": "vxr-obj-template-HandLamp",
+      "selector": ".vxr-obj-HandLamp"
+    },
+    {
+      "template": "vxr-obj-template-Hyssop",
+      "selector": ".vxr-obj-Hyssop"
+    },
+    {
+      "template": "vxr-obj-template-RubberCloth",
+      "selector": ".vxr-obj-RubberCloth"
+    },
+    {
+      "template": "vxr-obj-template-WatterGlass",
+      "selector": ".vxr-obj-WatterGlass"
     },
     {
       "template": "vxr-obj-template-adhesive",
