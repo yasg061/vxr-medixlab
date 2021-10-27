@@ -346,7 +346,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -973,13 +973,13 @@
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity> -->
-    <a-entity id="patient01" blend-shape gltf-model="#patient" scale="" position="1.313 1.676 -1.092"
-      material="color: brown" rotation="0 0 0">
+    <a-entity id="patient01" blend-shape gltf-model="#patient" scale="" position="1.35881 0.86613 -1.04111"
+      material="color: brown" rotation="0 -90 0">
     </a-entity>
 
-    <a-entity id="bedhospital" gltf-model="#hospitalbed" scale="" position="1.349 0.889 -1.079" 
+    <!-- <a-entity id="bedhospital" gltf-model="#hospitalbed" scale="" position="1.349 0.889 -1.079" 
       rotation="0 -90 0">
-    </a-entity>
+    </a-entity> -->
 
 
     <!-- <a-entity id="Scube" gltf-model="#s_cube"  scale="" position=" 0 1 0" material="color: black"> -->
@@ -1043,7 +1043,7 @@
     <!------------------------------------------------------------------------------------------------------------------->
 
     <a-sphere id="sphere1" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-Gauze01;obj_entity:1" opacity="0" position="1.38076 1.96867 -1.76548"
+      trigger-animation="entity_id:e-Gauze01;obj_entity:1" opacity="1" position="1.38076 1.96867 -1.76548"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
     <a-sphere id="sphere2" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
