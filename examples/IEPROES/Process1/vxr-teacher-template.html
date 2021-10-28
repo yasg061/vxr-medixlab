@@ -396,6 +396,29 @@
 
       }
     })
+
+    AFRAME.registerComponent('ao-map', {
+      schema: {
+        src: {default: ''}
+      },
+      init: function () {
+        console.log('AO MAP!');
+        var aoMap = new THREE.TextureLoader().load(this.data.src);
+        aoMap.flipY = false;
+        this.el.addEventListener('model-loaded', function(e) {
+          e.detail.model.traverse((o) => {
+            if (o.isMesh) {
+              o.material.aoMap = aoMap;
+              if (o.geometry.attributes.uv2 === undefined &&  
+                  o.geometry.attributes.uv !== undefined) {
+                  o.geometry.addAttribute( 'uv2', new THREE.BufferAttribute( o.geometry.attributes.uv.array, 2 ) );
+                }
+            }
+          });
+        });
+        
+      }
+    });
   </script>
   <script>
     function spawnentity() {
@@ -624,6 +647,16 @@
         </a-entity>
       </template>
 
+      <!--<template id="vxr-obj-template-gabachon_01">
+        <a-entity>
+          <a-entity id="e-gabachon_01" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 180 0" grabbable dynamic-body
+            class="vxr-obj-gabachon_01 vxr-interact" gltf-model="#gabachon" dynamic-body draggable grabbable
+            toggle-physics position="-0.7469 -0.0374 0.05027" ao-map="src: ao-textures/gabachon_ao3.png">
+          </a-entity>
+        </a-entity>
+      </template>-->
+
       <template id="vxr-obj-template-gabachon_01_emisive">
         <a-entity>
           <a-entity id="e-gabachon_01_emisive" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
@@ -641,6 +674,15 @@
           </a-entity>
         </a-entity>
       </template>
+
+      <!--<template id="vxr-obj-template-gabachon_01_static">
+        <a-entity>
+          <a-entity id="e-gabachon_01_static" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+            class="vxr-obj-gabachon_01_static vxr-interact" gltf-model="#gabachon_static" draggable grabbable
+            position="0.107 -0.113 -0.079" visible="false" ao-map="src: ao-textures/gabachon_ao3.png">
+          </a-entity>
+        </a-entity>
+      </template>-->
 
       <template id="vxr-obj-template-glovelong_l_01">
         <a-entity>
