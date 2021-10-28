@@ -11,10 +11,7 @@
     "template": "vxr-obj-template-Bowl-Medic-2",
     "selector": ".vxr-obj-template-Bowl-Medic-2"
   },
-  {
-    "template": "vxr-obj-template-gauze",
-    "selector": ".vxr-obj-gauze"
-  },
+  
   {
     "template": "vxr-obj-template-medicaltape",
     "selector": ".vxr-obj-medicaltape"
@@ -31,10 +28,6 @@
     "template": "vxr-obj-template-Clamp_Allis",
     "selector": ".vxr-obj-Clamp_Allis"
   },
-  {
-    "template": "vxr-obj-template-Gauze_Pene",
-    "selector": ".vxr-obj-Gauze_Pene"
-  }, 
   {
     "template": "vxr-obj-template-ClampHolder",
     "selector": ".vxr-obj-ClampHolder"
@@ -98,6 +91,10 @@
   {
     "template": "vxr-obj-template-Gauze01_static",
     "selector": ".e-Gauze01_static"
+  },
+  {
+    "template": "vxr-obj-template-ClorhexidinaBottle",
+    "selector": ".e-ClorhexidinaBottle"
   }
   
 ]
