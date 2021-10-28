@@ -361,12 +361,7 @@
       <a-asset-item id="table" src="Table.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle.gltf"></a-asset-item>
       <a-asset-item id="bed" src="Baby_Crib.gltf"></a-asset-item>
-      <!-- <a-asset-item id="patient" src="../../Models/gltf/Baby.gltf"></a-asset-item> -->
-      <!-- <a-asset-item id="patient" src="Baby_Jeringa.gltf"></a-asset-item> -->
-      <!-- <a-asset-item id="patient" src="Patient_VesicalMale.gltf"></a-asset-item> -->
-      <!-- <a-asset-item id="patient" src="Naked_P_Bryan.gltf"></a-asset-item> -->
-      <!-- <a-asset-item id="patient" src="Assets/Patient_Bed.gltf"></a-asset-item> -->
-      <a-asset-item id="patient" src="Patient_Male_VenaCava_Static.gltf"></a-asset-item>
+      <a-asset-item id="patient" src="Assets/Patient_SubclavianVein_Complete.gltf"></a-asset-item>
 
 
       <!-- <a-asset-item id="patient" src="Female_Paciente.gltf"></a-asset-item> -->
@@ -510,6 +505,15 @@
       <a-asset-item id="ClampHolder" src="../Process5/Assets/ClampHolder.gltf"></a-asset-item>
 
       <a-asset-item id="Table_005" src="../Process5/Assets/Table_005.gltf"></a-asset-item>
+      
+      
+            <!--CottonBag_Static01 -->
+
+      <a-asset-item id="CottonBag_Static01" src="Assets/CottonBag_Static01.gltf"></a-asset-item>
+      <a-asset-item id="CottonBag_Emissive" src="Assets/CottonBag_Emissive.gltf"></a-asset-item>
+
+      
+      
 
 
 
@@ -529,7 +533,7 @@
 
       <a-asset-item id="CottonSwabs01" src="CottonSwabs01.gltf"></a-asset-item>
       <a-asset-item id="CottonPink" src="Cotton_Pink.gltf"></a-asset-item>
-      <a-asset-item id="Gauze" src="Gauze.gltf"></a-asset-item>
+      <a-asset-item id="Gauze" src="Assets/Mask_Covid.gltf"></a-asset-item>
 
       <canvas id="cam2"></canvas>
 
@@ -697,7 +701,7 @@
         <a-entity>
           <a-entity id="e-allistweezers" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-allistweezers vxr-interact" gltf-model="#allistweezers" dynamic-body draggable grabbable
-            toggle-physics position="-0.46739 0.29222 -0.15337"></a-entity>
+            toggle-physics position="-0.58164 0.29222 0.04612"></a-entity>
         </a-entity>
       </template>
 
@@ -721,16 +725,16 @@
         </a-entity>
       </template>
       
-      <!-- <template id="vxr-obj-template-gauze">
+      <template id="vxr-obj-template-Bowl-Medic-3">
         <a-entity>
-          <a-entity id="e-gauze" visible="false"
-            rotation="2.7734857448993197e-8 2.449646044746048e-7 0.000011397112583283267" grabbable="maxGrabbers: NaN"
-            dynamic-body="sphereRadius: NaN" class="vxr-obj-gauze vxr-interact" gltf-model="#gauze" dynamic-body
-            draggable grabbable toggle-physics position="0.38607 0.43406 -1.55706" ondragstart="genericSetMass(this)">
+          <a-entity id="e-Bowl-Medic-3" visible="true" grabbable="maxGrabbers: NaN"
+            class="vxr-obj-Bowl-Medic-3 vxr-interact" gltf-model="#Bowl_Medic" draggable="" grabbable
+            position="-0.51268 0.28823 -0.22341" static-body="shape:mesh; sphereRadius: NaN" scale="1 1 1"
+            rotation="0 0 0">
           </a-entity>
         </a-entity>
-      </template> -->
-
+      </template>
+      
       <template id="vxr-obj-template-medicaltape">
         <a-entity>
           <a-entity id="e-medicaltape" rotation="-2.1929058992745825e-11 -8.923316508226033e-11 0.000009766306017795854"
@@ -899,7 +903,92 @@
           grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
           rotation="0.0000012707293381490825 180 0.000002570910678349563" grabbable dynamic-body
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonSwabs01" dynamic-body draggable grabbable
-          toggle-physics position="-0.20224 0.33107 -0.25369">
+          toggle-physics position="-0.18627 0.29865 -0.31528">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+    
+    
+    <template id="vxr-obj-template-CottonSwabs02">
+      <a-entity>
+        <a-entity id="e-CottonSwabs02"
+          grabbable="maxGrabbers: NaN" 
+          rotation="0.0000012707293381490825 180 0.000002570910678349563" grabbable  
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonSwabs01" dynamic-body="mass:0.0; sphereRadius: NaN" draggable grabbable
+            position="-0.53241 0.31015 -0.21097">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+       
+    <template id="vxr-obj-template-CottonSwabs08">
+      <a-entity>
+        <a-entity id="e-CottonSwabs08"
+          grabbable="maxGrabbers: NaN" 
+          rotation="0.0000012707293381490825 180 0.000002570910678349563" grabbable  
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonSwabs01" dynamic-body="mass:0.0" draggable grabbable
+            position="-0.49985 0.33107 -0.20463">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+       
+    <template id="vxr-obj-template-CottonSwabs07">
+      <a-entity>
+        <a-entity id="e-CottonSwabs07"
+          grabbable="maxGrabbers: NaN" 
+          rotation="0.0000012707293381490825 180 0.000002570910678349563" grabbable  
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonSwabs01" dynamic-body="mass:0.0; sphereRadius: NaN" draggable grabbable
+            position="-0.49705 0.33107 -0.23868">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+       
+    <template id="vxr-obj-template-CottonSwabs03">
+      <a-entity>
+        <a-entity id="e-CottonSwabs03"
+          grabbable="maxGrabbers: NaN" 
+          rotation="0.0000012707293381490825 180 0.000002570910678349563" grabbable  
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonSwabs01" dynamic-body="mass:0.0" draggable grabbable
+            position="-0.53554 0.31633 -0.23767">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+       
+    <template id="vxr-obj-template-CottonSwabs04">
+      <a-entity>
+        <a-entity id="e-CottonSwabs04"
+          grabbable="maxGrabbers: NaN" 
+          rotation="0.0000012707293381490825 180 0.000002570910678349563" grabbable  
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonSwabs01" dynamic-body="mass:0.0; sphereRadius: NaN" draggable grabbable
+            position="-0.51512 0.31341 -0.25283">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+       
+    <template id="vxr-obj-template-CottonSwabs05">
+      <a-entity>
+        <a-entity id="e-CottonSwabs05"
+          grabbable="maxGrabbers: NaN" 
+          rotation="0.0000012707293381490825 180 0.000002570910678349563" grabbable  
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonSwabs01" dynamic-body="mass:0.0; sphereRadius: NaN" draggable grabbable
+            position="-0.5096 0.31054 -0.22787">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+       
+    <template id="vxr-obj-template-CottonSwabs06">
+      <a-entity>
+        <a-entity id="e-CottonSwabs06"
+          grabbable="maxGrabbers: NaN" 
+          rotation="0.0000012707293381490825 180 0.000002570910678349563" grabbable  
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonSwabs01" dynamic-body="mass:0.0; sphereRadius: NaN" draggable grabbable
+            position="-0.50709 0.31184 -0.19793">
         </a-entity>
       </a-entity>
     </template>
@@ -918,7 +1007,7 @@
     <template id="vxr-obj-template-Gauze01">
       <a-entity>
         <a-entity id="e-Gauze01"
-          grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+          grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" scale="0.84 0.84 0.84"
           rotation="0 0 0" grabbable dynamic-body  ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" 
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze" dynamic-body draggable grabbable
           toggle-physics position="-0.07629 0.33754 -0.1807">
@@ -928,22 +1017,22 @@
     
     <template id="vxr-obj-template-Gauze01_emisive">
       <a-entity>
-        <a-entity id="e-Gauze01_emisive"  visible="false"
+        <a-entity id="e-Gauze01_emisive"  visible="false" scale="0.84 0.84 0.84"
           grabbable="maxGrabbers: NaN"  
-          rotation="3.4448202278071807 -179.91534389163616 -3.0592096498861374"  
+          rotation="-90 0 0"  
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze"  
-          position="1.383 0.463 -1.534">
+          position="1.36 0.248 -1.549">
         </a-entity>
       </a-entity>
     </template>
     
     <template id="vxr-obj-template-Gauze01_static">
       <a-entity>
-        <a-entity id="e-Gauze01_static" visible="false"
+        <a-entity id="e-Gauze01_static" visible="false" scale="0.84 0.84 0.84"
           grabbable="maxGrabbers: NaN"  
-          rotation="0.0000012707293381490825 180 0.000002570910678349563"  
+          rotation="-90 0 0"  
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze" 
-          position="1.383 0.463 -1.534">
+          position="1.36 0.248 -1.549">
         </a-entity>
       </a-entity>
     </template>
@@ -955,6 +1044,39 @@
           rotation="0.0000012707293381490825 0 0.000002570910678349563"  
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#ClorhexidinaBottle" 
           position="-0.28282 0.29202 -0.04103">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+    <template id="vxr-obj-template-CottonBag_Static01">
+      <a-entity>
+        <a-entity id="e-CottonBag_Static01"
+          grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" scale="0.84 0.84 0.84"
+          rotation="0 0 0" grabbable dynamic-body  ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" 
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonBag_Static01" dynamic-body draggable grabbable
+          toggle-physics position="-0.07629 0.33754 -0.1807">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+    <template id="vxr-obj-template-CottonBag_Emissive">
+      <a-entity>
+        <a-entity id="e-CottonBag_Emissive"
+          grabbable="maxGrabbers: NaN"   scale="0.84 0.84 0.84"
+          rotation="0 0 0" grabbable 
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonBag_Emissive"   draggable grabbable
+          position="-0.07629 0.33754 -0.1807">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+    <template id="vxr-obj-template-CottonBag_Animation">
+      <a-entity>
+        <a-entity id="e-CottonBag_Animation"
+          grabbable="maxGrabbers: NaN"  scale="0.84 0.84 0.84"
+          rotation="0 0 0" grabbable   
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonBag_Static01" draggable grabbable
+          position="-0.07629 0.33754 -0.1807">
         </a-entity>
       </a-entity>
     </template>
@@ -1040,7 +1162,7 @@
 
 
 
-    <a-entity id="genes01" gltf-model="#genes" scale="" position="0.14005 0.858 0.55534" material="color: brown"
+    <a-entity id="genes01" gltf-model="#genes" scale="" position="0.14005 0.858 0.47531" material="color: brown"
       rotation="0 -90.000 0" shadow="receive: false"></a-entity>
 
     <!------------------------------------------------------------------------------------------------------------------->

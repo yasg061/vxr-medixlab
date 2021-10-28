@@ -11,7 +11,10 @@
     "template": "vxr-obj-template-Bowl-Medic-2",
     "selector": ".vxr-obj-template-Bowl-Medic-2"
   },
-  
+  {
+    "template": "vxr-obj-template-Bowl-Medic-3",
+    "selector": ".vxr-obj-template-Bowl-Medic-3"
+  },
   {
     "template": "vxr-obj-template-medicaltape",
     "selector": ".vxr-obj-medicaltape"
@@ -77,6 +80,34 @@
     "selector": ".e-CottonSwabs01"
   },
   {
+    "template": "vxr-obj-template-CottonSwabs02",
+    "selector": ".e-CottonSwabs02"
+  },
+  {
+    "template": "vxr-obj-template-CottonSwabs03",
+    "selector": ".e-CottonSwabs03"
+  },
+  {
+    "template": "vxr-obj-template-CottonSwabs04",
+    "selector": ".e-CottonSwabs04"
+  },
+  {
+    "template": "vxr-obj-template-CottonSwabs05",
+    "selector": ".e-CottonSwabs05"
+  },
+  {
+    "template": "vxr-obj-template-CottonSwabs06",
+    "selector": ".e-CottonSwabs06"
+  },
+  {
+    "template": "vxr-obj-template-CottonSwabs07",
+    "selector": ".e-CottonSwabs07"
+  },
+  {
+    "template": "vxr-obj-template-CottonSwabs08",
+    "selector": ".e-CottonSwabs08"
+  },
+  {
     "template": "vxr-obj-template-CottonPink",
     "selector": ".e-CottonPink"
   },
@@ -95,6 +126,18 @@
   {
     "template": "vxr-obj-template-ClorhexidinaBottle",
     "selector": ".e-ClorhexidinaBottle"
+  },
+  {
+    "template": "vxr-obj-template-CottonBag_Static01",
+    "selector": ".e-CottonBag_Static01"
+  },
+  {
+    "template": "vxr-obj-template-CottonBag_Emissive",
+    "selector": ".e-CottonBag_Emissive"
+  },
+  {
+    "template": "vxr-obj-template-CottonBag_Animation",
+    "selector": ".e-CottonBag_Animation"
   }
   
 ]
