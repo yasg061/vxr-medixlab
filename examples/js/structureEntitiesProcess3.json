@@ -136,8 +136,57 @@
     "selector": ".e-CottonBag_Emissive"
   },
   {
-    "template": "vxr-obj-template-CottonBag_Animation",
-    "selector": ".e-CottonBag_Animation"
+    "template": "vxr-obj-template-GauzeLumen",
+    "selector": ".e-GauzeLumen"
+  },
+  {
+    "template": "vxr-obj-template-GauzeLumen_emisive",
+    "selector": ".e-GauzeLumen_emisive"
+  },
+  {
+    "template": "vxr-obj-template-GauzeLumen_Static",
+    "selector": ".e-GauzeLumen_Static"
   }
   
+  ,
+  {
+    "template": "vxr-obj-template-CottonLumen1",
+    "selector": ".e-CottonLumen1"
+  },
+  {
+    "template": "vxr-obj-template-CottonLumen1_emisive",
+    "selector": ".e-CottonLumen1_emisive"
+  },
+  {
+    "template": "vxr-obj-template-CottonLumen1_Static",
+    "selector": ".e-CottonLumen1_static"
+  }
+  
+  ,
+  {
+    "template": "vxr-obj-template-CottonLumen2",
+    "selector": ".e-CottonLumen2"
+  },
+  {
+    "template": "vxr-obj-template-CottonLumen2_emisive",
+    "selector": ".e-CottonLumen2_emisive"
+  },
+  {
+    "template": "vxr-obj-template-CottonLumen2_Static",
+    "selector": ".e-CottonLumen2_static"
+  }
+  
+  ,
+  {
+    "template": "vxr-obj-template-CottonLumen3",
+    "selector": ".e-CottonLumen3"
+  },
+  {
+    "template": "vxr-obj-template-CottonLumen3_emisive",
+    "selector": ".e-CottonLumen3_emisive"
+  },
+  {
+    "template": "vxr-obj-template-CottonLumen3_Static",
+    "selector": ".e-CottonLumen3_static"
+  }
 ]
