@@ -104,8 +104,6 @@
               document.getElementById("e-SterileField_Folded").setAttribute("visible", "true")
               document.getElementById("e-Bowl-Medic").setAttribute("visible", "true")
               document.getElementById("e-Bowl-Medic-2").setAttribute("visible", "true")
-              document.getElementById("e-gauze").setAttribute("visible", "true")
-              document.getElementById("e-Gauze_Pene").setAttribute("visible", "true")
               // document.getElementById("e-Stray").setAttribute("visible","true")
               document.getElementById("e-Clothed_Instruments_Vesical_Static").setAttribute("visible", "true")
 
@@ -134,8 +132,6 @@
         document.getElementById("e-SterileField_Folded").setAttribute("visible", "true")
         document.getElementById("e-Bowl-Medic").setAttribute("visible", "true")
         document.getElementById("e-Bowl-Medic-2").setAttribute("visible", "true")
-        document.getElementById("e-gauze").setAttribute("visible", "true")
-        document.getElementById("e-Gauze_Pene").setAttribute("visible", "true")
         // document.getElementById("e-Stray").setAttribute("visible","true")
         document.getElementById("e-Clothed_Instruments_Vesical_Static").setAttribute("visible", "true")
 
@@ -397,12 +393,7 @@
       <a-asset-item id="table" src="Table.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle.gltf"></a-asset-item>
       <a-asset-item id="bed" src="Baby_Crib.gltf"></a-asset-item>
-      <!-- <a-asset-item id="patient" src="../../Models/gltf/Baby.gltf"></a-asset-item> -->
-      <!-- <a-asset-item id="patient" src="Baby_Jeringa.gltf"></a-asset-item> -->
-      <!-- <a-asset-item id="patient" src="Patient_VesicalMale.gltf"></a-asset-item> -->
-      <!-- <a-asset-item id="patient" src="Naked_P_Bryan.gltf"></a-asset-item> -->
-      <!-- <a-asset-item id="patient" src="Assets/Patient_Bed.gltf"></a-asset-item> -->
-      <a-asset-item id="patient" src="Assets/Patient_Bed_Anim.gltf"></a-asset-item>
+      <a-asset-item id="patient" src="Assets/Patient_Nasogastric.gltf"></a-asset-item>
 
 
       <!-- <a-asset-item id="patient" src="Female_Paciente.gltf"></a-asset-item> -->
@@ -418,7 +409,6 @@
       <a-asset-item id="dripbag" src="../../Models/gltf/DripBag.gltf"></a-asset-item>
       <a-asset-item id="rubber" src="../../Models/gltf/Rubber.gltf"></a-asset-item>
       <a-asset-item id="medicaltape" src="../../Models/gltf/MedicalTape.gltf"></a-asset-item>
-      <a-asset-item id="gauze" src="../../Models/gltf/Gauze.gltf"></a-asset-item>
       <a-asset-item id="allistweezers" src="../../Models/gltf/Scissor_Buttoned.gltf"></a-asset-item>
       <a-asset-item id="cottonswab" src="../../Models/gltf/CottonSwabs01.gltf"></a-asset-item>
       <a-asset-item id="salinebottle" src="../../Models/gltf/ClorhexidinaBottle.gltf"></a-asset-item>
@@ -536,12 +526,6 @@
       <a-asset-item id="Hyssop" src="Assets/Hyssop.gltf"></a-asset-item>
       <a-asset-item id="RubberCloth" src="Assets/RubberCloth.gltf"></a-asset-item>
       <a-asset-item id="WatterGlass" src="Assets/WatterGlass.gltf"></a-asset-item>
-
-      <!-- Gauze_Pene -->
-
-      <a-asset-item id="Gauze_Pene" src="Assets/Gauze_Pene.gltf"></a-asset-item>
-      <a-asset-item id="Gauze_Pene_Emissive" src="Assets/Gauze_Pene_Emissive.gltf"></a-asset-item>
-      <a-asset-item id="Gauze_Pene_Pose" src="Assets/Gauze_Pene_Pose.gltf"></a-asset-item>
 
       <a-asset-item id="ClampHolder" src="Assets/ClampHolder.gltf"></a-asset-item>
 
@@ -969,18 +953,6 @@
         </a-entity>
       </template>
 
-
-
-      <template id="vxr-obj-template-gauze">
-        <a-entity>
-          <a-entity id="e-gauze" visible="false"
-            rotation="2.7734857448993197e-8 2.449646044746048e-7 0.000011397112583283267" grabbable="maxGrabbers: NaN"
-            dynamic-body="sphereRadius: NaN" class="vxr-obj-gauze vxr-interact" gltf-model="#gauze" dynamic-body
-            draggable grabbable toggle-physics position="0.38607 0.23156 -1.55706">
-          </a-entity>
-        </a-entity>
-      </template>
-
       <template id="vxr-obj-template-medicaltape">
         <a-entity>
           <a-entity id="e-medicaltape" rotation="-2.1929058992745825e-11 -8.923316508226033e-11 0.000009766306017795854"
@@ -1188,34 +1160,6 @@
       </a-entity>
     </template>-->
 
-    <template id="vxr-obj-template-Gauze_Pene">
-      <a-entity>
-        <a-entity ondragstart="emissiveObjectOn(this)" visible="false" ondragend="emissiveObjectOff(this)"
-          id="e-Gauze_Pene" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" visible="true"
-          rotation="0 0 0" grabbable class="vxr-obj-Gauze_Pene vxr-interact" gltf-model="#Gauze_Pene" dynamic-body
-          draggable grabbable toggle-physics position="0.38169 0.23043 -1.63096">
-        </a-entity>
-      </a-entity>
-    </template>
-
-    <template id="vxr-obj-template-Gauze_Pene_emisive">
-      <a-entity>
-        <a-entity id="e-Gauze_Pene_emisive" visible="false" grabbable="maxGrabbers: NaN" visible="true"
-          rotation="0 -90 0" grabbable class="vxr-obj-Gauze_Pene_emisive vxr-interact" gltf-model="#Gauze_Pene_Emissive"
-          draggable grabbable position="1.23217 0.21258 -0.814">
-        </a-entity>
-      </a-entity>
-    </template>
-
-    <template id="vxr-obj-template-Gauze_Pene_static">
-      <a-entity>
-        <a-entity id="e-Gauze_Pene_static" visible="false" grabbable="maxGrabbers: NaN" visible="true"
-          rotation="0 -90 0" grabbable class="vxr-obj-Gauze_Pene_static vxr-interact" gltf-model="#Gauze_Pene_Pose"
-          draggable grabbable position="1.232 0.213 -0.814" ondragstart="genericSetMass(this)">
-        </a-entity>
-      </a-entity>
-    </template>
-
     <template id="vxr-obj-template-ClampHolder">
       <a-entity>
         <a-entity id="e-ClampHolder" grabbable="maxGrabbers: NaN" visible="true" rotation="0 -90 0" grabbable
@@ -1404,10 +1348,6 @@
 
     <a-sphere id="sphere4" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-SterileField_Folded;obj_entity:2" opacity="0" position="1.26065 1.6 -0.9019"
-      attach-point-v2 geometry="radius: 0.05"> </a-sphere>
-
-    <a-sphere id="sphere5" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-Gauze_Pene;obj_entity:2" opacity="0" position="1.23523 1.69207 -1.0053"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
     <a-sphere id="sphere6" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
