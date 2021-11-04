@@ -559,6 +559,9 @@
       <a-asset-item id="CottonSwabs01" src="Assets/CottonSwab01.gltf"></a-asset-item>
       <a-asset-item id="CottonPink" src="Cotton_Pink.gltf"></a-asset-item>
       <a-asset-item id="Gauze" src="Assets/Mask_Covid.gltf"></a-asset-item>
+      <a-asset-item id="HyssopOpen" src="Assets/Hyssop_Package_Open01.gltf"></a-asset-item>
+      <a-asset-item id="HyssopClose" src="Assets/Hyssop_Package_Closed.gltf"></a-asset-item>
+      <a-asset-item id="HyssopStatic" src="Assets/Hyssop_Static.gltf"></a-asset-item>
 
       <canvas id="cam2"></canvas>
 
@@ -1205,6 +1208,35 @@
       </a-entity>
     </template>
     
+    <template id="vxr-obj-template-Hyssop-Package-Open">
+      <a-entity>
+        <a-entity id="e-Hyssop_Open" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+          rotation="0 0 0" grabbable dynamic-body
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopOpen" draggable grabbable
+          position="-0.346 0.328 -0.238">
+        </a-entity>
+      </a-entity>
+    </template>
+
+    <template id="vxr-obj-template-Hyssop-Package-Close">
+      <a-entity>
+        <a-entity id="e-Hyssop_Close" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+          rotation="0 0 0" grabbable dynamic-body
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopClose" draggable grabbable
+          position="-0.271 0.328 -0.248">
+        </a-entity>
+      </a-entity>
+    </template>
+
+    <template id="vxr-obj-template-Hyssop-Static">
+      <a-entity>
+        <a-entity id="e-Hyssop_Static" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+          rotation="0 0 0" grabbable dynamic-body
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopStatic" draggable grabbable
+          position="-0.320 0.328 -0.381">
+        </a-entity>
+      </a-entity>
+    </template>
   
 
 

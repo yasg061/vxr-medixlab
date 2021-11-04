@@ -188,5 +188,17 @@
   {
     "template": "vxr-obj-template-CottonLumen3_Static",
     "selector": ".e-CottonLumen3_static"
+  },
+  {
+    "template": "vxr-obj-template-Hyssop-Package-Open",
+    "selector": ".e-Hyssop_Open"
+  },
+  {
+    "template": "vxr-obj-template-Hyssop-Package-Close",
+    "selector": ".e-Hyssop_Close"
+  },
+  {
+    "template": "vxr-obj-template-Hyssop-Static",
+    "selector": ".e-Hyssop_Static"
   }
 ]
