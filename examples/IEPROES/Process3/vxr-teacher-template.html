@@ -149,6 +149,29 @@
 
       }, delayInMilliseconds);
     }
+    
+    changeGloveColor=0;
+
+    function playAnimation  (e) {
+       if(changeGloveColor<3){
+      let obj = document.getElementById("e-Gloves_Steril")
+      obj.setAttribute("animation-mixer", "loop:once;repetitions: NaN;clampWhenFinished:true")
+      console.log("hand event: ",e)
+      changeGloveColor++
+
+      }else{
+        console.log("event",e.relatedTarget.id)
+        if(e.relatedTarget.id=="lhand"){
+         let hand =  document.getElementById("leftHand").getObject3D("mesh").getObjectByName("handL2320").material.color = new THREE.Color( 0xe38666 );
+         console.log("hand: ",hand)
+        }else if(e.relatedTarget.id=="rhand"){
+          let hand =  document.getElementById("rightHand").getObject3D("mesh").getObjectByName("handR2320").material.color = new THREE.Color( 0xe38666 );
+         console.log("right hand: ",hand)
+         
+        }
+      }
+    }
+
 
   </script>
 
@@ -423,7 +446,7 @@
       <!-- <a-asset-item id="tstSyringe" src="Syringe.gltf"></a-asset-item> -->
       <a-asset-item id="tstSyringe" src="../Process5/Assets/Syringe_NoNeedle.gltf"></a-asset-item>
       <a-asset-item id="Assistant_Nurse" src="../Process5/Assets/Assistant_Nurse.gltf"></a-asset-item>
-      <a-asset-item id="Gloves_Steril" src="../Process5/Assets/Gloves_Steril.gltf"></a-asset-item>
+      <a-asset-item id="Gloves_Steril" src=" Assets/Gloves_Anim.gltf"></a-asset-item>
       <a-asset-item id="Gloves_Steril_Open" src="../Process5/Assets/Gloves_Steril_Open.gltf"></a-asset-item>
 
       <a-asset-item id="Clothed_Instruments_Vesical_Static"
@@ -559,6 +582,9 @@
       <a-asset-item id="CottonSwabs01" src="Assets/CottonSwab01.gltf"></a-asset-item>
       <a-asset-item id="CottonPink" src="Cotton_Pink.gltf"></a-asset-item>
       <a-asset-item id="Gauze" src="Assets/Mask_Covid.gltf"></a-asset-item>
+      <a-asset-item id="HyssopOpen" src="Assets/Hyssop_Package_Open01.gltf"></a-asset-item>
+      <a-asset-item id="HyssopClose" src="Assets/Hyssop_Package_Closed.gltf"></a-asset-item>
+      <a-asset-item id="HyssopStatic" src="Assets/Hyssop_Static.gltf"></a-asset-item>
 
       <canvas id="cam2"></canvas>
 
@@ -627,14 +653,14 @@
       <!-- Right Hand -->
       <template id="right-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#right-hand"></a-entity>
+          <a-entity id="rightHand" scale="0.8 0.8 0.8" gltf-model="#right-hand"></a-entity>
         </a-entity>
       </template>
 
       <!-- Left Hand -->
       <template id="left-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#left-hand"></a-entity>
+          <a-entity id="leftHand" scale="0.8 0.8 0.8" gltf-model="#left-hand"></a-entity>
         </a-entity>
       </template>
 
@@ -852,9 +878,9 @@
 
     <template id="vxr-obj-template-Gloves_Steril">
       <a-entity>
-        <a-entity id="e-Gloves_Steril" scale="0.7 0.7 0.7" grabbable="maxGrabbers: NaN" visible="true"
+        <a-entity id="e-Gloves_Steril" scale="0.7 0.7 0.7" grabbable="maxGrabbers: NaN" visible="true"  
           rotation="0 180 0" grabbable class="vxr-obj-Gloves_Steril vxr-interact" gltf-model="#Gloves_Steril" draggable
-          grabbable position="0.19379 0.29479 -0.00854">
+          grabbable position="0.19379 0.29178 -0.00854">
         </a-entity>
       </a-entity>
     </template>
@@ -867,7 +893,7 @@
         </a-entity>
       </a-entity>
     </template>
-
+ 
     <template id="vxr-obj-template-card_yellow">
       <a-entity>
         <a-entity id="e-card_yellow" rotation="0.007028348230884383 0 0" grabbable="maxGrabbers: NaN"
@@ -1205,6 +1231,35 @@
       </a-entity>
     </template>
     
+    <template id="vxr-obj-template-Hyssop-Package-Open">
+      <a-entity>
+        <a-entity id="e-Hyssop_Open" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+          rotation="0 0 0" grabbable dynamic-body
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopOpen" draggable grabbable
+          position="-0.346 0.328 -0.238">
+        </a-entity>
+      </a-entity>
+    </template>
+
+    <template id="vxr-obj-template-Hyssop-Package-Close">
+      <a-entity>
+        <a-entity id="e-Hyssop_Close" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+          rotation="0 0 0" grabbable dynamic-body
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopClose" draggable grabbable
+          position="-0.271 0.328 -0.248">
+        </a-entity>
+      </a-entity>
+    </template>
+
+    <template id="vxr-obj-template-Hyssop-Static">
+      <a-entity>
+        <a-entity id="e-Hyssop_Static" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+          rotation="0 0 0" grabbable dynamic-body
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopStatic" draggable grabbable
+          position="-0.320 0.328 -0.381">
+        </a-entity>
+      </a-entity>
+    </template>
   
 
 
@@ -1273,7 +1328,7 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
+    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 1.6 -2"
       rotation="0 180 0" movement-controls="speed:0.3">
       <a-entity id="camera" camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
@@ -1345,6 +1400,10 @@
 
     <a-sphere id="sphere12" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-GauzeLumen;obj_entity:2" opacity="0" position="1.249 1.713 -1.607" attach-point-v2
+      geometry="radius: 0.05"> </a-sphere>
+      
+      <a-sphere id="sphere-gloves" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      ondragstart="playAnimation(event)" opacity="1" position="0.21884 1.82093 -0.20836" attach-point-v2
       geometry="radius: 0.05"> </a-sphere>
 
 
