@@ -149,6 +149,15 @@
 
       }, delayInMilliseconds);
     }
+    
+    
+    function playAnimation  (e) {
+    console.log("🚀 ~ file: vxr-teacher-template.html ~ line 155 ~ playAnimation ~ self", e)
+      
+      let obj = document.getElementById("e-Gloves_Steril")
+      obj.setAttribute("animation-mixer", "loop:once;repetitions: NaN;clampWhenFinished:true")
+      
+    }
 
   </script>
 
@@ -423,7 +432,7 @@
       <!-- <a-asset-item id="tstSyringe" src="Syringe.gltf"></a-asset-item> -->
       <a-asset-item id="tstSyringe" src="../Process5/Assets/Syringe_NoNeedle.gltf"></a-asset-item>
       <a-asset-item id="Assistant_Nurse" src="../Process5/Assets/Assistant_Nurse.gltf"></a-asset-item>
-      <a-asset-item id="Gloves_Steril" src="../Process5/Assets/Gloves_Steril.gltf"></a-asset-item>
+      <a-asset-item id="Gloves_Steril" src=" Assets/Gloves_Anim.gltf"></a-asset-item>
       <a-asset-item id="Gloves_Steril_Open" src="../Process5/Assets/Gloves_Steril_Open.gltf"></a-asset-item>
 
       <a-asset-item id="Clothed_Instruments_Vesical_Static"
@@ -852,9 +861,9 @@
 
     <template id="vxr-obj-template-Gloves_Steril">
       <a-entity>
-        <a-entity id="e-Gloves_Steril" scale="0.7 0.7 0.7" grabbable="maxGrabbers: NaN" visible="true"
+        <a-entity id="e-Gloves_Steril" scale="0.7 0.7 0.7" grabbable="maxGrabbers: NaN" visible="true"  
           rotation="0 180 0" grabbable class="vxr-obj-Gloves_Steril vxr-interact" gltf-model="#Gloves_Steril" draggable
-          grabbable position="0.19379 0.29479 -0.00854">
+          grabbable position="0.19379 0.29178 -0.00854">
         </a-entity>
       </a-entity>
     </template>
@@ -867,7 +876,7 @@
         </a-entity>
       </a-entity>
     </template>
-
+ 
     <template id="vxr-obj-template-card_yellow">
       <a-entity>
         <a-entity id="e-card_yellow" rotation="0.007028348230884383 0 0" grabbable="maxGrabbers: NaN"
@@ -1345,6 +1354,10 @@
 
     <a-sphere id="sphere12" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-GauzeLumen;obj_entity:2" opacity="0" position="1.249 1.713 -1.607" attach-point-v2
+      geometry="radius: 0.05"> </a-sphere>
+      
+      <a-sphere id="sphere-gloves" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      ondragstart="playAnimation(event)" opacity="1" position="0.21884 1.82093 -0.20836" attach-point-v2
       geometry="radius: 0.05"> </a-sphere>
 
 
