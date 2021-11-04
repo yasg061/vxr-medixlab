@@ -3,14 +3,6 @@
       "template": "vxr-obj-template-allistweezers",
       "selector": ".vxr-obj-allistweezers"
     },
-   {
-      "template": "vxr-obj-template-Bowl-Medic",
-      "selector": ".vxr-obj-template-Bowl-Medic"
-    },
-    {
-      "template": "vxr-obj-template-Bowl-Medic-2",
-      "selector": ".vxr-obj-template-Bowl-Medic-2"
-    },
     {
       "template": "vxr-obj-template-medicaltape",
       "selector": ".vxr-obj-medicaltape"
@@ -21,14 +13,6 @@
     },
     {
       "template": "vxr-obj-template-Basin",
-      "selector": ".vxr-obj-Basin"
-    },
-    {
-      "template": "vxr-obj-template-Basin_emisive",
-      "selector": ".vxr-obj-Basin"
-    },
-    {
-      "template": "vxr-obj-template-Basin_static",
       "selector": ".vxr-obj-Basin"
     },
     {
@@ -54,14 +38,6 @@
     {
       "template": "vxr-obj-template-SterileField_Folded",
       "selector": ".vxr-obj-SterileField_Folded"
-    },
-    {
-      "template": "vxr-obj-template-SterileField_Folded_emisive",
-      "selector": ".vxr-obj-SterileField_Folded_Emissive"
-    },
-    {
-      "template": "vxr-obj-template-SterileField_Folded_static",
-      "selector": ".vxr-obj-SterileField_Folded_Static"
     },
     {
       "template": "vxr-obj-template-UmbilicalTape",
@@ -124,7 +100,19 @@
       "selector": ".vxr-obj-RubberCloth"
     },
     {
+      "template": "vxr-obj-template-Clamp_Allis",
+      "selector": ".vxr-obj-Clamp_Allis"
+    },
+    {
       "template": "vxr-obj-template-WatterGlass",
       "selector": ".vxr-obj-WatterGlass"
+    },
+    {
+      "template": "vxr-obj-template-WatterGlass_emisive",
+      "selector": ".vxr-obj-WatterGlass_emisive"
+    },
+    {
+      "template": "vxr-obj-template-WatterGlass_static",
+      "selector": ".vxr-obj-WatterGlass_static"
     }
   ]
