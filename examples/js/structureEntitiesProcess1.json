@@ -1,7 +1,9 @@
 [
   {
     "template": "vxr-obj-template-gabachon_01",
-    "selector": ".vxr-obj-gabachon_01"
+    "selector": ".vxr-obj-gabachon_01",
+    "ao-map": true,
+    "src": "../IEPROES/Process1/lightmaps/gabachon_ao3.png"
   },
   {
     "template": "vxr-obj-template-gabachon_01_emisive",
@@ -9,7 +11,9 @@
   },
   {
     "template": "vxr-obj-template-gabachon_01_static",
-    "selector": ".vxr-obj-gabachon_01_static"
+    "selector": ".vxr-obj-gabachon_01_static",
+    "ao-map": true,
+    "src": "../IEPROES/Process1/lightmaps/gabachon_ao3.png"
   },
   {
     "template": "vxr-obj-template-glovelong_l_01",
