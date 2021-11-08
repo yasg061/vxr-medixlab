@@ -200,5 +200,9 @@
   {
     "template": "vxr-obj-template-Hyssop-Static",
     "selector": ".e-Hyssop_Static"
+  },
+  {
+    "template": "vxr-obj-template-Hyssop-Pakage",
+    "selector": ".e-Hyssop_Pakage"
   }
 ]
