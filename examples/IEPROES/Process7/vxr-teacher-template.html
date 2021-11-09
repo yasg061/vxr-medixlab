@@ -378,7 +378,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -886,9 +886,9 @@
 
       <template id="vxr-obj-template-HandLamp">
         <a-entity>
-          <a-entity id="e-HandLamp" rotation="179.99999727372588 -1.6299558040081348 0.000013664788201464014" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+          <a-entity id="e-HandLamp" rotation="0 90 -179.9998479605043" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-HandLamp vxr-interact" gltf-model="#HandLamp" dynamic-body draggable grabbable
-            toggle-physics position="0.26318 0.30645 -0.33867"></a-entity>
+            toggle-physics position="-0.32117 0.30146 -0.2628"></a-entity>
         </a-entity>
       </template>
 
@@ -904,7 +904,7 @@
         <a-entity>
           <a-entity id="e-RubberCloth" rotation="0 0 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-RubberCloth vxr-interact" gltf-model="#RubberCloth" dynamic-body draggable grabbable
-            toggle-physics position="-0.21634 0.31924 -0.31864"></a-entity>
+            toggle-physics position="-0.10278 0.33365 -0.3295"></a-entity>
         </a-entity>
       </template>
 
@@ -912,7 +912,7 @@
         <a-entity>
           <a-entity id="e-WatterGlass" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-WatterGlass vxr-interact" gltf-model="#WatterGlass" dynamic-body draggable grabbable
-            toggle-physics position="0.02672 0.28009 -0.35537"></a-entity>
+            toggle-physics position="0.24889 0.28744 -0.37671"></a-entity>
         </a-entity>
       </template>
 
@@ -936,7 +936,7 @@
         <a-entity>
           <a-entity id="e-allistweezers" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-allistweezers vxr-interact" gltf-model="#allistweezers" dynamic-body draggable grabbable
-            toggle-physics position="-0.46739 0.29222 -0.15337"></a-entity>
+            toggle-physics position="-0.46739 0.29222 -0.11257"></a-entity>
         </a-entity>
       </template>
 
@@ -951,17 +951,17 @@
 
 
 
-<!--      <template id="vxr-obj-template-Bowl-Medic">
+      <template id="vxr-obj-template-Bowl-Medic">
         <a-entity>
-          <a-entity id="e-Bowl-Medic" grabbable="maxGrabbers: NaN" visible="false"
+          <a-entity id="e-Bowl-Medic" grabbable="maxGrabbers: NaN" visible="true"
             class="vxr-obj-Bowl-Medic vxr-interact" gltf-model="#Bowl_Medic" draggable="" grabbable
-            position="0.27923 0.23117 -1.60269" static-body="shape:mesh; sphereRadius: NaN" scale="0.7 0.7 0.7"
+            position="-0.41188 0.29028 -0.31879" static-body="shape:mesh; sphereRadius: NaN" scale="0.7 0.7 0.7"
             rotation="0 0 0">
           </a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-Bowl-Medic-2">
+<!--      <template id="vxr-obj-template-Bowl-Medic-2">
         <a-entity>
           <a-entity id="e-Bowl-Medic-2" visible="false" grabbable="maxGrabbers: NaN"
             class="vxr-obj-Bowl-Medic-2 vxr-interact" gltf-model="#Bowl_Medic" draggable="" grabbable
@@ -1065,6 +1065,14 @@
             class="vxr-obj-alcoholgel vxr-interact" gltf-model="#SterileField_Folded"
             dynamic-body="mass:0.0; sphereRadius: NaN" draggable grabbable>
           </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-card_yellow">
+        <a-entity>
+          <a-entity id="e-card_yellow" rotation="0.007028348230884383 0 0" grabbable="maxGrabbers: NaN"
+            dynamic-body="sphereRadius: NaN" class="vxr-obj-allistweezers vxr-interact" gltf-model="#card_yellow"
+            dynamic-body draggable grabbable toggle-physics position="-0.540 0.297 -0.407"></a-entity>
         </a-entity>
       </template>
 
@@ -1373,7 +1381,7 @@
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>-->
 
     <a-sphere id="sphere7" scale="0.05 0.05 0.05" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-SalineBag;obj_entity:2" opacity="0" position="-0.34821 2.14072 -0.84276"
+      trigger-animation="entity_id:e-SalineBag;obj_entity:2" opacity="0" position="-0.34821 2.141 -0.843"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
     <a-sphere id="sphere8" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
@@ -1381,7 +1389,7 @@
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
     <a-sphere id="sphere9" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-WatterGlass;obj_entity:2" opacity="0" position="-0.34464 2.18117 -0.84077"
+      trigger-animation="entity_id:e-WatterGlass;obj_entity:2" opacity="0" position="-0.34464 2.141 -0.843"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
     <a-entity id="arrow01" gltf-model="#arrow" visible="false" position="1.219 2.000 -0.835" rotation="0 0 0" animation-mixer>
