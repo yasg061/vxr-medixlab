@@ -54,6 +54,7 @@ AFRAME.registerComponent('input-controls', {
     if (buttonName !== 'trigger') { return; }
 
     var value = evt.detail.state.value;
+    console.log("evt: ", evt)
     // let vxr_objs = document.getElementsByClassName("vxr-interact");
     // for (let i = 0; i < vxr_objs.length; ++i) {
     //   NAF.utils.takeOwnership(vxr_objs[i])
@@ -63,7 +64,8 @@ AFRAME.registerComponent('input-controls', {
 
   onButtonEvent: function (id, evtName) {
     var buttonName = this.mapping['button' + id];
-    console.log("button name: ",buttonName)
+    console.log("button name: ",buttonName, " id: ", id)
+    console.log("self: ", this.el.id)
     console.log("evtName name: ", evtName)
 
     this.el.emit(buttonName + evtName);
