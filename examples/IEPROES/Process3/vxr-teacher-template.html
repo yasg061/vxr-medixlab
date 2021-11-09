@@ -585,6 +585,7 @@
       <a-asset-item id="HyssopOpen" src="Assets/Hyssop_Package_Open01.gltf"></a-asset-item>
       <a-asset-item id="HyssopClose" src="Assets/Hyssop_Package_Closed.gltf"></a-asset-item>
       <a-asset-item id="HyssopStatic" src="Assets/Hyssop_Static.gltf"></a-asset-item>
+      <a-asset-item id="HyssopPakage" src="Assets/Hyssop_Package_Static.gltf"></a-asset-item>
 
       <canvas id="cam2"></canvas>
 
@@ -1261,6 +1262,15 @@
       </a-entity>
     </template>
   
+    <template id="vxr-obj-template-Hyssop-Pakage">
+      <a-entity>
+        <a-entity id="e-Hyssop_Pakage" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+          rotation="0 0 0" grabbable dynamic-body
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopPakage" draggable grabbable
+          position="-0.383 0.328 -0.381">
+        </a-entity>
+      </a-entity>
+    </template>
 
 
 
