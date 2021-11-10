@@ -61,6 +61,29 @@
         constraint_avatar_template[i].setAttribute("networked", "template:#constraint-avatar-template;attachTemplateToLocal:true")
       }
     }
+
+    AFRAME.registerComponent('ao-map', {
+      schema: {
+        src: {default: ''}
+      },
+      init: function () {
+        console.log('AO MAP!');
+        var aoMap = new THREE.TextureLoader().load(this.data.src);
+        aoMap.flipY = false;
+        this.el.addEventListener('model-loaded', function(e) {
+          e.detail.model.traverse((o) => {
+            if (o.isMesh) {
+              o.material.aoMap = aoMap;
+              if (o.geometry.attributes.uv2 === undefined &&  
+                  o.geometry.attributes.uv !== undefined) {
+                  o.geometry.addAttribute( 'uv2', new THREE.BufferAttribute( o.geometry.attributes.uv.array, 2 ) );
+                }
+            }
+          });
+        });
+        
+      }
+    });
   </script>
 
 
@@ -70,11 +93,11 @@
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
-      debug: true;
+      debug: false;
       onConnect: spawnentity;
     ">
 
@@ -111,6 +134,7 @@
       <a-asset-item id="face_shield" src="Assets/level1/Face_shield.gltf"></a-asset-item>
       <a-asset-item id="shoe_cover_l" src="Assets/level1/ShoeCover_L.gltf"></a-asset-item>
       <a-asset-item id="shoe_cover_r" src="Assets/level1/ShoeCover_R.gltf"></a-asset-item>
+      <a-asset-item id="hazmat_suit" src="Assets/level1/Hazmat_Suit.gltf"></a-asset-item>
 
 
       <!--Emissive assets-->
@@ -129,6 +153,7 @@
       <a-asset-item id="face_shield_emisive" src="Assets/level1/emisive/Face_shield_emisive.gltf"></a-asset-item>
       <a-asset-item id="shoe_cover_l_emisive" src="Assets/level1/emisive/ShoeCover_L_emisive.gltf"></a-asset-item>
       <a-asset-item id="shoe_cover_r_emisive" src="Assets/level1/emisive/ShoeCover_R_emisive.gltf"></a-asset-item>
+      <a-asset-item id="hazmat_suit_emisive" src="Assets/level1/emisive/Hazmat_Suit_emisive.gltf"></a-asset-item>
 
       <!--Static assets-->
       <a-asset-item id="boot_l_static" src="Assets/level1/statics/Covid_Boot_L_static.gltf"></a-asset-item>
@@ -146,6 +171,7 @@
       <a-asset-item id="face_shield_static" src="Assets/level1/statics/Face_shield_static.gltf"></a-asset-item>
       <a-asset-item id="shoe_cover_l_static" src="Assets/level1/statics/ShoeCover_L_static.gltf"></a-asset-item>
       <a-asset-item id="shoe_cover_r_static" src="Assets/level1/statics/ShoeCover_R_static.gltf"></a-asset-item>
+      <a-asset-item id="hazmat_suit_static" src="Assets/level1/statics/Hazmat_Suit_static.gltf"></a-asset-item>
 
       <!-- Avatars -->
       <a-asset-item id="StudentAvatarHead" src="../../super/process/assets/avatars/StudentAvatarHead.gltf">
@@ -266,7 +292,7 @@
         <a-entity>
           <a-entity 
             class="vxr-obj-gabachon_01 vxr-interact" gltf-model="#gabachon" draggable grabbable
-            toggle-physics position="-0.7469 -0.0374 0.05027" rotation="0 180 0">
+            toggle-physics position="-0.7469 -0.0374 0.05027" rotation="0 180 0" ao-map="src: lightmaps/gabachon_ao3.png">
           </a-entity>
         </a-entity>
       </template>
@@ -284,7 +310,7 @@
         <a-entity>
           <a-entity rotation="0 180 0" grabbable
             class="vxr-obj-gabachon_01_static vxr-interact" gltf-model="#gabachon_static" draggable grabbable
-            position="0.107 -0.113 -0.079" visible="false">
+            position="0.107 -0.113 -0.079" visible="false" ao-map="src: lightmaps/gabachon_ao3.png">
           </a-entity>
         </a-entity>
       </template>
@@ -531,7 +557,7 @@
         <a-entity>
           <a-entity rotation="0 180 0"
             class="vxr-obj-gabachon_02 vxr-interact" gltf-model="#gabachon" draggable grabbable
-            toggle-physics position="-0.7469 0.00377 2.8364">
+            toggle-physics position="-0.7469 0.00377 2.8364" ao-map="src: lightmaps/gabachon_ao3.png ">
           </a-entity>
         </a-entity>
       </template>
@@ -549,7 +575,7 @@
         <a-entity>
           <a-entity rotation="0 180 0" grabbable
             class="vxr-obj-gabachon_02_static vxr-interact" gltf-model="#gabachon_static" draggable grabbable
-            position="0.107 -0.113 2.66295" visible="false">
+            position="0.107 -0.113 2.66295" visible="false" ao-map="src: lightmaps/gabachon_ao3.png ">
           </a-entity>
         </a-entity>
       </template>
@@ -1252,6 +1278,33 @@
         </a-entity>
       </template>
 
+      <template id="vxr-obj-template-hazmat_suit">
+        <a-entity>
+          <a-entity rotation="0.000001503236332600679 180 0.0000017699819306206182" 
+            class="vxr-obj-hazmat_suit vxr-interact" gltf-model="#hazmat_suit" draggable grabbable
+            toggle-physics position="-0.747 -0.56354 5.44952">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-hazmat_suit_emisive">
+        <a-entity>
+          <a-entity rotation="0 -180 0" grabbable
+            class="vxr-obj-hazmat_suit_emisive vxr-interact" visible="false" gltf-model="#hazmat_suit_emisive" draggable grabbable 
+            position="0.109 -0.589 5.473">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-hazmat_suit_static">
+        <a-entity>
+          <a-entity rotation="0 -180 0" grabbable
+            class="vxr-obj-hazmat_suit_static vxr-interact" gltf-model="#hazmat_suit_static" draggable grabbable
+            position="0.109 -0.589 5.473" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+
       <template id="vxr-obj-template-alcohol_bottle_03">
         <a-entity>
           <a-entity rotation="0 90 0"
@@ -1329,6 +1382,8 @@
     rotation="0 0 0" position="-0.73753 1.21816 -0.16737" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
   <a-box id="boxGabachon_02" scale="0.68714 4.81671 0.63943" static-body="sphereRadius: NaN" opacity="0" static-body
     rotation="0 0 0" position="-0.73753 1.21816 2.62688" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+  <a-box id="boxGabachon_03" scale="0.68714 4.81671 0.63943" static-body="sphereRadius: NaN" opacity="0" static-body
+      rotation="0 0 0" position="-0.73753 0.758 5.32688" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
     <!--Lights -->
     <a-entity background="color: #92f2ff"></a-entity>
