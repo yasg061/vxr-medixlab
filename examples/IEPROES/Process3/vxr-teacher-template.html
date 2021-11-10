@@ -215,11 +215,30 @@
   </script>
 
   <script>
-
-    function setMass() {
+  
+  function setMass() {
       let intracathInteract = element = document.getElementById("vxr-intracath-second-part")
       intracathInteract.setAttribute('dynamic-body', 'mass:0.1')
     }
+
+    function hyssop1() {
+      let hyssop = document.getElementById("e-Hyssop_Static1")
+      let trigger = document.getElementById("sphere14-hyssop")
+      let package = document.getElementById("e-Hyssop_Close2")
+      package.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+      hyssop.setAttribute("visible","true")
+      hyssop.setAttribute("dynamic-body","mass:0.1")
+      trigger.remove()
+    }
+    
+    function hyssop2() {
+      let hyssop = document.getElementById("e-Hyssop_Static2")
+      let trigger = document.getElementById("sphere13-hyssop")
+      let package = document.getElementById("e-Hyssop_Close1")
+      package.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+      hyssop.setAttribute("visible","true")
+      hyssop.setAttribute("dynamic-body","mass:0.1")
+      trigger.remove()    }
 
     function genericSetMass(element) {
       document.getElementById(element.id).setAttribute('dynamic-body', 'mass:0.1')
@@ -1253,40 +1272,40 @@
 
     <template id="vxr-obj-template-Hyssop-Package-Close1">
       <a-entity>
-        <a-entity id="e-Hyssop_Close" dynamic-body="sphereRadius: NaN" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
-          rotation="0.00001480192057113419 0.0007840180974884168 0.00004775048190519406" grabbable dynamic-body
+        <a-entity id="e-Hyssop_Close1" dynamic-body="sphereRadius: NaN" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+          rotation="-0.000028158902450945272 -2.821860333438649e-7 0.00006849304640565514" grabbable dynamic-body
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopClose" draggable grabbable
-          position="0.30202 0.299 -0.16953">
+          position="0.30533 0.29289 -0.169">
         </a-entity>
       </a-entity>
     </template>
     
     <template id="vxr-obj-template-Hyssop-Package-Close2">
       <a-entity>
-        <a-entity id="e-Hyssop_Close" dynamic-body="sphereRadius: NaN" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+        <a-entity id="e-Hyssop_Close2" dynamic-body="sphereRadius: NaN" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
           rotation="0 0 0" grabbable dynamic-body
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopClose" draggable grabbable
-          position="0.35271 0.29519 -0.16953">
+          position="0.3667 0.29519 -0.16953">
         </a-entity>
       </a-entity>
     </template>
 
     <template id="vxr-obj-template-Hyssop-Static1">
       <a-entity>
-        <a-entity id="e-Hyssop_Static" dynamic-body="sphereRadius: NaN" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
-          rotation="0.000008732833542171804 180 0.0001221332147899103" grabbable dynamic-body
+        <a-entity id="e-Hyssop_Static1"   visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+          rotation="0.000008732823655947475 180 0.00012213243991162154" grabbable 
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopStatic" draggable grabbable
-          position="0.3081 0.29347 -0.122">
+          position="0.30544 0.29346 -0.14541">
         </a-entity>
       </a-entity>
     </template>
     
     <template id="vxr-obj-template-Hyssop-Static2">
       <a-entity>
-        <a-entity id="e-Hyssop_Static" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
-          rotation="0 0 0" grabbable dynamic-body
+        <a-entity id="e-Hyssop_Static2" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+          rotation="0.000005406428774084613 180 0.00007680077445769559" grabbable  
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopStatic" draggable grabbable
-          position="-0.320 0.328 -0.381">
+          position="0.37015 0.2934 -0.145">
         </a-entity>
       </a-entity>
     </template>
@@ -1449,6 +1468,18 @@
     <a-sphere id="sphere12" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-GauzeLumen;obj_entity:2" opacity="0" position="1.249 1.713 -1.607" attach-point-v2
       geometry="radius: 0.05"> </a-sphere>
+      
+      <a-sphere id="sphere13-Hyssop" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      opacity="1" position="1.249 1.713 -1.607" attach-point-v2 dynamic-body="mass:0"
+      geometry="radius: 0.05" ondragstart="hyssop1()"> </a-sphere>
+      
+      <a-sphere id="sphere14-Hyssop" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      opacity="1" position="1.249 1.713 -1.607" attach-point-v2 dynamic-body="mass:0"
+      geometry="radius: 0.05" ondragstart="hyssop2()"> </a-sphere>
+      
+      
+      
+      
       
       <a-sphere id="sphere-gloves" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       ondragstart="playAnimation(event)" opacity="1" position="0.21884 1.82093 -0.20836" attach-point-v2
