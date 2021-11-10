@@ -114,9 +114,17 @@
             let emisive = document.getElementById(e.detail.body.el.id + "_emisive")
             emisive.setAttribute("visible", "false")
 
-            for (let index = 2; index < 9; index++) {
-              document.getElementById(`e-CottonSwabs0${index}`).setAttribute("visible", "true")
+            for (let index = 1; index < 4; index++) {
+            let obj = document.getElementById(`e-CottonLumen${index}`)
+            obj.setAttribute("visible", "true")
+            obj.setAttribute("dynamic-body", "mass:0.1")
+            
             }
+            
+            let gauze = document.getElementById(`e-GauzeLumen`)
+            
+            gauze.setAttribute("visible", "true")
+            gauze.setAttribute("dynamic-body", "mass:0.1")
           }
 
 
@@ -417,6 +425,8 @@
       <a-asset-item id="gauze" src="../../Models/gltf/Gauze.gltf"></a-asset-item>
       <a-asset-item id="allistweezers" src="../../Models/gltf/Scissor_Buttoned.gltf"></a-asset-item>
       <a-asset-item id="cottonswab" src="../../Models/gltf/CottonSwabs01.gltf"></a-asset-item>
+      <a-asset-item id="Gauze_Small" src="Assets/Gauze_Small.gltf"></a-asset-item>
+      
       <a-asset-item id="salinebottle" src="../../Models/gltf/ClorhexidinaBottle.gltf"></a-asset-item>
       <a-asset-item id="SalineBag_Emissive" src="../Process5/Assets/SalineBag_Emissive.gltf"></a-asset-item>
       <a-asset-item id="alcoholgel" src="../../Models/gltf/AlcoholGel.gltf"></a-asset-item>
@@ -533,10 +543,10 @@
       <a-asset-item id="Biombo_Anim" src="../Process5/Assets/Biombo_Anim.gltf"></a-asset-item>
       <a-asset-item id="CordonUmbilical_Static" src="../Process5/Assets/CordonUmbilical_Static.gltf"></a-asset-item>
       <a-asset-item id="ClorhexidinaBottle" src="../../Models/gltf/ClorhexidinaBottle.gltf"></a-asset-item>
+      <a-asset-item id="Mask_Covid_Emissive" src="Assets/Mask_Covid_Emissive.gltf"></a-asset-item>
 
 
-
-
+ 
 
       <!-- Gauze_Pene -->
 
@@ -586,6 +596,8 @@
       <a-asset-item id="HyssopClose" src="Assets/Hyssop_Package_Closed.gltf"></a-asset-item>
       <a-asset-item id="HyssopStatic" src="Assets/Hyssop_Static.gltf"></a-asset-item>
       <a-asset-item id="HyssopPakage" src="Assets/Hyssop_Package_Static.gltf"></a-asset-item>
+      <a-asset-item id="Aposito" src="Assets/TransparentDressing_Package_Closed.gltf"></a-asset-item>
+
 
       <canvas id="cam2"></canvas>
 
@@ -779,7 +791,7 @@
 
       <template id="vxr-obj-template-Bowl-Medic-3">
         <a-entity>
-          <a-entity id="e-Bowl-Medic-3" visible="true" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-Bowl-Medic-3" visible="false" grabbable="maxGrabbers: NaN"
             class="vxr-obj-Bowl-Medic-3 vxr-interact" gltf-model="#Bowl_Medic" draggable="" grabbable
             position="-0.51268 0.28823 -0.22341" static-body="shape:mesh; sphereRadius: NaN" scale="1 1 1"
             rotation="0 0 0">
@@ -822,7 +834,7 @@
       <a-entity>
         <a-entity id="e-tstSyringe" dynamic-body="sphereRadius: NaN" visible="true" rotation="0 0 0"
           grabbable="maxGrabbers: NaN" class="vxr-obj-tstSyringe vxr-interact" gltf-model="#tstSyringe" dynamic-body
-          draggable grabbable toggle-physics position="0.38084 0.29924 -0.25564">
+          draggable grabbable toggle-physics position="0.27563 0.29924 -0.3992">
         </a-entity>
       </a-entity>
     </template>
@@ -1061,7 +1073,7 @@
     <template id="vxr-obj-template-Gauze01_emisive">
       <a-entity>
         <a-entity id="e-Gauze01_emisive" visible="false" scale="0.84 0.84 0.84" grabbable="maxGrabbers: NaN"
-          rotation="-90 0 0" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze" position="1.36 0.248 -1.549">
+          rotation="-90 0 0" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Mask_Covid_Emissive" position="1.36 0.248 -1.549">
         </a-entity>
       </a-entity>
     </template>
@@ -1086,9 +1098,9 @@
     <template id="vxr-obj-template-CottonBag_Static01">
       <a-entity>
         <a-entity id="e-CottonBag_Static01" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
-          scale="0.84 0.84 0.84" rotation="0 0 0" grabbable dynamic-body ondragstart="emissiveObjectOn(this)"
+          scale="0.84 0.84 0.84" rotation="-0.000004321563406273906 4.145517294937715e-10 0.0000015197628003881607" grabbable dynamic-body ondragstart="emissiveObjectOn(this)"
           ondragend="emissiveObjectOff(this)" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonBag_Static01"
-          dynamic-body draggable grabbable toggle-physics position="0.21255 0.29663 -0.26045">
+          dynamic-body draggable grabbable toggle-physics position="-0.39604 0.28888 -0.11042">
         </a-entity>
       </a-entity>
     </template>
@@ -1097,17 +1109,17 @@
       <a-entity>
         <a-entity id="e-CottonBag_Static01_emisive" visible="false" grabbable="maxGrabbers: NaN" scale="0.84 0.84 0.84"
           rotation="0 0 -145" grabbable class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonBag_Emissive"
-          draggable grabbable position="-0.68262 0.5201 -0.22701">
+          draggable grabbable position="-0.15121 0.5201 -0.01486">
         </a-entity>
       </a-entity>
     </template>
 
     <template id="vxr-obj-template-GauzeLumen">
       <a-entity>
-        <a-entity id="e-GauzeLumen" visible="true" grabbable="maxGrabbers: NaN" scale="1 1 1" rotation="0 0 0" grabbable
+        <a-entity id="e-GauzeLumen"  visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1" rotation="-0.000004193707696619996 -0.0000010986933668391607 0.00001691080621036914" grabbable
           ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
-          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#GauzeLumen_Static" draggable grabbable toggle-physics
-          position="0.04178 0.30656 -0.37608">
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#GauzeLumen_Static" draggable grabbable 
+          position="0.12351 0.32684 -0.01604">
         </a-entity>
       </a-entity>
     </template>
@@ -1134,12 +1146,12 @@
 
     <template id="vxr-obj-template-CottonLumen1">
       <a-entity>
-        <a-entity id="e-CottonLumen1" visible="true" grabbable="maxGrabbers: NaN" scale="1 1 1"
-        ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" dynamic-body
+        <a-entity id="e-CottonLumen1" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
+        ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"  
 
           rotation="24.9643440916451 -115.15534949657338 15.60966217054415" grabbable
-          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonLumen_Static01" draggable grabbable
-          position="-0.17597 0.29294 -0.42113">
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze_Small" draggable grabbable
+          position="0.0637 0.30257 0.02621">
         </a-entity>
       </a-entity>
     </template>
@@ -1169,12 +1181,11 @@
     
     <template id="vxr-obj-template-CottonLumen2">
       <a-entity>
-        <a-entity id="e-CottonLumen2" visible="true" grabbable="maxGrabbers: NaN" scale="1 1 1"
-        ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" dynamic-body
-
+        <a-entity id="e-CottonLumen2"   visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
+        ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"  
           rotation="24.9643440916451 -115.15534949657338 15.60966217054415" grabbable
-          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonLumen_Static01" draggable grabbable
-          position="-0.10445 0.30296 -0.41249">
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze_Small" draggable grabbable
+          position="0.05456 0.30257 -0.14119">
         </a-entity>
       </a-entity>
     </template>
@@ -1203,12 +1214,10 @@
     
     <template id="vxr-obj-template-CottonLumen3">
       <a-entity>
-        <a-entity id="e-CottonLumen3" visible="true" grabbable="maxGrabbers: NaN" scale="1 1 1"
-        ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" dynamic-body
-
-        rotation="0 -67.53625418545553 0" grabbable
-          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonLumen_Static01" draggable grabbable
-          position="1.18733 0.23268 -1.38224">        
+        <a-entity id="e-CottonLumen3"  visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
+        ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" rotation="0 0 0" grabbable
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze_Small" draggable grabbable
+          position="0.05346 0.3003 -0.06605">        
       </a-entity>
     </template>
 
@@ -1242,17 +1251,37 @@
       </a-entity>
     </template>
 
-    <template id="vxr-obj-template-Hyssop-Package-Close">
+    <template id="vxr-obj-template-Hyssop-Package-Close1">
       <a-entity>
-        <a-entity id="e-Hyssop_Close" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+        <a-entity id="e-Hyssop_Close" dynamic-body="sphereRadius: NaN" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+          rotation="0.00001480192057113419 0.0007840180974884168 0.00004775048190519406" grabbable dynamic-body
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopClose" draggable grabbable
+          position="0.30202 0.299 -0.16953">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+    <template id="vxr-obj-template-Hyssop-Package-Close2">
+      <a-entity>
+        <a-entity id="e-Hyssop_Close" dynamic-body="sphereRadius: NaN" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
           rotation="0 0 0" grabbable dynamic-body
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopClose" draggable grabbable
-          position="-0.271 0.328 -0.248">
+          position="0.35271 0.29519 -0.16953">
         </a-entity>
       </a-entity>
     </template>
 
-    <template id="vxr-obj-template-Hyssop-Static">
+    <template id="vxr-obj-template-Hyssop-Static1">
+      <a-entity>
+        <a-entity id="e-Hyssop_Static" dynamic-body="sphereRadius: NaN" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+          rotation="0.000008732833542171804 180 0.0001221332147899103" grabbable dynamic-body
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#HyssopStatic" draggable grabbable
+          position="0.3081 0.29347 -0.122">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+    <template id="vxr-obj-template-Hyssop-Static2">
       <a-entity>
         <a-entity id="e-Hyssop_Static" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
           rotation="0 0 0" grabbable dynamic-body
@@ -1273,7 +1302,16 @@
     </template>
 
 
-
+    <template id="vxr-obj-template-Aposito">
+      <a-entity>
+        <a-entity id="e-Aposito" dynamic-body="sphereRadius: NaN" visible="true" grabbable="maxGrabbers: NaN" scale="0.5 0.5 0.5"
+          rotation="0 0 0" grabbable dynamic-body
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Aposito" draggable grabbable
+          position="-0.01886 0.28926 -0.34673">
+        </a-entity>
+      </a-entity>
+    </template>
+    
     </a-assets>
 
     <!-- Hidden Static Meshes  -->
@@ -1427,8 +1465,8 @@
       rotation="" position="-0.17912 2.096 -1.80548" color="red" depth="0.1" height="0.1" width="0.1"></a-box>
 
 
-    <a-sphere id="CottonBag_Static01_collider" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-CottonBag_Static01;obj_entity:6" opacity="0" position="-0.55972 1.90657 -0.42693"
+    <a-sphere id="sphere12-CottonBag_Static01_collider" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-CottonBag_Static01;obj_entity:6" opacity="0" position="0.0646 1.90657 -0.25769"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
 

@@ -3,7 +3,7 @@
     "template": "vxr-obj-template-allistweezers",
     "selector": ".vxr-obj-allistweezers"
   },
- {
+  {
     "template": "vxr-obj-template-Bowl-Medic",
     "selector": ".vxr-obj-template-Bowl-Medic"
   },
@@ -18,7 +18,7 @@
   {
     "template": "vxr-obj-template-medicaltape",
     "selector": ".vxr-obj-medicaltape"
-  }, 
+  },
   {
     "template": "vxr-obj-template-alcoholgel",
     "selector": ".vxr-obj-alcoholgel"
@@ -146,9 +146,7 @@
   {
     "template": "vxr-obj-template-GauzeLumen_Static",
     "selector": ".e-GauzeLumen_Static"
-  }
-  
-  ,
+  },
   {
     "template": "vxr-obj-template-CottonLumen1",
     "selector": ".e-CottonLumen1"
@@ -160,9 +158,7 @@
   {
     "template": "vxr-obj-template-CottonLumen1_Static",
     "selector": ".e-CottonLumen1_static"
-  }
-  
-  ,
+  },
   {
     "template": "vxr-obj-template-CottonLumen2",
     "selector": ".e-CottonLumen2"
@@ -174,9 +170,7 @@
   {
     "template": "vxr-obj-template-CottonLumen2_Static",
     "selector": ".e-CottonLumen2_static"
-  }
-  
-  ,
+  },
   {
     "template": "vxr-obj-template-CottonLumen3",
     "selector": ".e-CottonLumen3"
@@ -190,19 +184,23 @@
     "selector": ".e-CottonLumen3_static"
   },
   {
-    "template": "vxr-obj-template-Hyssop-Package-Open",
-    "selector": ".e-Hyssop_Open"
-  },
-  {
-    "template": "vxr-obj-template-Hyssop-Package-Close",
+    "template": "vxr-obj-template-Hyssop-Package-Close1",
     "selector": ".e-Hyssop_Close"
   },
   {
-    "template": "vxr-obj-template-Hyssop-Static",
+    "template": "vxr-obj-template-Hyssop-Package-Close2",
+    "selector": ".e-Hyssop_Close"
+  },
+  {
+    "template": "vxr-obj-template-Hyssop-Static1",
     "selector": ".e-Hyssop_Static"
   },
   {
-    "template": "vxr-obj-template-Hyssop-Pakage",
-    "selector": ".e-Hyssop_Pakage"
+    "template": "vxr-obj-template-Hyssop-Static2",
+    "selector": ".e-Hyssop_Static"
+  },
+  {
+    "template": "vxr-obj-template-Aposito",
+    "selector": ".e-Aposito"
   }
 ]
