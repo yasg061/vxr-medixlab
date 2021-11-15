@@ -1,0 +1,367 @@
+    let scene = document.querySelector('a-scene');
+    let objectsResult;
+    let x = 0;
+    let score = 0;
+
+    fetch("../../../js/panelQuestions.json").then(
+      function (u) { return u.json(); }
+    ).then(
+      function (json) {
+        objectsResult = JSON.parse(JSON.stringify(json));
+        console.log("answer1", objectsResult[1].answers[0]) 
+        if (x < objectsResult.length) createQuestionsElements()
+      }
+    )
+
+    function createQuestionsElements() {
+      console.log('objectsResult:', objectsResult);
+      let panel1 = document.createElement('a-plane');
+      panel1.setAttribute('material', "color: black; opacity: 0.7");
+      panel1.setAttribute('position', "1 2.375 1");
+      panel1.setAttribute('rotation', "0 180 0");
+      let questionPlane = document.createElement('a-plane');
+      questionPlane.setAttribute('material', "color: #072B73; opacity: 0.7");
+      questionPlane.setAttribute('position', "1 3 1");
+      questionPlane.setAttribute('rotation', "0 180 0")
+      questionPlane.setAttribute('height', "0.25");
+      console.log('question:', objectsResult[x].question);
+      questionPlane.setAttribute('text', objectsResult[x].question);
+      scene.appendChild(questionPlane);
+      scene.appendChild(panel1);
+
+      objectsResult[x].answers.forEach(item => {
+        let answer = document.createElement('a-plane');
+        answer.setAttribute('id', item.id)
+        answer.setAttribute('material', item.material)
+        answer.setAttribute('height', item.height)
+        answer.setAttribute('width', item.width)
+        answer.setAttribute('position', item.position)
+        answer.setAttribute('text', item.text)
+
+        answer.addEventListener('mouseenter', function () {
+          answer.setAttribute('color', '#0D4BC6');
+        })
+
+        answer.addEventListener('mouseleave', function () {
+          answer.setAttribute('color', '#072B73');
+        })
+        if (item.component) answer.setAttribute(item.component)
+        panel1.appendChild(answer);
+        
+      });
+
+      let answersArray = [];
+      let firstAnswer = document.getElementById('firstAnswer');
+      let secondAnswer = document.getElementById('secondAnswer');
+      let thirdAnswer = document.getElementById('thirdAnswer');
+      let fourthAnswer = document.getElementById('fourthAnswer');
+
+      answersArray.push(firstAnswer, secondAnswer, thirdAnswer, fourthAnswer);
+
+      x ++;
+
+      firstAnswer.addEventListener('click', function () {
+        if (firstAnswer.hasAttribute("rightAnswer")) {
+           setTimeout(() => {
+             firstAnswer.setAttribute('color', '#054056');
+           }, 125);
+           setTimeout(() => {
+             firstAnswer.setAttribute('color', '#04563A');
+           }, 250);
+           setTimeout(() => {
+             firstAnswer.setAttribute('color', '#04563A');
+           }, 375);
+            setTimeout(() => {
+             firstAnswer.setAttribute('color', '#04563A');
+           }, 500);
+
+          answersArray = answersArray.filter(answer => answer != firstAnswer);
+          console.log('answersArray', answersArray);
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            score ++;
+            console.log('score:', score);
+            if (x < objectsResult.length) {
+              createQuestionsElements()
+            } else {
+              let panel1 = document.createElement('a-plane');
+              panel1.setAttribute('material', "color: #072B73; opacity: 0.7");
+              panel1.setAttribute('position', "1 2.375 1");
+              panel1.setAttribute('rotation', "0 180 0");
+              panel1.setAttribute('height', "0.5");
+              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              scene.appendChild(panel1);
+            }
+          }, 1000);
+        } else {
+          firstAnswer.setAttribute('color', 'red');
+
+          answersArray = answersArray.filter(answer => answer != firstAnswer);
+          console.log('answersArray', answersArray);
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          answersArray.forEach(answer => {
+            if (answer.hasAttribute("rightAnswer")) answer.setAttribute('color', 'green')
+          });
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            if (x < objectsResult.length) {
+              createQuestionsElements()
+            } else {
+              let panel1 = document.createElement('a-plane');
+              panel1.setAttribute('material', "color: #072B73; opacity: 0.7");
+              panel1.setAttribute('position', "1 2.375 1");
+              panel1.setAttribute('rotation', "0 180 0");
+              panel1.setAttribute('height', "0.5");
+              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              scene.appendChild(panel1);
+            }
+          }, 1000);
+        }
+      });
+
+      secondAnswer.addEventListener('click', function () {
+        if (secondAnswer.hasAttribute("rightAnswer")) {
+          setTimeout(() => {
+            secondAnswer.setAttribute('color', '#054056');
+          }, 125);
+          setTimeout(() => {
+            secondAnswer.setAttribute('color', '#04563A');
+          }, 250);
+          setTimeout(() => {
+            secondAnswer.setAttribute('color', '#04563A');
+          }, 375);
+           setTimeout(() => {
+            secondAnswer.setAttribute('color', '#04563A');
+          }, 500);
+
+          answersArray = answersArray.filter(answer => answer != secondAnswer);
+          console.log('answersArray', answersArray);
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            score ++;
+            console.log('score:', score);
+            if (x < objectsResult.length) {
+              createQuestionsElements()
+            } else {
+              let panel1 = document.createElement('a-plane');
+              panel1.setAttribute('material', "color: #072B73; opacity: 0.7");
+              panel1.setAttribute('position', "1 2.375 1");
+              panel1.setAttribute('rotation', "0 180 0");
+              panel1.setAttribute('height', "0.5");
+              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              scene.appendChild(panel1);
+            }
+          }, 1000);
+        } else {
+          secondAnswer.setAttribute('color', 'red');
+
+          answersArray = answersArray.filter(answer => answer != secondAnswer);
+          console.log('answersArray', answersArray);
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          answersArray.forEach(answer => {
+            if (answer.hasAttribute("rightAnswer")) answer.setAttribute('color', 'green')
+          });
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            if (x < objectsResult.length) {
+              createQuestionsElements()
+            } else {
+              let panel1 = document.createElement('a-plane');
+              panel1.setAttribute('material', "color: #072B73; opacity: 0.7");
+              panel1.setAttribute('position', "1 2.375 1");
+              panel1.setAttribute('rotation', "0 180 0");
+              panel1.setAttribute('height', "0.5");
+              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              scene.appendChild(panel1);
+            }
+          }, 1000);
+        }
+      });
+
+      thirdAnswer.addEventListener('click', function () {
+        if (thirdAnswer.hasAttribute("rightAnswer")) {
+          setTimeout(() => {
+            thirdAnswer.setAttribute('color', '#054056');
+          }, 125);
+          setTimeout(() => {
+            thirdAnswer.setAttribute('color', '#04563A');
+          }, 250);
+          setTimeout(() => {
+            thirdAnswer.setAttribute('color', '#04563A');
+          }, 375);
+           setTimeout(() => {
+            thirdAnswer.setAttribute('color', '#04563A');
+          }, 500);
+
+          answersArray = answersArray.filter(answer => answer != thirdAnswer);
+          console.log('answersArray', answersArray);
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            score ++;
+            console.log('score:', score);
+            if (x < objectsResult.length) {
+              console.log('x inside thirdanswer:', x)
+              createQuestionsElements()
+            } else {
+              let panel1 = document.createElement('a-plane');
+              panel1.setAttribute('material', "color: #072B73; opacity: 0.7");
+              panel1.setAttribute('position', "1 2.375 1");
+              panel1.setAttribute('rotation', "0 180 0");
+              panel1.setAttribute('height', "0.5");
+              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              scene.appendChild(panel1);
+            }
+          }, 1000);
+        } else {
+          thirdAnswer.setAttribute('color', 'red');
+
+          answersArray = answersArray.filter(answer => answer != thirdAnswer);
+          console.log('answersArray', answersArray);
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          answersArray.forEach(answer => {
+            if (answer.hasAttribute("rightAnswer")) answer.setAttribute('color', 'green')
+          });
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            if (x < objectsResult.length) {
+              createQuestionsElements()
+            } else {
+              let panel1 = document.createElement('a-plane');
+              panel1.setAttribute('material', "color: #072B73; opacity: 0.7");
+              panel1.setAttribute('position', "1 2.375 1");
+              panel1.setAttribute('rotation', "0 180 0");
+              panel1.setAttribute('height', "0.5");
+              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              scene.appendChild(panel1);
+            }
+          }, 1000);
+        }
+      });
+
+      fourthAnswer.addEventListener('click', function () {
+        if (fourthAnswer.hasAttribute("rightAnswer")) {
+          setTimeout(() => {
+            fourthAnswer.setAttribute('color', '#054056');
+          }, 125);
+          setTimeout(() => {
+            fourthAnswer.setAttribute('color', '#04563A');
+          }, 250);
+          setTimeout(() => {
+            fourthAnswer.setAttribute('color', '#04563A');
+          }, 375);
+           setTimeout(() => {
+            fourthAnswer.setAttribute('color', '#04563A');
+          }, 500);
+
+          answersArray = answersArray.filter(answer => answer != fourthAnswer);
+          console.log('answersArray', answersArray);
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            score ++;
+            console.log('score:', score);
+            if (x < objectsResult.length) {
+              createQuestionsElements()
+            } else {
+              let panel1 = document.createElement('a-plane');
+              panel1.setAttribute('material', "color: #072B73; opacity: 0.7");
+              panel1.setAttribute('position', "1 2.375 1");
+              panel1.setAttribute('rotation', "0 180 0");
+              panel1.setAttribute('height', "0.5");
+              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              scene.appendChild(panel1);
+            }
+          }, 1000);
+        } else {
+          fourthAnswer.setAttribute('color', 'red');
+
+          answersArray = answersArray.filter(answer => answer != fourthAnswer);
+          console.log('answersArray', answersArray);
+
+          answersArray.forEach(answer => {
+            answer.addEventListener('click', function() {
+              answer.setAttribute('color', '#072B73');
+            })
+          });
+          
+          answersArray.forEach(answer => {
+            if (answer.hasAttribute("rightAnswer")) answer.setAttribute('color', 'green')
+          });
+          setTimeout(function() {
+            questionPlane.removeAttribute('text');
+            panel1.remove();
+            questionPlane.remove();
+            if (x < objectsResult.length) {
+              createQuestionsElements()
+            } else {
+              let panel1 = document.createElement('a-plane');
+              panel1.setAttribute('material', "color: #072B73; opacity: 0.7");
+              panel1.setAttribute('position', "1 2.375 1");
+              panel1.setAttribute('rotation', "0 180 0");
+              panel1.setAttribute('height', "0.5");
+              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              scene.appendChild(panel1);
+            }
+          }, 1000);
+        }
+      });
+    }

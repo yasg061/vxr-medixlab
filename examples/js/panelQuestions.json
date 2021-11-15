@@ -112,5 +112,81 @@
                 "text": "value: Answer12; align: center"
             }
         ]      
+    },
+    {
+        "question": "value: Question 4?; align: center",
+        "answers": [
+            {
+                "id": "firstAnswer",
+                "component": "rightAnswer",
+                "material": "color: #072B73",
+                "height": "0.15",
+                "width": "0.75",
+                "position": "0 0.3 0.01",
+                "text": "value: Answer9; align: center"
+            },
+            {
+                "id": "secondAnswer",
+                "material": "color: #072B73",
+                "height": "0.15",
+                "width": "0.75",
+                "position": "0 0.1 0.01",
+                "text": "value: Answer10; align: center"
+            },
+            {
+                "id": "thirdAnswer",
+                "material": "color: #072B73",
+                "height": "0.15",
+                "width": "0.75",
+                "position": "0 -0.1 0.01",
+                "text": "value: Answer11; align: center"
+            },
+            {
+                "id": "fourthAnswer",
+                "material": "color: #072B73",
+                "height": "0.15",
+                "width": "0.75",
+                "position": "0 -0.3 0.01",
+                "text": "value: Answer12; align: center"
+            }
+        ]      
+    },
+    {
+        "question": "value: Question 5?; align: center",
+        "answers": [
+            {
+                "id": "firstAnswer",
+                "material": "color: #072B73",
+                "height": "0.15",
+                "width": "0.75",
+                "position": "0 0.3 0.01",
+                "text": "value: Answer9; align: center"
+            },
+            {
+                "id": "secondAnswer",
+                "material": "color: #072B73",
+                "height": "0.15",
+                "width": "0.75",
+                "position": "0 0.1 0.01",
+                "text": "value: Answer10; align: center"
+            },
+            {
+                "id": "thirdAnswer",
+                "material": "color: #072B73",
+                "height": "0.15",
+                "width": "0.75",
+                "position": "0 -0.1 0.01",
+                "text": "value: Answer11; align: center"
+            },
+            {
+                "id": "fourthAnswer",
+                "component": "rightAnswer",
+                "material": "color: #072B73",
+                "height": "0.15",
+                "width": "0.75",
+                "position": "0 -0.3 0.01",
+                "text": "value: Answer12; align: center"
+            }
+        ]      
     }
 ]
