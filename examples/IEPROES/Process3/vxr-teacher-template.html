@@ -391,6 +391,29 @@
       }
     })
 
+    AFRAME.registerComponent('ao-map', {
+      schema: {
+        src: {default: ''}
+      },
+      init: function () {
+        console.log('AO MAP!');
+        var aoMap = new THREE.TextureLoader().load(this.data.src);
+        aoMap.flipY = false;
+        this.el.addEventListener('model-loaded', function(e) {
+          e.detail.model.traverse((o) => {
+            if (o.isMesh) {
+              o.material.aoMap = aoMap;
+              if (o.geometry.attributes.uv2 === undefined &&  
+                  o.geometry.attributes.uv !== undefined) {
+                  o.geometry.addAttribute( 'uv2', new THREE.BufferAttribute( o.geometry.attributes.uv.array, 2 ) );
+                }
+            }
+          });
+        });
+        
+      }
+    });
+
 
   </script>
   <script>
@@ -1359,13 +1382,13 @@
       material="color: brown" rotation="0 -90 0">
     </a-entity>
 
-    <a-entity id="armario" gltf-model="#Armario" scale="" position="-0.12389 0.915 3.16056" rotation="0 -90 0">
+    <a-entity id="armario" gltf-model="#Armario" scale="" position="-0.12389 0.915 3" rotation="0 -90 0" ao-map="src: ../HospitalRoomAssets/AOMap_armario.png">
     </a-entity>
-    <a-entity id="mesacama" gltf-model="#Mesacama" scale="" rotation="0 -90 0" position="-1.34977 0.97098 3.17117">
+    <a-entity id="mesacama" gltf-model="#Mesacama" scale="" rotation="0 -90 0" position="-1.34977 0.97098 3.17117" ao-map="src: ../HospitalRoomAssets/AOMap_mesacama.png">
     </a-entity>
-    <a-entity id="sillon" gltf-model="#Sillon" scale="" rotation="0 180 0" position="3.11107 0.90537 1.69624">
+    <a-entity id="sillon" gltf-model="#Sillon" scale="" rotation="0 180 0" position="3.11107 0.90537 1.69624" ao-map="src: ../HospitalRoomAssets/AOMap_sillon.png">
     </a-entity>
-    <a-entity id="sofa" gltf-model="#Sofa" scale="" rotation="0 -90 0" position="2.00436 0.90695 3.079">
+    <a-entity id="sofa" gltf-model="#Sofa" scale="" rotation="0 180 0" position="2.00436 0.90695 3.079" ao-map="src: ../HospitalRoomAssets/AOMap_sofa.png">
     </a-entity>
     <a-entity id="table_004" gltf-model="#Table_004" scale="" rotation="0 -90 0" position="2.49729 0.91326 -1.83804">
     </a-entity>
