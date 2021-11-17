@@ -11,9 +11,9 @@
   <script>
     let url = "../../../js/structureEntitiesProcess7.json"
   </script>
-  <script>
+  <!-- <script>
     let url2 = "../../../js/card.json"
-  </script>
+  </script> -->
   <script>
     let url3 = "../../../js/assets.json"
   </script>
@@ -405,9 +405,9 @@
       onConnect: spawnentity;
     ">
 
-    <a-camera>
+    <!-- <a-camera>
       <a-cursor></a-cursor>
-    </a-camera>
+    </a-camera> -->
 
     <a-assets>
       <!-- <a-asset-item id="htc" src="../../../super/process/assets/vr_controller_vive.obj"></a-asset-item> -->
@@ -587,7 +587,7 @@
                           colliderEndEvent: collisions;
                           colliderEndEventProperty: clearedEls;">
       </a-mixin>
-      <a-mixin id="point" raycaster="showLine: true; objects: .vxr-interact" collision-filter="collisionForces: false"
+      <a-mixin id="point" raycaster="showLine: true; objects: .answers" collision-filter="collisionForces: false"
         static-body="shape: sphere; sphereRadius: 0.001" super-hands="colliderEvent: raycaster-intersection;
                     colliderEventProperty: els;
                     colliderEndEvent:raycaster-intersection-cleared;
@@ -1377,16 +1377,16 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 1.2 -2"
+      <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 1.6 -2"
       rotation="0 180 0" movement-controls="speed:0.3">
       <a-entity id="camera" camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left"
+      <a-entity id="lhand" mixin="point" hand-attach input-controls="hand: left"
         networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right"
+      <a-entity id="rhand" mixin="point" hand-attach input-controls="hand: right"
         networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
@@ -1447,7 +1447,7 @@
 
 
   </a-scene>
-  <script src="../../js/description.js"></script>
+  <!-- <script src="../../js/description.js"></script> -->
   <script src="../../js/panelQuestions.js"></script>
 
   <script>

@@ -31,6 +31,7 @@
 
       objectsResult[x].answers.forEach(item => {
         let answer = document.createElement('a-plane');
+        answer.setAttribute('class', 'answers')
         answer.setAttribute('id', item.id)
         answer.setAttribute('material', item.material)
         answer.setAttribute('height', item.height)
