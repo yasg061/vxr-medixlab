@@ -46,6 +46,38 @@
           answer.setAttribute('color', '#072B73');
         })
         if (item.component) answer.setAttribute(item.component)
+        if (answer.hasAttribute('factor1')) {
+          let factor1 = document.createElement('a-text')
+          factor1.setAttribute('position', "0 -0.45 0.01")
+          factor1.setAttribute('text', "value: Factor 1; align: center")
+          factor1.setAttribute('height', "1.55")
+          factor1.setAttribute('width', "1.85")
+          panel1.appendChild(factor1)
+        }
+        if (answer.hasAttribute('factor2')) {
+          let factor2 = document.createElement('a-text')
+          factor2.setAttribute('position', "0 -0.45 0.01")
+          factor2.setAttribute('text', "value: Factor 2; align: center")
+          factor2.setAttribute('height', "1.55")
+          factor2.setAttribute('width', "1.85")
+          panel1.appendChild(factor2)
+        }
+        if (answer.hasAttribute('factor3')) {
+          let factor3 = document.createElement('a-text')
+          factor3.setAttribute('position', "0 -0.45 0.01")
+          factor3.setAttribute('text', "value: Factor 3; align: center")
+          factor3.setAttribute('height', "1.55")
+          factor3.setAttribute('width', "1.85")
+          panel1.appendChild(factor3)
+        }
+        if (answer.hasAttribute('factor4')) {
+          let factor4 = document.createElement('a-text')
+          factor4.setAttribute('position', "0 -0.45 0.01")
+          factor4.setAttribute('text', "value: Factor 4; align: center")
+          factor4.setAttribute('height', "1.55")
+          factor4.setAttribute('width', "1.85")
+          panel1.appendChild(factor4)
+        }
         panel1.appendChild(answer);
         
       });
@@ -68,12 +100,9 @@
            setTimeout(() => {
              firstAnswer.setAttribute('color', '#04563A');
            }, 250);
-           setTimeout(() => {
-             firstAnswer.setAttribute('color', '#04563A');
-           }, 375);
             setTimeout(() => {
              firstAnswer.setAttribute('color', '#04563A');
-           }, 500);
+           }, 375);
 
           answersArray = answersArray.filter(answer => answer != firstAnswer);
           console.log('answersArray', answersArray);
@@ -98,12 +127,12 @@
               panel1.setAttribute('position', "1 2.375 1");
               panel1.setAttribute('rotation', "0 180 0");
               panel1.setAttribute('height', "0.5");
-              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              panel1.setAttribute('text', `value: ¡Fin de la prueba!; align: center`);
               scene.appendChild(panel1);
             }
           }, 1000);
         } else {
-          firstAnswer.setAttribute('color', 'red');
+          firstAnswer.setAttribute('color', 'blue');
 
           answersArray = answersArray.filter(answer => answer != firstAnswer);
           console.log('answersArray', answersArray);
@@ -129,7 +158,7 @@
               panel1.setAttribute('position', "1 2.375 1");
               panel1.setAttribute('rotation', "0 180 0");
               panel1.setAttribute('height', "0.5");
-              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              panel1.setAttribute('text', `value: ¡Fin de la prueba!; align: center`);
               scene.appendChild(panel1);
             }
           }, 1000);
@@ -144,12 +173,9 @@
           setTimeout(() => {
             secondAnswer.setAttribute('color', '#04563A');
           }, 250);
-          setTimeout(() => {
-            secondAnswer.setAttribute('color', '#04563A');
-          }, 375);
            setTimeout(() => {
             secondAnswer.setAttribute('color', '#04563A');
-          }, 500);
+          }, 375);
 
           answersArray = answersArray.filter(answer => answer != secondAnswer);
           console.log('answersArray', answersArray);
@@ -174,12 +200,12 @@
               panel1.setAttribute('position', "1 2.375 1");
               panel1.setAttribute('rotation', "0 180 0");
               panel1.setAttribute('height', "0.5");
-              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              panel1.setAttribute('text', `value: ¡Fin de la prueba!; align: center`);
               scene.appendChild(panel1);
             }
           }, 1000);
         } else {
-          secondAnswer.setAttribute('color', 'red');
+          secondAnswer.setAttribute('color', 'blue');
 
           answersArray = answersArray.filter(answer => answer != secondAnswer);
           console.log('answersArray', answersArray);
@@ -205,7 +231,7 @@
               panel1.setAttribute('position', "1 2.375 1");
               panel1.setAttribute('rotation', "0 180 0");
               panel1.setAttribute('height', "0.5");
-              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              panel1.setAttribute('text', `value: ¡Fin de la prueba!; align: center`);
               scene.appendChild(panel1);
             }
           }, 1000);
@@ -220,12 +246,9 @@
           setTimeout(() => {
             thirdAnswer.setAttribute('color', '#04563A');
           }, 250);
-          setTimeout(() => {
-            thirdAnswer.setAttribute('color', '#04563A');
-          }, 375);
            setTimeout(() => {
             thirdAnswer.setAttribute('color', '#04563A');
-          }, 500);
+          }, 375);
 
           answersArray = answersArray.filter(answer => answer != thirdAnswer);
           console.log('answersArray', answersArray);
@@ -251,12 +274,12 @@
               panel1.setAttribute('position', "1 2.375 1");
               panel1.setAttribute('rotation', "0 180 0");
               panel1.setAttribute('height', "0.5");
-              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              panel1.setAttribute('text', `value: ¡Fin de la prueba!; align: center`);
               scene.appendChild(panel1);
             }
           }, 1000);
         } else {
-          thirdAnswer.setAttribute('color', 'red');
+          thirdAnswer.setAttribute('color', 'blue');
 
           answersArray = answersArray.filter(answer => answer != thirdAnswer);
           console.log('answersArray', answersArray);
@@ -282,7 +305,7 @@
               panel1.setAttribute('position', "1 2.375 1");
               panel1.setAttribute('rotation', "0 180 0");
               panel1.setAttribute('height', "0.5");
-              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              panel1.setAttribute('text', `value: ¡Fin de la prueba!; align: center`);
               scene.appendChild(panel1);
             }
           }, 1000);
@@ -297,12 +320,9 @@
           setTimeout(() => {
             fourthAnswer.setAttribute('color', '#04563A');
           }, 250);
-          setTimeout(() => {
-            fourthAnswer.setAttribute('color', '#04563A');
-          }, 375);
            setTimeout(() => {
             fourthAnswer.setAttribute('color', '#04563A');
-          }, 500);
+          }, 375);
 
           answersArray = answersArray.filter(answer => answer != fourthAnswer);
           console.log('answersArray', answersArray);
@@ -327,12 +347,12 @@
               panel1.setAttribute('position', "1 2.375 1");
               panel1.setAttribute('rotation', "0 180 0");
               panel1.setAttribute('height', "0.5");
-              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              panel1.setAttribute('text', `value: ¡Fin de la prueba!; align: center`);
               scene.appendChild(panel1);
             }
           }, 1000);
         } else {
-          fourthAnswer.setAttribute('color', 'red');
+          fourthAnswer.setAttribute('color', 'blue');
 
           answersArray = answersArray.filter(answer => answer != fourthAnswer);
           console.log('answersArray', answersArray);
@@ -358,7 +378,7 @@
               panel1.setAttribute('position', "1 2.375 1");
               panel1.setAttribute('rotation', "0 180 0");
               panel1.setAttribute('height', "0.5");
-              panel1.setAttribute('text', `value: ¡Fin de la prueba! Respondiste correctamente ${score} pregunta(s) de 5; align: center`);
+              panel1.setAttribute('text', `value: ¡Fin de la prueba!; align: center`);
               scene.appendChild(panel1);
             }
           }, 1000);
