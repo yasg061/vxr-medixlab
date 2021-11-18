@@ -276,6 +276,7 @@
       <a-asset-item id="columns" src="/Models/gltf/Columns_Auditorium.gltf"></a-asset-item>
       <a-asset-item id="frontwall" src="/Models/gltf/FrontWall_Auditorium.gltf"></a-asset-item>
       <a-video id="logopng" src="/Models/Images/Ieproes_Logo.png"></a-video>
+      <a-asset-item id="hospital01" src="00-HospitalRoomNeonatal3.gltf"></a-asset-item>
 
       <canvas id="cam2"></canvas>
 
@@ -919,7 +920,7 @@
 
 
     <!-- Theater Objects -->
-    <a-entity id="frontwall01" gltf-model="#frontwall" scale="1 1 1" position="0 0 -1.12569" material="color: brown"
+    <!-- <a-entity id="frontwall01" gltf-model="#frontwall" scale="1 1 1" position="0 0 -1.12569" material="color: brown"
       rotation="0 0 0"></a-entity>
     <a-entity id="roofauditorium01" gltf-model="#roofauditorium" scale="1 1 1" position="0 1.35517 0"
       material="color: brown" rotation="0 0 0"></a-entity>
@@ -938,10 +939,9 @@
     <a-entity id="ministairs01" gltf-model="#ministairs" scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
     <a-entity id="lamps03" gltf-model="#lamps01" scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
     <a-entity id="columns01" gltf-model="#columns" scale="1 1 1" position="0 0 0" material="color: brown"
-      rotation="0 0 0"></a-entity>
+      rotation="0 0 0"></a-entity> -->
 
-    <a-entity id="testing" networked="template:#xlr8;attachTemplateToLocal:true;" position="1 1 1" rotation="0 180 0">
-    </a-entity>
+
 
 
     <!-- Theater Lights -->
@@ -952,7 +952,7 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
+    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 1 -2"
       rotation="0 180 0" movement-controls="speed:0.3">
       <a-entity camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
@@ -981,6 +981,8 @@
     <a-box id="tableBox2" class="boxTable2" opacity="0" static-body="sphereRadius: NaN" rotation=""
       position="-1.64575 1.97348 -0.31224" color="red" depth="0.6" height="0.1" width="1.1" material=""
       geometry="depth: 0.4; width: 0.6"></a-box>
+
+      <a-entity id="hospitalroom" gltf-model="#hospital01" position="-3.852 0.95 -0.562" rotation="0 269.990 0"></a-entity>
 
   </a-scene>
 
@@ -1081,7 +1083,7 @@
   <!-- <script src="../../js/Feature-SpawnTemplate.js"></script> -->
 
   <script src="../../js/Feature-SpawnObjects.js"></script>
-  <script src="../../js/vxr-full-house.js"></script>
+  <!-- <script src="../../js/vxr-full-house.js"></script> -->
 
 
 
