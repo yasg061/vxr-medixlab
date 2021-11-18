@@ -135,7 +135,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: true;
@@ -952,7 +952,7 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 1 -2"
+    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 1.2 -2"
       rotation="0 180 0" movement-controls="speed:0.3">
       <a-entity camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
@@ -975,7 +975,7 @@
 
 
     <a-sphere id="Thermometer-collider" static-body="sphereRadius: NaN" attach-point-v2="objClass:Thermometer-collider" 
-    opacity="0" position="0.87924 1.8186 -0.88097" geometry="radius: 0.03" material="" velocity="">
+    opacity="0" position="0.864 1.768 -0.881" geometry="radius: 0.03" material="" velocity="">
     </a-sphere>
 
     <a-box id="tableBox2" class="boxTable2" opacity="0" static-body="sphereRadius: NaN" rotation=""
