@@ -397,7 +397,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -820,13 +820,13 @@
       </template>
 
 
-      <template id="vxr-obj-template-Assistant_Nurse">
+      <!-- <template id="vxr-obj-template-Assistant_Nurse">
         <a-entity>
           <a-entity id="e-Assistant_Nurse" grabbable="maxGrabbers: NaN" class="vxr-obj-Assistant_Nurse vxr-interact" gltf-model="#Assistant_Nurse"
             dynamic-body="mass:0.0; sphereRadius: NaN" toggle-physics draggable grabbable position="-0.72878 -0.602 -0.90352"
             rotation="0 90 0" velocity="" dynamic-body></a-entity>
         </a-entity>
-      </template>
+      </template> -->
 
 
 
@@ -1268,14 +1268,14 @@
       </a-entity>
     </template>-->
 
-    <template id="vxr-obj-template-Table_005">
+    <!-- <template id="vxr-obj-template-Table_005">
       <a-entity>
         <a-entity id="e-Table_005" grabbable="maxGrabbers: NaN" visible="true" rotation="0 0 0" grabbable
           class="vxr-obj-Table_005 vxr-interact" gltf-model="#Table_005" draggable grabbable
           position="0.32392 -0.59388 -1.58605" scale="1 0.80 1">
         </a-entity>
       </a-entity>
-    </template>
+    </template> -->
 
     <!-- place holder object  -->
 <!--    <template id="vxr-obj-template-Clothed_Instruments_Vesical_Static">
@@ -1325,9 +1325,9 @@
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity> -->
-    <a-entity id="patient01" blend-shape gltf-model="#patient" scale="" position="1.24533 0.866 -0.97171"
+    <!-- <a-entity id="patient01" blend-shape gltf-model="#patient" scale="" position="1.24533 0.866 -0.97171"
       material="color: brown" rotation="0 -90 0">
-    </a-entity>
+    </a-entity> -->
 
     <a-entity id="armario" gltf-model="#Armario" scale="" position="-0.12389 0.915 3" rotation="0 -90 0" ao-map="src: ../HospitalRoomAssets/AOMap_armario.png">
     </a-entity>
