@@ -36,13 +36,13 @@
   <script src="../../js/rotator.component.js"></script>
   <script src="../../js/input.component.js"></script>
   <script src="../../js/avatar-body.component.js"></script>
+  <script src="../../js/Feature-Schemas.js"></script>
   <script src="../../js/camera-output.js"></script>
   <!-- <script src="../../js/hand-attach.js"></script> -->
   <script src="../../js/attach-intracath.js"></script>
   <script src="../../js/attach-to-position.js"></script>
   <script src="../../js/set-name.component.js"></script>
   <script src="../../js/init-animation.js"></script>
-  <!-- <script src="../../js/set-position.js"></script> -->
 
 
   <script src="../../js/randomize-spec-color.component.js"></script>
@@ -145,7 +145,7 @@
       <!-- <a-asset-item id="htc" src="../../../super/process/assets/vr_controller_vive.obj"></a-asset-item> -->
       <a-asset-item id="table" src="../../Models/gltf/Table.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle.gltf"></a-asset-item>
-      <a-asset-item id="bed" position="1.75217 0.92 1.00408" src="../../Models/gltf/Baby_Crib.gltf"></a-asset-item>
+      <a-asset-item id="bed" src="../../Models/gltf/Baby_Crib.gltf"></a-asset-item>
       <a-asset-item id="StudentAvatar" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
       <a-asset-item id="SpectatorAvatar" src="../../super/process/assets/avatars/SpectatorAvatar.gltf"></a-asset-item>
       <a-asset-item id="TeacherAvatar" src="../../super/process/assets/TeacherAvatar.gltf"></a-asset-item>
@@ -175,7 +175,6 @@
       <a-asset-item id="Vaseline" src="Models/Vaseline.gltf"></a-asset-item>
       <a-asset-item id="VitaminAmpoule" src="Models/VitaminAmpoule_Open.gltf"></a-asset-item>
       <a-asset-item id="Cloranfenicol" src="Models/Cloranfenicol.gltf"></a-asset-item>
-      <a-asset-item id="gene" src="00-HospitalRoomNeonatal3.gltf"></a-asset-item>
 
       <!-- Baby -->
   
@@ -311,15 +310,11 @@
         <a-entity networked-audio-source="positional:false"></a-entity>
       </template>
 
-   
-
       <!-- Teacher Avatar Constraints -->
       <template id="constraint-teacher-avatar-template">
         <a-entity>
           <a-entity class="name-up-teacher"></a-entity>
-          <!-- <a-entity class="TeacherAvatar" id="teacher" gltf-model="#teacher"></a-entity> -->
-          <a-entity class="TeacherAvatarBody" id="teacherbody" gltf-model="#TeacherAvatarBody" dynamic-body="angularDamping: 1"></a-entity>
-          <a-entity class="TeacherAvatarHead" id="teacherhead"  gltf-model="#TeacherAvatarHead" static-body avatar-body="body:#teacherbody; id:#teacherbody"></a-entity>
+          <a-entity class="TeacherAvatar" id="teacher" gltf-model="#teacher"></a-entity>
         </a-entity>
       </template>
 
@@ -770,7 +765,7 @@
           <a-entity id="e-Medical_Laundry-v2" grabbable="maxGrabbers: NaN"
             class="vxr-obj-Medical_Laundry-v2  vxr-interact" gltf-model="#Medical_Laundry-v2"
             animation-mixer="clip:Abierto;clampWhenFinished: true;loop:once;startFrame:10000;timeScale:0.5" draggable=""
-            grabbable position="1.11734 -0.516 -0.11" rotation="0 0 0" visible="true">
+            grabbable position="1.11734 -0.62628 -0.11" rotation="0 0 0" visible="true">
           </a-entity>
         </a-entity>
       </template>
@@ -825,6 +820,8 @@
         </a-entity>
       </template>
 
+   
+
       <template id="vxr-obj-template-Pañal_Cerrado">
         <a-entity>
           <a-entity id="e-Pañal_Cerrado"   class="vxr-obj-Pañal_Cerrado  vxr-interact"
@@ -841,7 +838,6 @@
           </a-entity>
         </a-entity>
       </template>
-
 
 
     </a-assets>
@@ -878,7 +874,6 @@
 
     <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity>
-    
 
     <a-entity id="e-TrashContainerBlack" class="TrashContainerBlack" gltf-model="#TrashContainerBlack"
       position="0.57955 0.99273 -0.44601" rotation="0 90 0" scale="0.5 0.5 0.5">
@@ -900,12 +895,11 @@
     <!-- <a-entity id="Scube" gltf-model="#s_cube"  scale="" position=" 0 1 0" material="color: black"> -->
 
 
-      <a-entity id="gene" class="gltf" gltf-model="#gene" position="-3.732 0.931 0" rotation="0 270.000 0"></a-entity>
 
 
     <a-entity class="gltf" gltf-model="#table" position="-0.13 1 -0.363" rotation="0 180 0"></a-entity>
     <a-box id="boxTable1" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
-      position="-0.11878 1.80687 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+      position="-0.11878 0.21912 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
     <a-box id="tableBox4" static-body="sphereRadius: NaN" class="boxTable2" opacity="0" static-body rotation=""
       position="-0.10496 1.8508 -0.346" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
     <a-box id="tableBox5" static-body="sphereRadius: NaN" class="boxTable2" opacity="0" rotation=""
@@ -920,8 +914,7 @@
 
 
     <!-- Theater Objects -->
-   
-    <!-- <a-entity id="frontwall01" gltf-model="#frontwall" scale="1 1 1" position="0 0 -1.12569" material="color: brown"
+    <a-entity id="frontwall01" gltf-model="#frontwall" scale="1 1 1" position="0 0 -1.12569" material="color: brown"
       rotation="0 0 0"></a-entity>
     <a-entity id="roofauditorium01" gltf-model="#roofauditorium" scale="1 1 1" position="0 1.35517 0"
       material="color: brown" rotation="0 0 0"></a-entity>
@@ -940,7 +933,10 @@
     <a-entity id="ministairs01" gltf-model="#ministairs" scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
     <a-entity id="lamps03" gltf-model="#lamps01" scale="1 1 1" position="0 16.9716 0" rotation="0 0 0"></a-entity>
     <a-entity id="columns01" gltf-model="#columns" scale="1 1 1" position="0 0 0" material="color: brown"
-      rotation="0 0 0"></a-entity> -->
+      rotation="0 0 0"></a-entity>
+
+    <!-- <a-entity id="testing" networked="template:#xlr8;attachTemplateToLocal:true;" position="1 1 1" rotation="0 180 0">
+    </a-entity> -->
 
 
     <!-- Theater Lights -->
@@ -966,7 +962,7 @@
     </a-entity>
 
     <a-sphere id="heparinsealCollider" static-body="sphereRadius: NaN" attach-point-v2="objClass:vxr-obj-heparinseal"
-      static-body opacity="0" position="0.83591 1.86273 -0.25136" geometry="radius: 0.05">
+      static-body opacity="0" position="0.818 1.8186 -1.051" geometry="radius: 0.05">
     </a-sphere>
     <a-sphere id="sphereOverScale" attach-point-v2="objClass:balance" static-body opacity="0"
       position="-1.71723 1.97 -0.309" geometry="radius: 0.05">
@@ -1080,8 +1076,7 @@
   <!-- <script src="../../js/Feature-SpawnTemplate.js"></script> -->
 
   <script src="../../js/Feature-SpawnObjects.js"></script>
-  <!-- <script src="../../js/vxr-full-house.js"></script> -->
-  <script src="../../js/Feature-Schemas.js"></script>
+  <script src="../../js/vxr-full-house.js"></script>
 
 
 
