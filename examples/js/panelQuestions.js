@@ -94,17 +94,6 @@
       x ++;
 
       firstAnswer.addEventListener('click', function () {
-        if (firstAnswer.hasAttribute("rightAnswer")) {
-           setTimeout(() => {
-             firstAnswer.setAttribute('color', '#054056');
-           }, 125);
-           setTimeout(() => {
-             firstAnswer.setAttribute('color', '#04563A');
-           }, 250);
-            setTimeout(() => {
-             firstAnswer.setAttribute('color', '#04563A');
-           }, 375);
-
           answersArray = answersArray.filter(answer => answer != firstAnswer);
           console.log('answersArray', answersArray);
 
@@ -132,7 +121,6 @@
               scene.appendChild(panel1);
             }
           }, 1000);
-        } else {
           firstAnswer.setAttribute('color', 'blue');
 
           answersArray = answersArray.filter(answer => answer != firstAnswer);
@@ -143,10 +131,7 @@
               answer.setAttribute('color', '#072B73');
             })
           });
-
-          answersArray.forEach(answer => {
-            if (answer.hasAttribute("rightAnswer")) answer.setAttribute('color', 'green')
-          });
+          
           setTimeout(function() {
             questionPlane.removeAttribute('text');
             panel1.remove();
@@ -163,21 +148,9 @@
               scene.appendChild(panel1);
             }
           }, 1000);
-        }
       });
 
       secondAnswer.addEventListener('click', function () {
-        if (secondAnswer.hasAttribute("rightAnswer")) {
-          setTimeout(() => {
-            secondAnswer.setAttribute('color', '#054056');
-          }, 125);
-          setTimeout(() => {
-            secondAnswer.setAttribute('color', '#04563A');
-          }, 250);
-           setTimeout(() => {
-            secondAnswer.setAttribute('color', '#04563A');
-          }, 375);
-
           answersArray = answersArray.filter(answer => answer != secondAnswer);
           console.log('answersArray', answersArray);
 
@@ -205,7 +178,6 @@
               scene.appendChild(panel1);
             }
           }, 1000);
-        } else {
           secondAnswer.setAttribute('color', 'blue');
 
           answersArray = answersArray.filter(answer => answer != secondAnswer);
@@ -217,9 +189,6 @@
             })
           });
 
-          answersArray.forEach(answer => {
-            if (answer.hasAttribute("rightAnswer")) answer.setAttribute('color', 'green')
-          });
           setTimeout(function() {
             questionPlane.removeAttribute('text');
             panel1.remove();
@@ -236,30 +205,9 @@
               scene.appendChild(panel1);
             }
           }, 1000);
-        }
       });
 
       thirdAnswer.addEventListener('click', function () {
-        if (thirdAnswer.hasAttribute("rightAnswer")) {
-          setTimeout(() => {
-            thirdAnswer.setAttribute('color', '#054056');
-          }, 125);
-          setTimeout(() => {
-            thirdAnswer.setAttribute('color', '#04563A');
-          }, 250);
-           setTimeout(() => {
-            thirdAnswer.setAttribute('color', '#04563A');
-          }, 375);
-
-          answersArray = answersArray.filter(answer => answer != thirdAnswer);
-          console.log('answersArray', answersArray);
-
-          answersArray.forEach(answer => {
-            answer.addEventListener('click', function() {
-              answer.setAttribute('color', '#072B73');
-            })
-          });
-
           setTimeout(function() {
             questionPlane.removeAttribute('text');
             panel1.remove();
@@ -279,7 +227,6 @@
               scene.appendChild(panel1);
             }
           }, 1000);
-        } else {
           thirdAnswer.setAttribute('color', 'blue');
 
           answersArray = answersArray.filter(answer => answer != thirdAnswer);
@@ -289,10 +236,6 @@
             answer.addEventListener('click', function() {
               answer.setAttribute('color', '#072B73');
             })
-          });
-
-          answersArray.forEach(answer => {
-            if (answer.hasAttribute("rightAnswer")) answer.setAttribute('color', 'green')
           });
           setTimeout(function() {
             questionPlane.removeAttribute('text');
@@ -310,21 +253,9 @@
               scene.appendChild(panel1);
             }
           }, 1000);
-        }
-      });
+        });
 
       fourthAnswer.addEventListener('click', function () {
-        if (fourthAnswer.hasAttribute("rightAnswer")) {
-          setTimeout(() => {
-            fourthAnswer.setAttribute('color', '#054056');
-          }, 125);
-          setTimeout(() => {
-            fourthAnswer.setAttribute('color', '#04563A');
-          }, 250);
-           setTimeout(() => {
-            fourthAnswer.setAttribute('color', '#04563A');
-          }, 375);
-
           answersArray = answersArray.filter(answer => answer != fourthAnswer);
           console.log('answersArray', answersArray);
 
@@ -352,7 +283,6 @@
               scene.appendChild(panel1);
             }
           }, 1000);
-        } else {
           fourthAnswer.setAttribute('color', 'blue');
 
           answersArray = answersArray.filter(answer => answer != fourthAnswer);
@@ -362,10 +292,6 @@
             answer.addEventListener('click', function() {
               answer.setAttribute('color', '#072B73');
             })
-          });
-          
-          answersArray.forEach(answer => {
-            if (answer.hasAttribute("rightAnswer")) answer.setAttribute('color', 'green')
           });
           setTimeout(function() {
             questionPlane.removeAttribute('text');
@@ -383,6 +309,5 @@
               scene.appendChild(panel1);
             }
           }, 1000);
-        }
       });
     }
