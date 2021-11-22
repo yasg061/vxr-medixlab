@@ -33,9 +33,9 @@
         let answer = document.createElement('a-plane');
         answer.setAttribute('class', 'answers')
         answer.setAttribute('id', item.id)
-        answer.setAttribute('material', item.material)
-        answer.setAttribute('height', item.height)
-        answer.setAttribute('width', item.width)
+        answer.setAttribute('material', "color: #072B73")
+        answer.setAttribute('height', "0.15")
+        answer.setAttribute('width', "0.75")
         answer.setAttribute('position', item.position)
         answer.setAttribute('text', item.text)
 
@@ -46,7 +46,7 @@
         answer.addEventListener('mouseleave', function () {
           answer.setAttribute('color', '#072B73');
         })
-        if (item.component) answer.setAttribute(item.component)
+
         if (answer.hasAttribute('factor1')) {
           let factor1 = document.createElement('a-text')
           factor1.setAttribute('position', "0 -0.45 0.01")
