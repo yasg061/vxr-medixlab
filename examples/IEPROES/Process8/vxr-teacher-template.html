@@ -433,6 +433,9 @@
       <a-asset-item id="containerblack" src="Assets/TrashContainerBlack.gltf"></a-asset-item>
       <a-asset-item id="trashcan" src="Assets/TrashCan.gltf"></a-asset-item>
       <a-asset-item id="trashcan02" src="Assets/Box_SharpObject.gltf"></a-asset-item>
+      <a-asset-item id="trashcan03" src="Assets/TrashCan02.gltf"></a-asset-item>
+      <a-asset-item id="DestiledWater" src="Assets/DestiledWater.gltf"></a-asset-item>
+      <a-asset-item id="Vaseline" src="Assets/Vaseline.gltf"></a-asset-item>
 
       <img id="sky-01" src="../../Models/Images/sky-01.jpg">
       
@@ -490,7 +493,7 @@
       <a-asset-item id="student" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
       <a-asset-item id="teacher" src="../../super/process/assets/TeacherAvatar.gltf"></a-asset-item>
 
-      <a-asset-item id="DestiledWater" src="../Process-Assist-NeoNato/Models/DestiledWater.gltf"></a-asset-item>
+      
 
 
       <!-- Theater -->
@@ -618,7 +621,8 @@
         <a-entity>
           <a-entity id="e-DestiledWater" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-DestiledWater vxr-interact" gltf-model="#DestiledWater" draggable grabbable toggle-physics
-            position="-0.5774499999852566 0.40478571466845326 0.04580000005010498" rotation="0 -90 0.000014016543095007074"></a-entity>
+            position="-0.5774499999852566 0.40478571466845326 0.04580000005010498" rotation="0 90 0" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_destilewater.png">
+          </a-entity>
         </a-entity>
       </template>
 
@@ -889,6 +893,14 @@
         </a-entity>
       </template>
 
+      <template id="vxr-obj-template-vaseline">
+        <a-entity>
+          <a-entity id="e-vaseline" class="vxr-obj-vaseline vxr-interact" gltf-model="#Vaseline"
+            toggle-physics="" draggable="" grabbable position="-0.578 0.400 -0.101" 
+            rotation="" scale="2 2 2" dynamic-body></a-entity>
+        </a-entity>
+      </template>
+
 
     </a-assets>
 
@@ -938,7 +950,7 @@
       rotation="0 0 0">
     </a-entity>
     <a-entity id="bedBaby" gltf-model="#bed" scale="1 1.2 1.2" position="0.87277 0.908 -0.9535" material="color: brown"
-      rotation="0 -90 0" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_babycrib.png">
+      rotation="0 90 0" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_babycrib.png">
     </a-entity>
 
     <a-entity id="armario" gltf-model="#Armario" scale="" position="-0.12389 0.915 3" rotation="0 -90 0" ao-map="src: ../HospitalRoomAssets/AOMap_armario.png">
@@ -996,6 +1008,8 @@
       rotation="0 180 0"></a-entity>
     <a-entity id="trash02" scale="" position="-1.39547 0.91541 -0.694" gltf-model="#trashcan02" 
       rotation="0 90 0" ></a-entity>
+    <a-entity id="trash03" scale="" position="-1.39547 0.91541 -0.264" gltf-model="#trashcan03" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_trash.png"
+      rotation="0 90 0"></a-entity>
 
     <a-box id="dragBox" dynamic-body="sphereRadius: NaN" dynamic-body geometry="width:0.03;height:0.03;depth:0.03" position="0.18823 1.92389 -0.326"
       opacity="0" ondragstart="setMassHeparinseal()">

@@ -123,5 +123,9 @@
   {
     "template": "vxr-obj-template-heparinseal-box",
     "selector": ".vxr-obj-heparinseal-box"
+  },
+  {
+    "template": "vxr-obj-template-vaseline",
+    "selector": ".vxr-obj-vaseline"
   }
 ]
