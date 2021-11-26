@@ -17,12 +17,68 @@
     "selector": ".vxr-obj-medicaltape"
   },
   {
-    "template": "vxr-obj-template-gauze",
-    "selector": ".vxr-obj-gauze"
+    "template": "vxr-obj-template-gauze01",
+    "selector": ".vxr-obj-gauze01"
+  },
+  {
+    "template": "vxr-obj-template-gauze02",
+    "selector": ".vxr-obj-gauze02"
+  },
+  {
+    "template": "vxr-obj-template-gauze03",
+    "selector": ".vxr-obj-gauze03"
+  },
+  {
+    "template": "vxr-obj-template-toiletpaper01",
+    "selector": ".vxr-obj-toiletpaper01"
+  },
+  {
+    "template": "vxr-obj-template-toiletpaper02",
+    "selector": ".vxr-obj-toiletpaper02"
+  },
+  {
+    "template": "vxr-obj-template-toiletpaper03",
+    "selector": ".vxr-obj-toiletpaper03"
   },
   {
     "template": "vxr-obj-template-allistweezers",
     "selector": ".vxr-obj-allistweezers"
+  },
+  {
+    "template": "vxr-obj-template-thermometer",
+    "selector": ".vxr-obj-thermometer"
+  },
+  {
+    "template": "vxr-obj-template-hyssop01",
+    "selector": ".vxr-obj-hyssop01"
+  },
+  {
+    "template": "vxr-obj-template-hyssop02",
+    "selector": ".vxr-obj-hyssop02"
+  },
+  {
+    "template": "vxr-obj-template-haircomb",
+    "selector": ".vxr-obj-haircomb"
+  },
+  {
+    "template": "vxr-obj-template-bulbsyringe",
+    "selector": ".vxr-obj-bulbsyringe"
+  },
+  {
+    "template": "vxr-obj-template-clamp",
+    "selector": ".vxr-obj-clamp"
+  },
+  {
+    "template": "vxr-obj-template-towel01",
+    "selector": ".vxr-obj-towel01"
+  },
+  {
+    "template": "vxr-obj-template-towel02",
+    "selector": ".vxr-obj-towel02"
+  },
+  {
+    "template": "vxr-obj-template-towel03",
+    "selector": ".vxr-obj-towel03"
   },
   {
     "template": "vxr-obj-template-cottonswab01",
