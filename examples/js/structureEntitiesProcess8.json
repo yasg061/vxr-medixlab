@@ -81,6 +81,14 @@
     "selector": ".vxr-obj-towel03"
   },
   {
+    "template": "vxr-obj-template-plantares",
+    "selector": ".vxr-obj-plantares"
+  },
+  {
+    "template": "vxr-obj-template-panal",
+    "selector": ".vxr-obj-panal"
+  },
+  {
     "template": "vxr-obj-template-cottonswab01",
     "selector": ".vxr-obj-cottonswab01"
   },

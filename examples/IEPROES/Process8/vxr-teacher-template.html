@@ -418,7 +418,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -446,6 +446,10 @@
       <a-asset-item id="bulbSyringe" src="Assets/Bulb_Syringe.gltf"></a-asset-item>
       <a-asset-item id="Clamp" src="Assets/Clamp.gltf"></a-asset-item>
       <a-asset-item id="Towel" src="Assets/Towel.gltf"></a-asset-item>
+      <a-asset-item id="Plantares" src="Assets/Plantares.gltf"></a-asset-item>
+      <a-asset-item id="PlantaresL" src="Assets/PlantaresLeft.gltf"></a-asset-item>
+      <a-asset-item id="PlantaresR" src="Assets/PlantaresRight.gltf"></a-asset-item>
+      <a-asset-item id="Panal" src="Assets/Pañal_Abrido.gltf"></a-asset-item>
 
       <img id="sky-01" src="../../Models/Images/sky-01.jpg">
       
@@ -755,9 +759,9 @@
 
       <template id="vxr-obj-template-clamp">
         <a-entity>
-          <a-entity id="e-clamp" rotation="0 0 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+          <a-entity id="e-clamp" scale="1.2 1.2 1.2" rotation="0.000013727043075128814 -0.11108983229219169 89.99994900592964" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-clamp vxr-interact" gltf-model="#Clamp" dynamic-body draggable grabbable
-            toggle-physics position="1.0556 0.40614 -0.01571"></a-entity>
+            toggle-physics position="1.04009 0.42582 -0.00676"></a-entity>
         </a-entity>
       </template>
 
@@ -782,6 +786,22 @@
           <a-entity id="e-towel03" rotation="0 0 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-towel03 vxr-interact" gltf-model="#Towel" dynamic-body draggable grabbable
             toggle-physics position="1.337 0.408 -0.126"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-plantares">
+        <a-entity>
+          <a-entity id="e-plantares" rotation="0 180 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-plantares vxr-interact" gltf-model="#Plantares" dynamic-body draggable grabbable
+            toggle-physics position="0.27753 0.405 0.1477"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-panal">
+        <a-entity>
+          <a-entity id="e-panal" rotation="3.26843619051026e-7 4.4261780338585825e-11 0.000005336236058081397" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-plantares vxr-interact" gltf-model="#Panal" dynamic-body draggable grabbable
+            toggle-physics position="0.06411 0.406 0.1477"></a-entity>
         </a-entity>
       </template>
 
@@ -1083,13 +1103,13 @@
     </a-entity>
     <a-entity id="sofa" gltf-model="#Sofa" scale="" rotation="0 180 0" position="2.00436 0.90695 3.70236" ao-map="src: ../HospitalRoomAssets/AOMap_sofa.png">
     </a-entity>
-    <a-entity id="table_004" gltf-model="#Table_004" scale="" rotation="0 -90 0" position="3.75416 0.90812 -2.52664">
+    <a-entity id="table_004" gltf-model="#Table_004" scale="" rotation="0 -90 0" position="2.634 0.90812 -2.52664">
     </a-entity>
     <a-entity id="thermic_crib" gltf-model="#thermic" scale="" rotation="0 0 0" position="3.09452 0.90812 -0.03355">
     </a-entity>
     <a-entity id="Infant_Scale" gltf-model="#infantScale" scale="" rotation="0 180 0" position="-0.33702 1.91789 -0.14487">
     </a-entity>
-    <a-entity id="InkPad" gltf-model="#inkpad" scale="0.6 0.6 0.6" rotation="0 0 0" position="0.02997 1.89689 -0.39988">
+    <a-entity id="InkPad" gltf-model="#inkpad" scale="0.6 0.6 0.6" rotation="0 0 0" position="0.32895 1.89689 -0.39988">
     </a-entity>
 
     </a-entity>
@@ -1101,6 +1121,10 @@
       position="-0.11878 1.855 -0.13324" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
     <a-box id="boxTable2" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="1.239 1.855 -0.13324" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+    <a-box id="boxTable3" static-body="sphereRadius: NaN" opacity="0" static-body rotation="" scale="0.628 0.520 0.709"
+      position="-0.341 2.033 -0.119" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+    <a-box id="boxTable4" static-body="sphereRadius: NaN" opacity="0" static-body rotation="" scale="0.745 0.742 0.900"
+      position="3.037 1.689 -0.034" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
     <a-box id="boxFloor" scale="4.14767 1 7.15846" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="0.36093 0.85321 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
