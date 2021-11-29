@@ -397,7 +397,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -543,6 +543,9 @@
 
       <!-- <a-asset-item id="UrinaryCatheter" src="UrinalCatheter_Foley.gltf"></a-asset-item> -->
       <a-asset-item id="UrinaryCatheter" src="UrinalCatheter_Foley_Static2.gltf"></a-asset-item>
+      <a-asset-item id="NasogastricTubeStatic" src="NasogastricTube_Static.gltf"></a-asset-item>
+      <a-asset-item id="NasogastricTubeAnim" src="NasogastricTube_Animation.gltf"></a-asset-item>
+      <a-asset-item id="NasogastricTubeEmisive" src="NasogastricTube_Emisive.gltf"></a-asset-item>
       <a-asset-item id="Adhesive_Catheter" src="Assets/CordonUmbilical_Adhesive_Static.gltf"></a-asset-item>
       <a-asset-item id="Adhesive_Catheter_emisive" position="0 2.20708 -0.2" src="Assets/CordonUmbilical_Adhesive_Emissive.gltf"></a-asset-item>
       <a-asset-item id="Clamp_Allis" src="Assets/Clamp_Allis_Mod.gltf"></a-asset-item>
@@ -1133,9 +1136,9 @@
       <template id="vxr-obj-template-UrinaryCatheter">
         <a-entity>
           <a-entity id="e-UrinaryCatheter" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
-            rotation="-0.00003262612122166885 0.5833995013249444 -0.00002857309839352584" grabbable="maxGrabbers: NaN"
-            dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#UrinaryCatheter"
-            dynamic-body draggable grabbable toggle-physics position="-0.09281 0.29958 -0.12244">
+            rotation="0 0.5833995013249444 -0.00002857309839352584" grabbable="maxGrabbers: NaN"
+            dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#NasogastricTubeStatic"
+            dynamic-body draggable grabbable toggle-physics position="-0.194 0.307 -0.085">
           </a-entity>
         </a-entity>
       </template>
@@ -1143,9 +1146,9 @@
 
     <template id="vxr-obj-template-UrinaryCatheter_emisive">
       <a-entity>
-        <a-entity id="e-UrinaryCatheter_emisive" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
-          class="vxr-obj-UrinaryCatheter_emisive vxr-interact" gltf-model="#UrinalCatheter_Foley_Static3"
-          position="1.131 0.373 -0.662" visible="false">
+        <a-entity id="e-UrinaryCatheter_emisive" rotation="0 -43.567710741747796 0" grabbable="maxGrabbers: NaN"
+          class="vxr-obj-UrinaryCatheter_emisive vxr-interact" gltf-model="#NasogastricTubeEmisive"
+          position="1.23931 0.67216 -1.76196" visible="true">
         </a-entity>
       </a-entity>
     </template>
@@ -1154,7 +1157,7 @@
     <template id="vxr-obj-template-UrinaryCatheter_static">
       <a-entity>
         <a-entity id="e-UrinaryCatheter_static" visible="false" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
-          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#UrinalCatheter_Foley_Anim01" draggable grabbable
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#NasogastricTubeAnim" draggable grabbable
           position="1.12622 0.28775 -0.57552">
         </a-entity>
       </a-entity>
@@ -1322,9 +1325,9 @@
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity> -->
-    <!-- <a-entity id="patient01" blend-shape gltf-model="#patient" scale="" position="1.24533 0.866 -0.97171"
+    <a-entity id="patient01" blend-shape gltf-model="#patient" scale="" position="1.24533 0.866 -0.97171"
       material="color: brown" rotation="0 -90 0">
-    </a-entity> -->
+    </a-entity>
 
     <a-entity id="armario" gltf-model="#Armario" scale="" position="-0.12389 0.915 3" rotation="0 -90 0" ao-map="src: ../HospitalRoomAssets/AOMap_armario.png">
     </a-entity>
@@ -1400,9 +1403,9 @@
     <!-----------------------------------------------Triggers------------------------------------------------------------>
     <!------------------------------------------------------------------------------------------------------------------->
 
-    <a-sphere id="sphere2" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+    <!-- <a-sphere id="sphere2" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-UrinaryCatheter;obj_entity:1" opacity="0" position="1.22917 1.69274 -1.00507"
-      attach-point-v2 geometry="radius: 0.05"> </a-sphere>
+      attach-point-v2 geometry="radius: 0.05"> </a-sphere> -->
 
 <!--    <a-sphere id="sphere3" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-Basin;obj_entity:2" opacity="0" position="1.26494 1.6 -0.89968" attach-point-v2
@@ -1416,17 +1419,17 @@
       trigger-animation="entity_id:e-Adhesive_Catheter;obj_entity:2" opacity="0" position="0.9907 1.74154 -0.93679"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>-->
 
-    <a-sphere id="sphere7" scale="0.05 0.05 0.05" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-SalineBag;obj_entity:2" opacity="0" position="-0.34821 2.141 -0.843"
-      attach-point-v2 geometry="radius: 0.05"> </a-sphere>
+    <a-sphere id="sphere7" static-body="sphereRadius: NaN" scale="0.3 0.3 0.3" static-body
+      trigger-animation="entity_id:e-UrinaryCatheter;obj_entity:1" opacity="1" position="1.23567 2.07785 -1.68291"
+      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
-    <a-sphere id="sphere8" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+    <!-- <a-sphere id="sphere8" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-Bottle_Lubricant;obj_entity:2" opacity="0" position="-0.34464 2.14864 -1.40395"
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
     <a-sphere id="sphere9" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-WatterGlass;obj_entity:2" opacity="0" position="-0.34464 2.141 -0.843"
-      attach-point-v2 geometry="radius: 0.05"> </a-sphere>
+      attach-point-v2 geometry="radius: 0.05"> </a-sphere> -->
 
     <a-entity id="arrow01" gltf-model="#arrow" visible="false" position="1.219 2.000 -0.835" rotation="0 0 0" animation-mixer>
     </a-entity>
