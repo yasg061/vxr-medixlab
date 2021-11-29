@@ -860,7 +860,7 @@
           <a-entity id="e-alcoholgel" rotation="-0.000007477635997961198 3.8917617689839617e-10 0.000015630321302724323"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
             gltf-model="#alcoholgel" dynamic-body draggable grabbable toggle-physics position="-0.21333 0.28691 0.05132"
-            ondragstart="setOpacityAlcohol()">
+            ondragstart="setOpacityAlcohol()" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_alcoholgel.png">
           </a-entity>
         </a-entity>
       </template>
@@ -929,7 +929,7 @@
       <a-entity>
         <a-entity id="e-Biombo_Anim" grabbable="maxGrabbers: NaN" visible="true" rotation="0 90 0" grabbable
           class="vxr-obj-Biombo_Anim vxr-interact" gltf-model="#Biombo_Anim" draggable grabbable
-          position="3.16081 -0.58689 -1.83804">
+          position="3.16081 -0.58689 -1.83804" ao-map="src: ../HospitalRoomAssets/AOMap_biombo.png">
         </a-entity>
       </a-entity>
     </template>
@@ -1110,9 +1110,9 @@
     <template id="vxr-obj-template-Gauze01">
       <a-entity>
         <a-entity id="e-Gauze01" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" scale="0.84 0.84 0.84"
-          rotation="0 0 0" grabbable dynamic-body ondragstart="emissiveObjectOn(this)"
+          rotation="0 90 0" grabbable dynamic-body ondragstart="emissiveObjectOn(this)"
           ondragend="emissiveObjectOff(this)" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze" dynamic-body
-          draggable grabbable toggle-physics position="-0.07629 0.33754 -0.1807">
+          draggable grabbable toggle-physics position="-0.07629 0.33754 -0.1807" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_maskcovid.png">
         </a-entity>
       </a-entity>
     </template>
@@ -1127,8 +1127,8 @@
 
     <template id="vxr-obj-template-Gauze01_static">
       <a-entity>
-        <a-entity id="e-Gauze01_static" visible="false" scale="0.84 0.84 0.84" grabbable="maxGrabbers: NaN"
-          rotation="-90 0 0" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze" position="1.36 0.248 -1.549">
+        <a-entity id="e-Gauze01_static" visible="false" scale="0.84 0.84 0.84" grabbable="maxGrabbers: NaN" rotation="0 90 -90"
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze" position="1.361 0.252 -1.549" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_maskcovid.png">
         </a-entity>
       </a-entity>
     </template>
@@ -1137,7 +1137,7 @@
       <a-entity>
         <a-entity id="e-ClorhexidinaBottle" visible="true" grabbable="maxGrabbers: NaN" toggle-physics
           rotation="0.0000012707293381490825 0 0.000002570910678349563" class="vxr-obj-alcoholgel vxr-interact"
-          gltf-model="#ClorhexidinaBottle" position="-0.28282 0.29202 -0.04103">
+          gltf-model="#ClorhexidinaBottle" position="-0.28282 0.29202 -0.04103" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_chlorhexidine.png">
         </a-entity>
       </a-entity>
     </template>

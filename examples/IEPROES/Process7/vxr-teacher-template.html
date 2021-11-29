@@ -464,7 +464,6 @@
       <a-asset-item id="trashcan" src="/Models/gltf/TrashCan.gltf"></a-asset-item>
       <a-asset-item id="container" src="/Models/gltf/TrashContainer.gltf"></a-asset-item>
       <a-asset-item id="containerblack" src="/Models/gltf/TrashContainerBlack.gltf"></a-asset-item>
-      <a-asset-item id="Table_005" src="Assets/Table_005.gltf"></a-asset-item>
       <!-- <a-asset-item id="tstSyringe" src="Syringe.gltf"></a-asset-item> -->
       <a-asset-item id="tstSyringe" src="Assets/Syringe_NoNeedle.gltf"></a-asset-item>
       <a-asset-item id="Assistant_Nurse" src="Assets/Assistant_Nurse.gltf"></a-asset-item>
@@ -558,8 +557,6 @@
       <a-asset-item id="WatterGlass_Static" src="Assets/WatterGlass_Static.gltf"></a-asset-item>
 
       <a-asset-item id="ClampHolder" src="Assets/ClampHolder.gltf"></a-asset-item>
-
-      <a-asset-item id="Table_005" src="Assets/Table_005.gltf"></a-asset-item>
 
 
 
@@ -1013,7 +1010,7 @@
           <a-entity id="e-alcoholgel" rotation="-0.000007477635997961198 3.8917617689839617e-10 0.000015630321302724323"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
             gltf-model="#alcoholgel" dynamic-body draggable grabbable toggle-physics
-            position="-0.21333 0.28691 0.05132" ondragstart="setOpacityCard(this)">
+            position="-0.21333 0.28691 0.05132" ondragstart="setOpacityCard(this)" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_alcoholgel.png">
           </a-entity>
         </a-entity>
       </template>
@@ -1227,7 +1224,7 @@
       <a-entity>
         <a-entity id="e-Biombo_Anim" grabbable="maxGrabbers: NaN" visible="true" rotation="0 90 0" grabbable
           class="vxr-obj-Biombo_Anim vxr-interact" gltf-model="#Biombo_Anim" draggable grabbable
-          position="3.16081 -0.58689 -1.83804">
+          position="3.16081 -0.58689 -1.83804" ao-map="src: ../HospitalRoomAssets/AOMap_biombo.png">
         </a-entity>
       </a-entity>
     </template>

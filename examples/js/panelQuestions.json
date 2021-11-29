@@ -5,161 +5,113 @@
             {
                 "id": "firstAnswer",
                 "component": "factor1",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor1",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor1",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor1",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]
     },
     {
-        "question": "value: Comunicación con los demás profesionales de la unidad de práctica; align: center",
+        "question": "value: Comunicacion con los demas profesionales de la unidad de practica; align: center",
         "answers": [
             {
                 "id": "firstAnswer",
                 "component": "factor1",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor1",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor1",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor1",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]
     },
     {
-        "question": "value: El ambiente de la unidad clínica de prácticas; align: center",
+        "question": "value: El ambiente de la unidad clinica de practicas; align: center",
         "answers": [
             {
                 "id": "firstAnswer",
                 "component": "factor1",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor1",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor1",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor1",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]      
     },
     {
-        "question": "value: Comunicación con los profesionales de otros sectores en el local de prácticas; align: center",
+        "question": "value: Comunicacion con los profesionales de otros sectores en el local de practicas; align: center",
         "answers": [
             {
                 "id": "firstAnswer",
                 "component": "factor1",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor1",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor1",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor1",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]      
     },
@@ -169,161 +121,113 @@
             {
                 "id": "firstAnswer",
                 "component": "factor2",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
     {
-        "question": "value: La forma adoptada para evaluar el contenido teórico; align: center",
+        "question": "value: La forma adoptada para evaluar el contenido teorico; align: center",
         "answers": [
             {
                 "id": "firstAnswer",
                 "component": "factor2",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
     {
-        "question": "value: Sentir inseguridad o miedo al hacer las pruebas teóricas; align: center",
+        "question": "value: Sentir inseguridad o miedo al hacer las pruebas teoricas; align: center",
         "answers": [
             {
                 "id": "firstAnswer",
                 "component": "factor2",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
     {
-        "question": "value: El grado de dificultad para la ejecución de los trabajos extra clase; align: center",
+        "question": "value: El grado de dificultad para la ejecucion de los trabajos extra clase; align: center",
         "answers": [
             {
                 "id": "firstAnswer",
                 "component": "factor2",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
@@ -333,38 +237,26 @@
             {
                 "id": "firstAnswer",
                 "component": "factor2",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
@@ -374,38 +266,26 @@
             {
                 "id": "firstAnswer",
                 "component": "factor2",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
@@ -415,38 +295,26 @@
             {
                 "id": "firstAnswer",
                 "component": "factor2",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor2",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
@@ -456,161 +324,113 @@
             {
                 "id": "firstAnswer",
                 "component": "factor3",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor3",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor3",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor3",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
     {
-        "question": "value: Transporte público utilizado para llegar a la facultad; align: center",
+        "question": "value: Transporte publico utilizado para llegar a la facultad; align: center",
         "answers": [
             {
                 "id": "firstAnswer",
                 "component": "factor3",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor3",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor3",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor3",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
     {
-        "question": "value: Distancia entre la mayoría de los campos de práctica y el local de vivienda; align: center",
+        "question": "value: Distancia entre la mayoria de los campos de practica y el local de vivienda; align: center",
         "answers": [
             {
                 "id": "firstAnswer",
                 "component": "factor3",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor3",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor3",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor3",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
     {
-        "question": "value: Transporte público utilizado para llegar al local de la práctica; align: center",
+        "question": "value: Transporte publico utilizado para llegar al local de la practica; align: center",
         "answers": [
             {
                 "id": "firstAnswer",
                 "component": "factor3",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor3",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor3",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor3",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
@@ -620,120 +440,84 @@
             {
                 "id": "firstAnswer",
                 "component": "factor4",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor4",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor4",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor4",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
     {
-        "question": "value: Percibir las dificultades que implican el relacionamiento con otros profesionales del área; align: center",
+        "question": "value: Percibir las dificultades que implican el relacionamiento con otros profesionales del area; align: center",
         "answers": [
             {
                 "id": "firstAnswer",
                 "component": "factor4",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor4",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor4",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor4",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
     {
-        "question": "value: Percibir la responsabilidad profesional cuando está actuando en el campo de práctica; align: center",
+        "question": "value: Percibir la responsabilidad profesional cuando esta actuando en el campo de practica; align: center",
         "answers": [
             {
                 "id": "firstAnswer",
                 "component": "factor4",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor4",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor4",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor4",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     },
@@ -743,38 +527,26 @@
             {
                 "id": "firstAnswer",
                 "component": "factor4",
-                "material": "color: #072B73",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.3 0.01",
-                "text": "value: No vivenció la situación; align: center"
+                "text": "value: No vivencio la situacion; align: center"
             },
             {
                 "id": "secondAnswer",
-                "material": "color: #072B73",
                 "component": "factor4",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 0.1 0.01",
-                "text": "value: No me siento estresado con la situación; align: center"
+                "text": "value: No me siento estresado con la situacion; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "material": "color: #072B73",
                 "component": "factor4",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.1 0.01",
-                "text": "value: Me siento poco estresado con la situación; align: center"
+                "text": "value: Me siento poco estresado con la situacion; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "material": "color: #072B73",
                 "component": "factor4",
-                "height": "0.15",
-                "width": "0.75",
                 "position": "0 -0.3 0.01",
-                "text": "value: Me siento muy estresado con la situación; align: center"
+                "text": "value: Me siento muy estresado con la situacion; align: center"
             }
         ]   
     }

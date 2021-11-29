@@ -72,10 +72,6 @@
       "selector": ".vxr-obj-Biombo_Anim"
     },
     {
-      "template": "vxr-obj-template-Table_005",
-      "selector": ".vxr-obj-Table_005"
-    },
-    {
       "template": "vxr-obj-template-Gloves_Steril",
       "selector": ".vxr-obj-Gloves_Steril"
     },
@@ -90,10 +86,6 @@
     {
       "template": "vxr-obj-template-Gloves_Steril_Open",
       "selector": ".vxr-obj-Gloves_Steril_Open"
-    },
-    {
-      "template": "vxr-obj-template-Assistant_Nurse",
-      "selector": ".vxr-obj-Assistant_Nurse"
     },
     {
       "template": "vxr-obj-template-HandLamp",
