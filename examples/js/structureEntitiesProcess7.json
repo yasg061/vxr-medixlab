@@ -56,8 +56,20 @@
       "selector": ".vxr-obj-UrinalCatheter_static"
     },
     {
+      "template": "vxr-obj-template-Assistant_Nurse",
+      "selector": ".vxr-obj-Assistant_Nurse"
+    },
+    {
       "template": "vxr-obj-template-tstSyringe",
       "selector": ".vxr-obj-tstSyringe"
+    },
+    {
+      "template": "vxr-obj-template-RubberCloth_emisive",
+      "selector": ".vxr-obj-RubberCloth_emisive"
+    },
+    {
+      "template": "vxr-obj-template-RubberCloth_static",
+      "selector": ".vxr-obj-RubberCloth_static"
     },
     {
       "template": "vxr-obj-template-SalineBag",
