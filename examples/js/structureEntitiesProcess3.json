@@ -44,8 +44,16 @@
     "selector": ".vxr-obj-Table_005"
   },
   {
+    "template": "vxr-obj-template-Gloves_sterilv",
+    "selector": ".vxr-obj-Gloves_sterilv"
+  },
+  {
     "template": "vxr-obj-template-Gloves_Steril",
     "selector": ".vxr-obj-Gloves_Steril"
+  },
+  {
+    "template": "vxr-obj-template-Gloves_sterilv_emisive",
+    "selector": ".vxr-obj-Gloves_sterilv_emisive"
   },
   {
     "template": "vxr-obj-template-Gloves_Steril_Open",
@@ -112,16 +120,16 @@
     "selector": ".e-CottonPink"
   },
   {
-    "template": "vxr-obj-template-Gauze01",
-    "selector": ".e-Gauze01"
+    "template": "vxr-obj-template-MaskCovid",
+    "selector": ".e-MaskCovid"
   },
   {
-    "template": "vxr-obj-template-Gauze01_emisive",
-    "selector": ".e-Gauze01_emisive"
+    "template": "vxr-obj-template-MaskCovid_emisive",
+    "selector": ".e-MaskCovid_emisive"
   },
   {
-    "template": "vxr-obj-template-Gauze01_static",
-    "selector": ".e-Gauze01_static"
+    "template": "vxr-obj-template-MaskCovid_static",
+    "selector": ".e-MaskCovid_static"
   },
   {
     "template": "vxr-obj-template-ClorhexidinaBottle",
@@ -134,6 +142,30 @@
   {
     "template": "vxr-obj-template-CottonBag_Emissive",
     "selector": ".e-CottonBag_Emissive"
+  },
+  {
+    "template": "vxr-obj-template-Gauze01",
+    "selector": ".e-Gauze01"
+  },
+  {
+    "template": "vxr-obj-template-Gauze02",
+    "selector": ".e-Gauze02"
+  },
+  {
+    "template": "vxr-obj-template-aposito1",
+    "selector": ".e-aposito1"
+  },
+  {
+    "template": "vxr-obj-template-aposito2",
+    "selector": ".e-aposito2"
+  },
+  {
+    "template": "vxr-obj-template-aposito2_emisive",
+    "selector": ".e-aposito2_emisive"
+  },
+  {
+    "template": "vxr-obj-template-aposito2_static",
+    "selector": ".e-aposito2_static"
   },
   {
     "template": "vxr-obj-template-GauzeLumen",
@@ -185,19 +217,19 @@
   },
   {
     "template": "vxr-obj-template-Hyssop-Package-Close1",
-    "selector": ".e-Hyssop_Close"
+    "selector": ".e-Hyssop-Package-Close1"
   },
   {
     "template": "vxr-obj-template-Hyssop-Package-Close2",
-    "selector": ".e-Hyssop_Close"
+    "selector": ".e-Hyssop-Package-Close2"
   },
   {
     "template": "vxr-obj-template-Hyssop-Static1",
-    "selector": ".e-Hyssop_Static"
+    "selector": ".e-Hyssop_Static1"
   },
   {
     "template": "vxr-obj-template-Hyssop-Static2",
-    "selector": ".e-Hyssop_Static"
+    "selector": ".e-Hyssop-Static2"
   },
   {
     "template": "vxr-obj-template-Aposito",
