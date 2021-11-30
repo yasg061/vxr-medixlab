@@ -53,6 +53,7 @@
   <script src="../../js/randomize-spec-color.component.js"></script>
 
   <script>
+  let cotton_iterator = 0
     AFRAME.registerComponent('trigger-animation', {
       schema: {
         entity_id: { type: 'string', default: '0' },
@@ -85,6 +86,18 @@
             e.detail.body.el.setAttribute('visible', 'false');
             obj.setAttribute("visible", "true")
             emisive.remove()
+            
+            if(id_Data=="e-GauzeLumen"){
+             }
+            if(id_Data=="e-CottonLumen1" || id_Data=="e-CottonLumen2" || id_Data=="e-CottonLumen3"){
+            
+              cotton_iterator+=1
+              
+              if(cotton_iterator==1){
+                document.getElementById("e-GauzeLumen_static").setAttribute("dynamic-body","mass:0.0")
+
+              }              
+            }
           }
 
           if (id_Data == e.detail.body.el.id && iterator_entity == 3) {
@@ -138,13 +151,18 @@
 
             let obj=document.getElementById(id_Data)
             
-             
+              
               document.getElementById("e-Hyssop-Package-Close1").setAttribute("visible", "true")
               document.getElementById("e-Hyssop-Package-Close2").setAttribute("visible", "true")
               document.getElementById("e-Hyssop-Static1").setAttribute("visible", "true")
               document.getElementById("e-Hyssop-Static2").setAttribute("visible", "true")
               document.getElementById("e-Gloves_Steril").setAttribute("visible", "true")
+              document.getElementById("sphere-gloves-steril-x").setAttribute("visible", "true")
+              document.getElementById("sphere13-Hyssop").setAttribute("visible", "true")
+              document.getElementById("sphere14-Hyssop").setAttribute("visible", "true")
 
+              
+              
             obj.remove();
             
           }
@@ -240,9 +258,9 @@
     }
 
     function hyssop1() {
-      let hyssop = document.getElementById("e-Hyssop_Static1")
+      let hyssop = document.getElementById("e-Hyssop-Static1")
       let trigger = document.getElementById("sphere13-Hyssop")
-      let package = document.getElementById("e-Hyssop_Close1")
+      let package = document.getElementById("e-Hyssop-Package-Close1")
       package.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
       hyssop.setAttribute("visible", "true")
       hyssop.setAttribute("dynamic-body", "mass:0.1")
@@ -251,9 +269,9 @@
     }
 
     function hyssop2() {
-      let hyssop = document.getElementById("e-Hyssop_Static2")
+      let hyssop = document.getElementById("e-Hyssop-Static2")
       let trigger = document.getElementById("sphere14-Hyssop")
-      let package = document.getElementById("e-Hyssop_Close2")
+      let package = document.getElementById("e-Hyssop-Package-Close2")
       package.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
       hyssop.setAttribute("visible", "true")
       hyssop.setAttribute("dynamic-body", "mass:0.1")
@@ -666,7 +684,7 @@
       <a-asset-item id="CottonPink" src="Cotton_Pink.gltf"></a-asset-item>
       <a-asset-item id="HyssopOpen" src="Assets/Hyssop_Package_Open01.gltf"></a-asset-item>
       <a-asset-item id="HyssopClose" src="Assets/Hyssop_Package_Closed.gltf"></a-asset-item>
-      <a-asset-item id="HyssopClose1" src="Assets/Hyssop_Package_Closed.gltf"></a-asset-item>
+      <a-asset-item id="HyssopClose1" src="Assets/Hyssop_Package_Animation.gltf"></a-asset-item>
       <a-asset-item id="HyssopStatic" src="Assets/Hyssop_Static.gltf"></a-asset-item>
       <a-asset-item id="HyssopPakage" src="Assets/Hyssop_Package_Animation.gltf"></a-asset-item>
       <a-asset-item id="Aposito" src="Assets/TransparentDressing_Package_Closed.gltf"></a-asset-item>
@@ -947,8 +965,8 @@
     <template id="vxr-obj-template-aposito1">
       <a-entity>
         <a-entity id="e-aposito1" visible="true" grabbable="maxGrabbers: NaN" dynamic-body="mass:0.0; sphereRadius: NaN"
-          rotation="-39.857 90.511 -93.230" class="vxr-obj-aposito1 vxr-interact" gltf-model="#Aposito1" dynamic-body
-          draggable grabbable toggle-physics position="1.228 0.159 -1.476" ondragstart="genericSetMass(this)">
+          rotation="0.8737606375745054 -82.24007008189784 0.11917522138721122" class="vxr-obj-aposito1 vxr-interact" gltf-model="#Aposito1" dynamic-body
+          draggable grabbable toggle-physics position="1.26631 0.20422 -1.4301" ondragstart="genericSetMass(this)">
         </a-entity>
       </a-entity>
     </template>
@@ -967,9 +985,9 @@
     <template id="vxr-obj-template-aposito2_emisive">
       <a-entity>
         <a-entity id="e-aposito2_emisive" grabbable="maxGrabbers: NaN"
-          rotation="-23.630 0 0" grabbable
+          rotation="0.874 -82.24 0.119" grabbable
           class="vxr-obj-aposito2_emisive vxr-interact" visible="false" gltf-model="#Aposito2_emisive"
-          draggable grabbable position="1.356 0.262 -1.379">
+          draggable grabbable position="1.266 0.204 -1.43">
         </a-entity>
       </a-entity>
     </template>
@@ -977,9 +995,9 @@
     <template id="vxr-obj-template-aposito2_static">
       <a-entity>
         <a-entity id="e-aposito2_static" grabbable="maxGrabbers: NaN"
-          rotation="-23.630 0 0" grabbable
-          class="vxr-obj-aposito2_static vxr-interact" gltf-model="#Aposito2_static" draggable grabbable
-          position="1.356 0.262 -1.379" visible="false">
+          rotation="0.8740000000000001 -82.24 0.119" grabbable
+          class="vxr-obj-aposito2_static vxr-interact" gltf-model="Assets/apositoPatient1.gltf" draggable grabbable
+          position="1.266 0.204 -1.43" visible="false">
         </a-entity>
       </a-entity>
     </template>
@@ -1261,7 +1279,7 @@
       <a-entity>
         <a-entity id="e-CottonBag_Static01_emisive" visible="false" grabbable="maxGrabbers: NaN" scale="0.84 0.84 0.84"
           rotation="0 0 -145" grabbable class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonBag_Emissive"
-          draggable grabbable position="-0.15121 0.5201 -0.01486">
+          draggable grabbable position="-0.33301 0.5201 -0.25464">
         </a-entity>
       </a-entity>
     </template>
@@ -1269,10 +1287,10 @@
     <template id="vxr-obj-template-GauzeLumen">
       <a-entity>
         <a-entity id="e-GauzeLumen" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
-          rotation="-0.000004193707696619996 -0.0000010986933668391607 0.00001691080621036914" grabbable
-          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+          rotation="0 0 3.386460496379146e-7" grabbable
+          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" ondragstart="genericSetMass(this)"
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#GauzeLumen_Static" draggable grabbable
-          position="0.12351 0.32684 -0.01604">
+          position="-0.10549 0.32684 -0.24341">
         </a-entity>
       </a-entity>
     </template>
@@ -1289,8 +1307,8 @@
 
     <template id="vxr-obj-template-GauzeLumen_Static">
       <a-entity>
-        <a-entity id="e-GauzeLumen_static" visible="true" 
-          grabbable="maxGrabbers: NaN" scale="1 1 1" dynamic-body="mass:0.0"
+        <a-entity id="e-GauzeLumen_static" visible="false" 
+          grabbable="maxGrabbers: NaN" scale="1 1 1"  
           rotation="24.9643440916451 -115.15534949657338 15.60966217054415" grabbable
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#GauzeLumen_Static" draggable grabbable
           position="1.23239 0.21915 -1.37842"  ondragstart="genericSetMass(this)">
@@ -1301,10 +1319,10 @@
     <template id="vxr-obj-template-CottonLumen1">
       <a-entity>
         <a-entity id="e-CottonLumen1" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
-          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
-          rotation="24.9643440916451 -115.15534949657338 15.60966217054415" grabbable
+          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" ondragstart="genericSetMass(this)"
+          rotation="0 0 5.089729155023472e-7" grabbable
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze_Small" draggable grabbable
-          position="0.0637 0.30257 0.02621">
+          position="-0.19477 0.30513 -0.2481">
         </a-entity>
       </a-entity>
     </template>
@@ -1332,11 +1350,11 @@
 
     <template id="vxr-obj-template-CottonLumen2">
       <a-entity>
-        <a-entity id="e-CottonLumen2" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
-          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
-          rotation="24.9643440916451 -115.15534949657338 15.60966217054415" grabbable
+        <a-entity id="e-CottonLumen2" dynamic-body="sphereRadius: NaN" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
+          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" ondragstart="genericSetMass(this)"
+          rotation="5.2915818136435485e-8 0 5.089729327076489e-7" grabbable
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze_Small" draggable grabbable
-          position="0.05456 0.30257 -0.14119">
+          position="-0.19493 0.30513 -0.35101">
         </a-entity>
       </a-entity>
     </template>
@@ -1362,16 +1380,16 @@
 
     <template id="vxr-obj-template-CottonLumen3">
       <a-entity>
-        <a-entity id="e-CottonLumen3" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
-          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" rotation="0 0 0" grabbable
+        <a-entity id="e-CottonLumen3" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1" ondragstart="genericSetMass(this)"
+          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" rotation="0 0 2.5140834384813845e-7" grabbable
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze_Small" draggable grabbable
-          position="0.05346 0.3003 -0.06605">
+          position="-0.19416 0.29014 -0.28702">
         </a-entity>
     </template>
 
     <template id="vxr-obj-template-CottonLumen3_emisive">
       <a-entity>
-        <a-entity id="e-CottonLumen3_emisive" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
+        <a-entity id="e-CottonLumen3_emisive" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1" 
           rotation="24.9643440916451 -115.15534949657338 15.60966217054415" grabbable
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#CottonLumen_Emissive" draggable grabbable
           position="1.23239 0.21915 -1.37842">
@@ -1607,17 +1625,17 @@
       trigger-animation="entity_id:e-GauzeLumen;obj_entity:2" opacity="0" position="1.249 1.713 -1.607" attach-point-v2
       geometry="radius: 0.01"> </a-sphere>
       
-    <a-sphere id="sphere13-Hyssop" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
-      opacity="1" position="1.249 1.713 -1.607" attach-point-v2 dynamic-body="mass:0"
+    <a-sphere id="sphere13-Hyssop" visible="false" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      opacity="1" position="0.0676 1.80005 -0.55835" attach-point-v2 dynamic-body="mass:0; sphereRadius: NaN"
       geometry="radius: 0.05" ondragstart="hyssop1()"> </a-sphere>
       
-    <a-sphere id="sphere14-Hyssop" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
-      opacity="1" position="1.249 1.713 -1.607" attach-point-v2 dynamic-body="mass:0"
+    <a-sphere id="sphere14-Hyssop" visible="false"scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      opacity="1" position="0.15791 1.7919 -0.56138" attach-point-v2 dynamic-body="mass:0; sphereRadius: NaN"
       geometry="radius: 0.05" ondragstart="hyssop2()"> </a-sphere>
 
     <a-sphere id="sphere15" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-aposito2;obj_entity:2" opacity="0"
-      position="1.34813 1.75703 -1.56552" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="1.26715 1.70683 -1.62656" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
     
       <!-- <a-sphere id="sphere-gloves" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-Gloves_Steril" opacity="0" position="-0.00425 1.82093 -0.48417" attach-point-v2
@@ -1631,14 +1649,17 @@
       trigger-animation="entity_id:e-Clamp_Allis;obj_entity:3" opacity="0.5" dynamic-body="mass:0.0; sphereRadius: NaN"
       rotation="" position="-0.17912 2.096 -1.80548" color="red" depth="0.1" height="0.1" width="0.1"></a-box>
 
-    <a-sphere id="sphere12-CottonBag_Static01_collider" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-CottonBag_Static01;obj_entity:6" opacity="0" position="0.0646 1.90657 -0.25769"
+    <a-sphere id="sphere12-CottonBag_Static01_collider" scale="1 1 0.2" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-CottonBag_Static01;obj_entity:6" opacity="0" position="-0.2404 1.90657 -0.49687"
       attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere-gloves-steril" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-Gloves_sterilv;obj_entity:7" opacity="0" position="-0.04598 1.860 -0.425" attach-point-v2
       geometry="radius: 0.02"> </a-sphere>
 
+      <a-sphere id="sphere-gloves-steril-x" visible="false" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      opacity="1" position="-0.04598 1.860 -0.425" ondragstart="playAnimation()" attach-point-v2
+      geometry="radius: 0.05"> </a-sphere>
 
 
   </a-scene>
