@@ -586,11 +586,11 @@
 
 
       <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false"
-        static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
-                          colliderEventProperty: els;
-                          colliderEndEvent: collisions;
-                          colliderEndEventProperty: clearedEls;">
-      </a-mixin>
+      static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
+                        colliderEventProperty: els;
+                        colliderEndEvent: collisions;
+                        colliderEndEventProperty: clearedEls;">
+    </a-mixin>
       <a-mixin id="point" raycaster="showLine: true; objects: .answers" collision-filter="collisionForces: false"
         static-body="shape: sphere; sphereRadius: 0.001" super-hands="colliderEvent: raycaster-intersection;
                     colliderEventProperty: els;
@@ -1162,7 +1162,7 @@
       <a-entity>
         <a-entity id="e-UrinaryCatheter_static" visible="false" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#NasogastricTubeAnim" draggable grabbable
-          position="1.12622 0.28775 -0.57552">
+          position="1.208 0.467 -1.010">
         </a-entity>
       </a-entity>
     </template>
@@ -1387,10 +1387,10 @@
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="point" hand-attach input-controls="hand: left"
+      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left"
         networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand" mixin="point" hand-attach input-controls="hand: right"
+      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right"
         networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
@@ -1445,7 +1445,9 @@
 
 
 
- 
+ e-asdñfkjasdlñfjasdf
+ e-asdñfkjasdlñfjasdf_emisive
+ e-asdñfkjasdlñfjasdf_static
 
 
 
