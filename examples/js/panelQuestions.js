@@ -25,7 +25,7 @@
       questionPlane.setAttribute('rotation', "0 180 0")
       questionPlane.setAttribute('height', "0.25");
       console.log('question:', objectsResult[x].question);
-      questionPlane.setAttribute('text', objectsResult[x].question);
+      questionPlane.setAttribute('text', `${objectsResult[x].question}; font:SourceSansPro-SemiBold-msdf.json; negate:false` );
       scene.appendChild(questionPlane);
       scene.appendChild(panel1);
 
