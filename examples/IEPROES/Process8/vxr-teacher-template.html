@@ -450,6 +450,10 @@
       <a-asset-item id="PlantaresL" src="Assets/PlantaresLeft.gltf"></a-asset-item>
       <a-asset-item id="PlantaresR" src="Assets/PlantaresRight.gltf"></a-asset-item>
       <a-asset-item id="Panal" src="Assets/Pañal_Abrido.gltf"></a-asset-item>
+      <a-asset-item id="WatterGlass" src="Assets/WatterGlass.gltf"></a-asset-item>
+      <a-asset-item id="HandLamp" src="Assets/HandLamp.gltf"></a-asset-item>
+      <a-asset-item id="UmbilicalTape" src="Assets/Bottle_CordonUmbilical.gltf"></a-asset-item>
+      <a-asset-item id="Basin" src="Assets/KidneyTray.gltf"></a-asset-item>
 
       <img id="sky-01" src="../../Models/Images/sky-01.jpg">
       
@@ -650,7 +654,7 @@
         <a-entity>
           <a-entity id="e-rubber" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-rubber vxr-interact" gltf-model="#rubber" dynamic-body draggable grabbable toggle-physics
-            position="0.91614 0.43362 -0.02023" scale="0.8 0.8 0.8"></a-entity>
+            position="1.05099 0.43362 -0.01239" scale="0.8 0.8 0.8"></a-entity>
         </a-entity>
       </template>
 
@@ -745,7 +749,7 @@
         <a-entity>
           <a-entity id="e-haircomb" rotation="0 0 0.000009555253088978258" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-haircomb vxr-interact" gltf-model="#HairComb" dynamic-body draggable grabbable
-            toggle-physics position="0.82798 0.40711 0.12382"></a-entity>
+            toggle-physics position="0.82798 0.40711 -0.00707"></a-entity>
         </a-entity>
       </template>
 
@@ -753,15 +757,15 @@
         <a-entity>
           <a-entity id="e-bulbsyringe" rotation="0 0 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-bulbsyringe vxr-interact" gltf-model="#bulbSyringe" dynamic-body draggable grabbable
-            toggle-physics position="0.96403 0.46041 0.12036"></a-entity>
+            toggle-physics position="1.02593 0.45619 0.12036"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-clamp">
         <a-entity>
-          <a-entity id="e-clamp" scale="1.2 1.2 1.2" rotation="0.000013727043075128814 -0.11108983229219169 89.99994900592964" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+          <a-entity id="e-clamp" scale="1.2 1.2 1.2" rotation="0 0 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-clamp vxr-interact" gltf-model="#Clamp" dynamic-body draggable grabbable
-            toggle-physics position="1.04009 0.42582 -0.00676"></a-entity>
+            toggle-physics position="1.406 0.406 0.155"></a-entity>
         </a-entity>
       </template>
 
@@ -815,9 +819,9 @@
 
       <template id="vxr-obj-template-cottonswab01">
         <a-entity>
-          <a-entity id="e-cottonswab01" grabbable="maxGrabbers: NaN" dynamic-body="shape: box"
+          <a-entity id="e-cottonswab01" grabbable="maxGrabbers: NaN" dynamic-body="shape: box; sphereRadius: NaN"
             class="vxr-obj-cottonswab01 vxr-interact" gltf-model="#s_cube" dynamic-body draggable grabbable
-            toggle-physics position="1.1368 0.41612 0.09706" rotation="180 0 0">
+            toggle-physics position="1.16156 0.43952 0.10281" rotation="180 0 0">
 
 
           </a-entity>
@@ -828,7 +832,7 @@
         <a-entity>
           <a-entity id="e-cottonswab02" grabbable="maxGrabbers: NaN" dynamic-body="shape: box; sphereRadius: NaN"
             class="vxr-obj-cottonswab02 vxr-interact" gltf-model="#cottonswab" dynamic-body draggable grabbable
-            toggle-physics position="1.11664 0.41612 0.10666" visible="true"></a-entity>
+            toggle-physics position="1.18369 0.41612 0.12335" visible="true"></a-entity>
         </a-entity>
       </template>
 
@@ -836,7 +840,7 @@
         <a-entity>
           <a-entity id="e-cottonswab03" rotation="-0.000001471664816786311 1.7016355847281638e-7 0.00002242123881483989"
             grabbable="maxGrabbers: NaN" dynamic-body="shape: box; sphereRadius: NaN" class="vxr-obj-cottonswab03 vxr-interact"
-            gltf-model="#cottonswab" dynamic-body draggable grabbable toggle-physics position="1.11134 0.41758 0.1242"
+            gltf-model="#cottonswab" dynamic-body draggable grabbable toggle-physics position="1.13648 0.41612 0.11922"
             visible="true"></a-entity>
         </a-entity>
       </template>
@@ -921,7 +925,7 @@
       <template id="vxr-obj-template-Bowl-Medic">
         <a-entity>
           <a-entity id="e-Bowl-Medic" grabbable="maxGrabbers: NaN" class="vxr-obj-Bowl-Medic vxr-interact"
-            gltf-model="#Bowl_Medic" draggable="" grabbable position="1.12052 0.40373 0.11381"
+            gltf-model="#Bowl_Medic" draggable="" grabbable position="1.15463 0.40373 0.11381"
             static-body="shape:mesh; sphereRadius: NaN" scale="1.3 1.1 1.3"
             rotation="5.335276073060275 -0.8806075134822605 -0.20928413873134302">
           </a-entity>
@@ -1038,8 +1042,40 @@
       <template id="vxr-obj-template-vaseline">
         <a-entity>
           <a-entity id="e-vaseline" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-vaseline vxr-interact" gltf-model="#Vaseline"
-            toggle-physics="" draggable="" grabbable position="0.79685 0.4046 -0.01678" 
+            toggle-physics="" draggable="" grabbable position="0.92444 0.4046 0.11814" 
             rotation="" scale="2 2 2" dynamic-body></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-WatterGlass">
+        <a-entity>
+          <a-entity id="e-WatterGlass" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-WatterGlass vxr-interact" gltf-model="#WatterGlass" dynamic-body draggable grabbable
+            toggle-physics position="1.201 0.404 0.252"></a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-HandLamp">
+        <a-entity>
+          <a-entity id="e-HandLamp" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-HandLamp vxr-interact" gltf-model="#HandLamp" dynamic-body draggable grabbable
+            toggle-physics position="0.071 0.412 -0.150"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-UmbilicalTape">
+        <a-entity>
+          <a-entity id="e-UmbilicalTape" rotation="0 90 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-UmbilicalTape vxr-interact" gltf-model="#UmbilicalTape" dynamic-body draggable grabbable
+            toggle-physics position="0.79915 0.405 0.12544"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Basin">
+        <a-entity>
+          <a-entity id="e-Basin" scale="0.4 0.4 0.4" rotation="0 0 0.000003941461847476063" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-Basin vxr-interact" gltf-model="#Basin" dynamic-body draggable grabbable scale= "0.5 0.5 0.5"
+            toggle-physics position="0.04148 0.42829 -0.05829"></a-entity>
         </a-entity>
       </template>
 
