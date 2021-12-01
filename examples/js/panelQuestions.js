@@ -37,7 +37,7 @@
         answer.setAttribute('height', "0.15")
         answer.setAttribute('width', "0.75")
         answer.setAttribute('position', item.position)
-        answer.setAttribute('text', item.text)
+        answer.setAttribute('text', `${item.text}; font:SourceSansPro-SemiBold-msdf.json; negate:false`)
 
         answer.addEventListener('mouseenter', function () {
           answer.setAttribute('color', '#0D4BC6');
