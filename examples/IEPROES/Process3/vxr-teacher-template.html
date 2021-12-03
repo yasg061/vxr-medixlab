@@ -197,18 +197,19 @@
     changeGloveColor = 0;
 
     function playAnimation(e) {
+ 
       if (changeGloveColor < 3) {
         let obj = document.getElementById("e-Gloves_Steril")
         obj.setAttribute("animation-mixer", "loop:once;repetitions: NaN;clampWhenFinished:true")
-        console.log("hand event: ", e)
+        console.log("hand event: ", window.event)
         changeGloveColor++
 
       } else {
-        console.log("event", e.relatedTarget.id)
-        if (e.relatedTarget.id == "lhand") {
+        console.log("event", window.event)
+        if (window.event.relatedTarget.id == "lhand") {
           let hand = document.getElementById("leftHand").getObject3D("mesh").getObjectByName("handL2320").material.color = new THREE.Color(0xe38666);
           console.log("hand: ", hand)
-        } else if (e.relatedTarget.id == "rhand") {
+        } else if (window.event.relatedTarget.id == "rhand") {
           let hand = document.getElementById("rightHand").getObject3D("mesh").getObjectByName("handR2320").material.color = new THREE.Color(0xe38666);
           console.log("right hand: ", hand)
 
