@@ -12,8 +12,28 @@
     "selector": ".vxr-obj-template-Bowl-Medic-2"
   },
   {
-    "template": "vxr-obj-template-Bowl-Medic-3",
-    "selector": ".vxr-obj-template-Bowl-Medic-3"
+    "template": "vxr-obj-template-cottonswab01",
+    "selector": ".vxr-obj-template-cottonswab01"
+  },
+  {
+    "template": "vxr-obj-template-cottonswab02",
+    "selector": ".vxr-obj-template-cottonswab02"
+  },
+  {
+    "template": "vxr-obj-template-cottonswab03",
+    "selector": ".vxr-obj-template-cottonswab03"
+  },
+  {
+    "template": "vxr-obj-template-cottonswab04",
+    "selector": ".vxr-obj-template-cottonswab04"
+  },
+  {
+    "template": "vxr-obj-template-cottonswab05",
+    "selector": ".vxr-obj-template-cottonswab05"
+  },
+  {
+    "template": "vxr-obj-template-cottonswab06",
+    "selector": ".vxr-obj-template-cottonswab06"
   },
   {
     "template": "vxr-obj-template-medicaltape",
