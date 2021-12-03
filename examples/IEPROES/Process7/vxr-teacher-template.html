@@ -474,6 +474,7 @@
       <a-asset-item id="Gloves_Steril" src="Assets/Gloves_Steril.gltf"></a-asset-item>
       <a-asset-item id="Gloves_Steril_Open" src="Assets/Gloves_Steril_Open.gltf"></a-asset-item>
       <a-asset-item id="SyringeGuyon" src="Syringe_Guyon.gltf"></a-asset-item>
+      <a-asset-item id="Syringe_Guyon_Static" src="Syringe_Guyon_Static.gltf"></a-asset-item>
 
       <a-asset-item id="Clothed_Instruments_Vesical_Static" src="Assets/Clothed_Instruments_Vesical_Static.gltf">
       </a-asset-item>
@@ -1275,9 +1276,18 @@
 
     <template id="vxr-obj-template-Syringe_Guyon">
       <a-entity>
-        <a-entity id="e-Syringe_Guyon" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" visible="true" rotation="-0.0000064540123674414075 0.000060010745642147056 0.000041021723259703924"
+        <a-entity id="e-Syringe_Guyon" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" visible="true" rotation="-0.000006453962230069932 0.0001256376024527655 0.00004101806218967028"
           class="vxr-obj-Syringe_Guyon vxr-interact" gltf-model="#SyringeGuyon" dynamic-body draggable grabbable toggle-physics
-          position="-0.03021 0.29924 -0.30702">
+          position="-0.03020991485753237 0.2992416813541243 -0.3070200437758654">
+        </a-entity>
+      </a-entity>
+    </template>
+
+    <template id="vxr-obj-template-Syringe_Guyon_Static">
+      <a-entity>
+        <a-entity id="e-Syringe_Guyon_Static" dynamic-body="mass:0.0; sphereRadius: NaN" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" visible="false" rotation="-36.82457045085314 -62.96004027574564 73.83477922732867"
+          class="vxr-obj-Syringe_Guyon_Static vxr-interact" gltf-model="#Syringe_Guyon_Static" dynamic-body draggable grabbable toggle-physics
+          position="1.00776 0.44476 -1.34489">
         </a-entity>
       </a-entity>
     </template>

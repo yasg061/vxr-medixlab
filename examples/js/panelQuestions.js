@@ -39,12 +39,14 @@
         answer.setAttribute('position', item.position)
         answer.setAttribute('text', `${item.text}; font:SourceSansPro-SemiBold-msdf.json; negate:false`)
 
-        answer.addEventListener('mouseenter', function () {
+        answer.addEventListener('raycaster-intersected', function () {
           answer.setAttribute('color', '#0D4BC6');
+          console.log('Raycaster intersected')
         })
 
-        answer.addEventListener('mouseleave', function () {
+        answer.addEventListener('raycaster-intersected-cleared', function () {
           answer.setAttribute('color', '#072B73');
+          console.log('Raycaster intersected cleared')
         })
 
         if (answer.hasAttribute('factor1')) {

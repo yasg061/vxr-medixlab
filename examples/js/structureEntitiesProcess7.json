@@ -68,6 +68,10 @@
       "selector": ".vxr-obj-RubberCloth_emisive"
     },
     {
+      "template": "vxr-obj-template-Syringe_Guyon_Static",
+      "selector": ".vxr-obj-Syringe_Guyon_Static"
+    },
+    {
       "template": "vxr-obj-template-RubberCloth_static",
       "selector": ".vxr-obj-RubberCloth_static"
     },
