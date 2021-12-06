@@ -1353,11 +1353,11 @@
 
     <template id="vxr-obj-template-GauzeLumen">
       <a-entity>
-        <a-entity id="e-GauzeLumen" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
-          rotation="0 0 3.386460496379146e-7" grabbable
+        <a-entity id="e-GauzeLumen" dynamic-body="sphereRadius: NaN" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
+          rotation="0 0 0" grabbable
           ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" ondragstart="genericSetMass(this)"
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#GauzeLumen_Static" draggable grabbable
-          position="-0.10549 0.32684 -0.24341">
+          position="-0.10626 0.29798 -0.2925">
         </a-entity>
       </a-entity>
     </template>
@@ -1385,11 +1385,11 @@
 
     <template id="vxr-obj-template-CottonLumen1">
       <a-entity>
-        <a-entity id="e-CottonLumen1" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
+        <a-entity id="e-CottonLumen1" dynamic-body="sphereRadius: NaN" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
           ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" ondragstart="genericSetMass(this)"
           rotation="0 0 5.089729155023472e-7" grabbable
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze_Small" draggable grabbable
-          position="-0.19477 0.30513 -0.2481">
+          position="-0.20298 0.29015 -0.25715">
         </a-entity>
       </a-entity>
     </template>
@@ -1412,16 +1412,13 @@
       </a-entity>
     </template>
 
-
-
-
     <template id="vxr-obj-template-CottonLumen2">
       <a-entity>
         <a-entity id="e-CottonLumen2" dynamic-body="sphereRadius: NaN" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
           ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" ondragstart="genericSetMass(this)"
           rotation="5.2915818136435485e-8 0 5.089729327076489e-7" grabbable
           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze_Small" draggable grabbable
-          position="-0.19493 0.30513 -0.35101">
+          position="-0.20193 0.29014 -0.31047">
         </a-entity>
       </a-entity>
     </template>
@@ -1447,17 +1444,17 @@
 
     <template id="vxr-obj-template-CottonLumen3">
       <a-entity>
-        <a-entity id="e-CottonLumen3" ondragstart="genericSetMass(this)" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" 
-          grabbable="maxGrabbers: NaN" scale="1 1 1" dynamic-body="sphereRadius: NaN"
-          rotation="0 0 2.5140834384813845e-7" grabbable dynamic-body 
-          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze_Small" dynamic-body draggable grabbable toggle-physics
-          position="-0.50812 0.29014 -0.33057">
+        <a-entity id="e-CottonLumen3" dynamic-body="sphereRadius: NaN" visible="false" grabbable="maxGrabbers: NaN" scale="1 1 1"
+          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" ondragstart="genericSetMass(this)"
+          rotation="0 0 2.5140834384813845e-7" grabbable
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Gauze_Small" draggable grabbable
+          position="-0.20202 0.29014 -0.3579">
         </a-entity>
     </template>
 
     <template id="vxr-obj-template-CottonLumen3_emisive">
       <a-entity>
-        <a-entity id="e-CottonLumen3_emisive" grabbable="maxGrabbers: NaN" rotation="0 -67.53625418545553 0" grabbable 
+        <a-entity id="e-CottonLumen3_emisive" grabbable="maxGrabbers: NaN" rotation="0 -67.53625418545553 0" grabbable="maxGrabbers: NaN"
           class="vxr-obj-CottonLumen3_emisive vxr-interact" visible="false" scale="1 1 1" gltf-model="#CottonLumen_Emissive" draggable 
           grabbable position="1.18733 0.23268 -1.38224">
         </a-entity>
