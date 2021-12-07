@@ -4,25 +4,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor1",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor1",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor1",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor1",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -33,25 +29,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor1",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor1",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor1",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor1",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -62,25 +54,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor1",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor1",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor1",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor1",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -91,25 +79,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor1",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor1",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor1",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor1",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -120,25 +104,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor2",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor2",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor2",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor2",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -149,25 +129,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor2",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor2",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor2",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor2",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -178,25 +154,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor2",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor2",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor2",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor2",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -207,25 +179,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor2",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor2",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor2",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor2",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -236,25 +204,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor2",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor2",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor2",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor2",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -265,25 +229,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor2",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor2",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor2",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor2",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -294,25 +254,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor2",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor2",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor2",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor2",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -323,25 +279,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor3",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor3",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor3",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor3",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -352,25 +304,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor3",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor3",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor3",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor3",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -381,25 +329,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor3",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor3",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor3",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor3",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -410,25 +354,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor3",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor3",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor3",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor3",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -439,25 +379,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor4",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor4",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor4",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor4",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -468,25 +404,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor4",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor4",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor4",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor4",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -497,25 +429,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor4",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor4",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor4",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor4",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
@@ -526,25 +454,21 @@
         "answers": [
             {
                 "id": "firstAnswer",
-                "component": "factor4",
                 "position": "0 0.3 0.01",
                 "text": "value: No vivenció la situación; align: center"
             },
             {
                 "id": "secondAnswer",
-                "component": "factor4",
                 "position": "0 0.1 0.01",
                 "text": "value: No me siento estresado con la situación; align: center"
             },
             {
                 "id": "thirdAnswer",
-                "component": "factor4",
                 "position": "0 -0.1 0.01",
                 "text": "value: Me siento poco estresado con la situación; align: center"
             },
             {
                 "id": "fourthAnswer",
-                "component": "factor4",
                 "position": "0 -0.3 0.01",
                 "text": "value: Me siento muy estresado con la situación; align: center"
             }
