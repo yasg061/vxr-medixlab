@@ -419,9 +419,9 @@
       <!-- <a-asset-item id="table" position="-0.13 0.90487 -0.363" src="../../Models/gltf/Table.gltf"></a-asset-item> -->
       <a-asset-item id="table" src="Table.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle.gltf"></a-asset-item>
-      <a-asset-item id="bed" src="Assets/HospitalBed_Angle90.gltf"></a-asset-item>
+      <a-asset-item id="bed" src="Assets/Nasogastric_Tape_Date.gltf"></a-asset-item>
       <a-asset-item id="NasogastricTube_M" src="Assets/NasogastricTube_Guide01_Static.gltf"></a-asset-item>
-      <a-asset-item id="patient" src="Assets/Patient_Angle90.gltf"></a-asset-item>
+      <a-asset-item id="patient" src="Assets/HospitalBed_Patient_Angle90.gltf"></a-asset-item>
       <a-asset-item id="Armario" src="../HospitalRoomAssets/armario.gltf"></a-asset-item>
       <a-asset-item id="Mesacama" src="../HospitalRoomAssets/mesa_cama.gltf"></a-asset-item>
       <a-asset-item id="Sillon" src="../HospitalRoomAssets/sillon.gltf"></a-asset-item>
@@ -1181,9 +1181,9 @@
 
     <template id="vxr-obj-template-UrinaryCatheter_static">
       <a-entity>
-        <a-entity id="e-UrinaryCatheter_static" visible="false" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
-          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#NasogastricTubeAnim" draggable grabbable
-          position="1.21279 0.47855 -1.02494">
+        <a-entity id="e-UrinaryCatheter_static" visible="true" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#NasogastricTubeAnim" draggable grabbable animation-mixer="loop:once; clampWhenFinished:true"
+          position="1.23623 0.72581 -1.00597">
         </a-entity>
       </a-entity>
     </template>
@@ -1368,10 +1368,10 @@
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity> -->
-    <a-entity id="patient01" gltf-model="#patient" scale="" position="1.24533 0.866 -0.97171" rotation="0 -90 0">
+    <a-entity id="patient01" gltf-model="#patient" scale="" position="1.24533 0.88736 -1.16916" rotation="0 -90 0">
     </a-entity>
 
-    <a-entity id="bed01" gltf-model="#bed" scale="" position="1.24533 0.866 -0.97171" rotation="0 -90 0">
+    <a-entity id="bed01" gltf-model="#bed" scale="" position="1.25028 2.34232 -1.60922" rotation="0 -90 0">
     </a-entity>
 
     <a-entity id="NasogastricTube_M01" gltf-model="#NasogastricTube_M" scale="" position="1.24533 0.866 -0.97171" rotation="0 -90 0">
@@ -1425,7 +1425,7 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-      <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 2.15 -2"
+      <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 1 -2"
       rotation="0 180 0" movement-controls="speed:0.3">
       <a-entity id="camera" camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
@@ -1468,7 +1468,7 @@
       attach-point-v2 geometry="radius: 0.05"> </a-sphere>-->
 
     <a-sphere id="sphere7" static-body="sphereRadius: NaN" scale="0.3 0.3 0.3" static-body
-      trigger-animation="entity_id:e-UrinaryCatheter;obj_entity:1" opacity="1" position="1.23567 2.07785 -1.68291"
+      trigger-animation="entity_id:e-UrinaryCatheter;obj_entity:1" opacity="1" position="1.24766 2.31869 -1.60341"
       attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <!-- <a-sphere id="sphere8" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
