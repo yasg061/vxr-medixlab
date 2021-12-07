@@ -419,8 +419,9 @@
       <!-- <a-asset-item id="table" position="-0.13 0.90487 -0.363" src="../../Models/gltf/Table.gltf"></a-asset-item> -->
       <a-asset-item id="table" src="Table.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle.gltf"></a-asset-item>
-      <a-asset-item id="bed" src="Baby_Crib.gltf"></a-asset-item>
-      <a-asset-item id="patient" src="Assets/Patient_Nasogastric.gltf"></a-asset-item>
+      <a-asset-item id="bed" src="Assets/HospitalBed_Angle90.gltf"></a-asset-item>
+      <a-asset-item id="NasogastricTube_M" src="Assets/NasogastricTube_Guide01_Static.gltf"></a-asset-item>
+      <a-asset-item id="patient" src="Assets/Patient_Angle90.gltf"></a-asset-item>
       <a-asset-item id="Armario" src="../HospitalRoomAssets/armario.gltf"></a-asset-item>
       <a-asset-item id="Mesacama" src="../HospitalRoomAssets/mesa_cama.gltf"></a-asset-item>
       <a-asset-item id="Sillon" src="../HospitalRoomAssets/sillon.gltf"></a-asset-item>
@@ -1367,8 +1368,13 @@
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity> -->
-    <a-entity id="patient01" blend-shape gltf-model="#patient" scale="" position="1.24533 0.866 -0.97171"
-      material="color: brown" rotation="0 -90 0">
+    <a-entity id="patient01" gltf-model="#patient" scale="" position="1.24533 0.866 -0.97171" rotation="0 -90 0">
+    </a-entity>
+
+    <a-entity id="bed01" gltf-model="#bed" scale="" position="1.24533 0.866 -0.97171" rotation="0 -90 0">
+    </a-entity>
+
+    <a-entity id="NasogastricTube_M01" gltf-model="#NasogastricTube_M" scale="" position="1.24533 0.866 -0.97171" rotation="0 -90 0">
     </a-entity>
 
     <a-entity id="armario" gltf-model="#Armario" scale="" position="-0.12389 0.915 3" rotation="0 -90 0" ao-map="src: ../HospitalRoomAssets/AOMap_armario.png">
