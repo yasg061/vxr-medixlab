@@ -418,7 +418,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -437,7 +437,7 @@
       <a-asset-item id="DestiledWater" src="Assets/DestiledWater.gltf"></a-asset-item>
       <a-asset-item id="Vaseline" src="Assets/Vaseline.gltf"></a-asset-item>
       <a-asset-item id="thermic" src="Assets/Thermic_Crib.gltf"></a-asset-item>
-      <a-asset-item id="infantScale" src="Assets/Infant_Scale.gltf"></a-asset-item>
+      <a-asset-item id="infantScale" src="Assets/Infant_Scale2.gltf"></a-asset-item>
       <a-asset-item id="inkpad" src="Assets/InkPad.gltf"></a-asset-item>
       <a-asset-item id="toiletpaper" src="Assets/ToiletPaper.gltf"></a-asset-item>
       <a-asset-item id="Thermometer" src="Assets/Thermometer.gltf"></a-asset-item>
@@ -1004,7 +1004,7 @@
 
       <template id="vxr-obj-template-SalineAmpoule">
         <a-entity>
-          <a-entity id="e-SalineAmpoule" rotation="0.000040600517103049796 0.0020211245632466473 0.00007804917992091238"
+          <a-entity id="e-SalineAmpoule" rotation="0 150 0"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-SalineAmpoule vxr-interact"
             dynamic-body gltf-model="#SalineAmpoule" draggable="" grabbable position="1.40451 0.40495 0.271"
             visible="true">
