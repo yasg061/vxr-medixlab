@@ -1,7 +1,6 @@
     let scene = document.querySelector('a-scene');
     let objectsResult;
     let x = 0;
-    let score = 0;
 
     fetch("../../../js/panelQuestions.json").then(
       function (u) { return u.json(); }
@@ -48,41 +47,7 @@
           answer.setAttribute('color', '#072B73');
           console.log('Raycaster intersected cleared')
         })
-
-        if (answer.hasAttribute('factor1')) {
-          let factor1 = document.createElement('a-text')
-          factor1.setAttribute('position', "0 -0.45 0.01")
-          factor1.setAttribute('text', "value: Factor 1; align: center")
-          factor1.setAttribute('height', "1.55")
-          factor1.setAttribute('width', "1.85")
-          panel1.appendChild(factor1)
-        }
-        if (answer.hasAttribute('factor2')) {
-          let factor2 = document.createElement('a-text')
-          factor2.setAttribute('position', "0 -0.45 0.01")
-          factor2.setAttribute('text', "value: Factor 2; align: center")
-          factor2.setAttribute('height', "1.55")
-          factor2.setAttribute('width', "1.85")
-          panel1.appendChild(factor2)
-        }
-        if (answer.hasAttribute('factor3')) {
-          let factor3 = document.createElement('a-text')
-          factor3.setAttribute('position', "0 -0.45 0.01")
-          factor3.setAttribute('text', "value: Factor 3; align: center")
-          factor3.setAttribute('height', "1.55")
-          factor3.setAttribute('width', "1.85")
-          panel1.appendChild(factor3)
-        }
-        if (answer.hasAttribute('factor4')) {
-          let factor4 = document.createElement('a-text')
-          factor4.setAttribute('position', "0 -0.45 0.01")
-          factor4.setAttribute('text', "value: Factor 4; align: center")
-          factor4.setAttribute('height', "1.55")
-          factor4.setAttribute('width', "1.85")
-          panel1.appendChild(factor4)
-        }
         panel1.appendChild(answer);
-        
       });
 
       let answersArray = [];
@@ -92,8 +57,6 @@
       let fourthAnswer = document.getElementById('fourthAnswer');
 
       answersArray.push(firstAnswer, secondAnswer, thirdAnswer, fourthAnswer);
-
-      x ++;
 
       firstAnswer.addEventListener('click', function () {
           answersArray = answersArray.filter(answer => answer != firstAnswer);
@@ -109,8 +72,6 @@
             questionPlane.removeAttribute('text');
             panel1.remove();
             questionPlane.remove();
-            score ++;
-            console.log('score:', score);
             if (x < objectsResult.length) {
               createQuestionsElements()
             } else {
@@ -166,8 +127,6 @@
             questionPlane.removeAttribute('text');
             panel1.remove();
             questionPlane.remove();
-            score ++;
-            console.log('score:', score);
             if (x < objectsResult.length) {
               createQuestionsElements()
             } else {
@@ -214,8 +173,6 @@
             questionPlane.removeAttribute('text');
             panel1.remove();
             questionPlane.remove();
-            score ++;
-            console.log('score:', score);
             if (x < objectsResult.length) {
               console.log('x inside thirdanswer:', x)
               createQuestionsElements()
@@ -271,8 +228,6 @@
             questionPlane.removeAttribute('text');
             panel1.remove();
             questionPlane.remove();
-            score ++;
-            console.log('score:', score);
             if (x < objectsResult.length) {
               createQuestionsElements()
             } else {
