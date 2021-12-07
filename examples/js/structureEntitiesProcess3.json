@@ -28,14 +28,6 @@
     "selector": ".vxr-obj-template-cottonswab04"
   },
   {
-    "template": "vxr-obj-template-cottonswab05",
-    "selector": ".vxr-obj-template-cottonswab05"
-  },
-  {
-    "template": "vxr-obj-template-cottonswab06",
-    "selector": ".vxr-obj-template-cottonswab06"
-  },
-  {
     "template": "vxr-obj-template-medicaltape",
     "selector": ".vxr-obj-medicaltape"
   },
@@ -138,6 +130,18 @@
   {
     "template": "vxr-obj-template-CottonPink",
     "selector": ".e-CottonPink"
+  },
+  {
+    "template": "vxr-obj-template-CottonPink1",
+    "selector": ".e-CottonPink1"
+  },
+  {
+    "template": "vxr-obj-template-CottonPink2",
+    "selector": ".e-CottonPink2"
+  },
+  {
+    "template": "vxr-obj-template-CottonPink3",
+    "selector": ".e-CottonPink3"
   },
   {
     "template": "vxr-obj-template-MaskCovid",
