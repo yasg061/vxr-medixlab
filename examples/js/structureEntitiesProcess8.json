@@ -193,19 +193,7 @@
     "selector": ".vxr-obj-vaseline"
   },
   {
-    "template": "vxr-obj-template-WatterGlass",
-    "selector": ".vxr-obj-WatterGlass"
-  },
-  {
     "template": "vxr-obj-template-HandLamp",
     "selector": ".vxr-obj-HandLamp"
-  },
-  {
-    "template": "vxr-obj-template-UmbilicalTape",
-    "selector": ".vxr-obj-UmbilicalTape"
-  },
-  {
-    "template": "vxr-obj-template-Basin",
-    "selector": ".vxr-obj-Basin"
   }
 ]
