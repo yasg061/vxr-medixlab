@@ -423,8 +423,8 @@
       adapter: easyrtc;
       audio: false;
       debug: true;
-      onConnect: spawnentity;
-    ">
+      onConnect: spawnentity">
+      
     <a-assets>
       <a-asset-item id="table" src="Assets/Table.gltf"></a-asset-item>
       <a-asset-item id="bed" src="Assets/Baby_Crib.gltf"></a-asset-item>
@@ -436,8 +436,8 @@
       <a-asset-item id="trashcan03" src="Assets/TrashCan02.gltf"></a-asset-item>
       <a-asset-item id="DestiledWater" src="Assets/DestiledWater.gltf"></a-asset-item>
       <a-asset-item id="Vaseline" src="Assets/Vaseline.gltf"></a-asset-item>
-      <a-asset-item id="thermic" src="Assets/Thermic_Crib.gltf"></a-asset-item>
-      <a-asset-item id="infantScale" src="Assets/Infant_Scale2.gltf"></a-asset-item>
+      <a-asset-item id="thermic" src="Assets/Thermic_Crib2.gltf"></a-asset-item>
+      <a-asset-item id="infantScale" src="Assets/Infant_Scale.gltf"></a-asset-item>
       <a-asset-item id="inkpad" src="Assets/InkPad.gltf"></a-asset-item>
       <a-asset-item id="toiletpaper" src="Assets/ToiletPaper.gltf"></a-asset-item>
       <a-asset-item id="Thermometer" src="Assets/Thermometer.gltf"></a-asset-item>
@@ -450,10 +450,8 @@
       <a-asset-item id="PlantaresL" src="Assets/PlantaresLeft.gltf"></a-asset-item>
       <a-asset-item id="PlantaresR" src="Assets/PlantaresRight.gltf"></a-asset-item>
       <a-asset-item id="Panal" src="Assets/Pañal_Abrido.gltf"></a-asset-item>
-      <a-asset-item id="WatterGlass" src="Assets/WatterGlass.gltf"></a-asset-item>
       <a-asset-item id="HandLamp" src="Assets/HandLamp.gltf"></a-asset-item>
-      <a-asset-item id="UmbilicalTape" src="Assets/Bottle_CordonUmbilical.gltf"></a-asset-item>
-      <a-asset-item id="Basin" src="Assets/KidneyTray.gltf"></a-asset-item>
+
 
       <img id="sky-01" src="../../Models/Images/sky-01.jpg">
       
@@ -1046,36 +1044,12 @@
             rotation="" scale="2 2 2" dynamic-body></a-entity>
         </a-entity>
       </template>
-
-      <template id="vxr-obj-template-WatterGlass">
-        <a-entity>
-          <a-entity id="e-WatterGlass" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
-            class="vxr-obj-WatterGlass vxr-interact" gltf-model="#WatterGlass" dynamic-body draggable grabbable
-            toggle-physics position="1.201 0.404 0.252"></a-entity>
-        </a-entity>
-      </template>
       
       <template id="vxr-obj-template-HandLamp">
         <a-entity>
           <a-entity id="e-HandLamp" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-HandLamp vxr-interact" gltf-model="#HandLamp" dynamic-body draggable grabbable
             toggle-physics position="0.071 0.412 -0.150"></a-entity>
-        </a-entity>
-      </template>
-
-      <template id="vxr-obj-template-UmbilicalTape">
-        <a-entity>
-          <a-entity id="e-UmbilicalTape" rotation="0 90 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
-            class="vxr-obj-UmbilicalTape vxr-interact" gltf-model="#UmbilicalTape" dynamic-body draggable grabbable
-            toggle-physics position="0.79915 0.405 0.12544"></a-entity>
-        </a-entity>
-      </template>
-
-      <template id="vxr-obj-template-Basin">
-        <a-entity>
-          <a-entity id="e-Basin" scale="0.4 0.4 0.4" rotation="0 0 0.000003941461847476063" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
-            class="vxr-obj-Basin vxr-interact" gltf-model="#Basin" dynamic-body draggable grabbable scale= "0.5 0.5 0.5"
-            toggle-physics position="0.04148 0.42829 -0.05829"></a-entity>
         </a-entity>
       </template>
 
@@ -1141,7 +1115,7 @@
     </a-entity>
     <a-entity id="table_004" gltf-model="#Table_004" scale="" rotation="0 -90 0" position="2.634 0.90812 -2.52664">
     </a-entity>
-    <a-entity id="thermic_crib" gltf-model="#thermic" scale="" rotation="0 0 0" position="3.09452 0.90812 -0.03355">
+    <a-entity id="thermic_crib" gltf-model="#thermic" scale="" rotation="0 0 0" position="3.09452 0.90812 -0.03355" >
     </a-entity>
     <a-entity id="Infant_Scale" gltf-model="#infantScale" scale="" rotation="0 180 0" position="-0.33702 1.91789 -0.14487">
     </a-entity>
