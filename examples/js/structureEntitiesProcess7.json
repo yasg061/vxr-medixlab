@@ -134,5 +134,33 @@
     {
       "template": "vxr-obj-template-Syringe_Guyon",
       "selector": ".vxr-obj-Syringe_Guyon"
+    },
+    {
+      "template": "vxr-obj-template-DateTape",
+      "selector": ".vxr-obj-DateTape"
+    },
+    {
+      "template": "vxr-obj-template-DateTape_emisive",
+      "selector": ".vxr-obj-DateTape_emisive"
+    },
+    {
+      "template": "vxr-obj-template-NormalTape",
+      "selector": ".vxr-obj-NormalTape"
+    },
+    {
+      "template": "vxr-obj-template-DateTape_emisive",
+      "selector": ".vxr-obj-NormalTape_emisive"
+    },
+    {
+      "template": "vxr-obj-template-NormalTape2",
+      "selector": ".vxr-obj-NormalTape2"
+    },
+    {
+      "template": "vxr-obj-template-NormalTape2_emisive",
+      "selector": ".vxr-obj-NormalTape2_emisive"
+    },
+    {
+      "template": "vxr-obj-template-TubeEmissive_emisive",
+      "selector": ".vxr-obj-TubeEmissive_emisive"
     }
   ]
