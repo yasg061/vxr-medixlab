@@ -417,7 +417,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -1502,7 +1502,7 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 1 -2"
+    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 1.1 -2"
       rotation="0 180 0" movement-controls="speed:0.3">
       <a-entity id="camera" camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
