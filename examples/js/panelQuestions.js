@@ -47,6 +47,11 @@
           answer.setAttribute('color', '#072B73');
           console.log('Raycaster intersected cleared')
         })
+
+        answer.addEventListener('click', function() {
+          answer.setAttribute('color', '#0F234A');
+          console.log('Clicked answer')
+        })
         panel1.appendChild(answer);
       });
 
@@ -61,12 +66,6 @@
       firstAnswer.addEventListener('click', function () {
           answersArray = answersArray.filter(answer => answer != firstAnswer);
           console.log('answersArray', answersArray);
-
-          answersArray.forEach(answer => {
-            answer.addEventListener('click', function() {
-              answer.setAttribute('color', '#072B73');
-            })
-          });
 
           setTimeout(function() {
             questionPlane.removeAttribute('text');
@@ -84,16 +83,6 @@
               scene.appendChild(panel1);
             }
           }, 1000);
-          firstAnswer.setAttribute('color', 'blue');
-
-          answersArray = answersArray.filter(answer => answer != firstAnswer);
-          console.log('answersArray', answersArray);
-
-          answersArray.forEach(answer => {
-            answer.addEventListener('click', function() {
-              answer.setAttribute('color', '#072B73');
-            })
-          });
           
           setTimeout(function() {
             questionPlane.removeAttribute('text');
@@ -117,12 +106,6 @@
           answersArray = answersArray.filter(answer => answer != secondAnswer);
           console.log('answersArray', answersArray);
 
-          answersArray.forEach(answer => {
-            answer.addEventListener('click', function() {
-              answer.setAttribute('color', '#072B73');
-            })
-          });
-
           setTimeout(function() {
             questionPlane.removeAttribute('text');
             panel1.remove();
@@ -139,16 +122,6 @@
               scene.appendChild(panel1);
             }
           }, 1000);
-          secondAnswer.setAttribute('color', 'blue');
-
-          answersArray = answersArray.filter(answer => answer != secondAnswer);
-          console.log('answersArray', answersArray);
-
-          answersArray.forEach(answer => {
-            answer.addEventListener('click', function() {
-              answer.setAttribute('color', '#072B73');
-            })
-          });
 
           setTimeout(function() {
             questionPlane.removeAttribute('text');
@@ -174,7 +147,6 @@
             panel1.remove();
             questionPlane.remove();
             if (x < objectsResult.length) {
-              console.log('x inside thirdanswer:', x)
               createQuestionsElements()
             } else {
               let panel1 = document.createElement('a-plane');
@@ -186,16 +158,7 @@
               scene.appendChild(panel1);
             }
           }, 1000);
-          thirdAnswer.setAttribute('color', 'blue');
 
-          answersArray = answersArray.filter(answer => answer != thirdAnswer);
-          console.log('answersArray', answersArray);
-
-          answersArray.forEach(answer => {
-            answer.addEventListener('click', function() {
-              answer.setAttribute('color', '#072B73');
-            })
-          });
           setTimeout(function() {
             questionPlane.removeAttribute('text');
             panel1.remove();
@@ -218,12 +181,6 @@
           answersArray = answersArray.filter(answer => answer != fourthAnswer);
           console.log('answersArray', answersArray);
 
-          answersArray.forEach(answer => {
-            answer.addEventListener('click', function() {
-              answer.setAttribute('color', '#072B73');
-            })
-          });
-
           setTimeout(function() {
             questionPlane.removeAttribute('text');
             panel1.remove();
@@ -240,16 +197,7 @@
               scene.appendChild(panel1);
             }
           }, 1000);
-          fourthAnswer.setAttribute('color', 'blue');
 
-          answersArray = answersArray.filter(answer => answer != fourthAnswer);
-          console.log('answersArray', answersArray);
-
-          answersArray.forEach(answer => {
-            answer.addEventListener('click', function() {
-              answer.setAttribute('color', '#072B73');
-            })
-          });
           setTimeout(function() {
             questionPlane.removeAttribute('text');
             panel1.remove();
