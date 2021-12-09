@@ -77,14 +77,6 @@
     "selector": ".vxr-obj-towel01"
   },
   {
-    "template": "vxr-obj-template-towel02",
-    "selector": ".vxr-obj-towel02"
-  },
-  {
-    "template": "vxr-obj-template-towel03",
-    "selector": ".vxr-obj-towel03"
-  },
-  {
     "template": "vxr-obj-template-plantares",
     "selector": ".vxr-obj-plantares"
   },
@@ -141,8 +133,8 @@
     "selector": ".vxr-obj-MedicalClothe"
   },
   {
-    "template": "vxr-obj-template-Bowl-Medic",
-    "selector": ".vxr-obj-template-Bowl-Medic"
+    "template": "vxr-obj-template-Bowl-Medic01",
+    "selector": ".vxr-obj-template-Bowl-Medic01"
   },
   {
     "template": "vxr-obj-template-Tape-Normal",
@@ -179,6 +171,18 @@
   {
     "template": "vxr-obj-template-VitaminAmpoule",
     "selector": ".vxr-obj-VitaminAmpoule"
+  },
+  {
+    "template": "vxr-obj-template-cloranfenicol",
+    "selector": ".vxr-obj-cloranfenicol"
+  },
+  {
+    "template": "vxr-obj-template-emptyglass",
+    "selector": ".vxr-obj-emptyglass"
+  },
+  {
+    "template": "vxr-obj-template-waterglass",
+    "selector": ".vxr-obj-waterglass"
   },
   {
     "template": "vxr-obj-template-Syringe_1CC",
