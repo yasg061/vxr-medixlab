@@ -65,8 +65,12 @@
     "selector": ".vxr-obj-bulbsyringe"
   },
   {
-    "template": "vxr-obj-template-clamp",
-    "selector": ".vxr-obj-clamp"
+    "template": "vxr-obj-template-clamp01",
+    "selector": ".vxr-obj-clamp01"
+  },
+  {
+    "template": "vxr-obj-template-clamp02",
+    "selector": ".vxr-obj-clamp02"
   },
   {
     "template": "vxr-obj-template-towel01",
@@ -87,6 +91,10 @@
   {
     "template": "vxr-obj-template-panal",
     "selector": ".vxr-obj-panal"
+  },
+  {
+    "template": "vxr-obj-template-glovesSteril",
+    "selector": ".vxr-obj-glovesSteril"
   },
   {
     "template": "vxr-obj-template-cottonswab01",
@@ -167,6 +175,10 @@
   {
     "template": "vxr-obj-template-SalineAmpoule",
     "selector": ".vxr-obj-SalineAmpoule"
+  },
+  {
+    "template": "vxr-obj-template-VitaminAmpoule",
+    "selector": ".vxr-obj-VitaminAmpoule"
   },
   {
     "template": "vxr-obj-template-Syringe_1CC",
