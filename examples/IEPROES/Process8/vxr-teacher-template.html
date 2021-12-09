@@ -418,7 +418,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -451,6 +451,9 @@
       <a-asset-item id="PlantaresR" src="Assets/PlantaresRight.gltf"></a-asset-item>
       <a-asset-item id="Panal" src="Assets/Pañal_Abrido.gltf"></a-asset-item>
       <a-asset-item id="HandLamp" src="Assets/HandLamp.gltf"></a-asset-item>
+      <a-asset-item id="VitaminAmpoule" src="Assets/VitaminAmpoule.gltf"></a-asset-item>
+      <a-asset-item id="glovesSteril" src="Assets/Gloves_Steril_Open.gltf"></a-asset-item>
+      <a-asset-item id="alcohol" src="Assets/AlcoholBottle.gltf"></a-asset-item>
 
 
       <img id="sky-01" src="../../Models/Images/sky-01.jpg">
@@ -747,7 +750,7 @@
         <a-entity>
           <a-entity id="e-haircomb" rotation="0 0 0.000009555253088978258" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-haircomb vxr-interact" gltf-model="#HairComb" dynamic-body draggable grabbable
-            toggle-physics position="0.82798 0.40711 -0.00707"></a-entity>
+            toggle-physics position="0.82798 0.40711 -0.00349"></a-entity>
         </a-entity>
       </template>
 
@@ -759,11 +762,19 @@
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-clamp">
+      <template id="vxr-obj-template-clamp01">
         <a-entity>
-          <a-entity id="e-clamp" scale="1.2 1.2 1.2" rotation="0 0 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
-            class="vxr-obj-clamp vxr-interact" gltf-model="#Clamp" dynamic-body draggable grabbable
-            toggle-physics position="1.406 0.406 0.155"></a-entity>
+          <a-entity id="e-clamp01" scale="1.2 1.2 1.2" rotation="0 0 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-clamp01 vxr-interact" gltf-model="#Clamp" dynamic-body draggable grabbable
+            toggle-physics position="1.406 0.406 0.139"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-clamp02">
+        <a-entity>
+          <a-entity id="e-clamp02" scale="1.2 1.2 1.2" rotation="0 0 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-clamp02 vxr-interact" gltf-model="#Clamp" dynamic-body draggable grabbable
+            toggle-physics position="1.406 0.406 0.205"></a-entity>
         </a-entity>
       </template>
 
@@ -795,7 +806,7 @@
         <a-entity>
           <a-entity id="e-plantares" rotation="0 180 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-plantares vxr-interact" gltf-model="#Plantares" dynamic-body draggable grabbable
-            toggle-physics position="0.27753 0.405 0.1477"></a-entity>
+            toggle-physics position="0.27753 0.40376 -0.01914"></a-entity>
         </a-entity>
       </template>
 
@@ -803,7 +814,15 @@
         <a-entity>
           <a-entity id="e-panal" rotation="3.26843619051026e-7 4.4261780338585825e-11 0.000005336236058081397" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-plantares vxr-interact" gltf-model="#Panal" dynamic-body draggable grabbable
-            toggle-physics position="0.06411 0.406 0.1477"></a-entity>
+            toggle-physics position="0.02603 0.406 0.1477"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-glovesSteril">
+        <a-entity>
+          <a-entity id="e-glovesSteril" scale="0.6 0.5 0.6" rotation="0 180 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-glovesSteril vxr-interact" gltf-model="#glovesSteril" dynamic-body draggable grabbable
+            toggle-physics position="0.04144 0.40556 -0.11611"></a-entity>
         </a-entity>
       </template>
 
@@ -865,7 +884,7 @@
         <a-entity>
           <a-entity id="e-alcoholgel" rotation="-0.000007477635997961198 3.8917617689839617e-10 0.000015630321302724323"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact"
-            gltf-model="#alcoholgel" dynamic-body draggable grabbable toggle-physics position="1.06529 0.40421 0.25158">
+            gltf-model="#alcohol" dynamic-body draggable grabbable toggle-physics position="1.06529 0.40421 0.25158">
           </a-entity>
         </a-entity>
       </template>
@@ -1010,6 +1029,16 @@
         </a-entity>
       </template>
 
+      <template id="vxr-obj-template-VitaminAmpoule">
+        <a-entity>
+          <a-entity id="e-VitaminAmpoule" rotation="0 150 0"
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-VitaminAmpoule vxr-interact"
+            dynamic-body gltf-model="#VitaminAmpoule" draggable="" grabbable position="1.376 0.40495 0.271" 
+            visible="true" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_vitaminAmpoule.png">
+          </a-entity>
+        </a-entity>
+      </template>
+
 
       <template id="vxr-obj-template-Syringe_1CC">
         <a-entity>
@@ -1049,7 +1078,7 @@
         <a-entity>
           <a-entity id="e-HandLamp" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-HandLamp vxr-interact" gltf-model="#HandLamp" dynamic-body draggable grabbable
-            toggle-physics position="0.071 0.412 -0.150"></a-entity>
+            toggle-physics position="0.84386 0.41896 -0.09564"></a-entity>
         </a-entity>
       </template>
 
@@ -1117,9 +1146,9 @@
     </a-entity>
     <a-entity id="thermic_crib" gltf-model="#thermic" scale="" rotation="0 0 0" position="3.09452 0.90812 -0.03355" >
     </a-entity>
-    <a-entity id="Infant_Scale" gltf-model="#infantScale" scale="" rotation="0 180 0" position="-0.33702 1.91789 -0.14487">
+    <a-entity id="Infant_Scale" gltf-model="#infantScale" scale="" rotation="0 180 0" position="-0.36953 1.91789 -0.14487">
     </a-entity>
-    <a-entity id="InkPad" gltf-model="#inkpad" scale="0.6 0.6 0.6" rotation="0 0 0" position="0.32895 1.89689 -0.39988">
+    <a-entity id="InkPad" gltf-model="#inkpad" scale="0.6 0.6 0.6" rotation="0 0 0" position="0.29699 1.89689 0.0375">
     </a-entity>
 
     </a-entity>
@@ -1132,7 +1161,7 @@
     <a-box id="boxTable2" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="1.239 1.855 -0.13324" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
     <a-box id="boxTable3" static-body="sphereRadius: NaN" opacity="0" static-body rotation="" scale="0.628 0.520 0.709"
-      position="-0.341 2.033 -0.119" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+      position="-0.38635 2.033 -0.10337" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
     <a-box id="boxTable4" static-body="sphereRadius: NaN" opacity="0" static-body rotation="" scale="0.745 0.742 0.900"
       position="3.037 1.689 -0.034" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
@@ -1169,15 +1198,15 @@
     <a-entity id="genes01" gltf-model="#genes" scale="1.2 1 1.2" position="0.14005 0.858 0.55534" material="color: brown"
       rotation="0 -90.000 0" shadow="receive: false"></a-entity>
 
-    <a-entity id="container01" scale="0.9 0.9 0.9" position="-1.83742 0.91541 -2.03" gltf-model="#container" 
+    <a-entity id="container01" scale="0.9 0.9 0.9" position="-1.5 0.91541 -2.03" gltf-model="#container" 
       rotation="0 180 0"></a-entity>
-    <a-entity id="container02" scale="0.9 0.9 0.9" position="-1.82912 0.91541 -1.515" gltf-model="#containerblack" 
+    <a-entity id="container02" scale="0.9 0.9 0.9" position="-1.5 0.91541 -1.515" gltf-model="#containerblack" 
       rotation="0 180 0"></a-entity>
-    <a-entity id="trash" scale="" position="-1.80148 0.91541 -1.07954" gltf-model="#trashcan" 
+    <a-entity id="trash" scale="" position="-1.5 0.91541 -1.07954" gltf-model="#trashcan" 
       rotation="0 180 0"></a-entity>
-    <a-entity id="trash02" scale="" position="-1.81298 0.91541 -0.76456" gltf-model="#trashcan02" 
+    <a-entity id="trash02" scale="" position="-1.5 0.91541 -0.76456" gltf-model="#trashcan02" 
       rotation="0 90 0" ></a-entity>
-    <a-entity id="trash03" scale="" position="-1.83246 0.91541 -0.31542" gltf-model="#trashcan03" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_trash.png"
+    <a-entity id="trash03" scale="" position="-1.5 0.91541 -0.31542" gltf-model="#trashcan03" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_trash.png"
       rotation="0 90 0"></a-entity>
 
     <a-box id="dragBox" dynamic-body="sphereRadius: NaN" dynamic-body geometry="width:0.03;height:0.03;depth:0.03" position="0.18823 1.92389 -0.326"
