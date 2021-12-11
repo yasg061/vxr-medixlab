@@ -120,21 +120,19 @@
                 if(tapesCount==1){
                   document.getElementById("e-umbilicalCordon").setAttribute("visible","true")
                 }
-              }else if(tapesCount>=2 && e.detail.body.el.id == "e-DateTape"){
-                document.getElementById("sphere20").setAttribute("static-body","")
-              }
-
+              }else if(tapesCount>=2 && e.detail.body.el.id == "e-DateTape"){ 
+                console.log("hello moder foca")
+                document.getElementById("sphere20").setAttribute("static-body","")  
+              }else{return}
+            let self = document.getElementById(e.detail.body.el.id);
               let obj = document.getElementById(e.detail.body.el.id + "_static")
             let emisive = document.getElementById(e.detail.body.el.id + "_emisive")
             emisive.setAttribute("visible", "false")
             e.detail.body.el.setAttribute('visible', 'false');
             obj.setAttribute("visible", "true")
             emisive.remove()
+            self.remove()
           }
-
-          
-
-
         });
       }
     })
@@ -1548,7 +1546,7 @@
       trigger-animation="entity_id:e-UrinaryCatheter;obj_entity:1" opacity="1" position="1.24766 2.31869 -1.60341"
       attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
-      <a-sphere id="sphere20"  scale="0.3 0.3 0.3"  
+      <a-sphere id="sphere20"  scale="0.3 0.3 0.3"  static-body
       trigger-animation="entity_id:e-DateTape;obj_entity:8" opacity="1" position="1.24766 2.35246 -1.63299"
       attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
