@@ -61,7 +61,7 @@
 
   <script>
 
-    let tapesCount=0;
+    let tapesCount = 0;
     AFRAME.registerComponent('trigger-animation', {
       schema: {
         entity_id: { type: 'string', default: '0' },
@@ -99,12 +99,12 @@
           if (id_Data == e.detail.body.el.id && iterator_entity == 3) {
             console.log("log ", e.detail.body.el.id)
             let obj = document.getElementById("e-Syringe_Guyon_static")
-            obj.setAttribute("visible","true")
+            obj.setAttribute("visible", "true")
             obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
-            
+
             delayInMilliseconds = 9400
             setTimeout(function () {
-              obj.setAttribute("visible","false")
+              obj.setAttribute("visible", "false")
 
 
             }, delayInMilliseconds);
@@ -113,19 +113,19 @@
 
           }
 
-          if(id_Data== e.detail.body.el.id && iterator_entity == 8){
-              if(e.detail.body.el.id == "e-NormalTape" || e.detail.body.el.id =="e-NormalTape2"){
-                tapesCount+=1;
-                console.log("count ", tapesCount)
-                if(tapesCount==1){
-                  document.getElementById("e-umbilicalCordon").setAttribute("visible","true")
-                }
-              }else if(tapesCount>=2 && e.detail.body.el.id == "e-DateTape"){ 
-                console.log("hello moder foca")
-                document.getElementById("sphere20").setAttribute("static-body","")  
-              }else{return}
+          if (id_Data == e.detail.body.el.id && iterator_entity == 8) {
+            if (e.detail.body.el.id == "e-NormalTape" || e.detail.body.el.id == "e-NormalTape2") {
+              tapesCount += 1;
+              console.log("count ", tapesCount)
+              if (tapesCount == 1) {
+                document.getElementById("e-umbilicalCordon").setAttribute("visible", "true")
+              }
+            } else if (tapesCount >= 2 && e.detail.body.el.id == "e-DateTape") {
+              console.log("hello moder foca")
+              document.getElementById("sphere20").setAttribute("static-body", "")
+            } else { return }
             let self = document.getElementById(e.detail.body.el.id);
-              let obj = document.getElementById(e.detail.body.el.id + "_static")
+            let obj = document.getElementById(e.detail.body.el.id + "_static")
             let emisive = document.getElementById(e.detail.body.el.id + "_emisive")
             emisive.setAttribute("visible", "false")
             e.detail.body.el.setAttribute('visible', 'false');
@@ -133,6 +133,9 @@
             emisive.remove()
             self.remove()
           }
+
+
+          
         });
       }
     })
@@ -494,7 +497,8 @@
       <a-asset-item id="NasogastricTapeDate" src="Assets/Nasogastric_Tape_Date.gltf"></a-asset-item>
       <a-asset-item id="NasogastricNormalTape" src="Assets/Nasogastric_Tape_Normal.gltf"></a-asset-item>
       <a-asset-item id="NasogastricEmissiveTape" src="Assets/Nasogastric_Tape_Date_Emissive.gltf"></a-asset-item>
-      <a-asset-item id="NasogastricTube_Guide0_Emissive" src="Assets/NasogastricTube_Guide01_Emissive.gltf"></a-asset-item>
+      <a-asset-item id="NasogastricTube_Guide0_Emissive" src="Assets/NasogastricTube_Guide01_Emissive.gltf">
+      </a-asset-item>
       <a-asset-item id="umbilicalCordon" src="Assets/NasogastricUmbilicalTape_Static.gltf"></a-asset-item>
       </a-asset-item>
 
@@ -503,7 +507,7 @@
       <a-asset-item id="Clothed_Instruments_Vesical" src="Assets/Clothed_Instruments_Vesical.gltf"></a-asset-item>
       <a-asset-item id="Syringe_Guyon_Animation" src="Assets/Syringe_Guyon_Animation.gltf"></a-asset-item>
 
-      
+
 
 
 
@@ -686,7 +690,7 @@
       <template id="left-hand-template">
         <a-entity>
           <a-entity scale="0.8 0.8 0.8" gltf-model="#left-hand">
- 
+
           </a-entity>
         </a-entity>
       </template>
@@ -980,18 +984,16 @@
       <template id="vxr-obj-template-RubberCloth_emisive">
         <a-entity>
           <a-entity id="e-RubberCloth_emisive" rotation="7.672 -90.631 -60.311" position="1.228 0.563 -1.383"
-            grabbable="maxGrabbers: NaN" 
-            class="vxr-obj-RubberCloth_emisive vxr-interact" gltf-model="#RubberCloth_Emissive"  draggable
-            grabbable   visible="false"></a-entity>
+            grabbable="maxGrabbers: NaN" class="vxr-obj-RubberCloth_emisive vxr-interact"
+            gltf-model="#RubberCloth_Emissive" draggable grabbable visible="false"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-RubberCloth_static">
         <a-entity>
           <a-entity id="e-RubberCloth_static" rotation="7.672 -90.631 -60.311" position="1.228 0.563 -1.383"
-            grabbable="maxGrabbers: NaN"  
-            class="vxr-obj-RubberCloth_static vxr-interact" gltf-model="#RubberCloth_Static" draggable
-            grabbable visible="false"></a-entity>
+            grabbable="maxGrabbers: NaN" class="vxr-obj-RubberCloth_static vxr-interact"
+            gltf-model="#RubberCloth_Static" draggable grabbable visible="false"></a-entity>
         </a-entity>
       </template>
 
@@ -1211,8 +1213,8 @@
       </template>
 
 
-    <template id="vxr-obj-template-TubeEmissive_emisive">
-      <a-entity>
+      <template id="vxr-obj-template-TubeEmissive_emisive">
+        <a-entity>
           <a-entity id="e-TubeEmissive_emisive" rotation="0 -67.8519539305726 13.969284003084601"
             grabbable="maxGrabbers: NaN" class="vxr-obj-UrinaryCatheter_emisive vxr-interact"
             gltf-model="#NasogastricTubeEmisive" position="1.24263 0.73111 -1.44244" visible="false">
@@ -1231,7 +1233,7 @@
 
       <template id="vxr-obj-template-UrinaryCatheter_static">
         <a-entity>
-          <a-entity id="e-UrinaryCatheter_static"  visible="false" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-UrinaryCatheter_static" visible="false" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
             class="vxr-obj-alcoholgel vxr-interact" gltf-model="#NasogastricTubeAnim" draggable grabbable
             position="1.22345 0.71702 -0.94506">
           </a-entity>
@@ -1308,8 +1310,8 @@
           <a-entity id="e-Syringe_Guyon_static" dynamic-body="mass:0.0; sphereRadius: NaN" grabbable="maxGrabbers: NaN"
             dynamic-body="sphereRadius: NaN" visible="false"
             rotation="46.27092561917502 -36.841759184707065 -20.51647272804452"
-            class="vxr-obj-Syringe_Guyon_Static vxr-interact"   gltf-model="#Syringe_Guyon_Animation" dynamic-body draggable
-            grabbable toggle-physics position="1.13121 0.49296 -1.29831">
+            class="vxr-obj-Syringe_Guyon_Static vxr-interact" gltf-model="#Syringe_Guyon_Animation" dynamic-body
+            draggable grabbable toggle-physics position="1.13121 0.49296 -1.29831">
           </a-entity>
         </a-entity>
       </template>
@@ -1401,13 +1403,13 @@
         </a-entity>
       </template>
 
- 
+
 
       <template id="vxr-obj-template-umbilicalCordon">
         <a-entity>
-          <a-entity id="e-umbilicalCordon" rotation="-8.458575929516345 -87.47747728718869 -9.754033504307134" 
-          class="vxr-obj-umbilicalCordon vxr-interact"
-          gltf-model="#umbilicalCordon" position="1.23745 0.81792 -1.40189" visible="false">
+          <a-entity id="e-umbilicalCordon" rotation="-8.458575929516345 -87.47747728718869 -9.754033504307134"
+            class="vxr-obj-umbilicalCordon vxr-interact" gltf-model="#umbilicalCordon"
+            position="1.23745 0.81792 -1.40189" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1490,7 +1492,7 @@
 
 
 
-      Syringe_Guyon_Animation
+    Syringe_Guyon_Animation
 
     <!-- Theater Lights -->
     <a-entity background="color: #92f2ff"></a-entity>
@@ -1546,23 +1548,20 @@
       trigger-animation="entity_id:e-UrinaryCatheter;obj_entity:1" opacity="1" position="1.24766 2.31869 -1.60341"
       attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
-      <a-sphere id="sphere20"  scale="0.3 0.3 0.3"  static-body
-      trigger-animation="entity_id:e-DateTape;obj_entity:8" opacity="1" position="1.24766 2.35246 -1.63299"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    <a-sphere id="sphere20" scale="0.3 0.3 0.3" static-body trigger-animation="entity_id:e-DateTape;obj_entity:8"
+      opacity="1" position="1.24766 2.35246 -1.63299" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
-      <a-sphere id="sphere21" static-body="sphereRadius: NaN" scale="0.3 0.3 0.3" static-body
+    <a-sphere id="sphere21" static-body="sphereRadius: NaN" scale="0.3 0.3 0.3" static-body
       trigger-animation="entity_id:e-NormalTape;obj_entity:8" opacity="1" position="1.24766 2.35246 -1.63299"
       attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
-      <a-sphere id="sphere22" static-body="sphereRadius: NaN" scale="0.3 0.3 0.3" static-body
+    <a-sphere id="sphere22" static-body="sphereRadius: NaN" scale="0.3 0.3 0.3" static-body
       trigger-animation="entity_id:e-NormalTape2;obj_entity:8" opacity="1" position="1.24766 2.35246 -1.63299"
       attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
-      <a-sphere id="sphere23"  scale="0.3 0.3 0.3"  
-      trigger-animation="entity_id:e-Syringe_Guyon;obj_entity:3" static-body 
-      opacity="1" position="1.15269 2.03148 -1.52707"
-      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
- 
+    <a-sphere id="sphere23" scale="0.3 0.3 0.3" trigger-animation="entity_id:e-Syringe_Guyon;obj_entity:3" static-body
+      opacity="1" position="1.15269 2.03148 -1.52707" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
 
     <!-- <a-sphere id="sphere8" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-Bottle_Lubricant;obj_entity:2" opacity="0" position="-0.34464 2.14864 -1.40395"
