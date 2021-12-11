@@ -438,6 +438,8 @@
       <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle.gltf"></a-asset-item>
       <a-asset-item id="NasogastricTube_M" src="Assets/NasogastricTube_Guide01_Static.gltf"></a-asset-item>
       <a-asset-item id="patient" src="Assets/HospitalBed_Patient_Angle90.gltf"></a-asset-item>
+      <a-asset-item id="animationbed" src="Assets/HospitalBed_Angle90_Animation.gltf"></a-asset-item>
+      <a-asset-item id="animationbedpatient" src="Assets/Patient_Angle90_Animation.gltf"></a-asset-item>
       <a-asset-item id="Armario" src="../HospitalRoomAssets/armario.gltf"></a-asset-item>
       <a-asset-item id="Mesacama" src="../HospitalRoomAssets/mesa_cama.gltf"></a-asset-item>
       <a-asset-item id="Sillon" src="../HospitalRoomAssets/sillon.gltf"></a-asset-item>
@@ -1489,11 +1491,6 @@
       position="0.36093 0.85321 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
 
-
-
-
-    Syringe_Guyon_Animation
-
     <!-- Theater Lights -->
     <a-entity background="color: #92f2ff"></a-entity>
 
@@ -1523,6 +1520,9 @@
 
     <a-entity id="genes01" gltf-model="#genes" scale="" position="0.14005 0.858 0.55534" material="color: brown"
       rotation="0 -90.000 0" shadow="receive: false"></a-entity>
+
+    <a-entity id="animationbed01" gltf-model="#animationbed" position="0 1 2" rotation="0 -90.000 0"></a-entity>
+    <a-entity id="animationbedpatient01" gltf-model="#animationbedpatient" position="0 1.665 1.645" rotation="0 -90.000 0" animation-mixer></a-entity>
 
     <!------------------------------------------------------------------------------------------------------------------->
     <!-----------------------------------------------Triggers------------------------------------------------------------>
