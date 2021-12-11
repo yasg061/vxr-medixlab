@@ -135,7 +135,7 @@
           }
 
 
-          
+
         });
       }
     })
@@ -1521,8 +1521,8 @@
     <a-entity id="genes01" gltf-model="#genes" scale="" position="0.14005 0.858 0.55534" material="color: brown"
       rotation="0 -90.000 0" shadow="receive: false"></a-entity>
 
-    <a-entity id="animationbed01" gltf-model="#animationbed" position="0 1 2" rotation="0 -90.000 0"></a-entity>
-    <a-entity id="animationbedpatient01" gltf-model="#animationbedpatient" position="0 1.665 1.645" rotation="0 -90.000 0" animation-mixer></a-entity>
+    <a-entity id="animationbed01" gltf-model="#animationbed" position="0 1 2" rotation="0 -90.000 0" animation-mixer="clip:BedAnimationDown;loop:once;repetitions:once;clampWhenFinished:true"></a-entity>
+    <a-entity id="animationbedpatient01" gltf-model="#animationbedpatient" position="0 1.665 1.645" rotation="0 -90.000 0" animation-mixer="clip:CharacterAnimationDown;loop:once;repetitions:once;clampWhenFinished:true"></a-entity>
 
     <!------------------------------------------------------------------------------------------------------------------->
     <!-----------------------------------------------Triggers------------------------------------------------------------>
