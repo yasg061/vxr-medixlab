@@ -144,12 +144,20 @@
       "selector": ".vxr-obj-DateTape_emisive"
     },
     {
+      "template": "vxr-obj-template-DateTape_static",
+      "selector": ".vxr-obj-DateTape_static"
+    },
+    {
       "template": "vxr-obj-template-NormalTape",
       "selector": ".vxr-obj-NormalTape"
     },
     {
-      "template": "vxr-obj-template-DateTape_emisive",
+      "template": "vxr-obj-template-NormalTape_emisive",
       "selector": ".vxr-obj-NormalTape_emisive"
+    },
+    {
+      "template": "vxr-obj-template-NormalTape_static",
+      "selector": ".vxr-obj-NormalTape_static"
     },
     {
       "template": "vxr-obj-template-NormalTape2",
@@ -160,7 +168,15 @@
       "selector": ".vxr-obj-NormalTape2_emisive"
     },
     {
+      "template": "vxr-obj-template-NormalTape2_static",
+      "selector": ".vxr-obj-NormalTape2_emisive"
+    },
+    {
       "template": "vxr-obj-template-TubeEmissive_emisive",
       "selector": ".vxr-obj-TubeEmissive_emisive"
+    },
+    {
+      "template": "vxr-obj-template-umbilicalCordon",
+      "selector": ".vxr-obj-umbilicalCordon"
     }
   ]

@@ -1,22 +1,5 @@
 [
     {
-      "title": "Equipo",
-      "description": "Definicion"
-    },
-    {
-      "title": "Gorro",
-      "description": ""
-    },
-    {
-      "title": "Mascarilla Quirúrgica",
-      "description": ""
-    },
-    {
-      "title": "Gabachon",
-      "position": "0 2.5 -0.1",
-      "description": "Equipo de protección personal, disminuye el nivel de exposicion al virus de COVID-22"
-    },
-    {
       "title": "Equipo de cateterismo vesical",
       "position": "0 2.5 -0.1",
       "description": "Bandeja cuadrada, escudillas o vasija pequena, pinzas alis, campo hendido"
@@ -41,46 +24,43 @@
     {
       "title": "Vasija arriñonada",
       "position": "0 2.5 -0.1",
-      "description": "Sirve para desechos comunes"
+      "description": "Sirve para desechos\n comunes",
+      "id": "e-Basin-text"
     },
     {
       "title": "Jeringa",
       "position": "0 2.5 -0.1",
       "id": "e-tstSyringe-text",
-      "description": "Para inflar el balon en la sonda foley y quede asegurada en la vejiga"
+      "description": "Para inflar el\n balon en la sonda\n foley y quede asegurada\n en la vejiga"
     },
     {
       "title": "Solución Salina 0.9%",
       "position": "0 2.5 -0.1",
       "id": "e-SalineBag-text",
-      "description": "Para inflar el balon en la sonda foley y quede asegurada en la vejiga"
+      "description": "Para inflar el\n balon en la sonda\n foley y quede asegurada\n en la vejiga"
     },
     {
       "title": "Pinza de transferencia",
       "position": "0 2.5 -0.1",
-      "description": "Para agarrar material y mantener la esterilidad del equipo"
+      "description": "Para agarrar material\n y mantener la esterilidad\n del equipo",
+      "id": "e-allistweezers-text"
     },
     {
       "title": "Guantes estériles",
       "position": "0 2.5 -0.1",
       "id": "e-Gloves_Steril-text",
-      "description": "Mantiene la esterilidad del equipo"
+      "description": "Mantiene la esterilidad\n del equipo"
     },
     {
       "title": "Sonda foley",
       "position": "0 2.5 -0.1",
-      "description": "Para verificar la salida de orina"
+      "description": "Para verificar la salida\n de orina"
     },
     {
       "title": "Bolsa recolectora",
       "position": "0 2.5 -0.1",
       "id": "e-UrinaryBag-text",
       "description": "Sirve para recolectar\n la orina"
-    },
-    {
-      "title": "Boimbo",
-      "position": "0 2.5 -0.1",
-      "description": "Proporciona privacidad y comodidad al usuario"
     },
     {
       "title": "Cinta umbilical",
@@ -91,17 +71,17 @@
     {
       "title": "Ahulado con sabana clinica",
       "position": "0 2.5 -0.1",
-      "description": "Barrera de proteccion de la ropa de cama, favorece la comodadad del usuario y gasto de material"
+      "description": "Barrera de proteccion de\n la ropa de cama, \nfavorece la comodadad\n del usuario y gasto\n de material"
     },
     {
       "title": "Pato",
       "position": "0 2.5 -0.1",
-      "description": "Para el aseo vulvar y prepusial"
+      "description": "Para el aseo vulvar\n y prepusial"
     },
     {
       "title": "Lámpara de ganzo",
       "position": "0 2.5 -0.1",
-      "description": "Permite visualizar mejor la zona"
+      "description": "Permite visualizar mejor\n la zona"
     },
     {
       "title": "Tijera Mayo",
@@ -111,28 +91,16 @@
     {
       "title": "Micropore",
       "position": "0 2.5 -0.1",
-      "description": "sirve para fijar el cateter e identificarlo correctamente"
+      "description": "sirve para fijar el cateter\n e identificarlo correctamente"
     },
     {
       "title": "Tarjeta Parenteral",
       "position": "0 2.5 -0.1",
-      "description": "Sirve para registro de medicina via intramuscular, intravenosa, subcutanea e intradermica"
+      "description": "Sirve para registro de\n medicina via intramuscular, \nintravenosa, subcutanea e \nintradermica"
     },
     {
       "title": "Tarjeta de cuidados",
       "position": "0 2.5 -0.1",
       "description": "Cuidados de enfermeria"
-    },
-    {
-      "title": "Basurero con bolsa roja",
-      "position": "0 2.5 -0.1",
-      "id": "container01-text",
-      "description": "Para los desechos solidos"
-    },
-    {
-      "title": "Basurero con bolsa negra",
-      "position": "0 2.5 -0.1",
-      "id": "containerblack01-text",
-      "description": "Para los desechos comunes"
     }
   ]
