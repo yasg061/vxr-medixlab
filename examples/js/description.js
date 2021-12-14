@@ -4,7 +4,7 @@ let spawnedObj2
 let objectsResult2
 let scene3 = document.querySelector('a-scene');
 
-fetch(url3).then(
+fetch('../../../js/assets.json').then(
     function (u) {
         return u.json();
     }
@@ -16,7 +16,7 @@ fetch(url3).then(
     }
 )
 
-fetch(url2).then(
+fetch('../../../js/card.json').then(
     function (u) {
         return u.json();
     }
@@ -37,7 +37,7 @@ function spawnEntities2(structure2) {
         entity.setAttribute("width", item.width)
         entity.setAttribute("height", item.height)
         entity.setAttribute("material", item.material)
-        entity.setAttribute("opacity", item.opacity)
+        entity.setAttribute('visible', false)
         entity.setAttribute("id", `card${i}`)
         entity.setAttribute("value", item.value)
         entity.setAttribute("rotation", item.rotation)
@@ -57,7 +57,7 @@ function spawnEntities3(structure3) {
         entityText.setAttribute("width", "1.7")
         entityText.setAttribute("height", "1.7")
         entityText.setAttribute("id", item.id)
-        entityText.setAttribute("opacity", "0.0")
+        entityText.setAttribute('visible', false)
         entityText.setAttribute("value", item.description)
         entityText.setAttribute("look-at", "#camera")
         scene3.appendChild(entityText);
@@ -72,21 +72,36 @@ function setOpacityCard(element) {
     let card1 = document.getElementById("card1")
     let textID = document.getElementById(element.id + "-text")
     console.log("Text ID:", textID)
-    card0.setAttribute('opacity', '1.0')
+    card0.setAttribute('visible', true)
 
     if(element.id === "e-alcoholgel") {
-        textID.setAttribute('opacity', "1.0")
-        card1.setAttribute('opacity', '1.0')
+        textID.setAttribute('visible', true)
+        card1.setAttribute('visible', true)
     }
 
     if(element.id === "e-Bottle_Lubricant") {
-        textID.setAttribute('opacity', "1.0")
-        card1.setAttribute('opacity', '1.0')
+        textID.setAttribute('visible', true)
+        card1.setAttribute('visible', true)
     }
 
     if(element.id === "e-UrinaryBag") {
-        textID.setAttribute('opacity', "1.0")
-        card2.setAttribute('opacity', '1.0')
+        textID.setAttribute('visible', true)
+        card2.setAttribute('visible', true)
+    }
+
+    if(element.id === "e-Basin") {
+        textID.setAttribute('visible', true)
+        card2.setAttribute('visible', true)
+    }
+
+    if(element.id === "e-tstSyringe") {
+        textID.setAttribute('visible', true)
+        card2.setAttribute('visible', true)
+    }
+
+    if(element.id === "e-allistweezers") {
+        textID.setAttribute('visible', true)
+        card2.setAttribute('visible', true)
     }
 
 
