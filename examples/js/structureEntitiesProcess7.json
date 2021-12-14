@@ -120,18 +120,6 @@
       "selector": ".vxr-obj-Clamp_Allis"
     },
     {
-      "template": "vxr-obj-template-WatterGlass",
-      "selector": ".vxr-obj-WatterGlass"
-    },
-    {
-      "template": "vxr-obj-template-WatterGlass_emisive",
-      "selector": ".vxr-obj-WatterGlass_emisive"
-    },
-    {
-      "template": "vxr-obj-template-WatterGlass_static",
-      "selector": ".vxr-obj-WatterGlass_static"
-    },
-    {
       "template": "vxr-obj-template-Syringe_Guyon",
       "selector": ".vxr-obj-Syringe_Guyon"
     },
@@ -178,5 +166,20 @@
     {
       "template": "vxr-obj-template-umbilicalCordon",
       "selector": ".vxr-obj-umbilicalCordon"
+    },
+    {
+      "template": "vxr-obj-template-syringePackage",
+      "selector": ".vxr-obj-syringePackage"
+    },
+    {
+      "template": "vxr-obj-template-syringePackage2",
+      "selector": ".vxr-obj-syringePackage2"
+    },
+    {
+      "template": "vxr-obj-template-nasogastricPackage",
+      "selector": ".vxr-obj-nasogastricPackage"
     }
+
+
+    
   ]
