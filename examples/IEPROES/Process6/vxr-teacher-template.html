@@ -159,6 +159,30 @@
       }, delayInMilliseconds);
     }
 
+    changeGloveColor = 0;
+
+    function playAnimation(e) {
+ 
+      if (changeGloveColor < 3) {
+        let obj = document.getElementById("e-Gloves_Steril")
+        obj.setAttribute("animation-mixer", "loop:once;repetitions: NaN")
+        console.log("hand event: ", window.event)
+        changeGloveColor++
+        // document.getElementById("e-waterglass").setAttribute("visible", "true") 
+
+      } else {
+        console.log("event", window.event)
+        if (window.event.relatedTarget.id == "lhand") {
+          let hand = document.getElementById("leftHand").getObject3D("mesh").getObjectByName("handL2320").material.color = new THREE.Color(0xe38666);
+          console.log("hand: ", hand)
+        } else if (window.event.relatedTarget.id == "rhand") {
+          let hand = document.getElementById("rightHand").getObject3D("mesh").getObjectByName("handR2320").material.color = new THREE.Color(0xe38666);
+          console.log("right hand: ", hand)
+
+        }
+      }
+    }
+
   </script>
 
   <script>
@@ -289,14 +313,6 @@
         element.setAttribute("visible","true")
       }
     }
-
-
-
-
-
-
-
-
 
   </script>
 
@@ -522,7 +538,7 @@
       <!-- <a-asset-item id="tstSyringe" src="Syringe.gltf"></a-asset-item> -->
       <a-asset-item id="tstSyringe" src="../Process5/Assets/Syringe_NoNeedle.gltf"></a-asset-item>
       <a-asset-item id="Assistant_Nurse" src="../Process5/Assets/Assistant_Nurse.gltf"></a-asset-item>
-      <a-asset-item id="Gloves_Steril" src="../Process5/Assets/Gloves_Steril.gltf"></a-asset-item>
+      <a-asset-item id="Gloves_Steril" src="../Process3/Assets/Gloves_Anim.gltf"></a-asset-item>
       <a-asset-item id="Gloves_Steril_Open" src="../Process5/Assets/Gloves_Steril_Open.gltf"></a-asset-item>
 
       <a-asset-item id="Clothed_Instruments_Vesical_Static"
@@ -1168,8 +1184,6 @@
       </template>
     </a-assets>
     
-    
-
     <template id="vxr-obj-template-UrinaryCatheter_emisive">
       <a-entity>
         <a-entity id="e-UrinaryCatheter_emisive" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
@@ -1522,11 +1536,9 @@
     opacity="0.5" dynamic-body="mass:0.0; sphereRadius: NaN" rotation=""
       position="1.32169 1.89616 -1.09135" color="red" depth="0.1" height="0.1" width="0.1"></a-box>
 
-
-
-
-
-
+    <a-sphere id="sphere-gloves-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      opacity="1" position="0.20581 1.85588 -0.23635" ondragstart="playAnimation()" attach-point-v2
+      geometry="radius: 0.04"> </a-sphere>
 
 
   </a-scene>
