@@ -219,5 +219,21 @@
   {
     "template": "vxr-obj-template-HandLamp",
     "selector": ".vxr-obj-HandLamp"
+  },
+  {
+    "template": "vxr-obj-template-Assistant_Nurse",
+    "selector": ".vxr-obj-Assistant_Nurse"
+  },
+  {
+    "template": "vxr-obj-template-patient01",
+    "selector": ".vxr-obj-patient01"
+  },
+  {
+    "template": "vxr-obj-template-patient01_emisive",
+    "selector": ".vxr-obj-patient01_emisive"
+  },
+  {
+    "template": "vxr-obj-template-patient01_static",
+    "selector": ".vxr-obj-patient01_static"
   }
 ]
