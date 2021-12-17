@@ -178,6 +178,10 @@
   {
     "template": "vxr-obj-template-adhesive",
     "selector": ".vxr-obj-adhesive"
+  },
+  {
+    "template": "vxr-obj-template-syringeAnim",
+    "selector": ".vxr-obj-syringeAnim"
   }
   
 ]
