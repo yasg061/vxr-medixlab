@@ -22,5 +22,29 @@
         "height": "0.5",
         "material": "src: ../../dist/images/UrineBag.jpg",
         "rotation": "0 180 0"
+    },
+    {
+        "position": "0.5 2.5 -0.01",
+        "element": "a-plane",
+        "width": "0.6",
+        "height": "0.5",
+        "material": "src: ../../dist/images/KidneyTray.jpg",
+        "rotation": "0 180 0"
+    },
+    {
+        "position": "0.5 2.5 -0.01",
+        "element": "a-plane",
+        "width": "0.6",
+        "height": "0.5",
+        "material": "src: ../../dist/images/Scissor.jpg",
+        "rotation": "0 180 0"
+    },
+    {
+        "position": "0.5 2.5 -0.01",
+        "element": "a-plane",
+        "width": "0.6",
+        "height": "0.5",
+        "material": "src: ../../dist/images/Adhesive.jpg",
+        "rotation": "0 180 0"
     }
 ]
