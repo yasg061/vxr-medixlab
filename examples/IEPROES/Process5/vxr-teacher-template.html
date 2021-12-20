@@ -124,6 +124,21 @@
 
           }
 
+          if (id_Data == e.detail.body.el.id && iterator_entity == 4) {
+
+            let obj = document.getElementById("e-syringeAnim")
+            obj.setAttribute("visible", "true")
+            obj.setAttribute("animation-mixer", "loop:once;repetitions: NaN")
+
+            var delayInMilliseconds = 3000; //1 second
+
+            setTimeout(function () {
+
+              document.getElementById("e-syringeAnim").setAttribute("visible", "false")
+
+            }, delayInMilliseconds);
+
+          }
 
         });
       }
@@ -511,6 +526,7 @@
       <a-asset-item id="Assistant_Nurse" src="Assets/Assistant_Nurse.gltf"></a-asset-item>
       <a-asset-item id="Gloves_Steril" src="../Process3/Assets/Gloves_Anim.gltf"></a-asset-item>
       <a-asset-item id="Gloves_Steril_Open" src="Assets/Gloves_Steril_Open.gltf"></a-asset-item>
+      <a-asset-item id="syringeAnim" src="Assets/SyringeAnimation.gltf"></a-asset-item>
 
       <a-asset-item id="Clothed_Instruments_Vesical_Static" src="Assets/Clothed_Instruments_Vesical_Static.gltf">
       </a-asset-item>
@@ -644,7 +660,7 @@
       <template id="player-template">
         <a-entity networked-audio-source="positional:false"></a-entity>
       </template>
-      ​
+
       <!-- Nurse Avatar -->
       <template id="student-avatar-template">
         <a-entity class="NurseHeadAvatar" gltf-model="#StudentAvatar" position="0 2 0"
@@ -765,6 +781,15 @@
             grabbable="maxGrabbers: NaN" dynamic-body="mass: 0.0; sphereRadius: NaN" class="vxr-obj-SalineBag_static vxr-interact"
             gltf-model="#dripbag" dynamic-body draggable grabbable toggle-physics visible="false"
             position="-0.32119 0.66027 -1.19205"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-syringeAnim">
+        <a-entity>
+          <a-entity id="e-syringeAnim" rotation="-43.16 -90 180"
+            grabbable="maxGrabbers: NaN" dynamic-body="mass: 0.0; sphereRadius: NaN" class="vxr-obj-syringeAnim vxr-interact"
+            gltf-model="#syringeAnim" dynamic-body draggable grabbable toggle-physics visible="false"
+            position="-0.07913 0.44479 -1.20611"></a-entity>
         </a-entity>
       </template>
 
@@ -1194,7 +1219,7 @@
 
     <template id="vxr-obj-template-tstSyringe">
       <a-entity>
-        <a-entity id="e-tstSyringe" dynamic-body="sphereRadius: NaN" visible="true" rotation="0 0 0"
+        <a-entity id="e-tstSyringe" dynamic-body="sphereRadius: NaN" visible="true" rotation="0 0 0" 
           grabbable="maxGrabbers: NaN" class="vxr-obj-tstSyringe vxr-interact" gltf-model="#tstSyringe" dynamic-body
           draggable grabbable toggle-physics position="0.38084 0.29924 -0.25564">
         </a-entity>
@@ -1528,14 +1553,12 @@
 
     <a-box id="e-Clamp_Allis_collider" scale="0.4 0.4 0.4" static-body="sphereRadius: NaN"
     trigger-animation="entity_id:e-Clamp_Allis;obj_entity:3" opacity="0.5"
-  dynamic-body="mass:0.0; sphereRadius: NaN" rotation="" position="0.33051 1.89703 -1.77987" color="red" depth="0.1"
-  height="0.1" width="0.1"></a-box>
+    dynamic-body="mass:0.0; sphereRadius: NaN" rotation="" position="0.33051 1.89703 -1.77987" color="red" depth="0.1"
+    height="0.1" width="0.1"></a-box>
 
-
-
- 
-
-
+    <a-sphere id="sphere-syringe" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-tstSyringe;obj_entity:4" opacity="0" position="-0.15486 2.01963 -1.41025" attach-point-v2
+      geometry="radius: 0.05"> </a-sphere>
 
 
   </a-scene>
