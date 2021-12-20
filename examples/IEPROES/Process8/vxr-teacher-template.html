@@ -108,37 +108,28 @@
             emisive.remove()
           }
 
+
           if (id_Data == e.detail.body.el.id && iterator_entity == 3) {
 
-            let obj = document.getElementById(id_Data + "_collider")
-            obj.setAttribute("visible", "false")
-            let medicalKit = document.getElementById("e-Clothed_Instruments_Vesical")
-            medicalKit.setAttribute("animation-mixer", "loop:once;repetitions: NaN;clampWhenFinished:true")
+            let obj = document.getElementById(`e-emptyglass`) 
+               
+              document.getElementById("e-waterglass").setAttribute("visible", "true") 
 
-            delayInMilliseconds = 9000
-
-            setTimeout(function () {
-              medicalKit.setAttribute("visible", "false")
-              document.getElementById("e-SterileField_Folded").setAttribute("visible", "true")
-              document.getElementById("e-Bowl-Medic").setAttribute("visible", "true")
-              document.getElementById("e-Bowl-Medic-2").setAttribute("visible", "true")
-              document.getElementById("e-gauze").setAttribute("visible", "true")
-              document.getElementById("e-Gauze_Pene").setAttribute("visible", "true")
-              // document.getElementById("e-Stray").setAttribute("visible","true")
-              document.getElementById("e-Clothed_Instruments_Vesical_Static").setAttribute("visible", "true")
-
-
-            }, delayInMilliseconds);
-
-
-
+            obj.remove();        
+            
           }
 
           if (id_Data == e.detail.body.el.id && iterator_entity == 4) {
-               
-              document.getElementById("e-waterglass").setAttribute("visible", "true")          
+
+            let obj=document.getElementById(id_Data)
+
+              document.getElementById("e-Gloves_Steril").setAttribute("visible", "true")
+              document.getElementById("sphere-gloves-animation").setAttribute("visible", "true")
+
+            obj.remove();    
             
           }
+                    
 
         });
       }
@@ -165,39 +156,31 @@
 
       }, delayInMilliseconds);
     }
-  </script>
 
-  <script>
-    let boolstate = true
-    AFRAME.registerComponent('color-trigger', {
-      init() {
-        var data = this.data;
-        console.log("init, color trigger")
+    changeGloveColor = 0;
 
-        this.el.addEventListener('collide', e => {
+    function playAnimation(e) {
+ 
+      if (changeGloveColor < 3) {
+        let obj = document.getElementById("e-Gloves_Steril")
+        obj.setAttribute("animation-mixer", "loop:once;repetitions: NaN")
+        console.log("hand event: ", window.event)
+        changeGloveColor++
+        // document.getElementById("e-waterglass").setAttribute("visible", "true") 
 
-          console.log("collided", e.detail)
-          let classes = e.detail.target.el.className.split(' ')
-          let mesh_to_modify = document.getElementById("vxr-obj-cottonswab01")
-          var mesh = mesh_to_modify.getObject3D('mesh');
-          console.log("mesh", mesh)
+      } else {
+        console.log("event", window.event)
+        if (window.event.relatedTarget.id == "lhand") {
+          let hand = document.getElementById("leftHand").getObject3D("mesh").getObjectByName("handL2320").material.color = new THREE.Color(0xe38666);
+          console.log("hand: ", hand)
+        } else if (window.event.relatedTarget.id == "rhand") {
+          let hand = document.getElementById("rightHand").getObject3D("mesh").getObjectByName("handR2320").material.color = new THREE.Color(0xe38666);
+          console.log("right hand: ", hand)
 
-          mesh.traverse(function (node) {
-            console.log("material option", node.material)
-            if (node.isMesh && boolstate) {
-              // mesh.material.color.setRGB(255 ,0 ,0)
-              node.material.color = new THREE.Color("rgb(237, 38, 81)");
-              node.material.needsUpdate = true;
-              console.log("works -----")
-              boolstate = false
+        }
+      }
+    }
 
-            }
-          });
-
-        });
-      },
-
-    });
   </script>
 
   <script>
@@ -236,12 +219,11 @@
       console.log("emisive id: ", (element.id + "_emisive"))
       emissiveObject.setAttribute("visible", "true")
 
-      let arrowTargetPosition = new THREE.Vector3()
-      arrowTargetPosition.copy(emissiveObject.getObject3D("mesh").getWorldPosition())
-      arrowTargetPosition.y = arrowTargetPosition.y + 0.3
-      document.getElementById("arrow01").setAttribute("position", arrowTargetPosition)
-      document.getElementById("arrow01").setAttribute("visible", "true")
-
+      //let arrowTargetPosition = new THREE.Vector3()
+      //arrowTargetPosition.copy(emissiveObject.getObject3D("mesh").getWorldPosition())
+      //arrowTargetPosition.y = arrowTargetPosition.y + 0.3
+      //document.getElementById("arrow01").setAttribute("position", arrowTargetPosition)
+      //document.getElementById("arrow01").setAttribute("visible", "true")
 
 
       if (element.id == "e-SterileField_Folded") {
@@ -256,7 +238,7 @@
     function emissiveObjectOff(element) {
 
       let emissiveObject = document.getElementById((element.id + "_emisive"))
-      document.getElementById("arrow01").setAttribute("visible", "false")
+      //document.getElementById("arrow01").setAttribute("visible", "false")
 
 
       if (document.getElementById((element.id + "_emisive"))) {
@@ -431,38 +413,43 @@
       onConnect: spawnentity">
       
     <a-assets>
-      <a-asset-item id="table" src="Assets/Table.gltf"></a-asset-item>
-      <a-asset-item id="bed" src="Assets/Baby_Crib.gltf"></a-asset-item>
-      <a-asset-item id="patient" src="Baby_Bryan_Posed.gltf"></a-asset-item>
-      <a-asset-item id="container" src="Assets/TrashContainer.gltf"></a-asset-item>
-      <a-asset-item id="containerblack" src="Assets/TrashContainerBlack.gltf"></a-asset-item>
-      <a-asset-item id="trashcan" src="Assets/TrashCan.gltf"></a-asset-item>
-      <a-asset-item id="trashcan02" src="Assets/Box_SharpObject.gltf"></a-asset-item>
-      <a-asset-item id="trashcan03" src="Assets/TrashCan02.gltf"></a-asset-item>
-      <a-asset-item id="DestiledWater" src="Assets/DestiledWater.gltf"></a-asset-item>
-      <a-asset-item id="Vaseline" src="Assets/Vaseline.gltf"></a-asset-item>
-      <a-asset-item id="thermic" src="Assets/Thermic_Crib2.gltf"></a-asset-item>
-      <a-asset-item id="infantScale" src="Assets/Infant_Scale.gltf"></a-asset-item>
-      <a-asset-item id="inkpad" src="Assets/InkPad.gltf"></a-asset-item>
-      <a-asset-item id="toiletpaper" src="Assets/ToiletPaper.gltf"></a-asset-item>
-      <a-asset-item id="Thermometer" src="Assets/Thermometer.gltf"></a-asset-item>
-      <a-asset-item id="hyssop" src="Assets/Hyssop.gltf"></a-asset-item>
-      <a-asset-item id="HairComb" src="Assets/HairComb.gltf"></a-asset-item>
-      <a-asset-item id="bulbSyringe" src="Assets/Bulb_Syringe.gltf"></a-asset-item>
-      <a-asset-item id="Clamp" src="Assets/Clamp.gltf"></a-asset-item>
-      <a-asset-item id="Towel" src="Assets/Towel.gltf"></a-asset-item>
-      <a-asset-item id="Plantares" src="Assets/Plantares.gltf"></a-asset-item>
-      <a-asset-item id="PlantaresL" src="Assets/PlantaresLeft.gltf"></a-asset-item>
-      <a-asset-item id="PlantaresR" src="Assets/PlantaresRight.gltf"></a-asset-item>
-      <a-asset-item id="Panal" src="Assets/Pañal_Abrido.gltf"></a-asset-item>
-      <a-asset-item id="HandLamp" src="Assets/HandLamp.gltf"></a-asset-item>
-      <a-asset-item id="VitaminAmpoule" src="Assets/VitaminAmpoule.gltf"></a-asset-item>
-      <a-asset-item id="glovesSteril" src="Assets/Gloves_Steril_Open.gltf"></a-asset-item>
-      <a-asset-item id="alcohol" src="Assets/AlcoholBottle.gltf"></a-asset-item>
-      <a-asset-item id="emptywaterglass" src="Assets/EmptyWatterGlass.gltf"></a-asset-item>
-      <a-asset-item id="waterglass" src="Assets/WatterGlass.gltf"></a-asset-item>
-      <a-asset-item id="cloranfenicol" src="Assets/Cloranfenicol.gltf"></a-asset-item>
-      <a-asset-item id="scissors" src="Assets/CurvedScissor.gltf"></a-asset-item>
+      <a-asset-item id="table" src="../../Models/room/Table.gltf"></a-asset-item>
+      <a-asset-item id="bed" src="../../Models/process8/Baby_Crib.gltf"></a-asset-item>
+      <a-asset-item id="patient" src="../../Models/process8/Baby_Bryan_Posed.gltf"></a-asset-item>
+      <a-asset-item id="patient_emisive" src="../../Models/process8/Baby_Bryan_Posed_emisive.gltf"></a-asset-item>
+      <a-asset-item id="patient_static" src="../../Models/process8/Baby_Bryan_Posed_static.gltf"></a-asset-item>
+      <a-asset-item id="container" src="../../Models/process8/TrashContainer.gltf"></a-asset-item>
+      <a-asset-item id="containerblack" src="../../Models/process8/TrashContainerBlack.gltf"></a-asset-item>
+      <a-asset-item id="trashcan" src="../../Models/process8/TrashCan.gltf"></a-asset-item>
+      <a-asset-item id="trashcan02" src="../../Models/process8/Box_SharpObject.gltf"></a-asset-item>
+      <a-asset-item id="trashcan03" src="../../Models/process8/TrashCan02.gltf"></a-asset-item>
+      <a-asset-item id="DestiledWater" src="../../Models/process8/DestiledWater.gltf"></a-asset-item>
+      <a-asset-item id="Vaseline" src="../../Models/process8/Vaseline.gltf"></a-asset-item>
+      <a-asset-item id="thermic" src="../../Models/process8/Thermic_Crib.gltf"></a-asset-item>
+      <a-asset-item id="infantScale" src="../../Models/process8/Infant_Scale.gltf"></a-asset-item>
+      <a-asset-item id="inkpad" src="../../Models/process8/InkPad.gltf"></a-asset-item>
+      <a-asset-item id="toiletpaper" src="../../Models/process8/ToiletPaper.gltf"></a-asset-item>
+      <a-asset-item id="Thermometer" src="../../Models/process8/Thermometer.gltf"></a-asset-item>
+      <a-asset-item id="hyssop" src="../../Models/process8/Hyssop.gltf"></a-asset-item>
+      <a-asset-item id="HairComb" src="../../Models/process8/HairComb.gltf"></a-asset-item>
+      <a-asset-item id="bulbSyringe" src="../../Models/process8/Bulb_Syringe.gltf"></a-asset-item>
+      <a-asset-item id="Clamp" src="../../Models/process8/Clamp.gltf"></a-asset-item>
+      <a-asset-item id="Towel" src="../../Models/process8/Towel.gltf"></a-asset-item>
+      <a-asset-item id="Plantares" src="../../Models/process8/Plantares.gltf"></a-asset-item>
+      <a-asset-item id="PlantaresL" src="../../Models/process8/PlantaresLeft.gltf"></a-asset-item>
+      <a-asset-item id="PlantaresR" src="../../Models/process8/PlantaresRight.gltf"></a-asset-item>
+      <a-asset-item id="Panal" src="../../Models/process8/Pañal_Abrido.gltf"></a-asset-item>
+      <a-asset-item id="HandLamp" src="../../Models/process8/HandLamp.gltf"></a-asset-item>
+      <a-asset-item id="VitaminAmpoule" src="../../Models/process8/VitaminAmpoule.gltf"></a-asset-item>
+      <a-asset-item id="Gloves_Steril_close" src="../../Models/process8/Gloves_Steril_Open.gltf"></a-asset-item>
+      <a-asset-item id="Gloves_Steril_open_emisive" src="../../Models/process8/Gloves_Steril_Open_emisive.gltf"></a-asset-item>
+      <a-asset-item id="Gloves_Steril" src="../Process3/Assets/Gloves_Anim.gltf"></a-asset-item>
+      <a-asset-item id="alcohol" src="../../Models/process8/AlcoholBottle.gltf"></a-asset-item>
+      <a-asset-item id="emptywaterglass" src="../../Models/process8/EmptyWatterGlass.gltf"></a-asset-item>
+      <a-asset-item id="waterglass" src="../../Models/process8/WatterGlass.gltf"></a-asset-item>
+      <a-asset-item id="cloranfenicol" src="../../Models/process8/Cloranfenicol.gltf"></a-asset-item>
+      <a-asset-item id="scissors" src="../../Models/process8/CurvedScissor.gltf"></a-asset-item>
+      <a-asset-item id="brazalet" src="../../Models/process8/IdentificationBrazalet.gltf"></a-asset-item>
 
 
       <img id="sky-01" src="../../Models/Images/sky-01.jpg">
@@ -488,20 +475,16 @@
       <a-asset-item id="Tape_Butterfly" src="../../Models/gltf/Tape_Butterfly.gltf"></a-asset-item>
       <a-asset-item id="Syringe_1CC_Skin" src="../../Models/gltf/Syringe_1CC.gltf"></a-asset-item>
       <a-asset-item id="ControlCard_Neonatal" src="../../Models/gltf/ControlCard_Neonatal.gltf"></a-asset-item>
-      <a-asset-item id="SalineAmpoule" src="Assets/SalineAmpoule.gltf"></a-asset-item>
+      <a-asset-item id="SalineAmpoule" src="../../Models/process8/SalineAmpoule.gltf"></a-asset-item>
       <a-asset-item id="Syringe_plug" src="Syringe_plug.gltf"></a-asset-item>
       <a-asset-item id="Syringe_1CC" src="../../Models/gltf/Syringe_1CC.gltf"></a-asset-item>
-      <a-asset-item id="Aposito_BabyPatient3" src="Aposito_BabyPatient3.gltf"></a-asset-item>
-      <a-asset-item id="Aposito_BabyPatient3_Static" src="Aposito_BabyPatient3_Static.gltf"></a-asset-item>
+      <a-asset-item id="Aposito_BabyPatient3" src="../../Models/process8/Aposito_BabyPatient3.gltf"></a-asset-item>
+      <a-asset-item id="Aposito_BabyPatient3_Static" src="../../Models/process8/Aposito_BabyPatient3_Static.gltf"></a-asset-item>
       <a-asset-item id="heparinseal" src="../../Models/gltf/HeparinSeal.gltf"></a-asset-item>
-      <a-asset-item id="HeparineSealBox" src="HeparineSealBox.gltf"></a-asset-item>
-      <a-asset-item id="testBone" src="CubeBone.gltf"></a-asset-item>
-
-
-
-
-      <a-asset-item id="genes" src="Assets/HospitalRoomLight.gltf"></a-asset-item>
-      <a-asset-item id="s_cube" src="CottonColor.gltf"></a-asset-item>
+      <a-asset-item id="HeparineSealBox" src="../../Models/process8/HeparineSealBox.gltf"></a-asset-item>
+      <a-asset-item id="genes" src="../../Models/room/HospitalRoomLight.gltf"></a-asset-item>
+      <a-asset-item id="s_cube" src="../../Models/process8/CottonColor.gltf"></a-asset-item>
+      <a-asset-item id="Assistant_Nurse" src="../../Models/process8/AssitantNurse.gltf"></a-asset-item>
 
       <a-asset-item id="Armario" src="../HospitalRoomAssets/armario.gltf"></a-asset-item>
       <a-asset-item id="Mesacama" src="../HospitalRoomAssets/mesa_cama.gltf"></a-asset-item>
@@ -521,22 +504,6 @@
       <a-asset-item id="student" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
       <a-asset-item id="teacher" src="../../super/process/assets/TeacherAvatar.gltf"></a-asset-item>
 
-      
-
-
-      <!-- Theater -->
-      <a-asset-item id="scenebase" src="/Models/gltf/Scene_Base.gltf"></a-asset-item>
-      <a-asset-item id="scenemedixlablogo" src="/Models/gltf/Scene_Medixlablogo.gltf"></a-asset-item>
-      <a-asset-item id="sceneieproeslogo" src="/Models/gltf/Scene_Ieproesblogo.gltf"></a-asset-item>
-      <a-asset-item id="scenevertexlogo" src="/Models/gltf/Scene_VertexLogo.gltf"></a-asset-item>
-      <a-asset-item id="scenebase02" src="/Models/gltf/Base_Auditorium.gltf"></a-asset-item>
-      <a-asset-item id="stairsprincipal" src="/Models/gltf/Stairs_Auditorium.gltf"></a-asset-item>
-      <a-asset-item id="ministairs" src="/Models/gltf/Mini_Stairs_Auditorium.gltf"></a-asset-item>
-      <a-asset-item id="roofauditorium" src="/Models/gltf/Roof_Auditorium.gltf"></a-asset-item>
-      <a-asset-item id="columns" src="/Models/gltf/Columns_Auditorium.gltf"></a-asset-item>
-      <a-asset-item id="frontwall" src="/Models/gltf/FrontWall_Auditorium.gltf"></a-asset-item>
-      <a-video id="canalizacion" src="/videos/Test.mp4" autoplay loop="true"></a-video>
-      <a-video id="logopng" src="/Models/Images/Ieproes_Logo.png"></a-video>
 
       <canvas id="cam2"></canvas>
 
@@ -795,11 +762,19 @@
         </a-entity>
       </template>
 
+      <template id="vxr-obj-template-brazalet">
+        <a-entity>
+          <a-entity id="e-brazalet" rotation="0 0 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-brazalet vxr-interact" gltf-model="#brazalet" dynamic-body draggable grabbable
+            toggle-physics position="1.258 0.408 -0.126"></a-entity>
+        </a-entity>
+      </template>
+
       <template id="vxr-obj-template-plantares">
         <a-entity>
           <a-entity id="e-plantares" rotation="0 180 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
-            class="vxr-obj-plantares vxr-interact" gltf-model="#Plantares" dynamic-body draggable grabbable
-            toggle-physics position="0.27753 0.40376 -0.01914"></a-entity>
+            class="vxr-obj-plantares vxr-interact" gltf-model="#Plantares" dynamic-body draggable grabbable scale="0.8 0.8 0.8"
+            toggle-physics position="2.38176 0.3212 -2.31"></a-entity>
         </a-entity>
       </template>
 
@@ -811,11 +786,21 @@
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-glovesSteril">
+      <template id="vxr-obj-template-Gloves_Steril_close">
         <a-entity>
-          <a-entity id="e-glovesSteril" scale="0.6 0.5 0.6" rotation="0 180 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
-            class="vxr-obj-glovesSteril vxr-interact" gltf-model="#glovesSteril" dynamic-body draggable grabbable
-            toggle-physics position="0.04144 0.40556 -0.11611"></a-entity>
+          <a-entity id="e-Gloves_Steril_close" grabbable="maxGrabbers: NaN"
+            rotation="0 180 0" grabbable class="vxr-obj-Gloves_Steril_close vxr-interact" gltf-model="#Gloves_Steril_close" scale="0.6 0.6 0.6"
+            draggable grabbable dynamic-body="sphereRadius: NaN" grabbable dynamic-body toggle-physics position="0.254 0.407 0.140">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Gloves_Steril">
+        <a-entity>
+          <a-entity id="e-Gloves_Steril" scale="0.7 0.7 0.7" grabbable="maxGrabbers: NaN" visible="false"  
+            rotation="0 180 0" grabbable class="vxr-obj-Gloves_Steril vxr-interact" gltf-model="#Gloves_Steril" 
+            draggable grabbable  position="0.145 0.402 -0.105">
+          </a-entity>
         </a-entity>
       </template>
 
@@ -1077,7 +1062,7 @@
         <a-entity>
           <a-entity id="e-Aposito_BabyPatient3" static-body="sphereRadius: NaN"  
             class="vxr-obj-Aposito_BabyPatient3 vxr-interact" gltf-model="#Aposito_BabyPatient3" draggable=""
-            grabbable="maxGrabbers: NaN" position="3.10103 0.26212 -1.17306" rotation="-5.320 0 0" visible="true"></a-entity>
+            grabbable="maxGrabbers: NaN" position="2.79779 0.26212 -1.17306" rotation="-5.320 0 0" visible="true"></a-entity>
         </a-entity>
       </template>
 
@@ -1102,6 +1087,43 @@
           <a-entity id="e-HandLamp" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-HandLamp vxr-interact" gltf-model="#HandLamp" dynamic-body draggable grabbable
             toggle-physics position="0.84386 0.41896 -0.09564"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-Assistant_Nurse">
+        <a-entity>
+          <a-entity id="e-Assistant_Nurse" grabbable="maxGrabbers: NaN" class="vxr-obj-Assistant_Nurse vxr-interact" gltf-model="#Assistant_Nurse"
+            dynamic-body="mass:0.0; sphereRadius: NaN" toggle-physics draggable grabbable position="3.70401 -0.602 -1.17441"
+            rotation="0 -90 0" dynamic-body></a-entity>
+        </a-entity>
+      </template>
+
+
+      <template id="vxr-obj-template-patient01">
+        <a-entity>
+          <a-entity id="e-patient01"  ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN" rotation="0 0 0" dynamic-body="sphereRadius: NaN" grabbable dynamic-body
+            class="vxr-obj-patient01 vxr-interact" gltf-model="#patient" draggable grabbable
+            toggle-physics position="3.19147 0.71558 -1.24687">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-patient01_emisive">
+        <a-entity>
+          <a-entity id="e-patient01_emisive" grabbable="maxGrabbers: NaN" rotation="0 0 0" grabbable 
+            class="vxr-obj-patient01_emisive vxr-interact" visible="false" gltf-model="#patient_emisive" draggable grabbable
+            position="2.934 0.240 -1.345">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-patient01_static">
+        <a-entity>
+          <a-entity id="e-patient01_static" grabbable="maxGrabbers: NaN" rotation="0 0 0" grabbable 
+            class="vxr-obj-patient01_static vxr-interact" visible="false" gltf-model="#patient_static" draggable grabbable
+            position="2.934 0.240 -1.345">
+          </a-entity>
         </a-entity>
       </template>
 
@@ -1150,10 +1172,9 @@
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity> -->
-    <a-entity id="patient01" gltf-model="#patient" scale="" position="3.21847 1.73301 -1.49247" material="color: brown"
-      rotation="0 0 0">
+    
     </a-entity>
-    <a-entity id="bedBaby" gltf-model="#bed" scale="1 1 1" position="3.22364 0.89752 -1.41099" material="color: brown"
+    <a-entity id="bedBaby" gltf-model="#bed" scale="1 1 1" position="2.94421 0.89752 -1.41099" material="color: brown"
       rotation="0 90 0" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_babycrib.png">
     </a-entity>
 
@@ -1165,13 +1186,13 @@
     </a-entity>
     <a-entity id="sofa" gltf-model="#Sofa" scale="" rotation="0 180 0" position="2.00436 0.90695 3.70236" ao-map="src: ../HospitalRoomAssets/AOMap_sofa.png">
     </a-entity>
-    <a-entity id="table_004" gltf-model="#Table_004" scale="" rotation="0 -90 0" position="2.634 0.90812 -2.52664">
+    <a-entity id="table_004" gltf-model="#Table_004" scale="1 1.3 1.2" rotation="0 -90 0" position="2.3958 0.90812 -2.52664">
     </a-entity>
     <a-entity id="thermic_crib" gltf-model="#thermic" scale="" rotation="0 0 0" position="3.09452 0.90812 -0.03355" >
     </a-entity>
     <a-entity id="Infant_Scale" gltf-model="#infantScale" scale="" rotation="0 180 0" position="-0.36953 1.91789 -0.14487">
     </a-entity>
-    <a-entity id="InkPad" gltf-model="#inkpad" scale="0.6 0.6 0.6" rotation="0 0 0" position="0.29699 1.89689 0.0375">
+    <a-entity id="InkPad" gltf-model="#inkpad" scale="0.4 0.4 0.4" rotation="0 0 0" position="0.244 1.897 0.072">
     </a-entity>
 
     </a-entity>
@@ -1187,6 +1208,10 @@
       position="-0.38635 2.033 -0.10337" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
     <a-box id="boxTable4" static-body="sphereRadius: NaN" opacity="0" static-body rotation="" scale="0.745 0.742 0.900"
       position="3.037 1.689 -0.034" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+    <a-box id="boxTable5" static-body="sphereRadius: NaN" opacity="0" static-body rotation="" scale="0.415 0.424 0.691"
+      position="2.40341 1.8 -2.529" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+    <a-box id="boxTable6" static-body="sphereRadius: NaN" opacity="0" static-body rotation="" scale="0.36293 0.424 0.95638"
+      position="3.22839 2.10841 -1.35643" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
     <a-box id="boxFloor" scale="4.14767 1 7.15846" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="0.36093 0.85321 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
@@ -1199,7 +1224,7 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
+    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -1.2"
       rotation="0 180 0" movement-controls="speed:0.3">
     <a-entity camera position="0 1.7 -0.6" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
@@ -1250,11 +1275,22 @@
     <a-sphere id="sphere2" static-body="sphereRadius: NaN" static-body attach-intracath opacity="0" position="0.771 1.99849 -0.99278" attach-point-v2
       geometry="radius: 0.05">
     </a-sphere>
-
   
     <a-sphere id="sphere-water" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-DestiledWater;obj_entity:4" opacity="0" position="1.16957 2.00562 0.0416" attach-point-v2
+      trigger-animation="entity_id:e-DestiledWater;obj_entity:3" opacity="0" position="1.16957 2.00562 0.0416" attach-point-v2
       geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere-gloves-close" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body 
+      trigger-animation="entity_id:e-Gloves_Steril_close;obj_entity:4" opacity="0" position="0.144 1.961 -0.321" attach-point-v2
+      geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="sphere-gloves-animation" visible="false" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      opacity="1" position="0.144 1.980 -0.321" ondragstart="playAnimation()" attach-point-v2
+      geometry="radius: 0.04"> </a-sphere>
+
+    <a-sphere id="sphere3" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-patient01;obj_entity:2" opacity="0" position="2.93998 1.84784 -1.46151"
+      attach-point-v2 geometry="radius: 0.05"> </a-sphere>
 
 
 

@@ -91,7 +91,7 @@ function setOpacityCard(element) {
 
     if(element.id === "e-Basin") {
         textID.setAttribute('visible', true)
-        card2.setAttribute('visible', true)
+        card3.setAttribute('visible', true)
     }
 
     if(element.id === "e-tstSyringe") {
@@ -101,7 +101,12 @@ function setOpacityCard(element) {
 
     if(element.id === "e-allistweezers") {
         textID.setAttribute('visible', true)
-        card2.setAttribute('visible', true)
+        card4.setAttribute('visible', true)
+    }
+
+    if(element.id === "e-Adhesive_Catheter") {
+        textID.setAttribute('visible', true)
+        card5.setAttribute('visible', true)
     }
 
 
@@ -110,23 +115,35 @@ function setOpacityCard(element) {
         textID.setAttribute('opacity', '0.7')
         card1.setAttribute('opacity', '0.7')
         card2.setAttribute('opacity', '0.7')
+        card3.setAttribute('opacity', '0.7')
+        card4.setAttribute('opacity', '0.7')
+        card5.setAttribute('opacity', '0.7')
     }, 5300)
     setTimeout(function() {
         card0.setAttribute('opacity', '0.5')
         textID.setAttribute('opacity', '0.5')
         card1.setAttribute('opacity', '0.5')
         card2.setAttribute('opacity', '0.5')
+        card3.setAttribute('opacity', '0.5')
+        card4.setAttribute('opacity', '0.5')
+        card5.setAttribute('opacity', '0.5')
     }, 5500)
     setTimeout(function() {
         card0.setAttribute('opacity', '0.3')
         textID.setAttribute('opacity', '0.3')
         card1.setAttribute('opacity', '0.3')
         card2.setAttribute('opacity', '0.3')
+        card3.setAttribute('opacity', '0.3')
+        card4.setAttribute('opacity', '0.3')
+        card5.setAttribute('opacity', '0.3')
     }, 5700)
     setTimeout(function() {
         card0.setAttribute('opacity', '0.0')
         textID.setAttribute('opacity', '0.0')
         card1.setAttribute('opacity', '0.0')
         card2.setAttribute('opacity', '0.0')
+        card3.setAttribute('opacity', '0.0')
+        card4.setAttribute('opacity', '0.0')
+        card5.setAttribute('opacity', '0.0')
     }, 5900)
 }

@@ -16,6 +16,12 @@
       "description": "Reduce la friccion,\n evitando los\n traumatismos"
     },
     {
+      "title": "Cateter Adhesivo",
+      "position": "0 2.5 -0.1",
+      "id": "e-Adhesive_Catheter-text",
+      "description": ""
+    },
+    {
       "title": "Alcohol Gel",
       "description": "Disminuye todos\n los microorganismos",
       "position": "0 2.5 -0.1",

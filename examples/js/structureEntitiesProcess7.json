@@ -178,8 +178,16 @@
     {
       "template": "vxr-obj-template-nasogastricPackage",
       "selector": ".vxr-obj-nasogastricPackage"
+    },
+    {
+      "template": "vxr-obj-template-umbilicalCordon_emisive",
+      "selector": ".vxr-obj-umbilicalCordon_emisive"
+    },
+    {
+      "template": "vxr-obj-template-umbilicalCordon_static",
+      "selector": ".vxr-obj-umbilicalCordon_static"
     }
 
-
+    
     
   ]

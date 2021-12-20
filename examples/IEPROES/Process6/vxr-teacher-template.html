@@ -127,7 +127,21 @@
 
             }, delayInMilliseconds);
 
+          }
 
+          if (id_Data == e.detail.body.el.id && iterator_entity == 4) {
+
+            let obj = document.getElementById("e-syringeAnim")
+            obj.setAttribute("visible", "true")
+            obj.setAttribute("animation-mixer", "loop:once;repetitions: NaN")
+
+            var delayInMilliseconds = 3000; //1 second
+
+            setTimeout(function () {
+
+              document.getElementById("e-syringeAnim").setAttribute("visible", "false")
+
+            }, delayInMilliseconds);
 
           }
 
@@ -157,6 +171,31 @@
 
 
       }, delayInMilliseconds);
+    }
+
+
+    changeGloveColor = 0;
+
+    function playAnimation(e) {
+ 
+      if (changeGloveColor < 3) {
+        let obj = document.getElementById("e-Gloves_Steril")
+        obj.setAttribute("animation-mixer", "loop:once;repetitions: NaN")
+        console.log("hand event: ", window.event)
+        changeGloveColor++
+        // document.getElementById("e-waterglass").setAttribute("visible", "true") 
+
+      } else {
+        console.log("event", window.event)
+        if (window.event.relatedTarget.id == "lhand") {
+          let hand = document.getElementById("leftHand").getObject3D("mesh").getObjectByName("handL2320").material.color = new THREE.Color(0xe38666);
+          console.log("hand: ", hand)
+        } else if (window.event.relatedTarget.id == "rhand") {
+          let hand = document.getElementById("rightHand").getObject3D("mesh").getObjectByName("handR2320").material.color = new THREE.Color(0xe38666);
+          console.log("right hand: ", hand)
+
+        }
+      }
     }
 
   </script>
@@ -289,14 +328,6 @@
         element.setAttribute("visible","true")
       }
     }
-
-
-
-
-
-
-
-
 
   </script>
 
@@ -522,8 +553,9 @@
       <!-- <a-asset-item id="tstSyringe" src="Syringe.gltf"></a-asset-item> -->
       <a-asset-item id="tstSyringe" src="../Process5/Assets/Syringe_NoNeedle.gltf"></a-asset-item>
       <a-asset-item id="Assistant_Nurse" src="../Process5/Assets/Assistant_Nurse.gltf"></a-asset-item>
-      <a-asset-item id="Gloves_Steril" src="../Process5/Assets/Gloves_Steril.gltf"></a-asset-item>
+      <a-asset-item id="Gloves_Steril" src="../Process3/Assets/Gloves_Anim.gltf"></a-asset-item>
       <a-asset-item id="Gloves_Steril_Open" src="../Process5/Assets/Gloves_Steril_Open.gltf"></a-asset-item>
+      <a-asset-item id="syringeAnim" src="../Process5/Assets/SyringeAnimation.gltf"></a-asset-item>
 
       <a-asset-item id="Clothed_Instruments_Vesical_Static"
         src="../Process6/Assets/Clothed_Instruments_Vesical_Woman_Static.gltf">
@@ -583,8 +615,6 @@
       </a-asset-item>
       <a-asset-item id="student" src="../../super/process/assets/StudentNurseAvatar.gltf"></a-asset-item>
       <a-asset-item id="teacher" src="../../super/process/assets/TeacherAvatar.gltf"></a-asset-item>
-
-      <a-asset-item id="DestiledWater" src="../Process-Assist-NeoNato/Models/DestiledWater.gltf"></a-asset-item>
 
 
       <a-asset-item id="Basin" src="Assets/Basin.gltf"></a-asset-item>
@@ -742,22 +772,21 @@
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-DestiledWater">
-        <a-entity>
-          <a-entity id="e-DestiledWater" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
-            class="vxr-obj-DestiledWater vxr-interact" gltf-model="#DestiledWater" draggable grabbable toggle-physics
-            position="-0.57745 0.40478 0.0458" rotation="0 -73.78092119458637 0"></a-entity>
-        </a-entity>
-      </template>
-
-
-
 
       <template id="vxr-obj-template-rubber">
         <a-entity>
           <a-entity id="e-rubber" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-rubber vxr-interact" gltf-model="#rubber" dynamic-body draggable grabbable toggle-physics
             position="-0.26873 0.43361 -0.08611" scale="0.8 0.8 0.8"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-syringeAnim">
+        <a-entity>
+          <a-entity id="e-syringeAnim" rotation="-43.16 -90 180"
+            grabbable="maxGrabbers: NaN" dynamic-body="mass: 0.0; sphereRadius: NaN" class="vxr-obj-syringeAnim vxr-interact"
+            gltf-model="#syringeAnim" dynamic-body draggable grabbable toggle-physics visible="false"
+            position="-0.07913 0.44479 -1.20611"></a-entity>
         </a-entity>
       </template>
 
@@ -1180,8 +1209,6 @@
       </template>
     </a-assets>
     
-    
-
     <template id="vxr-obj-template-UrinaryCatheter_emisive">
       <a-entity>
         <a-entity id="e-UrinaryCatheter_emisive" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
@@ -1433,8 +1460,8 @@
     <!-- <a-entity id="Scube" gltf-model="#s_cube"  scale="" position=" 0 1 0" material="color: black"> -->
     </a-entity>
 
-    <a-entity position="0.24916 0.918 -0.88417" id="trashcan01" scale="0.875 0.875 0.875" rotation="0 0 0"
-      gltf-model="#trashcan"></a-entity>
+    <!-- <a-entity position="0.24916 0.918 -0.88417" id="trashcan01" scale="0.875 0.875 0.875" rotation="0 0 0"
+      gltf-model="#trashcan"></a-entity> -->
     <a-entity id="containerblack01" scale="0.532 0.6 0.532" gltf-model="#containerblack" rotation="0 0 0"
       position="0.57046 0.948 -0.26159">
     </a-entity>
@@ -1466,7 +1493,7 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 1.2 -2"
+    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -2"
       rotation="0 180 0" movement-controls="speed:0.3">
       <a-entity id="camera" camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
@@ -1534,11 +1561,13 @@
     opacity="0.5" dynamic-body="mass:0.0; sphereRadius: NaN" rotation=""
       position="1.32169 1.89616 -1.09135" color="red" depth="0.1" height="0.1" width="0.1"></a-box>
 
+    <a-sphere id="sphere-gloves-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      opacity="1" position="0.20581 1.85588 -0.23635" ondragstart="playAnimation()" attach-point-v2
+      geometry="radius: 0.04"> </a-sphere>
 
-
-
-
-
+      <a-sphere id="sphere-syringe" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
+      trigger-animation="entity_id:e-tstSyringe;obj_entity:4" opacity="0" position="-0.15486 2.01963 -1.41025" attach-point-v2
+      geometry="radius: 0.05"> </a-sphere>
 
 
   </a-scene>
