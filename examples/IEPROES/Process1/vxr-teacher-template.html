@@ -401,6 +401,19 @@
       }
     });
 
+    AFRAME.registerComponent('add-morph',{
+  
+      init: function(){
+        
+        this.el.setAttribute('gltf-morph', 'morphtarget:Hat;value:1')
+
+      }
+    })
+
+    function HatUp(element) {
+      document.getElementById("e-hazmat_suit_static").setAttribute('gltf-morph', 'morphtarget:Hat;value:0')
+    }
+    
     
   </script>
   <script>
@@ -624,27 +637,27 @@
       <template id="vxr-obj-template-gabachon_01">
         <a-entity>
           <a-entity id="e-gabachon_01" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
-            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 180 0" grabbable dynamic-body
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="-0.0000012099787317706355 179.99999999992016 -0.0000013905382741923108" grabbable dynamic-body
             class="vxr-obj-gabachon_01 vxr-interact" gltf-model="#gabachon" dynamic-body draggable grabbable
-            toggle-physics position="-0.7469 -0.0374 0.05027" ao-map="src: lightmaps/AOMap_gabachon.png">
+            toggle-physics position="-0.7469000002699491 -0.24118147109071986 0.050270000235070056" ao-map="src: lightmaps/AOMap_gabachon.png">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-gabachon_01_emisive">
         <a-entity>
-          <a-entity id="e-gabachon_01_emisive" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+          <a-entity id="e-gabachon_01_emisive" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-gabachon_01_emisive vxr-interact" visible="false" gltf-model="#gabachon_emisive" draggable
-            grabbable position="0.107 -0.113 -0.079">
+            grabbable position="0.109 -0.15169 -0.07516">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-gabachon_01_static">
         <a-entity>
-          <a-entity id="e-gabachon_01_static" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+          <a-entity id="e-gabachon_01_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-gabachon_01_static vxr-interact" gltf-model="#gabachon_static" draggable grabbable
-            position="0.107 -0.113 -0.079" visible="false" ao-map="src: lightmaps/AOMap_gabachon_static.png">
+            position="0.109 -0.15231 -0.07523" visible="false" ao-map="src: lightmaps/AOMap_gabachon_static.png">
           </a-entity>
         </a-entity>
       </template>
@@ -661,20 +674,20 @@
 
       <template id="vxr-obj-template-glovelong_l_01_emisive">
         <a-entity>
-          <a-entity id="e-glovelong_l_01_emisive" grabbable="maxGrabbers: NaN"
-            rotation="-48.802253158062996 -173.42000064122192 -35.122885799314595" grabbable
+          <a-entity id="e-glovelong_l_01_emisive" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
+            rotation="-49.945876917144126 -168.81112813718957 -42.35189430048019" grabbable
             class="vxr-obj-glovelong_l_01_emisive vxr-interact" visible="false" gltf-model="#glovelong_l_emisive"
-            draggable grabbable position="-0.21448 0.8195 -0.30728">
+            draggable grabbable position="-0.18663 0.70305 -0.28172">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-glovelong_l_01_static">
         <a-entity>
-          <a-entity id="e-glovelong_l_01_static" grabbable="maxGrabbers: NaN"
-            rotation="-48.802253158062996 -173.42000064122192 -35.122885799314595" grabbable
+          <a-entity id="e-glovelong_l_01_static" scale="0.97313 0.94882 1.01301" grabbable="maxGrabbers: NaN"
+            rotation="-50.313142863822975 -173.613087418181 -40.59807048958474" grabbable
             class="vxr-obj-glovelong_l_01_static vxr-interact" gltf-model="#glovelong_l_static" draggable grabbable
-            position="-0.21450 0.8200 -0.30731" visible="false" ao-map="src: lightmaps/AOMap_gloveL_long.png">
+            position="-0.19059 0.69795 -0.27925" visible="false" ao-map="src: lightmaps/AOMap_gloveL_long.png">
           </a-entity>
         </a-entity>
       </template>
@@ -691,20 +704,20 @@
 
       <template id="vxr-obj-template-glovelong_r_01_emisive">
         <a-entity>
-          <a-entity id="e-glovelong_r_01_emisive" grabbable="maxGrabbers: NaN"
-            rotation="-42.471069521867406 -177.3252809728336 41.6735122710453" grabbable
+          <a-entity id="e-glovelong_r_01_emisive" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
+            rotation="-43.21763352892287 -178.56000502134054 39.5489847667002" grabbable
             class="vxr-obj-glovelong_r_01_emisive vxr-interact" visible="false" gltf-model="#glovelong_r_emisive"
-            draggable grabbable position="0.41952 0.81837 -0.33247">
+            draggable grabbable position="0.39735 0.70035 -0.30127">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-glovelong_r_01_static">
         <a-entity>
-          <a-entity id="e-glovelong_r_01_static" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-glovelong_r_01_static" scale="0.97972 1 0.96804" grabbable="maxGrabbers: NaN"
             rotation="-42.471069521867406 -177.3252809728336 41.6735122710453" grabbable
             class="vxr-obj-glovelong_r_01_static vxr-interact" gltf-model="#glovelong_r_static" draggable grabbable
-            position="0.41957 0.81839 -0.33248" visible="false" ao-map="src: lightmaps/AOMap_gloveR_long.png">
+            position="0.39351 0.70185 -0.30563" visible="false" ao-map="src: lightmaps/AOMap_gloveR_long.png">
           </a-entity>
         </a-entity>
       </template>
@@ -712,29 +725,29 @@
       <template id="vxr-obj-template-gloveshort_l_01">
         <a-entity>
           <a-entity id="e-gloveshort_l_01" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
-            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 180 0" grabbable dynamic-body
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0.000003883024516660085 -179.999999995153 0.00001573210749056018" grabbable dynamic-body
             class="vxr-obj-gloveshort_l_01 vxr-interact" gltf-model="#gloveshort_l" dynamic-body draggable grabbable
-            toggle-physics position="1.04504 0.32769 -0.32624" ao-map="src: lightmaps/AOMap_gloveL_short.png">
+            toggle-physics position="1.0450400110670397 0.3276928754874855 -0.32624000272535886" ao-map="src: lightmaps/AOMap_gloveL_short.png">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-gloveshort_l_01_emisive">
         <a-entity>
-          <a-entity id="e-gloveshort_l_01_emisive" scale="0.8568 0.8568 0.8568" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-gloveshort_l_01_emisive" scale="0.82 0.82 0.82" grabbable="maxGrabbers: NaN"
             rotation="-26.861407351323255 50.92620770461296 50.9027164350126" grabbable
             class="vxr-obj-gloveshort_l_01_emisive vxr-interact" visible="false" gltf-model="#gloveshort_l_emisive"
-            draggable grabbable position="-0.21683 0.86201 -0.34459">
+            draggable grabbable position="-0.18906 0.74587 -0.31948">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-gloveshort_l_01_static">
         <a-entity>
-          <a-entity id="e-gloveshort_l_01_static" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-gloveshort_l_01_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="-44.164 167.772 -39.066" grabbable
             class="vxr-obj-gloveshort_l_01_static vxr-interact" gltf-model="#gloveshort_l_static" draggable grabbable
-            position="-0.217 0.860 -0.343" visible="false" ao-map="src: lightmaps/AOMap_gloveL_short.png">
+            position="-0.1902 0.74468 -0.31739" visible="false" ao-map="src: lightmaps/AOMap_gloveL_short.png">
           </a-entity>
         </a-entity>
       </template>
@@ -742,29 +755,29 @@
       <template id="vxr-obj-template-gloveshort_r_01">
         <a-entity>
           <a-entity id="e-gloveshort_r_01" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
-            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 180 0" grabbable dynamic-body
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0.00000452709793849237 -179.99999998264943 0.000014293589004927084" grabbable dynamic-body
             class="vxr-obj-gloveshort_r_01 vxr-interact" gltf-model="#gloveshort_r" dynamic-body draggable grabbable
-            toggle-physics position="1.22035 0.33146 -0.32477" ao-map="src: lightmaps/AOMap_gloveR_short.png">
+            toggle-physics position="1.220350011095768 0.3314568595355074 -0.32477000348098656" ao-map="src: lightmaps/AOMap_gloveR_short.png">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-gloveshort_r_01_emisive">
         <a-entity>
-          <a-entity id="e-gloveshort_r_01_emisive" scale="1 1 1" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-gloveshort_r_01_emisive" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="39.00753965030158 138.7239683992798 47.79957701658406" grabbable
             class="vxr-obj-gloveshort_r_01_emisive vxr-interact" visible="false" gltf-model="#gloveshort_r_emisive"
-            draggable grabbable position="0.42358 0.84263 -0.36546">
+            draggable grabbable position="0.39553 0.73015 -0.33987">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-gloveshort_r_01_static">
         <a-entity>
-          <a-entity id="e-gloveshort_r_01_static" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-gloveshort_r_01_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="-38.429 -161.586 47.79957701658406" grabbable
             class="vxr-obj-gloveshort_r_01_static vxr-interact" gltf-model="#gloveshort_r_static" draggable grabbable
-            position="0.424 0.844 -0.359" visible="false" ao-map="src: lightmaps/AOMap_gloveR_short.png">
+            position="0.39867 0.7272 -0.33219" visible="false" ao-map="src: lightmaps/AOMap_gloveR_short.png">
           </a-entity>
         </a-entity>
       </template>
@@ -781,18 +794,18 @@
 
       <template id="vxr-obj-template-googles_01_emisive">
         <a-entity>
-          <a-entity id="e-googles_01_emisive" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+          <a-entity id="e-googles_01_emisive" scale="0.95 0.95 0.95" grabbable="maxGrabbers: NaN" rotation="-0.01 -180 0" grabbable
             class="vxr-obj-googles_01_emisive vxr-interact" visible="false" gltf-model="#googles_emisive" draggable
-            grabbable position="0.10852 1.11657 -0.08292">
+            grabbable position="0.107 0.985 -0.083">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-googles_01_static">
         <a-entity>
-          <a-entity id="e-googles_01_static" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+          <a-entity id="e-googles_01_static" scale="0.95 0.95 0.95" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-googles_static_01 vxr-interact" gltf-model="#googles_static" draggable grabbable
-            position="0.10852 1.11657 -0.08292" visible="false">
+            position="0.107 0.98508 -0.083" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -800,27 +813,27 @@
       <template id="vxr-obj-template-hat_01">
         <a-entity>
           <a-entity id="e-hat_01" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
-            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0.0000013486485649191348 -179.99999999988074 0.000007284083350050591" grabbable dynamic-body
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 180 0" grabbable dynamic-body
             class="vxr-obj-hat_01 vxr-interact" gltf-model="#hat" dynamic-body draggable grabbable toggle-physics
-            position="1.488600015714294 0.4108109091981247 -0.0238900028999538">
+            position="1.488600015714294 0.4108109091981247 -0.0238900028999538" ao-map="src: lightmaps/AOMap_hat.png">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-hat_01_emisive">
         <a-entity>
-          <a-entity id="e-hat_01_emisive" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
+          <a-entity id="e-hat_01_emisive" scale="0.92 1 0.92" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
             class="vxr-obj-hat_01_emisive vxr-interact" visible="false" gltf-model="#hat_emisive" draggable grabbable
-            position="0.11186 1.15943 0.00306">
+            position="0.109 1.01318 0.001">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-hat_01_static">
         <a-entity>
-          <a-entity id="e-hat_01_static" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
+          <a-entity id="e-hat_01_static" scale="0.92 1 0.92" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
             class="vxr-obj-hat_01_static vxr-interact" gltf-model="#hat_static" draggable grabbable
-            position="0.11186 1.15943 0.00306" visible="false">
+            position="0.10913 1.01286 0.00077" visible="false" ao-map="src: lightmaps/AOMap_hat.png">
           </a-entity>
         </a-entity>
       </template>
@@ -828,27 +841,27 @@
       <template id="vxr-obj-template-mask">
         <a-entity>
           <a-entity id="e-mask" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
-            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 -90 0" grabbable dynamic-body
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0.000004931901085000139 -90.0000000035183 -0.000008106473535115047" grabbable dynamic-body
             class="vxr-obj-mask vxr-interact" gltf-model="#mask" dynamic-body draggable grabbable toggle-physics
-            position="1.41052 0.35536 -0.34164" ao-map="src: lightmaps/AOMap_maskcovid.png">
+            position="1.410519994158502 0.3553540638565702 -0.3416399903439294" ao-map="src: lightmaps/AOMap_maskcovid.png">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-mask_emisive">
         <a-entity>
-          <a-entity id="e-mask_emisive" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
+          <a-entity id="e-mask_emisive" scale="0.87 0.87 0.95" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
             class="vxr-obj-mask_emisive vxr-interact" visible="false" gltf-model="#mask_emisive" draggable grabbable
-            position="0.09034 1.04372 -0.11149">
+            position="0.09074 0.916 -0.109">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-mask_static">
         <a-entity>
-          <a-entity id="e-mask_static" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
+          <a-entity id="e-mask_static" scale="0.87 0.87 0.95" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
             class="vxr-obj-mask_static vxr-interact" gltf-model="#mask_static" draggable grabbable
-            position="0.09034 1.044 -0.11286" visible="false" ao-map="src: lightmaps/AOMap_maskcovid_static.png">
+            position="0.091 0.916 -0.10871" visible="false" ao-map="src: lightmaps/AOMap_maskcovid_static.png">
           </a-entity>
         </a-entity>
       </template>
@@ -856,9 +869,9 @@
       <template id="vxr-obj-template-face_shield_01">
         <a-entity>
           <a-entity id="e-face_shield_01" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
-            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 -180 0" grabbable dynamic-body
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0.000001941539412690454 -179.99999999994114 0.000004980757581394263" grabbable dynamic-body
             class="vxr-obj-face_shield_01 vxr-interact" gltf-model="#face_shield" dynamic-body draggable grabbable
-            toggle-physics position="1.77106 0.43533 0.04499">
+            toggle-physics position="1.7710600000190837 0.28771706985843837 0.04498999999261005">
           </a-entity>
         </a-entity>
       </template>
@@ -867,16 +880,16 @@
         <a-entity>
           <a-entity id="e-face_shield_01_emisive" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-face_shield_01_emisive vxr-interact" visible="false" gltf-model="#face_shield_emisive"
-            draggable grabbable position="0.10852 0.99 -0.139">
+            draggable grabbable position="0.107 0.83072 -0.16318">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-face_shield_01_static">
         <a-entity>
-          <a-entity id="e-face_shield_01_static" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+          <a-entity id="e-face_shield_01_static" scale="1.03 1 1" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-face_shield_01_static vxr-interact" gltf-model="#face_shield_static" draggable grabbable
-            position="0.10852 0.99 -0.139" visible="false">
+            position="0.10682 0.831 -0.163" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -893,7 +906,7 @@
 
       <template id="vxr-obj-template-mannequen_01">
         <a-entity>
-          <a-entity id="e-mannequen_01" grabbable="maxGrabbers: NaN" visible="true" rotation="0 180 0" grabbable
+          <a-entity id="e-mannequen_01" scale="1 1 1" grabbable="maxGrabbers: NaN" visible="true" rotation="0 180 0" grabbable
             class="vxr-obj-mannequen_01 vxr-interact" gltf-model="#mannequen" position="0.10871 -0.59 -0.08038">
           </a-entity>
         </a-entity>
@@ -909,25 +922,25 @@
           <a-entity id="e-gabachon_02" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 180 0" grabbable dynamic-body
             class="vxr-obj-gabachon_02 vxr-interact" gltf-model="#gabachon" dynamic-body draggable grabbable
-            toggle-physics position="-0.7469 0.00377 2.8364" ao-map="src: lightmaps/AOMap_gabachon.png">
+            toggle-physics position="-0.7469 -0.2442 2.8364" ao-map="src: lightmaps/AOMap_gabachon.png">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-gabachon_02_emisive">
         <a-entity>
-          <a-entity id="e-gabachon_02_emisive" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+          <a-entity id="e-gabachon_02_emisive" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-gabachon_02_emisive vxr-interact" visible="false" gltf-model="#gabachon_emisive" draggable
-            grabbable position="0.107 -0.113 2.66131">
+            grabbable position="0.108 -0.156 2.66944">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-gabachon_02_static">
         <a-entity>
-          <a-entity id="e-gabachon_02_static" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+          <a-entity id="e-gabachon_02_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-gabachon_02_static vxr-interact" gltf-model="#gabachon_static" draggable grabbable
-            position="0.107 -0.113 2.66295" visible="false" ao-map="src: lightmaps/AOMap_gabachon_static.png">
+            position="0.108 -0.156 2.669" visible="false" ao-map="src: lightmaps/AOMap_gabachon_static.png">
           </a-entity>
         </a-entity>
       </template>
@@ -935,25 +948,25 @@
       <template id="vxr-obj-template-boot_l_01">
         <a-entity>
           <a-entity id="e-boot_l_01" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
-            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 180 0" grabbable dynamic-body
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0.000002703727976012927 179.99999999935932 0.000007990301510263223" grabbable dynamic-body
             class="vxr-obj-boot_l_01 vxr-interact" gltf-model="#boot_l" dynamic-body draggable grabbable toggle-physics
-            position="1.0247800000363487 -0.5971915352276226 2.134">
+            position="1.024780000055603 -0.5971928766747305 2.1339999999734167">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-boot_l_01_emisive">
         <a-entity>
-          <a-entity id="e-boot_l_01_emisive" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
+          <a-entity id="e-boot_l_01_emisive" scale="0.92512 1 0.92884" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
             class="vxr-obj-boot_l_01_emisive vxr-interact" visible="false" gltf-model="#boot_l_emisive" draggable
-            grabbable position="-0.00938 -0.605 2.68">
+            grabbable position="-0.00238 -0.605 2.68">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-boot_l_01_static">
         <a-entity>
-          <a-entity id="e-boot_l_01_static" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
+          <a-entity id="e-boot_l_01_static" scale="0.96548 1 1" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
             class="vxr-obj-boot_l_01_static vxr-interact" gltf-model="#boot_l_static" draggable grabbable
             position="-0.00938 -0.605 2.68" visible="false">
           </a-entity>
@@ -972,9 +985,9 @@
 
       <template id="vxr-obj-template-boot_r_01_emisive">
         <a-entity>
-          <a-entity id="e-boot_r_01_emisive" grabbable="maxGrabbers: NaN" rotation="0 -95.06 0" grabbable
+          <a-entity id="e-boot_r_01_emisive" scale="0.93097 1 0.96387" grabbable="maxGrabbers: NaN" rotation="0 -95.06 0" grabbable
             class="vxr-obj-boot_r_01_emisive vxr-interact" visible="false" gltf-model="#boot_r_emisive" draggable
-            grabbable position="0.21061 -0.605 2.68">
+            grabbable position="0.19966 -0.605 2.68">
           </a-entity>
         </a-entity>
       </template>
@@ -983,7 +996,7 @@
         <a-entity>
           <a-entity id="e-boot_r_01_static" grabbable="maxGrabbers: NaN" rotation="0 -95.06 0" grabbable
             class="vxr-obj-boot_r_01_static vxr-interact" gltf-model="#boot_r_static" draggable grabbable
-            position="0.21061 -0.605 2.68" visible="false">
+            position="0.21298 -0.605 2.68021" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1000,20 +1013,20 @@
 
       <template id="vxr-obj-template-glovelong_l_02_emisive">
         <a-entity>
-          <a-entity id="e-glovelong_l_02_emisive" grabbable="maxGrabbers: NaN"
-            rotation="-48.802253158062996 -173.42000064122192 -35.122885799314595" grabbable
+          <a-entity id="e-glovelong_l_02_emisive" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
+            rotation="-48.802253158062996 -173.42000064122192 -39.71113182272222" grabbable
             class="vxr-obj-glovelong_l_02_emisive vxr-interact" visible="false" gltf-model="#glovelong_l_emisive"
-            draggable grabbable position="-0.21448 0.8195 2.434">
+            draggable grabbable position="-0.18813 0.70806 2.45641">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-glovelong_l_02_static">
         <a-entity>
-          <a-entity id="e-glovelong_l_02_static" grabbable="maxGrabbers: NaN"
-            rotation="-48.802253158062996 -173.42000064122192 -35.122885799314595" grabbable
+          <a-entity id="e-glovelong_l_02_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
+            rotation="-48.57822666016685 -175.00422894475864 -44.30854517085195" grabbable
             class="vxr-obj-glovelong_l_02_static vxr-interact" gltf-model="#glovelong_l_static" draggable grabbable
-            position="-0.2145 0.82 2.434" visible="false" ao-map="src: lightmaps/AOMap_gloveL_long.png">
+            position="-0.1887 0.70902 2.45573" visible="false" ao-map="src: lightmaps/AOMap_gloveL_long.png">
           </a-entity>
         </a-entity>
       </template>
@@ -1031,20 +1044,20 @@
 
       <template id="vxr-obj-template-glovelong_r_02_emisive">
         <a-entity>
-          <a-entity id="e-glovelong_r_02_emisive" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-glovelong_r_02_emisive" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="-42.471069521867406 -177.3252809728336 41.6735122710453" grabbable
             class="vxr-obj-glovelong_r_02_emisive vxr-interact" visible="false" gltf-model="#glovelong_r_emisive"
-            draggable grabbable position="0.41952 0.81837 2.411">
+            draggable grabbable position="0.39451 0.70659 2.43576">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-glovelong_r_02_static">
         <a-entity>
-          <a-entity id="e-glovelong_r_02_static" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-glovelong_r_02_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="-42.471069521867406 -177.3252809728336 41.6735122710453" grabbable
             class="vxr-obj-glovelong_r_02_static vxr-interact" gltf-model="#glovelong_r_static" draggable grabbable
-            position="0.41957 0.81839 2.411" visible="false" ao-map="src: lightmaps/AOMap_gloveR_long.png">
+            position="0.39677 0.70444 2.43647" visible="false" ao-map="src: lightmaps/AOMap_gloveR_long.png">
           </a-entity>
         </a-entity>
       </template>
@@ -1061,20 +1074,20 @@
 
       <template id="vxr-obj-template-gloveshort_l_02_emisive">
         <a-entity>
-          <a-entity id="e-gloveshort_l_02_emisive" scale="0.90172 0.90172 0.90172" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-gloveshort_l_02_emisive" scale="0.82 0.82 0.82" grabbable="maxGrabbers: NaN"
             rotation="-27.823403489347907 51.72090016645941 51.79538467982642" grabbable
             class="vxr-obj-gloveshort_l_02_emisive vxr-interact" visible="false" gltf-model="#gloveshort_l_emisive"
-            draggable grabbable position="-0.21509 0.86046 2.39895">
+            draggable grabbable position="-0.18889 0.74389 2.4235">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-gloveshort_l_02_static">
         <a-entity>
-          <a-entity id="e-gloveshort_l_02_static" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-gloveshort_l_02_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="-45.31580497469194 166.88885473452567 -40.08699213632805" grabbable
             class="vxr-obj-gloveshort_l_02_static vxr-interact" gltf-model="#gloveshort_l_static" draggable grabbable
-            position="-0.217 0.85941 2.3999" visible="false" ao-map="src: lightmaps/AOMap_gloveL_short.png">
+            position="-0.19066 0.74377 2.4262" visible="false" ao-map="src: lightmaps/AOMap_gloveL_short.png">
           </a-entity>
         </a-entity>
       </template>
@@ -1092,20 +1105,20 @@
 
       <template id="vxr-obj-template-gloveshort_r_02_emisive">
         <a-entity>
-          <a-entity id="e-gloveshort_r_02_emisive" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-gloveshort_r_02_emisive" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="39.00753965030158 138.7239683992798 47.79957701658406" grabbable
             class="vxr-obj-gloveshort_r_02_emisive vxr-interact" visible="false" gltf-model="#gloveshort_r_emisive"
-            draggable grabbable position="0.423 0.842 2.376">
+            draggable grabbable position="0.39757 0.72706 2.40417">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-gloveshort_r_02_static">
         <a-entity>
-          <a-entity id="e-gloveshort_r_02_static" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-gloveshort_r_02_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="-38.31426071819328 -162.90851693175185 47.25526711120978" grabbable
             class="vxr-obj-gloveshort_r_02_static vxr-interact" gltf-model="#gloveshort_r_static" draggable grabbable
-            position="0.423 0.84398 2.38289" visible="false" ao-map="src: lightmaps/AOMap_gloveR_short.png">
+            position="0.39792 0.72859 2.41067" visible="false" ao-map="src: lightmaps/AOMap_gloveR_short.png">
           </a-entity>
         </a-entity>
       </template>
@@ -1123,18 +1136,18 @@
 
       <template id="vxr-obj-template-googles_02_emisive">
         <a-entity>
-          <a-entity id="e-googles_02_emisive" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+          <a-entity id="e-googles_02_emisive" scale="0.95 0.95 0.95" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-googles_02_emisive vxr-interact" visible="false" gltf-model="#googles_emisive" draggable
-            grabbable position="0.109 1.117 2.65209">
+            grabbable position="0.109 0.99517 2.65209">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-googles_02_static">
         <a-entity>
-          <a-entity id="e-googles_02_static" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+          <a-entity id="e-googles_02_static" scale="0.95 0.95 0.95" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-googles_02_static vxr-interact" gltf-model="#googles_static" draggable grabbable
-            position="0.109 1.117 2.652" visible="false">
+            position="0.109 0.995 2.652" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1143,27 +1156,27 @@
         <a-entity>
           <a-entity id="e-hat_02" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
-            rotation="0.0000013486518216167644 -179.99999999947482 0.000007284033071372722" grabbable dynamic-body
+            rotation="0 180 0" grabbable dynamic-body
             class="vxr-obj-hat_02 vxr-interact" gltf-model="#hat" dynamic-body draggable grabbable toggle-physics
-            position="1.5142100158439369 0.4108109283683705 2.7960299971090845">
+            position="1.5142100158439369 0.4108109283683705 2.7960299971090845" ao-map="src: lightmaps/AOMap_hat.png">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-hat_02_emisive">
         <a-entity>
-          <a-entity id="e-hat_02_emisive" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
+          <a-entity id="e-hat_02_emisive" scale="0.92 1 0.92" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
             class="vxr-obj-hat_02_emisivevxr-interact" visible="false" gltf-model="#hat_emisive" draggable grabbable
-            position="0.11186 1.15943 2.748">
+            position="0.11186 1.02036 2.74489">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-hat_02_static">
         <a-entity>
-          <a-entity id="e-hat_02_static" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
+          <a-entity id="e-hat_02_static" scale="0.92 1 0.92" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
             class="vxr-obj-hat_02_static vxr-interact" gltf-model="#hat_static" draggable grabbable
-            position="0.11186 1.15943 2.748" visible="false">
+            position="0.11186 1.02 2.745" visible="false" ao-map="src: lightmaps/AOMap_hat.png">
           </a-entity>
         </a-entity>
       </template>
@@ -1180,18 +1193,18 @@
 
       <template id="vxr-obj-template-mask95_01_emisive">
         <a-entity>
-          <a-entity id="e-mask95_01_emisive" grabbable="maxGrabbers: NaN" rotation="180 -90 90" grabbable
+          <a-entity id="e-mask95_01_emisive" scale="0.92 0.92 0.9017" grabbable="maxGrabbers: NaN" rotation="180 -90 90" grabbable
             class="vxr-obj-mask95_01_emisive vxr-interact" visible="false" gltf-model="#mask95_emisive" draggable
-            grabbable position="0.10586 1.044 2.582">
+            grabbable position="0.106 0.916 2.594">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-mask95_01_static">
         <a-entity>
-          <a-entity id="e-mask95_01_static" grabbable="maxGrabbers: NaN" rotation="180 -90 90" grabbable
+          <a-entity id="e-mask95_01_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN" rotation="180 -90 90" grabbable
             class="vxr-obj-mask95_01_static vxr-interact" gltf-model="#mask95_static" draggable grabbable
-            position="0.10586 1.044 2.582" visible="false">
+            position="0.10586 0.916 2.594" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1209,18 +1222,18 @@
 
       <template id="vxr-obj-template-face_shield_02_emisive">
         <a-entity>
-          <a-entity id="e-face_shield_02_emisive" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+          <a-entity id="e-face_shield_02_emisive" scale="1.03 1 1" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-face_shield_02_emisive vxr-interact" visible="false" gltf-model="#face_shield_emisive"
-            draggable grabbable position="0.10852 0.99 2.576">
+            draggable grabbable position="0.10852 0.83186 2.568">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-face_shield_02_static">
         <a-entity>
-          <a-entity id="e-face_shield_02_static" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+          <a-entity id="e-face_shield_02_static" scale="1.035 1 1" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-face_shield_02_static vxr-interact" gltf-model="#face_shield_static" draggable grabbable
-            position="0.10852 0.99 2.576" visible="false">
+            position="0.109 0.832 2.56776" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1238,7 +1251,7 @@
 
       <template id="vxr-obj-template-shoe_cover_l_01_emisive">
         <a-entity>
-          <a-entity id="e-shoe_cover_l_01_emisive" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+          <a-entity id="e-shoe_cover_l_01_emisive" scale="0.91077 1 0.9246" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-shoe_cover_l_01_emisive vxr-interact" visible="false" gltf-model="#shoe_cover_l_emisive" draggable grabbable
             position="-0.00938 -0.605 2.68">
           </a-entity>
@@ -1247,7 +1260,7 @@
 
       <template id="vxr-obj-template-shoe_cover_l_01_static">
         <a-entity>
-          <a-entity id="e-shoe_cover_l_01_static" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+          <a-entity id="e-shoe_cover_l_01_static" scale="0.87252 1 0.95537" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-shoe_cover_l_01_static vxr-interact" gltf-model="#shoe_cover_l_static" draggable grabbable
             position="-0.00938 -0.605 2.68" visible="false">
           </a-entity>
@@ -1267,18 +1280,18 @@
 
       <template id="vxr-obj-template-shoe_cover_r_01_emisive">
         <a-entity>
-          <a-entity id="e-shoe_cover_r_01_emisive" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+          <a-entity id="e-shoe_cover_r_01_emisive" scale="0.89573 1 0.96091" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-shoe_cover_r_01_emisive vxr-interact" visible="false" gltf-model="#shoe_cover_r_emisive" draggable grabbable
-            position="0.209 -0.605 2.68">
+            position="0.22054 -0.605 2.67109">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-shoe_cover_r_01_static">
         <a-entity>
-          <a-entity id="e-shoe_cover_r_01_static" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+          <a-entity id="e-shoe_cover_r_01_static" scale="0.9576 1 0.95322" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-boot_r_01_static vxr-interact" gltf-model="#shoe_cover_r_static" draggable grabbable
-            position="0.209 -0.605 2.68" visible="false">
+            position="0.21665 -0.605 2.66966" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1295,7 +1308,7 @@
 
       <template id="vxr-obj-template-mannequen_02">
         <a-entity>
-          <a-entity id="e-mannequen_02" grabbable="maxGrabbers: NaN" visible="true" rotation="0 180 0" grabbable
+          <a-entity id="e-mannequen_02" scale="1 1 1" grabbable="maxGrabbers: NaN" visible="true" rotation="0 180 0" grabbable
             class="vxr-obj-mannequen_02 vxr-interact" gltf-model="#mannequen" position="0.10871 -0.59 2.662">
           </a-entity>
         </a-entity>
@@ -1311,26 +1324,26 @@
         <a-entity>
           <a-entity id="e-escafandra" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" 
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" 
-            rotation="0 -180 0" grabbable dynamic-body class="vxr-obj-escafandra vxr-interact" gltf-model="#escafandra" dynamic-body draggable grabbable
-            toggle-physics position="2.52721 0.2946 5.47262">
+            rotation="0.000005018247775050593 179.99999999989552 6.899885015043041e-7" grabbable dynamic-body class="vxr-obj-escafandra vxr-interact" gltf-model="#escafandra" dynamic-body draggable grabbable
+            toggle-physics position="2.5272100000821203 0.3296063193217629 5.472619999405717">
           </a-entity>
         </a-entity>
       </template>
       
       <template id="vxr-obj-template-escafandra_emisive">
         <a-entity>
-          <a-entity id="e-escafandra_emisive" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
+          <a-entity id="e-escafandra_emisive" scale="1 1 1.037" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-escafandra_emisive vxr-interact" visible="false" gltf-model="#escafandra_emisive" draggable
-            grabbable position="0.115 0.764 5.509">
+            grabbable position="0.107 0.613 5.494">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-escafandra_static">
         <a-entity>
-          <a-entity id="e-escafandra_static" scale="1.15 1.06 1.08661" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+          <a-entity id="e-escafandra_static" scale="1 1 1.03743" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-escafandra_static vxr-interact" gltf-model="#escafandra_static" draggable grabbable
-            position="0.11682 1.014 5.5" visible="false">
+            position="0.10731 0.61348 5.49624" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1348,9 +1361,9 @@
 
       <template id="vxr-obj-template-boot_l_02_emisive">
         <a-entity>
-          <a-entity id="e-boot_l_02_emisive" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
+          <a-entity id="e-boot_l_02_emisive" scale="0.929 1 0.98226" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
             class="vxr-obj-boot_l_02_emisive vxr-interact" visible="false" gltf-model="#boot_l_emisive" draggable
-            grabbable position="-0.00938 -0.605 5.488">
+            grabbable position="-0.00231 -0.605 5.49234">
           </a-entity>
         </a-entity>
       </template>
@@ -1376,9 +1389,9 @@
 
       <template id="vxr-obj-template-boot_r_02_emisive">
         <a-entity>
-          <a-entity id="e-boot_r_02_emisive" grabbable="maxGrabbers: NaN" rotation="0 -95.06 0" grabbable
+          <a-entity id="e-boot_r_02_emisive" scale="0.9386 1 0.93894" grabbable="maxGrabbers: NaN" rotation="0 -95.06 0" grabbable
             class="vxr-obj-boot_r_02_emisive vxr-interact" visible="false" gltf-model="#boot_r_emisive" draggable
-            grabbable position="0.21061 -0.605 5.488">
+            grabbable position="0.19936 -0.605 5.49408">
           </a-entity>
         </a-entity>
       </template>
@@ -1404,20 +1417,20 @@
 
       <template id="vxr-obj-template-glovelong_l_03_emisive">
         <a-entity>
-          <a-entity id="e-glovelong_l_03_emisive" scale="1 1 1" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-glovelong_l_03_emisive" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="-49.2967157352609 -171.27140890948135 -41.94108356137139" grabbable
             class="vxr-obj-glovelong_l_03_emisive vxr-interact" visible="false" gltf-model="#glovelong_l_emisive"
-            draggable grabbable position="-0.21499 0.81583 5.24974">
+            draggable grabbable position="-0.18725 0.70477 5.27129">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-glovelong_l_03_static">    
         <a-entity>
-          <a-entity id="e-glovelong_l_03_static" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-glovelong_l_03_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="-50.210 -171.219 -40.506" grabbable
             class="vxr-obj-glovelong_l_03_static vxr-interact" gltf-model="#glovelong_l_static" draggable grabbable
-            position="-0.214 0.818 5.248 " visible="false" ao-map="src: lightmaps/AOMap_gloveL_long.png">
+            position="-0.18683 0.70335 5.27168" visible="false" ao-map="src: lightmaps/AOMap_gloveL_long.png">
           </a-entity>
         </a-entity>
       </template>
@@ -1435,20 +1448,20 @@
 
       <template id="vxr-obj-template-glovelong_r_03_emisive">
         <a-entity>
-          <a-entity id="e-glovelong_r_03_emisive" grabbable="maxGrabbers: NaN"
-            rotation="-42.471069521867406 -177.3252809728336 41.6735122710453" grabbable
+          <a-entity id="e-glovelong_r_03_emisive" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
+            rotation="-42.893912374673945 -178.3233734519515 41.511365215023275" grabbable
             class="vxr-obj-glovelong_r_03_emisive vxr-interact" visible="false" gltf-model="#glovelong_r_emisive"
-            draggable grabbable position="0.41952 0.817 5.224">
+            draggable grabbable position="0.39666 0.70091 5.25233">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-glovelong_r_03_static">
         <a-entity>
-          <a-entity id="e-glovelong_r_03_static" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-glovelong_r_03_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="-43.024 -176.816 40.706" grabbable
             class="vxr-obj-glovelong_r_03_static vxr-interact" gltf-model="#glovelong_r_static" draggable grabbable
-            position="0.421 0.815 5.226" visible="false" ao-map="src: lightmaps/AOMap_gloveR_long.png">
+            position="0.39553 0.70378 5.24816" visible="false" ao-map="src: lightmaps/AOMap_gloveR_long.png">
           </a-entity>
         </a-entity>
       </template>
@@ -1465,20 +1478,20 @@
 
       <template id="vxr-obj-template-gloveshort_l_03_emisive">
         <a-entity>
-          <a-entity id="e-gloveshort_l_03_emisive" scale="0.88495 0.88495 0.88495" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-gloveshort_l_03_emisive" scale="0.82 0.82 0.82" grabbable="maxGrabbers: NaN"
             rotation="-27.81824686919173 49.84904704976701 53.0404219686457" grabbable
             class="vxr-obj-gloveshort_l_03_emisive vxr-interact" visible="false" gltf-model="#gloveshort_l_emisive"
-            draggable grabbable position="-0.21486 0.86134 5.20785">
+            draggable grabbable position="-0.18902 0.74428 5.23515">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-gloveshort_l_03_static">
         <a-entity>
-          <a-entity id="e-gloveshort_l_03_static" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-gloveshort_l_03_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="-45.210953698183 167.6182300077272 -38.25925676986072" grabbable
             class="vxr-obj-gloveshort_l_03_static vxr-interact" gltf-model="#gloveshort_l_static" draggable grabbable
-            position="-0.21709 0.85896 5.2128" visible="false" ao-map="src: lightmaps/AOMap_gloveL_short.png">
+            position="-0.1912 0.74168 5.23906" visible="false" ao-map="src: lightmaps/AOMap_gloveL_short.png">
           </a-entity>
         </a-entity>
       </template>
@@ -1496,20 +1509,20 @@
 
       <template id="vxr-obj-template-gloveshort_r_03_emisive">
         <a-entity>
-          <a-entity id="e-gloveshort_r_03_emisive" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-gloveshort_r_03_emisive" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="39.00753965030158 138.7239683992798 47.79957701658406" grabbable
             class="vxr-obj-gloveshort_r_03_emisive vxr-interact" visible="false" gltf-model="#gloveshort_r_emisive"
-            draggable grabbable position="0.423 0.842 5.187">
+            draggable grabbable position="0.39658 0.72941 5.21462">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-gloveshort_r_03_static">
         <a-entity>
-          <a-entity id="e-gloveshort_r_03_static" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-gloveshort_r_03_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN"
             rotation="-37.712655033305914 -162.07085263527057 47.87176969877054" grabbable
             class="vxr-obj-gloveshort_r_03_static vxr-interact" gltf-model="#gloveshort_r_static" draggable grabbable
-            position="0.42268 0.84505 5.19423" visible="false" ao-map="src: lightmaps/AOMap_gloveR_short.png">
+            position="0.39736 0.73006 5.2214" visible="false" ao-map="src: lightmaps/AOMap_gloveR_short.png">
           </a-entity>
         </a-entity>
       </template>
@@ -1527,18 +1540,18 @@
 
       <template id="vxr-obj-template-googles_03_emisive">
         <a-entity>
-          <a-entity id="e-googles_03_emisive" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+          <a-entity id="e-googles_03_emisive" scale="0.95 0.95 0.95" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-googles_03_emisive vxr-interact" visible="false" gltf-model="#googles_emisive" draggable
-            grabbable position="0.109 1.117 5.461">
+            grabbable position="0.109 0.991 5.461">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-googles_03_static">
         <a-entity>
-          <a-entity id="e-googles_03_static" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+          <a-entity id="e-googles_03_static" scale="0.95 0.95 0.95" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-googles_03_static vxr-interact" gltf-model="#googles_static" draggable grabbable
-            position="0.109 1.117 5.461" visible="false">
+            position="0.109 0.991 5.461" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1548,25 +1561,25 @@
           <a-entity id="e-hat_03" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
             grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 180 0" grabbable dynamic-body
             class="vxr-obj-hat_03 vxr-interact" gltf-model="#hat" dynamic-body draggable grabbable toggle-physics
-            position="1.53837 0.41081 5.50247">
+            position="1.53837 0.41081 5.50247" ao-map="src: lightmaps/AOMap_hat.png">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-hat_03_emisive">
         <a-entity>
-          <a-entity id="e-hat_03_emisive" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
+          <a-entity id="e-hat_03_emisive" scale="0.92 1 0.92" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
             class="vxr-obj-hat_03_emisive vxr-interact" visible="false" gltf-model="#hat_emisive" draggable grabbable
-            position="0.11186 1.15943 5.560">
+            position="0.11186 1.01284 5.55521">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-hat_03_static">
         <a-entity>
-          <a-entity id="e-hat_03_static" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
-            class="vxr-obj-hat_03_static vxr-interact" gltf-model="#hat_static" draggable grabbable
-            position="0.11186 1.15943 5.560" visible="false">
+          <a-entity id="e-hat_03_static" scale="0.92 1 0.92" grabbable="maxGrabbers: NaN" rotation="0 -90 -10.12" grabbable
+            class="vxr-obj-hat_03_static vxr-interact" gltf-model="#hat_static" draggable grabbable 
+            position="0.11186 1.01157 5.5524" visible="false" ao-map="src: lightmaps/AOMap_hat.png">
           </a-entity>
         </a-entity>
       </template>
@@ -1583,18 +1596,18 @@
 
       <template id="vxr-obj-template-mask95_02_emisive">
         <a-entity>
-          <a-entity id="e-mask95_02_emisive" grabbable="maxGrabbers: NaN" rotation="180 -90 90" grabbable
+          <a-entity id="e-mask95_02_emisive" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN" rotation="180 -90 90" grabbable
             class="vxr-obj-mask95_02_emisive vxr-interact" visible="false" gltf-model="#mask95_emisive" draggable
-            grabbable position="0.10586 1.044 5.392">
+            grabbable position="0.10586 0.919 5.406">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-mask95_02_static">
         <a-entity>
-          <a-entity id="e-mask95_02_static" grabbable="maxGrabbers: NaN" rotation="180 -90 90" grabbable
+          <a-entity id="e-mask95_02_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN" rotation="180 -90 90" grabbable
             class="vxr-obj-mask95_02_static vxr-interact" gltf-model="#mask95_static" draggable grabbable
-            position="0.10586 1.044 5.392" visible="false">
+            position="0.10586 0.919 5.406" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1611,18 +1624,18 @@
 
       <template id="vxr-obj-template-face_shield_03_emisive">
         <a-entity>
-          <a-entity id="e-face_shield_03_emisive" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+          <a-entity id="e-face_shield_03_emisive" scale="1.03 1 1" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-face_shield_03_emisive vxr-interact" visible="false" gltf-model="#face_shield_emisive"
-            draggable grabbable position="0.10852 0.99 5.39">
+            draggable grabbable position="0.10852 0.836 5.39">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-face_shield_03_static">
         <a-entity>
-          <a-entity id="e-face_shield_03_static" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+          <a-entity id="e-face_shield_03_static" scale="1.03 1 1" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-face_shield_03_static vxr-interact" gltf-model="#face_shield_static" draggable grabbable
-            position="0.10852 0.99 5.39" visible="false">
+            position="0.109 0.836 5.39" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1640,18 +1653,18 @@
 
       <template id="vxr-obj-template-shoe_cover_l_02_emisive">
         <a-entity>
-          <a-entity id="e-shoe_cover_l_02_emisive" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+          <a-entity id="e-shoe_cover_l_02_emisive" scale="0.92644 1 0.90501" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-shoe_cover_l_02_emisive vxr-interact" visible="false" gltf-model="#shoe_cover_l_emisive" draggable grabbable
-            position="-0.00938 -0.605 5.481">
+            position="-0.00938 -0.605 5.48876">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-shoe_cover_l_02_static">
         <a-entity>
-          <a-entity id="e-shoe_cover_l_02_static" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+          <a-entity id="e-shoe_cover_l_02_static" scale="0.94069 1 0.90476" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-shoe_cover_l_02_static vxr-interact" gltf-model="#shoe_cover_l_static" draggable grabbable
-            position="-0.00938 -0.605 5.481" visible="false">
+            position="-0.00938 -0.605 5.48789" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1669,16 +1682,16 @@
 
       <template id="vxr-obj-template-shoe_cover_r_02_emisive">
         <a-entity>
-          <a-entity id="e-shoe_cover_r_02_emisive" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+          <a-entity id="e-shoe_cover_r_02_emisive" scale="0.94488 1 0.93075" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-shoe_cover_r_02_emisive vxr-interact" visible="false" gltf-model="#shoe_cover_r_emisive" draggable grabbable
-            position="0.209 -0.605 5.479">
+            position="0.21642 -0.605 5.47836">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-shoe_cover_r_02_static">
         <a-entity>
-          <a-entity id="e-shoe_cover_r_02_static" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
+          <a-entity id="e-shoe_cover_r_02_static" scale="0.96483 1 0.97115" grabbable="maxGrabbers: NaN" rotation="0 180 0" grabbable
             class="vxr-obj-boot_r_02_static vxr-interact" gltf-model="#shoe_cover_r_static" draggable grabbable
             position="0.209 -0.605 5.479" visible="false">
           </a-entity>
@@ -1688,28 +1701,28 @@
       <template id="vxr-obj-template-hazmat_suit">
         <a-entity>
           <a-entity id="e-hazmat_suit" ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
-            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0.0000070933404222042305 179.99999999964245 9.003466188542996e-7" grabbable dynamic-body
+            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0.000006500654370385338 179.99999996036303 0.000001223537418793897" grabbable dynamic-body
             class="vxr-obj-hazmat_suit vxr-interact" gltf-model="#hazmat_suit" dynamic-body draggable grabbable
-            toggle-physics position="-0.746999995725699 -0.600181802132645 5.449519989330575" ao-map="src: lightmaps/AOMap_hazmat.png">
+            toggle-physics position="-0.7470000004484235 -0.6045620189659295 5.449519999803858" ao-map="src: lightmaps/AOMap_hazmat.png">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-hazmat_suit_emisive">
         <a-entity>
-          <a-entity id="e-hazmat_suit_emisive" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+          <a-entity id="e-hazmat_suit_emisive" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-hazmat_suit_emisive vxr-interact" visible="false" gltf-model="#hazmat_suit_emisive"
-            draggable grabbable position="0.109 -0.589 5.473">
+            draggable grabbable position="0.109 -0.58752 5.479">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-hazmat_suit_static">
         <a-entity>
-          <a-entity id="e-hazmat_suit_static" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
+          <a-entity id="e-hazmat_suit_static" scale="0.92 0.92 0.92" grabbable="maxGrabbers: NaN" rotation="0 -180 0" grabbable
             class="vxr-obj-hazmat_suit_static vxr-interact" gltf-model="#hazmat_suit_static" draggable grabbable
-            position="0.109 -0.589 5.473" visible="false" ao-map="src: lightmaps/AOMap_hazmat_static.png" 
-            gltf-morph__L="morphtarget:HandL;value:1" gltf-morph__R="morphtarget:HandR;value:1">
+            position="0.109 -0.5482 5.52916" visible="false" ao-map="src: lightmaps/AOMap_hazmat_static.png" 
+            gltf-morph__L="morphtarget:HandL;value:1" gltf-morph__R="morphtarget:HandR;value:1" add-morph>
           </a-entity>
         </a-entity>
       </template> 
@@ -1726,7 +1739,7 @@
 
       <template id="vxr-obj-template-mannequen_03">
         <a-entity>
-          <a-entity id="e-mannequen_03" grabbable="maxGrabbers: NaN" visible="true" rotation="0 179.9998479605043 0" grabbable
+          <a-entity id="e-mannequen_03" scale="1 1 1" grabbable="maxGrabbers: NaN" visible="true" rotation="0 179.9998479605043 0" grabbable
             class="vxr-obj-mannequen_03 vxr-interact" gltf-model="#mannequen" position="0.10871 -0.59 5.474">
           </a-entity>
         </a-entity>
@@ -1772,6 +1785,10 @@
     </a-entity>
     <a-entity id="table004" scale="1.22547 0.9048 1" class="gltf" gltf-model="#Table_005" position="2.53192 0.90059 5.17076" rotation="0 180 0">
     </a-entity>
+    <a-entity id="bootl01" scale="1 0.905 1" class="gltf" gltf-model="#boot_l_static" position="0 0.9 -0.256" rotation="0 -90 0">
+    </a-entity>
+    <a-entity id="bootr01" scale="1 0.905 1" class="gltf" gltf-model="#boot_r_static" position="0.205 0.9 -0.271" rotation="0 -90 0">
+    </a-entity>
 
 
     <a-box id="boxTable1" scale="1.2 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation="0 0 0"
@@ -1788,12 +1805,10 @@
     <a-box id="boxFloor" scale="7.47047 1 20.12994" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="0.17398 0.85267 1.70871" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
-    <a-box id="boxGabachon_01" scale="0.68714 4.81671 0.63943" static-body="sphereRadius: NaN" opacity="0" static-body
-      rotation="0 0 0" position="-0.73753 1.21816 -0.16737" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
-    <a-box id="boxGabachon_02" scale="0.68714 4.81671 0.63943" static-body="sphereRadius: NaN" opacity="0" static-body
-      rotation="0 0 0" position="-0.73753 1.21816 2.62688" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
-    <a-box id="boxGabachon_03" scale="0.68714 4.81671 0.63943" static-body="sphereRadius: NaN" opacity="0" static-body
-      rotation="0 0 0" position="-0.73753 0.758 5.32688" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+    <a-box id="boxGabachon_01" scale="0.68714 3.63061 0.63943" static-body="sphereRadius: NaN" opacity="0" static-body
+      rotation="0 0 0" position="-0.73753 1.07369 -0.16737" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+    <a-box id="boxGabachon_02" scale="0.68714 3.55011 0.63943" static-body="sphereRadius: NaN" opacity="0" static-body
+      rotation="0 0 0" position="-0.73753 1.05161 2.62688" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
 
     <!--Lights -->
@@ -1828,39 +1843,39 @@
 
     <a-sphere id="sphere1" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-gabachon_01;mode:sequence;iteratorSequence:1;" opacity="0"
-      position="0.0276 2.37139 -0.32092" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.0276 2.24666 -0.32092" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere2" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-mask;mode:sequence;iteratorSequence:2" opacity="0"
-      position="0.09943 2.52223 -0.38149" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.09943 2.40842 -0.37207" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere3" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-googles_01;mode:sequence;iteratorSequence:3" opacity="0"
-      position="0.09943 2.60896 -0.35961" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.09943 2.47598 -0.35961" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere4" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-hat_01;mode:sequence;iteratorSequence:4" opacity="0"
-      position="0.09943 2.75286 -0.24794" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.09943 2.62792 -0.24794" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere5" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-gloveshort_l_01; mode:sequenceManyObjPerIterator;iteratorSequence:5;actorsWithSameIterator:2" opacity="0"
-      position="-0.20751 2.33507 -0.56155" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="-0.17568 2.25271 -0.53014" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere6" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-gloveshort_r_01; mode:sequenceManyObjPerIterator;iteratorSequence:5;actorsWithSameIterator:2" opacity="0"
-      position="0.40832 2.33507 -0.56155" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.39105 2.23063 -0.54042" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere7" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-glovelong_l_01; mode:sequenceManyObjPerIterator;iteratorSequence:6;actorsWithSameIterator:2" opacity="0"
-      position="-0.17319 2.29 -0.506" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="-0.1831 2.24631 -0.51542" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere8" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-glovelong_r_01; mode:sequenceManyObjPerIterator;iteratorSequence:6;actorsWithSameIterator:2" opacity="0"
-      position="0.37639 2.29 -0.506" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.38949 2.23196 -0.53198" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere9" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-face_shield_01;mode:sequence;iteratorSequence:7" opacity="0"
-      position="0.09943 2.64327 -0.35961" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.09943 2.51008 -0.35961" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
 
     <!------------------------------------------------------------------------------------------------------------------->
@@ -1873,51 +1888,51 @@
 
     <a-sphere id="sphere11" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-boot_r_01;mode:sequenceManyObjPerIterator;iteratorSequence:8;actorsWithSameIterator:2;" opacity="0"
-      position="0.23571 0.94842 2.38137" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.21997 0.94842 2.38137" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere12" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-shoe_cover_l_01;mode:sequenceManyObjPerIterator;iteratorSequence:9;actorsWithSameIterator:2;" opacity="0"
-      position="-0.03722 1.00349 2.42298" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="-0.00283 0.97313 2.42298" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere13" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-shoe_cover_r_01;mode:sequenceManyObjPerIterator;iteratorSequence:9;actorsWithSameIterator:2;" opacity="0"
-      position="0.21207 1.01002 2.38961" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.21207 0.96166 2.38961" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere14" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-gabachon_02;mode:sequence;iteratorSequence:10;" opacity="0"
-      position="0.0276 2.37139 2.40804" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.0276 2.26072 2.41508" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere15" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-mask95_01;mode:sequence;iteratorSequence:11;" opacity="0"
-      position="0.11339 2.52218 2.36591" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.11339 2.40618 2.37298" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere16" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-googles_02;mode:sequence;iteratorSequence:12;" opacity="0"
-      position="0.10545 2.607 2.38854" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.10545 2.47744 2.38854" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere17" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-hat_02;mode:sequence;iteratorSequence:13;" opacity="0"
-      position="0.10755 2.75899 2.49346" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.10755 2.61643 2.49346" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere18" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-gloveshort_l_02;mode:sequenceManyObjPerIterator;iteratorSequence:14;actorsWithSameIterator:2;" opacity="0"
-      position="-0.18691 2.37139 2.1781" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="-0.17051 2.25966 2.21327" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere19" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-gloveshort_r_02;mode:sequenceManyObjPerIterator;iteratorSequence:14;actorsWithSameIterator:2;" opacity="0"
-      position="0.37875 2.36103 2.15192" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.3798 2.24191 2.19456" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere20" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-glovelong_l_02;mode:sequenceManyObjPerIterator;iteratorSequence:15;actorsWithSameIterator:2;" opacity="0"
-      position="-0.18389 2.29877 2.20771" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="-0.17872 2.25501 2.21548" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere21" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-glovelong_r_02;mode:sequenceManyObjPerIterator;iteratorSequence:15;actorsWithSameIterator:2;" opacity="0"
-      position="0.38719 2.28705 2.227" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.38909 2.22381 2.21143" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere22" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-face_shield_02;mode:sequence;iteratorSequence:16" opacity="0"
-      position="0.09943 2.64327 2.36551" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.11224 2.51854 2.38354" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
 
     <!------------------------------------------------------------------------------------------------------------------->
@@ -1930,55 +1945,58 @@
 
     <a-sphere id="sphere24" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-boot_r_02;mode:sequenceManyObjPerIterator;iteratorSequence:17;actorsWithSameIterator:2;" opacity="0"
-      position="0.23571 0.94842 5.20618" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.22323 0.94842 5.20618" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere25" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-shoe_cover_l_02;mode:sequenceManyObjPerIterator;iteratorSequence:18;actorsWithSameIterator:2;" opacity="0"
-      position="-0.03722 1.00349 5.22814" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="-0.01309 0.97071 5.22814" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere26" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-shoe_cover_r_02;mode:sequenceManyObjPerIterator;iteratorSequence:18;actorsWithSameIterator:2;" opacity="0"
-      position="0.21207 1.01002 5.23403" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.21207 0.97252 5.23403" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere27" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-hazmat_suit;mode:sequence;iteratorSequence:19;" opacity="0"
-      position="0.0276 2.37139 5.19926" attach-point-v2 geometry="radius: 0.02"> </a-sphere> 
+      position="0.0276 2.31829 5.19926" attach-point-v2 geometry="radius: 0.02"> </a-sphere> 
 
     <a-sphere id="sphere28" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-mask95_02;mode:sequence;iteratorSequence:20;" opacity="0"
-      position="0.11339 2.52218 5.17612" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.11339 2.4053 5.18396" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere29" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-googles_03;mode:sequence;iteratorSequence:21;" opacity="0"
-      position="0.10545 2.607 5.18474" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.10545 2.48146 5.19657" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere30" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
-      trigger-animation="entity_id:e-hat_03;mode:sequence;iteratorSequence:22;" opacity="0"
-      position="0.10755 2.75899 5.30026" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      trigger-animation="entity_id:e-hat_03;mode:sequence;iteratorSequence:22;" opacity="0" 
+      position="0.10755 2.61596 5.30026" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+
+    <a-sphere id="e-hatHazmatSuit" scale="0.4 0.4 0.4" static-body="sphereRadius: NaN" ondragstart="HatUp(this)"
+      opacity="1" position="-0.02359 2.38284 5.3391" color="white" attach-point-v2 geometry="radius: 0.05"></a-sphere>
 
     <a-sphere id="sphere31" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-gloveshort_l_03;mode:sequenceManyObjPerIterator;iteratorSequence:23;actorsWithSameIterator:2;" opacity="0"
-      position="-0.18691 2.37139 4.96169" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="-0.18691 2.24792 5.02134" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere32" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-gloveshort_r_03;mode:sequenceManyObjPerIterator;iteratorSequence:23;actorsWithSameIterator:2;" opacity="0"
-      position="0.37875 2.36103 4.96896" attach-point-v2 geometry="radius: 0.02"> </a-sphere> 
+      position="0.37518 2.24519 5.00554" attach-point-v2 geometry="radius: 0.02"> </a-sphere> 
 
     <a-sphere id="sphere33" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-glovelong_l_03;mode:sequenceManyObjPerIterator;iteratorSequence:24;actorsWithSameIterator:2;" opacity="0"
-      position="-0.18389 2.29877 5.06165" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="-0.17359 2.24708 5.0281" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere34" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-glovelong_r_03;mode:sequenceManyObjPerIterator;iteratorSequence:24;actorsWithSameIterator:2;" opacity="0"
-      position="0.38719 2.28705 5.03351" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.39979 2.23052 5.01402" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere35" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-escafandra;mode:sequence;iteratorSequence:25" opacity="0"
-      position="0.09943 2.42632 5.25493" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.09943 2.30483 5.25493" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere36" scale="0.2 0.2 0.2" static-body="sphereRadius: NaN" static-body
       trigger-animation="entity_id:e-face_shield_03;mode:sequence;iteratorSequence:26" opacity="0"
-      position="0.09943 2.64327 5.16168" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      position="0.10845 2.51485 5.19752" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
 
   </a-scene>

@@ -33,20 +33,32 @@ function spawnEntities(structure) {
             if (panelID == 'panel1') {
                 entityEl.setAttribute("opacity", "0.6")
             }
-            if (
-                panelID == 'text1' || panelID == 'text2' || panelID == 'text3' || panelID == 'text4' ||
-                panelID == 'text5' || panelID == 'text6' || panelID == 'text7' || panelID == 'text8' ||
-                panelID == 'text9') {
-                entityEl.setAttribute("opacity", "1.0")
-            }
         });
 
         entityEl.addEventListener("click", function () {
             if (panelID == 'panel2') {
-                window.location = "/super/process/vxr-teacher-template.html"
+                window.location = "/IEPROES/Process1/vxr-teacher-template.html"
             }
             if (panelID == 'panel3') {
-                window.location = "/LaboratoryRoom.html"
+                window.location = "/IEPROES/Process2/vxr-teacher-template.html"
+            }
+            if (panelID == 'panel4') {
+                window.location = "/IEPROES/Process3/vxr-teacher-template.html"
+            }
+            if (panelID == 'panel5') {
+                window.location = "/IEPROES/Process4/vxr-teacher-template.html"
+            }
+            if (panelID == 'panel6') {
+                window.location = "/IEPROES/Process5/vxr-teacher-template.html"
+            }
+            if (panelID == 'panel7') {
+                window.location = "/IEPROES/Process6/vxr-teacher-template.html"
+            }
+            if (panelID == 'panel8') {
+                window.location = "/IEPROES/Process7/vxr-teacher-template.html"
+            }
+            if (panelID == 'panel9') {
+                window.location = "/IEPROES/Process8/vxr-teacher-template.html"
             }
         });
 
