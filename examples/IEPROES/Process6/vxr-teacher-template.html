@@ -44,6 +44,8 @@
   <script src="../../js/Feature-Bones.component.js"></script>
   <script src="../../js/Feature-BonesPosition.component.js"></script>
   <script src="../../js/Feature-EmisiveObject.js"></script>
+  <script src="../../js/Feature-animation.component.js"></script>
+
 
   <!-- <script src="../../js/hand-attach.js"></script> -->
   <script src="../../js/attach-intracath.js"></script>
@@ -253,11 +255,11 @@
     
     function openFirstTwoTapes(element) {
     
-      console.log("close")
-      medicalKit = document.getElementById("e-Clothed_Instruments_Vesical")
-      medicalKit.setAttribute('animation-mixer', 'clip:Open01;loop:once;repetitions:once;clampWhenFinished:true;')
-      element.setAttribute("trigger-animation","entity_id:e-Clamp_Allis;obj_entity:3")
-      console.log("grabbed")
+      // console.log("close")
+      // medicalKit = document.getElementById("e-Clothed_Instruments_Vesical")
+      // medicalKit.setAttribute('animation-mixer', 'clip:Open01;loop:once;repetitions:once;clampWhenFinished:true;')
+      // element.setAttribute("trigger-animation","entity_id:e-Clamp_Allis;obj_entity:3")
+      // console.log("grabbed")
     }
     
 
@@ -559,9 +561,9 @@
       <a-asset-item id="NasogastricPatientID" src="../Process7/Assets/Nasogastric_Patient_ID.gltf"></a-asset-item>
 
       <a-asset-item id="Clothed_Instruments_Vesical_Static"
-        src="../Process6/Assets/Clothed_Instruments_Vesical_Woman_Static.gltf">
+        src="../Process6/Assets/Clothed_Instruments_Vesical.gltf">
       </a-asset-item>
-      <a-asset-item id="Clothed_Instruments_Vesical" src="../Process6/Assets/Clothed_Instruments_Vesical_Woman_Anim.gltf">
+      <a-asset-item id="Clothed_Instruments_Vesical" src="../Process6/Assets/Clothed_Instruments_Vesical.gltf">
       </a-asset-item>
       <a-asset-item id="hospitalbed" src="../../Models/gltf/BedHospital.gltf"></a-asset-item>
       <a-asset-item id="goosenekLamp" src="../Process5/Assets/GoosenekLampMedical.gltf"></a-asset-item>
@@ -1394,16 +1396,18 @@
     <!-- place holder object  -->
     <template id="vxr-obj-template-Clothed_Instruments_Vesical_Static">
       <a-entity>
-        <a-entity id="e-Clothed_Instruments_Vesical_Static" grabbable="maxGrabbers: NaN" visible="false"
+        <a-entity  id="e-Clothed_Instruments_Vesical_Static" grabbable="maxGrabbers: NaN" visible="false"
           rotation="0 0 0" grabbable class="vxr-obj-Clothed_Instruments_Vesical_Static vxr-interact"
           gltf-model="#Clothed_Instruments_Vesical_Static" draggable grabbable position="0.32336 0.41333 -1.58536">
         </a-entity>
       </a-entity>
     </template>
     <!-- animation object  -->
+    
     <template id="vxr-obj-template-Clothed_Instruments_Vesical">
       <a-entity>
-        <a-entity id="e-Clothed_Instruments_Vesical" animation-finished grabbable="maxGrabbers: NaN" visible="true"
+        <a-entity id="e-Clothed_Instruments_Vesical" feature-animation="loop:once;repetitions:once;clamp:true; obj_id:e-Clothed_Instruments_Vesical"  
+          animation-finished grabbable="maxGrabbers: NaN" visible="true"
           rotation="0 0 0" grabbable class="vxr-obj-Clothed_Instruments_Vesical vxr-interact"
           gltf-model="#Clothed_Instruments_Vesical" draggable grabbable position="0.32336 0.41333 -1.58536">
         </a-entity>
