@@ -46,7 +46,7 @@ function spawnEntities(structure) {
                 window.location = "/IEPROES/Process3/vxr-teacher-template.html"
             }
             if (panelID == 'panel5') {
-                window.location = "/IEPROES/Process4/vxr-teacher-template.html"
+                window.location = "/IEPROES/Process-Assist-NeoNato/vxr-teacher-template.html"
             }
             if (panelID == 'panel6') {
                 window.location = "/IEPROES/Process5/vxr-teacher-template.html"
