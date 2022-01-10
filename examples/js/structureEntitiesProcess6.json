@@ -170,6 +170,14 @@
   {
     "template": "vxr-obj-template-syringeAnim",
     "selector": ".vxr-obj-syringeAnim"
+  },
+  {
+    "template": "vxr-obj-template-glovesbox",
+    "selector": ".vxr-obj-glovesbox"
+  },
+  {
+    "template": "vxr-obj-template-catheterPackage",
+    "selector": ".vxr-obj-catheterPackage"
   }
   
 ]
