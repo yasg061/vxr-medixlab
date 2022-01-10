@@ -186,6 +186,10 @@
   {
     "template": "vxr-obj-template-glovesbox",
     "selector": ".vxr-obj-glovesbox"
+  },
+  {
+    "template": "vxr-obj-template-catheterPackage",
+    "selector": ".vxr-obj-catheterPackage"
   }
   
 ]
