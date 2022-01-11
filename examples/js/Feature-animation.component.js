@@ -31,7 +31,7 @@ AFRAME.registerComponent('feature-animation', {
       console.log("start")
     };
     if (data.start) {
-      setTimeout(function () { scene.addEventListener('animation-loop', jumpTrans); }, 5000);
+      setTimeout(function () { scene.addEventListener('animation-loop', jumpTrans); }, 500);
     }
   }
 });
