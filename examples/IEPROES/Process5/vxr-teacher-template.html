@@ -98,27 +98,18 @@
             emisive.remove()
           }
 
-          if (id_Data == e.detail.body.el.id && iterator_entity == 3) {
+          if (id_Data == e.detail.body.el.id && iterator_entity == 3 && medKitAnim2) {
 
-            let obj = document.getElementById(id_Data + "_collider")
-            obj.setAttribute("visible", "false")
-            let medicalKit = document.getElementById("e-Clothed_Instruments_Vesical")
-            medicalKit.setAttribute("animation-mixer", "loop:once;repetitions: NaN;clampWhenFinished:true")
-
-            delayInMilliseconds = 9000
-
-            setTimeout(function () {
-              medicalKit.setAttribute("visible", "false")
-              document.getElementById("e-SterileField_Folded").setAttribute("visible", "true")
+            console.log("self: ", el.id)
+            console.log("self: ", el.id)
+            let obj = el.id.replace("sphere_", "")
+            document.getElementById(obj).setAttribute("feature-animation", "clip:Open02;start:true")
+            
+            document.getElementById("e-SterileField_Folded").setAttribute("visible", "true")
               document.getElementById("e-Bowl-Medic").setAttribute("visible", "true")
               document.getElementById("e-Bowl-Medic-2").setAttribute("visible", "true")
               document.getElementById("e-gauze").setAttribute("visible", "true")
               document.getElementById("e-Gauze_Pene").setAttribute("visible", "true")
-              // document.getElementById("e-Stray").setAttribute("visible","true")
-              document.getElementById("e-Clothed_Instruments_Vesical_Static").setAttribute("visible", "true")
-
-
-            }, delayInMilliseconds);
 
 
 
@@ -224,14 +215,31 @@
   </script>
 
   <script>
+    let medKitAnim2=false;
 
     function setMass() {
       let intracathInteract = element = document.getElementById("vxr-intracath-second-part")
       intracathInteract.setAttribute('dynamic-body', 'mass:0.1')
     }
 
-    function genericSetMass(element) {
-      document.getElementById(element.id).setAttribute('dynamic-body', 'mass:0.1')
+       
+    let medical_kit_tapes = []
+    function genericSetMass(element, addToList = false) {
+      let obj = document.getElementById(element.id)
+      console.log("grab")
+
+      obj.setAttribute('dynamic-body', 'mass:0.1')
+      obj.removeAttribute(ondragstart)
+
+      if (addToList) {
+        if (medical_kit_tapes.includes(element.id)) {
+          return 0
+        } else {
+          medical_kit_tapes.push(element.id)
+          console.log("objs in array: ",medical_kit_tapes.length)
+        }
+      }
+
     }
 
     function genericBone(boneName) {
@@ -1371,7 +1379,7 @@
       <a-entity>
         <a-entity id="e-witness_tape" dynamic-body="mass:0.0; sphereRadius: NaN" scale="0.5 0.5 0.5" rotation="-12.126651733943874 0 0"
           grabbable="maxGrabbers: NaN" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#witness_tape" draggable grabbable
-          position="0.32154 0.39195 -1.6601" ondragstart="genericSetMass(this)">
+          position="0.32154 0.39195 -1.6601" ondragstart="genericSetMass(this,true)">
         </a-entity>
       </a-entity>
     </template>
@@ -1380,7 +1388,7 @@
       <a-entity>
         <a-entity id="e-adhesive" dynamic-body="mass:0.0; sphereRadius: NaN" scale="0.5 0.5 0.5" rotation="8.54 0 0"
           grabbable="maxGrabbers: NaN" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#adhesive" draggable grabbable
-          position="0.32531 0.38667 -1.52694" ondragstart="genericSetMass(this)">
+          position="0.32531 0.38667 -1.52694" ondragstart="genericSetMass(this,true)">
         </a-entity>
       </a-entity>
     </template>
