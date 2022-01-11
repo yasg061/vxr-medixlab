@@ -74,7 +74,7 @@
           //trigger animation
           if (id_Data == e.detail.body.el.id && iterator_entity == 1) {
 
-            if(e.detail.body.el.id == "e-UrinaryCatheter_static"){
+            if(e.detail.body.el.id == "e-UrinaryCatheter"){
                 let x = document.getElementById("e-SterileField_Folded_static")
                 x.setAttribute("dynamic-body","mass:0.0")
             }
@@ -238,7 +238,7 @@
       obj.setAttribute('dynamic-body', 'mass:0.1')
       obj.removeAttribute(ondragstart)
       if(element.id=="e-SterileField_Folded_static"){
-        document.getElementById("e-Gauze_Pene_static").setAttribute("dynamic-body","mass:0.1")
+        
         document.getElementById("sphere_e-blanket-down").setAttribute("visible","true")
         
       }
@@ -336,6 +336,10 @@
         document.getElementById("e-UrinaryCatheterOnHand").setAttribute("visible","true")
         element.setAttribute("visible","false")
       }
+    }
+    
+    function faloGauze(element){
+      document.getElementById("e-Gauze_Pene_static").setAttribute("dynamic-body","mass:0.0")
     }
 
     function emissiveObjectOff(element) {
@@ -1198,7 +1202,7 @@
 
       <template id="vxr-obj-template-SterileField_Folded_static">
         <a-entity>
-          <a-entity id="e-SterileField_Folded_static" scale="1 1 1" rotation="0 -90 0"
+          <a-entity id="e-SterileField_Folded_static" scale="1 1 1" rotation="0 -90 0" ondragend="faloGauze(this)"
             grabbable="maxGrabbers: NaN" visible="false" class="vxr-obj-SterileField_Folded_Static vxr-interact"
             gltf-model="#SterileField_Folded_Pose" draggable grabbable position="1.237 0.206 -0.807"
             ondragstart="genericSetMass(this)">
@@ -1300,9 +1304,9 @@
     <template id="vxr-obj-template-Adhesive_Catheter_emisive">
       <a-entity>
         <a-entity id="e-Adhesive_Catheter_emisive" visible="false" grabbable="maxGrabbers: NaN" visible="true"
-          rotation="19.07720274667589 6.9092980514825975 104.00673671891782" grabbable
+        rotation="14.599 -17.102 86.040" grabbable
           class="vxr-obj-Adhesive_Catheter_emisive vxr-interact" gltf-model="#Adhesive_Catheter_emisive" draggable
-          grabbable position="1.009 0.237 -0.744">
+          grabbable position="1.004 0.295 -0.746">
         </a-entity>
       </a-entity>
     </template>
@@ -1310,9 +1314,9 @@
     <template id="vxr-obj-template-Adhesive_Catheter_static">
       <a-entity>
         <a-entity id="e-Adhesive_Catheter_static" visible="false" grabbable="maxGrabbers: NaN" visible="true"
-          rotation="19.07720274667589 6.9092980514825975 104.00673671891782" grabbable
+          rotation="14.599 -17.102 86.040" grabbable
           class="vxr-obj-Adhesive_Catheter_static vxr-interact" gltf-model="#Adhesive_Catheter" draggable grabbable
-          position="1.009 0.237 -0.744">
+          position="1.004 0.295 -0.746">
         </a-entity>
       </a-entity>
     </template>
@@ -1546,12 +1550,18 @@
     <a-entity class="gltf" gltf-model="#table" position="-0.13 0.89 -0.363" rotation="0 -90 0"></a-entity>
     <a-box id="boxTable1" scale="1.2 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="-0.119 1.7375 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+      
+      <a-box id="boxTablea1" scale="1.2 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
+      position="-0.119 1.142 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
     <a-box id="boxTable2" visible="true" scale="0.55283 0.8 0.88813" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="0.31781 1.69239 -1.8278" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
     <a-box id="boxTable3" scale="0.55283 0.8 0.88813" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="0.31781 1.324 -1.8278" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+      
+      <a-box id="boxTable4" scale="0.55283 0.8 0.88813" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
+      position="0.31781 1.005 -1.8278" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
     <a-box id="boxFloor" scale="4.14767 1 7.15846" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="0.36093 0.85321 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
@@ -1576,10 +1586,10 @@
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left"
+      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left" vive-controls="hand: left"
         networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right"
+      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right" vive-controls="hand: right"
         networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
