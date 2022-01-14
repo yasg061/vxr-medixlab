@@ -645,7 +645,7 @@
       <a-asset-item id="teacher" src="../../super/process/assets/TeacherAvatar.gltf"></a-asset-item>
 
 
-      <a-asset-item id="Basin" src="Assets/Basin.gltf"></a-asset-item>
+      <a-asset-item id="Basin" src="../Process5/Assets/KidneyTray1.gltf"></a-asset-item>
       <!-- <a-asset-item id="Basin" src="../Process5/Assets/KidneyTray1.gltf"></a-asset-item> -->
       <a-asset-item id="EmissiveBasin" src="../Process5/Assets/KidneyTray_Emissive.gltf"></a-asset-item>
 
@@ -1090,9 +1090,9 @@
 
       <template id="vxr-obj-template-Basin">
         <a-entity>
-          <a-entity id="e-Basin" scale="0.5 0.5 0.5" rotation="0 0 0.000013961261167659477" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-Basin" scale="0.5 0.5 0.5" rotation="0 0 0" grabbable="maxGrabbers: NaN"
             dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Basin" dynamic-body
-            draggable grabbable toggle-physics position="0.08056 0.29503 0.02807" ondragstart="emissiveObjectOn(this)"
+            draggable grabbable toggle-physics position="0.08056000403394177 0.31270227550010876 0.028069997847407407" ondragstart="emissiveObjectOn(this)"
             ondragend="emissiveObjectOff(this)" ondragstart="arrowVisibleOn(event)" ondragend="arrowVisibleOff(event)">
           </a-entity>
         </a-entity>
@@ -1101,8 +1101,8 @@
       <template id="vxr-obj-template-Basin_static">
         <a-entity>
           <a-entity id="e-Basin_static" dynamic-body="mass:0.0; sphereRadius: NaN" scale="0.7 0.7 0.7"
-            rotation="0 180 0" grabbable="maxGrabbers: NaN" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Basin"
-            draggable grabbable visible="false" position="1.30069 0.193 -0.65576" ondragstart="genericSetMass(this)">
+            rotation="0 90 0" grabbable="maxGrabbers: NaN" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Basin"
+            draggable grabbable visible="false" position="1.324 0.2162 -0.647" ondragstart="genericSetMass(this)">
           </a-entity>
         </a-entity>
       </template>
@@ -1111,7 +1111,7 @@
         <a-entity>
           <a-entity id="e-Basin_emisive" scale="0.5 0.5 0.5" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
             class="vxr-obj-alcoholgel vxr-interact" visible="false" gltf-model="#EmissiveBasin" draggable grabbable
-            position="1.29 0.18583 -0.658">
+            position="1.324 0.20145 -0.647">
           </a-entity>
         </a-entity>
       </template>
