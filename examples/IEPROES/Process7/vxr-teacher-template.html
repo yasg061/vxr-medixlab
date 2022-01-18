@@ -458,6 +458,8 @@
       document.getElementById("animationbedpatient01").setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
       document.getElementById("sphere_e-patient").removeAttribute("static-body")
       document.getElementById("sphere_e-patient").remove()
+      document.getElementById("Bracelet").setAttribute("visible", "false")
+      document.getElementById("bracelet2").setAttribute("visible", "true")
 
     }
 
@@ -508,7 +510,7 @@
       <!-- <a-asset-item id="table" position="-0.13 0.90487 -0.363" src="../../Models/gltf/Table.gltf"></a-asset-item> -->
       <a-asset-item id="table" src="Table.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle.gltf"></a-asset-item>
-      <a-asset-item id="NasogastricTube_M" src="Assets/NasogastricTube_Guide01_Static.gltf"></a-asset-item>
+      <a-asset-item id="NasogastricTube_M" src="Assets/NasogastricTube_Guide02_Static.gltf"></a-asset-item>
       <a-asset-item id="patient" src="Assets/HospitalBed_Patient_Angle90.gltf"></a-asset-item>
       <a-asset-item id="animationbed" src="Assets/HospitalBed_Angle90_Animation.gltf"></a-asset-item>
       <a-asset-item id="animationbedpatient" src="Assets/PatientUp_Angle90_Animation.gltf"></a-asset-item>
@@ -574,7 +576,7 @@
       <a-asset-item id="NasogastricTube_Guide0_Emissive" src="Assets/NasogastricTube_Guide01_Emissive.gltf">
       <a-asset-item id="umbilicalCordon" src="Assets/NasogastricUmbilicalTape_Static.gltf"></a-asset-item></a-asset-item>
       <a-asset-item id="Patient_Dates" src="Assets/Patient_Dates07.gltf"></a-asset-item>
-      <a-asset-item id="bracelet" src="Assets/bracelet07.gltf"></a-asset-item>
+      <a-asset-item id="bracelet" position="0.97026 1.77019 -1.4895" src="Assets/bracelet07.gltf"></a-asset-item>
 
       <a-asset-item id="Clothed_Instruments_Vesical_Static" src="Assets/Clothed_Instruments_Vesical_Static.gltf">
       </a-asset-item>
@@ -650,12 +652,11 @@
 
       <!-- <a-asset-item id="UrinaryCatheter" src="UrinalCatheter_Foley.gltf"></a-asset-item> -->
       <a-asset-item id="UrinaryCatheter" src="UrinalCatheter_Foley_Static2.gltf"></a-asset-item>
-      <a-asset-item id="NasogastricTubeStatic" src="NasogastricTube_Static.gltf"></a-asset-item>
-      <a-asset-item id="NasogastricTubeAnim" src="Assets/NasogastricTube_Animation.gltf"></a-asset-item>
+      <a-asset-item id="NasogastricTubeStatic" src="Assets/NasogastricTube_Static.gltf"></a-asset-item>
+      <a-asset-item id="NasogastricTubeAnim" src="Assets/NasogastricTube_Animation2.gltf"></a-asset-item>
       <a-asset-item id="NasogastricTubeEmisive" src="NasogastricTube_Emisive.gltf"></a-asset-item>
       <a-asset-item id="Adhesive_Catheter" src="Assets/CordonUmbilical_Adhesive_Static.gltf"></a-asset-item>
-      <a-asset-item id="Adhesive_Catheter_emisive" position="0 2.20708 -0.2"
-        src="Assets/CordonUmbilical_Adhesive_Emissive.gltf"></a-asset-item>
+      <a-asset-item id="Adhesive_Catheter_emisive" position="0 2.20708 -0.2" src="Assets/CordonUmbilical_Adhesive_Emissive.gltf"></a-asset-item>
       <a-asset-item id="Clamp_Allis" src="Assets/Clamp_Allis_Mod.gltf"></a-asset-item>
       <a-asset-item id="Biombo_Anim" src="Assets/Biombo_Anim.gltf"></a-asset-item>
       <a-asset-item id="CordonUmbilical_Static" src="Assets/CordonUmbilical_Static.gltf"></a-asset-item>
@@ -1628,7 +1629,8 @@
    visible="false"></a-entity>
 
   <a-entity id="patientdates" gltf-model="#Patient_Dates" position="1.220 2.287 -2.627" rotation="0 -90 0"></a-entity>
-  <a-entity id="Bracelet" scale="1.02113 1.02113 1.02113" gltf-model="#bracelet" position="0.95703 1.64905 -1.4895" rotation="0 82.22 0"></a-entity>
+  <a-entity id="Bracelet" scale="1.02113 1.02113 1.02113" gltf-model="#bracelet" position="0.97026 1.64905 -1.4895" rotation="0 82.22 0"></a-entity>
+  <a-entity id="bracelet2" scale="1.02113 1.02113 1.02113" gltf-model="#bracelet" position="0.989 1.652 -1.548" rotation="-8.526 75.031 25.196" visible="false"></a-entity>
 
     <!------------------------------------------------------------------------------------------------------------------->
     <!-----------------------------------------------Triggers------------------------------------------------------------>
