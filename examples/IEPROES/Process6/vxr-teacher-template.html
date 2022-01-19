@@ -193,6 +193,14 @@
       }
     }
 
+    function patientAnimation(element) { 
+      document.getElementById("patient01").setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+    }
+
+    function patientBlanketAnimation(element) { 
+      document.getElementById("patientblanket").setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+    }
+
   </script>
 
   <script>
@@ -252,15 +260,15 @@
       }
 
     }
-    function OpenLips(element) {
-      console.log("open")
-      document.getElementById("patient01").setAttribute('animation-mixer', 'clip:Open;loop:once;repetitions:once;clampWhenFinished:true')
-    }
+    // function OpenLips(element) {
+    //   console.log("open")
+    //   document.getElementById("patient01").setAttribute('animation-mixer', 'clip:Open;loop:once;repetitions:once;clampWhenFinished:true')
+    // }
 
-    function CloseLips(element) {
-      console.log("close")
-      document.getElementById("patient01").setAttribute('animation-mixer', 'clip:Close;loop:once;repetitions:once;clampWhenFinished:true')
-    }
+    // function CloseLips(element) {
+    //   console.log("close")
+    //   document.getElementById("patient01").setAttribute('animation-mixer', 'clip:Close;loop:once;repetitions:once;clampWhenFinished:true')
+    // }
 
     function openFirstTwoTapes(element) {
       if (medical_kit_tapes.length >= 2) {
@@ -528,7 +536,8 @@
       <!-- <a-asset-item id="patient" src="Patient_VesicalMale.gltf"></a-asset-item> -->
       <!-- <a-asset-item id="patient" src="Naked_P_Bryan.gltf"></a-asset-item> -->
       <!-- <a-asset-item id="patient" src="Assets/Patient_Bed.gltf"></a-asset-item> -->
-      <a-asset-item id="patient" src="Assets/Patient_VesicalFemale_Anim.gltf"></a-asset-item>
+      <a-asset-item id="patient" src="Assets/Patient_VesicalFemale_Anim3.gltf"></a-asset-item>
+      <a-asset-item id="patientBlanket" src="Assets/Patient_VesicalFemale_Anim4.gltf"></a-asset-item>
 
 
       <!-- <a-asset-item id="patient" src="Female_Paciente.gltf"></a-asset-item> -->
@@ -1496,6 +1505,8 @@
       material="color: brown" rotation="0 0 0">
     </a-entity>
 
+    <a-entity id="patientblanket" blend-shape gltf-model="#patientBlanket" scale="" position="1.31676 1.64883 -1.09971" rotation="0 0 0"></a-entity>
+
     <a-entity id="bedhospital" gltf-model="#hospitalbed" scale="" position="1.349 0.91515 -1.079" rotation="0 -90 0">
     </a-entity>
 
@@ -1618,9 +1629,17 @@
        color="red" depth="0.1"
       height="0.1" width="0.1"></a-box>
 
-    <a-box id="e-LipsTrigger" scale="0.4 0.4 0.4" static-body="sphereRadius: NaN" ondragstart="OpenLips(this)"
+    <a-box id="e-LipsTrigger" visible="false" scale="0.4 0.4 0.4" static-body="sphereRadius: NaN" ondragstart="OpenLips(this)"
       ondragend="CloseLips(this)" opacity="0.5" dynamic-body="mass:0.0; sphereRadius: NaN" rotation=""
       position="1.32169 1.89616 -1.09135" color="red" depth="0.1" height="0.1" width="0.1"></a-box>
+
+    <a-sphere id="e-patient-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
+      static-body opacity="1" position="1.07621 1.83568 -1.12944" ondragstart="patientAnimation()" attach-point-v2
+      geometry="radius: 0.04"> </a-sphere>
+
+    <a-sphere id="e-patient-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" 
+      static-body opacity="1" position="0.948 1.983 -1.101" ondragstart="patientBlanketAnimation()" attach-point-v2
+      geometry="radius: 0.04"> </a-sphere>
 
     <a-sphere id="sphere-gloves-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
       static-body opacity="1" position="0.00419 1.85588 -0.54975" ondragstart="playAnimation()" attach-point-v2
