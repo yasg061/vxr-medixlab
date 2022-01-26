@@ -617,7 +617,7 @@
 
       <!--Animated objects-->
       <a-asset-item id="UrinaryBag_Anim01" src="Assets/UrinaryBag_Anim01.gltf"></a-asset-item>
-      <a-asset-item id="UrinalCatheter_Foley_Anim01" src="Assets/UrinalCatheter_Foley_Woman_Anim1.gltf"></a-asset-item>
+      <a-asset-item id="UrinalCatheter_Foley_Anim01" src="Assets/UrinalCatheter_Foley_Woman_Anim2.gltf"></a-asset-item>
 
 
       <!-- asset-items "witness_tapes and adhesive"  -->
@@ -1227,7 +1227,7 @@
         <a-entity>
           <a-entity id="e-UrinaryBag_static" animation-mixer="repetitions: NaN" grabbable="maxGrabbers: NaN"
             rotation="0 -90 0" grabbable class="vxr-obj-alcoholgel vxr-interact" gltf-model="#UrineBag_Static" draggable
-            grabbable position="0.801 0.012 -0.972" visible="false">
+            grabbable position="0.803 0.031 -0.972" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1258,7 +1258,7 @@
       <a-entity>
         <a-entity id="e-UrinaryCatheter_static" animation-mixer="repetitions: NaN" visible="false" rotation="0 -90 0"
           grabbable="maxGrabbers: NaN" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#UrinalCatheter_Foley_Anim01"
-          draggable grabbable position="1.21997 0.42989 -0.58326">
+          draggable grabbable position="1.222 0.421 -0.588">
         </a-entity>
       </a-entity>
     </template>
@@ -1285,8 +1285,8 @@
     <template id="vxr-obj-template-Adhesive_Catheter">
       <a-entity>
         <a-entity id="e-Adhesive_Catheter" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" visible="true"
-          rotation="-0.00007194134008940097 0 -0.000069212204957795" grabbable class="vxr-obj-Adhesive_Catheter vxr-interact" gltf-model="#Adhesive_Catheter"
-          dynamic-body draggable grabbable toggle-physics position="0.25159 0.30665 -0.42381"
+          rotation="0.000001536654968217107 5.095888570190653e-7 0.0000729435287808538" grabbable class="vxr-obj-Adhesive_Catheter vxr-interact" gltf-model="#Adhesive_Catheter"
+          dynamic-body draggable grabbable toggle-physics position="0.2515899510959128 0.30664995644725557 -0.42380997509267054"
           ondragstart="emissiveObjectOn(this)" visible="false" ondragend="emissiveObjectOff(this)">
         </a-entity>
       </a-entity>
@@ -1295,9 +1295,9 @@
     <template id="vxr-obj-template-Adhesive_Catheter_emisive">
       <a-entity>
         <a-entity id="e-Adhesive_Catheter_emisive" visible="false" grabbable="maxGrabbers: NaN" visible="true"
-          rotation="44.00029387707157 24.77068435689088 108.08333143127362" grabbable
+          rotation="37.93209786884102 -13.258816337122381 84.03457389624758" grabbable
           class="vxr-obj-Adhesive_Catheter_emisive vxr-interact" gltf-model="#Adhesive_Catheter_emisive" draggable
-          grabbable position="1.086 0.391 -0.767">
+          grabbable position="1.0844 0.439 -0.722">
         </a-entity>
       </a-entity>
     </template>
@@ -1305,8 +1305,8 @@
     <template id="vxr-obj-template-Adhesive_Catheter_static">
       <a-entity>
         <a-entity id="e-Adhesive_Catheter_static" visible="false" grabbable="maxGrabbers: NaN" visible="true"
-          rotation="44 24.77 108.08" grabbable class="vxr-obj-Adhesive_Catheter_static vxr-interact"
-          gltf-model="#Adhesive_Catheter" draggable grabbable position="1.086 0.391 -0.767">
+          rotation="37.93209786884102 -13.258816337122381 84.03457389624758" grabbable class="vxr-obj-Adhesive_Catheter_static vxr-interact"
+          gltf-model="#Adhesive_Catheter" draggable grabbable position="1.0844 0.439 -0.722">
         </a-entity>
       </a-entity>
     </template>
@@ -1507,7 +1507,7 @@
 
     <a-entity id="patientblanket" blend-shape gltf-model="#patientBlanket" scale="" position="1.31676 1.64883 -1.09971" rotation="0 0 0"></a-entity>
 
-    <a-entity id="bedhospital" gltf-model="#hospitalbed" scale="" position="1.349 0.91515 -1.079" rotation="0 -90 0">
+    <a-entity id="bedhospital" gltf-model="#hospitalbed" scale="" position="1.349 0.91515 -1.079" rotation="0 -90 -0.01">
     </a-entity>
 
     <a-entity id="armario" gltf-model="#Armario" scale="" position="-0.12389 0.915 3" rotation="0 -90 0"
