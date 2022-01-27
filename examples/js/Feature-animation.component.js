@@ -9,7 +9,8 @@ AFRAME.registerComponent('feature-animation', {
     repetitions: { default: '' },
     clamp: { default: '' },
     obj_id: { default: '' },
-    start: { default: false }
+    start: { default: false },
+    timeScale:{ default: 1}
   },
   init: function () {
     console.log("init");
@@ -27,7 +28,8 @@ AFRAME.registerComponent('feature-animation', {
         `clip:${data.clip};
       loop:${data.loop};
       repetitions:${data.repetitions};
-      clampWhenFinished:${data.clamp}; `);
+      clampWhenFinished:${data.clamp};
+      timeScale:${data.timeScale} `);
       console.log("start")
     };
     if (data.start) {

@@ -72,6 +72,11 @@
 
           //trigger animation
           if (id_Data == e.detail.body.el.id && iterator_entity == 1) {
+
+            if(e.detail.body.el.id == "e-UrinaryCatheter"){
+                let x = document.getElementById("e-SterileField_Folded_static")
+                x.setAttribute("dynamic-body","mass:0.0")
+            }
             let self = document.getElementById(e.detail.body.el.id)
             let obj = document.getElementById(e.detail.body.el.id + "_static")
             let emisive = document.getElementById(e.detail.body.el.id + "_emisive")
@@ -194,11 +199,11 @@
     }
 
     function patientAnimation(element) { 
-      document.getElementById("patient01").setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+      document.getElementById("patient01").setAttribute("animation-mixer", "clip:Open;loop:once;repetitions:once;clampWhenFinished:true")
     }
 
     function patientBlanketAnimation(element) { 
-      document.getElementById("patientblanket").setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+      document.getElementById("patientblanket").setAttribute("animation-mixer", "clip:Open;loop:once;repetitions:once;clampWhenFinished:true")
     }
 
   </script>
@@ -518,6 +523,22 @@
       for (let i = 0; i < constraint_avatar_template.length; ++i) {
         constraint_avatar_template[i].setAttribute("networked", "template:#constraint-avatar-template;attachTemplateToLocal:true")
       }
+    }
+
+    function downBlanket(element) {
+          console.log("grab box....")
+          console.log("grab box....00")      
+          let x = document.getElementById("patient01")
+          //let y = document.getElementById("patientblanket")
+          x.setAttribute("feature-animation", "clip:Close_Armature;start:true;timeScale:-1")  
+          //y.setAttribute("feature-animation", "clip:Close_Armature;start:true;timeScale:-1")  
+          //element.setAttribute("visible","false")
+
+          // document.getElementById("e-Adhesive_Catheter_static").setAttribute("visible","false")
+          // document.getElementById("e-UrinaryCatheter_static").setAttribute("visible","false")
+          // document.getElementById("e-UrinaryBag_static").setAttribute("visible","false")
+
+          
     }
   </script>
   <!-- <link rel="stylesheet" type="text/css" href="../../super/process/assets/examples.css"> -->
@@ -1193,9 +1214,11 @@
 
       <template id="vxr-obj-template-SterileField_Folded_static">
         <a-entity>
-          <a-entity id="e-SterileField_Folded_static" scale="1 1 1" dynamic-body="mass:0.0; sphereRadius: NaN"
-            rotation="0 -90 0" grabbable="maxGrabbers: NaN" visible="false" ondragend="faloGauze(this)"
-            class="vxr-obj-SterileField_Folded_Static vxr-interact" gltf-model="#SterileField_Folded_Pose" draggable
+          <a-entity id="e-SterileField_Folded_static" scale="1 1 1" 
+          
+            rotation="0 -90 0" grabbable="maxGrabbers: NaN" visible="true"
+            ondragend="faloGauze(this)" class="vxr-obj-SterileField_Folded_Static vxr-interact" 
+            gltf-model="#SterileField_Folded_Pose" draggable
             grabbable position="1.31386 0.33279 -0.88321" ondragstart="genericSetMass(this)">
           </a-entity>
         </a-entity>
@@ -1509,11 +1532,14 @@
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
     </a-entity> -->
-    <a-entity id="patient01" blend-shape gltf-model="#patient" scale="" position="1.31676 1.64883 -1.09971"
+    <a-entity id="patient01" blend-shape gltf-model="#patient"
+    feature-animation="loop:once;repetitions:once;clamp:true; obj_id:patient01"
+     scale="" position="1.31676 1.64883 -1.09971"
       material="color: brown" rotation="0 0 0">
     </a-entity>
 
-    <a-entity id="patientblanket" blend-shape gltf-model="#patientBlanket" scale="" position="1.31676 1.64883 -1.09971" rotation="0 0 0"></a-entity>
+    <a-entity id="patientblanket" feature-animation="loop:once;repetitions:once;clamp:true; obj_id:patientblanket"
+    blend-shape gltf-model="#patientBlanket" scale="" position="1.31676 1.64883 -1.09971" rotation="0 0 0"></a-entity>
 
     <a-entity id="bedhospital" gltf-model="#hospitalbed" scale="" position="1.349 0.91515 -1.079" rotation="0 -90 -0.01">
     </a-entity>
@@ -1550,13 +1576,23 @@
     <a-box id="boxTable1" scale="1.2 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="-0.119 1.7375 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
+      <a-box id="boxTable1" scale="1 1 1" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
+      position="-0.119 1.121 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+      
     <a-box id="boxTable2" scale="0.55283 0.8 0.88813" static-body="sphereRadius: NaN" opacity="0" static-body
       rotation="" position="0.31781 1.8944 -1.8278" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+
+
+      <a-box id="boxTable3" scale="0.55283 0.8 0.888" static-body="sphereRadius: NaN" opacity="0" static-body
+      rotation="" position="0.31781 1.443 -1.828" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+
+      <a-box id="boxTable3" scale="0.55283 0.8 0.888" static-body="sphereRadius: NaN" opacity="0" static-body
+      rotation="" position="0.31781 1.051 -1.828" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
     <a-box id="boxFloor" scale="4.14767 1 7.15846" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="0.36093 0.85321 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
-
+  
 
 
 
@@ -1576,10 +1612,10 @@
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left" teleport-controls="cameraRig: #player"
+      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left" 
         vive-controls="hand: left" networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right" teleport-controls="cameraRig: #player"
+      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right" 
         vive-controls="hand: right" networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
@@ -1647,6 +1683,10 @@
 
     <a-sphere id="e-patient-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" 
       static-body opacity="1" position="0.948 1.983 -1.101" ondragstart="patientBlanketAnimation()" attach-point-v2
+      geometry="radius: 0.04"> </a-sphere>
+
+      <a-sphere id="e-patient-animation-rest"  visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" 
+      static-body opacity="1" position="1.325 1.989 -0.710" ondragstart="downBlanket()" attach-point-v2
       geometry="radius: 0.04"> </a-sphere>
 
     <a-sphere id="sphere-gloves-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
