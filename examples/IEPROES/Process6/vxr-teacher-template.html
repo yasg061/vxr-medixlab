@@ -529,9 +529,9 @@
           console.log("grab box....")
           console.log("grab box....00")      
           let x = document.getElementById("patient01")
-          //let y = document.getElementById("patientblanket")
-          x.setAttribute("feature-animation", "clip:Close_Armature;start:true;timeScale:-1")  
-          //y.setAttribute("feature-animation", "clip:Close_Armature;start:true;timeScale:-1")  
+          let y = document.getElementById("patientblanket")
+          x.setAttribute("feature-animation", "clip:Close_Armature;start:true;timeScale:1")  
+          y.setAttribute("feature-animation", "clip:Close_Armature.001;start:true;timeScale:1")  
           //element.setAttribute("visible","false")
 
           // document.getElementById("e-Adhesive_Catheter_static").setAttribute("visible","false")
@@ -1216,7 +1216,7 @@
         <a-entity>
           <a-entity id="e-SterileField_Folded_static" scale="1 1 1" 
           
-            rotation="0 -90 0" grabbable="maxGrabbers: NaN" visible="true"
+            rotation="0 -90 0" grabbable="maxGrabbers: NaN" visible="false"
             ondragend="faloGauze(this)" class="vxr-obj-SterileField_Folded_Static vxr-interact" 
             gltf-model="#SterileField_Folded_Pose" draggable
             grabbable position="1.31386 0.33279 -0.88321" ondragstart="genericSetMass(this)">
@@ -1686,7 +1686,7 @@
       geometry="radius: 0.04"> </a-sphere>
 
       <a-sphere id="e-patient-animation-rest"  visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" 
-      static-body opacity="1" position="1.325 1.989 -0.710" ondragstart="downBlanket()" attach-point-v2
+      static-body opacity="1" position="1.325 1.989 -0.710" ondragstart="downBlanket(this)" attach-point-v2
       geometry="radius: 0.04"> </a-sphere>
 
     <a-sphere id="sphere-gloves-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
