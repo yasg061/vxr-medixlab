@@ -22,6 +22,7 @@
   <script src="/dist/networked-aframe.js"></script>
   <!-- <script    src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script> -->
   <script src="/js/spawn-in-circle.component.js"></script>
+  
   <script src="aframe-particle-system-component.min.js"></script>
 
 
@@ -356,7 +357,7 @@
         let arrow01 = document.getElementById('arrow01')
         arrow01.setAttribute('visible', 'false')
       }      
-      if(element.id ==("e-UrinaryCatheter")){
+      if(element.id ==("e-UrinaryCatheter")  && element){
         console.log("folley grabbed, let's go!!!")
         document.getElementById("e-UrinaryCatheterOnHand").setAttribute("visible","false")
         element.setAttribute("visible","true")
@@ -1201,10 +1202,11 @@
 
       <template id="vxr-obj-template-SterileField_Folded_static">
         <a-entity>
-          <a-entity id="e-SterileField_Folded_static" scale="1 1 1" rotation="0 -90 0" ondragend="faloGauze(this)"
-            grabbable="maxGrabbers: NaN" visible="false" class="vxr-obj-SterileField_Folded_Static vxr-interact"
-            gltf-model="#SterileField_Folded_Pose" draggable grabbable position="1.237 0.206 -0.807"
-            ondragstart="genericSetMass(this)">
+          <a-entity id="e-SterileField_Folded_static" scale="1 1 1"  dynamic-body="mass:0.0;" rotation="0 -90 0" 
+          ondragend="faloGauze(this)" grabbable="maxGrabbers: NaN" visible="false"
+          class="vxr-obj-SterileField_Folded_Static vxr-interact" 
+          gltf-model="#SterileField_Folded_Pose" draggable grabbable position="1.237 0.206 -0.807"
+          ondragstart="genericSetMass(this)"> 
           </a-entity>
         </a-entity>
       </template>
@@ -1757,6 +1759,7 @@
   </script>
   <!-- <script src="../../js/Feature-SpawnTemplate.js"></script> -->
 
+  <script src="../../js/Feature-Schemas.js"></script>
   <script src="../../js/Feature-SpawnObjects.js"></script>
   <!-- <script src="../../js/vxr-full-house.js"></script> -->
 

@@ -40,7 +40,7 @@
   <script src="../../js/rotator.component.js"></script>
   <script src="../../js/input.component.js"></script>
   <script src="../../js/avatar-body.component.js"></script>
-  <script src="../../js/Feature-Schemas.js"></script>
+  <!-- <script src="../../js/Feature-Schemas.js"></script> -->
   <script src="../../js/camera-output.js"></script>
   <script src="../../js/Feature-Bones.component.js"></script>
   <script src="../../js/Feature-BonesPosition.component.js"></script>
@@ -249,7 +249,11 @@
 
       obj.setAttribute('dynamic-body', 'mass:0.1')
       obj.removeAttribute(ondragstart)
-
+      if(element.id=="e-SterileField_Folded_static"){
+        
+        document.getElementById("sphere_e-Clothed_Instruments_Vesical").setAttribute("visible","true")
+        
+      }
       if (addToList) {
         if (medical_kit_tapes.includes(element.id)) {
           return 0
@@ -330,9 +334,13 @@
         element.setAttribute("visible", "false")
       }
     }
+    
+      function faloGauze(element){
+      document.getElementById("e-Gauze_Pene_static").setAttribute("dynamic-body","mass:0.0")
+    }
 
     function emissiveObjectOff(element) {
-
+      console.log(" ungrabbed !!! ",element)
       let emissiveObject = document.getElementById((element.id + "_emisive"))
       document.getElementById("arrow01").setAttribute("visible", "false")
 
@@ -345,8 +353,8 @@
         let arrow01 = document.getElementById('arrow01')
         arrow01.setAttribute('visible', 'false')
       }
-      if (element.id == ("e-UrinaryCatheter" && element)) {
-        console.log("folley grabbed, let's go!!!")
+      if (element.id == ("e-UrinaryCatheter")  && element) {
+        console.log("folley ungrabbed, let's go!!!",element)
         document.getElementById("e-UrinaryCatheterOnHand").setAttribute("visible", "false")
         element.setAttribute("visible", "true")
       }
@@ -1186,7 +1194,7 @@
       <template id="vxr-obj-template-SterileField_Folded_static">
         <a-entity>
           <a-entity id="e-SterileField_Folded_static" scale="1 1 1" dynamic-body="mass:0.0; sphereRadius: NaN"
-            rotation="0 -90 0" grabbable="maxGrabbers: NaN" visible="false"
+            rotation="0 -90 0" grabbable="maxGrabbers: NaN" visible="false" ondragend="faloGauze(this)"
             class="vxr-obj-SterileField_Folded_Static vxr-interact" gltf-model="#SterileField_Folded_Pose" draggable
             grabbable position="1.31386 0.33279 -0.88321" ondragstart="genericSetMass(this)">
           </a-entity>
@@ -1741,6 +1749,7 @@
   <!-- <script src="../../js/Feature-SpawnTemplate.js"></script> -->
 
   <script src="../../js/Feature-SpawnObjects.js"></script>
+  <script src="../../js/Feature-Schemas.js"></script>
   <!-- <script src="../../js/vxr-full-house.js"></script> -->
 
 

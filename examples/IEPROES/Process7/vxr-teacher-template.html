@@ -455,7 +455,7 @@
 
     function triggerAnimation(element) {
       document.getElementById("animationbed01").setAttribute("animation-mixer", "clip:BedAnimationUp;loop:once;repetitions:once;clampWhenFinished:true")
-      document.getElementById("animationbedpatient01").setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+      document.getElementById("animationbedpatient01").setAttribute("animation-mixer", "clip:;loop:once;repetitions:once;clampWhenFinished:true")
       document.getElementById("sphere_e-patient").removeAttribute("static-body")
       document.getElementById("sphere_e-patient").remove()
       document.getElementById("Bracelet").setAttribute("visible", "false")
@@ -513,7 +513,7 @@
       <a-asset-item id="NasogastricTube_M" src="Assets/NasogastricTube_Guide02_Static.gltf"></a-asset-item>
       <a-asset-item id="patient" src="Assets/HospitalBed_Patient_Angle90.gltf"></a-asset-item>
       <a-asset-item id="animationbed" src="Assets/HospitalBed_Angle90_Animation.gltf"></a-asset-item>
-      <a-asset-item id="animationbedpatient" src="Assets/PatientUp_Angle90_Animation.gltf"></a-asset-item>
+      <a-asset-item id="animationbedpatient" src="Assets/PatientUp_Angle90_Animation03.gltf"></a-asset-item>
       <a-asset-item id="Armario" src="../HospitalRoomAssets/armario.gltf"></a-asset-item>
       <a-asset-item id="Mesacama" src="../HospitalRoomAssets/mesa_cama.gltf"></a-asset-item>
       <a-asset-item id="Sillon" src="../HospitalRoomAssets/sillon.gltf"></a-asset-item>
