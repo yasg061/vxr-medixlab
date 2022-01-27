@@ -533,9 +533,9 @@
           x.setAttribute("feature-animation", "clip:Close_Armature;start:true;timeScale:1")  
           y.setAttribute("feature-animation", "clip:Close_Armature.001;start:true;timeScale:1")  
           //element.setAttribute("visible","false")
-
-          // document.getElementById("e-Adhesive_Catheter_static").setAttribute("visible","false")
-          // document.getElementById("e-UrinaryCatheter_static").setAttribute("visible","false")
+          
+           document.getElementById("e-Adhesive_Catheter_static").setAttribute("visible","false")
+           document.getElementById("e-UrinaryCatheter_static").setAttribute("visible","false")
           // document.getElementById("e-UrinaryBag_static").setAttribute("visible","false")
 
           
@@ -635,7 +635,10 @@
       <a-asset-item id="Sillon" src="../HospitalRoomAssets/sillon.gltf"></a-asset-item>
       <a-asset-item id="Sofa" src="../HospitalRoomAssets/sofa.gltf"></a-asset-item>
       <a-asset-item id="Table_004" src="../HospitalRoomAssets/Table_004.gltf"></a-asset-item>
+      <a-asset-item id="GooseLamp" src="Assets/GoosenekLampMedical.gltf"></a-asset-item>
 
+      
+      
 
 
       <a-asset-item id="Bag_Catheter_Joint" src="Assets/Bag_Catheter_Joint.gltf"></a-asset-item>
@@ -851,7 +854,7 @@
 
       <template id="vxr-obj-template-syringeAnim">
         <a-entity>
-          <a-entity id="e-syringeAnim" rotation="-43.16 -90 180" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-syringeAnim" rotation="45 90.0 0" grabbable="maxGrabbers: NaN"
             dynamic-body="mass: 0.0; sphereRadius: NaN" class="vxr-obj-syringeAnim vxr-interact"
             gltf-model="#syringeAnim" dynamic-body draggable grabbable toggle-physics visible="false"
             position="-0.07913 0.44479 -1.20611"></a-entity>
@@ -1558,7 +1561,8 @@
     </a-entity>
     <a-entity id="table_004" gltf-model="#Table_004" scale="" rotation="0 -90 0" position="2.49729 0.91326 -1.83804">
     </a-entity>
-
+    <a-entity id="e-GooseLamp" gltf-model="#GooseLamp" scale="" rotation="0 180 0" position="2.264 0.913 -0.767">
+    </a-entity>
 
     <!-- <a-entity id="Scube" gltf-model="#s_cube"  scale="" position=" 0 1 0" material="color: black"> -->
     </a-entity>
@@ -1606,17 +1610,17 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-      <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 0"
+      <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 1.1 0"
       rotation="0 180 0" movement-controls="speed:0.3">
       <a-entity camera position="0 1.7 0" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left" 
-        vive-controls="hand: left" networked="template:#left-hand-template">
+      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left;" 
+        vive-controls="hand: left;model:false" networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right" 
-        vive-controls="hand: right" networked="template:#right-hand-template">
+      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right;" 
+        vive-controls="hand: right;model:false" networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
 
