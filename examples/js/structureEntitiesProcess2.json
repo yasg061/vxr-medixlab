@@ -138,5 +138,9 @@
   {
     "template": "vxr-obj-template-disposablestatic02",
     "selector": ".vxr-obj-disposablestatic02"
+  },
+  {
+    "template": "vxr-obj-template-card_yellow",
+    "selector": ".vxr-obj-card_yellow"
   }
 ]
