@@ -4,7 +4,7 @@
     "selector": ".vxr-obj-maskn95"
   },
   {
-    "template": "vxr-obj-template-2",
+    "template": "vxr-obj-alcoholbottle",
     "selector": ".vxr-obj-alcoholbottle"
   },
   {
@@ -44,8 +44,8 @@
     "selector": ".vxr-obj-cottonswab03"
   },
   {
-    "template": "vxr-obj-template-salinebottle",
-    "selector": ".vxr-obj-salinebottle"
+    "template": "vxr-obj-template-clorhexidine",
+    "selector": ".vxr-obj-clorhexidine"
   },
   {
     "template": "vxr-obj-template-alcoholgel",
@@ -108,8 +108,8 @@
     "selector": ".vxr-obj-tapestatic03"
   },
   {
-    "template": "vxr-obj-template-serumcontrolcard",
-    "selector": ".vxr-obj-serumcontrolcard"
+    "template": "vxr-obj-template-controlcard",
+    "selector": ".vxr-obj-controlcard"
   },
   {
     "template": "vxr-obj-template-boxsharpobject",
@@ -142,5 +142,13 @@
   {
     "template": "vxr-obj-template-card_yellow",
     "selector": ".vxr-obj-card_yellow"
+  },
+  {
+    "template": "vxr-obj-template-Bowl-Medic01",
+    "selector": ".vxr-obj-template-Bowl-Medic01"
+  },
+  {
+    "template": "vxr-obj-template-glovesbox",
+    "selector": ".vxr-obj-glovesbox"
   }
 ]
