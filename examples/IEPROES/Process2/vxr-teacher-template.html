@@ -478,7 +478,20 @@
         });
         
       }
-    });
+    })
+
+    function openPackage(element) {
+      let obj = document.getElementById("e-intracathPackage")
+      obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+
+      var delayInMilliseconds = 1000;
+
+            setTimeout(function () {
+
+              document.getElementById("sphere_e-catheteranim").setAttribute("visible", "false")
+
+            }, delayInMilliseconds);
+    }
 
   </script>
   <script>
@@ -503,7 +516,7 @@
     ">
     <a-assets>
       <!-- <a-asset-item id="htc" src="../assets/vr_controller_vive.obj"></a-asset-item> -->
-      <a-asset-item id="maskn95" src="../../Models/gltf/MaskN95.gltf"></a-asset-item>
+
       <a-asset-item id="table" src="../../Models/gltf/Table.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle2.gltf"></a-asset-item>
       <a-asset-item id="bed" position="1.75217 0.92 1.00408" src="../../Models/gltf/Bed.gltf"></a-asset-item>
@@ -513,6 +526,7 @@
       <a-asset-item id="GlovesBox" src="../Process7/Assets/Gloves_Box.gltf"></a-asset-item>
       <a-asset-item id="Patient_Dates" src="../../Models/gltf/Patient_Dates02.gltf"></a-asset-item>
       <a-asset-item id="bracelet" src="../../Models/gltf/bracelet02.gltf"></a-asset-item>
+      <a-asset-item id="intracathAnim" src="../../Models/gltf/intracathPackageAnimation.gltf"></a-asset-item>
       <a-asset-item id="StudentAvatar" src="assets/StudentNurseAvatar.gltf"></a-asset-item>
       <a-asset-item id="SpectatorAvatar" src="assets/avatars/SpectatorAvatar.gltf"></a-asset-item>
       <a-asset-item id="TeacherAvatar" src="assets/TeacherAvatar.gltf"></a-asset-item>
@@ -707,8 +721,8 @@
 
       <template id="vxr-obj-rubber">
         <a-entity>
-          <a-entity id="e-rubber" rotation="90 0.000010971438670514077 0.000997144144239417" class="vxr-obj-rubber vxr-interact" gltf-model="#rubber" toggle-physics draggable
-            ground-collider grabbable position="-0.46001 0.34687 -0.27908" scale="0.8 0.8 0.8"
+          <a-entity id="e-rubber" rotation="0 0 0" class="vxr-obj-rubber vxr-interact" gltf-model="#rubber" toggle-physics draggable
+            ground-collider grabbable position="-0.46001 0.34687 -0.170" scale="0.8 0.8 0.8"
             ondragstart="this.setAttribute('set-object-position','')"></a-entity>
         </a-entity>
       </template>
@@ -779,7 +793,7 @@
 
       <template id="vxr-obj-template-intracath">
         <a-entity>
-          <a-entity id="e-intracath" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-intracath vxr-interact" gltf-model="#intracath" position="0.3072 0.31467 -0.07618" rotation="-0.000008789191815553294 -178.6924974717383 90.00005211112483"
+          <a-entity id="e-intracath" scale="1.5 1.5 1.4" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-intracath vxr-interact" gltf-model="#intracath" position="0.26639 0.31599 -0.2134" rotation="0.31123650403819875 90 178.4109694219362"
           draggable grabbable toggle-physics></a-entity>
         </a-entity>
       </template>
@@ -896,14 +910,14 @@
       <template id="vxr-obj-template-intracathcap01">
         <a-entity>
           <a-entity id="e-intracathcap001" class="vxr-obj-intracathcap01" gltf-model="#intracathcap01"
-            position="0.30791 0.31961 -0.04889" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
+            position="0.13881 0.32329 -0.04464" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-intracathcap02">
         <a-entity>
           <a-entity id="e-intracathcap002" static-body="sphereRadius: NaN" class="vxr-obj-intracathcap02" gltf-model="#intracathcap02"
-            position="0.28195 0.32008 -0.05437" rotation="0 180 0" scale="1 1 1" visible="true" static-body foo2></a-entity>
+            position="0.10738 0.32008 -0.0476" rotation="0 180 0" scale="1 1 1" visible="true" static-body foo2></a-entity>
         </a-entity>
       </template>
 
@@ -960,6 +974,14 @@
         <a-entity>
           <a-entity id="e-glovesbox" grabbable="maxGrabbers: NaN" class="vxr-obj-glovesbox vxr-interact"
             gltf-model="#GlovesBox" draggable grabbable position="-0.55095 0.29172 0.02588" scale="0.6 0.6 0.6">
+          </a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-intracathPackage">
+        <a-entity>
+          <a-entity id="e-intracathPackage" scale="1.15773 1 1" rotation="0 0 0" class="vxr-obj-intracathPackage vxr-interact"
+            gltf-model="#intracathAnim" position="0.26656 0.31883 -0.21141" visible="true">
           </a-entity>
         </a-entity>
       </template>
@@ -1048,6 +1070,11 @@
       radius="0.03"></a-sphere>
     <a-sphere id="sphere2" static-body attach-point opacity="0" position="0.92743 1.79311 -0.8472" color="black"
       radius="0.06"></a-sphere>
+
+    <a-sphere id="sphere_e-catheteranim" static-body="sphereRadius: NaN" scale="0.71168 0.71168 0.71168" static-body ondragend="openPackage(this)"
+      opacity="1" position="0.34341 1.85504 -0.41727" attach-point-v2 geometry="radius: 0.03"> </a-sphere>
+
+
     <a-box id="box1" attach-point-axis opacity="1" static-body
       rotation="8.133135901882035 -21.810784387245047 -3.2406492892599363" position="0.939 1.785 -0.994"
       color="red" depth="0.03" height="0.03" width="0.03"></a-box>
@@ -1069,7 +1096,7 @@
     <a-entity id="Bracelet" scale="0.97056 0.97056 1.02845" gltf-model="#bracelet" position="0.99135 1.71708 -1.23903"
       rotation="0 84.61 0"></a-entity>
 
-    <a-entity id="tray" gltf-model="#Tray_SterileCloth_Static" visible="true" position="0.23706 1.81086 -0.24558"
+    <a-entity id="tray" gltf-model="#Tray_SterileCloth_Static" visible="true" position="0.23706 1.8094 -0.21214"
       rotation="0 0 0"></a-entity>
       
     <a-entity id="hospitalroom01" gltf-model="#hospitalroom" position="0.14005 0.858 0.47531" scale="1 1 1" rotation="0 -90 0">
