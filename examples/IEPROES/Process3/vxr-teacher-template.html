@@ -1614,9 +1614,11 @@
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
       <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left"
+      vive-controls="hand: left;model:true"
         networked="template:#left-hand-template">
       </a-entity>
       <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right"
+        vive-controls="hand: right;model:true"
         networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
