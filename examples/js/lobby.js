@@ -20,10 +20,11 @@ function spawnEntities(structure) {
         entityEl.setAttribute("position", item.position)
         entityEl.setAttribute("width", item.width)
         entityEl.setAttribute("height", item.height)
-        entityEl.setAttribute("material", item.material)
         entityEl.setAttribute("opacity", item.opacity)
         entityEl.setAttribute("id", item.id)
         entityEl.setAttribute("value", item.value)
+        entityEl.setAttribute("src", item.src)
+        entityEl.setAttribute("color", item.color)
         scene.appendChild(entityEl);
 
         let panelID = entityEl.getAttribute("id")

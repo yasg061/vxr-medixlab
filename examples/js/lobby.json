@@ -1,9 +1,9 @@
 [{
-        "position": "-0.05 1.2 -3",
+        "position": "-0.05 1.55 -3",
         "element": "a-plane",
-        "width": "4.5",
-        "height": "2.9",
-        "material": "color: #072B73",
+        "width": "4.8",
+        "height": "3",
+        "src": "#backgroundLobby",
         "opacity": "0.6",
         "id": "panel1"
     },
@@ -12,7 +12,7 @@
         "element": "a-text",
         "width": "4.3",
         "height": "4.3",
-        "material": "color: #072B73",
+        "color": "#FFFFFF",
         "value": "Procedimientos",
         "opacity": "1.0",
         "id": "text1"
@@ -22,7 +22,7 @@
         "element": "a-text",
         "width": "2.0",
         "height": "2.0",
-        "material": "color: #072B73",
+        "color": "#FFFFFF",
         "value": "EPP COVID-19",
         "opacity": "1.0",
         "id": "text2"
@@ -32,7 +32,7 @@
         "element": "a-text",
         "width": "2.0",
         "height": "2.0",
-        "material": "color: #072B73",
+        "color": "#FFFFFF",
         "value": "Venoclisis",
         "opacity": "1.0",
         "id": "text3"
@@ -42,7 +42,7 @@
         "element": "a-text",
         "width": "2.0",
         "height": "2.0",
-        "material": "color: #072B73",
+        "color": "#FFFFFF",
         "value": "Curacion Vena Central",
         "opacity": "1.0",
         "id": "text4"
@@ -52,7 +52,7 @@
         "element": "a-text",
         "width": "2.0",
         "height": "2.0",
-        "material": "color: #072B73",
+        "color": "#FFFFFF",
         "value": "Venoclisis Neonato",
         "opacity": "1.0",
         "id": "text5"
@@ -62,7 +62,7 @@
         "element": "a-text",
         "width": "2.0",
         "height": "2.0",
-        "material": "color: #072B73",
+        "color": "#000000",
         "value": "Sonda Vesical hombre",
         "opacity": "1.0",
         "id": "text6"
@@ -72,7 +72,7 @@
         "element": "a-text",
         "width": "2.0",
         "height": "2.0",
-        "material": "color: #072B73",
+        "color": "#000000",
         "value": "Sonda Vesical Mujer",
         "opacity": "1.0",
         "id": "text7"
@@ -82,7 +82,7 @@
         "element": "a-text",
         "width": "2.0",
         "height": "2.0",
-        "material": "color: #072B73",
+        "color": "#000000",
         "value": "Sonda Nasogastrica",
         "opacity": "1.0",
         "id": "text8"
@@ -92,8 +92,8 @@
         "element": "a-text",
         "width": "2.0",
         "height": "2.0",
-        "material": "color: #072B73",
-        "value": "Asistencial al Recien Nacido",
+        "color": "#000000",
+        "value": "Asistencia al Recien Nacido",
         "opacity": "1.0",
         "id": "text9"
     },
@@ -102,8 +102,9 @@
         "element": "a-plane",
         "width": "1.0",
         "height": "0.7",
-        "material": "src: ../../dist/images/Proceso1.jpg",
+        "src": "../../dist/images/Proceso1.jpg",
         "opacity": "1.0",
+        "color": "#FFFFFF",
         "id": "panel2"
     },
     {
@@ -111,8 +112,9 @@
         "element": "a-plane",
         "width": "1.0",
         "height": "0.7",
-        "material": "src: ../../dist/images/Proceso2.jpg",
+        "src": "../../dist/images/Proceso2.jpg",
         "opacity": "1.0",
+        "color": "#FFFFFF",
         "id": "panel3"
     },
     {
@@ -120,8 +122,9 @@
         "element": "a-plane",
         "width": "1.0",
         "height": "0.7",
-        "material": "src: ../../dist/images/Proceso3.jpg",
+        "src": "../../dist/images/Proceso3.jpg",
         "opacity": "1.0",
+        "color": "#FFFFFF",
         "id": "panel4"
     },
     {
@@ -129,8 +132,9 @@
         "element": "a-plane",
         "width": "1.0",
         "height": "0.7",
-        "material": "src: ../../dist/images/Proceso4.jpg",
+        "src": "../../dist/images/Proceso4.jpg",
         "opacity": "1.0",
+        "color": "#FFFFFF",
         "id": "panel5"
     },
     {
@@ -138,8 +142,9 @@
         "element": "a-plane",
         "width": "1.0",
         "height": "0.7",
-        "material": "src: ../../dist/images/Proceso5.jpg",
+        "src": "../../dist/images/Proceso5.jpg",
         "opacity": "1.0",
+        "color": "#FFFFFF",
         "id": "panel6"
     },
     {
@@ -147,8 +152,9 @@
         "element": "a-plane",
         "width": "1.0",
         "height": "0.7",
-        "material": "src: ../../dist/images/Proceso6.jpg",
+        "src": "../../dist/images/Proceso6.jpg",
         "opacity": "1.0",
+        "color": "#FFFFFF",
         "id": "panel7"
     },
     {
@@ -156,8 +162,9 @@
         "element": "a-plane",
         "width": "1.0",
         "height": "0.7",
-        "material": "src: ../../dist/images/Proceso7.jpg",
+        "src": "../../dist/images/Proceso7.jpg",
         "opacity": "1.0",
+        "color": "#FFFFFF",
         "id": "panel8"
     },
     {
@@ -165,8 +172,9 @@
         "element": "a-plane",
         "width": "1.0",
         "height": "0.7",
-        "material": "src: ../../dist/images/Proceso8.jpg",
+        "src": "../../dist/images/Proceso8.jpg",
         "opacity": "1.0",
+        "color": "#FFFFFF",
         "id": "panel9"
     }
 ]
