@@ -90,8 +90,7 @@
               let scene = document.querySelector("a-scene")
               var jumpTrans = function () {
                 scene.removeEventListener('animation-loop', jumpTrans);
-                document.getElementById("animationbedpatient01").setAttribute("animation-mixer","clip:Patient_OpenMouth")
-                
+                document.getElementById("animationbedpatient01").setAttribute("animation-mixer","clip:Patient_Swallow")
                 console.log("start")
               };
           
@@ -150,6 +149,23 @@
             }
             self.remove()
           }
+          
+          if (id_Data == e.detail.body.el.id && iterator_entity == 9) {
+            console.log("lamp collide")
+            
+              let scene = document.querySelector("a-scene")
+              var jumpTrans = function () {
+                scene.removeEventListener('animation-loop', jumpTrans);
+                document.getElementById("animationbedpatient01").setAttribute("animation-mixer","clip:Patient_OpenMouth")
+                console.log("start")
+              };
+              
+              scene.addEventListener('animation-loop', jumpTrans);
+              
+
+            }
+            
+          
 
 
 
@@ -1278,9 +1294,9 @@
 
       <template id="vxr-obj-template-UrinaryCatheter_static">
         <a-entity>
-          <a-entity id="e-UrinaryCatheter_static" visible="false" rotation="0 -90 0" grabbable="maxGrabbers: NaN"
+          <a-entity id="e-UrinaryCatheter_static" visible="true" animation-mixer rotation="0 -90 0" grabbable="maxGrabbers: NaN"
             class="vxr-obj-alcoholgel vxr-interact" gltf-model="#NasogastricTubeAnim" draggable grabbable
-            position="1.223 0.717 -0.991">
+            position="1.22345 0.71702 -0.94506">
           </a-entity>
         </a-entity>
       </template>
@@ -1618,7 +1634,7 @@
     <a-entity id="animationbed01" feature-animation="clip:BedAnimationUp;loop:once;repetitions:once;clamp:true" gltf-model="#animationbed" position="1.24734 0.87184 -1.18066" rotation="0 -90.000 0">
     </a-entity>
 
-    <a-entity id="animationbedpatient01" gltf-model="#animationbedpatient" position="1.234 1.56544 -1.4387"
+    <a-entity id="animationbedpatient01" gltf-model="#animationbedpatient" animation-mixer="clip:CharacterAnimationUp;loop:once;repetitions:0;clampWhenFinished:true;" position="1.234 1.56544 -1.4387"
       rotation="0 -90.000 0"></a-entity>
 
     <a-entity id="animationbedpatient02"
@@ -1659,6 +1675,10 @@
 
     <a-sphere id="sphere7" static-body="sphereRadius: NaN" scale="0.3 0.3 0.3" static-body
       trigger-animation="entity_id:e-UrinaryCatheter;obj_entity:1" opacity="1" position="1.24766 2.31869 -1.60341"
+      attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      
+      <a-sphere id="sphere-open-mouth" static-body="sphereRadius: NaN" scale="0.3 0.3 0.3" static-body
+      trigger-animation="entity_id:e-HandLamp;obj_entity:9" opacity="1" position="1.24766 2.31869 -1.60341"
       attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere20" scale="0.3 0.3 0.3" static-body trigger-animation="entity_id:e-DateTape;obj_entity:8"
