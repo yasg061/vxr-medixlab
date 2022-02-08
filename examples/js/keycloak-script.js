@@ -13,10 +13,10 @@ setTimeout(function () {
   scene2.appendChild(logoutButton);
 
   let logoutText = document.createElement("a-text");
-  logoutText.setAttribute("position", "1.657 2.8 -2.99");
+  logoutText.setAttribute("position", "1.657 2.81 -2.99");
   logoutText.setAttribute("width", "1.8");
   logoutText.setAttribute("height", "1.8");
-  logoutText.setAttribute("value", "Cerrar sesion");
+  logoutText.setAttribute("text", "value: Cerrar sesión; font:SourceSansPro-SemiBold-msdf.json; negate:false");
   scene2.appendChild(logoutText);
 
   let panel1 = document.getElementById("panel1");
@@ -55,6 +55,11 @@ setTimeout(function () {
     process6.parentNode.removeChild(process6);
     process7.parentNode.removeChild(process7);
     process8.parentNode.removeChild(process8);
+
+    let noProcesses = document.createElement("a-text");
+    noProcesses.setAttribute("position", "-1.7 1.5 -3");
+    noProcesses.setAttribute("value", 'Sin procedimientos para mostrar');
+    scene2.appendChild(noProcesses);
   }
 
   if (keycloak.tokenParsed.semestre === "2") {
