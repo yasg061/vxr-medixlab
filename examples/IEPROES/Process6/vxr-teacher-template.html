@@ -197,6 +197,18 @@
         }
       }
     }
+    
+    function takeOffGloves(e) {
+      
+      if (window.event.relatedTarget.id == "lhand") {
+          let hand = document.getElementById("leftHand").getObject3D("mesh").getObjectByName("handL2320").material.color = new THREE.Color(0xffffff);
+          console.log("hand: ", hand)
+        } else if (window.event.relatedTarget.id == "rhand") {
+          let hand = document.getElementById("rightHand").getObject3D("mesh").getObjectByName("handR2320").material.color = new THREE.Color(0xffffff);
+          console.log("right hand: ", hand)
+        }
+      
+    }
 
     function patientAnimation(element) { 
       document.getElementById("patient01").setAttribute("animation-mixer", "clip:Open;loop:once;repetitions:once;clampWhenFinished:true")
@@ -796,7 +808,7 @@
       <!-- Right Hand -->
       <template id="right-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#right-hand">
+          <a-entity id="rightHand" scale="0.8 0.8 0.8" gltf-model="#right-hand">
             <a-entity id="e-UrinaryCatheterOnHand" scale="1 1 1" gltf-model="#UrinaryCatheterOnHand" visible="false">
             </a-entity>
           </a-entity>
@@ -806,7 +818,7 @@
       <!-- Left Hand -->
       <template id="left-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#left-hand">
+          <a-entity id="leftHand" scale="0.8 0.8 0.8" gltf-model="#left-hand">
 
           </a-entity>
         </a-entity>
@@ -1689,6 +1701,10 @@
 
     <a-sphere id="sphere-gloves-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
       static-body opacity="1" position="0.00419 1.85588 -0.54975" ondragstart="playAnimation()" attach-point-v2
+      geometry="radius: 0.04"> </a-sphere>
+      
+      <a-sphere id="sphere-gloves-off" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
+      static-body opacity="1" position="0.544 1.580 -0.603" ondragstart="takeOffGloves()" attach-point-v2
       geometry="radius: 0.04"> </a-sphere>
 
     <a-sphere id="sphere-syringe" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN" static-body
