@@ -256,6 +256,7 @@
       if (element.id == "e-SterileField_Folded_static") {
 
         document.getElementById("sphere_e-blanket-down").setAttribute("visible", "true")
+        document.getElementById("sphere_e-catheter-second-move").setAttribute("visible", "true")
 
       }
       if (addToList) {
@@ -291,6 +292,17 @@
       let x = document.getElementById("patient01")
       x.setAttribute("feature-animation", "clip:Bed_RestUp;start:true")
       element.setAttribute("visible", "false")
+    }
+    
+    function catheterSecondMove(element) {
+      let scene = document.querySelector("a-scene")
+              var jumpTrans = function () {
+                scene.removeEventListener('animation-loop', jumpTrans);
+                document.getElementById("e-UrinaryCatheter_static").setAttribute("animation-mixer","clip:SondaAnimation_02")
+                console.log("start")
+              };
+              
+              scene.addEventListener('animation-loop', jumpTrans);
     }
 
     function downBlanket(element) {
@@ -634,7 +646,7 @@
 
       <!--Animated objects-->
       <a-asset-item id="UrinaryBag_Anim01" src="Assets/UrinaryBag_Anim01.gltf"></a-asset-item>
-      <a-asset-item id="UrinalCatheter_Foley_Anim01" src="Assets/UrinaryCatheter_Animation.gltf"></a-asset-item>
+      <a-asset-item id="UrinalCatheter_Foley_Anim01" src="Assets/UrinaryCatheter_Animation2.gltf"></a-asset-item>
 
 
       <!-- asset-items "witness_tapes and adhesive"  -->
@@ -1261,7 +1273,7 @@
         <a-entity>
           <a-entity id="e-UrinaryBag_static" grabbable="maxGrabbers: NaN" rotation="0 -90 0" grabbable
             class="vxr-obj-alcoholgel vxr-interact" gltf-model="#UrineBag_Static" draggable grabbable
-            position="0.724 -0.092 -0.965" visible="false">
+            position="0.708 -0.097 -0.976" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -1705,6 +1717,13 @@
 
     <a-sphere id="sphere_e-syringePackageAnim" scale="0.71168 0.712 0.712" static-body ondragend="openSyringe(this)"
       opacity="1" position="0.27662 1.84388 -0.51619" attach-point-v2 geometry="radius: 0.03"> </a-sphere>
+      
+      
+      
+    <a-box id="sphere_e-catheter-second-move" visible="false" scale="0.4 0.4 0.4" static-body="sphereRadius: NaN"
+    trigger-animation="entity_id:e-Clamp_Allis;obj_entity:3" opacity="0.5" ondragstart="catheterSecondMove(this)"
+    dynamic-body="mass:0.0; sphereRadius: NaN" rotation="" position="1.224 1.841 -0.969" color="red" depth="0.1"
+    height="0.1" width="0.1"></a-box>
 
 
   </a-scene>
