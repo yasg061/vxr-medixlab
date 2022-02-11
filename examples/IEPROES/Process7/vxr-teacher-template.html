@@ -482,6 +482,35 @@
   </script>
 
   <script>
+  
+  function playAnimation(e) {
+
+
+  console.log("event", window.event)
+  if (window.event.relatedTarget.id == "lhand") {
+    let hand = document.getElementById("leftHand").getObject3D("mesh").getObjectByName("handL2320").material.color = new THREE.Color(0xe38666);
+    console.log("hand: ", hand)
+  } else if (window.event.relatedTarget.id == "rhand") {
+    let hand = document.getElementById("rightHand").getObject3D("mesh").getObjectByName("handR2320").material.color = new THREE.Color(0xe38666);
+    console.log("right hand: ", hand)
+
+  }
+
+
+
+}
+
+function takeOffGloves(e) {
+      
+      if (window.event.relatedTarget.id == "lhand") {
+          let hand = document.getElementById("leftHand").getObject3D("mesh").getObjectByName("handL2320").material.color = new THREE.Color(0xffffff);
+          console.log("hand: ", hand)
+        } else if (window.event.relatedTarget.id == "rhand") {
+          let hand = document.getElementById("rightHand").getObject3D("mesh").getObjectByName("handR2320").material.color = new THREE.Color(0xffffff);
+          console.log("right hand: ", hand)
+        }
+      
+    }
 
     function triggerAnimation(element) {
       document.getElementById("animationbed01").setAttribute("animation-mixer", "clip:BedAnimationUp;loop:once;repetitions:once;clampWhenFinished:true")
@@ -790,14 +819,14 @@
       <!-- Right Hand -->
       <template id="right-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#right-hand"></a-entity>
+          <a-entity id="rightHand" scale="0.8 0.8 0.8" gltf-model="#right-hand"></a-entity>
         </a-entity>
       </template>
 
       <!-- Left Hand -->
       <template id="left-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#left-hand">
+          <a-entity id="leftHand" scale="0.8 0.8 0.8" gltf-model="#left-hand">
 
           </a-entity>
         </a-entity>
@@ -1605,16 +1634,17 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.6 -2"
-      rotation="0 180 0" movement-controls="speed:0.3">
+    <a-entity id="player" movement-controls="speed:0.3" networked="template:#player-template;attachTemplateToLocal:false;" 
+    position="0 0.8 -1.319"
+      rotation="0 180 0" >
       <a-entity id="camera" camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" hand-attach vive-controls="hand: left" input-controls="hand: left"
+      <a-entity id="lhand" mixin="touch" hand-attach vive-controls="hand: left;model:false" input-controls="hand: left"
         networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand"  mixin="touch" hand-attach vive-controls="hand: right" input-controls="hand: right"
+      <a-entity id="rhand"  mixin="touch" hand-attach vive-controls="hand: right;model:false" input-controls="hand: right"
         networked="template:#right-hand-template">
 
         <a-entity id="e-Syringe_Guyon_static" scale="1 1 1" position="-0.05 0.007 0.008" rotation="31.259 45.403 7.742"
@@ -1720,6 +1750,14 @@
       position="0.76641 1.43652 -1.54781" attach-point-v2 geometry="radius: 0.03"> </a-sphere>
 
 
+      <a-sphere id="sphere-gloves-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
+      static-body opacity="1" position="-0.01623 1.85588 -0.54128" ondragstart="playAnimation()" attach-point-v2
+      geometry="radius: 0.04"> </a-sphere>
+      
+      <a-sphere id="sphere-gloves-off" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
+      static-body opacity="1" position="0.544 1.580 -0.603" ondragstart="takeOffGloves()" attach-point-v2
+      geometry="radius: 0.04"> </a-sphere>
+      
     <!-- <a-sphere id="sphere_e-restbed" scale="1 1 1" static-body ondragend="triggerAnimation(this)"
       opacity="1" position="0.76641 1.43652 -1.54781" attach-point-v2 geometry="radius: 0.03"> </a-sphere> -->
 
