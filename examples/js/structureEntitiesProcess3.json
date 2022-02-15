@@ -24,10 +24,6 @@
     "selector": ".vxr-obj-template-cottonswab03"
   },
   {
-    "template": "vxr-obj-template-cottonswab04",
-    "selector": ".vxr-obj-template-cottonswab04"
-  },
-  {
     "template": "vxr-obj-template-medicaltape",
     "selector": ".vxr-obj-medicaltape"
   },
@@ -37,6 +33,10 @@
   },
   {
     "template": "vxr-obj-template-tstSyringe",
+    "selector": ".vxr-obj-tstSyringe"
+  },
+  {
+    "template": "vxr-obj-template-tstSyringePackage",
     "selector": ".vxr-obj-tstSyringe"
   },
   {
@@ -50,10 +50,6 @@
   {
     "template": "vxr-obj-template-Biombo_Anim",
     "selector": ".vxr-obj-Biombo_Anim"
-  },
-  {
-    "template": "vxr-obj-template-Table_005",
-    "selector": ".vxr-obj-Table_005"
   },
   {
     "template": "vxr-obj-template-Gloves_sterilv",
@@ -72,64 +68,12 @@
     "selector": ".vxr-obj-Gloves_Steril_Open"
   },
   {
-    "template": "vxr-obj-template-Clothed_Instruments_Vesical_Static",
-    "selector": ".vxr-obj-Clothed_Instruments_Vesical_Static"
-  },
-  {
-    "template": "vxr-obj-template-Clothed_Instruments_Vesical",
-    "selector": ".vxr-obj-Clothed_Instruments_Vesical"
-  },
-  {
     "template": "vxr-obj-template-card_yellow",
     "selector": ".vxr-obj-card_yellow"
   },
   {
     "template": "vxr-obj-template-Assistant_Nurse",
     "selector": ".vxr-obj-Assistant_Nurse"
-  },
-  {
-    "template": "vxr-obj-template-witness_tape",
-    "selector": ".vxr-obj-witness_tape"
-  },
-  {
-    "template": "vxr-obj-template-adhesive",
-    "selector": ".vxr-obj-adhesive"
-  },
-  {
-    "template": "vxr-obj-template-CottonSwabs01",
-    "selector": ".e-CottonSwabs01"
-  },
-  {
-    "template": "vxr-obj-template-CottonSwabs02",
-    "selector": ".e-CottonSwabs02"
-  },
-  {
-    "template": "vxr-obj-template-CottonSwabs03",
-    "selector": ".e-CottonSwabs03"
-  },
-  {
-    "template": "vxr-obj-template-CottonSwabs04",
-    "selector": ".e-CottonSwabs04"
-  },
-  {
-    "template": "vxr-obj-template-CottonSwabs05",
-    "selector": ".e-CottonSwabs05"
-  },
-  {
-    "template": "vxr-obj-template-CottonSwabs06",
-    "selector": ".e-CottonSwabs06"
-  },
-  {
-    "template": "vxr-obj-template-CottonSwabs07",
-    "selector": ".e-CottonSwabs07"
-  },
-  {
-    "template": "vxr-obj-template-CottonSwabs08",
-    "selector": ".e-CottonSwabs08"
-  },
-  {
-    "template": "vxr-obj-template-CottonPink",
-    "selector": ".e-CottonPink"
   },
   {
     "template": "vxr-obj-template-CottonPink1",
@@ -158,6 +102,10 @@
   {
     "template": "vxr-obj-template-ClorhexidinaBottle",
     "selector": ".e-ClorhexidinaBottle"
+  },
+  {
+    "template": "vxr-obj-template-dripbag",
+    "selector": ".e-dripbag"
   },
   {
     "template": "vxr-obj-template-CottonBag_Static01",
