@@ -98,6 +98,76 @@
         "id": "text9"
     },
     {
+        "position": "-0.6 1.8 -2.99",
+        "element": "a-plane",
+        "width": "1.0",
+        "height": "0.7",
+        "src": "../../dist/images/bloqueado.jpg",
+        "opacity": "1.0",
+        "color": "#FFFFFF",
+        "id": "bloqueo1"
+    },
+    {
+        "position": "0.5 1.8 -2.99",
+        "element": "a-plane",
+        "width": "1.0",
+        "height": "0.7",
+        "src": "../../dist/images/bloqueado2.jpg",
+        "opacity": "1.0",
+        "color": "#FFFFFF",
+        "id": "bloqueo2"
+    },
+    {
+        "position": "1.6 1.8 -2.99",
+        "element": "a-plane",
+        "width": "1.0",
+        "height": "0.7",
+        "src": "../../dist/images/bloqueado3.jpg",
+        "opacity": "1.0",
+        "color": "#FFFFFF",
+        "id": "bloqueo3"
+    },
+    {
+        "position": "-1.7 0.7 -2.99",
+        "element": "a-plane",
+        "width": "1.0",
+        "height": "0.7",
+        "src": "../../dist/images/bloqueado4.jpg",
+        "opacity": "1.0",
+        "color": "#FFFFFF",
+        "id": "bloqueo4"
+    },
+    {
+        "position": "-0.6 0.7 -2.99",
+        "element": "a-plane",
+        "width": "1.0",
+        "height": "0.7",
+        "src": "../../dist/images/bloqueado5.jpg",
+        "opacity": "1.0",
+        "color": "#FFFFFF",
+        "id": "bloqueo5"
+    },
+    {
+        "position": "0.5 0.7 -2.99",
+        "element": "a-plane",
+        "width": "1.0",
+        "height": "0.7",
+        "src": "../../dist/images/bloqueado6.jpg",
+        "opacity": "1.0",
+        "color": "#FFFFFF",
+        "id": "bloqueo6"
+    },
+    {
+        "position": "1.6 0.7 -2.99",
+        "element": "a-plane",
+        "width": "1.0",
+        "height": "0.7",
+        "src": "../../dist/images/bloqueado7.jpg",
+        "opacity": "1.0",
+        "color": "#FFFFFF",
+        "id": "bloqueo7"
+    },
+    {
         "position": "-1.7 1.8 -2.99",
         "element": "a-plane",
         "width": "1.0",
