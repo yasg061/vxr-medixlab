@@ -32,20 +32,16 @@
     "selector": ".vxr-obj-alcoholgel"
   },
   {
+    "template": "vxr-obj-template-alcohol",
+    "selector": ".vxr-obj-alcohol"
+  },
+  {
     "template": "vxr-obj-template-tstSyringe",
     "selector": ".vxr-obj-tstSyringe"
   },
   {
     "template": "vxr-obj-template-tstSyringePackage",
     "selector": ".vxr-obj-tstSyringe"
-  },
-  {
-    "template": "vxr-obj-template-Clamp_Allis",
-    "selector": ".vxr-obj-Clamp_Allis"
-  },
-  {
-    "template": "vxr-obj-template-ClampHolder",
-    "selector": ".vxr-obj-ClampHolder"
   },
   {
     "template": "vxr-obj-template-Biombo_Anim",

@@ -136,6 +136,17 @@
             } else if (tapesCount >= 2 && e.detail.body.el.id == "e-DateTape") {
               document.getElementById("sphere20").setAttribute("static-body", "")
               document.getElementById("sphere_e-patientrest").setAttribute("static-body", "")
+              document.getElementById("e-RubberCloth_static").setAttribute("dynamic-body", "mass:0.0")
+                            
+              var delayInMilliseconds = 4000; //1 second
+              setTimeout(function() {
+              
+              console.log("----------------------------------------------------------------")
+              console.log("---------------------------- catheter hided --------------------")
+              console.log("----------------------------------------------------------------")
+                document.getElementById("e-UrinaryCatheter_static_final_position").setAttribute("visible", "true")
+              
+              }, delayInMilliseconds);
             } else { return }
             let self = document.getElementById(e.detail.body.el.id);
             let obj = document.getElementById(e.detail.body.el.id + "_static")
@@ -551,7 +562,7 @@ function takeOffGloves(e) {
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -1112,7 +1123,7 @@ function takeOffGloves(e) {
         <a-entity>
           <a-entity id="e-RubberCloth_static" rotation="7.672 -90.631 -60.311" position="1.228 0.563 -1.383"
             grabbable="maxGrabbers: NaN" class="vxr-obj-RubberCloth_static vxr-interact"
-            gltf-model="#RubberCloth_Static" draggable grabbable visible="false"></a-entity>
+            gltf-model="#RubberCloth_Static" draggable grabbable visible="false" ondragstart="genericSetMass(this)"></a-entity>
         </a-entity>
       </template>
 
@@ -1140,7 +1151,7 @@ function takeOffGloves(e) {
         <a-entity>
           <a-entity id="e-Bowl-Medic" grabbable="maxGrabbers: NaN" visible="true"
             class="vxr-obj-Bowl-Medic vxr-interact" gltf-model="#Bowl_Medic" draggable=""
-            grabbable position="-0.45225 0.517 -0.01288" dynamic-body scale="0.7 0.7 0.7"
+            grabbable position="-0.452 0.288 -0.032" dynamic-body scale="0.7 0.7 0.7"
             rotation="0 0 0">
           </a-entity>
         </a-entity>
@@ -1246,9 +1257,11 @@ function takeOffGloves(e) {
 
       <template id="vxr-obj-template-SterileField_Folded">
         <a-entity>
-          <a-entity id="e-SterileField_Folded" visible="false" scale="1 1 1" position="0.33995 0.26008 -1.58706"
+          <a-entity id="e-SterileField_Folded"
+            visible="false" scale="1 1 1" position="0.33995 0.26008 -1.58706"
             rotation="1.3573638671924976e-7 1.80415912167187e-10 0.000004583634547507535"
-            ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" grabbable="maxGrabbers: NaN"
+            ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN"
             class="vxr-obj-alcoholgel vxr-interact" gltf-model="#SterileField_Folded"
             dynamic-body="mass:0.0; sphereRadius: NaN" draggable grabbable>
           </a-entity>
@@ -1326,6 +1339,16 @@ function takeOffGloves(e) {
           <a-entity id="e-UrinaryCatheter_static" visible="false"  rotation="0 -90 0" grabbable="maxGrabbers: NaN"
             class="vxr-obj-alcoholgel vxr-interact" gltf-model="#NasogastricTubeAnim" draggable grabbable
             position="1.22345 0.71702 -0.94506">
+          </a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-UrinaryCatheter_static_final_position">
+        <a-entity>
+          <a-entity id="e-UrinaryCatheter_static_final_position" visible="false"
+          rotation="0 -90.000 90.000" grabbable="maxGrabbers: NaN" animation-mixer="loop:once;repetitions:0; clampWhenFinished:true"
+            class="vxr-obj-alcoholgel vxr-interact" gltf-model="#NasogastricTubeAnim" draggable grabbable
+            position="1.213 0.836 -1.847">
           </a-entity>
         </a-entity>
       </template>

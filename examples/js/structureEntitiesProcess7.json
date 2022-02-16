@@ -56,6 +56,10 @@
       "selector": ".vxr-obj-UrinalCatheter_static"
     },
     {
+      "template": "vxr-obj-template-UrinaryCatheter_static_final_position",
+      "selector": ".vxr-obj-UrinaryCatheter_static_final_position"
+    },
+    {
       "template": "vxr-obj-template-Assistant_Nurse",
       "selector": ".vxr-obj-Assistant_Nurse"
     },

@@ -53,7 +53,7 @@
   <script src="../../js/randomize-spec-color.component.js"></script>
 
   <script>
-  let cotton_iterator = 0
+  let cotton_iterator = []
     AFRAME.registerComponent('trigger-animation', {
       schema: {
         entity_id: { type: 'string', default: '0' },
@@ -91,12 +91,16 @@
              }
             if(id_Data=="e-CottonLumen1" || id_Data=="e-CottonLumen2" || id_Data=="e-CottonLumen3"){
             
-              cotton_iterator+=1
-              
-              if(cotton_iterator==1){
+            if(!cotton_iterator.includes[id_Data]){
+              cotton_iterator.push(id_Data)
+              console.log("N° cottons added: ",cotton_iterator.length)
+              if(cotton_iterator.length>=3){
                 document.getElementById("e-GauzeLumen_static").setAttribute("dynamic-body","mass:0.0")
-
+                document.getElementById("e-MaskCovid_static").setAttribute("dynamic-body","mass:0.0")
               }              
+            }
+              
+              
             }
           }
 
@@ -570,6 +574,7 @@
       <a-asset-item id="salinebottle" src="../../Models/gltf/ClorhexidinaBottle.gltf"></a-asset-item>
       <a-asset-item id="SalineBag_Emissive" src="../Process5/Assets/SalineBag_Emissive.gltf"></a-asset-item>
       <a-asset-item id="alcoholgel" src="../../Models/gltf/AlcoholGel.gltf"></a-asset-item>
+      <a-asset-item id="alcohol" src="../../Models/gltf/AlcoholBottle2.gltf"></a-asset-item>
       <a-asset-item id="intracath" src="../../Models/gltf/Intracath.gltf"></a-asset-item>
       <a-asset-item id="intracath-piece-1" src="../../Models/gltf/Catheter01.gltf"></a-asset-item>
       <a-asset-item id="intracath-piece-2" src="../../Models/gltf/Catheter02.gltf"></a-asset-item>
@@ -594,7 +599,9 @@
       <a-asset-item id="containerblack" src="/Models/gltf/TrashContainerBlack.gltf"></a-asset-item>
       <a-asset-item id="Table_005" src="../Process5/Assets/Table_005.gltf"></a-asset-item>
       <!-- <a-asset-item id="tstSyringe" src="Syringe.gltf"></a-asset-item> -->
-      <a-asset-item id="tstSyringe" src="Assets/syringeNoNeedle.gltf"></a-asset-item>
+      <!-- <a-asset-item id="tstSyringe" src="Assets/syringeNoNeedle.gltf"></a-asset-item> -->
+      <a-asset-item id="tstSyringe" src="Assets/Syringe_NoNeedle.gltf"></a-asset-item>
+      
       <a-asset-item id="Assistant_Nurse" src="../Process5/Assets/Assistant_Nurse.gltf"></a-asset-item>
       <a-asset-item id="Gloves_sterilv" src="Assets/Gloves_Hyssops.gltf"></a-asset-item>
       <a-asset-item id="Gloves_sterilv_emisive" src="Assets/Gloves_Hyssops_emisive.gltf"></a-asset-item>
@@ -843,11 +850,11 @@
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-2">
+      <template id="vxr-obj-template-alcohol">
         <a-entity>
-          <a-entity id="e-alcoholbottle" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
-            class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" draggable grabbable toggle-physics
-            position="-0.46644 0.40663 0.04155"></a-entity>
+          <a-entity id="e-alcohol" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-alcohol vxr-interact" gltf-model="#alcohol" draggable grabbable toggle-physics
+            position="-0.584 0.289 0.061"></a-entity>
         </a-entity>
       </template>
 
@@ -994,21 +1001,13 @@
     
     <template id="vxr-obj-template-tstSyringePackage">
       <a-entity>
-        <a-entity id="e-tstSyringePackage"  visible="true" rotation="-0.0 90 0.0"
+        <a-entity id="e-tstSyringePackage"  visible="true" rotation="-0.0 -90 0.0"
           grabbable="maxGrabbers: NaN" class="vxr-obj-tstSyringePackage vxr-interact" gltf-model="#Guyon_Package"
           draggable grabbable position="-0.531 0.29924 -0.277" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_syringe.png">
         </a-entity>
       </a-entity>
     </template>
 
-    <template id="vxr-obj-template-Clamp_Allis">
-      <a-entity>
-        <a-entity id="e-Clamp_Allis" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" visible="true"
-          rotation="0 0 0" grabbable class="vxr-obj-Clamp_Allis vxr-interact" gltf-model="#Clamp_Allis" dynamic-body
-          draggable grabbable toggle-physics position="-0.56562 0.3005 0.0676">
-        </a-entity>
-      </a-entity>
-    </template>
 
     <!-- <template id="vxr-obj-template-Gauze_Pene">
       <a-entity>
@@ -1020,7 +1019,13 @@
       </a-entity>
     </template> -->
 
-
+    <template id="vxr-obj-template-alcoholbottle">
+      <a-entity>
+        <a-entity id="e-alcoholbottle" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+          class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" draggable grabbable toggle-physics
+          position="-0.46644 0.40663 0.04155"></a-entity>
+      </a-entity>
+    </template>
 
     <template id="vxr-obj-template-Gauze_Pene_static">
       <a-entity>
@@ -1072,14 +1077,7 @@
     </template>
 
 
-    <template id="vxr-obj-template-ClampHolder">
-      <a-entity>
-        <a-entity id="e-ClampHolder" grabbable="maxGrabbers: NaN" visible="true" rotation="0 -90 0" grabbable
-          class="vxr-obj-ClampHolder vxr-interact" gltf-model="#ClampHolder" draggable grabbable
-          position="-0.55928 0.28837 0.06869">
-        </a-entity>
-      </a-entity>
-    </template>
+   
 
     <template id="vxr-obj-template-Biombo_Anim">
       <a-entity>
@@ -1150,7 +1148,7 @@
       <a-entity>
         <a-entity id="e-card_yellow" rotation="0.007028348230884383 0 0" grabbable="maxGrabbers: NaN"
           dynamic-body="sphereRadius: NaN" class="vxr-obj-allistweezers vxr-interact" gltf-model="#card_yellow"
-          dynamic-body draggable grabbable toggle-physics position="-0.540 0.297 -0.407"></a-entity>
+          dynamic-body draggable grabbable toggle-physics position="-0.110 0.297 -0.407"></a-entity>
       </a-entity>
     </template>
 
@@ -1200,7 +1198,7 @@
         <a-entity id="e-MaskCovid" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" scale="0.84 0.84 0.84"
           rotation="0 90 0" grabbable dynamic-body ondragstart="emissiveObjectOn(this)"
           ondragend="emissiveObjectOff(this)" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Mask_Covid" dynamic-body
-          draggable grabbable toggle-physics position="-0.153 0.350 -0.417" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_maskcovid.png">
+          draggable grabbable toggle-physics position="-0.548 0.350 -0.417" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_maskcovid.png">
         </a-entity>
       </a-entity>
     </template>
@@ -1216,7 +1214,8 @@
     <template id="vxr-obj-template-MaskCovid_static">
       <a-entity>
         <a-entity id="e-MaskCovid_static" visible="false" scale="0.84 0.84 0.84" grabbable="maxGrabbers: NaN" rotation="0 90 -90"
-          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Mask_Covid" position="1.361 0.252 -1.549" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_maskcovid.png">
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#Mask_Covid" position="1.361 0.252 -1.549" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_maskcovid.png"
+          ondragstart="genericSetMass(this)">
         </a-entity>
       </a-entity>
     </template>
@@ -1224,9 +1223,9 @@
     <template id="vxr-obj-template-ClorhexidinaBottle">
       <a-entity>
         <a-entity id="e-ClorhexidinaBottle"
-           grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 0 0"  
-           class="vxr-obj-alcoholgel vxr-interact" gltf-model="#ClorhexidinaBottle" grabbable dynamic-body toggle-physics
-           position="-0.43056 0.28586 0.07636" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_chlorhexidine.png">
+          grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" rotation="0 0 0"  
+          class="vxr-obj-alcoholgel vxr-interact" gltf-model="#ClorhexidinaBottle" grabbable dynamic-body toggle-physics
+          position="-0.43056 0.28586 0.07636" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_chlorhexidine.png">
         </a-entity>
       </a-entity>
     </template>
@@ -1509,7 +1508,7 @@
       
       
       <a-box id="boxTable2" scale="0.1 0.1 0.1" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
-      position="0.316 1.782 -0.589" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+      position="0.316 1.787 -0.589" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
  
     <a-box id="boxFloor" scale="4.14767 1 7.15846" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="0.36093 0.85321 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
@@ -1534,15 +1533,13 @@
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left"
-      vive-controls="hand: left;model:true"
-        networked="template:#left-hand-template">
-      </a-entity>
-      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right"
-        vive-controls="hand: right;model:true"
-        networked="template:#right-hand-template">
-      </a-entity>
+      <a-entity id="lhand" mixin="touch" hand-attach vive-controls="hand: left;model:false" input-controls="hand: left"
+      networked="template:#left-hand-template">
     </a-entity>
+    <a-entity id="rhand"  mixin="touch" hand-attach vive-controls="hand: right;model:false" input-controls="hand: right"
+      networked="template:#right-hand-template">
+    </a-entity>
+  </a-entity>
 
 
 
