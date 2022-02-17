@@ -88,7 +88,7 @@
             emisive.remove()
             
             if(id_Data=="e-GauzeLumen"){
-             }
+            }
             if(id_Data=="e-CottonLumen1" || id_Data=="e-CottonLumen2" || id_Data=="e-CottonLumen3"){
             
             if(!cotton_iterator.includes[id_Data]){
@@ -990,23 +990,9 @@
 
     </a-assets>
 
-    <template id="vxr-obj-template-tstSyringe">
-      <a-entity>
-        <a-entity id="e-tstSyringe"  visible="true" rotation="0 0 0"
-          grabbable="maxGrabbers: NaN" class="vxr-obj-tstSyringe vxr-interact" gltf-model="#tstSyringe"
-          draggable grabbable position="-0.496 0.299 -0.282" >
-        </a-entity>
-      </a-entity>
-    </template>
+   
     
-    <template id="vxr-obj-template-tstSyringePackage">
-      <a-entity>
-        <a-entity id="e-tstSyringePackage"  visible="true" rotation="-0.0 -90 0.0"
-          grabbable="maxGrabbers: NaN" class="vxr-obj-tstSyringePackage vxr-interact" gltf-model="#Guyon_Package"
-          draggable grabbable position="-0.531 0.29924 -0.277" ao-map="src: ../HospitalRoomAssets/lightmaps/AOMap_syringe.png">
-        </a-entity>
-      </a-entity>
-    </template>
+    
 
 
     <!-- <template id="vxr-obj-template-Gauze_Pene">
@@ -1614,8 +1600,7 @@
       geometry="radius: 0.05"> </a-sphere>
       
       
-      <a-sphere id="sphere_e-tstSyringe" scale="1 1 1" static-body ondragend="openPackage(this)" opacity="1"
-      position="-0.442 1.838 -0.478" attach-point-v2 geometry="radius: 0.03"> </a-sphere>
+      
       
       <a-sphere id="sphere-gloves-off" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
       static-body opacity="1" position="0.544 1.580 -0.603" ondragstart="takeOffGloves()" attach-point-v2

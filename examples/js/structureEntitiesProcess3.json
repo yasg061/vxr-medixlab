@@ -36,14 +36,6 @@
     "selector": ".vxr-obj-alcohol"
   },
   {
-    "template": "vxr-obj-template-tstSyringe",
-    "selector": ".vxr-obj-tstSyringe"
-  },
-  {
-    "template": "vxr-obj-template-tstSyringePackage",
-    "selector": ".vxr-obj-tstSyringe"
-  },
-  {
     "template": "vxr-obj-template-Biombo_Anim",
     "selector": ".vxr-obj-Biombo_Anim"
   },

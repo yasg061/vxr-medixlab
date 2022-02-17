@@ -8,7 +8,7 @@
     "selector": ".vxr-obj-rubber"
   },
   {
-    "template": "vxr-obj-template-dripbag",
+    "template": "vxr-obj-template-dripbag-static",
     "selector": ".vxr-obj-dripbag"
   },
   {
@@ -42,10 +42,6 @@
   {
     "template": "vxr-obj-template-heparinseal",
     "selector": ".vxr-obj-heparinseal"
-  },
-  {
-    "template": "vxr-obj-template-intracath",
-    "selector": ".vxr-obj-intracath"
   },
   {
     "template": "vxr-obj-template-catheter01",
@@ -102,6 +98,14 @@
   {
     "template": "vxr-obj-template-boxsharpobject",
     "selector": ".vxr-obj-boxsharpobject"
+  },
+  {
+    "template": "vxr-obj-template-intracath",
+    "selector": ".vxr-obj-intracath"
+  },
+  {
+    "template": "vxr-obj-template-intracath-static",
+    "selector": ".vxr-obj-intracath"
   },
   {
     "template": "vxr-obj-template-intracathcap01",
