@@ -63,12 +63,12 @@
         let el = this.el;
         let data = this.data
         this.el.addEventListener('collide', function (e) {
-          
+
 
           let classes = e.detail.body.el.className.split(' ')
 
           if (classes.includes("vxr-ground")) {
-            
+
             el.removeAttribute("dynamic-body")
             el.setAttribute("position", { x: data.x, y: data.y, z: data.z })
             el.setAttribute("toggle-physics", "")
@@ -81,37 +81,11 @@
       },
 
       update: function () {
-        
+
       }
     })
 
   </script>
-
-
-  <script>
-    AFRAME.registerComponent('attach-point-axis', {
-      init: function () {
-        var el = this.el;
-        this.el.addEventListener('collide', function (e) {
-          let attachRubber = document.getElementById('vxr-rubber');
-          let attachBag = document.getElementById('vxr-bag');
-          console.log('Cube has collided with ', e.detail.body.el);
-          if (e.detail.body.el == attachRubber) {
-            e.detail.body.el.setAttribute('constraint', 'type: coneTwist; target: #box1; pivot: 0 0 0; targetPivot: 0 0.0 0.05; axis: 0.0 0.0 -1.0; targetAxis: 1.0 0.0 0.0');
-          } if (e.detail.body.el == attachBag) {
-            // let staticDisposable = document.getElementById('xvr-disposable');
-            let animDisposable = document.getElementById('disposableAnim');
-            e.detail.body.el.setAttribute('constraint', 'type: coneTwist; target: #box2; pivot: 0 0 0; targetPivot: -0.03 0.0 0; axis: 1.0 0.0 0.0; targetAxis: 1.0 0.0 0.0');
-            // staticDisposable.remove();
-            // animDisposable.setAttribute('visible','true');
-            // animDisposable.setAttribute('animation-mixer','loop: once; clampWhenFinished: true; timeScale: 0.5');
-
-          }
-        });
-      }
-    })
-  </script>
-  
 
   <script>
     AFRAME.registerComponent('foo2', {
@@ -170,65 +144,9 @@
       }
     })
   </script>
-  
+
   <script>
-  
-  AFRAME.registerComponent('trigger-animation', {
-      schema: {
-        entity_id: { type: 'string', default: '0' },
-        obj_entity: { type: 'int', default: 0 },
-      },
 
-      init: function () {
-        var el = this.el;
-        console.log("data: ", this.data.entity_id)
-        let id_Data = this.data.entity_id
-        let iterator_entity = this.data.obj_entity
-
-        this.el.addEventListener('collide', function (e) {
-
-          //trigger animation
-          if (id_Data == e.detail.body.el.id && iterator_entity == 1) {
-            let obj = document.getElementById(e.detail.body.el.id + "_static")
-            let emisive = document.getElementById(e.detail.body.el.id + "_emisive")
-            obj.setAttribute("visible", "true")
-            obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
-            emisive.setAttribute("visible", "false")
-            e.detail.body.el.setAttribute('visible', 'false');
-            emisive.remove()
-          }
-          //trigger Opacity
-          if (id_Data == e.detail.body.el.id && iterator_entity == 2) {
-            let obj = document.getElementById(e.detail.body.el.id + "_static")
-            let emisive = document.getElementById(e.detail.body.el.id + "_emisive")
-            emisive.setAttribute("visible", "false")
-            e.detail.body.el.setAttribute('visible', 'false');
-            obj.setAttribute("visible", "true")
-            emisive.remove()
-            
-            if(id_Data=="e-GauzeLumen"){
-            }
-            if(id_Data=="e-CottonLumen1" || id_Data=="e-CottonLumen2" || id_Data=="e-CottonLumen3"){
-            
-            if(!cotton_iterator.includes[id_Data]){
-              cotton_iterator.push(id_Data)
-              console.log("N° cottons added: ",cotton_iterator.length)
-              if(cotton_iterator.length>=3){
-                document.getElementById("e-GauzeLumen_static").setAttribute("dynamic-body","mass:0.0")
-                document.getElementById("e-MaskCovid_static").setAttribute("dynamic-body","mass:0.0")
-              }              
-            }
-              
-              
-            }
-          }
-          
-        });
-      }
-    })
-
-
-  
   </script>
 
   <script>
@@ -353,24 +271,24 @@
 
     AFRAME.registerComponent('ao-map', {
       schema: {
-        src: {default: ''}
+        src: { default: '' }
       },
       init: function () {
         console.log('AO MAP!');
         var aoMap = new THREE.TextureLoader().load(this.data.src);
         aoMap.flipY = false;
-        this.el.addEventListener('model-loaded', function(e) {
+        this.el.addEventListener('model-loaded', function (e) {
           e.detail.model.traverse((o) => {
             if (o.isMesh) {
               o.material.aoMap = aoMap;
-              if (o.geometry.attributes.uv2 === undefined &&  
-                  o.geometry.attributes.uv !== undefined) {
-                  o.geometry.addAttribute( 'uv2', new THREE.BufferAttribute( o.geometry.attributes.uv.array, 2 ) );
-                }
+              if (o.geometry.attributes.uv2 === undefined &&
+                o.geometry.attributes.uv !== undefined) {
+                o.geometry.addAttribute('uv2', new THREE.BufferAttribute(o.geometry.attributes.uv.array, 2));
+              }
             }
           });
         });
-        
+
       }
     })
 
@@ -380,11 +298,11 @@
 
       var delayInMilliseconds = 1000;
 
-            setTimeout(function () {
+      setTimeout(function () {
 
-              document.getElementById("sphere_e-catheteranim").setAttribute("visible", "false")
+        document.getElementById("sphere_e-catheteranim").setAttribute("visible", "false")
 
-            }, delayInMilliseconds);
+      }, delayInMilliseconds);
     }
 
   </script>
@@ -397,11 +315,144 @@
       }
     }
   </script>
-  <!-- <link rel="stylesheet" type="text/css" href="../assets/examples.css"> -->
+
+
+  <script>
+    //------------------------------------------------------------------------------------------------------
+    //-------------------------------------------Basic functions--------------------------------------------
+    //------------------------------------------------------------------------------------------------------
+
+    function takeOffGloves(e) {
+
+      if (window.event.relatedTarget.id == "lhand") {
+        let hand = document.getElementById("leftHand").getObject3D("mesh").getObjectByName("handL2320").material.color = new THREE.Color(0xffffff);
+        console.log("hand: ", hand)
+      } else if (window.event.relatedTarget.id == "rhand") {
+        let hand = document.getElementById("rightHand").getObject3D("mesh").getObjectByName("handR2320").material.color = new THREE.Color(0xffffff);
+        console.log("right hand: ", hand)
+      }
+    }
+    
+    function playAnimation(e) {
+
+
+console.log("event", window.event)
+if (window.event.relatedTarget.id == "lhand") {
+  let hand = document.getElementById("leftHand").getObject3D("mesh").getObjectByName("handL2320").material.color = new THREE.Color(0xe38666);
+  console.log("hand: ", hand)
+} else if (window.event.relatedTarget.id == "rhand") {
+  let hand = document.getElementById("rightHand").getObject3D("mesh").getObjectByName("handR2320").material.color = new THREE.Color(0xe38666);
+  console.log("right hand: ", hand)
+
+}
+
+
+
+}
+
+    function emissiveObjectOff(element) {
+
+      let emissiveObject = document.getElementById((element.id + "_emisive"))
+      document.getElementById("arrow01").setAttribute("visible", "false")
+
+
+      if (document.getElementById((element.id + "_emisive"))) {
+        emissiveObject.setAttribute("visible", "false")
+      }
+
+      if (element.id == "e-Basin") {
+        let arrow01 = document.getElementById('arrow01')
+        arrow01.setAttribute('visible', 'false')
+      }
+    }
+
+    function emissiveObjectOn(element) {
+      let emissiveObject = document.getElementById((element.id + "_emisive"))
+      console.log("emisive id: ", (element.id + "_emisive"))
+      emissiveObject.setAttribute("visible", "true")
+
+      let arrowTargetPosition = new THREE.Vector3()
+      arrowTargetPosition.copy(emissiveObject.getObject3D("mesh").getWorldPosition())
+      arrowTargetPosition.y = arrowTargetPosition.y + 0.3
+      document.getElementById("arrow01").setAttribute("position", arrowTargetPosition)
+      document.getElementById("arrow01").setAttribute("visible", "true")
+    }
+    
+    function genericSetMass(element) {
+      document.getElementById(element.id).setAttribute('dynamic-body', 'mass:0.1')
+    }
+    
+    function triggerDisposableAnimation() {
+      console.log("entity",document.getElementById("e-disposable_static"))
+      document.getElementById("e-disposable_static").setAttribute("animation-mixer","loop:once;repetitions:0;clampWhenFinished:true")
+    }
+    
+    AFRAME.registerComponent('trigger-animation', {
+      schema: {
+        entity_id: { type: 'string', default: '0' },
+        obj_entity: { type: 'int', default: 0 },
+      },
+
+      init: function () {
+        var el = this.el;
+        console.log("data: ", this.data.entity_id)
+        let id_Data = this.data.entity_id
+        let iterator_entity = this.data.obj_entity
+
+        this.el.addEventListener('collide', function (e) {
+
+          //trigger animation
+          if (id_Data == e.detail.body.el.id && iterator_entity == 1) {
+            let obj = document.getElementById(e.detail.body.el.id + "_static")
+            let emisive = document.getElementById(e.detail.body.el.id + "_emisive")
+            obj.setAttribute("visible", "true")
+            obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+            emisive.setAttribute("visible", "false")
+            e.detail.body.el.setAttribute('visible', 'false');
+            emisive.remove()
+          }
+          //trigger Opacity
+          if (id_Data == e.detail.body.el.id && iterator_entity == 2) {
+            let obj = document.getElementById(e.detail.body.el.id + "_static")
+            let emisive = document.getElementById(e.detail.body.el.id + "_emisive")
+            emisive.setAttribute("visible", "false")
+            e.detail.body.el.setAttribute('visible', 'false');
+            obj.setAttribute("visible", "true")
+            emisive.remove()
+            if(id_Data=="e-disposable"){
+              document.getElementById("sphere_e-Clothed_Instruments_Vesical").setAttribute("visible","true")
+            }
+
+
+          }
+          
+          if (id_Data == e.detail.body.el.id && iterator_entity == 3) {
+          console.log("-----------------")
+          console.log("e.detail.body.el",e.detail.body.el.id)
+          console.log("id_Data",id_Data)
+            let obj1 = document.getElementById("e-catheter001")
+            let obj2 = document.getElementById("e-catheter002")
+            let obj3 = document.getElementById("e-medicalclothe01_static")
+            let obj4 = document.getElementById("e-rubber_static")
+            
+            
+            e.detail.body.el.setAttribute('visible', 'false');
+            obj1.setAttribute("visible", "true")
+            obj2.setAttribute("visible", "true")
+            obj2.setAttribute("dynamic-body", "mass:0.0")
+            obj3.setAttribute("dynamic-body", "mass:0.0")
+            obj4.setAttribute("dynamic-body", "mass:0.0")
+          }
+
+        });
+      }
+    })
+
+  </script>
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -4; iterations: 75" networked-scene="
+  <a-scene physics="debug: true; gravity: -4; iterations: 75" networked-scene="
       room: process2;
       adapter: easyrtc;
       audio: true;
@@ -472,6 +523,7 @@
       <a-asset-item id="disposable" src="../../Models/gltf/Disposable.gltf"></a-asset-item>
       <a-asset-item id="disposable01" src="../../Models/gltf/Disposable01.gltf"></a-asset-item>
       <a-asset-item id="disposableanim" src="../../Models/gltf/DisposableAnim.gltf"></a-asset-item>
+      <a-asset-item id="disposable_emisive" src="../../Models/gltf/Disposable_Static_02_emisive.gltf"></a-asset-item>
       <a-asset-item id="tape001" src="../../Models/gltf/Tape01.gltf"></a-asset-item>
       <a-asset-item id="tape002" src="../../Models/gltf/Tape02.gltf"></a-asset-item>
       <a-asset-item id="tape003" src="../../Models/gltf/Tape03.gltf"></a-asset-item>
@@ -496,6 +548,13 @@
       <a-asset-item id="hospitalroom" src="../../Models/gltf/HospitalRoom.gltf"></a-asset-item>
       <a-asset-item id="hospitalbed" src="../../Models/gltf/BedHospital.gltf"></a-asset-item>
       <img id="sky-01" src="../../Models/Images/sky-01.jpg">
+      
+      <a-asset-item id="arrow" src="Assets/arrow.gltf"></a-asset-item>
+      <a-asset-item id="tapeEmisive" src="Assets/Tape_Adult_Date_emisive.gltf"></a-asset-item>
+      <a-asset-item id="MedicalClothe_emisive" src="Assets/MedicalClothe_emisive.gltf"></a-asset-item>
+      <a-asset-item id="Rubber_emisive" src="Assets/Rubber_emisive.gltf"></a-asset-item>
+
+
       
       <canvas id="cam2"></canvas>
 
@@ -580,14 +639,14 @@
       <!-- Right Hand -->
       <template id="right-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#right-hand"></a-entity>
+          <a-entity id="rightHand" scale="0.8 0.8 0.8" gltf-model="#right-hand"></a-entity>
         </a-entity>
       </template>
 
       <!-- Left Hand -->
       <template id="left-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#left-hand"></a-entity>
+          <a-entity id="leftHand" scale="0.8 0.8 0.8" gltf-model="#left-hand"></a-entity>
         </a-entity>
       </template>
 
@@ -608,89 +667,125 @@
 
       <template id="vxr-obj-alcoholbottle">
         <a-entity>
-          <a-entity id="e-alcoholbottle" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" draggable grabbable
-            toggle-physics position="-0.14496 0.30976 0.04129"></a-entity>
+          <a-entity id="e-alcoholbottle" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-alcoholbottle vxr-interact" gltf-model="#alcoholbottle" draggable grabbable toggle-physics
+            position="-0.14496 0.30976 0.04129"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-rubber">
         <a-entity>
-          <a-entity id="e-rubber" rotation="0 0 0" class="vxr-obj-rubber vxr-interact" gltf-model="#rubber" toggle-physics draggable
-            ground-collider grabbable position="-0.46001 0.34687 -0.170" scale="0.8 0.8 0.8"
+          <a-entity id="e-rubber" rotation="0 0 0" class="vxr-obj-rubber vxr-interact" gltf-model="#rubber"
+          ondragstart="emissiveObjectOn(this)"
+          ondragend="emissiveObjectOff(this)"
+            toggle-physics draggable ground-collider grabbable position="-0.46001 0.34687 -0.170" scale="0.8 0.8 0.8"
             ondragstart="this.setAttribute('set-object-position','')"></a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-rubber-emisive">
+        <a-entity>
+          <a-entity id="e-rubber_emisive"   class="vxr-obj-rubber vxr-interact" gltf-model="#Rubber_emisive"
+            draggable ground-collider grabbable position="0.993 0.221 -1.137" rotation="90 0 0" scale="0.8 0.8 0.8"
+            visible="false"
+            ></a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-rubber-static">
+        <a-entity>
+          <a-entity id="e-rubber_static"  class="vxr-obj-rubber vxr-interact" gltf-model="#rubber" ondragstart="genericSetMass(this)"
+            draggable ground-collider grabbable position="0.993 0.221 -1.137" rotation="90 0 0" scale="0.8 0.8 0.8"
+            visible="false"
+            ></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-dripbag">
         <a-entity>
-          <a-entity id="e-bag" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-dripbag vxr-interact" foo gltf-model="#dripbag" draggable grabbable
-            toggle-physics position="-0.57306 0.56921 -0.15106" rotation="3.799818987286494 0.4393034325279546 -0.07832135599854885"
+          <a-entity id="e-bag" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+          ondragstart="emissiveObjectOn(this)"
+          ondragend="emissiveObjectOff(this)"
+            class="vxr-obj-dripbag vxr-interact" gltf-model="#dripbag" draggable grabbable toggle-physics
+            position="-0.57306 0.56921 -0.15106" rotation="3.799818987286494 0.4393034325279546 -0.07832135599854885"
             ondragstart="this.setAttribute('set-object-position','')"></a-entity>
         </a-entity>
       </template>
       
+      <template id="vxr-obj-template-dripbag-emisive">
+        <a-entity>
+          <a-entity id="e-bag_emisive" grabbable="maxGrabbers: NaN" class="vxr-obj-dripbag vxr-interact" 
+            gltf-model="#dripbag" draggable grabbable position="0.434 1.050 -1.801" rotation="0 0 0"
+            visible="false"></a-entity>
+        </a-entity>
+      </template>
+
       <template id="vxr-obj-template-dripbag-static">
         <a-entity>
-          <a-entity id="e-bag_static" grabbable="maxGrabbers: NaN"
-            class="vxr-obj-dripbag vxr-interact" foo gltf-model="#dripbag" draggable grabbable
-            position="0.434 1.073 -1.733" rotation="0 0 0"
-            ></a-entity>
+          <a-entity id="e-bag_static" grabbable="maxGrabbers: NaN" class="vxr-obj-dripbag vxr-interact" foo
+            gltf-model="#dripbag" draggable grabbable position="0.434 1.050 -1.801" rotation="0 0 0"
+            visible="false"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-medicaltape">
         <a-entity>
-          <a-entity id="e-medicaltape" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-medicaltape vxr-interact" gltf-model="#medicaltape" draggable grabbable
-            toggle-physics position="-0.35446 0.30813 -0.27066"></a-entity>
+          <a-entity id="e-medicaltape" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-medicaltape vxr-interact" gltf-model="#medicaltape" draggable grabbable toggle-physics
+            position="-0.35446 0.30813 -0.27066"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-allistweezers">
         <a-entity>
-          <a-entity id="e-allistweezers" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-allistweezers vxr-interact" gltf-model="#scissorbuttoned" draggable grabbable
-            toggle-physics position="-0.54258 0.31284 -0.32774" rotation="-0.00002995084612075825 5.170835992280365e-7 0.000016121786231042128"></a-entity>
+          <a-entity id="e-allistweezers" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-allistweezers vxr-interact" gltf-model="#scissorbuttoned" draggable grabbable toggle-physics
+            position="-0.54258 0.31284 -0.32774"
+            rotation="-0.00002995084612075825 5.170835992280365e-7 0.000016121786231042128"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-cottonswab01">
         <a-entity>
-          <a-entity id="e-corronswab01" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-cottonswab01 vxr-interact" gltf-model="#cottonpink" draggable grabbable
-            toggle-physics position="-0.00649 0.31925 0.03301"></a-entity>
+          <a-entity id="e-corronswab01" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-cottonswab01 vxr-interact" gltf-model="#cottonpink" draggable grabbable toggle-physics
+            position="-0.00649 0.31925 0.03301"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-cottonswab02">
         <a-entity>
-          <a-entity id="e-corronswab02" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-cottonswab02 vxr-interact" gltf-model="#cottonswab" draggable grabbable
-            toggle-physics position="-0.02017 0.31925 -0.00188"></a-entity>
+          <a-entity id="e-corronswab02" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-cottonswab02 vxr-interact" gltf-model="#cottonswab" draggable grabbable toggle-physics
+            position="-0.02017 0.31925 -0.00188"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-cottonswab03">
         <a-entity>
-          <a-entity id="e-corronswab03" dynamic-body="sphereRadius: NaN" class="vxr-obj-cottonswab03 vxr-interact" gltf-model="#cottonswab" draggable grabbable
-            toggle-physics position="-0.04211 0.31925 0.03964"></a-entity>
+          <a-entity id="e-corronswab03" dynamic-body="sphereRadius: NaN" class="vxr-obj-cottonswab03 vxr-interact"
+            gltf-model="#cottonswab" draggable grabbable toggle-physics position="-0.04211 0.31925 0.03964"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-clorhexidine">
         <a-entity>
-          <a-entity id="e-clorhexidine" class="vxr-obj-salinebottle vxr-interact" gltf-model="#salinebottle" draggable grabbable
-            toggle-physics position="-0.25467 0.30649 0.04341"></a-entity>
+          <a-entity id="e-clorhexidine" class="vxr-obj-salinebottle vxr-interact" gltf-model="#salinebottle" draggable
+            grabbable toggle-physics position="-0.25467 0.30649 0.04341"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-alcoholgel">
         <a-entity>
-          <a-entity id="e-alcoholgel" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#alcoholgel" draggable grabbable toggle-physics
-            position="-0.3748 0.30734 0.02808"></a-entity>
+          <a-entity id="e-alcoholgel" class="vxr-obj-alcoholgel vxr-interact" gltf-model="#alcoholgel" draggable
+            grabbable toggle-physics position="-0.3748 0.30734 0.02808"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-heparinseal">
         <a-entity>
-          <a-entity id="e-heparinseal" class="vxr-obj-heparinseal vxr-interact" gltf-model="#heparinseal" draggable grabbable
-            toggle-physics position="-1.57 0.50 10"></a-entity>
+          <a-entity id="e-heparinseal" class="vxr-obj-heparinseal vxr-interact" gltf-model="#heparinseal" draggable
+            grabbable toggle-physics position="-1.57 0.50 10"></a-entity>
         </a-entity>
       </template>
 
@@ -699,7 +794,7 @@
       <template id="vxr-obj-template-catheter01">
         <a-entity>
           <a-entity id="e-catheter001" class="vxr-obj-catheter01" gltf-model="#catheter01"
-            rotation="-42.646394607177434 0 0" position="0.994 0.301 -1.015" scale="1 1 1" visible="false">
+            rotation="-42.646394607177434 0 0" position="0.994 0.283 -1.015" scale="1 1 1" visible="false">
           </a-entity>
         </a-entity>
       </template>
@@ -707,97 +802,207 @@
       <template id="vxr-obj-template-catheter02">
         <a-entity>
           <a-entity id="e-catheter002" class="vxr-obj-catheter02" gltf-model="#catheter02"
-            rotation="-42.38397993700752 0 0" position="0.994 0.301 -1.015" scale="1 1 1" visible="false"
-            draggable grabbable ondragstart="mass(event)"></a-entity>
+            rotation="-42.38397993700752 0 0" position="0.994 0.293 -1.004" scale="1 1 1" visible="false" draggable
+            grabbable ondragstart="genericSetMass(this)"></a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-catheter02-emisive">
+        <a-entity>
+          <a-entity id="e-catheter002-emisive" class="vxr-obj-catheter02" gltf-model="#catheter02"
+            rotation="-42.38397993700752 0 0" position="0.994 0.293 -1.004" scale="1 1 1" visible="false" draggable
+            grabbable ></a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-catheter02-static">
+        <a-entity>
+          <a-entity id="e-catheter002-static" class="vxr-obj-catheter02" gltf-model="#catheter02"
+            rotation="-42.38397993700752 0 0" position="0.994 0.293 -1.004" scale="1 1 1" visible="false" draggable
+            grabbable ></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-disposable">
         <a-entity>
-          <a-entity id="e-disposable" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-disposable" gltf-model="#disposable"
-            position="0.10656 0.35818 -0.31558" scale="1 1 1" visible="true" draggable grabbable toggle-physics>
+          <a-entity id="e-disposable" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            ondragstart="emissiveObjectOn(this)"
+            ondragend="emissiveObjectOff(this)"
+            class="vxr-obj-disposable" gltf-model="#disposable" position="0.10656 0.35818 -0.31558" scale="1 1 1"
+            visible="true" draggable grabbable toggle-physics>
           </a-entity>
         </a-entity>
       </template>
-
-      <template id="vxr-obj-template-disposableanim">
+      
+      <template id="vxr-obj-template-disposable-emisive">
         <a-entity>
-          <a-entity id="e-disposableAnim"  class="vxr-obj-disposableanim"
-            gltf-model="#disposableanim" position="0.431 0.561 -1.747" scale="1 1 1" visible="true"></a-entity>
+          <a-entity id="e-disposable_emisive"
+          class="vxr-obj-disposableanim" gltf-model="#disposable_emisive"
+          position="0.431 0.798 -1.786" scale="1 1 1" visible="false"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-disposable-static">
+        <a-entity>
+          <a-entity id="e-disposable_static" class="vxr-obj-disposableanim" gltf-model="#disposableanim"
+            position="0.432 0.508 -1.786" scale="1 1 1" visible="false"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-tape01">
         <a-entity>
-          <a-entity id="e-tape01" grabbable="maxGrabbers: NaN" class="vxr-obj-tape01" gltf-model="#tapestatic001" position="0.54179 0.30727 -0.347"
-            rotation="0 0 0" scale="1 1 1" visible="true" dynamic-body="mass: 0; sphereRadius: NaN" draggable grabbable
-            ondragstart="mass(event)"></a-entity>
+          <a-entity id="e-tape01" grabbable="maxGrabbers: NaN" class="vxr-obj-tape01" gltf-model="#tapestatic001"
+          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            position="0.54179 0.30751 -0.347" rotation="0 0 0" scale="1 1 1" visible="true"
+            dynamic-body="" draggable grabbable ondragstart="mass(event)"></a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-tape04">
+        <a-entity>
+          <a-entity id="e-tape04" grabbable="maxGrabbers: NaN" class="vxr-obj-tape01" gltf-model="#tapestatic001"
+          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            position="0.54179 0.30751 -0.212 " rotation="0 0 0" scale="1 1 1" visible="true"
+            dynamic-body="" draggable grabbable ondragstart="mass(event)"></a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-tape05">
+        <a-entity>
+          <a-entity id="e-tape05" grabbable="maxGrabbers: NaN" class="vxr-obj-tape01" gltf-model="#tapestatic001"
+          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            position="0.54179 0.30751 -0.262" rotation="0 0 0" scale="1 1 1" visible="true"
+            dynamic-body="" draggable grabbable ondragstart="mass(event)"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-tape02">
         <a-entity>
-          <a-entity id="e-tape02" grabbable="maxGrabbers: NaN" class="vxr-obj-tape02" gltf-model="#tapestatic002" position="0.54179 0.30751 -0.262"
-            rotation="0 0 0" scale="1 1 1" visible="true" dynamic-body="mass: 0; sphereRadius: NaN" draggable grabbable
-            ondragstart="mass(event)"></a-entity>
+          <a-entity id="e-tape02" grabbable="maxGrabbers: NaN" class="vxr-obj-tape02" gltf-model="#tapestatic002"
+          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            position="0.54179 0.30751 -0.137" rotation="0 0 0" scale="1 1 1" visible="true"
+            dynamic-body="" draggable grabbable ondragstart="mass(event)"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-tape03">
         <a-entity>
-          <a-entity id="e-tape03" grabbable="maxGrabbers: NaN" class="vxr-obj-tape03" gltf-model="#tapestatic003" position="0.54179 0.30502 -0.184"
-            rotation="0 0 0" scale="1 1 1" visible="true" dynamic-body="mass: 0; sphereRadius: NaN" draggable grabbable
-            ondragstart="mass(event)"></a-entity>
+          <a-entity id="e-tape03" grabbable="maxGrabbers: NaN" class="vxr-obj-tape03" gltf-model="#tapestatic003"
+          ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            position="0.54179 0.30502 -0.079" rotation="0 0 0" scale="1 1 1" visible="true"
+            dynamic-body="" draggable grabbable ondragstart="mass(event)"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-medicalclothe">
         <a-entity>
-          <a-entity id="e-medicalclothe01" grabbable="maxGrabbers: NaN" class="vxr-obj-medicalclothe" gltf-model="#medicalclothe"
-            position="0.36514 0.33025 -0.39681" rotation="0 90 0" scale="1 1 1" visible="true" draggable grabbable
-            dynamic-body="mass: 0; sphereRadius: NaN"></a-entity>
+          <a-entity id="e-medicalclothe01" grabbable="maxGrabbers: NaN" class="vxr-obj-medicalclothe"
+            gltf-model="#medicalclothe" position="0.36514 0.33025 -0.39681" rotation="0 90 0" scale="1 1 1"
+            ondragstart="emissiveObjectOn(this)"
+            ondragend="emissiveObjectOff(this)"
+            visible="true" draggable grabbable dynamic-body=""></a-entity>
         </a-entity>
       </template>
       
+      <template id="vxr-obj-template-medicalclothe-emisive">
+        <a-entity>
+          <a-entity id="e-medicalclothe01_emisive" grabbable="maxGrabbers: NaN" class="vxr-obj-medicalclothe"
+            gltf-model="#MedicalClothe_emisive" position="1.006 0.192 -1.063" rotation="0 90 0" scale="1 1 1"
+            visible="false" draggable grabbable ></a-entity>
+        </a-entity>
+      </template>
       
+
+
+
 
       <template id="vxr-obj-template-medicalclothestatic">
         <a-entity>
-          <a-entity id="e-medicalclothe_static" class="vxr-obj-medicalclothestatic" 
-          gltf-model="#medicalclothe" position="1.006 0.192 -1.063" 
-          rotation="0 90 0" scale="1 1 1" visible="false" draggable grabbable>
+          <a-entity id="e-medicalclothe01_static" class="vxr-obj-medicalclothestatic" gltf-model="#medicalclothe"
+            position="1.006 0.192 -1.063" ondragstart="genericSetMass(this)" rotation="0 90 0" scale="1 1 1" visible="false" draggable grabbable>
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-tapestatic01">
         <a-entity>
-          <a-entity id="e-tapestatic01" class="vxr-obj-tapestatic01" gltf-model="#tapestatic001"
-            position="0.89304 0.325 -0.564" rotation="0 0 3.000579973100121" scale="1 1 1" visible="false"></a-entity>
+          <a-entity id="e-tape01_static" class="vxr-obj-tapestatic01" gltf-model="#tapestatic001"
+            position="0.993 0.242 -1.062" rotation="0 0 0" scale="0.5 0.5 0.5" visible="false"></a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-tapestatic04">
+        <a-entity>
+          <a-entity id="e-tape04_static" class="vxr-obj-tapestatic01" gltf-model="#tapestatic001"
+            position="0.993 0.242 -1.062" rotation="0 0 0" scale="0.5 0.5 0.5" visible="false"></a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-tapestatic05">
+        <a-entity>
+          <a-entity id="e-tape05_static" class="vxr-obj-tapestatic01" gltf-model="#tapestatic001"
+            position="0.993 0.242 -1.062" rotation="0 0 0" scale="0.5 0.5 0.5" visible="false"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-tapestatic02">
         <a-entity>
-          <a-entity id="e-tapestatic02" class="vxr-obj-tapestatic02" gltf-model="#tapestatic002"
-            position="0.88925 0.326 -0.55128" rotation="-5.777706406099221 -0.7717741500412189 7.624349379805865"
-            scale="1 1 1" visible="false"></a-entity>
+          <a-entity id="e-tape02_static" class="vxr-obj-tapestatic02" gltf-model="#tapestatic002"
+            position="0.994 0.240 -1.059" rotation="0 0 0"
+            scale="0.5 0.5 0.5 " visible="false"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-tapestatic03">
         <a-entity>
-          <a-entity id="e-tapestatic03" class="vxr-obj-tapestatic03" gltf-model="#tapestatic003"
-            position="0.88943 0.32572 -0.55393" rotation="0 0 5.940426419916375" scale="1 1 1" visible="false">
+          <a-entity id="e-tape03_static" class="vxr-obj-tapestatic03" gltf-model="#tapestatic003"
+            position="0.994 0.240 -1.065" rotation="0 0 0" scale="0.5 0.5 0.5" visible="false">
+          </a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-tape-emisive-01">
+        <a-entity>
+          <a-entity id="e-tape01_emisive" class="vxr-obj-tapestatic01" gltf-model="#tapeEmisive"
+            position="0.993 0.242 -1.062" rotation="0 0 0" scale="0.5 0.5 0.5" visible="false"></a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-tape-emisive-04">
+        <a-entity>
+          <a-entity id="e-tape04_emisive" class="vxr-obj-tapestatic01" gltf-model="#tapeEmisive"
+            position="0.993 0.242 -1.062" rotation="0 0 0" scale="0.5 0.5 0.5" visible="false"></a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-tape-emisive-05">
+        <a-entity>
+          <a-entity id="e-tape05_emisive" class="vxr-obj-tapestatic01" gltf-model="#tapeEmisive"
+            position="0.993 0.242 -1.062" rotation="0 0 0" scale="0.5 0.5 0.5" visible="false"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-tape-emisive-02">
+        <a-entity>
+          <a-entity id="e-tape02_emisive" class="vxr-obj-tapestatic02" gltf-model="#tapeEmisive"
+            position="0.994 0.240 -1.058" rotation="0 0 0"
+            scale="0.5 0.5 0.5 " visible="false"></a-entity>
+        </a-entity>
+      </template>
+
+      <template id="vxr-obj-template-tape-emisive-03">
+        <a-entity>
+          <a-entity id="e-tape03_emisive" class="vxr-obj-tapestatic03" gltf-model="#tapeEmisive"
+            position="0.994 0.240 -1.065" rotation="0 0 0" scale="0.5 0.5 0.5" visible="false">
           </a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-controlcard">
         <a-entity>
-          <a-entity id="e-controlcard" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-serumcontrolcard" foo4 gltf-model="#serumcontrolcard"
-            draggable grabbable toggle-physics position="-0.35705 0.30922 -0.40824" rotation="0 0 0" scale="1 1 1"
-            visible="true"></a-entity>
+          <a-entity id="e-controlcard" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-serumcontrolcard" foo4 gltf-model="#serumcontrolcard" draggable grabbable toggle-physics
+            position="-0.35705 0.30922 -0.40824" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
         </a-entity>
       </template>
 
@@ -807,23 +1012,16 @@
             position="0.309 -0.3109 -0.40572" rotation="0 180 0" scale="0.6 0.6 0.6" visible="true"></a-entity>
         </a-entity>
       </template>
-      
+
       <template id="vxr-obj-template-intracath">
         <a-entity>
-          <a-entity id="e-intracath" scale="1.5 1.5 1.4" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-intracath vxr-interact" gltf-model="#intracath" position="0.26639 0.31599 -0.2134" rotation="0.31123650403819875 90 178.4109694219362"
-          draggable grabbable toggle-physics></a-entity>
+          <a-entity id="e-intracath" scale="1.5 1.5 1.4" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-intracath vxr-interact" gltf-model="#intracath" position="0.26639 0.31599 -0.2134"
+            rotation="0.31123650403819875 90 178.4109694219362" draggable grabbable toggle-physics></a-entity>
         </a-entity>
       </template>
+
       
-      <template id="vxr-obj-template-intracath-static">
-        <a-entity>
-          <a-entity id="e-intracath_static" scale="1.5 1.5 1.4" rotation="-45 0 0 "
-          grabbable="maxGrabbers: NaN" 
-          class="vxr-obj-intracath vxr-interact" gltf-model="#intracath" 
-          position="0.997 0.259 -1.053" rotation="0.31123650403819875 90 178.4109694219362"
-          draggable grabbable ></a-entity>
-        </a-entity>
-      </template>
 
       <template id="vxr-obj-template-intracathcap01">
         <a-entity>
@@ -834,10 +1032,31 @@
 
       <template id="vxr-obj-template-intracathcap02">
         <a-entity>
-          <a-entity id="e-intracathcap002" static-body="sphereRadius: NaN" class="vxr-obj-intracathcap02" gltf-model="#intracathcap02"
-            position="0.10738 0.32008 -0.0476" rotation="0 180 0" scale="1 1 1" visible="true" static-body foo2></a-entity>
+          <a-entity id="e-intracathcap002"  class="vxr-obj-intracathcap02"
+            gltf-model="#intracathcap02" position="0.10738 0.5008 -0.0476" rotation="0 180 0" scale="1 1 1"
+            visible="true" dynamic-body draggable grabbable
+            ondragstart="emissiveObjectOn(this)"
+            ondragend="emissiveObjectOff(this)"></a-entity>
         </a-entity>
       </template>
+      
+      <template id="vxr-obj-template-intracathcap02-emisive">
+        <a-entity>
+          <a-entity id="e-intracathcap002_emisive" static-body="sphereRadius: NaN" class="vxr-obj-intracathcap02"
+            gltf-model="#intracathcap02" position="0.896 0.271 -0.060" rotation="0 180 0" scale="1 1 1"
+            visible="true" dynamic-body draggable grabbable></a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-intracathcap02-static">
+        <a-entity>
+          <a-entity id="e-intracathcap002_static" static-body="sphereRadius: NaN" class="vxr-obj-intracathcap02"
+            gltf-model="#intracathcap02" position="0.896 0.271 -0.060" rotation="0 180 0" scale="1 1 1"
+            visible="true" dynamic-body draggable grabbable></a-entity>
+        </a-entity>
+      </template>
+      
+      
 
       <template id="vxr-obj-template-intracathcap03">
         <a-entity>
@@ -849,32 +1068,38 @@
 
       <template id="vxr-obj-template-tapeadult">
         <a-entity>
-          <a-entity id="e-tapeadult" grabbable="maxGrabbers: NaN" class="vxr-obj-tapeadult" gltf-model="#tapeadultdate" position="0.54584 0.30423 -0.094"
-            rotation="0 180 0" scale="1 1 1" visible="true" dynamic-body="mass: 0.0; sphereRadius: NaN" draggable grabbable
-            ondragstart="mass(event)"></a-entity>
+          <a-entity id="e-tapeadult" grabbable="maxGrabbers: NaN" class="vxr-obj-tapeadult" gltf-model="#tapeadultdate"
+            position="0.54584 0.30423 -0.003" rotation="0 180 0" scale="1 1 1" visible="true"
+            dynamic-body="" draggable grabbable ondragstart="mass(event)"></a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-tapeadult-emisive">
+        <a-entity>
+          <a-entity id="e-tapeadult_emisive" class="vxr-obj-tapeadultstatic" gltf-model="#tapeEmisive"
+            position="0.992 0.244 -1.063" rotation="0 0 0" scale="0.5 0.5 0.5" visible="false"></a-entity>
         </a-entity>
       </template>
 
-      <template id="vxr-obj-template-tapeadultstatic">
+      <template id="vxr-obj-template-tapeadult-static">
         <a-entity>
-          <a-entity id="e-tapeadultstatic" class="vxr-obj-tapeadultstatic" gltf-model="#tapeadultdate"
-            position="0.88709 0.33532 -0.56292" rotation="0 0 0" scale="1 1 1" visible="false"></a-entity>
+          <a-entity id="e-tapeadult_static" class="vxr-obj-tapeadultstatic" gltf-model="#tapeadultdate"
+            position="0.992 0.244 -1.063" rotation="0 0 0" scale="0.5 0.5 0.5" visible="false"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-disposablestatic02">
         <a-entity>
-          <a-entity id="e-disposablestatic02" class="vxr-obj-disposablestatic02"
-          gltf-model="#disposablestatic02" position="0.433 0.850 -1.748"
-          rotation="0 0 0" scale="1 1 1" visible="false"></a-entity>
+          <a-entity id="e-disposablestatic02" class="vxr-obj-disposablestatic02" gltf-model="#disposablestatic02"
+            position="0.433 0.850 -1.748" rotation="0 0 0" scale="1 1 1" visible="false"></a-entity>
         </a-entity>
       </template>
 
       <template id="vxr-obj-template-card_yellow">
         <a-entity>
-          <a-entity id="e-card_yellow" rotation="0 0 0"
-            grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" class="vxr-obj-allistweezers vxr-interact"
-            gltf-model="#card_yellow" dynamic-body draggable grabbable toggle-physics position="-0.52658 0.30813 -0.40513">
+          <a-entity id="e-card_yellow" rotation="0 0 0" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
+            class="vxr-obj-allistweezers vxr-interact" gltf-model="#card_yellow" dynamic-body draggable grabbable
+            toggle-physics position="-0.52658 0.30813 -0.40513">
           </a-entity>
         </a-entity>
       </template>
@@ -883,8 +1108,7 @@
         <a-entity>
           <a-entity id="e-Bowl-Medic01" grabbable="maxGrabbers: NaN" class="vxr-obj-Bowl-Medic01 vxr-interact"
             gltf-model="#Bowl_Medic" draggable="" grabbable position="-0.0222 0.30543 0.0188"
-            static-body="shape:mesh; sphereRadius: NaN" scale="1.3 1.1 1.3"
-            rotation="0 0 0">
+            static-body="shape:mesh; sphereRadius: NaN" scale="1.3 1.1 1.3" rotation="0 0 0">
           </a-entity>
         </a-entity>
       </template>
@@ -899,8 +1123,9 @@
 
       <template id="vxr-obj-template-intracathPackage">
         <a-entity>
-          <a-entity id="e-intracathPackage" scale="1.15773 1 1" rotation="0 0 0" class="vxr-obj-intracathPackage vxr-interact"
-            gltf-model="#intracathAnim" position="0.26656 0.31883 -0.21141" visible="true">
+          <a-entity id="e-intracathPackage" scale="1.15773 1 1" rotation="0 0 0"
+            class="vxr-obj-intracathPackage vxr-interact" gltf-model="#intracathAnim"
+            position="0.26656 0.31883 -0.21141" visible="true">
           </a-entity>
         </a-entity>
       </template>
@@ -929,9 +1154,10 @@
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
     <!-- Static Objects -->
 
-    <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-0.12958 0.9067 -0.363"   rotation="0 -90 0"></a-entity>
-    <a-entity id="patient01" gltf-model="#patient" rotation="-6.669228735322783 0.8210485204224697 2.336521888543497" scale="" position="1.22482 1.91048 -0.31067"
-      material="color: brown">
+    <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-0.12958 0.9067 -0.363" rotation="0 -90 0">
+    </a-entity>
+    <a-entity id="patient01" gltf-model="#patient" rotation="-6.669228735322783 0.8210485204224697 2.336521888543497"
+      scale="" position="1.22482 1.91048 -0.31067" material="color: brown">
     </a-entity>
 
     <a-entity id="armario" gltf-model="#Armario" scale="" position="-0.12389 0.915 3" rotation="0 -90 0"
@@ -949,21 +1175,25 @@
     <a-entity id="table_004" gltf-model="#Table_004" scale="" rotation="0 -90 0" position="2.49729 0.91326 -1.83804">
     </a-entity>
 
-    
-    <a-entity id="bedpatient" gltf-model="#hospitalbed" position="1.28659 0.8957 -1.12821" rotation="0 -90 0"></a-entity>
-    <a-box id="" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" visible="false" static-body="sphereRadius: NaN" opacity="0" static-body rotation="" position="0.04312 0.33152 -0.05529" color="red" depth="0.6" height="0.1"
-      width="1.1"></a-box>
-    <a-box id="boxtapes" opacity="0" static-body rotation="0 0 0"
-      position="0.53699 1.78762 -0.42932" color="red" depth="0.33"
-      scale="1 1 1.600" height="0.02" width="0.11"></a-box>
-    <a-box id="boxcontainertoxic" opacity="0" static-body rotation="0 0 0" position="0.29 1.16747 -0.53141" color="red" depth="0.33" height="0.02"
-      width="0.31" foo3></a-box>
 
-    <a-entity id="base" gltf-model="/Models/gltf/Base.gltf" scale="1 1.06 1" position="0.579 0.915 -1.935"
+    <a-entity id="bedpatient" gltf-model="#hospitalbed" position="1.28659 0.8957 -1.12821" rotation="0 -90 0">
+    </a-entity>
+    <a-box id="" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN" visible="false"
+      static-body="sphereRadius: NaN" opacity="0" static-body rotation="" position="0.04312 0.33152 -0.05529"
+      color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+    <a-box id="boxtapes" opacity="0" static-body rotation="0 0 0" position="0.53699 1.78762 -0.42932" color="red"
+      depth="0.33" scale="1 1 1.600" height="0.02" width="0.11"></a-box>
+    <a-box id="boxcontainertoxic" opacity="0" static-body rotation="0 0 0" position="0.29 1.16747 -0.53141" color="red"
+      depth="0.33" height="0.02" width="0.31" foo3></a-box>
+
+    <a-entity id="base" gltf-model="/Models/gltf/Base.gltf" scale="1 1.05 1" position="0.579 0.915 -2.002"
       material="color: brown" rotation=""></a-entity>
 
-    <a-box id="boxTable1" scale="1.2 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
+    <a-box id="boxTable1" scale="1.0 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="-0.119 1.75813 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+      
+      <a-box id="boxBed" scale="0.80 1 3.5" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
+      position="1.291 1.650 -1.127" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
     <!-- Theater Lights -->
     <a-entity background="color: #92f2ff"></a-entity>
@@ -981,25 +1211,16 @@
       <!-- /VIVE CONTROLLERS -->
       <a-entity id="lhand" mixin="touch" input-controls="hand: left" networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right"
+      <a-entity id="rhand" mixin="touch" input-controls="hand: right"
         networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
 
-    <a-sphere id="sphere1" static-body attach-point opacity="0" position="0.89964 1.79244 -0.77085" color="black"
-      radius="0.03"></a-sphere>
-    <a-sphere id="sphere2" static-body attach-point opacity="0" position="0.92743 1.79311 -0.8472" color="black"
-      radius="0.06"></a-sphere>
+    
 
-    <a-sphere id="sphere_e-catheteranim" static-body="sphereRadius: NaN" scale="0.71168 0.71168 0.71168" static-body ondragend="openPackage(this)"
-      opacity="1" position="0.34341 1.85504 -0.41727" attach-point-v2 geometry="radius: 0.03"> </a-sphere>
-
-
-    <a-box id="box1" attach-point-axis opacity="1" static-body
-      rotation="8.133135901882035 -21.810784387245047 -3.2406492892599363" position="0.939 1.785 -0.994"
-      color="red" depth="0.03" height="0.03" width="0.03"></a-box>
-    <a-box id="box2" attach-point-axis opacity="0" static-body rotation="0 0 0" position="0.35703 2.60882 -1.52762"
-      color="red" depth="0.03" height="0.03" width="0.03"></a-box>
+    <a-sphere id="sphere_e-catheteranim" static-body="sphereRadius: NaN" scale="0.71168 0.71168 0.71168" static-body
+      ondragend="openPackage(this)" opacity="1" position="0.34341 1.85504 -0.41727" attach-point-v2
+      geometry="radius: 0.03"> </a-sphere>
 
     <a-entity id="xvr-trashcontainerblack" gltf-model="#trashcontainerblack" position="0.60795 0.91557 -0.57177"
       scale="0.49177 0.49177 0.49177" visible="true"></a-entity>
@@ -1012,18 +1233,83 @@
 
     <a-entity id="patientdates" gltf-model="#Patient_Dates" position="1.22 2.287 -2.38986" rotation="0 -90 0">
     </a-entity>
-    
+
     <a-entity id="Bracelet" scale="0.97056 0.97056 1.02845" gltf-model="#bracelet" position="0.99135 1.71708 -1.23903"
       rotation="0 84.61 0"></a-entity>
 
     <a-entity id="tray" gltf-model="#Tray_SterileCloth_Static" visible="true" position="0.23706 1.8094 -0.21214"
       rotation="0 0 0"></a-entity>
-      
-    <a-entity id="hospitalroom01" gltf-model="#hospitalroom" position="0.14005 0.858 0.47531" scale="1 1 1" rotation="0 -90 0">
+
+    <a-entity id="hospitalroom01" gltf-model="#hospitalroom" position="0.14005 0.858 0.47531" scale="1 1 1"
+      rotation="0 -90 0">
     </a-entity>
 
     <a-box id="boxFloor" scale="4.14767 1 7.15846" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="0.36093 0.85321 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+
+    <a-entity id="arrow01" gltf-model="#arrow" visible="false" position="1.219 2.000 -0.835" rotation="0 0 0"
+      animation-mixer>
+    </a-entity>
+    
+    <a-sphere id="sphere-gloves-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
+    static-body opacity="1" position="-0.588 1.885 -0.171" ondragstart="playAnimation()" attach-point-v2
+    geometry="radius: 0.04"> </a-sphere>
+    
+    <a-sphere id="sphere-gloves-off" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
+    static-body opacity="1" position="0.544 1.580 -0.603" ondragstart="takeOffGloves()" attach-point-v2
+    geometry="radius: 0.04"> </a-sphere>
+    
+    <a-sphere id="sphere_rubber" scale="0.3 0.3 0.3" static-body
+    trigger-animation="entity_id:e-rubber;obj_entity:2" opacity="1" position="0.998 1.723 -1.331"
+    attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    
+    <a-sphere id="sphere_medicalclothes" scale="0.3 0.3 0.3" static-body
+    trigger-animation="entity_id:e-medicalclothe01;obj_entity:2" opacity="1" position="1 1.723 -1.270"
+    attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    
+    
+    
+    <a-sphere id="sphere_tape01" scale="0.3 0.3 0.3" static-body
+    trigger-animation="entity_id:e-tape01;obj_entity:2" opacity="1" position="0.994 1.734 -1.270"
+    attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    
+    <a-sphere id="sphere_tape02" scale="0.3 0.3 0.3" static-body
+    trigger-animation="entity_id:e-tape02;obj_entity:2" opacity="1" position="0.994 1.734 -1.270"
+    attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    
+    <a-sphere id="sphere_tape03" scale="0.3 0.3 0.3" static-body
+    trigger-animation="entity_id:e-tape03;obj_entity:2" opacity="1" position="0.994 1.734 -1.270"
+    attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    
+    <a-sphere id="sphere_tape04" scale="0.3 0.3 0.3" static-body
+    trigger-animation="entity_id:e-tape04;obj_entity:2" opacity="1" position="0.994 1.734 -1.270"
+    attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    
+    <a-sphere id="sphere_tape05" scale="0.3 0.3 0.3" static-body
+    trigger-animation="entity_id:e-tape05;obj_entity:2" opacity="1" position="0.994 1.734 -1.270"
+    attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    
+    <a-sphere id="sphere_tapeadult" scale="0.3 0.3 0.3" static-body
+    trigger-animation="entity_id:e-tapeadult;obj_entity:2" opacity="1" position="0.994 1.734 -1.270"
+    attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    
+    <a-sphere id="sphere_e-intracath" scale="0.3 0.3 0.3" static-body
+    trigger-animation="entity_id:e-intracath;obj_entity:3" opacity="1" position="0.994 1.734 -1.270"
+    attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    
+    <a-sphere id="sphere_bag" scale="0.3 0.3 0.3" static-body
+    trigger-animation="entity_id:e-bag;obj_entity:2" opacity="1" position="0.420 2.612 -1.994"
+    attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    
+    <a-sphere id="sphere_disposable" scale="0.3 0.3 0.3" static-body
+    trigger-animation="entity_id:e-disposable;obj_entity:2" opacity="1" position="0.432 2.305 -1.986"
+    attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+    
+    <a-box id="sphere_e-Clothed_Instruments_Vesical" scale="0.4 0.4 0.4" static-body="sphereRadius: NaN"
+      opacity="0.5"  dynamic-body="mass:0.0; sphereRadius: NaN" visible="false"
+      rotation="" position="0.415 1.897 -1.862" color="red" depth="0.1"ondragstart="triggerDisposableAnimation()"
+      height="0.1" width="0.1"></a-box>
+    
 
   </a-scene>
 
@@ -1116,7 +1402,7 @@
 
     //Called by Networked-Aframe when connected to server
     function onConnect() {
-      
+
     }
   </script>
   <!-- <script src="../../js/Feature-SpawnTemplate.js"></script> -->
