@@ -172,6 +172,10 @@
     "selector": ".vxr-obj-intracathcap01"
   },
   {
+    "template": "vxr-obj-template-blanket_animation",
+    "selector": ".vxr-obj-blanket_animation"
+  },
+  {
     "template": "vxr-obj-template-intracathcap02",
     "selector": ".vxr-obj-intracathcap02"
   },

@@ -451,7 +451,7 @@ if (window.event.relatedTarget.id == "lhand") {
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -4; iterations: 75" networked-scene="
+  <a-scene physics="debug: true; gravity: -4; iterations: 75" networked-scene="
       room: process2;
       adapter: easyrtc;
       audio: true;
@@ -488,6 +488,7 @@ if (window.event.relatedTarget.id == "lhand") {
       <a-asset-item id="heparinseal" src="../../Models/gltf/HeparinSeal.gltf"></a-asset-item>
       <a-asset-item id="intracath" src="../../Models/gltf/Intracath.gltf"></a-asset-item>
       <a-asset-item id="card_yellow" src="../../Models/gltf/Card_Yellow2.gltf"></a-asset-item>
+      <a-asset-item id="blanket_animation" src="assets/blanket_animation.gltf"></a-asset-item>
 
       <a-asset-item id="Armario" src="../HospitalRoomAssets/armario.gltf"></a-asset-item>
       <a-asset-item id="Mesacama" src="../HospitalRoomAssets/mesa_cama.gltf"></a-asset-item>
@@ -1125,6 +1126,15 @@ if (window.event.relatedTarget.id == "lhand") {
         <a-entity>
           <a-entity id="e-intracathPackage" scale="1.15773 1 1" rotation="0 0 0"
             class="vxr-obj-intracathPackage vxr-interact" gltf-model="#intracathAnim"
+            position="0.26656 0.31883 -0.21141" visible="true">
+          </a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-blanket_animation">
+        <a-entity>
+          <a-entity id="e-blanket_animation" scale="1.15773 1 1" rotation="0 0 0"
+            class="vxr-obj-blanket_animation vxr-interact" gltf-model="#blanket_animation"
             position="0.26656 0.31883 -0.21141" visible="true">
           </a-entity>
         </a-entity>
