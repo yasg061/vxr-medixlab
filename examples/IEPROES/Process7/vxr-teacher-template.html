@@ -562,7 +562,7 @@ function takeOffGloves(e) {
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -5; iterations: 75" networked-scene="
+  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -1657,8 +1657,8 @@ function takeOffGloves(e) {
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" movement-controls="speed:0.3" networked="template:#player-template;attachTemplateToLocal:false;" 
-    position="0 0.8 -1.319"
+    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" 
+    position="-0.796 1 -1.897"
       rotation="0 180 0" >
       <a-entity id="camera" camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
@@ -1746,7 +1746,7 @@ function takeOffGloves(e) {
       attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere23" scale="0.3 0.3 0.3" trigger-animation="entity_id:e-Syringe_Guyon;obj_entity:3" static-body
-      opacity="1" position="1.056 2.154 -1.527" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      opacity="1" position="1.056 2.154 -1.486" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere_UmbilicalCordon" scale="0.3 0.3 0.3" static-body
       trigger-animation="entity_id:e-umbilicalCordon;obj_entity:2" opacity="1" position="1.24766 2.35246 -1.63299"
@@ -1774,7 +1774,7 @@ function takeOffGloves(e) {
 
 
       <a-sphere id="sphere-gloves-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
-      static-body opacity="1" position="-0.01623 1.85588 -0.54128" ondragstart="playAnimation()" attach-point-v2
+      static-body opacity="1" position="0.215 1.85588 -0.193" ondragstart="playAnimation()" attach-point-v2
       geometry="radius: 0.04"> </a-sphere>
       
       <a-sphere id="sphere-gloves-off" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"

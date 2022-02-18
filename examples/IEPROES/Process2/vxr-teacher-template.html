@@ -315,8 +315,7 @@
       }
     }
   </script>
-
-
+  
   <script>
     //------------------------------------------------------------------------------------------------------
     //-------------------------------------------Basic functions--------------------------------------------
@@ -452,7 +451,7 @@ if (window.event.relatedTarget.id == "lhand") {
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -4; iterations: 75" networked-scene="
+  <a-scene physics="debug: false; gravity: -4; iterations: 75" networked-scene="
       room: process2;
       adapter: easyrtc;
       audio: true;
@@ -465,7 +464,8 @@ if (window.event.relatedTarget.id == "lhand") {
       <a-asset-item id="table" src="../../Models/gltf/Table.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle2.gltf"></a-asset-item>
       <a-asset-item id="bed" position="1.75217 0.92 1.00408" src="../../Models/gltf/Bed.gltf"></a-asset-item>
-      <a-asset-item id="patient" src="../../Models/gltf/Patient.gltf"></a-asset-item>
+      <!-- <a-asset-item id="patient" src="../../Models/gltf/Patient.gltf"></a-asset-item> -->
+      <a-asset-item id="patient" src="assets/Patient_Process2.gltf"></a-asset-item>
       <a-asset-item id="Tray_SterileCloth_Static" src="../Process7/Assets/Tray_SterileCloth_Static.gltf"></a-asset-item>
       <a-asset-item id="Bowl_Medic" src="../../Models/gltf/Bowl_Medic.gltf"></a-asset-item>
       <a-asset-item id="GlovesBox" src="../Process7/Assets/Gloves_Box.gltf"></a-asset-item>
@@ -1203,15 +1203,15 @@ if (window.event.relatedTarget.id == "lhand") {
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 1.5 -1"
-      rotation="0 180 0" movement-controls="speed:0.3">
+    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="-0.900 1 -2.470"
+      rotation="0 180 0" >
       <a-entity id="camera" camera position="0 1 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" input-controls="hand: left" networked="template:#left-hand-template">
+      <a-entity id="lhand" vive-controls="hand: left;model:false"  mixin="touch" input-controls="hand: left" networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand" mixin="touch" input-controls="hand: right"
+      <a-entity id="rhand" mixin="touch" vive-controls="hand: right;model:false"  input-controls="hand: right"
         networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
