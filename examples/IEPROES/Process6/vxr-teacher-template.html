@@ -660,18 +660,11 @@
       <a-asset-item id="Sofa" src="../HospitalRoomAssets/sofa.gltf"></a-asset-item>
       <a-asset-item id="Table_004" src="../HospitalRoomAssets/Table_004.gltf"></a-asset-item>
       <a-asset-item id="GooseLamp" src="Assets/GoosenekLampMedical.gltf"></a-asset-item>
-
       
-      
-
-
       <a-asset-item id="Bag_Catheter_Joint" src="Assets/Bag_Catheter_Joint.gltf"></a-asset-item>
       <!-- <a-asset-item id="UrinalCatheter_Foley_Static3" src="Assets/UrinalCatheter_Foley_Static3.gltf"></a-asset-item> -->
       <a-asset-item id="UrinalCatheter_Foley_Static3" src="Assets/UrinalCatheter_Foley_White.gltf"></a-asset-item>
-
-
-
-      <!--Animated objects-->
+    <!--Animated objects-->
       <a-asset-item id="UrinaryBag_Anim01" src="Assets/UrinaryBag_Anim01.gltf"></a-asset-item>
       <a-asset-item id="UrinalCatheter_Foley_Anim01" src="UrinaryCatheter_Animation2.gltf"></a-asset-item>
 
@@ -1629,8 +1622,9 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-      <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.6 0"
-      rotation="0 180 0" movement-controls="speed:0.3">
+      <a-entity id="player" 
+      networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -1.3"
+      rotation="0 180 0" >
       <a-entity camera position="0 1.7 0" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>

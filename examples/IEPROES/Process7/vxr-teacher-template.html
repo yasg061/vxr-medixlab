@@ -136,6 +136,17 @@
             } else if (tapesCount >= 2 && e.detail.body.el.id == "e-DateTape") {
               document.getElementById("sphere20").setAttribute("static-body", "")
               document.getElementById("sphere_e-patientrest").setAttribute("static-body", "")
+              document.getElementById("e-RubberCloth_static").setAttribute("dynamic-body", "mass:0.0")
+                            
+              var delayInMilliseconds = 4000; //1 second
+              setTimeout(function() {
+              
+              console.log("----------------------------------------------------------------")
+              console.log("---------------------------- catheter hided --------------------")
+              console.log("----------------------------------------------------------------")
+                //document.getElementById("e-UrinaryCatheter_static_final_position").setAttribute("visible", "true")
+              
+              }, delayInMilliseconds);
             } else { return }
             let self = document.getElementById(e.detail.body.el.id);
             let obj = document.getElementById(e.detail.body.el.id + "_static")
@@ -482,6 +493,35 @@
   </script>
 
   <script>
+  
+  function playAnimation(e) {
+
+
+  console.log("event", window.event)
+  if (window.event.relatedTarget.id == "lhand") {
+    let hand = document.getElementById("leftHand").getObject3D("mesh").getObjectByName("handL2320").material.color = new THREE.Color(0xe38666);
+    console.log("hand: ", hand)
+  } else if (window.event.relatedTarget.id == "rhand") {
+    let hand = document.getElementById("rightHand").getObject3D("mesh").getObjectByName("handR2320").material.color = new THREE.Color(0xe38666);
+    console.log("right hand: ", hand)
+
+  }
+
+
+
+}
+
+function takeOffGloves(e) {
+      
+      if (window.event.relatedTarget.id == "lhand") {
+          let hand = document.getElementById("leftHand").getObject3D("mesh").getObjectByName("handL2320").material.color = new THREE.Color(0xffffff);
+          console.log("hand: ", hand)
+        } else if (window.event.relatedTarget.id == "rhand") {
+          let hand = document.getElementById("rightHand").getObject3D("mesh").getObjectByName("handR2320").material.color = new THREE.Color(0xffffff);
+          console.log("right hand: ", hand)
+        }
+      
+    }
 
     function triggerAnimation(element) {
       document.getElementById("animationbed01").setAttribute("animation-mixer", "clip:BedAnimationUp;loop:once;repetitions:once;clampWhenFinished:true")
@@ -790,14 +830,14 @@
       <!-- Right Hand -->
       <template id="right-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#right-hand"></a-entity>
+          <a-entity id="rightHand" scale="0.8 0.8 0.8" gltf-model="#right-hand"></a-entity>
         </a-entity>
       </template>
 
       <!-- Left Hand -->
       <template id="left-hand-template">
         <a-entity>
-          <a-entity scale="0.8 0.8 0.8" gltf-model="#left-hand">
+          <a-entity id="leftHand" scale="0.8 0.8 0.8" gltf-model="#left-hand">
 
           </a-entity>
         </a-entity>
@@ -1083,7 +1123,7 @@
         <a-entity>
           <a-entity id="e-RubberCloth_static" rotation="7.672 -90.631 -60.311" position="1.228 0.563 -1.383"
             grabbable="maxGrabbers: NaN" class="vxr-obj-RubberCloth_static vxr-interact"
-            gltf-model="#RubberCloth_Static" draggable grabbable visible="false"></a-entity>
+            gltf-model="#RubberCloth_Static" draggable grabbable visible="false" ondragstart="genericSetMass(this)"></a-entity>
         </a-entity>
       </template>
 
@@ -1110,8 +1150,8 @@
       <template id="vxr-obj-template-Bowl-Medic">
         <a-entity>
           <a-entity id="e-Bowl-Medic" grabbable="maxGrabbers: NaN" visible="true"
-            class="vxr-obj-Bowl-Medic vxr-interact" gltf-model="#Bowl_Medic" draggable="" grabbable
-            position="-0.45225 0.29028 -0.01288" static-body="shape:mesh; sphereRadius: NaN" scale="0.7 0.7 0.7"
+            class="vxr-obj-Bowl-Medic vxr-interact" gltf-model="#Bowl_Medic" draggable=""
+            grabbable position="-0.452 0.288 -0.032" dynamic-body scale="0.7 0.7 0.7"
             rotation="0 0 0">
           </a-entity>
         </a-entity>
@@ -1217,9 +1257,11 @@
 
       <template id="vxr-obj-template-SterileField_Folded">
         <a-entity>
-          <a-entity id="e-SterileField_Folded" visible="false" scale="1 1 1" position="0.33995 0.26008 -1.58706"
+          <a-entity id="e-SterileField_Folded"
+            visible="false" scale="1 1 1" position="0.33995 0.26008 -1.58706"
             rotation="1.3573638671924976e-7 1.80415912167187e-10 0.000004583634547507535"
-            ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)" grabbable="maxGrabbers: NaN"
+            ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
+            grabbable="maxGrabbers: NaN"
             class="vxr-obj-alcoholgel vxr-interact" gltf-model="#SterileField_Folded"
             dynamic-body="mass:0.0; sphereRadius: NaN" draggable grabbable>
           </a-entity>
@@ -1300,6 +1342,16 @@
           </a-entity>
         </a-entity>
       </template>
+      
+      <template id="vxr-obj-template-UrinaryCatheter_static_final_position">
+        <a-entity>
+          <a-entity id="e-UrinaryCatheter_static_final_position" visible="false"
+          rotation="0 -90.000 90.000" grabbable="maxGrabbers: NaN" animation-mixer="loop:once;repetitions:0; clampWhenFinished:true"
+            class="vxr-obj-alcoholgel vxr-interact" gltf-model="#NasogastricTubeAnim" draggable grabbable
+            position="1.213 0.836 -1.847">
+          </a-entity>
+        </a-entity>
+      </template>
 
 
       <template id="vxr-obj-template-tstSyringe">
@@ -1361,7 +1413,7 @@
           <a-entity id="e-Syringe_Guyon" ondragstart="objectOnHand(this)" ondragend="OffobjectOnHand(this)"
             grabbable="maxGrabbers: NaN" visible="true" rotation="0 0 0"
             class="vxr-obj-Syringe_Guyon vxr-interact" gltf-model="#SyringeGuyon" draggable grabbable
-            position="-0.52535 0.29924 -0.3311">
+            position="-0.541 0.290 -0.331" scale="1.5 1.5 1.5">
           </a-entity>
         </a-entity>
       </template>
@@ -1605,16 +1657,17 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.6 -2"
-      rotation="0 180 0" movement-controls="speed:0.3">
+    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" 
+    position="-0.796 1 -1.897"
+      rotation="0 180 0" >
       <a-entity id="camera" camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" hand-attach vive-controls="hand: left" input-controls="hand: left"
+      <a-entity id="lhand" mixin="touch" hand-attach vive-controls="hand: left;model:false" input-controls="hand: left"
         networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand"  mixin="touch" hand-attach vive-controls="hand: right" input-controls="hand: right"
+      <a-entity id="rhand"  mixin="touch" hand-attach vive-controls="hand: right;model:false" input-controls="hand: right"
         networked="template:#right-hand-template">
 
         <a-entity id="e-Syringe_Guyon_static" scale="1 1 1" position="-0.05 0.007 0.008" rotation="31.259 45.403 7.742"
@@ -1693,7 +1746,7 @@
       attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere23" scale="0.3 0.3 0.3" trigger-animation="entity_id:e-Syringe_Guyon;obj_entity:3" static-body
-      opacity="1" position="1.056 2.154 -1.527" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      opacity="1" position="1.056 2.154 -1.486" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
     <a-sphere id="sphere_UmbilicalCordon" scale="0.3 0.3 0.3" static-body
       trigger-animation="entity_id:e-umbilicalCordon;obj_entity:2" opacity="1" position="1.24766 2.35246 -1.63299"
@@ -1720,6 +1773,14 @@
       position="0.76641 1.43652 -1.54781" attach-point-v2 geometry="radius: 0.03"> </a-sphere>
 
 
+      <a-sphere id="sphere-gloves-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
+      static-body opacity="1" position="0.215 1.85588 -0.193" ondragstart="playAnimation()" attach-point-v2
+      geometry="radius: 0.04"> </a-sphere>
+      
+      <a-sphere id="sphere-gloves-off" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
+      static-body opacity="1" position="0.544 1.580 -0.603" ondragstart="takeOffGloves()" attach-point-v2
+      geometry="radius: 0.04"> </a-sphere>
+      
     <!-- <a-sphere id="sphere_e-restbed" scale="1 1 1" static-body ondragend="triggerAnimation(this)"
       opacity="1" position="0.76641 1.43652 -1.54781" attach-point-v2 geometry="radius: 0.03"> </a-sphere> -->
 
