@@ -1,8 +1,8 @@
 {
-  "realm": "Medixlab",
-  "auth-server-url": "https://auth.medixlab.vxr.space/auth/",
-  "ssl-required": "external",
-  "resource": "medixlab",
-  "public-client": true,
-  "confidential-port": 0
-}
+    "realm": "Medixlab",
+    "auth-server-url": "http://localhost:8080/auth/",
+    "ssl-required": "external",
+    "resource": "medixlab",
+    "public-client": true,
+    "confidential-port": 0
+  }
