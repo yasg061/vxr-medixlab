@@ -258,6 +258,17 @@
       obj.setAttribute("dynamic-body", "")
       self.remove()
     }
+    
+    function blanketOut(element) {
+      console.log("fire")
+      let obj = document.getElementById("e-blanket_animation")
+      obj.setAttribute("animation-mixer", "clip:OpenBlanket;loop:once;repetitions:once;clampWhenFinished:true")
+    }
+    
+    function blanketUp(element) {
+      let obj = document.getElementById("e-blanket_animation")
+      obj.setAttribute("animation-mixer", "clip:ClosedBlanket;loop:once;repetitions:once;clampWhenFinished:true")
+    }
 
   </script>
 
@@ -750,6 +761,8 @@
       <a-asset-item id="Aposito2" src="Assets/apositoPatient2.gltf"></a-asset-item>
       <a-asset-item id="Aposito2_emisive" src="Assets/apositoPatient2_emisive.gltf"></a-asset-item>
       <a-asset-item id="Aposito2_static" src="Assets/apositoPatient2_static.gltf"></a-asset-item>
+
+      <a-asset-item id="blanket_animation" src="assets/blanket_animation.gltf"></a-asset-item>
 
       <canvas id="cam2"></canvas>
 
@@ -1432,6 +1445,15 @@
         </a-entity>
       </a-entity>
     </template>
+    
+    <template id="vxr-obj-template-blanket_animation">
+      <a-entity>
+        <a-entity id="e-blanket_animation" scale="1 1 1" rotation="0 0 0"
+          class="vxr-obj-blanket_animation vxr-interact" gltf-model="#blanket_animation"
+          position="1.376 0.044 -1.111" visible="true">
+        </a-entity>
+      </a-entity>
+    </template>
 
     </a-assets>
 
@@ -1605,6 +1627,16 @@
       <a-sphere id="sphere-gloves-off" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
       static-body opacity="1" position="0.544 1.580 -0.603" ondragstart="takeOffGloves()" attach-point-v2
       geometry="radius: 0.04"> </a-sphere>
+      
+      <a-box id="sphere_e-BlanketOut" scale="0.4 0.4 0.4" static-body="sphereRadius: NaN"
+      opacity="0.5"  dynamic-body="mass:0.0; sphereRadius: NaN" visible="true"
+      rotation="" position="1.264 1.844 -1.612" color="red" depth="0.1"ondragstart="blanketOut(this)"
+      height="0.1" width="0.1"></a-box>
+      
+      <a-box id="sphere_e-BlanketUp" scale="0.4 0.4 0.4" static-body="sphereRadius: NaN"
+      opacity="0.5"  dynamic-body="mass:0.0; sphereRadius: NaN" visible="true"
+      rotation="" position="1.264 1.853 -1.052" color="red" depth="0.1"ondragstart="blanketUp(this)"
+      height="0.1" width="0.1"></a-box>
 
 
 

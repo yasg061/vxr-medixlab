@@ -194,5 +194,9 @@
   {
     "template": "vxr-obj-template-Aposito",
     "selector": ".e-Aposito"
+  },
+  {
+    "template": "vxr-obj-template-blanket_animation",
+    "selector": ".vxr-obj-blanket_animation"
   }
 ]

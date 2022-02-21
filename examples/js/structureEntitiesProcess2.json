@@ -186,11 +186,7 @@
   {
     "template": "vxr-obj-template-tapeadult",
     "selector": ".vxr-obj-tapeadult"
-  },
-  {
-    "template": "vxr-obj-template-tapeadultstatic",
-    "selector": ".vxr-obj-tapeadultstatic"
-  },
+  },  
   {
     "template": "vxr-obj-template-disposablestatic02",
     "selector": ".vxr-obj-disposablestatic02"
@@ -206,6 +202,18 @@
   {
     "template": "vxr-obj-template-glovesbox",
     "selector": ".vxr-obj-glovesbox"
+  },
+  {
+    "template": "vxr-obj-template-Table_005",
+    "selector": ".vxr-obj-Table_005"
+  },
+  {
+    "template": "vxr-obj-template-Medixlab_Pen",
+    "selector": ".vxr-obj-Medixlab_Pen"
+  },
+  {
+    "template": "vxr-obj-template-Medixlab_Clipboard",
+    "selector": ".vxr-obj-Medixlab_Clipboard"
   },
   {
     "template": "vxr-obj-template-intracathPackage",

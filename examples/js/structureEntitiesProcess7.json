@@ -190,8 +190,9 @@
     {
       "template": "vxr-obj-template-umbilicalCordon_static",
       "selector": ".vxr-obj-umbilicalCordon_static"
+    },
+    {
+      "template": "vxr-obj-template-blanket_animation",
+      "selector": ".vxr-obj-blanket_animation"
     }
-
-    
-    
   ]
