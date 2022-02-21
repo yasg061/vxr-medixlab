@@ -36,6 +36,13 @@ setTimeout(function () {
   let panel7 = document.getElementById("panel7");
   let panel8 = document.getElementById("panel8");
   let panel9 = document.getElementById("panel9");
+  let bloqueo1 = document.getElementById("bloqueo1");
+  let bloqueo2 = document.getElementById("bloqueo2");
+  let bloqueo3 = document.getElementById("bloqueo3");
+  let bloqueo4 = document.getElementById("bloqueo4");
+  let bloqueo5 = document.getElementById("bloqueo5");
+  let bloqueo6 = document.getElementById("bloqueo6");
+  let bloqueo7 = document.getElementById("bloqueo7");
 
   if (keycloak.tokenParsed.semestre === "1") {
     panel2.parentNode.removeChild(panel2);
@@ -55,6 +62,14 @@ setTimeout(function () {
     process6.parentNode.removeChild(process6);
     process7.parentNode.removeChild(process7);
     process8.parentNode.removeChild(process8);
+
+    bloqueo1.parentNode.removeChild(bloqueo1);
+    bloqueo2.parentNode.removeChild(bloqueo2);
+    bloqueo3.parentNode.removeChild(bloqueo3);
+    bloqueo4.parentNode.removeChild(bloqueo4);
+    bloqueo5.parentNode.removeChild(bloqueo5);
+    bloqueo6.parentNode.removeChild(bloqueo6);
+    bloqueo7.parentNode.removeChild(bloqueo7);
 
     let noProcesses = document.createElement("a-text");
     noProcesses.setAttribute("position", "-1.7 1.5 -3");
@@ -78,9 +93,6 @@ setTimeout(function () {
     process6.parentNode.removeChild(process6);
     process7.parentNode.removeChild(process7);
     process8.parentNode.removeChild(process8);
-
-    /*panel1.setAttribute("height", "2.35");
-    panel1.setAttribute("position", "-0.05 1.85 -3");*/
   }
 
   if (keycloak.tokenParsed.semestre === "3") {
@@ -91,6 +103,11 @@ setTimeout(function () {
     process3.parentNode.removeChild(process3);
     process4.parentNode.removeChild(process4);
     process8.parentNode.removeChild(process8);
+
+    bloqueo1.parentNode.removeChild(bloqueo1);
+    bloqueo4.parentNode.removeChild(bloqueo4);
+    bloqueo5.parentNode.removeChild(bloqueo5);
+    bloqueo6.parentNode.removeChild(bloqueo6);
   }
 
   if (keycloak.tokenParsed.semestre === "4") {
@@ -101,18 +118,54 @@ setTimeout(function () {
     process3.parentNode.removeChild(process3);
     process4.parentNode.removeChild(process4);
     process8.parentNode.removeChild(process8);
+    bloqueo1.parentNode.removeChild(bloqueo1);
+    bloqueo4.parentNode.removeChild(bloqueo4);
+    bloqueo5.parentNode.removeChild(bloqueo5);
+    bloqueo6.parentNode.removeChild(bloqueo6);
   }
 
   if (keycloak.tokenParsed.semestre === "5") {
     panel9.parentNode.removeChild(panel9);
 
     process8.parentNode.removeChild(process8);
+    bloqueo1.parentNode.removeChild(bloqueo1);
+    bloqueo2.parentNode.removeChild(bloqueo2);
+    bloqueo3.parentNode.removeChild(bloqueo3);
+    bloqueo4.parentNode.removeChild(bloqueo4);
+    bloqueo5.parentNode.removeChild(bloqueo5);
+    bloqueo6.parentNode.removeChild(bloqueo6);
   }
 
   if (keycloak.tokenParsed.semestre === "6") {
     panel9.parentNode.removeChild(panel9);
 
     process8.parentNode.removeChild(process8);
+    bloqueo1.parentNode.removeChild(bloqueo1);
+    bloqueo2.parentNode.removeChild(bloqueo2);
+    bloqueo3.parentNode.removeChild(bloqueo3);
+    bloqueo4.parentNode.removeChild(bloqueo4);
+    bloqueo5.parentNode.removeChild(bloqueo5);
+    bloqueo6.parentNode.removeChild(bloqueo6);
+  }
+
+  if (keycloak.tokenParsed.semestre >= "7") {
+    bloqueo1.parentNode.removeChild(bloqueo1);
+    bloqueo2.parentNode.removeChild(bloqueo2);
+    bloqueo3.parentNode.removeChild(bloqueo3);
+    bloqueo4.parentNode.removeChild(bloqueo4);
+    bloqueo5.parentNode.removeChild(bloqueo5);
+    bloqueo6.parentNode.removeChild(bloqueo6);
+    bloqueo7.parentNode.removeChild(bloqueo7);
+  }
+
+  if (keycloak.tokenParsed.semestre == "10") {
+    bloqueo1.parentNode.removeChild(bloqueo1);
+    bloqueo2.parentNode.removeChild(bloqueo2);
+    bloqueo3.parentNode.removeChild(bloqueo3);
+    bloqueo4.parentNode.removeChild(bloqueo4);
+    bloqueo5.parentNode.removeChild(bloqueo5);
+    bloqueo6.parentNode.removeChild(bloqueo6);
+    bloqueo7.parentNode.removeChild(bloqueo7);
   }
 
   logoutButton.addEventListener("mouseenter", function () {

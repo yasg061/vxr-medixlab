@@ -28,8 +28,9 @@
 <body>
     <a-scene environment>
         <a-assets>
-            <a-asset-item id="Lobby" src="assets/lobby/Lobby.gltf"></a-asset-item>
+            <a-asset-item id="Lobby" src="assets/lobby/Lobby2.gltf"></a-asset-item>
             <img id="backgroundLobby" src="../../img/backgroundLobby.png"></img>
+            <img id="backgroundLobby2" src="../../img/backgroundLobby2.png"></img>
         </a-assets>
 
         <a-camera>
@@ -40,6 +41,8 @@
         <a-light color="white" intensity="0.7" position="0 4 0"></a-light>
         <a-entity gltf-model="#Lobby" position="0 0.395 0" rotation="179.9998479605043 0 179.9998479605043"></a-entity>
 
+        <a-curvedimage src="#backgroundLobby2" height="3.0" radius="5.7" theta-length="170" tetha-start="22.100"
+        rotation="0 95 0" scale="0.8 1.294 0.8" position="-0.132 1.832 -0.140"></a-curvedimage>
     </a-scene>
 
     <script src="../../js/keycloak-script.js"></script>
