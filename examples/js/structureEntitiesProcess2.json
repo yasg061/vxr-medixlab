@@ -186,11 +186,7 @@
   {
     "template": "vxr-obj-template-tapeadult",
     "selector": ".vxr-obj-tapeadult"
-  },
-  {
-    "template": "vxr-obj-template-tapeadultstatic",
-    "selector": ".vxr-obj-tapeadultstatic"
-  },
+  },  
   {
     "template": "vxr-obj-template-disposablestatic02",
     "selector": ".vxr-obj-disposablestatic02"

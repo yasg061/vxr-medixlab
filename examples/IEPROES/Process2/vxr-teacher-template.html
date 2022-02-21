@@ -304,6 +304,17 @@
 
       }, delayInMilliseconds);
     }
+    
+    
+    function blanketOut(element) {
+      let obj = document.getElementById("e-blanket_animation")
+      obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+    }
+    
+    function blanketUp(element) {
+      let obj = document.getElementById("e-blanket_animation")
+      obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+    }
 
   </script>
   <script>
@@ -468,7 +479,8 @@ if (window.event.relatedTarget.id == "lhand") {
       <a-asset-item id="patient" src="assets/Patient_Process2.gltf"></a-asset-item>
       <a-asset-item id="Tray_SterileCloth_Static" src="../Process7/Assets/Tray_SterileCloth_Static.gltf"></a-asset-item>
       <a-asset-item id="Bowl_Medic" src="../../Models/gltf/Bowl_Medic.gltf"></a-asset-item>
-      <a-asset-item id="GlovesBox" src="../Process7/Assets/Gloves_Box.gltf"></a-asset-item>
+      <!-- <a-asset-item id="GlovesBox" src="../Process7/Assets/Gloves_Box.gltf"></a-asset-item> -->
+      <a-asset-item id="GlovesBox" src="assets/Gloves_Anim.gltf"></a-asset-item>
       <a-asset-item id="Patient_Dates" src="../../Models/gltf/Patient_Dates02.gltf"></a-asset-item>
       <a-asset-item id="bracelet" src="../../Models/gltf/bracelet02.gltf"></a-asset-item>
       <a-asset-item id="intracathAnim" src="../../Models/gltf/intracathPackageAnimation.gltf"></a-asset-item>
@@ -487,7 +499,8 @@ if (window.event.relatedTarget.id == "lhand") {
       <a-asset-item id="alcoholgel" src="../../Models/gltf/AlcoholGel.gltf"></a-asset-item>
       <a-asset-item id="heparinseal" src="../../Models/gltf/HeparinSeal.gltf"></a-asset-item>
       <a-asset-item id="intracath" src="../../Models/gltf/Intracath.gltf"></a-asset-item>
-      <a-asset-item id="card_yellow" src="../../Models/gltf/Card_Yellow2.gltf"></a-asset-item>
+      <!-- <a-asset-item id="card_yellow" src="../../Models/gltf/Card_Yellow2.gltf"></a-asset-item> -->
+      <a-asset-item id="card_yellow" src="assets/Card_Yellow2.gltf"></a-asset-item>
       <a-asset-item id="blanket_animation" src="assets/blanket_animation.gltf"></a-asset-item>
 
       <a-asset-item id="Armario" src="../HospitalRoomAssets/armario.gltf"></a-asset-item>
@@ -1018,7 +1031,7 @@ if (window.event.relatedTarget.id == "lhand") {
         <a-entity>
           <a-entity id="e-intracath" scale="1.5 1.5 1.4" grabbable="maxGrabbers: NaN" dynamic-body="sphereRadius: NaN"
             class="vxr-obj-intracath vxr-interact" gltf-model="#intracath" position="0.26639 0.31599 -0.2134"
-            rotation="0.31123650403819875 90 178.4109694219362" draggable grabbable toggle-physics></a-entity>
+            rotation="0.31123650403819875 -90 178.4109694219362" draggable grabbable toggle-physics></a-entity>
         </a-entity>
       </template>
 
@@ -1117,7 +1130,7 @@ if (window.event.relatedTarget.id == "lhand") {
       <template id="vxr-obj-template-glovesbox">
         <a-entity>
           <a-entity id="e-glovesbox" grabbable="maxGrabbers: NaN" class="vxr-obj-glovesbox vxr-interact"
-            gltf-model="#GlovesBox" draggable grabbable position="-0.55095 0.29172 0.02588" scale="0.6 0.6 0.6">
+            gltf-model="#GlovesBox" draggable grabbable position="-0.129 0.305 -0.196" rotation="0 180.000 0" scale="0.6 0.6 0.6">
           </a-entity>
         </a-entity>
       </template>
@@ -1133,9 +1146,9 @@ if (window.event.relatedTarget.id == "lhand") {
       
       <template id="vxr-obj-template-blanket_animation">
         <a-entity>
-          <a-entity id="e-blanket_animation" scale="1.15773 1 1" rotation="0 0 0"
+          <a-entity id="e-blanket_animation" scale="1 1 1" rotation="0 0 0"
             class="vxr-obj-blanket_animation vxr-interact" gltf-model="#blanket_animation"
-            position="0.26656 0.31883 -0.21141" visible="true">
+            position="1.279 0.233 -1.111" visible="true">
           </a-entity>
         </a-entity>
       </template>
@@ -1262,7 +1275,7 @@ if (window.event.relatedTarget.id == "lhand") {
     </a-entity>
     
     <a-sphere id="sphere-gloves-animation" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
-    static-body opacity="1" position="-0.588 1.885 -0.171" ondragstart="playAnimation()" attach-point-v2
+    static-body opacity="1" position="-0.109 1.885 -0.383" ondragstart="playAnimation()" attach-point-v2
     geometry="radius: 0.04"> </a-sphere>
     
     <a-sphere id="sphere-gloves-off" visible="true" scale="0.5 0.5 0.5" static-body="sphereRadius: NaN"
@@ -1318,6 +1331,16 @@ if (window.event.relatedTarget.id == "lhand") {
     <a-box id="sphere_e-Clothed_Instruments_Vesical" scale="0.4 0.4 0.4" static-body="sphereRadius: NaN"
       opacity="0.5"  dynamic-body="mass:0.0; sphereRadius: NaN" visible="false"
       rotation="" position="0.415 1.897 -1.862" color="red" depth="0.1"ondragstart="triggerDisposableAnimation()"
+      height="0.1" width="0.1"></a-box>
+      
+      <a-box id="sphere_e-BlanketOut" scale="0.4 0.4 0.4" static-body="sphereRadius: NaN"
+      opacity="0.5"  dynamic-body="mass:0.0; sphereRadius: NaN" visible="true"
+      rotation="" position="1.264 1.966 -1.7" color="red" depth="0.1"ondragstart="blanketOut(this)"
+      height="0.1" width="0.1"></a-box>
+      
+      <a-box id="sphere_e-BlanketUp" scale="0.4 0.4 0.4" static-body="sphereRadius: NaN"
+      opacity="0.5"  dynamic-body="mass:0.0; sphereRadius: NaN" visible="true"
+      rotation="" position="1.264 2.000 -1.052" color="red" depth="0.1"ondragstart="blanketUp(this)"
       height="0.1" width="0.1"></a-box>
     
 
