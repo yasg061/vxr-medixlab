@@ -204,6 +204,18 @@
     "selector": ".vxr-obj-glovesbox"
   },
   {
+    "template": "vxr-obj-template-Table_005",
+    "selector": ".vxr-obj-Table_005"
+  },
+  {
+    "template": "vxr-obj-template-Medixlab_Pen",
+    "selector": ".vxr-obj-Medixlab_Pen"
+  },
+  {
+    "template": "vxr-obj-template-Medixlab_Clipboard",
+    "selector": ".vxr-obj-Medixlab_Clipboard"
+  },
+  {
     "template": "vxr-obj-template-intracathPackage",
     "selector": ".vxr-obj-intracathPackage"
   }

@@ -491,13 +491,14 @@
     }
     
     function blanketOut(element) {
+      console.log("fire")
       let obj = document.getElementById("e-blanket_animation")
-      obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+      obj.setAttribute("animation-mixer", "clip:OpenBlanket;loop:once;repetitions:once;clampWhenFinished:true")
     }
     
     function blanketUp(element) {
       let obj = document.getElementById("e-blanket_animation")
-      obj.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+      obj.setAttribute("animation-mixer", "clip:ClosedBlanket;loop:once;repetitions:once;clampWhenFinished:true")
     }
 
   </script>
