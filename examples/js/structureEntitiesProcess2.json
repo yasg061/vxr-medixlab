@@ -204,8 +204,8 @@
     "selector": ".vxr-obj-glovesbox"
   },
   {
-    "template": "vxr-obj-template-Table_005",
-    "selector": ".vxr-obj-Table_005"
+    "template": "vxr-obj-template-aux-table",
+    "selector": ".vxr-obj-aux-table"
   },
   {
     "template": "vxr-obj-template-Medixlab_Pen",
@@ -214,6 +214,22 @@
   {
     "template": "vxr-obj-template-Medixlab_Clipboard",
     "selector": ".vxr-obj-Medixlab_Clipboard"
+  },
+  {
+    "template": "vxr-obj-template-micropore-base",
+    "selector": ".vxr-obj-micropore-base"
+  }, 
+  {
+    "template": "vxr-obj-template-micropore",
+    "selector": ".vxr-obj-micropore"
+  },
+  {
+    "template": "vxr-obj-template-micropore-emisive",
+    "selector": ".vxr-obj-micropore"
+  },
+  {
+    "template": "vxr-obj-template-micropore-static",
+    "selector": ".vxr-obj-micropore"
   },
   {
     "template": "vxr-obj-template-intracathPackage",
