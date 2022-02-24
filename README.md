@@ -17,10 +17,17 @@ git clone git@github.com:VertexStudio/vxr-medixlab.git
 git lfs pull
 ```
 
-* Start Hasura and Keycloak locally.
+* Login to ACR (Azure Container Registry) using a User with enough permission to pull the API image.
+```bash
+docker login -u userhere -p passwordhere vertexstudio.azurecr.io
+```
+
+* Start PostgreSQL (http://localhost:5432), the API (http://localhost:8000) and Keycloak (http://localhost:8080) locally.
 ```bash
 mv .env.example .env
-docker-compose up -d
+docker-compose -f docker-compose.dev.yaml up -d
+# NOTE: If you want to stop run and clean everything
+docker-compose -f docker-compose.dev.yaml down --volumes
 ```
 
 * Install dependencies and run.
