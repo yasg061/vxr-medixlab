@@ -12,6 +12,10 @@
     "template": "vxr-obj-template-rubber",
     "selector": ".vxr-obj-rubber"
   },
+  {
+    "template": "vxr-obj-template-rubber-emisive",
+    "selector": ".vxr-obj-rubber-emisive"
+  },
     {
     "template": "vxr-obj-template-medicaltape",
     "selector": ".vxr-obj-medicaltape"
@@ -57,6 +61,10 @@
     "selector": ".vxr-obj-intracath"
   },
   {
+    "template": "vxr-obj-template-intracath-emisive",
+    "selector": ".vxr-obj-intracath-emisive"
+  },
+  {
     "template": "vxr-obj-template-intracath-piece-1",
     "selector": ".vxr-obj-intracath-piece-1"
   },
@@ -69,6 +77,10 @@
     "selector": ".vxr-obj-MedicalClothe"
   },
   {
+    "template": "vxr-obj-template-MedicalClothe-emisive",
+    "selector": ".vxr-obj-MedicalClothe-emisive"
+  },
+  {
     "template": "vxr-obj-template-Bowl-Medic",
     "selector": ".vxr-obj-template-Bowl-Medic"
   },
@@ -77,24 +89,48 @@
     "selector": ".vxr-obj-Tape-Normal"
   },
   {
+    "template": "vxr-obj-template-Tape-Normal-emisive",
+    "selector": ".vxr-obj-Tape-Normal-emisive"
+  },
+  {
     "template": "vxr-obj-template-Tape-Normal1",
     "selector": ".vxr-obj-Tape-Normal1"
+  },
+  {
+    "template": "vxr-obj-template-Tape-Normal1-emisive",
+    "selector": ".vxr-obj-Tape-Normal1-emisive"
   },
   {
     "template": "vxr-obj-template-Tape-Normal2",
     "selector": ".vxr-obj-Tape-Normal2"
   },
   {
+    "template": "vxr-obj-template-Tape-Normal2-emisive",
+    "selector": ".vxr-obj-Tape-Normal2-emisive"
+  },
+  {
     "template": "vxr-obj-template-Tape-Normal3",
     "selector": ".vxr-obj-Tape-Normal3"
+  },
+  {
+    "template": "vxr-obj-template-Tape-Normal3-emisive",
+    "selector": ".vxr-obj-Tape-emisive"
   },
   {
     "template": "vxr-obj-template-Tape-Bow",
     "selector": ".vxr-obj-Tape-Bow"
   },
   {
+    "template": "vxr-obj-template-Tape-Bow-emisive",
+    "selector": ".vxr-obj-Tape-Bow-emisive"
+  },
+  {
     "template": "vxr-obj-template-Tape-Butterfly",
     "selector": ".vxr-obj-Tape-Butterfly"
+  },
+  {
+    "template": "vxr-obj-template-Tape-Butterfly-emisive",
+    "selector": ".vxr-obj-Tape-Butterfly-emisive"
   },
   {
     "template": "vxr-obj-template-ControlCard_Neonatal",
@@ -119,6 +155,18 @@
   {
     "template": "vxr-obj-template-heparinseal",
     "selector": ".vxr-obj-heparinseal"
+  },
+  {
+    "template": "vxr-obj-template-heparinseal-emisive",
+    "selector": ".vxr-obj-heparinseal-emisive"
+  },
+  {
+    "template": "vxr-obj-template-Gloves_Steril",
+    "selector": ".vxr-obj-heparinseal-Gloves_Steril"
+  },
+  {
+    "template": "vxr-obj-template-dripbag",
+    "selector": ".vxr-obj-heparinseal-dripbag"
   },
   {
     "template": "vxr-obj-template-heparinseal-box",
