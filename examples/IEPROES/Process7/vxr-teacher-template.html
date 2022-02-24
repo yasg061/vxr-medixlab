@@ -497,6 +497,20 @@
       self.remove()
     }
     
+    function openPackage1(element) {
+      let self = document.getElementById(element.id)
+      document.getElementById("e-Syringe_GuyonPackage-1").setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+      
+      self.remove()
+    }
+    
+    function openPackage2(element) {
+      let self = document.getElementById(element.id)
+      document.getElementById("e-Syringe_GuyonPackage-2").setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+      
+      self.remove()
+    }
+    
     // function blanketOut(element) {
     //   console.log("fire")
     //   let obj = document.getElementById("e-blanket_animation")

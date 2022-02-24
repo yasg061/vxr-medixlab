@@ -169,6 +169,30 @@
     "selector": ".vxr-obj-heparinseal-dripbag"
   },
   {
+    "template": "vxr-obj-template-Aposito_BabyPatient3-emisive",
+    "selector": ".vxr-obj-heparinseal-Aposito_BabyPatient3-emisive"
+  }, 
+  {
+    "template": "vxr-obj-template-syringePackage1",
+    "selector": ".vxr-obj-heparinseal-syringePackage1"
+  },
+  {
+    "template": "vxr-obj-template-syringePackage2",
+    "selector": ".vxr-obj-heparinseal-syringePackage2"
+  },
+  {
+    "template": "vxr-obj-template-aux-table",
+    "selector": ".vxr-obj-heparinseal-aux-table"
+  },
+  {
+    "template": "vxr-obj-template-Medixlab_Pen",
+    "selector": ".vxr-obj-heparinseal-Medixlab_Pen"
+  },
+  {
+    "template": "vxr-obj-template-Medixlab_Clipboard",
+    "selector": ".vxr-obj-heparinseal-Medixlab_Clipboard"
+  },
+  {
     "template": "vxr-obj-template-heparinseal-box",
     "selector": ".vxr-obj-heparinseal-box"
   }
