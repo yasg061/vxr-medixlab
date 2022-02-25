@@ -750,7 +750,7 @@
                           colliderEndEvent: collisions;
                           colliderEndEventProperty: clearedEls;">
       </a-mixin>
-      <a-mixin id="point" raycaster="showLine: true; objects: .answers" collision-filter="collisionForces: false"
+      <a-mixin id="point" raycaster="showLine: true; objects: .objectsScene" collision-filter="collisionForces: false"
         static-body="shape: sphere; sphereRadius: 0.001" super-hands="colliderEvent: raycaster-intersection;
                     colliderEventProperty: els;
                     colliderEndEvent:raycaster-intersection-cleared;
@@ -1630,11 +1630,11 @@
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand:left" 
+      <a-entity id="lhand" mixin="point" hand-attach input-controls="hand:left" 
       vive-controls="hand: left;model:false"
         networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand"  mixin="touch" hand-attach input-controls="hand:right"
+      <a-entity id="rhand"  mixin="point" hand-attach input-controls="hand:right"
       vive-controls="hand: right;model:false"
         networked="template:#right-hand-template">
       </a-entity>
@@ -1731,8 +1731,8 @@
 
   </a-scene>
   <!-- <script src="../../js/description.js"></script> -->
-  <!-- <script src="../../js/buttonsScene.js"></script>
-  <script src="../../js/panelQuestions.js"></script> -->
+  <script src="../../js/buttonsScene.js"></script>
+  <script src="../../js/panelQuestions.js"></script> 
 
   <script>
     // Define custom schema for syncing avatar color, set by random-color

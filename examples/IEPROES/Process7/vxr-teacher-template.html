@@ -786,7 +786,7 @@ function takeOffGloves(e) {
                         colliderEndEvent: collisions;
                         colliderEndEventProperty: clearedEls;">
       </a-mixin>
-      <a-mixin id="point" raycaster="showLine: true; objects: .answers" collision-filter="collisionForces: false"
+      <a-mixin id="point" raycaster="showLine: true; objects: .objectsScene" collision-filter="collisionForces: false"
         static-body="shape: sphere; sphereRadius: 0.001" super-hands="colliderEvent: raycaster-intersection;
                     colliderEventProperty: els;
                     colliderEndEvent:raycaster-intersection-cleared;
@@ -1686,10 +1686,10 @@ function takeOffGloves(e) {
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" hand-attach vive-controls="hand: left;model:false" input-controls="hand: left"
+      <a-entity id="lhand" mixin="point" hand-attach vive-controls="hand: left;model:false" input-controls="hand: left"
         networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand"  mixin="touch" hand-attach vive-controls="hand: right;model:false" input-controls="hand: right"
+      <a-entity id="rhand" mixin="point" hand-attach vive-controls="hand: right;model:false" input-controls="hand: right"
         networked="template:#right-hand-template">
 
         <a-entity id="e-Syringe_Guyon_static" scale="1 1 1" position="-0.05 0.007 0.008" rotation="31.259 45.403 7.742"
@@ -1844,8 +1844,8 @@ function takeOffGloves(e) {
 
   </a-scene>
   <!-- <script src="../../js/description.js"></script> -->
-  <!-- <script src="../../js/panelQuestions.js"></script> -->
-  <!-- <script src="../../js/buttonsScene.js"></script> -->
+  <script src="../../js/panelQuestions.js"></script>
+  <script src="../../js/buttonsScene.js"></script>
 
   <script>
     // Define custom schema for syncing avatar color, set by random-color
