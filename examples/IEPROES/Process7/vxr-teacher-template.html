@@ -51,6 +51,8 @@
   <script src="../../js/Feature-Bones.component.js"></script>
   <script src="../../js/Feature-BonesPosition.component.js"></script>
   <script src="../../js/Feature-EmisiveObject.js"></script>
+  <script src="../../js/libs.js"></script>
+
 
   <!-- <script src="../../js/hand-attach.js"></script> -->
   <script src="../../js/attach-intracath.js"></script>
@@ -91,6 +93,10 @@
               var jumpTrans = function () {
                 scene.removeEventListener('animation-loop', jumpTrans);
                 document.getElementById("animationbedpatient01").setAttribute("animation-mixer","clip:Patient_Swallow")
+                setTimeout(function() {
+                document.getElementById("sphere-nasogastrictube_tapon").setAttribute("visible","true")
+                document.getElementById("e-nasogastrictube_tapon").setAttribute("visible","true")
+              }, 4000);
                 console.log("start")
               };
           
@@ -106,6 +112,7 @@
             emisive.setAttribute("visible", "false")
             e.detail.body.el.setAttribute('visible', 'false');
             obj.setAttribute("visible", "true")
+            
             emisive.remove()
           }
 
@@ -490,16 +497,30 @@
       self.remove()
     }
     
-    function blanketOut(element) {
-      console.log("fire")
-      let obj = document.getElementById("e-blanket_animation")
-      obj.setAttribute("animation-mixer", "clip:OpenBlanket;loop:once;repetitions:once;clampWhenFinished:true")
+    function openPackage1(element) {
+      let self = document.getElementById(element.id)
+      document.getElementById("e-Syringe_GuyonPackage-1").setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+      
+      self.remove()
     }
     
-    function blanketUp(element) {
-      let obj = document.getElementById("e-blanket_animation")
-      obj.setAttribute("animation-mixer", "clip:ClosedBlanket;loop:once;repetitions:once;clampWhenFinished:true")
+    function openPackage2(element) {
+      let self = document.getElementById(element.id)
+      document.getElementById("e-Syringe_GuyonPackage-2").setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
+      
+      self.remove()
     }
+    
+    // function blanketOut(element) {
+    //   console.log("fire")
+    //   let obj = document.getElementById("e-blanket_animation")
+    //   obj.setAttribute("animation-mixer", "clip:ClosedBlanket;loop:once;repetitions:once;clampWhenFinished:true")
+    // }
+    
+    // function blanketUp(element) {
+    //   let obj = document.getElementById("e-blanket_animation")
+    //   obj.setAttribute("animation-mixer", "clip:OpenBlanket;loop:once;repetitions:once;clampWhenFinished:true")
+    // }
 
   </script>
 
@@ -551,6 +572,22 @@ function takeOffGloves(e) {
       document.getElementById("e-umbilicalCordon_static").setAttribute("visible", "false")
       document.getElementById("e-RubberCloth_static").setAttribute("visible", "false")
       document.getElementById("e-UrinaryCatheter_static").setAttribute("visible", "false")
+      document.getElementById("sphere-nasogastrictube_tapon").setAttribute("visible", "false")
+      document.getElementById("e-nasogastrictube_tapon").setAttribute("visible", "false")
+      document.getElementById("sphere20").setAttribute("visible", "false")
+      document.getElementById("sphere21").setAttribute("visible", "false")
+      document.getElementById("sphere22").setAttribute("visible", "false")
+      document.getElementById("sphere23").setAttribute("visible", "false")
+      document.getElementById("sphere-open-mouth").setAttribute("visible", "false")
+      document.getElementById("sphere7").setAttribute("visible", "false")
+      document.getElementById("bracelet2").setAttribute("visible", "false")
+      document.getElementById("sphere_UmbilicalCordon").setAttribute("visible", "false")
+
+
+      
+      
+      
+      
 
       document.getElementById("animationbed01").setAttribute("visible", "false")
       let player = document.getElementById("animationbed02")
@@ -733,7 +770,8 @@ function takeOffGloves(e) {
       <!-- <a-asset-item id="UrinaryCatheter" src="UrinalCatheter_Foley.gltf"></a-asset-item> -->
       <a-asset-item id="UrinaryCatheter" src="UrinalCatheter_Foley_Static2.gltf"></a-asset-item>
       <a-asset-item id="NasogastricTubeStatic" src="Assets/NasogastricTube_Static.gltf"></a-asset-item>
-      <a-asset-item id="NasogastricTubeAnim" src="Assets/NasogastricTube_Animation2.gltf"></a-asset-item>
+      <!-- <a-asset-item id="NasogastricTubeAnim" src="Assets/NasogastricTube_Animation2.gltf"></a-asset-item> -->
+      <a-asset-item id="NasogastricTubeAnim" src="Assets/NasogastricTube_Animation3.gltf"></a-asset-item>
       <a-asset-item id="NasogastricTubeEmisive" src="NasogastricTube_Emisive.gltf"></a-asset-item>
       <a-asset-item id="Adhesive_Catheter" src="Assets/CordonUmbilical_Adhesive_Static.gltf"></a-asset-item>
       <a-asset-item id="Adhesive_Catheter_emisive" position="0 2.20708 -0.2" src="Assets/CordonUmbilical_Adhesive_Emissive.gltf"></a-asset-item>
@@ -770,6 +808,9 @@ function takeOffGloves(e) {
       <a-asset-item id="syringePackage" src="Assets/Syringe_Guyon_Package_Animation.gltf"></a-asset-item>
       <a-asset-item id="NasogastricPackage_Animation" src="Assets/NasogastricPackage_Animation.gltf"></a-asset-item>
       <a-asset-item id="PatientDown_Angle90_Animation" src="Assets/PatientDown_Angle90_Animation.gltf"></a-asset-item>
+      <a-asset-item id="Medixlab_Pen" src="/assets/utils/Medixlab_Pen.gltf"></a-asset-item>
+      <a-asset-item id="Medixlab_Clipboard" src="/assets/utils/Medixlab_Clipboard.gltf"></a-asset-item>
+      <a-asset-item id="nasogastrictube_tapon" src="Assets/nasogastrictube_tapon.gltf"></a-asset-item>
 
 
 
@@ -1591,6 +1632,43 @@ function takeOffGloves(e) {
           </a-entity>
         </a-entity>
       </template>
+      
+      <template id="vxr-obj-template-aux-table">
+        <a-entity>
+          <a-entity id="e-aux-table" grabbable="maxGrabbers: NaN" visible="true" rotation="0 -90 0" grabbable
+            class="vxr-obj-aux-table vxr-interact" gltf-model="#Table_004" draggable grabbable
+            position="0.189 -0.59388 -1.904" scale="1 1.120 1">
+          </a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-Medixlab_Pen">
+        <a-entity>
+          <a-entity id="e-Medixlab_Pen" grabbable="maxGrabbers: NaN" visible="true" rotation="0 0 0" grabbable
+            class="vxr-obj-Medixlab_Pen vxr-interact" gltf-model="#Medixlab_Pen" draggable grabbable
+            dynamic-body position="0.271 0.201 -1.904" scale="1 1 1">
+          </a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-Medixlab_Clipboard">
+        <a-entity>
+          <a-entity id="e-Medixlab_Clipboard" grabbable="maxGrabbers: NaN" visible="true" rotation="0 0 0" grabbable
+            class="vxr-obj-Medixlab_Clipboard vxr-interact" gltf-model="#Medixlab_Clipboard" draggable grabbable
+            static-body position="0.124 0.188 -1.904" scale="1 1 1">
+          </a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-nasogastrictube_tapon">
+        <a-entity>
+          <a-entity id="e-nasogastrictube_tapon" grabbable="maxGrabbers: NaN"  rotation="0 52.473 62.679" grabbable
+            class="vxr-obj-nasogastrictube_tapon vxr-interact" gltf-model="#nasogastrictube_tapon" draggable grabbable
+            position="1.062 0.643 -1.290" visible="false" scale="1 1 1">
+          </a-entity>
+        </a-entity>
+      </template>
+
 
 
 
@@ -1617,7 +1695,6 @@ function takeOffGloves(e) {
     <a-entity light="color: #FFFFFF; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-
     <!-- Static Objects -->
 
     <!-- <a-entity id="tstTable" class="gltf" gltf-model="#table" position="-1.5 0.99273 -0.363" rotation="0 180 0">
@@ -1626,9 +1703,9 @@ function takeOffGloves(e) {
       rotation="0 -90 0">
     </a-entity>
 
-    <a-entity id="NasogastricTube_M01" gltf-model="#NasogastricTube_M" scale="" position="1.24533 0.866 -0.97171"
+    <!-- <a-entity id="NasogastricTube_M01" gltf-model="#NasogastricTube_M" scale="" position="1.24533 0.866 -0.97171"
       rotation="0 -90 0">
-    </a-entity>
+    </a-entity> -->
 
     <a-entity id="armario" gltf-model="#Armario" scale="" position="-0.12389 0.915 3" rotation="0 -90 0"
       ao-map="src: ../HospitalRoomAssets/AOMap_armario.png">
@@ -1659,14 +1736,10 @@ function takeOffGloves(e) {
     <a-entity class="gltf" gltf-model="#table" position="-0.13 0.89 -0.363" rotation="0 -90 0"></a-entity>
     <a-box id="boxTable1" scale="1.2 1 1.2" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="-0.119 1.7375 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
-
-    <a-box id="boxTable2" visible="true" scale="0.55283 0.8 0.88813" static-body="sphereRadius: NaN" opacity="0"
-      static-body rotation="" position="0.31781 1.69239 -1.8278" color="red" depth="0.6" height="0.1" width="1.1">
-    </a-box>
-
-    <a-box id="boxTable3" scale="0.55283 0.8 0.88813" static-body="sphereRadius: NaN" opacity="0" static-body
-      rotation="" position="0.31781 1.324 -1.8278" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
-
+      
+    <a-box id="boxTable2" scale="0.5 0.5 1" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
+    position="0.192 1.667 -2.169" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
+    
     <a-box id="boxFloor" scale="4.14767 1 7.15846" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
       position="0.36093 0.85321 -0.37707" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
@@ -1679,7 +1752,7 @@ function takeOffGloves(e) {
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" 
+    <a-entity id="player" movement-controls networked="template:#player-template;attachTemplateToLocal:false;" 
     position="-0.796 1 -1.897"
       rotation="0 180 0" >
       <a-entity id="camera" camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
@@ -1752,7 +1825,7 @@ function takeOffGloves(e) {
       trigger-animation="entity_id:e-UrinaryCatheter;obj_entity:1" opacity="1" position="1.24766 2.31869 -1.60341"
       attach-point-v2 geometry="radius: 0.02"> </a-sphere>
       
-      <a-sphere id="sphere-open-mouth" static-body="sphereRadius: NaN" scale="0.3 0.3 0.3" static-body
+      <a-sphere id="sphere-open-mouth" static-body="sphereRadius: NaN" scale="0.3 0.3 0.3" dynamic-body="mass:0.0"
       trigger-animation="entity_id:e-HandLamp;obj_entity:9" opacity="1" position="1.24766 2.31869 -1.60341"
       attach-point-v2 geometry="radius: 0.02"> </a-sphere>
 
@@ -1769,6 +1842,9 @@ function takeOffGloves(e) {
 
     <a-sphere id="sphere23" scale="0.3 0.3 0.3" trigger-animation="entity_id:e-Syringe_Guyon;obj_entity:3" static-body
       opacity="1" position="1.056 2.154 -1.486" attach-point-v2 geometry="radius: 0.02"> </a-sphere>
+      
+      <a-sphere id="sphere-nasogastrictube_tapon"  color="red" scale="0.3 0.3 0.3" static-body visible="false"
+      opacity="1" position="1.056 2.182 -1.486" attach-point-v2 geometry="radius: 0.05" ondragend="closePlug(this)"> </a-sphere>
 
     <a-sphere id="sphere_UmbilicalCordon" scale="0.3 0.3 0.3" static-body
       trigger-animation="entity_id:e-umbilicalCordon;obj_entity:2" opacity="1" position="1.24766 2.35246 -1.63299"
