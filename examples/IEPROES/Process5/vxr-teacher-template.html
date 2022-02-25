@@ -635,6 +635,9 @@
       <a-asset-item id="Sillon" src="../HospitalRoomAssets/sillon.gltf"></a-asset-item>
       <a-asset-item id="Sofa" src="../HospitalRoomAssets/sofa.gltf"></a-asset-item>
       <a-asset-item id="Table_004" src="../HospitalRoomAssets/Table_004.gltf"></a-asset-item>
+      <a-asset-item id="Table_005" src="/assets/utils/Table_005.gltf"></a-asset-item>
+      <a-asset-item id="Medixlab_Pen" src="/assets/utils/Medixlab_Pen.gltf"></a-asset-item>
+      <a-asset-item id="Medixlab_Clipboard" src="/assets/utils/Medixlab_Clipboard.gltf"></a-asset-item>
 
 
 
@@ -1525,13 +1528,41 @@
         </a-entity>
       </a-entity>
     </template>
+    
+    <template id="vxr-obj-template-aux-table">
+      <a-entity>
+        <a-entity id="e-aux-table" grabbable="maxGrabbers: NaN" visible="true"  grabbable
+          class="vxr-obj-aux-table vxr-interact" gltf-model="#Table_004" draggable grabbable
+          position="-0.464 -0.59388 -1.904" scale="1 1.120 1" rotation="0 -90 0">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+    <template id="vxr-obj-template-Medixlab_Pen">
+      <a-entity>
+        <a-entity id="e-Medixlab_Pen" grabbable="maxGrabbers: NaN" visible="true" rotation="0 0 0" grabbable
+          class="vxr-obj-Medixlab_Pen vxr-interact" gltf-model="#Medixlab_Pen" draggable grabbable
+          dynamic-body position="-0.371 0.201 -1.904" scale="1 1 1">
+        </a-entity>
+      </a-entity>
+    </template>
+    
+    <template id="vxr-obj-template-Medixlab_Clipboard">
+      <a-entity>
+        <a-entity id="e-Medixlab_Clipboard" grabbable="maxGrabbers: NaN" visible="true" rotation="0 0 0" grabbable
+          class="vxr-obj-Medixlab_Clipboard vxr-interact" gltf-model="#Medixlab_Clipboard" draggable grabbable
+          static-body position="-0.464 0.188 -1.904" scale="1 1 1">
+        </a-entity>
+      </a-entity>
+    </template>
 
 
 
     </a-assets>
 
 
-
+    <a-box id="boxTable2" scale="0.5 0.5 1" static-body="sphereRadius: NaN" opacity="0" static-body rotation=""
+    position="-0.456 1.667 -2.169" color="red" depth="0.6" height="0.1" width="1.1"></a-box>
 
 
     <!-- Hidden Static Meshes  -->

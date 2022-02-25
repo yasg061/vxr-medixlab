@@ -192,6 +192,26 @@
       "selector": ".vxr-obj-umbilicalCordon_static"
     },
     {
+      "template": "vxr-obj-template-aux-table",
+      "selector": ".vxr-obj-aux-table"
+    },
+    {
+      "template": "vxr-obj-template-Medixlab_Pen",
+      "selector": ".vxr-obj-Medixlab_Pen"
+    },
+    {
+      "template": "vxr-obj-template-Medixlab_Clipboard",
+      "selector": ".vxr-obj-Medixlab_Clipboard"
+    },
+    {
+      "template": "vxr-obj-template-Medixlab_Clipboard",
+      "selector": ".vxr-obj-Medixlab_Clipboard"
+    },
+    {
+      "template": "vxr-obj-template-nasogastrictube_tapon",
+      "selector": ".vxr-obj-nasogastrictube_tapon"
+    },
+    {
       "template": "vxr-obj-template-blanket_animation",
       "selector": ".vxr-obj-blanket_animation"
     }

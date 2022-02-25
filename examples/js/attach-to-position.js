@@ -26,20 +26,25 @@ AFRAME.registerComponent('attach-point-v2', {
     this.el.addEventListener('collide', function (e) {
       let classes = e.detail.body.el.className.split(' ')
       if (classes.includes("vxr-obj-heparinseal")) {
+      
+        document.getElementById("Static-vxr-obj-rubberr").setAttribute("dynamic-body","mass:0.0")
+        document.getElementById("StaticMedicalClothe").setAttribute("dynamic-body","mass:0.0")
         let x = document.getElementById("static-heparinseal")
         x.setAttribute("visible", "true")
-        e.detail.body.el.remove();
+        e.detail.body.el.setAttribute("visible","false");
+        // e.detail.body.el.setattribute("visible","false");
       }
       if (classes.includes("vxr-obj-MedicalClothe")) {
         let medicalClothe = document.getElementById("StaticMedicalClothe")
         medicalClothe.setAttribute("visible", "true")
-        e.detail.body.el.remove();
-
+        document.getElementById("e-MedicalClothe").setAttribute("visible","false")
+        e.detail.body.el.setattribute("visible","false");
       }
 
       if (classes.includes("vxr-obj-Tape-Bow")) {
         let medicalClothe = document.getElementById("Static-Tape-Bow")
         medicalClothe.setAttribute("visible", "true")
+ 
         e.detail.body.el.remove();
       }
 
@@ -53,18 +58,16 @@ AFRAME.registerComponent('attach-point-v2', {
         medicalClothe.setAttribute("visible", "true")
         e.detail.body.el.remove();
       } 
-
       if ( classes.includes("vxr-obj-Tape-Normal1")) {
         let medicalClothe = document.getElementById("Static-Tape-Normal")
         medicalClothe.setAttribute("visible", "true")
         e.detail.body.el.remove();
       } 
-       if ( classes.includes("vxr-obj-Tape-Normal3")) {
+      if ( classes.includes("vxr-obj-Tape-Normal3")) {
         let medicalClothe = document.getElementById("Static-Tape-Normal")
         medicalClothe.setAttribute("visible", "true")
         e.detail.body.el.remove();
       } 
-
       if (classes.includes("vxr-obj-Tape-Normal2")) {
         let medicalClothe = document.getElementById("Static-Tape-Normal")
         medicalClothe.setAttribute("visible", "true")
@@ -72,25 +75,25 @@ AFRAME.registerComponent('attach-point-v2', {
       } 
 
       if (classes.includes("vxr-obj-rubber")) {
-        let medicalClothe = document.getElementById("Static-vxr-obj-rubber")
+        let medicalClothe = document.getElementById("Static-vxr-obj-rubberr")
         medicalClothe.setAttribute("visible", "true")
         // setMassRubber() 
+        // e.detail.body.el.setattribute("visible","false");
         e.detail.body.el.remove();
       }
 
       if (classes.includes("vxr-obj-Clamp")) {
         let medicalClothe = document.getElementById("e-ClampClosed")
         medicalClothe.setAttribute("visible", "true")
-        e.detail.body.el.remove();
+        e.detail.body.el.setattribute("visible","false");
       }
 
       if (classes.includes("vxr-obj-allistweezers")) {
         let medicalClothe = document.getElementById("e-Cordon_Tijera")
         medicalClothe.setAttribute("dynamic-body", "")
-        // e.detail.body.el.remove();
+        // e.detail.body.el.setattribute("visible","false");
       }
-       
-  
+      
 
 
       //ending the first  part
@@ -104,7 +107,7 @@ AFRAME.registerComponent('attach-point-v2', {
         let baby = document.getElementById("baby")
 
         baby.setAttribute("dynamic-body","mass:0")
-        e.detail.body.el.remove();
+        e.detail.body.el.setattribute("visible","false");
       
       }
 
@@ -149,7 +152,7 @@ AFRAME.registerComponent('attach-point-v2', {
         let Baby_Burrito = document.getElementById("e-Baby_Burrito")
         let Manta_Abierta = document.getElementById("e-Manta_Abierta")
         Pañal_Cerrado.setAttribute("visible","true")
-        e.detail.body.el.remove();
+        e.detail.body.el.setattribute("visible","false");
 
 
         setTimeout(function() {
@@ -170,7 +173,7 @@ AFRAME.registerComponent('attach-point-v2', {
         medicalClothe.setAttribute("animation-mixer", "loop:once;repetitions:once;clampWhenFinished:true")
         medicalClothe.setAttribute("visible","true");
         e.detail.body.el.setAttribute("visible","false");
-        e.detail.body.el.remove();
+        e.detail.body.el.setattribute("visible","false");
       }
 
 

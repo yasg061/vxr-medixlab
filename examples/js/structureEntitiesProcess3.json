@@ -196,6 +196,30 @@
     "selector": ".e-Aposito"
   },
   {
+    "template": "vxr-obj-template-aux-table",
+    "selector": ".vxr-obj-aux-table"
+  },
+  {
+    "template": "vxr-obj-template-Medixlab_Pen",
+    "selector": ".vxr-obj-Medixlab_Pen"
+  },
+  {
+    "template": "vxr-obj-template-Medixlab_Clipboard",
+    "selector": ".vxr-obj-Medixlab_Clipboard"
+  },
+  {
+    "template": "vxr-obj-template-tapeaposito",
+    "selector": ".vxr-obj-Medixlab_Clipboard"
+  },
+  {
+    "template": "vxr-obj-template-tapeaposito_emisive",
+    "selector": ".vxr-obj-tapeaposito_emisive"
+  },
+  {
+    "template": "vxr-obj-template-tapeaposito_static",
+    "selector": ".vxr-obj-tapeaposito_static"
+  },
+  {
     "template": "vxr-obj-template-blanket_animation",
     "selector": ".vxr-obj-blanket_animation"
   }

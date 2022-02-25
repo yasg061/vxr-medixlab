@@ -47,6 +47,7 @@
   <script src="../../js/set-name.component.js"></script>
   <script src="../../js/randomize-spec-color.component.js"></script>
   <script src="../../js/Animation-Trigger.js"></script>
+  <script src="../../js/libs.js"></script>
 
 
   <script>
@@ -309,12 +310,12 @@
     function blanketOut(element) {
       console.log("fire")
       let obj = document.getElementById("e-blanket_animation")
-      obj.setAttribute("animation-mixer", "clip:OpenBlanket;loop:once;repetitions:once;clampWhenFinished:true")
+      obj.setAttribute("animation-mixer", "clip:ClosedBlanlet;loop:once;repetitions:once;clampWhenFinished:true")
     }
     
     function blanketUp(element) {
       let obj = document.getElementById("e-blanket_animation")
-      obj.setAttribute("animation-mixer", "clip:ClosedBlanket;loop:once;repetitions:once;clampWhenFinished:true")
+      obj.setAttribute("animation-mixer", "clip:OpenBlanket;loop:once;repetitions:once;clampWhenFinished:true")
     }
 
   </script>
@@ -463,7 +464,7 @@ if (window.event.relatedTarget.id == "lhand") {
 </head>
 
 <body>
-  <a-scene physics="debug: true; gravity: -4; iterations: 75" networked-scene="
+  <a-scene physics="debug: false; gravity: -4; iterations: 75" networked-scene="
       room: process2;
       adapter: easyrtc;
       audio: true;
@@ -509,6 +510,7 @@ if (window.event.relatedTarget.id == "lhand") {
       <a-asset-item id="Sillon" src="../HospitalRoomAssets/sillon.gltf"></a-asset-item>
       <a-asset-item id="Sofa" src="../HospitalRoomAssets/sofa.gltf"></a-asset-item>
       <a-asset-item id="Table_004" src="../HospitalRoomAssets/Table_004.gltf"></a-asset-item>
+      <a-asset-item id="micropore" src="assets/micropore.gltf"></a-asset-item>
 
       <!-- Avatars -->
       <a-asset-item id="StudentAvatarHead" src="assets/avatars/StudentAvatarHead.gltf"></a-asset-item>
@@ -871,7 +873,7 @@ if (window.event.relatedTarget.id == "lhand") {
         <a-entity>
           <a-entity id="e-tape01" grabbable="maxGrabbers: NaN" class="vxr-obj-tape01" gltf-model="#tapestatic001"
           ondragstart="emissiveObjectOn(this)" ondragend="emissiveObjectOff(this)"
-            position="0.54179 0.30751 -0.347" rotation="0 0 0" scale="1 1 1" visible="true"
+            position="0.54179 0.30751 -0.311" rotation="0 0 0" scale="1 1 1" visible="true"
             dynamic-body="" draggable grabbable ondragstart="mass(event)"></a-entity>
         </a-entity>
       </template>
@@ -1134,7 +1136,7 @@ if (window.event.relatedTarget.id == "lhand") {
       <template id="vxr-obj-template-glovesbox">
         <a-entity>
           <a-entity id="e-glovesbox" grabbable="maxGrabbers: NaN" class="vxr-obj-glovesbox vxr-interact"
-            gltf-model="#GlovesBox" draggable grabbable position="-0.129 0.305 -0.196" rotation="0 180.000 0" scale="0.6 0.6 0.6">
+            gltf-model="#GlovesBox" draggable grabbable position="-0.129 0.306 -0.196" rotation="0 180.000 0" scale="0.6 0.6 0.6">
           </a-entity>
         </a-entity>
       </template>
@@ -1148,21 +1150,62 @@ if (window.event.relatedTarget.id == "lhand") {
         </a-entity>
       </template>
       
+      <template id="vxr-obj-template-micropore-base">
+        <a-entity>
+          <a-entity id="e-micropore-base" scale="1.15773 1 1" rotation="0 90 0"
+            class="vxr-obj-micropore-base vxr-interact" gltf-model="#micropore"
+            position="0.306 0.306 -0.293" visible="true">
+          </a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-micropore">
+        <a-entity>
+          <a-entity id="e-micropore" scale="0.3 0.3 0.3" rotation="0 0 0"
+            class="vxr-obj-micropore vxr-interact" gltf-model="#gauze" 
+            position="0.306 0.31883 -0.293" visible="true"
+            dynamic-body="" draggable grabbable
+            ondragstart="emissiveObjectOn(this)"
+          ondragend="emissiveObjectOff(this)">
+          </a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-micropore-emisive">
+        <a-entity>
+          <a-entity id="e-micropore_emisive" scale="0.3 0.3 0.3" rotation="0 0 0"
+            class="vxr-obj-micropore vxr-interact" gltf-model="#gauze" 
+            position="0.990 0.238 -1.075" visible="false"
+          >
+          </a-entity>
+        </a-entity>
+      </template>
+      
+      <template id="vxr-obj-template-micropore-static">
+        <a-entity>
+          <a-entity id="e-micropore_static" scale="0.3 0.3 0.3" rotation="0 0 0"
+            class="vxr-obj-micropore vxr-interact" gltf-model="#gauze" 
+            position="0.990 0.238 -1.075" visible="false"
+          >
+          </a-entity>
+        </a-entity>
+      </template>
+      
       <template id="vxr-obj-template-blanket_animation">
         <a-entity>
           <a-entity id="e-blanket_animation" scale="1 1 1" rotation="0 0 0"
             class="vxr-obj-blanket_animation vxr-interact" gltf-model="#blanket_animation"
-            animation-mixer="clip:ClosedBlanket;loop:once;clampWhenFinished:true;"
+            
             position="1.279 0.233 -1.111" visible="true">
           </a-entity>
         </a-entity>
       </template>
       
        
-    <template id="vxr-obj-template-Table_005">
+    <template id="vxr-obj-template-aux-table">
       <a-entity>
-        <a-entity id="e-Table_005" grabbable="maxGrabbers: NaN" visible="true" rotation="0 0 0" grabbable
-          class="vxr-obj-Table_005 vxr-interact" gltf-model="#Table_005" draggable grabbable
+        <a-entity id="e-aux-table" grabbable="maxGrabbers: NaN" visible="true" rotation="0 0 0" grabbable
+          class="vxr-obj-aux-table vxr-interact" gltf-model="#Table_005" draggable grabbable
           position="-0.464 -0.59388 -1.904" scale="1 0.80 1">
         </a-entity>
       </a-entity>
@@ -1262,7 +1305,7 @@ if (window.event.relatedTarget.id == "lhand") {
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" networked="template:#player-template;attachTemplateToLocal:false;" position="-0.900 1 -2.470"
+    <a-entity id="player" movement-controls networked="template:#player-template;attachTemplateToLocal:false;" position="-0.900 1 -2.470"
       rotation="0 180 0" >
       <a-entity id="camera" camera position="0 1 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
@@ -1326,7 +1369,9 @@ if (window.event.relatedTarget.id == "lhand") {
     trigger-animation="entity_id:e-medicalclothe01;obj_entity:2" opacity="1" position="1 1.723 -1.270"
     attach-point-v2 geometry="radius: 0.02"> </a-sphere>
     
-    
+    <a-sphere id="sphere_gauze" scale="0.3 0.3 0.3" static-body
+    trigger-animation="entity_id:e-micropore;obj_entity:2" opacity="1" position="0.994 1.734 -1.270"
+    attach-point-v2 geometry="radius: 0.02"> </a-sphere>
     
     <a-sphere id="sphere_tape01" scale="0.3 0.3 0.3" static-body
     trigger-animation="entity_id:e-tape01;obj_entity:2" opacity="1" position="0.994 1.734 -1.270"
