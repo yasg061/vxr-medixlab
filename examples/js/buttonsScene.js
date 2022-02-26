@@ -5,7 +5,8 @@ backToLobby.setAttribute("position", "2.50 2.5 1");
 backToLobby.setAttribute("height", "0.2");
 backToLobby.setAttribute("width", "0.5");
 backToLobby.setAttribute("rotation", "0 180 0");
-backToLobby.setAttribute("material", "color: #B61106");
+backToLobby.setAttribute("class", "objectsScene");
+backToLobby.setAttribute("material", "color: #0c96ea");
 Scene.appendChild(backToLobby);
 
 let backToLobbyText = document.createElement("a-text");
@@ -20,8 +21,9 @@ let reloadScene = document.createElement("a-plane");
 reloadScene.setAttribute("position", "1.8 2.5 1");
 reloadScene.setAttribute("height", "0.2");
 reloadScene.setAttribute("width", "0.5");
+reloadScene.setAttribute("class", "objectsScene");
 reloadScene.setAttribute("rotation", "0 180 0");
-reloadScene.setAttribute("material", "color: #B61106");
+reloadScene.setAttribute("material", "color: #0c96ea");
 Scene.appendChild(reloadScene);
 
 let reloadSceneText = document.createElement("a-text");
@@ -32,19 +34,19 @@ reloadSceneText.setAttribute("rotation", "0 180 0");
 reloadSceneText.setAttribute("value", "Reiniciar Escena");
 Scene.appendChild(reloadSceneText);
 
-reloadScene.addEventListener("mouseenter", function () {
+reloadScene.addEventListener("raycaster-intersected", function () {
   reloadScene.setAttribute("opacity", 0.5);
 });
 
-reloadScene.addEventListener("mouseleave", function () {
+reloadScene.addEventListener("raycaster-intersected-cleared", function () {
   reloadScene.setAttribute("opacity", 1);
 });
 
-backToLobby.addEventListener("mouseenter", function () {
+backToLobby.addEventListener("raycaster-intersected", function () {
   backToLobby.setAttribute("opacity", 0.5);
 });
 
-backToLobby.addEventListener("mouseleave", function () {
+backToLobby.addEventListener("raycaster-intersected-cleared", function () {
   backToLobby.setAttribute("opacity", 1);
 });
 
