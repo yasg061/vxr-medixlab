@@ -26,3 +26,22 @@ services:
       LISTEN_URL: ${LISTEN_URL}
       DATABASE_URL: ${DATABASE_URL}
       RUST_LOG: ${RUST_LOG}
+  appsmith:
+    image: index.docker.io/appsmith/appsmith-ce
+    container_name: appsmith
+    ports:
+      - "4000:80"
+      - "4001:443"
+      - "9001:9001"
+    volumes:
+      - ./stacks:/appsmith-stacks
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
+    restart: unless-stopped
+  auto_update:
+    image: containrrr/watchtower:latest-dev
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    # Update check interval in seconds.
+    command: --schedule "0 0 * ? * *" --label-enable --cleanup
+    restart: unless-stopped
