@@ -28,10 +28,10 @@ AFRAME.registerComponent('input-controls', {
           return
         }
         position.y -= 0.1
-        document.getElementById("lhand").removeAttribute("mixin")
-        document.getElementById("rhand").removeAttribute("mixin")
-        document.getElementById("lhand").setAttribute("mixin","point")
-        document.getElementById("rhand").setAttribute("mixin","point")
+        // document.getElementById("lhand").removeAttribute("mixin")
+        // document.getElementById("rhand").removeAttribute("mixin")
+        // document.getElementById("lhand").setAttribute("mixin","point")
+        // document.getElementById("rhand").setAttribute("mixin","point")
       } else if (self.data.hand == "right" && available) {
         rightArm=true;
         if(rightArm && leftArm){
@@ -40,10 +40,10 @@ AFRAME.registerComponent('input-controls', {
           return
         }
         position.y += 0.1
-        document.getElementById("lhand").removeAttribute("mixin")
-        document.getElementById("rhand").removeAttribute("mixin")
-        document.getElementById("lhand").setAttribute("mixin","touch")
-        document.getElementById("rhand").setAttribute("mixin","touch")
+        // document.getElementById("lhand").removeAttribute("mixin")
+        // document.getElementById("rhand").removeAttribute("mixin")
+        // document.getElementById("lhand").setAttribute("mixin","touch")
+        // document.getElementById("rhand").setAttribute("mixin","touch")
       }
     };
     this.onButtonUp = function (evt) {
