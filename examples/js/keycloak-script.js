@@ -1,5 +1,14 @@
 let scene2 = document.querySelector("a-scene");
 setTimeout(function () {
+  console.log('Token: ', keycloak.token)
+  console.log('User ID is:', keycloak.tokenParsed.sub)
+
+  localStorage.setItem("token", keycloak.token);
+  localStorage.setItem("userID", keycloak.tokenParsed.sub);
+
+  console.log('The token in localStorage is:', localStorage.getItem("token"));
+  console.log('The userID in localStorage is:', localStorage.getItem("userID"));
+
   let username = document.createElement("a-text");
   username.setAttribute("position", "-1.4 2.8 -3");
   username.setAttribute("value", `Bienvenido, ${keycloak.tokenParsed.name}`);
