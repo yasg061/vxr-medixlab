@@ -1,7 +1,9 @@
 
 
 let anmBool = true
-
+let available = true
+let rightArm = false
+let leftArm = false
 
 AFRAME.registerComponent('input-controls', {
   // dependencies: ['tracked-controls'],
@@ -11,10 +13,51 @@ AFRAME.registerComponent('input-controls', {
 
   init: function () {
     var self = this;
-
+    console.log("----------------input---------------")
     this.onButtonChanged = this.onButtonChanged.bind(this);
-    this.onButtonDown = function (evt) { self.onButtonEvent(evt.detail.id, 'down'); };
-    this.onButtonUp = function (evt) { self.onButtonEvent(evt.detail.id, 'up'); };
+    this.onButtonDown = function (evt) {
+      self.onButtonEvent(evt.detail.id, 'down');
+      let position = document.getElementById("player").getAttribute("position");
+      console.log("pos: ", position)
+      // console.log("path: ", evt.buttondown)
+      if (self.data.hand == "left" && available) {
+        leftArm=true;
+        if(rightArm && leftArm){
+          console.log("----------------disable---------------")
+          available = false
+          return
+        }
+        position.y -= 0.1
+        // document.getElementById("lhand").removeAttribute("mixin")
+        // document.getElementById("rhand").removeAttribute("mixin")
+        // document.getElementById("lhand").setAttribute("mixin","point")
+        // document.getElementById("rhand").setAttribute("mixin","point")
+      } else if (self.data.hand == "right" && available) {
+        rightArm=true;
+        if(rightArm && leftArm){
+          console.log("----------------disable---------------")
+          available = false
+          return
+        }
+        position.y += 0.1
+        // document.getElementById("lhand").removeAttribute("mixin")
+        // document.getElementById("rhand").removeAttribute("mixin")
+        // document.getElementById("lhand").setAttribute("mixin","touch")
+        // document.getElementById("rhand").setAttribute("mixin","touch")
+      }
+    };
+    this.onButtonUp = function (evt) {
+      self.onButtonEvent(evt.detail.id, 'up');
+      let position = document.getElementById("player").getAttribute("position");
+      if (self.data.hand == "left" && available) {
+        position.y -= 0.1
+        leftArm=false;
+      } else if (self.data.hand == "right" && available) {
+        position.y += 0.1
+        rightArm=false;
+      }
+    };
+    
  },
 
   play: function () {

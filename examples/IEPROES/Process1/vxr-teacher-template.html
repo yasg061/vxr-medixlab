@@ -50,6 +50,7 @@
   <script src="../../js/set-name.component.js"></script>
 
   <script src="../../js/randomize-spec-color.component.js"></script>
+  <script src="../../js/set_scene_id.js"></script>
 
   <script>
 
@@ -433,13 +434,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: false ; gravity: -5; iterations: 75" networked-scene="
-      room: audio;
-      adapter: easyrtc;
-      audio: false;
-      debug: true;
-      onConnect: spawnentity;
-    ">
+  <a-scene physics="debug: false ; gravity: -5; iterations: 75" set-scene-id>
 
     <a-assets>
 
@@ -1826,10 +1821,10 @@
       </a-entity>
 
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left"
+      <a-entity id="lhand" mixin="touch" hand-attach vive-controls="hand: left;model:false"  input-controls="hand: left"
         networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right"
+      <a-entity id="rhand" mixin="touch" hand-attach vive-controls="hand: right;model:false"  input-controls="hand: right"
         networked="template:#right-hand-template">
       </a-entity>
 
