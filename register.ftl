@@ -50,6 +50,16 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <div class="${properties.kcLabelWrapperClass!}">
+                    <label for="user.attributes.estatura" class="${properties.kcLabelClass!}">Estatura (cm)</label>
+                </div>
+
+                <div class="${properties.kcInputWrapperClass!}">
+                    <input type="number" min="100" max="220" class="${properties.kcInputClass!}" id="user.attributes.estatura" name="user.attributes.estatura" value="${(register.formData['user.attributes.estatura']!'')}"/>
+                </div>
+            </div>
+
             <div class="${properties.kcFormGroupClass!}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="email" class="${properties.kcLabelClass!}">Correo insitucional (ejemplo@ieproes.edu.sv)</label>
