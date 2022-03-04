@@ -7,6 +7,10 @@ services:
     restart: unless-stopped
     command:
       - '-Dkeycloak.profile.feature.upload_scripts=enabled'
+    volumes:
+      - ./keycloak/theme/login.ftl:/opt/jboss/keycloak/themes/base/login/login.ftl
+      - ./keycloak/theme/register.ftl:/opt/jboss/keycloak/themes/base/login/register.ftl
+      - ./keycloak/theme/template.ftl:/opt/jboss/keycloak/themes/base/login/template.ftl
     environment:
       PROXY_ADDRESS_FORWARDING: ${PROXY_ADDRESS_FORWARDING}
       DB_VENDOR: ${DB_VENDOR}

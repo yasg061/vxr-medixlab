@@ -2,7 +2,7 @@ version: '3.6'
 services:
   postgres:
     image: postgres:13
-    restart: always
+    restart: unless-stopped
     environment: 
       DATABASE_HOST: ${DATABASE_HOST}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -11,15 +11,15 @@ services:
     ports: 
         - "5432:5432"
     volumes: 
-        - postgres_data:/var/lib/postgresql/data 
-        - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+      - postgres_data:/var/lib/postgresql/data 
+      - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
   keycloak:
     image: quay.io/keycloak/keycloak:15.0.2
     ports:
       - 8081:8080
     depends_on:
       - postgres
-    restart: always
+    restart: unless-stopped
     command:
       - '-Dkeycloak.profile.feature.upload_scripts=enabled'
       - '-Dkeycloak.migration.action=import'
@@ -27,9 +27,10 @@ services:
       - '-Dkeycloak.migration.file=/tmp/master-realm.json'
       - '-Dkeycloak.migration.strategy=OVERWRITE_EXISTING'
     volumes:
-      - type: bind
-        source: './keycloak/master-realm.json'
-        target: '/tmp/master-realm.json'
+      - ./keycloak/master-realm.json:/tmp/master-realm.json
+      - ./keycloak/theme/login.ftl:/opt/jboss/keycloak/themes/base/login/login.ftl
+      - ./keycloak/theme/register.ftl:/opt/jboss/keycloak/themes/base/login/register.ftl
+      - ./keycloak/theme/template.ftl:/opt/jboss/keycloak/themes/base/login/template.ftl
     environment:
       DB_VENDOR: ${DB_VENDOR}
       DB_ADDR: ${DB_ADDR}
@@ -44,10 +45,29 @@ services:
       - '8000:8000'
     depends_on:
       - postgres
-    restart: always
+    restart: unless-stopped
     environment:
       LISTEN_URL: ${LISTEN_URL}
       DATABASE_URL: ${DATABASE_URL}
       RUST_LOG: ${RUST_LOG}
+  appsmith:
+    image: index.docker.io/appsmith/appsmith-ce
+    container_name: appsmith
+    ports:
+      - "4000:80"
+      - "4001:443"
+      - "9001:9001"
+    volumes:
+      - ./stacks:/appsmith-stacks
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
+    restart: unless-stopped
+  auto_update:
+    image: containrrr/watchtower:latest-dev
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    # Update check interval in seconds.
+    command: --schedule "0 0 * ? * *" --label-enable --cleanup
+    restart: unless-stopped
 volumes:
   postgres_data:
