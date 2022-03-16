@@ -86,23 +86,48 @@
 
       init: function () {
         let mySelf = this.el;
-        this.el.addEventListener('collide', function (e) {
+        
         console.log({mySelf})
-        console.log("e.detail: ",e.detail.body.el.id)
-          if (e.detail.body.el.id=="e-Medixlab_Pen") {
+        
+        var initSession = new Date()
+        let endSession  = new Date()
+        let initSessionDate = initSession.toISOString().replace('Z', '')
+        let endSessionDate = initSession.toISOString().replace('Z', '')
+        
+        let sessionDurationMin = Math.abs((new Date().getTime() - initSession.getTime()) / 1000);
+
+        console.log({initSession})
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "http://localhost:8000/session", true);
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.send(JSON.stringify({
               "id": "885aa17d-64c1-4509-899a-9a8bfe632a7c",
               "user_id": "keycloak_token",
-              "duration": 10.50,
-              "init_session": "2022-10-11T11:00:00",
-              "finish_session": "2022-10-11T12:00:00"
+              "duration": sessionDurationMin,
+              "init_session": initSessionDate,
+              "finish_session": endSessionDate
             }));
-          }
+          
           console.log("status: ",xhr.status)
-      })
+          
+          
+      //   this.el.addEventListener('collide', function (e) {
+      //   console.log({mySelf})
+      //   console.log("e.detail: ",e.detail.body.el.id)
+      //     if (e.detail.body.el.id=="e-Medixlab_Pen") {
+      //       var xhr = new XMLHttpRequest();
+      //       xhr.open("POST", "http://localhost:8000/session", true);
+      //       xhr.setRequestHeader('Content-Type', 'application/json');
+      //       xhr.send(JSON.stringify({
+      //         "id": "885aa17d-64c1-4509-899a-9a8bfe632a7c",
+      //         "user_id": "keycloak_token",
+      //         "duration": 10.50,
+      //         "init_session": "2022-10-11T11:00:00",
+      //         "finish_session": "2022-10-11T12:00:00"
+      //       }));
+      //     }
+      //     console.log("status: ",xhr.status)
+      // })
       
     }
   });
