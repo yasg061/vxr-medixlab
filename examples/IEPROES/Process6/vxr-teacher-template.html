@@ -1622,17 +1622,17 @@
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-      <a-entity id="player" 
+      <a-entity id="player"  movement-controls="speed:0.3"
       networked="template:#player-template;attachTemplateToLocal:false;" position="0 0.8 -1.3"
       rotation="0 180 0" >
       <a-entity camera position="0 1.7 0" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="point" hand-attach input-controls="hand: left;" 
+      <a-entity id="lhand" mixin="touch" hand-attach input-controls="hand: left;" 
         vive-controls="hand: left;model:false" networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand" mixin="point" hand-attach input-controls="hand: right;" 
+      <a-entity id="rhand" mixin="touch" hand-attach input-controls="hand: right;" 
         vive-controls="hand: right;model:false" networked="template:#right-hand-template">
       </a-entity>
     </a-entity>
@@ -1815,8 +1815,8 @@
   </script>
   <!-- <script src="../../js/Feature-SpawnTemplate.js"></script> -->
 
-  <script src="../../js/Feature-SpawnObjects.js"></script>
   <script src="../../js/Feature-Schemas.js"></script>
+  <script src="../../js/Feature-SpawnObjects.js"></script>
   <!-- <script src="../../js/vxr-full-house.js"></script> -->
 
 

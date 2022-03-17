@@ -86,48 +86,23 @@
 
       init: function () {
         let mySelf = this.el;
-        
+        this.el.addEventListener('collide', function (e) {
         console.log({mySelf})
-        
-        var initSession = new Date()
-        let endSession  = new Date()
-        let initSessionDate = initSession.toISOString().replace('Z', '')
-        let endSessionDate = initSession.toISOString().replace('Z', '')
-        
-        let sessionDurationMin = Math.abs((new Date().getTime() - initSession.getTime()) / 1000);
-
-        console.log({initSession})
+        console.log("e.detail: ",e.detail.body.el.id)
+          if (e.detail.body.el.id=="e-Medixlab_Pen") {
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "http://localhost:8000/session", true);
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.send(JSON.stringify({
               "id": "885aa17d-64c1-4509-899a-9a8bfe632a7c",
               "user_id": "keycloak_token",
-              "duration": sessionDurationMin,
-              "init_session": initSessionDate,
-              "finish_session": endSessionDate
+              "duration": 10.50,
+              "init_session": "2022-10-11T11:00:00",
+              "finish_session": "2022-10-11T12:00:00"
             }));
-          
+          }
           console.log("status: ",xhr.status)
-          
-          
-      //   this.el.addEventListener('collide', function (e) {
-      //   console.log({mySelf})
-      //   console.log("e.detail: ",e.detail.body.el.id)
-      //     if (e.detail.body.el.id=="e-Medixlab_Pen") {
-      //       var xhr = new XMLHttpRequest();
-      //       xhr.open("POST", "http://localhost:8000/session", true);
-      //       xhr.setRequestHeader('Content-Type', 'application/json');
-      //       xhr.send(JSON.stringify({
-      //         "id": "885aa17d-64c1-4509-899a-9a8bfe632a7c",
-      //         "user_id": "keycloak_token",
-      //         "duration": 10.50,
-      //         "init_session": "2022-10-11T11:00:00",
-      //         "finish_session": "2022-10-11T12:00:00"
-      //       }));
-      //     }
-      //     console.log("status: ",xhr.status)
-      // })
+      })
       
     }
   });
@@ -498,17 +473,17 @@
       <a-asset-item id="roofauditorium" src="/Models/gltf/Roof_Auditorium.gltf"></a-asset-item>
       <a-asset-item id="columns" src="/Models/gltf/Columns_Auditorium.gltf"></a-asset-item>
       <a-asset-item id="frontwall" src="/Models/gltf/FrontWall_Auditorium.gltf"></a-asset-item>
-      <a-asset-item id="arrow" src="Assets/arrow.gltf"></a-asset-item>
-      <a-asset-item id="tapeEmisive" src="Assets/Tape_Adult_Date_emisive.gltf"></a-asset-item>
-      <a-asset-item id="heparinsealEmsive" src="Assets/HeparinSeal_Emissive.gltf"></a-asset-item>
-      <a-asset-item id="Rubber_emisive" src="Assets/Rubber_emisive.gltf"></a-asset-item>
-      <a-asset-item id="MedicalClothe_emisive" src="Assets/MedicalClothe_emisive.gltf"></a-asset-item>
-      <a-asset-item id="Catheter02_Emissive" src="Assets/Catheter02_Emissive.gltf"></a-asset-item>
+      <a-asset-item id="arrow" src="assets/arrow.gltf"></a-asset-item>
+      <a-asset-item id="tapeEmisive" src="assets/Tape_Adult_Date_emisive.gltf"></a-asset-item>
+      <a-asset-item id="heparinsealEmsive" src="assets/HeparinSeal_Emissive.gltf"></a-asset-item>
+      <a-asset-item id="Rubber_emisive" src="assets/Rubber_emisive.gltf"></a-asset-item>
+      <a-asset-item id="MedicalClothe_emisive" src="assets/MedicalClothe_emisive.gltf"></a-asset-item>
+      <a-asset-item id="Catheter02_Emissive" src="assets/Catheter02_Emissive.gltf"></a-asset-item>
       <a-asset-item id="alcoholbottle" src="../../Models/gltf/AlcoholBottle2.gltf"></a-asset-item>
       <a-asset-item id="dripbag" src="../../Models/gltf/DripBag.gltf"></a-asset-item>
-      <a-asset-item id="Gloves_Steril" src="Assets/Gloves_Steril.gltf"></a-asset-item>
-      <a-asset-item id="Aposito_BabyPatient3_Emissive" src="Assets/Aposito_BabyPatient3_Emissive.gltf"></a-asset-item>
-      <a-asset-item id="syringePackage" src="Assets/Syringe_Guyon_Package_Animation.gltf"></a-asset-item>
+      <a-asset-item id="Gloves_Steril" src="assets/Gloves_Steril.gltf"></a-asset-item>
+      <a-asset-item id="Aposito_BabyPatient3_Emissive" src="assets/Aposito_BabyPatient3_Emissive.gltf"></a-asset-item>
+      <a-asset-item id="syringePackage" src="assets/Syringe_Guyon_Package_Animation.gltf"></a-asset-item>
       <a-asset-item id="container" src="/Models/gltf/TrashContainer.gltf"></a-asset-item>
       <a-asset-item id="containerblack" src="/Models/gltf/TrashContainerBlack.gltf"></a-asset-item>
       <a-asset-item id="Table_004" src="../HospitalRoomAssets/Table_004.gltf"></a-asset-item>
