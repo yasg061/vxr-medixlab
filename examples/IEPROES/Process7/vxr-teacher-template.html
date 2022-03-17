@@ -28,7 +28,7 @@
   <script src="/js/spawn-in-circle.component.js"></script>
   <script src="aframe-particle-system-component.min.js"></script>
 
-
+  <script src="../../js/set_scene_id.js"></script>
   <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
 
   <!-- Super hands -->
@@ -610,7 +610,7 @@ function takeOffGloves(e) {
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
+  <a-scene set-scene-id physics="debug: false; gravity: -5; iterations: 75" networked-scene="
       room: audio;
       adapter: easyrtc;
       audio: false;
@@ -1752,17 +1752,17 @@ function takeOffGloves(e) {
     <a-entity light="color: #ffffff; penumbra: 0.81; type: point; intensity: 0.2" id="light01"
       position="-1.11051 9.99225 4.03024" rotation="-90 0 0"></a-entity>
 
-    <a-entity id="player" movement-controls networked="template:#player-template;attachTemplateToLocal:false;" 
+    <a-entity id="player" movement-controls="speed:0.3" networked="template:#player-template;attachTemplateToLocal:false;" 
     position="-0.796 1 -1.897"
       rotation="0 180 0" >
       <a-entity id="camera" camera position="0 1.7 0.2" look-controls zoom="100" fov="120"
         networked="template:#constraint-teacher-avatar-template;attachTemplateToLocal:false;">
       </a-entity>
       <!-- /VIVE CONTROLLERS -->
-      <a-entity id="lhand" mixin="point" hand-attach vive-controls="hand: left;model:false" input-controls="hand: left"
+      <a-entity id="lhand" mixin="touch" hand-attach vive-controls="hand: left;model:false" input-controls="hand: left"
         networked="template:#left-hand-template">
       </a-entity>
-      <a-entity id="rhand" mixin="point" hand-attach vive-controls="hand: right;model:false" input-controls="hand: right"
+      <a-entity id="rhand" mixin="touch" hand-attach vive-controls="hand: right;model:false" input-controls="hand: right"
         networked="template:#right-hand-template">
 
         <a-entity id="e-Syringe_Guyon_static" scale="1 1 1" position="-0.05 0.007 0.008" rotation="31.259 45.403 7.742"
