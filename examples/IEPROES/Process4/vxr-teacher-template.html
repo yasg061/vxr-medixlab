@@ -18,7 +18,7 @@
   <script src="/js/spawn-in-circle.component.js"></script>
   <script src="aframe-particle-system-component.min.js"></script>
 
-
+  <script src="../../js/set_scene_id.js"></script>
 
 
   <!-- Super hands -->
@@ -382,7 +382,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
+  <a-scene set-scene-id physics="debug: false; gravity: -5; iterations: 75" networked-scene="
       room: process8;
       adapter: easyrtc;
       audio: false;

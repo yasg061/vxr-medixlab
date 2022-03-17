@@ -22,7 +22,7 @@
   <script src="/dist/networked-aframe.js"></script>
   <!-- <script    src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script> -->
   <script src="/js/spawn-in-circle.component.js"></script>
-
+  <script src="../../js/set_scene_id.js"></script>
   <script src="aframe-particle-system-component.min.js"></script>
 
 
@@ -547,13 +547,7 @@
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -5; iterations: 75" networked-scene="
-      room: audio;
-      adapter: easyrtc;
-      audio: false;
-      debug: true;
-      onConnect: spawnentity;
-    ">
+  <a-scene set-scene-id physics="debug: false; gravity: -5; iterations: 75"  >
 
     <a-assets>
       <!-- <a-asset-item id="htc" src="../../../super/process/assets/vr_controller_vive.obj"></a-asset-item> -->

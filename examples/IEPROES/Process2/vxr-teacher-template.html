@@ -27,9 +27,9 @@
   <!-- Super hands -->
   <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.js"></script>
   <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
   <script
     src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 
   <!-- ownership transfer dependencies -->
 
@@ -461,10 +461,11 @@ if (window.event.relatedTarget.id == "lhand") {
     })
 
   </script>
+  <script src="../../js/set_scene_id.js"></script>
 </head>
 
 <body>
-  <a-scene physics="debug: false; gravity: -4; iterations: 75" networked-scene="
+  <a-scene set-scene-id physics="debug: false; gravity: -4; iterations: 75" networked-scene="
       room: process2;
       adapter: easyrtc;
       audio: true;
