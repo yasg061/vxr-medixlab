@@ -56,11 +56,7 @@
   {
     "template": "vxr-obj-template-Bowl-Medic",
     "selector": ".vxr-obj-template-Bowl-Medic"
-  },
-  {
-    "template": "vxr-obj-template-Bowl-Medic2",
-    "selector": ".vxr-obj-Bowl-Medic2"
-  },
+  },  
   {
     "template": "vxr-obj-template-Bulb-Syringe",
     "selector": ".vxr-obj-Bulb-Syringe"
@@ -87,6 +83,10 @@
   },
   {
     "template": "vxr-obj-template-Clamp",
+    "selector": ".vxr-obj-Clamp"
+  },
+  {
+    "template": "vxr-obj-template-Clamp_emisive",
     "selector": ".vxr-obj-Clamp"
   },
   {
@@ -204,6 +204,10 @@
   {
     "template": "vxr-obj-template-Pañal_Cerrado",
     "selector": ".vxr-obj-Pañal_Cerrado"
+  },
+  {
+    "template": "vxr-obj-template-Gloves_Steril",
+    "selector": ".vxr-obj-Gloves_Steril"
   }
   
  ]
